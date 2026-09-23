@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>إنجليزي المبرمج</title>
+<meta name="description" content="إنجليزي تقني للمبرمجين: أسبوع مكثّف واختبارات ونصوص محلولة ومفردات بالنطق ومكتبة وخطة 12 أسبوع.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@500;700;800&family=Tajawal:wght@400;500;700&family=JetBrains+Mono:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="assets/css/site.css">
+<script src="assets/js/i18n.js"></script>
+</head>
+<body>
+<div class="wrap">
+  <header class="topbar">
+    <a class="home" href="index.html"><span class="dot"></span>رحلة المبرمج</a>
+    <nav class="links" aria-label="الصفحات">
+      <a href="index.html">الرئيسية</a>
+      <a href="n8n.html">n8n</a>
+      <a href="english.html" aria-current="page">الإنجليزي</a>
+      <button type="button" class="lang-btn" data-lang-toggle>English</button>
+    </nav>
+  </header>
+
+  <header class="top">
+    <div>
+      <span class="brand-tag mono">learn/english --tech --daily</span>
+      <h1>إنجليزي المبرمج</h1>
+      <p class="sub">ابدأ بالأسبوع المكثّف: 7 أيام، حوالي ساعتين في اليوم، تتعلم فيها تقرا رسائل الأخطاء والتوثيق، وتكتب commits وREADME وتقارير أخطاء، وتسأل وترد باحترافية، وتنطق المصطلحات صح. بعده كمّل خطة الـ 12 أسبوع (40 دقيقة في اليوم) عشان تثبّت ده وتوصل للطلاقة في الشغل.</p>
+    </div>
+    <div class="stat-cards">
+      <div class="streak-card"><div class="num" id="streakNum">0</div><div class="lbl">يوم متتالي 🔥</div></div>
+      <div class="streak-card"><div class="num alt" id="sprintPct">0%</div><div class="lbl">الأسبوع المكثّف</div></div>
+      <div class="streak-card"><div class="num" id="quizPct">0%</div><div class="lbl">إجابات صح</div></div>
+      <div class="streak-card"><div class="num" id="vocabPct">0%</div><div class="lbl">كلمات محفوظة</div></div>
+      <div class="streak-card"><div class="num alt" id="planPct">0%</div><div class="lbl">خطة 12 أسبوع</div></div>
+    </div>
+  </header>
+
+  <nav class="snav" id="snav" aria-label="أقسام الصفحة">
+    <a href="#sprint">الأسبوع المكثّف</a>
+    <a href="#quiz">اختبارات</a>
+    <a href="#reading">نصوص محلولة</a>
+    <a href="#terms">المفردات</a>
+    <a href="#phrases">جمل جاهزة</a>
+    <a href="#grammar">قواعد المبرمج</a>
+    <a href="#library">المكتبة</a>
+    <a href="#map">خطة 12 أسبوع</a>
+    <a href="#plan">الخطة اليومية</a>
+    <a href="#tracks">المهارات</a>
+    <a href="#projects">المشاريع</a>
+    <a href="#errors">رسائل الأخطاء</a>
+  </nav>
+
+  <div class="wow-card" id="wowCard" style="margin-top:18px"></div>
+
+  <section id="sprint">
+    <h2 data-t=""><span class="n">01</span> الأسبوع المكثّف: 7 أيام</h2>
+    <div class="sprint-intro">
+      <p data-t="">كل يوم على نفس الترتيب: <b>افهم</b> القاعدة بأمثلة، و<b>اتمرّن</b> بإيدك على كود أو نصوص حقيقية، و<b>انسخ</b> الجمل الجاهزة، و<b>احفظ</b> كلمات اليوم وانطقها، وبعدين <b>اقرا</b> من المكتبة، وفي الآخر <b>تحدّي</b> و<b>اختبار</b>. متنتقلش لليوم اللي بعده غير لما تجاوب 4 من 5 صح.</p>
+      <div class="rhythm" aria-label="تقسيم اليوم">
+        <span>⏱ 25 دقيقة: افهم</span><span>⏱ 35 دقيقة: اتمرّن</span><span>⏱ 20 دقيقة: كلمات بالبطاقات والنطق</span><span>⏱ 20 دقيقة: اقرا</span><span>⏱ 15 دقيقة: التحدي</span><span>⏱ 5 دقايق: الاختبار</span>
+      </div>
+      <p class="honest">بصراحة: أسبوع مش هيخليك تتكلم إنجليزي بطلاقة. لكنه هيخليك تقرا رسائل الأخطاء والتوثيق وتفهمها من غير ترجمة، وتكتب بإنجليزي تقني سليم في الشغل (commits وREADME وإيميلات وأسئلة). ده بالظبط الإنجليزي اللي المبرمج بيستخدمه كل يوم. والطلاقة بتيجي مع الخطة اليومية على مدار شهور.</p>
+    </div>
+    <div class="day-tabs" id="dayTabs"></div>
+    <div id="sprintDay"></div>
+  </section>
+
+  <section id="quiz">
+    <h2 data-t=""><span class="n">02</span> اختبارات</h2>
+    <p class="section-desc">اختار إجابة وهتعرف على طول إذا كانت صح ولا غلط، وليه. السؤال اللي تغلط فيه هتلاقيه في تبويب «اللي غلطت فيها»، فارجعله بعد يوم.</p>
+    <div class="cat-tabs" id="quizTabs"></div>
+    <div class="quiz-score" id="quizScore"></div>
+    <div class="quiz-list" id="quizList"></div>
+  </section>
+
+  <section id="reading">
+    <h2 data-t=""><span class="n">03</span> نصوص محلولة</h2>
+    <p class="section-desc">نصوص قصيرة زي اللي هتقابلها في الشغل بالظبط: رسالة خطأ، وصفحة توثيق، وREADME، وتقرير bug، وإيميل عميل، ورسالة في Slack. اقرا النص الإنجليزي الأول وحاول تفهمه لوحدك، وبعدين افتح الكلمات المهمة والترجمة وجاوب على الأسئلة.</p>
+    <div class="cat-tabs" id="rdTabs"></div>
+    <div class="ex-grid" id="rdGrid"></div>
+  </section>
+
+  <section id="terms">
+    <h2 data-t=""><span class="n">04</span> بنك المفردات</h2>
+    <p class="section-desc">كل كلمة معاها معناها بالعربي، وجملة إنجليزي بتوريك بتتقال إزاي، وزرار 🔊 تسمع منه النطق. استخدم البطاقات: شوف الكلمة، افتكر معناها، واقلب البطاقة. الكلمة اللي تعلّم عليها «عرفتها» مبترجعلكش في المراجعة.</p>
+    <div class="mode-row" id="modeRow"></div>
+    <div id="flashBox" class="flash-wrap" hidden="">
+      <button type="button" class="flash" id="flashCard" aria-live="polite"></button>
+      <div class="flash-ctl">
+        <button type="button" class="cat-tab" id="flashPrev">السابق</button>
+        <button type="button" class="cat-tab" id="flashSpeak">🔊 انطق</button>
+        <button type="button" class="cat-tab know" id="flashKnow">عرفتها ✓</button>
+        <button type="button" class="cat-tab" id="flashNext">لسه، التالي</button>
+        <button type="button" class="cat-tab" id="flashShuffle">لخبط الترتيب</button>
+      </div>
+      <div class="flash-meta" id="flashMeta"></div>
+    </div>
+    <div id="listBox">
+      <h3 class="sub-h">🎯 كلمات اليوم اللي فاتحه في الأسبوع المكثّف</h3>
+      <p class="sub-note" id="focusLabel"></p>
+      <div class="vocab-grid" id="focusGrid" style="margin-bottom:22px;"></div>
+    </div>
+    <div class="progress-bar"><div class="progress-fill" id="vocabFill"></div></div>
+    <div class="progress-txt" id="vocabTxt"></div>
+    <div class="lib-tools" style="margin-top:12px;">
+      <label class="lib-search" for="termSearch"><span>ابحث:</span><input type="search" id="termSearch" placeholder="loop، merge، استثناء…" autocomplete="off"></label>
+    </div>
+    <div class="cat-tabs" id="catTabs"></div>
+    <div class="vocab-grid" id="vocabGrid"></div>
+  </section>
+
+  <section id="phrases">
+    <h2 data-t=""><span class="n">05</span> جمل جاهزة</h2>
+    <p class="section-desc">قوالب جاهزة تنسخها وتكمّلها لكل موقف في الشغل: تشرح كود، أو تسأل، أو تبلّغ عن bug، أو تكتب لعميل، أو تتكلم في اجتماع أو مقابلة.</p>
+    <div class="cat-tabs" id="phTabs"></div>
+    <div class="phrase-grid" id="phraseGrid"></div>
+  </section>
+
+  <section id="grammar">
+    <h2 data-t=""><span class="n">06</span> قواعد المبرمج</h2>
+    <p class="section-desc">مش كل القواعد. دي القواعد اللي بتتكرر في التوثيق والكود والإيميلات، ولكل قاعدة مثال صح ومثال غلط شائع عند المتكلمين بالعربي.</p>
+    <div class="grammar-grid" id="grammarGrid"></div>
+  </section>
+
+  <section id="library">
+    <h2 data-t=""><span class="n">07</span> المكتبة</h2>
+    <p class="section-desc">قواميس بالنطق، وكورسات كتابة تقنية مجانية من Google، ومراجع قواعد، وبودكاست، وأدوات تصحيح. جنب كل مصدر مكتوب تستخدمه في إيه بالظبط، وفي أنهي يوم من الأسبوع المكثّف.</p>
+    <div class="lib-tools">
+      <label class="lib-search" for="libSearch"><span>ابحث:</span><input type="search" id="libSearch" placeholder="نطق، كتابة، قاموس…" autocomplete="off"></label>
+      <span class="lib-count" id="libCount"></span>
+    </div>
+    <div class="cat-tabs" id="libTabs"></div>
+    <div class="lib-grid" id="libGrid"></div>
+  </section>
+
+  <section id="map">
+    <h2 data-t=""><span class="n">08</span> خريطة الـ 12 أسبوع</h2>
+    <p class="section-desc">بعد الأسبوع المكثّف: 12 أسبوع، حوالي 40 دقيقة في اليوم. كل أسبوع فيه مهارة (قراءة وكتابة واستماع وكلام) في موضوع من شغل المبرمج، وقاعدة واحدة، وتصنيف كلمات، ومشروع صغير تسلّمه يوم الجمعة. اضغط أي أسبوع تفتح خطته.</p>
+    <div class="map-grid" id="mapGrid"></div>
+  </section>
+
+  <section id="plan">
+    <h2 data-t=""><span class="n">09</span> الخطة اليومية</h2>
+    <p class="section-desc">كل يوم فيه جزئين: المهارة، والكلمات والقواعد. الأسبوع اللي بيفتح لوحده هو أول أسبوع لسه مخلصتوش، والتقدم بيتحفظ في المتصفح.</p>
+    <div class="week-head" id="weekHead"></div>
+    <div class="spot-grid" id="spotGrid"></div>
+    <div class="filter-row" id="filterRow"></div>
+    <div class="week-grid" id="weekGrid"></div>
+  </section>
+
+  <section id="tracks">
+    <h2 data-t=""><span class="n">10</span> المهارات</h2>
+    <p class="section-desc">علّم على المهارة لما تبقى بتعملها فعلاً من غير ما تفتح قالب أو مترجم. دي أدق مقياس لمستواك.</p>
+    <div class="track-grid" id="trackGrid"></div>
+  </section>
+
+  <section id="projects">
+    <h2 data-t=""><span class="n">11</span> المشاريع</h2>
+    <p class="section-desc">مشروع صغير كل أسبوع تقدر تعرضه، وكلهم بيتجمعوا في بورتفوليو بالإنجليزي في الآخر.</p>
+    <div class="proj-grid" id="projGrid"></div>
+    <div class="proj">
+      <h3 class="sub-h">بعد الـ 12 أسبوع، المفروض:</h3>
+      <div id="capList"></div>
+    </div>
+  </section>
+
+  <section id="errors">
+    <h2 data-t=""><span class="n">12</span> رسائل أخطاء Python هتقابلها كتير</h2>
+    <p class="section-desc">أشهر رسائل الأخطاء في بايثون ومعناها وسببها الشائع، ومعاها الكلمة الإنجليزية المهمة في كل رسالة. لو حفظتهم هتقرا أي رسالة خطأ بثقة.</p>
+    <div class="err-list" id="errList"></div>
+  </section>
+
+  <section>
+    <div class="tip" data-t="">
+      <b>نصيحة:</b> متحاولش تحفظ «إنجليزي عام» الأول. ابدأ بالكلمة التقنية، وشوفها في كود حقيقي أو في رسالة خطأ ظهرتلك فعلاً، وبعدين احفظها. الكلمة اللي بتشوفها في سياق بتتثبت أسرع من كلمة في قايمة لوحدها. وانطق كل كلمة بصوت عالي مرة على الأقل.
+    </div>
+  </section>
+
+  <footer>خطتك الشخصية — التقدم محفوظ محليًا في هذا المتصفح فقط</footer>
+</div>
+<script src="assets/js/common-en.js"></script>
+<script src="assets/js/english-en.js"></script>
+<script src="assets/js/english-data.js"></script>
+<script src="assets/js/english-app.js"></script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+{
+  "name": "learn-n8n-english",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Bilingual (Arabic/English) learning plans: n8n automation and technical English for developers.",
+  "scripts": {
+    "test": "node tools/smoke_test.js",
+    "i18n:missing": "node tools/extract_strings.js",
+    "i18n:build": "node tools/make_dicts.js --freeze",
+    "serve": "python -m http.server 8000"
+  },
+  "devDependencies": {
+    "acorn": "^8.18.0",
+    "acorn-walk": "^8.3.5",
+    "jsdom": "^30.1.1"
+  }
+}
