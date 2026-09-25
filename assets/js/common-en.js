@@ -25,5 +25,11 @@ window.I18N_ADD && I18N_ADD({
  "رحلة المبرمج — خطط تعلم مجانية": "Developer Journey — free learning plans",
  "كل المصادر الخارجية لينكات لمواقعها الرسمية": "Every external resource links to its official website",
  "الصفحات": "Pages",
- "خطتين تعلم مجانيتين بالعربي والإنجليزي: أتمتة n8n واللغات اللي معاها، والإنجليزي التقني للمبرمجين.": "Two free learning plans in Arabic and English: n8n automation and the languages behind it, and technical English for developers."
+ "خطتين تعلم مجانيتين بالعربي والإنجليزي: أتمتة n8n واللغات اللي معاها، والإنجليزي التقني للمبرمجين.": "Two free learning plans in Arabic and English: n8n automation and the languages behind it, and technical English for developers.",
+ "مكتبة فيها 110 مصدر مجاني بالعربي والإنجليزي": "A library of 110 free resources in Arabic and English",
+ "مكتبة فيها 135 مصدر للقراءة والاستماع والكلام": "A library of 135 resources for reading, listening and speaking",
+ "رحلة n8n": "The n8n Journey",
+ "الكود على GitHub ↗": "Source code on GitHub ↗",
+ "رحلة المبرمج — خطط تعلم مجانية · كل المصادر الخارجية لينكات لمواقعها الرسمية": "Developer Journey — free learning plans · every external resource links to its official site",
+ "روابط الموقع": "Site links"
 });
