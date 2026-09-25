@@ -1,5 +1,7 @@
 # Developer Journey · رحلة المبرمج
 
+**Live site:** https://micro4tricks-ai.github.io/learn-n8n-english/
+
 Two free, bilingual (Arabic / English) learning plans that run entirely in the browser:
 
 - **The n8n Journey** (`n8n.html`) — n8n automation plus the languages around it (JavaScript, Python, JSON/HTTP, SQL, Regex, Git, Docker, AI).
