@@ -51,13 +51,51 @@
   // pronunciation through the browser's built-in voices
   var canSpeak = false;
   try{ canSpeak = 'speechSynthesis' in window && typeof SpeechSynthesisUtterance !== 'undefined'; }catch(e){}
-  function speak(text){
+  // Male English voices only. Browsers don't report a voice's gender, so it is read from the voice name.
+  var MALE = /\b(male|man|david|mark|guy|ryan|george|james|daniel|alex|fred|tom|thomas|aaron|arthur|oliver|rishi|eric|christopher|roger|steffan|brian|andrew|william|liam|connor|mitchell|reed|evan|nathan|ralph|bruce|albert|rocko|grandpa|junior|lee|gordon|jacob|kyle|sam|matthew|noah|luke)\b/i;
+  var FEMALE = /\b(female|woman|zira|aria|jenny|samantha|susan|hazel|libby|sonia|emma|ava|allison|karen|moira|tessa|fiona|victoria|kate|serena|michelle|nancy|sara|ana|clara|natasha|catherine|linda|heather|elizabeth|mia|joanna|salli|kimberly|ivy|kendra|amy|olivia|nicole|grandma|shelley|flo|sandy|martha|isla|jane|lily|maisie|ruth)\b/i;
+  var VOICE_KEY = 'eng_voice';
+  var voices = [], voiceName = '';
+  try{ voiceName = localStorage.getItem(VOICE_KEY) || ''; }catch(e){}
+  function loadVoices(){
+    if(!canSpeak) return;
+    var all = window.speechSynthesis.getVoices().filter(function(v){ return /^en[-_]/i.test(v.lang) || v.lang === 'en'; });
+    voices = all.filter(function(v){ return MALE.test(v.name) && !FEMALE.test(v.name); });
+    var sel = $('voiceSel');
+    if(!sel) return;
+    sel.innerHTML = voices.length
+      ? voices.map(function(v){ return '<option value="' + esc(v.name) + '"' + (v.name === voiceName ? ' selected' : '') + '>' +
+          esc(v.name.replace(/^(Microsoft|Google)\s+/, '').replace(/\s+Online.*$/, '').replace(/\s*-\s*English.*$/, '')) + ' · ' + esc(v.lang) + '</option>'; }).join('')
+      : '<option value="">' + esc(T('مفيش صوت رجالي في المتصفح ده')) + '</option>';
+    sel.disabled = !voices.length;
+    if(voices.length && !voices.some(function(v){ return v.name === voiceName; })) voiceName = voices[0].name;
+  }
+  var playingBtn = null;
+  function setPlaying(btn){
+    if(playingBtn) playingBtn.classList.remove('playing');
+    playingBtn = btn || null;
+    if(playingBtn) playingBtn.classList.add('playing');
+    var stop = $('stopSpeak');
+    if(stop) stop.hidden = !btn && !window.speechSynthesis.speaking;
+  }
+  function stopSpeaking(){
+    try{ window.speechSynthesis.cancel(); }catch(e){}
+    setPlaying(null);
+    var stop = $('stopSpeak'); if(stop) stop.hidden = true;
+  }
+  function speak(text, btn){
     if(!canSpeak) return;
     try{
       window.speechSynthesis.cancel();
       var u = new SpeechSynthesisUtterance(String(text).replace(/\s*\/\s*/g, ', ').replace(/[()\[\]{}]/g, ' '));
-      u.lang = 'en-US'; u.rate = 0.9;
+      var v = voices.filter(function(x){ return x.name === voiceName; })[0] || voices[0];
+      if(v){ u.voice = v; u.lang = v.lang; } else u.lang = 'en-US';
+      u.rate = 0.9;
+      var mine = btn || null;
+      u.onend = u.onerror = function(){ if(playingBtn === mine) stopSpeaking(); };
       window.speechSynthesis.speak(u);
+      setPlaying(btn || null);
+      var stop = $('stopSpeak'); if(stop) stop.hidden = false;
     }catch(e){}
   }
   function speakBtn(text){
@@ -65,8 +103,30 @@
   }
   document.addEventListener('click', function(e){
     var b = e.target.closest ? e.target.closest('[data-say]') : null;
-    if(b){ e.preventDefault(); speak(b.getAttribute('data-say')); }
+    if(!b) return;
+    e.preventDefault();
+    if(b === playingBtn){ stopSpeaking(); return; }   // pressing the same button again stops it
+    speak(b.getAttribute('data-say'), b);
   });
+  // voice picker + stop button live in the header
+  (function(){
+    var lb = document.querySelector('.links .lang-btn');
+    if(!canSpeak || !lb) return;
+    var box = document.createElement('span');
+    box.className = 'voice-ctl';
+    box.innerHTML = '<label class="sr-only" for="voiceSel">' + esc(T('صوت النطق')) + '</label>' +
+      '<select id="voiceSel" title="' + esc(T('صوت النطق')) + '"></select>' +
+      '<button type="button" class="stop-btn" id="stopSpeak" hidden>⏹ ' + esc(T('إيقاف الصوت')) + '</button>';
+    lb.parentNode.insertBefore(box, lb);
+    $('voiceSel').addEventListener('change', function(){
+      voiceName = this.value;
+      try{ localStorage.setItem(VOICE_KEY, voiceName); }catch(e){}
+      speak('Hello, this is my voice.');
+    });
+    $('stopSpeak').addEventListener('click', stopSpeaking);
+    loadVoices();
+    try{ window.speechSynthesis.addEventListener('voiceschanged', loadVoices); }catch(e){ window.speechSynthesis.onvoiceschanged = loadVoices; }
+  })();
 
   // ================= word of the week (kept) =================
   var daysSinceEpoch = Math.floor(Date.now() / 86400000);
@@ -127,17 +187,28 @@
   var selDay = firstOpenDay();
   var quizTab = selDay;
 
+  // a day opens once the day before it is done
+  function unlocked(d){ return d === 1 || dayStats(SPRINT[d - 2]).done; }
+  function showLockNote(d){
+    var n = $('lockNote');
+    if(!n){ n = document.createElement('p'); n.id = 'lockNote'; n.className = 'lock-note'; n.setAttribute('aria-live', 'polite'); $('dayTabs').after(n); }
+    n.textContent = d ? TF('اليوم {d} لسه مقفول 🔒 خلّص اليوم {p} الأول: كل مهام «اتمرّن» والتحدي، و4 من 5 صح في الاختبار.', {d:d, p:d - 1}) : '';
+    n.hidden = !d;
+  }
   function renderSprintTabs(){
     var el = $('dayTabs');
     el.innerHTML = '';
     SPRINT.forEach(function(day){
-      var st = dayStats(day);
+      var st = dayStats(day), open = unlocked(day.d);
       var b = document.createElement('button');
       b.type = 'button';
-      b.className = 'day-tab' + (day.d === selDay ? ' sel' : '') + (st.done ? ' done' : '');
-      b.innerHTML = '<span class="dn">' + TF('اليوم {d}', {d:day.d}) + (st.done ? ' ✓' : '') + '</span><span class="dt">' + esc(day.short) + '</span>' +
+      b.className = 'day-tab' + (day.d === selDay ? ' sel' : '') + (st.done ? ' done' : '') + (open ? '' : ' locked');
+      if(!open) b.setAttribute('aria-disabled', 'true');
+      b.innerHTML = '<span class="dn">' + TF('اليوم {d}', {d:day.d}) + (st.done ? ' ✓' : open ? '' : ' 🔒') + '</span><span class="dt">' + esc(day.short) + '</span>' +
         '<div class="mini-bar"><div class="mini-fill" style="width:' + pct(st.build + st.quiz + st.chal, st.buildT + st.quizT + 1) + '%"></div></div>';
       b.addEventListener('click', function(){
+        if(!unlocked(day.d)){ showLockNote(day.d); return; }
+        showLockNote(0);
         selDay = day.d;
         renderSprintTabs(); renderSprintDay(); renderFocus();
         quizTab = day.d; renderQuiz();
@@ -200,7 +271,7 @@
     tg.addEventListener('change', onVocabChange);
     $('goQuiz').addEventListener('click', function(){
       quizTab = day.d; renderQuiz();
-      $('quiz').scrollIntoView({behavior:'smooth', block:'start'});
+      if(window.openSection) openSection('quiz'); $('quiz').scrollIntoView({behavior:'smooth', block:'start'});
     });
   }
   $('sprintDay').addEventListener('change', function(e){
@@ -215,7 +286,8 @@
   function renderQuiz(){
     var tabs = $('quizTabs');
     tabs.innerHTML = '';
-    [['all',T('كل الأسئلة')]].concat(SPRINT.map(function(d){ return [d.d, TF('اليوم {d}', {d:d.d})]; })).concat([['wrong',T('اللي غلطت فيها')]]).forEach(function(t){
+    if(typeof quizTab === 'number' && !unlocked(quizTab)) quizTab = selDay;
+    [['all',T('كل الأسئلة')]].concat(SPRINT.filter(function(d){ return unlocked(d.d); }).map(function(d){ return [d.d, TF('اليوم {d}', {d:d.d})]; })).concat([['wrong',T('اللي غلطت فيها')]]).forEach(function(t){
       var b = document.createElement('button');
       b.type = 'button';
       b.className = 'cat-tab' + (quizTab === t[0] ? ' active' : '');
@@ -225,6 +297,7 @@
     });
     var qs = [];
     SPRINT.forEach(function(day){
+      if(!unlocked(day.d)) return;
       day.quiz.forEach(function(q, i){
         var id = quizId(day.d, i), ans = state.quiz[id];
         if(quizTab === 'all' || quizTab === day.d || (quizTab === 'wrong' && ans !== undefined && ans !== q.a)) qs.push({q:q, id:id, d:day.d, i:i});
@@ -614,7 +687,7 @@
         '<div class="mini-bar"><div class="mini-fill" style="width:' + pct(t.done, t.total) + '%"></div></div>';
       b.addEventListener('click', function(){
         selWeek = idx; renderWeek(); renderMap();
-        $('plan').scrollIntoView({behavior:'smooth', block:'start'});
+        if(window.openSection) openSection('plan'); $('plan').scrollIntoView({behavior:'smooth', block:'start'});
       });
       grid.appendChild(b);
     });

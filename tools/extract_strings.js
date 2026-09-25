@@ -14,7 +14,7 @@ const AR = /[؀-ۿ]/;
 function runPage(file) {
   let html = fs.readFileSync(path.join(ROOT, file), 'utf8');
   html = html.replace(/<link[^>]*>/g, '').replace(/<script src="([^"]+)"><\/script>/g,
-    (_, src) => '<script>' + fs.readFileSync(path.join(ROOT, src), 'utf8').replace(/<\/script/g, '<\/script') + '</script>');
+    (_, src) => '<script>' + fs.readFileSync(path.join(ROOT, src.split('?')[0]), 'utf8').replace(/<\/script/g, '<\/script') + '</script>');
   const dom = new JSDOM(html, {
     runScripts: 'dangerously', pretendToBeVisual: true, url: 'https://example.test/' + file,
     beforeParse(w) {

@@ -9,7 +9,7 @@ const AR = /[؀-ۿ]/;
 function run(file, lang) {
   let html = fs.readFileSync(path.join(ROOT, file), 'utf8');
   html = html.replace(/<link[^>]*>/g, '').replace(/<script src="([^"]+)"><\/script>/g,
-    (_, src) => '<script>' + fs.readFileSync(path.join(ROOT, src), 'utf8') + '</script>');
+    (_, src) => '<script>' + fs.readFileSync(path.join(ROOT, src.split('?')[0]), 'utf8') + '</script>');
   const errors = [];
   const dom = new JSDOM(html, {
     runScripts: 'dangerously', pretendToBeVisual: true, url: 'https://example.test/' + file,

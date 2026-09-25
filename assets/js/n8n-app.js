@@ -108,7 +108,7 @@
         '<div class="mini-bar"><div class="mini-fill" style="width:' + pct(t.done, t.total) + '%"></div></div>';
       b.addEventListener('click', function(){
         selWeek = idx; focusCtx = {type:'week'}; renderWeek(); renderMap();
-        $('plan').scrollIntoView({behavior:'smooth', block:'start'});
+        if(window.openSection) openSection('plan'); $('plan').scrollIntoView({behavior:'smooth', block:'start'});
       });
       grid.appendChild(b);
     });
@@ -474,17 +474,28 @@
     for(var i = 0; i < SPRINT.length; i++){ if(!dayStats(SPRINT[i]).done) return SPRINT[i].d; }
     return SPRINT.length;
   }
+  // a day opens once the day before it is done
+  function unlocked(d){ return d === 1 || dayStats(SPRINT[d - 2]).done; }
+  function showLockNote(d){
+    var n = $('lockNote');
+    if(!n){ n = document.createElement('p'); n.id = 'lockNote'; n.className = 'lock-note'; n.setAttribute('aria-live', 'polite'); $('dayTabs').after(n); }
+    n.textContent = d ? TF('اليوم {d} لسه مقفول 🔒 خلّص اليوم {p} الأول: كل مهام «ابني» والتحدي، و4 من 5 صح في الاختبار.', {d:d, p:d - 1}) : '';
+    n.hidden = !d;
+  }
   function renderSprintTabs(){
     var el = $('dayTabs');
     el.innerHTML = '';
     SPRINT.forEach(function(day){
-      var st = dayStats(day);
+      var st = dayStats(day), open = unlocked(day.d);
       var b = document.createElement('button');
       b.type = 'button';
-      b.className = 'day-tab' + (day.d === selDay ? ' sel' : '') + (st.done ? ' done' : '');
-      b.innerHTML = '<span class="dn">' + TF('اليوم {d}', {d:day.d}) + (st.done ? ' ✓' : '') + '</span><span class="dt">' + esc(day.short) + '</span>' +
+      b.className = 'day-tab' + (day.d === selDay ? ' sel' : '') + (st.done ? ' done' : '') + (open ? '' : ' locked');
+      if(!open) b.setAttribute('aria-disabled', 'true');
+      b.innerHTML = '<span class="dn">' + TF('اليوم {d}', {d:day.d}) + (st.done ? ' ✓' : open ? '' : ' 🔒') + '</span><span class="dt">' + esc(day.short) + '</span>' +
         '<div class="mini-bar"><div class="mini-fill" style="width:' + pct(st.build + st.quiz + st.chal, st.buildT + st.quizT + 1) + '%"></div></div>';
       b.addEventListener('click', function(){
+        if(!unlocked(day.d)){ showLockNote(day.d); return; }
+        showLockNote(0);
         selDay = day.d; focusCtx = {type:'sprint'};
         renderSprintTabs(); renderSprintDay(); renderFocus();
         quizTab = day.d; renderQuiz();
@@ -548,7 +559,7 @@
 
     $('goQuiz').addEventListener('click', function(){
       quizTab = day.d; renderQuiz();
-      $('quiz').scrollIntoView({behavior:'smooth', block:'start'});
+      if(window.openSection) openSection('quiz'); $('quiz').scrollIntoView({behavior:'smooth', block:'start'});
     });
   }
   $('sprintDay').addEventListener('change', function(e){
@@ -564,7 +575,8 @@
   function renderQuiz(){
     var tabs = $('quizTabs');
     tabs.innerHTML = '';
-    [['all',T('كل الأسئلة')]].concat(SPRINT.map(function(d){ return [d.d, TF('اليوم {d}', {d:d.d})]; })).concat([['wrong',T('اللي غلطت فيها')]]).forEach(function(t){
+    if(typeof quizTab === 'number' && !unlocked(quizTab)) quizTab = selDay;
+    [['all',T('كل الأسئلة')]].concat(SPRINT.filter(function(d){ return unlocked(d.d); }).map(function(d){ return [d.d, TF('اليوم {d}', {d:d.d})]; })).concat([['wrong',T('اللي غلطت فيها')]]).forEach(function(t){
       var b = document.createElement('button');
       b.type = 'button';
       b.className = 'cat-tab' + (quizTab === t[0] ? ' active' : '');
@@ -574,6 +586,7 @@
     });
     var qs = [];
     SPRINT.forEach(function(day){
+      if(!unlocked(day.d)) return;
       day.quiz.forEach(function(q, i){
         var id = quizId(day.d, i), ans = state.quiz[id];
         var show = quizTab === 'all' || quizTab === day.d || (quizTab === 'wrong' && ans !== undefined && ans !== q.a);

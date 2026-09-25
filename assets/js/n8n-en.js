@@ -1986,5 +1986,6 @@ window.I18N_ADD && I18N_ADD({
  "قسم التكنولوجيا والبرمجة.": "The Technology and Programming section.",
  "سطر": "Satr",
  "منصة عربية مجانية لتعلم البرمجة بمسارات في Python وJavaScript والويب.": "A free Arabic platform for learning to code, with Python, JavaScript and web tracks.",
- "مسار Python أو JavaScript للمبتدئين.": "The beginner Python or JavaScript track."
+ "مسار Python أو JavaScript للمبتدئين.": "The beginner Python or JavaScript track.",
+ "اليوم {d} لسه مقفول 🔒 خلّص اليوم {p} الأول: كل مهام «ابني» والتحدي، و4 من 5 صح في الاختبار.": "Day {d} is still locked 🔒 Finish day {p} first: every Build task, the challenge, and 4 of 5 right in the quiz."
 });

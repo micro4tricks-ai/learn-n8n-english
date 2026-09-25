@@ -31,5 +31,10 @@ window.I18N_ADD && I18N_ADD({
  "رحلة n8n": "The n8n Journey",
  "الكود على GitHub ↗": "Source code on GitHub ↗",
  "رحلة المبرمج — خطط تعلم مجانية · كل المصادر الخارجية لينكات لمواقعها الرسمية": "Developer Journey — free learning plans · every external resource links to its official site",
- "روابط الموقع": "Site links"
+ "روابط الموقع": "Site links",
+ "تصميم وترتيب:": "Design and layout:",
+ "محمود حبشي": "Mahmoud Habashi",
+ "حجم الخط": "Font size",
+ "صغّر الخط": "Smaller text",
+ "كبّر الخط": "Larger text"
 });

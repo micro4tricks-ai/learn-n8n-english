@@ -1544,5 +1544,9 @@ window.I18N_ADD && I18N_ADD({
  "دورات جامعية بترجمة عربي، ومنها Learn English وPython for Everybody.": "University courses with Arabic subtitles, including Learn English and Python for Everybody.",
  "Python for Everybody (ترجمة عربي متاحة).": "Python for Everybody (Arabic subtitles available).",
  "دورات من هارفارد وMIT، ومنها CS50.": "Courses from Harvard and MIT, including CS50.",
- "ادرس الكورس مجانًا (Audit).": "Take the course for free (Audit)."
+ "ادرس الكورس مجانًا (Audit).": "Take the course for free (Audit).",
+ "مفيش صوت رجالي في المتصفح ده": "No male voice in this browser",
+ "صوت النطق": "Pronunciation voice",
+ "إيقاف الصوت": "Stop audio",
+ "اليوم {d} لسه مقفول 🔒 خلّص اليوم {p} الأول: كل مهام «اتمرّن» والتحدي، و4 من 5 صح في الاختبار.": "Day {d} is still locked 🔒 Finish day {p} first: every Practice task, the challenge, and 4 of 5 right in the quiz."
 });
