@@ -1,6 +1,8 @@
 <div align="center">
 
-# ⚙️ Developer Journey · رحلة المبرمج
+<img src="assets/logo.svg" width="96" height="96" alt="Developer Journey logo">
+
+# Developer Journey · رحلة المبرمج
 
 **Learn n8n automation and technical English with a clear day-by-day plan — free, bilingual, in your browser.**
 
