@@ -36,5 +36,6 @@ window.I18N_ADD && I18N_ADD({
  "محمود حبشي": "Mahmoud Habashi",
  "حجم الخط": "Font size",
  "صغّر الخط": "Smaller text",
- "كبّر الخط": "Larger text"
+ "كبّر الخط": "Larger text",
+ "أكتر من 600 كلمة بأمثلة ونطق صوتي": "More than 600 words with examples and audio pronunciation"
 });
