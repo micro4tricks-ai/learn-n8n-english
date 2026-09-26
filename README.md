@@ -1,6 +1,18 @@
-# Developer Journey · رحلة المبرمج
+<div align="center">
 
-**Live site:** https://micro4tricks-ai.github.io/learn-n8n-english/
+# ⚙️ Developer Journey · رحلة المبرمج
+
+**Learn n8n automation and technical English with a clear day-by-day plan — free, bilingual, in your browser.**
+
+[![Live site](https://img.shields.io/badge/Live%20site-Open%20→-3f8f63?style=for-the-badge)](https://micro4tricks-ai.github.io/learn-n8n-english/)
+&nbsp;
+![Arabic | English](https://img.shields.io/badge/العربية%20|%20English-26332b?style=for-the-badge)
+&nbsp;
+![No build step](https://img.shields.io/badge/HTML%20·%20CSS%20·%20JS-no%20build-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+
+<a href="https://micro4tricks-ai.github.io/learn-n8n-english/"><img src="docs/screenshot.png" alt="Developer Journey home page" width="860"></a>
+
+</div>
 
 Two free, bilingual (Arabic / English) learning plans that run entirely in the browser:
 
