@@ -20,7 +20,7 @@
   function fmt(s){ return esc(s).replace(/`([^`]+)`/g, '<code>$1</code>'); }
 
   var D = TDEEP(window.EN_DATA);
-  var SPRINT = D.SPRINT, VOCAB = D.VOCAB, READINGS = D.READINGS, PHRASES = D.PHRASES, GRAMMAR = D.GRAMMAR, GRAMMAR_QUIZ = D.GRAMMAR_QUIZ, LIBRARY = D.LIBRARY, ERRORS = D.ERRORS, WEEKS = D.WEEKS, CAPSTONE = D.CAPSTONE, TRACKS = D.TRACKS, LVL = D.LVL;
+  var SPRINT = D.SPRINT, VOCAB = D.VOCAB, READINGS = D.READINGS, PHRASES = D.PHRASES, GRAMMAR = D.GRAMMAR, GRAMMAR_QUIZ = D.GRAMMAR_QUIZ, EXTRA_QUIZ = D.EXTRA_QUIZ, REFS = D.REFS, LIBRARY = D.LIBRARY, ERRORS = D.ERRORS, WEEKS = D.WEEKS, CAPSTONE = D.CAPSTONE, TRACKS = D.TRACKS, LVL = D.LVL;
 
   // ================= helpers =================
   function $(id){ return document.getElementById(id); }
@@ -287,7 +287,7 @@
     var tabs = $('quizTabs');
     tabs.innerHTML = '';
     if(typeof quizTab === 'number' && !unlocked(quizTab)) quizTab = selDay;
-    [['all',T('كل الأسئلة')]].concat(SPRINT.filter(function(d){ return unlocked(d.d); }).map(function(d){ return [d.d, TF('اليوم {d}', {d:d.d})]; })).concat([['g',T('اختبار القواعد')],['wrong',T('اللي غلطت فيها')]]).forEach(function(t){
+    [['all',T('كل الأسئلة')]].concat(SPRINT.filter(function(d){ return unlocked(d.d); }).map(function(d){ return [d.d, TF('اليوم {d}', {d:d.d})]; })).concat([['g',T('اختبار القواعد')],['x',T('مراجعة شاملة')],['wrong',T('اللي غلطت فيها')]]).forEach(function(t){
       var b = document.createElement('button');
       b.type = 'button';
       b.className = 'cat-tab' + (quizTab === t[0] ? ' active' : '');
@@ -296,7 +296,7 @@
       tabs.appendChild(b);
     });
     var qs = [];
-    SPRINT.concat([{d:'g', quiz:GRAMMAR_QUIZ}]).forEach(function(day){
+    SPRINT.concat([{d:'g', quiz:GRAMMAR_QUIZ}, {d:'x', quiz:EXTRA_QUIZ}]).forEach(function(day){
       if(typeof day.d === 'number' && !unlocked(day.d)) return;
       day.quiz.forEach(function(q, i){
         var id = quizId(day.d, i), ans = state.quiz[id];
@@ -327,7 +327,7 @@
       var ans = state.quiz[x.id];
       var card = document.createElement('div');
       card.className = 'q-card';
-      var h = '<div class="qn">' + (x.d === 'g' ? 'GRAMMAR' : 'DAY ' + x.d) + ' · Q' + (x.i + 1) + '</div><div class="qq">' + fmt(x.q.q) + '</div><div class="q-opts">';
+      var h = '<div class="qn">' + (x.d === 'g' ? 'GRAMMAR' : x.d === 'x' ? 'REVIEW' : 'DAY ' + x.d) + ' · Q' + (x.i + 1) + '</div><div class="qq">' + fmt(x.q.q) + '</div><div class="q-opts">';
       x.q.o.forEach(function(o, oi){
         var cls = '';
         if(ans !== undefined){ if(oi === x.q.a) cls = ' right'; else if(oi === ans) cls = ' wrong'; }
@@ -624,12 +624,40 @@
   });
 
   // ================= errors =================
-  $('errList').innerHTML = ERRORS.map(function(er){
-    return '<div class="err-card"><div class="msg">' + esc(er.msg) + '</div>' +
-      '<div class="meaning">' + fmt(er.meaning) + '</div>' +
-      '<div class="cause">' + T('السبب الشائع:') + ' ' + fmt(er.cause) + '</div>' +
-      '<div class="fix">' + T('الكلمة المهمة:') + ' <span class="mono">' + esc(er.kw) + '</span></div></div>';
-  }).join('');
+  var errGroups = Array.from(new Set(ERRORS.map(function(er){ return er.g; })));
+  var activeErr = errGroups[0];
+  function renderErrors(){
+    var tabs = $('errTabs');
+    tabs.innerHTML = '';
+    errGroups.forEach(function(g){
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'cat-tab' + (g === activeErr ? ' active' : '');
+      b.innerHTML = esc(g) + ' <span class="cnt">' + ERRORS.filter(function(er){ return er.g === g; }).length + '</span>';
+      b.addEventListener('click', function(){ activeErr = g; renderErrors(); });
+      tabs.appendChild(b);
+    });
+    $('errList').innerHTML = ERRORS.filter(function(er){ return er.g === activeErr; }).map(function(er){
+      return '<div class="err-card"><div class="msg" style="white-space:pre-wrap">' + esc(er.msg) + '</div>' +
+        '<div class="meaning">' + fmt(er.meaning) + '</div>' +
+        '<div class="cause">' + T('السبب الشائع:') + ' ' + fmt(er.cause) + '</div>' +
+        (er.fix ? '<div class="cause">' + T('الحل:') + ' ' + fmt(er.fix) + '</div>' : '') +
+        '<div class="fix">' + T('الكلمة المهمة:') + ' <span class="mono">' + esc(er.kw) + '</span></div></div>';
+    }).join('');
+  }
+  renderErrors();
+
+  // ================= references =================
+  function renderRefs(){
+    var n = 0;
+    $('refList').innerHTML = REFS.map(function(g){
+      return '<div class="ref-group"><h3 class="sub-h">' + esc(g[0]) + '</h3><ol class="ref-list" start="' + (n + 1) + '">' +
+        g[1].map(function(r){ n++;
+          return '<li><a href="' + esc(r[2]) + '" target="_blank" rel="noopener">' + esc(r[0]) + '</a> — <span class="mono" style="font-size:13px">' + esc(r[1]) + '</span><span class="rs">' + esc(r[3]) + '</span></li>';
+        }).join('') + '</ol></div>';
+    }).join('') + '<p class="sub-note">' + TF('المكتبة فيها {n} مصدر إضافي. أسماء المنصات والأدوات ملك أصحابها، والصفحة دي مش تابعة لأي جهة منهم.', {n:LIBRARY.length}) + '</p>';
+  }
+  renderRefs();
 
   // ================= totals =================
   function updateTotals(){

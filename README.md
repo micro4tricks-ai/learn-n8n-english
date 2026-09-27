@@ -66,15 +66,15 @@ Two free learning plans in one site, for Arabic-speaking developers who want to 
     <th align="left">📘 English for Developers</th><th align="right">Count</th>
   </tr>
   <tr><td>Intensive days (lesson, build, code, challenge, quiz)</td><td align="right">7</td><td>Intensive days</td><td align="right">7</td></tr>
-  <tr><td>Quiz questions in the intensive week</td><td align="right">35</td><td>Quiz questions in the intensive week</td><td align="right">35</td></tr>
+  <tr><td>Quiz questions in the intensive week</td><td align="right">35</td><td>Quiz questions (intensive week + grammar + review)</td><td align="right">121</td></tr>
   <tr><td>Weeks in the full plan</td><td align="right">12</td><td>Weeks in the full plan</td><td align="right">12</td></tr>
-  <tr><td>Worked, real-world workflows</td><td align="right">12</td><td>Worked texts (errors, docs, emails…)</td><td align="right">8</td></tr>
+  <tr><td>Worked, real-world workflows</td><td align="right">12</td><td>Worked texts (errors, docs, emails…)</td><td align="right">20</td></tr>
   <tr><td>Glossary terms with examples</td><td align="right">203</td><td>Vocabulary words with audio</td><td align="right">887</td></tr>
-  <tr><td>Quick-reference cheat sheets</td><td align="right">12</td><td>Ready-made sentences</td><td align="right">36</td></tr>
-  <tr><td>Common errors explained</td><td align="right">34</td><td>Error messages explained</td><td align="right">16</td></tr>
+  <tr><td>Quick-reference cheat sheets</td><td align="right">12</td><td>Ready-made sentences</td><td align="right">73</td></tr>
+  <tr><td>Common errors explained</td><td align="right">34</td><td>Error messages and HTTP codes explained</td><td align="right">49</td></tr>
   <tr><td>Language &amp; skill tracks</td><td align="right">11</td><td>Grammar rules (right vs. wrong)</td><td align="right">117</td></tr>
   <tr><td>Weekly projects + capstone steps</td><td align="right">12 + 7</td><td>Skill tracks + capstone steps</td><td align="right">6 + 6</td></tr>
-  <tr><td>Free library resources</td><td align="right">110</td><td>Free library resources</td><td align="right">135</td></tr>
+  <tr><td>Free library resources</td><td align="right">110</td><td>Free library resources</td><td align="right">155</td></tr>
 </table>
 
 ## The n8n Journey

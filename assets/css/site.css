@@ -583,3 +583,9 @@ section.fold{margin-block:14px;}
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
 
 .g-card .badge{justify-self:start;}
+
+/* ---------- references ---------- */
+.ref-list{margin:0;padding-inline-start:22px;display:grid;gap:10px;font-size:14.5px;max-width:80ch;}
+.ref-list a{color:var(--accent-ink);font-weight:700;}
+.ref-list .rs{color:var(--muted);font-size:13.5px;display:block;}
+.ref-group{margin-bottom:22px;}
