@@ -37,5 +37,6 @@ window.I18N_ADD && I18N_ADD({
  "حجم الخط": "Font size",
  "صغّر الخط": "Smaller text",
  "كبّر الخط": "Larger text",
- "أكتر من 600 كلمة بأمثلة ونطق صوتي": "More than 600 words with examples and audio pronunciation"
+ "أكتر من 600 كلمة بأمثلة ونطق صوتي": "More than 600 words with examples and audio pronunciation",
+ "أكتر من 850 كلمة بأمثلة ونطق صوتي": "More than 850 words with examples and audio pronunciation"
 });
