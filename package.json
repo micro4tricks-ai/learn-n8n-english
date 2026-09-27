@@ -4,7 +4,7 @@
   "private": true,
   "description": "Bilingual (Arabic/English) learning plans: n8n automation and technical English for developers.",
   "scripts": {
-    "test": "node tools/smoke_test.js",
+    "test": "node tools/smoke_test.js && node tools/test_journey.js && node tools/test_content.js",
     "i18n:missing": "node tools/extract_strings.js",
     "i18n:build": "node tools/make_dicts.js --freeze",
     "serve": "python -m http.server 8000"
