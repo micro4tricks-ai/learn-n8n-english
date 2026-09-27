@@ -45,16 +45,20 @@
 
 ## About
 
-Two free learning plans in one site, for Arabic-speaking developers who want to **automate real work with n8n** and **work confidently in English**:
+Two free 24-week journeys in one site, for Arabic-speaking developers who want to **automate real work with n8n** and **work confidently in English**:
 
-| Plan | For | Starts with | Then |
+| Journey | For | Length | Pace |
 |---|---|---|---|
-| ⚙️ **The n8n Journey** — `n8n.html` | Building automations with n8n plus the languages around it: JavaScript, Python, JSON/HTTP, SQL, Regex, Git, Docker and AI | 7 intensive days, ~3 h/day | A 12-week plan with a weekly project |
-| 📘 **English for Developers** — `english.html` | The English you use every day at work: error messages, docs, READMEs, commits, emails, meetings and interviews | 7 intensive days, ~2 h/day | A 12-week plan, ~40 min/day |
+| ⚙️ **The n8n Journey** — `n8n.html` | Building automations with n8n plus the languages around it: JavaScript, Python, JSON/HTTP, SQL, Regex, Git, Docker and AI — up to client work in production | 24 weeks (6 months) | 2 h/day, 6 days a week |
+| 📘 **English for Developers** — `english.html` | The English you use every day at work: error messages, docs, READMEs, commits, emails, meetings and interviews — from A1 to B2/C1 | 24 weeks (6 months) | 2 h/day, 6 days a week |
+
+Every week has five study days (explanation → hands-on practice → words/terms → reading → short quiz) and a sixth day with a review, a weekly project and a **weekly test**: the next week opens at **70%**. Monthly exams and a final exam with a capstone project close each month and the journey.
+
+> **Status:** week 1 of both journeys is ready (built from the old intensive week). Weeks 2–24, the monthly exams and the final exam are being written and show as "coming soon" until they ship. See the [design](docs/superpowers/specs/2026-09-28-24-week-program-design.md).
 
 <div dir="rtl">
 
-**بالعربي:** خطتان مجانيتان في موقع واحد: «رحلة n8n» لبناء الأتمتة ومعها JavaScript وPython وSQL وDocker والذكاء الاصطناعي، و«إنجليزي المبرمج» للإنجليزية التي يستخدمها المبرمج كل يوم. كل خطة تبدأ بأسبوع مكثّف فيه شرح وتمارين واختبار لكل يوم، ثم خطة 12 أسبوعاً بمشروع أسبوعي. الموقع كله يتحوّل بين العربية والإنجليزية بضغطة زر، ويحفظ تقدّمك في متصفحك دون تسجيل.
+**بالعربي:** رحلتان مجانيتان في موقع واحد، كل رحلة 24 أسبوعاً (6 أشهر) بساعتين في اليوم: «رحلة n8n» لبناء الأتمتة ومعها JavaScript وPython وSQL وDocker والذكاء الاصطناعي حتى العمل مع العملاء، و«إنجليزي المبرمج» من A1 إلى B2/C1 في إنجليزية العمل. كل أسبوع خمسة أيام مذاكرة ويوم مراجعة ومشروع واختبار، والأسبوع التالي يُفتح عند 70%. التقدّم يُحفظ في المتصفح، ويمكن إنشاء حساب بالبريد الإلكتروني لحفظه أونلاين.
 
 </div>
 
@@ -65,62 +69,42 @@ Two free learning plans in one site, for Arabic-speaking developers who want to 
     <th align="left">⚙️ n8n Journey</th><th align="right">Count</th>
     <th align="left">📘 English for Developers</th><th align="right">Count</th>
   </tr>
-  <tr><td>Intensive days (lesson, build, code, challenge, quiz)</td><td align="right">7</td><td>Intensive days</td><td align="right">7</td></tr>
-  <tr><td>Quiz questions in the intensive week</td><td align="right">35</td><td>Quiz questions (intensive week + grammar + review)</td><td align="right">121</td></tr>
-  <tr><td>Weeks in the full plan</td><td align="right">12</td><td>Weeks in the full plan</td><td align="right">12</td></tr>
+  <tr><td>Weeks in the journey (ready now)</td><td align="right">24 (1)</td><td>Weeks in the journey (ready now)</td><td align="right">24 (1)</td></tr>
+  <tr><td>Questions in week 1 (daily quizzes + weekly test)</td><td align="right">25</td><td>Questions (week 1 + grammar quiz + review)</td><td align="right">111</td></tr>
   <tr><td>Worked, real-world workflows</td><td align="right">12</td><td>Worked texts (errors, docs, emails…)</td><td align="right">20</td></tr>
-  <tr><td>Glossary terms with examples</td><td align="right">203</td><td>Vocabulary words with audio</td><td align="right">887</td></tr>
+  <tr><td>Glossary terms with examples</td><td align="right">247</td><td>Vocabulary words with audio</td><td align="right">887</td></tr>
   <tr><td>Quick-reference cheat sheets</td><td align="right">12</td><td>Ready-made sentences</td><td align="right">73</td></tr>
   <tr><td>Common errors explained</td><td align="right">34</td><td>Error messages and HTTP codes explained</td><td align="right">49</td></tr>
-  <tr><td>Language &amp; skill tracks</td><td align="right">11</td><td>Grammar rules (right vs. wrong)</td><td align="right">117</td></tr>
-  <tr><td>Weekly projects + capstone steps</td><td align="right">12 + 7</td><td>Skill tracks + capstone steps</td><td align="right">6 + 6</td></tr>
+  <tr><td>Monthly exams + final exam</td><td align="right">5 + 1 (coming)</td><td>Grammar rules (right vs. wrong)</td><td align="right">117</td></tr>
+  <tr><td>Language &amp; skill tracks</td><td align="right">11</td><td>Skill tracks</td><td align="right">6</td></tr>
   <tr><td>Free library resources</td><td align="right">110</td><td>Free library resources</td><td align="right">155</td></tr>
 </table>
 
 ## The n8n Journey
 
-### The intensive week
+| Month | Weeks | Topic | Languages and tools |
+|:-:|:-:|---|---|
+| 1 | 1–4 | The basics: running n8n, items, expressions, triggers, JSON and HTTP | Terminal, Git, JSON |
+| 2 | 5–8 | Integrations and data: Sheets, Gmail, Telegram, APIs and auth, webhooks, transformation | JavaScript basics, cURL |
+| 3 | 9–12 | Code and logic: the Code node, Regex, branching/merging/looping, errors, sub-workflows | JavaScript, Python basics |
+| 4 | 13–16 | Data systems: SQL and Postgres, files, scraping, scheduling, pagination | SQL, Python, HTML |
+| 5 | 17–20 | AI: LLMs, prompts, agents and tools, RAG and vector stores, MCP | Prompting, embeddings |
+| 6 | 21–24 | Production and career: Docker and a VPS, security, queue mode and monitoring, custom nodes, freelancing, capstone | Docker, Linux, YAML |
 
-| Day | Focus |
-|:-:|---|
-| 1 | The n8n mindset: items, JSON and expressions |
-| 2 | APIs and HTTP, plus logic with IF, Switch and Merge |
-| 3 | Connecting services: Google Sheets, Telegram, Gmail and scheduling |
-| 4 | Transforming data: the Code node, dates and built-in functions |
-| 5 | Control and reliability: loops, sub-workflows and error handling |
-| 6 | AI in n8n: chains, agents and data extraction |
-| 7 | Going to production and the capstone project |
-
-Each day unlocks after you answer at least 4 of its 5 quiz questions correctly.
-
-### The 12-week plan
-
-| Week | Theme | Week | Theme |
-|:-:|---|:-:|---|
-| 1 | Running n8n and the basics | 7 | Files and scraping the web |
-| 2 | Data and APIs | 8 | Databases and SQL |
-| 3 | Connecting services + first Python | 9 | Errors and reliability |
-| 4 | Real APIs + Python for data | 10 | Running n8n 24/7 |
-| 5 | The Code node + JavaScript basics | 11 | Connecting Python and AI to n8n |
-| 6 | Data processing + Regex | 12 | The capstone, ready for work |
-
-**Worked workflows** include a lead form with instant alerts, a daily weather/news report, a small API with a webhook and validation, overdue-invoice reminders, contact de-duplication, an AI news digest on Telegram, an AI support bot, invoice data extraction from email, a central error workflow, paginated API sync to a database, human approval before execution, and workflow backups to GitHub.
-
-**Tracks:** JavaScript · JSON, HTTP and cURL · Python · Git and GitHub · SQL · Terminal (PowerShell/Bash) and SSH · Docker and YAML · Regex · HTML and CSS selectors · Markdown and READMEs · Prompting and AI.
+Also on the page: **worked workflows** from real work, a glossary with flashcards, quick-reference cheat sheets, common errors explained, language tracks and a library of free resources.
 
 ## English for Developers
 
-| Day | Focus |
-|:-:|---|
-| 1 | Reading error messages and tracebacks |
-| 2 | Reading documentation |
-| 3 | The language of code: names, comments and docstrings |
-| 4 | Writing commits, READMEs and bug reports |
-| 5 | Communicating: asking, requesting and replying to a client |
-| 6 | Listening and pronunciation: terms and symbols |
-| 7 | Presenting your work: interviews and your portfolio |
+| Month | Weeks | Level | Topic |
+|:-:|:-:|:-:|---|
+| 1 | 1–4 | A1 → A2 | Sentence basics and simple tenses, reading error messages, code words |
+| 2 | 5–8 | A2 | Reading docs, the language of code and naming, present perfect and the passive |
+| 3 | 9–12 | B1 | Technical writing: commits, READMEs, bug reports, formal emails |
+| 4 | 13–16 | B1 | Communication: Slack, meetings, stand-ups, code review, simple negotiation |
+| 5 | 17–20 | B1 → B2 | Listening, pronunciation and presenting: tech videos, presentations, demos |
+| 6 | 21–24 | B2 → C1 | Interviews, client proposals, portfolio, long professional writing |
 
-The 12-week plan then covers reading, listening, writing and speaking every week, with a grammar point and a small project for each.
+Also on the page: worked texts, a vocabulary bank with audio, ready-made sentences, grammar rules by topic with a grammar quiz, error messages and HTTP codes, references and a library.
 
 ## Screenshots
 
@@ -133,13 +117,15 @@ The 12-week plan then covers reading, listening, writing and speaking every week
 
 ## Features
 
-- 🌐 **Arabic ⇄ English on every page** — the UI, lessons, tasks, quizzes and vocabulary all switch language and direction (RTL ↔ LTR). The choice is remembered.
-- 📅 **Day-by-day flow** — intensive days unlock in order, and finished sections collapse so you only see what's next.
-- ✅ **Progress tracking** — streaks, quiz scores and task completion, saved in your browser.
+- 🗺️ **24-week journey** — a map of 6 months × 4 weeks; days open in order and each week opens after its weekly test (70%). "Continue where you left off" takes you to the right day.
+- 📝 **Tests that are recorded** — every weekly-test attempt is saved with its score and answers; retake as often as you like, the best score counts.
+- 👤 **Optional account** — sign in with a one-time email code (no password) to keep progress and test results online and continue on another device. Without an account everything still works in the browser.
+- 🌐 **Arabic ⇄ English on every page** — the UI, lessons, tasks, quizzes and vocabulary all switch language and direction (RTL ↔ LTR).
+- 📱 **Fits any screen** — phone (one column), tablet (two columns) and desktop (a sidebar with the weeks next to the lesson).
 - 🃏 **Flashcards** with a "Got it" pile, search, and audio pronunciation with a stop button.
 - 🔠 **Adjustable text size** (A− / A+) in the header.
 - 📚 **Library** of free official docs and books, each with what to read and when.
-- 🪶 **Lightweight** — plain HTML, CSS and JavaScript. No framework, no build step, works on any static host.
+- 🪶 **Lightweight** — plain HTML, CSS and JavaScript; week content loads only when you open that week.
 
 ## Tech stack
 
@@ -148,7 +134,7 @@ The 12-week plan then covers reading, listening, writing and speaking every week
 | Pages | HTML5, CSS3 (logical RTL/LTR styles through `html[dir]`) |
 | Logic | Vanilla JavaScript, no framework |
 | Audio | Browser speech synthesis (Web Speech API) |
-| Storage | `localStorage` |
+| Storage | `localStorage`, plus optional [Supabase](https://supabase.com) (email-code sign-in, Postgres with row-level security) |
 | Tooling | Node.js scripts with `jsdom` and `acorn` for string extraction and smoke tests |
 | Hosting | GitHub Pages |
 
@@ -168,22 +154,30 @@ Opening `index.html` straight from disk also works, but each page then keeps its
 ## Project structure
 
 ```
-index.html            Landing page
-n8n.html              The n8n plan
-english.html          The English plan
+index.html              Landing page
+n8n.html                The n8n journey page
+english.html            The English journey page
+content/
+  <track>/outline.js    Months and the 24 week titles; which weeks are ready
+  <track>/weeks/wNN.js  One week per file (6 days, bilingual {ar, en}), loaded on demand
 assets/
-  css/site.css        Shared styles (RTL/LTR via html[dir])
-  js/i18n.js          Language switch + T()/TF()/TDEEP() helpers
-  js/ui.js            Shared UI: font size, audio, day-by-day reveal
-  js/*-data.js        Page content (Arabic source text)
-  js/*-app.js         Page logic and rendering
-  js/*-en.js          English dictionaries (generated — see below)
-  logo.svg, favicon.svg
-docs/                 Screenshots and social preview
-tools/                Translation and test scripts (Node.js)
-  i18n/<page>-keys.json   Arabic source strings, in a fixed order
-  i18n/<page>-NN.json     English translations, by index
+  css/site.css          Shared styles (RTL/LTR via html[dir], responsive breakpoints)
+  js/i18n.js            Language switch + T()/TF()/TDEEP() helpers
+  js/journey.js         The 24-week engine: unlock rules, map, day view, tests, progress
+  js/account.js         Optional email-code account and cloud sync (Supabase)
+  js/config.js          Supabase URL + public anon key (empty = no accounts)
+  js/ui.js              Shared UI: font size, collapsible sections
+  js/*-data.js          Reference content (Arabic source text)
+  js/*-app.js           Page logic for the reference sections
+  js/*-en.js            English dictionaries (generated — see below)
+  js/vendor/supabase.js Supabase JS client (MIT)
+supabase/schema.sql     Tables and row-level security for accounts
+docs/                   Content format, Supabase setup, design and plans, screenshots
+tools/                  Translation, content validation and test scripts (Node.js)
 ```
+
+- How to write a week: [docs/CONTENT.md](docs/CONTENT.md)
+- How accounts are set up: [docs/SUPABASE.md](docs/SUPABASE.md)
 
 ## How translation works
 
@@ -203,8 +197,10 @@ npm run i18n:build          # appends them to tools/i18n/<page>-keys.json and re
 Add the English text for the new indexes in a new `tools/i18n/<page>-NN.json` file, run `npm run i18n:build` again, then:
 
 ```bash
-npm test                    # renders every page in both languages and reports errors or leftover Arabic
+npm test                    # journey rules, week-file validation, and every page rendered in both languages
 ```
+
+Week files don't use the dictionaries: every content string in `content/` is written as `{ar: '…', en: '…'}`.
 
 Local CSS and JS are loaded with a `?v=YYYYMMDD` query for cache-busting — bump it on every release.
 
@@ -216,7 +212,7 @@ The site is static, so upload the files as they are:
 - **Netlify / Cloudflare Pages:** connect the repo, no build command, publish directory `/`.
 - **Hostinger / any cPanel host:** upload everything except `tools/`, `node_modules/` and `package*.json` into `public_html/`.
 
-Progress is stored per domain, so moving the site to a new domain starts learners from zero.
+Progress in the browser is stored per domain, so moving the site to a new domain starts learners without an account from zero. For accounts on a new domain, add it to the Supabase redirect URLs (see [docs/SUPABASE.md](docs/SUPABASE.md)).
 
 ## Contributing
 
@@ -229,7 +225,7 @@ Suggestions, corrections and new free resources are welcome.
 
 ## Privacy
 
-No accounts, no analytics, no cookies, no server. Everything you do is saved in your own browser's `localStorage` and never leaves your device. Clearing your browser data resets your progress.
+No analytics, no ads, no tracking cookies. Without an account, everything you do stays in your own browser's `localStorage`. If you choose to sign in, your email address, your journey progress and your test attempts are stored in the project's Supabase database, where row-level security lets only your account read them. Signing out keeps your progress on the device.
 
 ## Content and credits
 

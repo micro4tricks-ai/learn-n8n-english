@@ -111,5 +111,15 @@ window.I18N_ADD && I18N_ADD({
  "الحساب اختياري. من غيره تقدمك بيتحفظ في المتصفح بس.": "An account is optional. Without one, your progress is saved in this browser only.",
  "حصلت مشكلة:": "Something went wrong:",
  "اكتب إيميل صحيح.": "Enter a valid email.",
- "الكود مش صح أو خلص وقته. جرّب تاني أو اطلب كود جديد.": "The code is wrong or has expired. Try again or ask for a new code."
+ "الكود مش صح أو خلص وقته. جرّب تاني أو اطلب كود جديد.": "The code is wrong or has expired. Try again or ask for a new code.",
+ "<b>1. ابدأ من الأسبوع 1</b>ساعتين في اليوم، 6 أيام في الأسبوع. كل يوم بيخلص باختبار قصير، واليوم اللي بعده بيفتح لما تخلّص مهامك.": "<b>1. Start at week 1</b>Two hours a day, 6 days a week. Every day ends with a short quiz, and the next day opens when you finish your tasks.",
+ "<b>2. عدّي اختبار الأسبوع</b>اليوم السادس مراجعة ومشروع واختبار. محتاج 70% عشان الأسبوع اللي بعده يفتح، وتقدر تعيده.": "<b>2. Pass the weekly test</b>Day six is review, a project and a test. You need 70% to open the next week, and you can retake it.",
+ "<b>4. التقدم بيتحفظ عندك</b>في المتصفح من غير أي حساب، ولو سجّلت بالإيميل بيتحفظ أونلاين وتكمّل من أي جهاز.": "<b>4. Your progress is saved</b>In your browser with no account, and if you sign in with your email it's saved online so you can continue on any device.",
+ "رحلتين مجانيتين، كل رحلة 24 أسبوع (6 شهور) من الصفر للاحتراف، ساعتين في اليوم. كل يوم فيه شرح وتطبيق واختبار، وكل أسبوع بيخلص بمشروع واختبار لازم تعدّيه عشان تكمّل. تقدمك بيتحفظ في المتصفح، ولو عملت حساب بالإيميل بيتحفظ أونلاين.": "Two free journeys, each 24 weeks (6 months) from zero to professional, two hours a day. Every day has an explanation, practice and a quiz, and every week ends with a project and a test you pass to move on. Your progress is saved in the browser, and online if you create an account with your email.",
+ "24 أسبوع في 6 شهور: من الأساسيات للإنتاج والشغل الحر": "24 weeks in 6 months: from the basics to production and freelancing",
+ "مشروع واختبار كل أسبوع، والأسبوع اللي بعده بيفتح بـ 70%": "A project and a test every week; the next week opens at 70%",
+ "24 أسبوع في 6 شهور: من A1 لحد B2/C1": "24 weeks in 6 months: from A1 to B2/C1",
+ "نصوص محلولة من الشغل الحقيقي": "Worked texts from real work",
+ "أكتر من 110 قاعدة جرامر، واختبارات قواعد ومراجعة": "Over 110 grammar rules, with grammar and review quizzes",
+ "مكتبة فيها 155 مصدر للقراءة والاستماع والكلام": "A library of 155 resources for reading, listening and speaking"
 });
