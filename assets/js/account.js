@@ -1,4 +1,4 @@
-/* Optional account: sign in with an email code (Supabase), then the journey progress and every
+/* Optional account: sign in with an email link or code (Supabase), then the journey progress and every
  * test attempt are kept online and merged across devices. Without an account (or offline) the
  * site keeps working from localStorage; sync retries when the connection comes back. */
 (function(){
@@ -47,16 +47,16 @@
         '<button type="button" class="ghost-btn" data-a="out">' + T('اخرج') + '</button></div>' +
         '<p class="sub-note">' + T('لما تخرج، تقدمك بيفضل على الجهاز ده، ونسخته الأونلاين بتفضل محفوظة في حسابك.') + '</p>';
     }else if(pendingEmail){
-      h += '<p>' + TF('بعتنا كود على {e}. اكتبه هنا، أو دوس على الرابط اللي في الإيميل.', { e: '<b>' + esc(pendingEmail) + '</b>' }) + '</p>' +
-        '<form data-f="code"><label for="acctCode">' + T('الكود') + '</label>' +
+      h += '<p>' + TF('بعتنا رابط دخول على {e}. افتح الإيميل ودوس على الرابط وهتدخل على طول. ولو الإيميل فيه كود أرقام، اكتبه هنا.', { e: '<b>' + esc(pendingEmail) + '</b>' }) + '</p>' +
+        '<form data-f="code"><label for="acctCode">' + T('الكود (لو وصلك)') + '</label>' +
         '<input id="acctCode" class="acct-in mono" inputmode="numeric" autocomplete="one-time-code" pattern="[0-9]{6,10}" maxlength="10" required>' +
         '<div class="acct-row"><button type="submit" class="link-btn">' + T('ادخل') + '</button>' +
         '<button type="button" class="ghost-btn" data-a="back">' + T('غيّر الإيميل') + '</button></div></form>';
     }else{
-      h += '<p>' + T('سجّل بالإيميل عشان تقدمك ونتايج اختباراتك تتحفظ أونلاين وتكمّل من أي جهاز. مفيش باسورد: هيوصلك كود على الإيميل.') + '</p>' +
+      h += '<p>' + T('سجّل بالإيميل عشان تقدمك ونتايج اختباراتك تتحفظ أونلاين وتكمّل من أي جهاز. مفيش باسورد: هيوصلك رابط دخول على الإيميل.') + '</p>' +
         '<form data-f="email"><label for="acctEmail">' + T('الإيميل') + '</label>' +
         '<input id="acctEmail" class="acct-in" type="email" autocomplete="email" dir="ltr" required>' +
-        '<div class="acct-row"><button type="submit" class="link-btn">' + T('ابعت الكود') + '</button></div></form>' +
+        '<div class="acct-row"><button type="submit" class="link-btn">' + T('ابعت رابط الدخول') + '</button></div></form>' +
         '<p class="sub-note">' + T('الحساب اختياري. من غيره تقدمك بيتحفظ في المتصفح بس.') + '</p>';
     }
     h += '<p class="acct-msg" role="alert">' + esc(lastError) + '</p>';

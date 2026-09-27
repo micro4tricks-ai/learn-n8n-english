@@ -121,5 +121,9 @@ window.I18N_ADD && I18N_ADD({
  "24 أسبوع في 6 شهور: من A1 لحد B2/C1": "24 weeks in 6 months: from A1 to B2/C1",
  "نصوص محلولة من الشغل الحقيقي": "Worked texts from real work",
  "أكتر من 110 قاعدة جرامر، واختبارات قواعد ومراجعة": "Over 110 grammar rules, with grammar and review quizzes",
- "مكتبة فيها 155 مصدر للقراءة والاستماع والكلام": "A library of 155 resources for reading, listening and speaking"
+ "مكتبة فيها 155 مصدر للقراءة والاستماع والكلام": "A library of 155 resources for reading, listening and speaking",
+ "بعتنا رابط دخول على {e}. افتح الإيميل ودوس على الرابط وهتدخل على طول. ولو الإيميل فيه كود أرقام، اكتبه هنا.": "We sent a sign-in link to {e}. Open the email and click the link to sign in right away. If the email has a number code, type it here.",
+ "الكود (لو وصلك)": "Code (if you got one)",
+ "سجّل بالإيميل عشان تقدمك ونتايج اختباراتك تتحفظ أونلاين وتكمّل من أي جهاز. مفيش باسورد: هيوصلك رابط دخول على الإيميل.": "Sign in with your email so your progress and test results are saved online and you can continue on any device. No password: you'll get a sign-in link by email.",
+ "ابعت رابط الدخول": "Send the sign-in link"
 });
