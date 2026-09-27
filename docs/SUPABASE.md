@@ -13,7 +13,7 @@ Row-level security is in [`supabase/schema.sql`](../supabase/schema.sql). The an
 
 ## How sync works (`assets/js/account.js`)
 
-1. Sign-in sends a one-time code (and a sign-in link) to the email. No passwords.
+1. Sign-in sends a sign-in link to the email (and a one-time code once custom SMTP is set up). No passwords.
 2. After sign-in, the page reads the user's `progress` row for its track and **merges** it with the browser's copy: anything done on either device stays done, and every test attempt from both is kept (see `JOURNEY.mergeProgress`).
 3. The merged copy is saved in the browser and uploaded. New test attempts are also added to `test_attempts`, once each.
 4. Later changes upload about 2 seconds after they happen, and again when the tab comes back into view or the connection returns. If the server can't be reached, the page keeps working and says so in the account dialog.
