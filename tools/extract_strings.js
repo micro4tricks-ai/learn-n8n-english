@@ -47,7 +47,7 @@ function literalKeys(file, has) {
 }
 (async () => {
   const pages = { common: 'index.html', n8n: 'n8n.html', english: 'english.html' };
-  const apps = { common: ['assets/js/journey.js'], n8n: ['assets/js/n8n-app.js'], english: ['assets/js/english-app.js'] };
+  const apps = { common: ['assets/js/journey.js', 'assets/js/account.js'], n8n: ['assets/js/n8n-app.js'], english: ['assets/js/english-app.js'] };
   const seen = new Set();
   for (const [name, file] of Object.entries(pages)) {
     const { found, w } = runPage(file);
