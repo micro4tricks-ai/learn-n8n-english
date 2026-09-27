@@ -76,4 +76,10 @@
     if(a && a.getAttribute('href').length > 1) openSection(a.getAttribute('href').slice(1));
   }, true);
   try{ if(location.hash){ openSection(location.hash.slice(1)); var t = document.getElementById(location.hash.slice(1)); if(t) t.scrollIntoView(); } }catch(e){}
+  window.addEventListener('hashchange', function(){
+    var id = location.hash.slice(1);
+    if(!id) return;
+    openSection(id);
+    var t = document.getElementById(id); if(t) t.scrollIntoView();
+  });
 })();

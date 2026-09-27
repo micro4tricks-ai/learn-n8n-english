@@ -20,7 +20,7 @@
   function fmt(s){ return esc(s).replace(/`([^`]+)`/g, '<code>$1</code>'); }
 
   var D = TDEEP(window.EN_DATA);
-  var SPRINT = D.SPRINT, VOCAB = D.VOCAB, READINGS = D.READINGS, PHRASES = D.PHRASES, GRAMMAR = D.GRAMMAR, LIBRARY = D.LIBRARY, ERRORS = D.ERRORS, WEEKS = D.WEEKS, CAPSTONE = D.CAPSTONE, TRACKS = D.TRACKS, LVL = D.LVL;
+  var SPRINT = D.SPRINT, VOCAB = D.VOCAB, READINGS = D.READINGS, PHRASES = D.PHRASES, GRAMMAR = D.GRAMMAR, GRAMMAR_QUIZ = D.GRAMMAR_QUIZ, LIBRARY = D.LIBRARY, ERRORS = D.ERRORS, WEEKS = D.WEEKS, CAPSTONE = D.CAPSTONE, TRACKS = D.TRACKS, LVL = D.LVL;
 
   // ================= helpers =================
   function $(id){ return document.getElementById(id); }
@@ -287,7 +287,7 @@
     var tabs = $('quizTabs');
     tabs.innerHTML = '';
     if(typeof quizTab === 'number' && !unlocked(quizTab)) quizTab = selDay;
-    [['all',T('كل الأسئلة')]].concat(SPRINT.filter(function(d){ return unlocked(d.d); }).map(function(d){ return [d.d, TF('اليوم {d}', {d:d.d})]; })).concat([['wrong',T('اللي غلطت فيها')]]).forEach(function(t){
+    [['all',T('كل الأسئلة')]].concat(SPRINT.filter(function(d){ return unlocked(d.d); }).map(function(d){ return [d.d, TF('اليوم {d}', {d:d.d})]; })).concat([['g',T('اختبار القواعد')],['wrong',T('اللي غلطت فيها')]]).forEach(function(t){
       var b = document.createElement('button');
       b.type = 'button';
       b.className = 'cat-tab' + (quizTab === t[0] ? ' active' : '');
@@ -296,8 +296,8 @@
       tabs.appendChild(b);
     });
     var qs = [];
-    SPRINT.forEach(function(day){
-      if(!unlocked(day.d)) return;
+    SPRINT.concat([{d:'g', quiz:GRAMMAR_QUIZ}]).forEach(function(day){
+      if(typeof day.d === 'number' && !unlocked(day.d)) return;
       day.quiz.forEach(function(q, i){
         var id = quizId(day.d, i), ans = state.quiz[id];
         if(quizTab === 'all' || quizTab === day.d || (quizTab === 'wrong' && ans !== undefined && ans !== q.a)) qs.push({q:q, id:id, d:day.d, i:i});
@@ -327,7 +327,7 @@
       var ans = state.quiz[x.id];
       var card = document.createElement('div');
       card.className = 'q-card';
-      var h = '<div class="qn">DAY ' + x.d + ' · Q' + (x.i + 1) + '</div><div class="qq">' + fmt(x.q.q) + '</div><div class="q-opts">';
+      var h = '<div class="qn">' + (x.d === 'g' ? 'GRAMMAR' : 'DAY ' + x.d) + ' · Q' + (x.i + 1) + '</div><div class="qq">' + fmt(x.q.q) + '</div><div class="q-opts">';
       x.q.o.forEach(function(o, oi){
         var cls = '';
         if(ans !== undefined){ if(oi === x.q.a) cls = ' right'; else if(oi === ans) cls = ' wrong'; }
@@ -537,12 +537,36 @@
   }
 
   // ================= grammar =================
+  var gTopic = T('الكل');
   function renderGrammar(){
-    $('grammarGrid').innerHTML = GRAMMAR.map(function(g){
-      return '<div class="g-card"><h3>' + esc(g.h) + '</h3><p>' + fmt(g.p) + '</p>' +
+    var ALL = T('الكل');
+    var topics = [ALL].concat(Array.from(new Set(GRAMMAR.map(function(g){ return g.c; }))));
+    var tabs = $('gTabs');
+    if(tabs){
+      tabs.innerHTML = '';
+      topics.forEach(function(c){
+        var n = c === ALL ? GRAMMAR.length : GRAMMAR.filter(function(g){ return g.c === c; }).length;
+        var b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'cat-tab' + (c === gTopic ? ' active' : '');
+        b.innerHTML = esc(c) + ' <span class="cnt">' + n + '</span>';
+        b.addEventListener('click', function(){ gTopic = c; renderGrammar(); });
+        tabs.appendChild(b);
+      });
+    }
+    $('grammarGrid').innerHTML = GRAMMAR.filter(function(g){ return gTopic === ALL || g.c === gTopic; }).map(function(g){
+      return '<div class="g-card"><span class="badge">' + esc(g.c) + '</span><h3>' + esc(g.h) + '</h3><p>' + fmt(g.p) + '</p>' +
         '<div class="g-ex"><span class="bad">✗ ' + esc(g.bad) + '</span><span class="good">✓ ' + esc(g.good) + '</span></div></div>';
     }).join('');
   }
+  (function(){
+    var b = $('goGrammarQuiz');
+    if(b) b.addEventListener('click', function(){
+      quizTab = 'g'; renderQuiz();
+      if(window.openSection) openSection('quiz');
+      $('quiz').scrollIntoView({behavior:'smooth', block:'start'});
+    });
+  })();
 
   // ================= library =================
   var libCats = [T('الكل'), T('في الأسبوع المكثّف')].concat(Array.from(new Set(LIBRARY.map(function(b){ return b.c; }))));

@@ -72,7 +72,7 @@ Two free learning plans in one site, for Arabic-speaking developers who want to 
   <tr><td>Glossary terms with examples</td><td align="right">203</td><td>Vocabulary words with audio</td><td align="right">887</td></tr>
   <tr><td>Quick-reference cheat sheets</td><td align="right">12</td><td>Ready-made sentences</td><td align="right">36</td></tr>
   <tr><td>Common errors explained</td><td align="right">34</td><td>Error messages explained</td><td align="right">16</td></tr>
-  <tr><td>Language &amp; skill tracks</td><td align="right">11</td><td>Grammar rules (right vs. wrong)</td><td align="right">12</td></tr>
+  <tr><td>Language &amp; skill tracks</td><td align="right">11</td><td>Grammar rules (right vs. wrong)</td><td align="right">117</td></tr>
   <tr><td>Weekly projects + capstone steps</td><td align="right">12 + 7</td><td>Skill tracks + capstone steps</td><td align="right">6 + 6</td></tr>
   <tr><td>Free library resources</td><td align="right">110</td><td>Free library resources</td><td align="right">135</td></tr>
 </table>
