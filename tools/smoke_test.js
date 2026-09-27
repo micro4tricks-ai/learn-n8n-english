@@ -60,7 +60,8 @@ function journeyChecks(doc, w, where) {
   check(!doc.querySelector('.jr-week[data-week="2"]').classList.contains('locked'), where + ': week 2 opens after passing');
   check(J.getProgress().tests['w01-test'].length === 2, where + ': both attempts recorded');
   doc.querySelector('.jr-week[data-week="2"]').click();
-  check(doc.querySelector('.jr-main .sub-note'), where + ': week 2 shows coming soon');
+  if (J.weeks[J.track()][2]) check(doc.querySelectorAll('#jrTabs .day-tab').length === 6, where + ': week 2 opens with 6 days');
+  else check(doc.querySelector('.jr-main .sub-note'), where + ': week 2 shows coming soon');
   doc.querySelector('.jr-week[data-week="9"]').click();
   check(doc.querySelector('.jr-main .lock-note'), where + ': week 9 shows lock note');
   doc.querySelector('[data-jtoday]').click();
