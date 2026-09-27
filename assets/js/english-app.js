@@ -20,7 +20,7 @@
   function fmt(s){ return esc(s).replace(/`([^`]+)`/g, '<code>$1</code>'); }
 
   var D = TDEEP(window.EN_DATA);
-  var SPRINT = D.SPRINT, VOCAB = D.VOCAB, READINGS = D.READINGS, PHRASES = D.PHRASES, GRAMMAR = D.GRAMMAR, GRAMMAR_QUIZ = D.GRAMMAR_QUIZ, EXTRA_QUIZ = D.EXTRA_QUIZ, REFS = D.REFS, LIBRARY = D.LIBRARY, ERRORS = D.ERRORS, WEEKS = D.WEEKS, CAPSTONE = D.CAPSTONE, TRACKS = D.TRACKS, LVL = D.LVL;
+  var VOCAB = D.VOCAB, READINGS = D.READINGS, PHRASES = D.PHRASES, GRAMMAR = D.GRAMMAR, GRAMMAR_QUIZ = D.GRAMMAR_QUIZ, EXTRA_QUIZ = D.EXTRA_QUIZ, REFS = D.REFS, LIBRARY = D.LIBRARY, ERRORS = D.ERRORS, TRACKS = D.TRACKS, LVL = D.LVL;
 
   // ================= helpers =================
   function $(id){ return document.getElementById(id); }
@@ -170,124 +170,13 @@
       '</div></div>';
   })();
 
-  // ================= sprint =================
-  function sprintTaskId(d, i){ return 'd' + d + '_' + i; }
-  function quizId(d, i){ return 'q' + d + '_' + i; }
-  function dayStats(day){
-    var bd = day.build.filter(function(_, i){ return state.sprint[sprintTaskId(day.d, i)]; }).length;
-    var qr = day.quiz.filter(function(q, i){ return state.quiz[quizId(day.d, i)] === q.a; }).length;
-    var chal = state.sprint['d' + day.d + '_ch'] ? 1 : 0;
-    return {build:bd, buildT:day.build.length, quiz:qr, quizT:day.quiz.length, chal:chal,
-            done: bd === day.build.length && qr >= 4 && chal === 1};
-  }
-  function firstOpenDay(){
-    for(var i = 0; i < SPRINT.length; i++){ if(!dayStats(SPRINT[i]).done) return SPRINT[i].d; }
-    return SPRINT.length;
-  }
-  var selDay = firstOpenDay();
-  var quizTab = selDay;
-
-  // a day opens once the day before it is done
-  function unlocked(d){ return d === 1 || dayStats(SPRINT[d - 2]).done; }
-  function showLockNote(d){
-    var n = $('lockNote');
-    if(!n){ n = document.createElement('p'); n.id = 'lockNote'; n.className = 'lock-note'; n.setAttribute('aria-live', 'polite'); $('dayTabs').after(n); }
-    n.textContent = d ? TF('اليوم {d} لسه مقفول 🔒 خلّص اليوم {p} الأول: كل مهام «اتمرّن» والتحدي، و4 من 5 صح في الاختبار.', {d:d, p:d - 1}) : '';
-    n.hidden = !d;
-  }
-  function renderSprintTabs(){
-    var el = $('dayTabs');
-    el.innerHTML = '';
-    SPRINT.forEach(function(day){
-      var st = dayStats(day), open = unlocked(day.d);
-      var b = document.createElement('button');
-      b.type = 'button';
-      b.className = 'day-tab' + (day.d === selDay ? ' sel' : '') + (st.done ? ' done' : '') + (open ? '' : ' locked');
-      if(!open) b.setAttribute('aria-disabled', 'true');
-      b.innerHTML = '<span class="dn">' + TF('اليوم {d}', {d:day.d}) + (st.done ? ' ✓' : open ? '' : ' 🔒') + '</span><span class="dt">' + esc(day.short) + '</span>' +
-        '<div class="mini-bar"><div class="mini-fill" style="width:' + pct(st.build + st.quiz + st.chal, st.buildT + st.quizT + 1) + '%"></div></div>';
-      b.addEventListener('click', function(){
-        if(!unlocked(day.d)){ showLockNote(day.d); return; }
-        showLockNote(0);
-        selDay = day.d;
-        renderSprintTabs(); renderSprintDay(); renderFocus();
-        quizTab = day.d; renderQuiz();
-      });
-      el.appendChild(b);
-    });
-  }
-  function renderSprintDay(){
-    var day = SPRINT[selDay - 1];
-    var st = dayStats(day);
-    var h = '<div class="sp-head"><h3>' + TF('اليوم {d}', {d:day.d}) + ': ' + esc(day.title) + '</h3><p>' + esc(day.goal) + '</p>' +
-      '<div class="mono">' + esc(day.hours) + ' · practice ' + st.build + '/' + st.buildT + ' · quiz ' + st.quiz + '/' + st.quizT + '</div></div>';
-
-    h += '<div class="sp-block"><h4><span class="step">1</span> ' + T('افهم: القاعدة مع أمثلة') + '</h4><div class="learn-grid">';
-    day.learn.forEach(function(l){
-      h += '<div class="learn-card"><div class="lh">' + esc(l[0]) + '</div><p class="lp">' + fmt(l[1]) + '</p><pre class="code">' + esc(l[2]) + '</pre></div>';
-    });
-    h += '</div></div>';
-
-    h += '<div class="sp-block"><h4><span class="step">2</span> ' + T('اتمرّن بإيدك') + '</h4><div class="build-list">';
-    day.build.forEach(function(t, i){
-      var id = sprintTaskId(day.d, i);
-      h += '<div class="task"><input type="checkbox" id="sp_' + id + '" data-sp="' + id + '"' + (state.sprint[id] ? ' checked' : '') + '>' +
-        '<label for="sp_' + id + '">' + fmt(t) + '</label></div>';
-    });
-    h += '</div></div>';
-
-    h += '<div class="sp-block"><h4><span class="step">3</span> ' + T('انسخ واستخدم') + '</h4><div class="phrase-grid" id="spCode"></div></div>';
-
-    var words = VOCAB.filter(function(v){ return v.s === day.d; });
-    h += '<div class="sp-block"><h4><span class="step">4</span> ' + T('كلمات اليوم') + '</h4>' +
-      '<p class="sub-note">' + TF('{n} كلمة، وكل كلمة معاها مثال وزرار نطق. راجعهم بالبطاقات في قسم المفردات.', {n:words.length}) + '</p>' +
-      '<div class="vocab-grid" id="spTerms"></div></div>';
-
-    var reads = LIBRARY.filter(function(b){ return b.days.indexOf(day.d) !== -1; });
-    h += '<div class="sp-block"><h4><span class="step">5</span> ' + T('اقرا واسمع (20 دقيقة من المكتبة)') + '</h4><div class="read-list">' +
-      reads.map(function(b){
-        return '<div class="read-row"><a href="' + esc(b.url) + '" target="_blank" rel="noopener">' + esc(b.t) + ' ↗</a><span>' + fmt(b.read) + '</span></div>';
-      }).join('') + '</div></div>';
-
-    var chId = 'd' + day.d + '_ch';
-    h += '<div class="sp-block"><h4><span class="step">6</span> ' + T('تحدي اليوم') + '</h4><div class="challenge"><b>' + T('التحدي:') + ' </b>' + fmt(day.challenge) +
-      '<div class="task" style="margin-top:10px"><input type="checkbox" id="sp_' + chId + '" data-sp="' + chId + '"' + (state.sprint[chId] ? ' checked' : '') + '>' +
-      '<label for="sp_' + chId + '">' + T('خلّصت التحدي بنفسي من غير مترجم') + '</label></div></div>' +
-      '<button type="button" class="link-btn" id="goQuiz">' + TF('اختبار اليوم {d} ({n} أسئلة)', {d:day.d, n:day.quiz.length}) + ' ' + T('←') + '</button></div>';
-
-    $('sprintDay').innerHTML = h;
-
-    var cg = $('spCode');
-    day.code.forEach(function(item){
-      var card = document.createElement('div');
-      card.className = 'phrase-card';
-      card.innerHTML = '<div class="row"><div class="u">' + esc(item.u) + '</div><button type="button" class="copy-btn">' + T('نسخ') + '</button></div>' +
-        '<pre class="code">' + esc(item.p) + '</pre>';
-      card.querySelector('.copy-btn').addEventListener('click', function(e){ copyText(item.p, e.currentTarget); });
-      cg.appendChild(card);
-    });
-    var tg = $('spTerms');
-    words.forEach(function(v){ tg.appendChild(vocabCard(v, 'sp')); });
-    tg.addEventListener('change', onVocabChange);
-    $('goQuiz').addEventListener('click', function(){
-      quizTab = day.d; renderQuiz();
-      if(window.openSection) openSection('quiz'); $('quiz').scrollIntoView({behavior:'smooth', block:'start'});
-    });
-  }
-  $('sprintDay').addEventListener('change', function(e){
-    if(!e.target.matches('input[data-sp]')) return;
-    state.sprint[e.target.dataset.sp] = e.target.checked;
-    if(e.target.checked) markToday();
-    saveState();
-    renderSprintTabs(); updateTotals();
-  });
-
   // ================= quiz =================
+  var quizTab = 'g';
+  function quizId(d, i){ return 'q' + d + '_' + i; }
   function renderQuiz(){
     var tabs = $('quizTabs');
     tabs.innerHTML = '';
-    if(typeof quizTab === 'number' && !unlocked(quizTab)) quizTab = selDay;
-    [['all',T('كل الأسئلة')]].concat(SPRINT.filter(function(d){ return unlocked(d.d); }).map(function(d){ return [d.d, TF('اليوم {d}', {d:d.d})]; })).concat([['g',T('اختبار القواعد')],['x',T('مراجعة شاملة')],['wrong',T('اللي غلطت فيها')]]).forEach(function(t){
+    [['g',T('اختبار القواعد')],['x',T('مراجعة شاملة')],['all',T('كل الأسئلة')],['wrong',T('اللي غلطت فيها')]].forEach(function(t){
       var b = document.createElement('button');
       b.type = 'button';
       b.className = 'cat-tab' + (quizTab === t[0] ? ' active' : '');
@@ -296,8 +185,7 @@
       tabs.appendChild(b);
     });
     var qs = [];
-    SPRINT.concat([{d:'g', quiz:GRAMMAR_QUIZ}, {d:'x', quiz:EXTRA_QUIZ}]).forEach(function(day){
-      if(typeof day.d === 'number' && !unlocked(day.d)) return;
+    [{d:'g', quiz:GRAMMAR_QUIZ}, {d:'x', quiz:EXTRA_QUIZ}].forEach(function(day){
       day.quiz.forEach(function(q, i){
         var id = quizId(day.d, i), ans = state.quiz[id];
         if(quizTab === 'all' || quizTab === day.d || (quizTab === 'wrong' && ans !== undefined && ans !== q.a)) qs.push({q:q, id:id, d:day.d, i:i});
@@ -307,16 +195,12 @@
     var right = qs.filter(function(x){ return state.quiz[x.id] === x.q.a; }).length;
     var sc = $('quizScore');
     sc.innerHTML = T('النتيجة:') + ' <b>' + right + ' / ' + qs.length + '</b> <span>(' + TF('جاوبت على {n}', {n:answered}) + ')</span>';
-    if(typeof quizTab === 'number'){
-      sc.innerHTML += right >= 4 ? ' <span style="color:var(--accent-ink)">✓ ' + T('جاهز لليوم اللي بعده') + '</span>'
-                                 : ' <span style="color:var(--accent-2)">' + T('محتاج 4 صح على الأقل عشان تنتقل لليوم اللي بعده') + '</span>';
-    }
     if(answered){
       var rb = document.createElement('button');
       rb.type = 'button'; rb.className = 'ghost-btn'; rb.textContent = T('امسح الإجابات دي وابدأ من جديد');
       rb.addEventListener('click', function(){
         qs.forEach(function(x){ delete state.quiz[x.id]; });
-        saveState(); renderQuiz(); renderSprintTabs(); updateTotals();
+        saveState(); renderQuiz(); updateTotals();
       });
       sc.appendChild(rb);
     }
@@ -327,7 +211,7 @@
       var ans = state.quiz[x.id];
       var card = document.createElement('div');
       card.className = 'q-card';
-      var h = '<div class="qn">' + (x.d === 'g' ? 'GRAMMAR' : x.d === 'x' ? 'REVIEW' : 'DAY ' + x.d) + ' · Q' + (x.i + 1) + '</div><div class="qq">' + fmt(x.q.q) + '</div><div class="q-opts">';
+      var h = '<div class="qn">' + (x.d === 'g' ? 'GRAMMAR' : 'REVIEW') + ' · Q' + (x.i + 1) + '</div><div class="qq">' + fmt(x.q.q) + '</div><div class="q-opts">';
       x.q.o.forEach(function(o, oi){
         var cls = '';
         if(ans !== undefined){ if(oi === x.q.a) cls = ' right'; else if(oi === ans) cls = ' wrong'; }
@@ -346,7 +230,7 @@
     if(state.quiz[id] !== undefined) return;
     state.quiz[id] = Number(b.dataset.o);
     markToday(); saveState();
-    renderQuiz(); renderSprintTabs(); updateTotals();
+    renderQuiz(); updateTotals();
   });
 
   // ================= readings =================
@@ -421,13 +305,22 @@
     }).forEach(function(v){ g.appendChild(vocabCard(v, 'main')); });
     updateVocabProgress();
   }
-  function focusList(){ return VOCAB.filter(function(v){ return v.s === selDay; }); }
+  // focus = the words of the journey day the viewer has open
+  var focusDay = null, focusWeek = 1;
+  function focusList(){
+    if(!focusDay) return [];
+    return focusDay.words.map(function(w){
+      return VOCAB.filter(function(v){ return v.term === w.t; })[0] || {term:w.t, mean:JOURNEY.L(w.m), ex:w.ex, cat:''};
+    });
+  }
   function renderFocus(){
     var g = $('focusGrid');
     g.innerHTML = '';
     var list = focusList();
     list.forEach(function(v){ g.appendChild(vocabCard(v, 'focus')); });
-    $('focusLabel').textContent = TF('اليوم {d} من الأسبوع المكثّف: {n} كلمة. غيّر اليوم من فوق وهتتغيّر.', {d:selDay, n:list.length});
+    $('focusLabel').textContent = focusDay
+      ? TF('الأسبوع {w} · اليوم {d}: {n} كلمة. بيتغيّروا مع اليوم اللي فاتحه في الرحلة.', {w:focusWeek, d:focusDay.d, n:list.length})
+      : T('افتح يوم في الرحلة وهتلاقي كلماته هنا.');
     if(flashOn) buildDeck();
   }
   function updateVocabProgress(){
@@ -569,7 +462,7 @@
   })();
 
   // ================= library =================
-  var libCats = [T('الكل'), T('في الأسبوع المكثّف')].concat(Array.from(new Set(LIBRARY.map(function(b){ return b.c; }))));
+  var libCats = [T('الكل')].concat(Array.from(new Set(LIBRARY.map(function(b){ return b.c; }))));
   var activeLib = T('الكل');
   function libKey(b){ return 'l_' + b.url.replace(/[^a-z0-9]+/gi, '_').slice(-60); }
   function renderLibTabs(){
@@ -577,7 +470,6 @@
     tabs.innerHTML = '';
     libCats.forEach(function(c){
       var n = c === T('الكل') ? LIBRARY.length
-        : c === T('في الأسبوع المكثّف') ? LIBRARY.filter(function(b){ return b.days.length; }).length
         : LIBRARY.filter(function(b){ return b.c === c; }).length;
       var b = document.createElement('button');
       b.type = 'button';
@@ -590,8 +482,7 @@
   function renderLibrary(){
     var q = ($('libSearch').value || '').trim().toLowerCase();
     var list = LIBRARY.filter(function(b){
-      if(activeLib === T('في الأسبوع المكثّف') && !b.days.length) return false;
-      if(activeLib !== T('الكل') && activeLib !== T('في الأسبوع المكثّف') && b.c !== activeLib) return false;
+      if(activeLib !== T('الكل') && b.c !== activeLib) return false;
       return !q || [b.t, b.c, b.type, b.why, b.read].join(' ').toLowerCase().indexOf(q) !== -1;
     });
     var readN = LIBRARY.filter(function(b){ return state.lib[libKey(b)]; }).length;
@@ -607,7 +498,6 @@
         '<div class="lib-badges"><span class="badge free">' + esc(b.type) + '</span><span class="badge">' + esc(b.lvl) + '</span><span class="badge">' + esc(b.c) + '</span></div>' +
         '<p class="lib-why">' + fmt(b.why) + '</p>' +
         '<div class="lib-read"><b>' + T('استخدمه في:') + ' </b>' + fmt(b.read) + '</div>' +
-        (b.days.length ? '<div class="lib-days">Sprint day ' + b.days.join(' · ') + '</div>' : '') +
         '<div class="lib-url">' + esc(b.url.replace(/^https?:\/\//, '')) + '</div>' +
         '<div class="task"><input type="checkbox" id="lib_' + k + '" data-lib="' + k + '"' + (done ? ' checked' : '') + '><label for="lib_' + k + '">' + T('جرّبته / قريت الجزء المطلوب') + '</label></div>';
       g.appendChild(card);
@@ -662,15 +552,11 @@
   // ================= totals =================
   function updateTotals(){
     $('streakNum').textContent = streakShown();
-    var sd = 0, stot = 0, qr = 0, qt = 0;
-    SPRINT.forEach(function(day){
-      var st = dayStats(day);
-      sd += st.build + st.quiz + st.chal; stot += st.buildT + st.quizT + 1;
-      qr += st.quiz; qt += st.quizT;
-    });
-    $('sprintPct').textContent = pct(sd, stot) + '%';
-    $('quizPct').textContent = pct(qr, qt) + '%';
-    $('planPct').textContent = planPct() + '%';
+    var st = JOURNEY.stats();
+    $('journeyPct').textContent = st.pct + '%';
+    $('weeksNum').textContent = st.weeks + '/24';
+    var qs = GRAMMAR_QUIZ.map(function(q, i){ return [q, quizId('g', i)]; }).concat(EXTRA_QUIZ.map(function(q, i){ return [q, quizId('x', i)]; }));
+    $('quizPct').textContent = pct(qs.filter(function(x){ return state.quiz[x[1]] === x[0].a; }).length, qs.length) + '%';
   }
 
   // ================= nav scroll-spy =================
@@ -685,128 +571,6 @@
     secs.forEach(function(s){ if(s) io.observe(s); });
     links.forEach(function(a){ a.addEventListener('click', function(){ links.forEach(function(x){ x.classList.toggle('on', x === a); }); }); });
   }catch(e){}
-
-  var DAY_NAMES = {sat:T('السبت'), sun:T('الأحد'), mon:T('الاثنين'), tue:T('الثلاثاء'), wed:T('الأربعاء'), thu:T('الخميس'), fri:T('الجمعة')};
-  var DAY_ORDER = ['sat','sun','mon','tue','wed','thu','fri'];
-  var todayKey = ['sun','mon','tue','wed','thu','fri','sat'][new Date().getDay()];
-
-  // builds the concrete daily tasks for one week from its data
-  function weekDays(w){
-    var cat = w.cats.join(LANG === 'en' ? ' & ' : T(' و'));
-    return {
-      sat:[[T('كلمات الأسبوع'),[TF('افتح بنك المفردات على تصنيف «{c}» واسمع نطق كل كلمة 🔊', {c:cat}),T('راجعهم بالبطاقات وضيف اللي مش حافظه على Anki')]],
-           [TF('قاعدة الأسبوع: {g}', {g:w.grammar.name}),[TF('اقرا القاعدة: {r}', {r:w.grammar.rule}),TF('اكتب 5 جمل عن كودك بالقاعدة، زي: `{e}`', {e:w.grammar.ex})]]],
-      sun:[[T('قراءة'),[TF('اقرا: {t} — {w}', {t:w.read.t, w:w.read.what}),T('دوّن 8 كلمات جديدة وضيفهم لقاموسك')]],
-           [T('القاعدة في النص'),[TF('دوّر في اللي قريته على 5 جمل فيها «{g}» وانسخهم', {g:w.grammar.name}),T('غيّر في كل جملة كلمة واحدة وخليها عن مشروعك')]]],
-      mon:[[T('استماع'),[TF('اسمع: {t} — {w}', {t:w.listen.t, w:w.listen.what}),T('اعمل Shadowing لـ 3 جمل منه وسجّل صوتك')]],
-           [T('مراجعة الكلمات'),[TF('اختبر نفسك في كلمات «{c}» بالبطاقات لحد ما يفضل 5 كلمات بس', {c:cat}),T('اكتب جملة لكل كلمة من الخمسة')]]],
-      tue:[[T('كتابة'),[w.write,T('حط كتابتك في LanguageTool وصلّح الأخطاء واكتب أكتر خطأ اتكرر')]],
-           [T('جمل جاهزة'),[T('اختار 3 قوالب من قسم «جمل جاهزة» تناسب موضوع الأسبوع واستخدمهم في كتابتك'),T('احفظهم وقولهم بصوت عالي')]]],
-      wed:[[T('كلام ونطق'),[w.speak,T('اسمع التسجيل ودوّن كلمتين تصلّح نطقهم من Cambridge Dictionary')]],
-           [T('القاعدة كتابة'),[TF('اكتب فقرة 6 جمل عن يومك في البرمجة بـ «{g}»', {g:w.grammar.name}),T('ارجع لقسم «قواعد المبرمج» وصلّح أي غلطة')]]],
-      thu:[[T('قراءة تانية'),[w.read2,T('لخّص اللي قريته في 3 جمل إنجليزي')]],
-           [T('مشروع الأسبوع'),[TF('ابدأ في: {t} — {d}', {t:w.project.t, d:w.project.d}),T('خلّص نصه على الأقل النهارده')]]],
-      fri:[[T('مراجعة'),[T('راجع كل كلمات الأسبوع: غطّي المعنى وحاول تفتكره من الكلمة بس'),T('جاوب اختبار اليوم المرتبط في قسم «اختبارات» لو لسه ما جاوبتوش')]],
-           [T('تسليم'),[TF('خلّص وسلّم: {t}', {t:w.project.t}),T('اكتب 3 جمل: What I learned this week / What was hard / What I will practice next')]]]
-    };
-  }
-  function planId(w, k, b, i){ return 'p' + w + '_' + k + '_' + b + '_' + i; }
-  function weekTotals(w){
-    var r = {total:0, done:0}, days = weekDays(w);
-    DAY_ORDER.forEach(function(k){ [0,1].forEach(function(bi){ days[k][bi][1].forEach(function(_, i){
-      r.total++; if(state.plan[planId(w.n, k, bi, i)]) r.done++;
-    }); }); });
-    return r;
-  }
-  function firstOpenWeek(){
-    for(var i = 0; i < WEEKS.length; i++){ var t = weekTotals(WEEKS[i]); if(t.done < t.total) return i; }
-    return WEEKS.length - 1;
-  }
-  var currentWeek = firstOpenWeek(), selWeek = currentWeek, blockFilter = 'all';
-
-  function renderMap(){
-    var grid = $('mapGrid');
-    grid.innerHTML = '';
-    WEEKS.forEach(function(w, idx){
-      var t = weekTotals(w);
-      var b = document.createElement('button');
-      b.type = 'button';
-      b.className = 'map-cell' + (idx === selWeek ? ' sel' : '') + (t.done === t.total ? ' done' : '');
-      b.innerHTML =
-        '<div class="map-top"><span class="map-n">' + TF('الأسبوع {n}', {n:w.n}) + '</span><span class="map-cnt">' + t.done + '/' + t.total + '</span></div>' +
-        '<div class="map-row"><span class="tag n8">' + T('مهارة') + '</span>' + esc(w.theme) + '</div>' +
-        '<div class="map-row"><span class="tag lg">' + T('قاعدة') + '</span>' + esc(w.grammar.name) + '</div>' +
-        '<div class="mini-bar"><div class="mini-fill" style="width:' + pct(t.done, t.total) + '%"></div></div>';
-      b.addEventListener('click', function(){
-        selWeek = idx; renderWeek(); renderMap();
-        if(window.openSection) openSection('plan'); $('plan').scrollIntoView({behavior:'smooth', block:'start'});
-      });
-      grid.appendChild(b);
-    });
-  }
-  function renderFilter(){
-    var row = $('filterRow');
-    row.innerHTML = '<span class="lbl">' + T('اعرض:') + '</span>';
-    [['all',T('الكل')],['0',T('المهارة فقط')],['1',T('الكلمات والقواعد فقط')]].forEach(function(f){
-      var b = document.createElement('button');
-      b.type = 'button';
-      b.className = 'cat-tab' + (blockFilter === f[0] ? ' active' : '');
-      b.textContent = f[1];
-      b.addEventListener('click', function(){ blockFilter = f[0]; renderFilter(); applyFilter(); });
-      row.appendChild(b);
-    });
-  }
-  function applyFilter(){
-    document.querySelectorAll('#weekGrid .blk').forEach(function(el){
-      el.hidden = (blockFilter !== 'all' && el.dataset.blk !== blockFilter);
-    });
-  }
-  function renderWeek(){
-    var w = WEEKS[selWeek], days = weekDays(w);
-    $('weekHead').innerHTML = '<h3>' + TF('الأسبوع {n}', {n:w.n}) + ': ' + esc(w.theme) + '</h3><p>' + esc(w.goal) + '</p>';
-    $('spotGrid').innerHTML =
-      '<div class="wow-card"><div class="wow-eyebrow">📐 ' + T('قاعدة الأسبوع') + '</div>' +
-        '<div class="wow-term">' + esc(w.grammar.name) + '</div>' +
-        '<div class="wow-mean">' + esc(w.grammar.rule) + '</div>' +
-        '<div class="wow-example">' + esc(w.grammar.ex) + '</div></div>' +
-      '<div class="wow-card lang"><div class="wow-eyebrow">📚 ' + T('مصادر الأسبوع') + '</div>' +
-        '<div class="read-list">' +
-          '<div class="read-row"><a href="' + esc(w.read.url) + '" target="_blank" rel="noopener">' + esc(w.read.t) + ' ↗</a><span>' + esc(w.read.what) + '</span></div>' +
-          '<div class="read-row"><a href="' + esc(w.listen.url) + '" target="_blank" rel="noopener">' + esc(w.listen.t) + ' ↗</a><span>' + esc(w.listen.what) + '</span></div>' +
-        '</div><div class="wow-mean">' + T('كلمات الأسبوع:') + ' ' + esc(w.cats.join(LANG === 'en' ? ', ' : T('، '))) + '</div></div>';
-    var grid = $('weekGrid');
-    grid.innerHTML = '';
-    DAY_ORDER.forEach(function(k){
-      var day = days[k];
-      var allDone = [0,1].every(function(bi){ return day[bi][1].every(function(_, i){ return state.plan[planId(w.n, k, bi, i)]; }); });
-      var isToday = (k === todayKey && selWeek === currentWeek);
-      var card = document.createElement('div');
-      card.className = 'day-card' + (isToday ? ' today' : '') + (allDone ? ' complete' : '');
-      var html = '<div class="day-head"><span class="day-name">' + DAY_NAMES[k] + '</span>' + (isToday ? '<span class="today-pill">' + T('النهارده') + '</span>' : '') + '</div>';
-      [0,1].forEach(function(bi){
-        html += '<div class="blk ' + (bi === 0 ? 'a' : 'b') + '" data-blk="' + bi + '"><div class="blk-head"><span class="tag ' + (bi === 0 ? 'n8' : 'lg') + '">' + (bi === 0 ? T('مهارة') : T('كلمات وقواعد')) + '</span>' +
-          '<span class="blk-focus">' + esc(day[bi][0]) + '</span></div>';
-        day[bi][1].forEach(function(t, i){
-          var id = planId(w.n, k, bi, i);
-          html += '<div class="task"><input type="checkbox" id="pl_' + id + '" data-plan="' + id + '"' + (state.plan[id] ? ' checked' : '') + '><label for="pl_' + id + '">' + fmt(t) + '</label></div>';
-        });
-        html += '</div>';
-      });
-      html += '<div class="day-time mono">⏱ ' + (k === 'fri' ? '30 min' : '40 min (25 skill + 15 words)') + '</div>';
-      card.innerHTML = html;
-      grid.appendChild(card);
-    });
-    applyFilter();
-  }
-  $('weekGrid').addEventListener('change', function(e){
-    if(!e.target.matches('input[data-plan]')) return;
-    state.plan[e.target.dataset.plan] = e.target.checked;
-    if(e.target.checked) markToday();
-    saveState();
-    var card = e.target.closest('.day-card');
-    if(card) card.classList.toggle('complete', Array.prototype.every.call(card.querySelectorAll('input[type=checkbox]'), function(c){ return c.checked; }));
-    renderMap(); updateTotals();
-  });
 
   function renderTracks(){
     var grid = $('trackGrid');
@@ -831,35 +595,16 @@
     saveState(); renderTracks();
   });
 
-  function renderProjects(){
-    $('projGrid').innerHTML = WEEKS.map(function(w){
-      var id = 'proj_' + w.n;
-      return '<div class="proj-card"><input type="checkbox" id="' + id + '" data-proj="' + w.n + '"' + (state.proj[w.n] ? ' checked' : '') + '>' +
-        '<label for="' + id + '"><div class="pw">WEEK ' + w.n + '</div><div class="pt">' + esc(w.project.t) + '</div><div class="pd">' + esc(w.project.d) + '</div></label></div>';
-    }).join('');
-    $('capList').innerHTML = CAPSTONE.map(function(t, i){
-      var id = 'cap_' + i;
-      return '<div class="task"><input type="checkbox" id="' + id + '" data-cap="' + i + '"' + (state.cap[i] ? ' checked' : '') + '><label for="' + id + '">' + esc(t) + '</label></div>';
-    }).join('');
-  }
-  $('projGrid').addEventListener('change', function(e){
-    if(!e.target.matches('input[data-proj]')) return;
-    state.proj[e.target.dataset.proj] = e.target.checked; saveState();
-  });
-  $('capList').addEventListener('change', function(e){
-    if(!e.target.matches('input[data-cap]')) return;
-    state.cap[e.target.dataset.cap] = e.target.checked; saveState();
-  });
-  function planPct(){
-    var T = 0, D = 0;
-    WEEKS.forEach(function(w){ var t = weekTotals(w); T += t.total; D += t.done; });
-    return pct(D, T);
-  }
-
-
   // ================= boot =================
-  renderSprintTabs();
-  renderSprintDay();
+  JOURNEY.mount({
+    track:'english', el:$('journeyApp'), storeKey:'journey_english_v1', legacyKey:STORE_KEY,
+    copy: copyText,
+    wordActions: function(w){ return speakBtn(w.t); },
+    onActivity: function(){ markToday(); saveState(); },
+    onChange: updateTotals,
+    onExternal: updateTotals,
+    onDay: function(w, day){ focusDay = day; focusWeek = w.n; renderFocus(); }
+  });
   renderQuiz();
   renderReadings();
   renderModeRow();
@@ -870,13 +615,8 @@
   renderGrammar();
   renderLibTabs();
   renderLibrary();
-  renderMap();
-  renderFilter();
-  renderWeek();
   renderTracks();
-  renderProjects();
   updateTotals();
-
 
   // jump to #section links now that the page content exists
   try{ if(location.hash){ var target = document.getElementById(location.hash.slice(1)); if(target) target.scrollIntoView(); } }catch(e){}

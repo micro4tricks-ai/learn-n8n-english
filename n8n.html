@@ -26,64 +26,48 @@
 
   <header class="top">
     <div>
-      <span class="brand-tag mono">learn/n8n --languages --12-weeks</span>
+      <span class="brand-tag mono">learn/n8n --24-weeks --zero-to-pro</span>
       <h1>رحلة n8n واللغات اللي معاها</h1>
-      <p class="sub">ابدأ بالأسبوع المكثّف: 7 أيام، حوالي 3 ساعات في اليوم، بتغطي أهم الحاجات اللي هتستخدمها في n8n. بعده كمّل الخطة الكاملة (12 أسبوع) عشان تثبّت اللغات (Python وJavaScript وSQL وغيرها) وتبني بورتفوليو.</p>
+      <p class="sub">رحلة 24 أسبوع (6 شهور) من الصفر للاحتراف: ساعتين في اليوم، 6 أيام في الأسبوع. كل يوم فيه شرح وتطبيق بإيدك ومصطلحات وقراءة واختبار قصير، وآخر كل أسبوع مشروع واختبار لازم تعدّي فيه بـ 70% عشان الأسبوع اللي بعده يفتح. ومعاها JavaScript وPython وSQL وDocker والذكاء الاصطناعي، لحد ما تسلّم مشاريع لعملاء وتشغّلها في الإنتاج.</p>
     </div>
     <div class="stat-cards">
       <div class="streak-card"><div class="num" id="streakNum">0</div><div class="lbl">يوم متتالي 🔥</div></div>
-      <div class="streak-card"><div class="num alt" id="sprintPct">0%</div><div class="lbl">الأسبوع المكثّف</div></div>
-      <div class="streak-card"><div class="num" id="quizPct">0%</div><div class="lbl">إجابات صح</div></div>
-      <div class="streak-card"><div class="num" id="totalPct">0%</div><div class="lbl">الإجمالي</div></div>
-      <div class="streak-card"><div class="num" id="n8nPct">0%</div><div class="lbl">مهام n8n</div></div>
-      <div class="streak-card"><div class="num alt" id="langPct">0%</div><div class="lbl">مهام اللغات</div></div>
+      <div class="streak-card"><div class="num alt" id="journeyPct">0%</div><div class="lbl">الرحلة</div></div>
+      <div class="streak-card"><div class="num" id="weeksNum">0/24</div><div class="lbl">أسابيع عدّيتها</div></div>
     </div>
   </header>
 
   <nav class="snav" id="snav" aria-label="أقسام الصفحة">
-    <a href="#sprint">الأسبوع المكثّف</a>
-    <a href="#quiz">اختبارات</a>
+    <a href="#journey">رحلة 24 أسبوع</a>
     <a href="#examples">أمثلة محلولة</a>
     <a href="#terms">المصطلحات</a>
     <a href="#ref">مرجع سريع</a>
     <a href="#library">المكتبة</a>
-    <a href="#map">خطة 12 أسبوع</a>
-    <a href="#plan">الخطة اليومية</a>
     <a href="#tracks">اللغات والمهارات</a>
-    <a href="#projects">المشاريع</a>
     <a href="#errors">الأخطاء</a>
   </nav>
 
-  <section id="sprint" style="margin-top:24px">
-    <h2 data-t=""><span class="n">01</span> الأسبوع المكثّف: 7 أيام</h2>
+  <section id="journey" style="margin-top:24px">
+    <h2 data-t=""><span class="n">01</span> رحلة الـ 24 أسبوع</h2>
     <div class="sprint-intro">
-      <p data-t="">كل يوم ماشي على نفس الترتيب: <b>افهم</b> المفاهيم وأمثلتها، وبعدين <b>ابني</b> بإيدك، و<b>انسخ وجرّب</b> الأكواد، و<b>احفظ</b> المصطلحات، وفي الآخر <b>تحدّي</b> و<b>اختبار</b>. متنتقلش لليوم اللي بعده غير لما تجاوب صح على 4 أسئلة من 5 على الأقل في اختبار اليوم.</p>
+      <p data-t="">كل يوم على نفس الترتيب: <b>افهم</b> الشرح وأمثلته، و<b>ابني</b> بإيدك، و<b>احفظ</b> مصطلحات اليوم، و<b>اقرا</b> من المصادر، وفي الآخر <b>اختبار قصير</b>. اليوم اللي بعده بيفتح لما تخلّص مهامك وتجاوب صح على 60% من الأسئلة. واليوم السادس مراجعة ومشروع واختبار أسبوعي.</p>
       <div class="rhythm" aria-label="تقسيم اليوم">
-        <span>⏱ 40 دقيقة: افهم</span><span>⏱ 80 دقيقة: ابني</span><span>⏱ 20 دقيقة: مصطلحات بالبطاقات</span><span>⏱ 30 دقيقة: التحدي</span><span>⏱ 10 دقايق: الاختبار</span>
+        <span>⏱ 30 دقيقة: افهم</span><span>⏱ 50 دقيقة: ابني</span><span>⏱ 15 دقيقة: مصطلحات</span><span>⏱ 15 دقيقة: اقرا</span><span>⏱ 10 دقايق: الاختبار</span>
       </div>
-      <p class="honest">بصراحة: 7 أيام مكثفة هتخليك تبني Workflows حقيقية لوحدك (APIs وSheets وTelegram وCode والـ AI ومعالجة الأخطاء). لكن الإتقان بييجي من التكرار على مشاريع حقيقية، وعشان كده الخطة الكاملة موجودة تحت.</p>
+      <p class="honest">تقدّمك بيتحفظ في المتصفح. ولو عملت حساب بالإيميل، بيتحفظ أونلاين وتكمّل من أي جهاز.</p>
     </div>
-    <div class="day-tabs" id="dayTabs"></div>
-    <div id="sprintDay"></div>
-  </section>
-
-  <section id="quiz">
-    <h2 data-t=""><span class="n">02</span> اختبارات</h2>
-    <p class="section-desc">اختار إجابة وهتعرف على طول إذا كانت صح ولا غلط، وليه. إجاباتك بتتحفظ، والسؤال اللي غلطت فيه ارجع له بعد يوم.</p>
-    <div class="cat-tabs" id="quizTabs"></div>
-    <div class="quiz-score" id="quizScore"></div>
-    <div class="quiz-list" id="quizList"></div>
+    <div id="journeyApp"></div>
   </section>
 
   <section id="examples">
-    <h2 data-t=""><span class="n">03</span> أمثلة محلولة</h2>
+    <h2 data-t=""><span class="n">02</span> أمثلة محلولة</h2>
     <p class="section-desc">Workflows حقيقية من شغل السوق، ولكل واحد: بيحل مشكلة إيه، والنودات بالترتيب، والخطوات، والكود أو الـ Expressions المهمة. افتح أي مثال وابنيه من الصفر من غير ما تبص على الحل، وبعدين قارن.</p>
     <div class="cat-tabs" id="exTabs"></div>
     <div class="ex-grid" id="exGrid"></div>
   </section>
 
   <section id="terms">
-    <h2 data-t=""><span class="n">04</span> بنك المصطلحات</h2>
+    <h2 data-t=""><span class="n">03</span> بنك المصطلحات</h2>
     <p class="section-desc">مصطلحات n8n واللغات، وجنب كل مصطلح مثال عملي. استخدم البطاقات: شوف المصطلح، افتكر معناه، واقلب البطاقة تتأكد. المصطلح اللي بتعرفه علّم عليه، وهيتشال من المراجعة.</p>
     <div class="mode-row" id="modeRow"></div>
     <div id="flashBox" class="flash-wrap" hidden="">
@@ -111,14 +95,14 @@
   </section>
 
   <section id="ref">
-    <h2 data-t=""><span class="n">05</span> مرجع سريع</h2>
+    <h2 data-t=""><span class="n">04</span> مرجع سريع</h2>
     <p class="section-desc">أكواد وأوامر جاهزة لكل لغة، ومعاها دوال n8n الجاهزة ومتغيراته والتواريخ. اضغط «نسخ» وجرّب على طول.</p>
     <div class="cat-tabs" id="refTabs"></div>
     <div class="phrase-grid" id="refGrid"></div>
   </section>
 
   <section id="library">
-    <h2 data-t=""><span class="n">06</span> المكتبة</h2>
+    <h2 data-t=""><span class="n">05</span> المكتبة</h2>
     <p class="section-desc">كتب مجانية ومراجع رسمية لـ n8n واللغات اللي معاه، بالعربي والإنجليزي. جنب كل مصدر مكتوب تقرا منه إيه بالظبط وفي أنهي يوم من الأسبوع المكثّف، عشان متضيعش وقت في فصول مش محتاجها دلوقتي. كل الروابط لمواقع رسمية أو كتب أصحابها نشروها مجانًا.</p>
     <div class="lib-tools">
       <label class="lib-search" for="libSearch"><span>ابحث:</span><input type="search" id="libSearch" placeholder="Python، Docker، عربي…" autocomplete="off"></label>
@@ -128,48 +112,14 @@
     <div class="lib-grid" id="libGrid"></div>
   </section>
 
-  <section id="map">
-    <h2 data-t=""><span class="n">07</span> خريطة الـ 12 أسبوع</h2>
-    <p class="section-desc" data-t="">12 أسبوع، كل أسبوع فيه خطين بيمشوا مع بعض: <b>n8n</b> (الأداة) و<b>لغة</b> (اللي بتحتاجها عشان تتحكم في الأداة). اضغط أي أسبوع تفتح خطته اليومية تحت.</p>
-    <div class="map-grid" id="mapGrid"></div>
-  </section>
-
-  <section id="plan">
-    <h2 data-t=""><span class="n">08</span> الخطة اليومية</h2>
-    <p class="section-desc" id="planDesc">كل يوم كارت فيه جزئين: مهام n8n ومهام اللغة. الأسبوع اللي بيفتح لوحده هو أول أسبوع لسه مخلصتوش، والتقدم بيتحفظ في المتصفح.</p>
-    <div class="week-head" id="weekHead"></div>
-    <div class="spot-grid" id="spotGrid"></div>
-    <div class="filter-row" id="filterRow"></div>
-    <div class="week-grid" id="weekGrid"></div>
-  </section>
-
   <section id="tracks">
-    <h2 data-t=""><span class="n">09</span> اللغات والمهارات</h2>
+    <h2 data-t=""><span class="n">06</span> اللغات والمهارات</h2>
     <p class="section-desc">دي كل اللغات والأدوات اللي هتحتاجها مع n8n: ليه كل واحدة مهمة، وامتى بتتعلمها، وقايمة مهارات تعلّم عليها لما تبقى بتعملها فعلاً من غير ما تفتح المرجع.</p>
     <div class="track-grid" id="trackGrid"></div>
   </section>
 
-  <section id="projects">
-    <h2 data-t=""><span class="n">10</span> المشاريع</h2>
-    <p class="section-desc">مشروع صغير في نهاية كل أسبوع، وكلهم بيتراكموا في مشروع ختامي. كل مشروع يترفع على GitHub، وده البورتفوليو بتاعك.</p>
-    <div class="proj-grid" id="projGrid"></div>
-    <div class="proj">
-      <h3 class="sub-h">المشروع الختامي (الأسبوع 12)</h3>
-      <div class="flow mono" aria-label="مسار المشروع">
-        <span class="flow-step">Google Form</span><span class="flow-arrow">←</span>
-        <span class="flow-step">Responses Sheet</span><span class="flow-arrow">←</span>
-        <span class="flow-step">Sheets Trigger</span><span class="flow-arrow">←</span>
-        <span class="flow-step">Edit Fields / Code</span><span class="flow-arrow">←</span>
-        <span class="flow-step">Log Sheet / DB</span><span class="flow-arrow">←</span>
-        <span class="flow-step">AI + Telegram / Gmail</span>
-      </div>
-      <h3 class="proj-h">المشروع يبقى خلص لما:</h3>
-      <div id="capList"></div>
-    </div>
-  </section>
-
   <section id="errors">
-    <h2 data-t=""><span class="n">11</span> رسائل أخطاء هتقابلها</h2>
+    <h2 data-t=""><span class="n">07</span> رسائل أخطاء هتقابلها</h2>
     <p class="section-desc">أشهر الأخطاء في n8n واللغات، معناها، سببها الغالب، وطريقة الحل. اقرا الرسالة الإنجليزي كاملة قبل ما تدور على حل.</p>
     <div class="cat-tabs" id="errTabs"></div>
     <div class="err-list" id="errList"></div>
@@ -190,6 +140,8 @@
 <script src="assets/js/common-en.js?v=202609274"></script>
 <script src="assets/js/n8n-en.js?v=202609274"></script>
 <script src="assets/js/n8n-data.js?v=202609274"></script>
+<script src="assets/js/journey.js?v=202609274"></script>
+<script src="content/n8n/outline.js?v=202609274"></script>
 <script src="assets/js/n8n-app.js?v=202609274"></script>
 <script src="assets/js/ui.js?v=202609274"></script>
 </body>

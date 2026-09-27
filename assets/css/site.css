@@ -589,3 +589,73 @@ section.fold{margin-block:14px;}
 .ref-list a{color:var(--accent-ink);font-weight:700;}
 .ref-list .rs{color:var(--muted);font-size:13.5px;display:block;}
 .ref-group{margin-bottom:22px;}
+
+/* ---------- 24-week journey ---------- */
+.jr-bar{display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;margin:6px 0 16px;}
+.jr-bar .jr-today{margin:0;}
+.jr-sum{font-size:13px;color:var(--muted);flex:1 1 220px;}
+.jr-side-btn{margin:0;}
+.jr-layout{display:grid;gap:20px;align-items:start;}
+.jr-side{display:none;gap:14px;}
+.side-open .jr-side{display:grid;}
+.jr-month{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:12px;}
+.jr-mh{font-size:14px;margin-bottom:8px;line-height:1.5;}
+.jr-mh b{font-family:'Cairo';color:var(--accent-ink);}
+.jr-lvl{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11.5px;color:var(--accent-2);background:var(--accent-2-soft);border-radius:6px;padding:0 6px;white-space:nowrap;}
+.jr-weeks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;}
+.jr-week{
+  font:inherit;text-align:start;cursor:pointer;border:1px solid var(--border);background:var(--surface);color:var(--ink);
+  border-radius:10px;padding:7px 9px;display:grid;gap:2px;min-height:44px;
+}
+.jr-week:hover{border-color:var(--accent);}
+.jr-week .jr-wn{font-family:'Cairo';font-weight:800;font-size:13px;}
+.jr-week .jr-wt{font-size:12px;color:var(--muted);line-height:1.4;}
+.jr-week.sel{border-color:var(--accent);box-shadow:0 0 0 2px var(--accent-soft);}
+.jr-week.done{background:var(--accent-soft);}
+.jr-week.locked{opacity:.6;background:var(--surface-2);}
+.jr-week.soon:not(.locked){border-style:dashed;}
+.jr-exam{margin-top:8px;font-size:12.5px;color:var(--muted);}
+.jr-exam span{font-size:11.5px;background:var(--surface-2);border-radius:6px;padding:0 6px;}
+.jr-main{min-width:0;}
+.jr-whead{margin-bottom:12px;}
+.jr-whead h3{font-family:'Cairo';font-size:clamp(19px,1.6vw + 12px,24px);margin:2px 0 4px;color:var(--accent-ink);text-wrap:balance;}
+.jr-whead p{margin:0;color:var(--muted);max-width:74ch;}
+.jr-eyebrow{font-size:12.5px;color:var(--accent-2);}
+.jr-days{grid-template-columns:repeat(6,minmax(0,1fr));}
+.jr-days .day-tab .dt{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+.jr-review{margin:0;padding-inline-start:20px;display:grid;gap:4px;}
+.q-opt.picked{border-color:var(--accent);background:var(--accent-soft);font-weight:700;}
+.q-opt:disabled{cursor:default;}
+.jr-attempts{font-size:14px;color:var(--accent-ink);margin:0 0 10px;}
+.jr-result{border-radius:12px;padding:12px 14px;margin:14px 0 8px;font-size:15px;}
+.jr-result.pass{background:var(--accent-soft);color:var(--accent-ink);border:1px solid var(--accent);}
+.jr-result.fail{background:var(--accent-2-soft);color:var(--accent-2);border:1px solid var(--accent-2);}
+.jr-actions{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:12px;}
+.jr-actions .link-btn,.jr-actions .ghost-btn{margin:0;}
+.link-btn:disabled{opacity:.5;cursor:not-allowed;}
+.jr-next{margin-top:18px;}
+
+/* ---------- responsive: phone < 600, tablet 600-1024, desktop > 1024 ---------- */
+:root{
+  --fs-body:clamp(15px, .4vw + 13.5px, 17px);
+}
+body{font-size:var(--fs-body);}
+pre,.code{max-width:100%;overflow-x:auto;}
+table{display:block;max-width:100%;overflow-x:auto;}
+@media (max-width:599px){
+  body{padding-inline:14px;}
+  .stat-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));width:100%;}
+  .jr-days{grid-template-columns:repeat(3,minmax(0,1fr));}
+  .learn-grid,.phrase-grid,.vocab-grid,.lib-grid,.quiz-list,.ex-grid,.err-list,.track-grid{grid-template-columns:1fr;}
+}
+@media (min-width:600px) and (max-width:1024px){
+  .jr-weeks{grid-template-columns:repeat(4,minmax(0,1fr));}
+  .jr-side{grid-template-columns:1fr;}
+  .jr-days{grid-template-columns:repeat(3,minmax(0,1fr));}
+}
+@media (min-width:1025px){
+  .wrap{max-width:1240px;}
+  .jr-side-btn{display:none;}
+  .jr-layout{grid-template-columns:290px minmax(0,1fr);}
+  .jr-side,.side-open .jr-side{display:grid;position:sticky;top:12px;max-height:calc(100vh - 24px);overflow-y:auto;padding-inline-end:4px;}
+}

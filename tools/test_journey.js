@@ -22,10 +22,14 @@ assert.strictEqual(J.rules.weekUnlocked('english', 1, {}), true);
 assert.strictEqual(J.rules.weekUnlocked('english', 2, p), true);
 assert.strictEqual(J.rules.weekUnlocked('english', 3, p), false);
 
-const day = { key: 'w01d1', practice: ['a', 'b'], quiz: [{}, {}] };
-assert.strictEqual(J.rules.dayDone(day, {}), false);
-assert.strictEqual(J.rules.dayDone(day, { pw01d1_0: true, pw01d1_1: true }, { qw01d1_0: 1 }), false);
-assert.strictEqual(J.rules.dayDone(day, { pw01d1_0: true, pw01d1_1: true }, { qw01d1_0: 1, qw01d1_1: 0 }), true);
+// a study day needs every practice task checked and at least 60% of its quiz right
+const day = { key: 'w01d1', practice: ['a', 'b'], quiz: [{ a: 1 }, { a: 0 }, { a: 2 }] };
+const allDone = { pw01d1_0: true, pw01d1_1: true };
+assert.strictEqual(J.rules.dayDone(day, {}, {}), false);
+assert.strictEqual(J.rules.dayDone(day, allDone, { qw01d1_0: 1 }), false);
+assert.strictEqual(J.rules.dayDone(day, allDone, { qw01d1_0: 1, qw01d1_1: 1, qw01d1_2: 1 }), false);
+assert.strictEqual(J.rules.dayDone(day, allDone, { qw01d1_0: 1, qw01d1_1: 0, qw01d1_2: 1 }), true);
+assert.strictEqual(J.rules.dayDone(day, { pw01d1_0: true }, { qw01d1_0: 1, qw01d1_1: 0, qw01d1_2: 2 }), false);
 
 const m = J.mergeProgress(
   { done: { a: true }, answers: { q1: 0 }, tests: { t: [{ score: 5, total: 10, at: 1 }] }, updatedAt: 1 },

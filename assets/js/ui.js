@@ -41,7 +41,7 @@
   function save(){ set(KEY, JSON.stringify(open)); }
 
   var sections = Array.prototype.slice.call(document.querySelectorAll('section[id]'))
-    .filter(function(s){ return s.id !== 'sprint' && s.querySelector(':scope > h2'); });
+    .filter(function(s){ return s.id !== 'journey' && s.querySelector(':scope > h2'); });
   function setOpen(sec, on, remember){
     sec.classList.toggle('closed', !on);
     var btn = sec.querySelector(':scope > h2 > .fold-btn');

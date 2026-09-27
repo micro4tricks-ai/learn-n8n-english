@@ -26,48 +26,44 @@
 
   <header class="top">
     <div>
-      <span class="brand-tag mono">learn/english --tech --daily</span>
+      <span class="brand-tag mono">learn/english --24-weeks --A1-to-C1</span>
       <h1>إنجليزي المبرمج</h1>
-      <p class="sub">ابدأ بالأسبوع المكثّف: 7 أيام، حوالي ساعتين في اليوم، تتعلم فيها تقرا رسائل الأخطاء والتوثيق، وتكتب commits وREADME وتقارير أخطاء، وتسأل وترد باحترافية، وتنطق المصطلحات صح. بعده كمّل خطة الـ 12 أسبوع (40 دقيقة في اليوم) عشان تثبّت ده وتوصل للطلاقة في الشغل.</p>
+      <p class="sub">رحلة 24 أسبوع (6 شهور) من A1 لحد B2/C1 في إنجليزي الشغل: ساعتين في اليوم، 6 أيام في الأسبوع. تقرا رسائل الأخطاء والتوثيق، وتكتب commits وREADME وإيميلات، وتتكلم في الاجتماعات والمقابلات. كل يوم فيه شرح وتطبيق وكلمات بالنطق وقراءة واختبار قصير، وآخر كل أسبوع مشروع واختبار لازم تعدّي فيه بـ 70%.</p>
     </div>
     <div class="stat-cards">
       <div class="streak-card"><div class="num" id="streakNum">0</div><div class="lbl">يوم متتالي 🔥</div></div>
-      <div class="streak-card"><div class="num alt" id="sprintPct">0%</div><div class="lbl">الأسبوع المكثّف</div></div>
-      <div class="streak-card"><div class="num" id="quizPct">0%</div><div class="lbl">إجابات صح</div></div>
+      <div class="streak-card"><div class="num alt" id="journeyPct">0%</div><div class="lbl">الرحلة</div></div>
+      <div class="streak-card"><div class="num" id="weeksNum">0/24</div><div class="lbl">أسابيع عدّيتها</div></div>
+      <div class="streak-card"><div class="num" id="quizPct">0%</div><div class="lbl">اختبارات القواعد</div></div>
       <div class="streak-card"><div class="num" id="vocabPct">0%</div><div class="lbl">كلمات محفوظة</div></div>
-      <div class="streak-card"><div class="num alt" id="planPct">0%</div><div class="lbl">خطة 12 أسبوع</div></div>
     </div>
   </header>
 
   <nav class="snav" id="snav" aria-label="أقسام الصفحة">
-    <a href="#sprint">الأسبوع المكثّف</a>
+    <a href="#journey">رحلة 24 أسبوع</a>
     <a href="#quiz">اختبارات</a>
     <a href="#reading">نصوص محلولة</a>
     <a href="#terms">المفردات</a>
     <a href="#phrases">جمل جاهزة</a>
     <a href="#grammar">قواعد المبرمج</a>
     <a href="#library">المكتبة</a>
-    <a href="#map">خطة 12 أسبوع</a>
-    <a href="#plan">الخطة اليومية</a>
     <a href="#tracks">المهارات</a>
-    <a href="#projects">المشاريع</a>
     <a href="#errors">رسائل الأخطاء</a>
     <a href="#refs">المراجع</a>
   </nav>
 
   <div class="wow-card" id="wowCard" style="margin-top:18px"></div>
 
-  <section id="sprint">
-    <h2 data-t=""><span class="n">01</span> الأسبوع المكثّف: 7 أيام</h2>
+  <section id="journey">
+    <h2 data-t=""><span class="n">01</span> رحلة الـ 24 أسبوع</h2>
     <div class="sprint-intro">
-      <p data-t="">كل يوم على نفس الترتيب: <b>افهم</b> القاعدة بأمثلة، و<b>اتمرّن</b> بإيدك على كود أو نصوص حقيقية، و<b>انسخ</b> الجمل الجاهزة، و<b>احفظ</b> كلمات اليوم وانطقها، وبعدين <b>اقرا</b> من المكتبة، وفي الآخر <b>تحدّي</b> و<b>اختبار</b>. متنتقلش لليوم اللي بعده غير لما تجاوب 4 من 5 صح.</p>
+      <p data-t="">كل يوم على نفس الترتيب: <b>افهم</b> القاعدة بأمثلة، و<b>اتمرّن</b> بإيدك، و<b>احفظ</b> كلمات اليوم وانطقها، و<b>اقرا واسمع</b> من المصادر، وفي الآخر <b>اختبار قصير</b>. اليوم اللي بعده بيفتح لما تخلّص مهامك وتجاوب صح على 60% من الأسئلة. واليوم السادس مراجعة ومشروع واختبار أسبوعي.</p>
       <div class="rhythm" aria-label="تقسيم اليوم">
-        <span>⏱ 25 دقيقة: افهم</span><span>⏱ 35 دقيقة: اتمرّن</span><span>⏱ 20 دقيقة: كلمات بالبطاقات والنطق</span><span>⏱ 20 دقيقة: اقرا</span><span>⏱ 15 دقيقة: التحدي</span><span>⏱ 5 دقايق: الاختبار</span>
+        <span>⏱ 30 دقيقة: افهم</span><span>⏱ 40 دقيقة: اتمرّن</span><span>⏱ 20 دقيقة: كلمات ونطق</span><span>⏱ 20 دقيقة: اقرا واسمع</span><span>⏱ 10 دقايق: الاختبار</span>
       </div>
-      <p class="honest">بصراحة: أسبوع مش هيخليك تتكلم إنجليزي بطلاقة. لكنه هيخليك تقرا رسائل الأخطاء والتوثيق وتفهمها من غير ترجمة، وتكتب بإنجليزي تقني سليم في الشغل (commits وREADME وإيميلات وأسئلة). ده بالظبط الإنجليزي اللي المبرمج بيستخدمه كل يوم. والطلاقة بتيجي مع الخطة اليومية على مدار شهور.</p>
+      <p class="honest">تقدّمك بيتحفظ في المتصفح. ولو عملت حساب بالإيميل، بيتحفظ أونلاين وتكمّل من أي جهاز.</p>
     </div>
-    <div class="day-tabs" id="dayTabs"></div>
-    <div id="sprintDay"></div>
+    <div id="journeyApp"></div>
   </section>
 
   <section id="quiz">
@@ -140,46 +136,21 @@
     <div class="lib-grid" id="libGrid"></div>
   </section>
 
-  <section id="map">
-    <h2 data-t=""><span class="n">08</span> خريطة الـ 12 أسبوع</h2>
-    <p class="section-desc">بعد الأسبوع المكثّف: 12 أسبوع، حوالي 40 دقيقة في اليوم. كل أسبوع فيه مهارة (قراءة وكتابة واستماع وكلام) في موضوع من شغل المبرمج، وقاعدة واحدة، وتصنيف كلمات، ومشروع صغير تسلّمه يوم الجمعة. اضغط أي أسبوع تفتح خطته.</p>
-    <div class="map-grid" id="mapGrid"></div>
-  </section>
-
-  <section id="plan">
-    <h2 data-t=""><span class="n">09</span> الخطة اليومية</h2>
-    <p class="section-desc">كل يوم فيه جزئين: المهارة، والكلمات والقواعد. الأسبوع اللي بيفتح لوحده هو أول أسبوع لسه مخلصتوش، والتقدم بيتحفظ في المتصفح.</p>
-    <div class="week-head" id="weekHead"></div>
-    <div class="spot-grid" id="spotGrid"></div>
-    <div class="filter-row" id="filterRow"></div>
-    <div class="week-grid" id="weekGrid"></div>
-  </section>
-
   <section id="tracks">
-    <h2 data-t=""><span class="n">10</span> المهارات</h2>
+    <h2 data-t=""><span class="n">08</span> المهارات</h2>
     <p class="section-desc">علّم على المهارة لما تبقى بتعملها فعلاً من غير ما تفتح قالب أو مترجم. دي أدق مقياس لمستواك.</p>
     <div class="track-grid" id="trackGrid"></div>
   </section>
 
-  <section id="projects">
-    <h2 data-t=""><span class="n">11</span> المشاريع</h2>
-    <p class="section-desc">مشروع صغير كل أسبوع تقدر تعرضه، وكلهم بيتجمعوا في بورتفوليو بالإنجليزي في الآخر.</p>
-    <div class="proj-grid" id="projGrid"></div>
-    <div class="proj">
-      <h3 class="sub-h">بعد الـ 12 أسبوع، المفروض:</h3>
-      <div id="capList"></div>
-    </div>
-  </section>
-
   <section id="errors">
-    <h2 data-t=""><span class="n">12</span> رسائل الأخطاء وأكواد HTTP</h2>
+    <h2 data-t=""><span class="n">09</span> رسائل الأخطاء وأكواد HTTP</h2>
     <p class="section-desc">أشهر رسائل الأخطاء في Python وJavaScript وGit والـ Terminal، وأكواد HTTP اللي بترجع من أي API. لكل رسالة: معناها، وسببها الشائع، والكلمة الإنجليزية المهمة فيها، وأحيانًا الحل. اختار المجموعة من التبويبات.</p>
     <div class="cat-tabs" id="errTabs"></div>
     <div class="err-list" id="errList"></div>
   </section>
 
   <section id="refs">
-    <h2 data-t=""><span class="n">13</span> المراجع</h2>
+    <h2 data-t=""><span class="n">10</span> المراجع</h2>
     <p class="section-desc">المصادر اللي اتبنى عليها محتوى الصفحة: القواعد، والمصطلحات، والكتابة التقنية، ورسائل الأخطاء، وأكواد HTTP، وGit، ومستويات اللغة. كل الروابط لمواقعها الأصلية وبتفتح في تاب جديد.</p>
     <div id="refList"></div>
   </section>
@@ -199,6 +170,8 @@
 <script src="assets/js/common-en.js?v=202609274"></script>
 <script src="assets/js/english-en.js?v=202609274"></script>
 <script src="assets/js/english-data.js?v=202609274"></script>
+<script src="assets/js/journey.js?v=202609274"></script>
+<script src="content/english/outline.js?v=202609274"></script>
 <script src="assets/js/english-app.js?v=202609274"></script>
 <script src="assets/js/ui.js?v=202609274"></script>
 </body>

@@ -13,6 +13,10 @@ const AR = /[؀-ۿ]/;
 // Inline the local scripts so jsdom runs the page exactly like a browser would, without network.
 function runPage(file) {
   let html = fs.readFileSync(path.join(ROOT, file), 'utf8');
+  // week files load on demand in the browser; here they are added right after the outline so jsdom has them
+  html = html.replace(/(<script src="content\/(\w+)\/outline\.js[^"]*"><\/script>)/, (tag, _, track) => tag +
+    fs.readdirSync(path.join(ROOT, 'content', track, 'weeks')).filter(f => /^w\d\d\.js$/.test(f))
+      .map(f => `<script src="content/${track}/weeks/${f}"></script>`).join(''));
   html = html.replace(/<link[^>]*>/g, '').replace(/<script src="([^"]+)"><\/script>/g,
     (_, src) => '<script>' + fs.readFileSync(path.join(ROOT, src.split('?')[0]), 'utf8').replace(/<\/script/g, '<\/script') + '</script>');
   const dom = new JSDOM(html, {
@@ -43,13 +47,13 @@ function literalKeys(file, has) {
 }
 (async () => {
   const pages = { common: 'index.html', n8n: 'n8n.html', english: 'english.html' };
-  const apps = { n8n: 'assets/js/n8n-app.js', english: 'assets/js/english-app.js' };
+  const apps = { common: ['assets/js/journey.js'], n8n: ['assets/js/n8n-app.js'], english: ['assets/js/english-app.js'] };
   const seen = new Set();
   for (const [name, file] of Object.entries(pages)) {
     const { found, w } = runPage(file);
     // T() in i18n.js knows the dictionary; ask it whether a literal is covered
     const has = k => w.T(k) !== k;
-    let keys = found.concat(apps[name] ? literalKeys(apps[name], has) : []);
+    let keys = found.concat(...(apps[name] || []).map(f => literalKeys(f, has)));
     keys = [...new Set(keys)].filter(k => !seen.has(k));
     keys.forEach(k => seen.add(k));
     fs.writeFileSync(path.join(__dirname, `missing-${name}.json`), JSON.stringify(keys, null, 1));
