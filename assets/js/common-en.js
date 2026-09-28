@@ -125,5 +125,21 @@ window.I18N_ADD && I18N_ADD({
  "بعتنا رابط دخول على {e}. افتح الإيميل ودوس على الرابط وهتدخل على طول. ولو الإيميل فيه كود أرقام، اكتبه هنا.": "We sent a sign-in link to {e}. Open the email and click the link to sign in right away. If the email has a number code, type it here.",
  "الكود (لو وصلك)": "Code (if you got one)",
  "سجّل بالإيميل عشان تقدمك ونتايج اختباراتك تتحفظ أونلاين وتكمّل من أي جهاز. مفيش باسورد: هيوصلك رابط دخول على الإيميل.": "Sign in with your email so your progress and test results are saved online and you can continue on any device. No password: you'll get a sign-in link by email.",
- "ابعت رابط الدخول": "Send the sign-in link"
+ "ابعت رابط الدخول": "Send the sign-in link",
+ "الامتحان النهائي": "Final exam",
+ "الامتحان النهائي · الأسابيع 1–24": "Final exam · weeks 1–24",
+ "امتحان الشهر {m} · الأسابيع {a}–{b}": "Month {m} exam · weeks {a}–{b}",
+ "الامتحان ده بيفتح لما تعدّي اختبارات الأسابيع {a}–{b} كلها 🔒": "This exam opens once you pass every weekly test in weeks {a}–{b} 🔒",
+ "بيحمّل أسئلة الامتحان…": "Loading the exam questions…",
+ "مقدرناش نحمّل الأسابيع دي. اتأكد من النت وجرّب تاني.": "We couldn't load these weeks. Check your connection and try again.",
+ "{n} سؤال مختارين من اختبارات وتمارين الأسابيع {a}–{b}. محتاج 70% أو أكتر. كل محاولة بتجيب أسئلة مختلفة، وأحسن درجة هي اللي بتتحسب.": "{n} questions drawn from the tests and quizzes of weeks {a}–{b}. You need 70% or more. Every attempt brings different questions, and your best score counts.",
+ "من الأسبوع {n}": "From week {n}",
+ "نجحت في الامتحان النهائي 🎓 خلّصت الرحلة كلها.": "You passed the final exam 🎓 You've completed the whole journey.",
+ "نجحت في امتحان الشهر 🎉": "You passed the month exam 🎉",
+ "لسه أقل من 70%. راجع الأسابيع اللي الأسئلة الغلط جاية منها، وبعدين جرّب تاني بأسئلة جديدة.": "Still under 70%. Review the weeks your wrong answers came from, then try again with new questions.",
+ "امتحان جديد بأسئلة تانية": "New exam with different questions",
+ "شهادة إتمام": "Certificate of completion",
+ "خلّصت رحلة الـ 24 أسبوع في «{track}»: 144 يوم، و24 اختبار أسبوعي، و5 امتحانات شهرية، والامتحان النهائي بأحسن درجة {p}%.": "Completed the 24-week journey in “{track}”: 144 days, 24 weekly tests, 5 monthly exams, and the final exam with a best score of {p}%.",
+ "اطبع الشهادة": "Print the certificate",
+ "نجحت 🎉 الامتحان النهائي اتفتح.": "You passed 🎉 The final exam is now open."
 });

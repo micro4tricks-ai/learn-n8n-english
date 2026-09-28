@@ -92,6 +92,29 @@ function allWeeksChecks(doc, w, where) {
     }
   });
   check(views >= 6, where + ': rendered ' + views + ' day views');
+  // exams: with every week passed, a month exam and the final open, score, and the final shows the certificate
+  if (Object.keys(J.weeks[track]).length === 24) {
+    for (const [m, count] of [[1, 20], [6, 48]]) {
+      doc.querySelector('.jr-exam[data-exam="' + m + '"]').click();
+      const opts = doc.querySelectorAll('#journeyApp .q-opt[data-je]');
+      const qs = [...new Set([...opts].map(b => b.dataset.je))];
+      check(qs.length === count, where + ': exam ' + m + ' has ' + count + ' questions (got ' + qs.length + ')');
+      qs.forEach(i => doc.querySelectorAll('#journeyApp .q-opt[data-je="' + i + '"]')[0].click());
+      check(!doc.querySelector('[data-jesubmit]').disabled, where + ': exam ' + m + ' can be submitted');
+      doc.querySelector('[data-jesubmit]').click();
+      check(doc.querySelector('#journeyApp .jr-result'), where + ': exam ' + m + ' shows a result');
+      check(J.getProgress().tests[J.rules.examId(m)].length === 1, where + ': exam ' + m + ' attempt recorded');
+    }
+    // force a pass on the final to render the certificate
+    const p2 = J.getProgress();
+    p2.tests['final-exam'].push({ score: 40, total: 48, at: 2 });
+    J.setProgress(p2);
+    doc.querySelector('.jr-exam[data-exam="6"]').click();
+    check(doc.querySelector('#jrCert'), where + ': certificate shown after passing the final');
+    const walker = doc.createTreeWalker(doc.getElementById('journeyApp'), w.NodeFilter.SHOW_TEXT);
+    let t;
+    while ((t = walker.nextNode())) if (AR.test(t.nodeValue) && !t.parentElement.closest('pre,code,.tex')) left.add('exam: ' + t.nodeValue.trim().slice(0, 60));
+  }
   if (left.size) { failed = true; console.log('  Arabic left in journey (EN):', [...left].slice(0, 10)); }
 }
 for (const file of ['index.html', 'n8n.html', 'english.html']) {

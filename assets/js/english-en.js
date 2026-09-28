@@ -2955,5 +2955,6 @@ window.I18N_ADD && I18N_ADD({
  "أسابيع عدّيتها": "Weeks passed",
  "رحلة 24 أسبوع": "24-week journey",
  "⏱ 30 دقيقة: افهم": "⏱ 30 min: understand",
- "تقدّمك بيتحفظ في المتصفح. ولو عملت حساب بالإيميل، بيتحفظ أونلاين وتكمّل من أي جهاز.": "Your progress is saved in the browser. If you create an account with your email, it's saved online and you can continue on any device."
+ "تقدّمك بيتحفظ في المتصفح. ولو عملت حساب بالإيميل، بيتحفظ أونلاين وتكمّل من أي جهاز.": "Your progress is saved in the browser. If you create an account with your email, it's saved online and you can continue on any device.",
+ "من رحلة الـ 24 أسبوع": "From the 24-week journey"
 });

@@ -18,7 +18,7 @@ function runPage(file) {
     fs.readdirSync(path.join(ROOT, 'content', track, 'weeks')).filter(f => /^w\d\d\.js$/.test(f))
       .map(f => `<script src="content/${track}/weeks/${f}"></script>`).join(''));
   html = html.replace(/<link[^>]*>/g, '').replace(/<script src="([^"]+)"><\/script>/g,
-    (_, src) => '<script>' + fs.readFileSync(path.join(ROOT, src.split('?')[0]), 'utf8').replace(/<\/script/g, '<\/script') + '</script>');
+    (_, src) => '<script>' + fs.readFileSync(path.join(ROOT, src.split('?')[0]), 'utf8').replace(/<\/script/g, '<\\/script') + '</script>');
   const dom = new JSDOM(html, {
     runScripts: 'dangerously', pretendToBeVisual: true, url: 'https://example.test/' + file,
     beforeParse(w) {

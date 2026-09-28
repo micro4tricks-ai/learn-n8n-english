@@ -1,0 +1,18 @@
+{
+"126": "Final exam",
+"127": "Final exam · weeks 1–24",
+"128": "Month {m} exam · weeks {a}–{b}",
+"129": "This exam opens once you pass every weekly test in weeks {a}–{b} 🔒",
+"130": "Loading the exam questions…",
+"131": "We couldn't load these weeks. Check your connection and try again.",
+"132": "{n} questions drawn from the tests and quizzes of weeks {a}–{b}. You need 70% or more. Every attempt brings different questions, and your best score counts.",
+"133": "From week {n}",
+"134": "You passed the final exam 🎓 You've completed the whole journey.",
+"135": "You passed the month exam 🎉",
+"136": "Still under 70%. Review the weeks your wrong answers came from, then try again with new questions.",
+"137": "New exam with different questions",
+"138": "Certificate of completion",
+"139": "Completed the 24-week journey in “{track}”: 144 days, 24 weekly tests, 5 monthly exams, and the final exam with a best score of {p}%.",
+"140": "Print the certificate",
+"141": "You passed 🎉 The final exam is now open."
+}
