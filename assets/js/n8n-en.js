@@ -2006,5 +2006,6 @@ window.I18N_ADD && I18N_ADD({
  "⏱ 15 دقيقة: اقرا": "⏱ 15 min: read",
  "تقدّمك بيتحفظ في المتصفح. ولو عملت حساب بالإيميل، بيتحفظ أونلاين وتكمّل من أي جهاز.": "Your progress is saved in the browser. If you create an account with your email, it's saved online and you can continue on any device.",
  "الأسبوع {w} · اليوم {d}: {n} مصطلح. بيتغيّروا مع اليوم اللي فاتحه في الرحلة.": "Week {w} · Day {d}: {n} terms. They change with the day you have open in the journey.",
- "افتح يوم في الرحلة وهتلاقي مصطلحاته هنا.": "Open a day in the journey and its terms will appear here."
+ "افتح يوم في الرحلة وهتلاقي مصطلحاته هنا.": "Open a day in the journey and its terms will appear here.",
+ "من رحلة الـ 24 أسبوع": "From the 24-week journey"
 });

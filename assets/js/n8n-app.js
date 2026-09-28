@@ -22,6 +22,10 @@
 
   var D = TDEEP(window.N8N_DATA);
   var LVL = D.LVL, TRACKS = D.TRACKS, TERMS = D.TERMS, CHEATS = D.CHEATS, ERRORS = D.ERRORS, EXAMPLES = D.EXAMPLES, LIBRARY = D.LIBRARY;
+  // words introduced in the 24-week journey join the glossary
+  ((window.JOURNEY_TERMS || {}).n8n || []).forEach(function(v){
+    TERMS.push({c:T('من رحلة الـ 24 أسبوع'), t:v.t, m:JOURNEY.L(v.m), ex:JOURNEY.L(v.ex)});
+  });
 
   // ---------------- helpers ----------------
   function termKey(t){ return 't_' + t.toLowerCase().replace(/[^a-z0-9]+/g,'_'); }

@@ -21,6 +21,10 @@
 
   var D = TDEEP(window.EN_DATA);
   var VOCAB = D.VOCAB, READINGS = D.READINGS, PHRASES = D.PHRASES, GRAMMAR = D.GRAMMAR, GRAMMAR_QUIZ = D.GRAMMAR_QUIZ, EXTRA_QUIZ = D.EXTRA_QUIZ, REFS = D.REFS, LIBRARY = D.LIBRARY, ERRORS = D.ERRORS, TRACKS = D.TRACKS, LVL = D.LVL;
+  // words introduced in the 24-week journey join the vocabulary bank
+  ((window.JOURNEY_TERMS || {}).english || []).forEach(function(v){
+    VOCAB.push({cat:T('من رحلة الـ 24 أسبوع'), term:v.t, mean:JOURNEY.L(v.m), ex:JOURNEY.L(v.ex)});
+  });
 
   // ================= helpers =================
   function $(id){ return document.getElementById(id); }
