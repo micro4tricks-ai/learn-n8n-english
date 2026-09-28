@@ -3096,5 +3096,203 @@ JOURNEY_TERMS["n8n"] = [
    "en": "a fixed reply when the agent doesn't know"
   },
   "ex": "\"Let me connect you with our team.\""
+ },
+ {
+  "w": 19,
+  "t": "semantic search",
+  "m": {
+   "ar": "بحث بالمعنى مش بالكلمات",
+   "en": "search by meaning, not by words"
+  },
+  "ex": "\"money back\" finds \"refund policy\""
+ },
+ {
+  "w": 19,
+  "t": "similarity score",
+  "m": {
+   "ar": "رقم بيقول الجزء قريب من السؤال قد إيه",
+   "en": "a number showing how close a chunk is to the question"
+  },
+  "ex": "0.89"
+ },
+ {
+  "w": 19,
+  "t": "Default Data Loader",
+  "m": {
+   "ar": "node بيقرا المستندات ويجهّزها للـ vector store",
+   "en": "a node that reads documents and prepares them for the vector store"
+  },
+  "ex": "PDF, text, JSON"
+ },
+ {
+  "w": 19,
+  "t": "text splitter",
+  "m": {
+   "ar": "بيقسّم النص الطويل لأجزاء",
+   "en": "splits long text into chunks"
+  },
+  "ex": "Recursive Character Text Splitter"
+ },
+ {
+  "w": 19,
+  "t": "chunk size / overlap",
+  "m": {
+   "ar": "حجم كل جزء والتداخل بين الأجزاء",
+   "en": "the size of each chunk and the overlap between them"
+  },
+  "ex": "800 / 100"
+ },
+ {
+  "w": 19,
+  "t": "metadata (chunk)",
+  "m": {
+   "ar": "معلومات عن الجزء: المصدر والقسم والتاريخ",
+   "en": "information about a chunk: source, section, date"
+  },
+  "ex": "source: refund-policy.pdf"
+ },
+ {
+  "w": 19,
+  "t": "ingestion",
+  "m": {
+   "ar": "إدخال المستندات في الـ vector store",
+   "en": "loading documents into the vector store"
+  },
+  "ex": "A separate ingestion workflow"
+ },
+ {
+  "w": 19,
+  "t": "Simple Vector Store",
+  "m": {
+   "ar": "vector store في ذاكرة n8n للتجربة",
+   "en": "an in-memory vector store for testing"
+  },
+  "ex": "Lost on restart."
+ },
+ {
+  "w": 19,
+  "t": "PGVector",
+  "m": {
+   "ar": "امتداد Postgres لتخزين الـ vectors",
+   "en": "a Postgres extension for storing vectors"
+  },
+  "ex": "CREATE EXTENSION vector;"
+ },
+ {
+  "w": 19,
+  "t": "Qdrant",
+  "m": {
+   "ar": "قاعدة vectors مفتوحة المصدر",
+   "en": "an open-source vector database"
+  },
+  "ex": "Run it with Docker."
+ },
+ {
+  "w": 19,
+  "t": "Pinecone",
+  "m": {
+   "ar": "خدمة vectors سحابية مُدارة",
+   "en": "a managed cloud vector service"
+  },
+  "ex": "No server to run."
+ },
+ {
+  "w": 19,
+  "t": "embedding model",
+  "m": {
+   "ar": "الموديل اللي بيحوّل النص لـ vectors",
+   "en": "the model that turns text into vectors"
+  },
+  "ex": "Use the same one to ingest and search."
+ },
+ {
+  "w": 19,
+  "t": "top K",
+  "m": {
+   "ar": "عدد الأجزاء اللي البحث بيرجّعها",
+   "en": "how many chunks a search returns"
+  },
+  "ex": "Top K: 5"
+ },
+ {
+  "w": 19,
+  "t": "Vector Store Tool",
+  "m": {
+   "ar": "أداة بتخلّي الـ agent يدوّر في الـ vector store",
+   "en": "a tool letting the agent search the vector store"
+  },
+  "ex": "search_kb"
+ },
+ {
+  "w": 19,
+  "t": "grounded answer",
+  "m": {
+   "ar": "إجابة مبنية على مستندات مش من خيال الموديل",
+   "en": "an answer based on documents, not the model's imagination"
+  },
+  "ex": "With a source name."
+ },
+ {
+  "w": 19,
+  "t": "reranking",
+  "m": {
+   "ar": "ترتيب النتايج تاني بطريقة أدق",
+   "en": "re-ordering results more precisely"
+  },
+  "ex": "Top 20 → rerank → best 5"
+ },
+ {
+  "w": 19,
+  "t": "hybrid search",
+  "m": {
+   "ar": "بحث بالكلمات والمعنى مع بعض",
+   "en": "search by keywords and meaning together"
+  },
+  "ex": "Good for product codes."
+ },
+ {
+  "w": 19,
+  "t": "stale data",
+  "m": {
+   "ar": "بيانات قديمة لسه موجودة بعد ما المصدر اتغيّر",
+   "en": "old data still present after the source changed"
+  },
+  "ex": "Last year's price list"
+ },
+ {
+  "w": 19,
+  "t": "reindexing",
+  "m": {
+   "ar": "إعادة بناء الـ vector store من الأول",
+   "en": "rebuilding the vector store from scratch"
+  },
+  "ex": "Weekly full reindex"
+ },
+ {
+  "w": 19,
+  "t": "upsert (vectors)",
+  "m": {
+   "ar": "تحديث أجزاء مستند أو إضافتها",
+   "en": "updating or adding a document's chunks"
+  },
+  "ex": "Replace chunks by source"
+ },
+ {
+  "w": 19,
+  "t": "retrieval hit rate",
+  "m": {
+   "ar": "نسبة الأسئلة اللي البحث رجّع فيها الجزء الصح",
+   "en": "the share of questions where search returned the right chunk"
+  },
+  "ex": "18/20"
+ },
+ {
+  "w": 19,
+  "t": "collection",
+  "m": {
+   "ar": "مجموعة vectors في الـ vector store",
+   "en": "a group of vectors in the vector store"
+  },
+  "ex": "kb_client_x"
  }
 ];
