@@ -3294,5 +3294,230 @@ JOURNEY_TERMS["n8n"] = [
    "en": "a group of vectors in the vector store"
   },
   "ex": "kb_client_x"
+ },
+ {
+  "w": 20,
+  "t": "MCP (Model Context Protocol)",
+  "m": {
+   "ar": "بروتوكول مفتوح لربط تطبيقات AI بالأدوات",
+   "en": "an open protocol connecting AI apps to tools"
+  },
+  "ex": "Any client ⇄ any server"
+ },
+ {
+  "w": 20,
+  "t": "MCP server",
+  "m": {
+   "ar": "خدمة بتعرض أدوات عن طريق MCP",
+   "en": "a service exposing tools through MCP"
+  },
+  "ex": "GitHub MCP server"
+ },
+ {
+  "w": 20,
+  "t": "MCP client",
+  "m": {
+   "ar": "تطبيق AI بيتصل بـ MCP servers ويستخدم أدواتها",
+   "en": "an AI app that connects to MCP servers and uses their tools"
+  },
+  "ex": "An n8n agent, Claude Desktop"
+ },
+ {
+  "w": 20,
+  "t": "tool discovery",
+  "m": {
+   "ar": "الـ client بيسأل الـ server عن أدواته",
+   "en": "the client asking the server what tools it has"
+  },
+  "ex": "tools/list"
+ },
+ {
+  "w": 20,
+  "t": "transport (SSE / HTTP)",
+  "m": {
+   "ar": "طريقة الاتصال بين الـ client والـ server",
+   "en": "how the client and server connect"
+  },
+  "ex": "streamable HTTP"
+ },
+ {
+  "w": 20,
+  "t": "MCP Client Tool",
+  "m": {
+   "ar": "node بتوصّل الـ agent بـ MCP server",
+   "en": "the node that connects an agent to an MCP server"
+  },
+  "ex": "Add it under the AI Agent's tools."
+ },
+ {
+  "w": 20,
+  "t": "server URL (MCP)",
+  "m": {
+   "ar": "عنوان الـ MCP server",
+   "en": "the address of the MCP server"
+  },
+  "ex": "https://mcp.example.com/sse"
+ },
+ {
+  "w": 20,
+  "t": "tools to include",
+  "m": {
+   "ar": "الأدوات اللي تديها للـ agent من الـ server",
+   "en": "the tools from the server you give the agent"
+  },
+  "ex": "search_issues only"
+ },
+ {
+  "w": 20,
+  "t": "Bearer auth (MCP)",
+  "m": {
+   "ar": "مصادقة بـ token للـ MCP server",
+   "en": "token authentication for an MCP server"
+  },
+  "ex": "Authorization: Bearer …"
+ },
+ {
+  "w": 20,
+  "t": "official MCP server",
+  "m": {
+   "ar": "server معمول من صاحب الخدمة نفسه",
+   "en": "a server built by the service's own vendor"
+  },
+  "ex": "More trustworthy."
+ },
+ {
+  "w": 20,
+  "t": "MCP Server Trigger",
+  "m": {
+   "ar": "node بتخلّي n8n MCP server بأدواتك",
+   "en": "the node that makes n8n an MCP server with your tools"
+  },
+  "ex": "Attach workflow tools to it."
+ },
+ {
+  "w": 20,
+  "t": "exposed tools",
+  "m": {
+   "ar": "الأدوات اللي الـ server بيعرضها للـ clients",
+   "en": "the tools a server offers to clients"
+  },
+  "ex": "get_order, create_ticket"
+ },
+ {
+  "w": 20,
+  "t": "MCP endpoint",
+  "m": {
+   "ar": "الـ URL اللي الـ clients بيتصلوا بيه",
+   "en": "the URL clients connect to"
+  },
+  "ex": "/mcp/company-tools"
+ },
+ {
+  "w": 20,
+  "t": "tool naming",
+  "m": {
+   "ar": "أسماء أدوات واضحة بفعل + حاجة",
+   "en": "clear tool names: verb + thing"
+  },
+  "ex": "get_order, not tool1"
+ },
+ {
+  "w": 20,
+  "t": "usage log",
+  "m": {
+   "ar": "سجل بكل مرة أداة اتنادت",
+   "en": "a record of every tool call"
+  },
+  "ex": "who, which tool, when, result"
+ },
+ {
+  "w": 20,
+  "t": "orchestrator agent",
+  "m": {
+   "ar": "agent رئيسي بيوزّع المهام على agents تانية",
+   "en": "a main agent that assigns tasks to other agents"
+  },
+  "ex": "Delegates to research and writing"
+ },
+ {
+  "w": 20,
+  "t": "sub-agent",
+  "m": {
+   "ar": "agent متخصص في جزء من المهمة",
+   "en": "an agent specialised in part of a task"
+  },
+  "ex": "reviewer_agent"
+ },
+ {
+  "w": 20,
+  "t": "AI Agent Tool",
+  "m": {
+   "ar": "بيخلّي agent أداة لـ agent تاني",
+   "en": "makes one agent a tool for another"
+  },
+  "ex": "Orchestrator → research agent"
+ },
+ {
+  "w": 20,
+  "t": "deterministic workflow",
+  "m": {
+   "ar": "خطوات ثابتة معروفة من الأول",
+   "en": "fixed steps known in advance"
+  },
+  "ex": "extract → validate → save"
+ },
+ {
+  "w": 20,
+  "t": "hybrid AI workflow",
+  "m": {
+   "ar": "workflow ثابت مع AI في خطوات معينة",
+   "en": "a fixed workflow with AI in chosen steps"
+  },
+  "ex": "classify → Switch → reply"
+ },
+ {
+  "w": 20,
+  "t": "AI limitations",
+  "m": {
+   "ar": "حدود الـ AI اللي لازم العميل يعرفها",
+   "en": "the limits of AI a client must know about"
+  },
+  "ex": "~90% accuracy, human review for the rest"
+ },
+ {
+  "w": 20,
+  "t": "cost dashboard",
+  "m": {
+   "ar": "لوحة بتكلفة الـ AI اليومية والشهرية",
+   "en": "a board showing daily and monthly AI cost"
+  },
+  "ex": "Tokens and USD per day"
+ },
+ {
+  "w": 20,
+  "t": "fallback model",
+  "m": {
+   "ar": "موديل بديل لو الأساسي وقع",
+   "en": "a backup model when the main one fails"
+  },
+  "ex": "Provider B on error"
+ },
+ {
+  "w": 20,
+  "t": "AI observability",
+  "m": {
+   "ar": "تسجيل ومراقبة كل طلبات الـ AI",
+   "en": "logging and monitoring every AI call"
+  },
+  "ex": "model, tokens, time, result"
+ },
+ {
+  "w": 20,
+  "t": "feedback loop",
+  "m": {
+   "ar": "رأي المستخدمين بيرجع يحسّن النظام",
+   "en": "user feedback flowing back to improve the system"
+  },
+  "ex": "👎 → add to the evaluation set"
  }
 ];
