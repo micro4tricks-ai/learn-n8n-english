@@ -2754,5 +2754,149 @@ JOURNEY_TERMS["n8n"] = [
    "en": "a saved marker of how far you got, to resume from"
   },
   "ex": "last_page = 237"
+ },
+ {
+  "w": 17,
+  "t": "model provider",
+  "m": {
+   "ar": "الشركة أو الخدمة اللي بتقدّم الموديل",
+   "en": "the company or service offering the model"
+  },
+  "ex": "Anthropic, OpenAI, Google, Ollama"
+ },
+ {
+  "w": 17,
+  "t": "cost per token",
+  "m": {
+   "ar": "سعر الموديل حسب عدد الـ tokens الداخلة والخارجة",
+   "en": "a model's price by input and output tokens"
+  },
+  "ex": "Output tokens usually cost more."
+ },
+ {
+  "w": 17,
+  "t": "few-shot examples",
+  "m": {
+   "ar": "أمثلة مدخل ومخرج جوه الـ prompt",
+   "en": "input-output examples inside the prompt"
+  },
+  "ex": "3 examples before the real task"
+ },
+ {
+  "w": 17,
+  "t": "XML tags (delimiters)",
+  "m": {
+   "ar": "علامات بتفصل البيانات عن التعليمات",
+   "en": "markers separating data from instructions"
+  },
+  "ex": "<email>…</email>"
+ },
+ {
+  "w": 17,
+  "t": "prompt template",
+  "m": {
+   "ar": "prompt ثابت فيه أماكن بتتملى",
+   "en": "a fixed prompt with fillable placeholders"
+  },
+  "ex": "Summarise {text} for {audience}"
+ },
+ {
+  "w": 17,
+  "t": "prompt versioning",
+  "m": {
+   "ar": "ترقيم نسخ الـ prompt عشان تقارن",
+   "en": "numbering prompt versions to compare them"
+  },
+  "ex": "prompt_v1, prompt_v2"
+ },
+ {
+  "w": 17,
+  "t": "Structured Output Parser",
+  "m": {
+   "ar": "بيخلّي رد الموديل JSON بشكل محدد",
+   "en": "makes the model's reply JSON in a defined shape"
+  },
+  "ex": "category, urgent"
+ },
+ {
+  "w": 17,
+  "t": "Auto-fixing Output Parser",
+  "m": {
+   "ar": "بيطلب من الموديل يصلّح لو الشكل غلط",
+   "en": "asks the model to fix its reply if the shape is wrong"
+  },
+  "ex": "Wrap the structured parser with it."
+ },
+ {
+  "w": 17,
+  "t": "field description",
+  "m": {
+   "ar": "وصف الحقل اللي بيساعد الموديل يطلّعه صح",
+   "en": "a description helping the model extract a field correctly"
+  },
+  "ex": "due_date: \"YYYY-MM-DD, or null\""
+ },
+ {
+  "w": 17,
+  "t": "Summarization Chain",
+  "m": {
+   "ar": "node بتلخّص نصوص طويلة على أجزاء",
+   "en": "a node that summarises long texts in parts"
+  },
+  "ex": "map-reduce summary"
+ },
+ {
+  "w": 17,
+  "t": "category description",
+  "m": {
+   "ar": "وصف الفئة اللي بيساعد التصنيف",
+   "en": "a category description that guides classification"
+  },
+  "ex": "billing: payments, invoices, charges"
+ },
+ {
+  "w": 17,
+  "t": "fallback category",
+  "m": {
+   "ar": "فئة للحالات اللي مش واضحة",
+   "en": "a category for unclear cases"
+  },
+  "ex": "other"
+ },
+ {
+  "w": 17,
+  "t": "Sentiment Analysis",
+  "m": {
+   "ar": "تحديد نبرة النص: إيجابي أو سلبي أو محايد",
+   "en": "detecting a text's tone: positive, negative or neutral"
+  },
+  "ex": "Flag angry customers first."
+ },
+ {
+  "w": 17,
+  "t": "evaluation set",
+  "m": {
+   "ar": "أمثلة بإجاباتها الصح تقيس بيها الجودة",
+   "en": "examples with correct answers used to measure quality"
+  },
+  "ex": "42/50 correct = 84%"
+ },
+ {
+  "w": 17,
+  "t": "token budget",
+  "m": {
+   "ar": "حد للـ tokens في كل طلب عشان التكلفة",
+   "en": "a per-request token limit to control cost"
+  },
+  "ex": "Max 2,000 input tokens"
+ },
+ {
+  "w": 17,
+  "t": "caching (AI)",
+  "m": {
+   "ar": "تخزين نتيجة سؤال عشان متسألوش تاني",
+   "en": "storing an answer so you don't ask again"
+  },
+  "ex": "Same email hash → reuse the category"
  }
 ];
