@@ -1719,5 +1719,230 @@ JOURNEY_TERMS["n8n"] = [
    "en": "turning free text into structured data"
   },
   "ex": "\"2 x Pizza\" → { qty: 2, item: \"Pizza\" }"
+ },
+ {
+  "w": 11,
+  "t": "AND / OR (conditions)",
+  "m": {
+   "ar": "كل الشروط لازم تتحقق / أي شرط يكفي",
+   "en": "all conditions must pass / any one is enough"
+  },
+  "ex": "total > 1000 AND country = EG"
+ },
+ {
+  "w": 11,
+  "t": "Convert types where required",
+  "m": {
+   "ar": "خيار بيحوّل النص لرقم أو boolean وقت المقارنة",
+   "en": "an option that converts text to number or boolean when comparing"
+  },
+  "ex": "\"100\" > 50 → true"
+ },
+ {
+  "w": 11,
+  "t": "Rules mode (Switch)",
+  "m": {
+   "ar": "Switch بقواعد، قاعدة لكل مخرج",
+   "en": "a Switch with rules, one per output"
+  },
+  "ex": "Rule 1: status = paid"
+ },
+ {
+  "w": 11,
+  "t": "Expression mode (Switch)",
+  "m": {
+   "ar": "Switch بيحدد المخرج برقم من expression",
+   "en": "a Switch that picks the output by a number from an expression"
+  },
+  "ex": "{{ $json.priority }}"
+ },
+ {
+  "w": 11,
+  "t": "case-sensitive",
+  "m": {
+   "ar": "بيفرّق بين الحروف الكبيرة والصغيرة",
+   "en": "treats capital and small letters as different"
+  },
+  "ex": "\"Paid\" vs \"paid\""
+ },
+ {
+  "w": 11,
+  "t": "execution order",
+  "m": {
+   "ar": "الترتيب اللي n8n بيشغّل بيه الـ nodes والفروع",
+   "en": "the order in which n8n runs nodes and branches"
+  },
+  "ex": "Top branch first, then the next."
+ },
+ {
+  "w": 11,
+  "t": "branch",
+  "m": {
+   "ar": "مسار في الـ workflow بعد IF أو Switch",
+   "en": "a path in the workflow after an IF or Switch"
+  },
+  "ex": "The \"true\" branch"
+ },
+ {
+  "w": 11,
+  "t": "empty branch",
+  "m": {
+   "ar": "فرع مفيهوش items فمبيشتغلش",
+   "en": "a branch with no items, so it doesn't run"
+  },
+  "ex": "Use Always Output Data if needed."
+ },
+ {
+  "w": 11,
+  "t": "No Operation",
+  "m": {
+   "ar": "node مبتعملش حاجة، بتستخدم كنهاية واضحة",
+   "en": "a node that does nothing, used as a clear end"
+  },
+  "ex": "IF spam → No Operation"
+ },
+ {
+  "w": 11,
+  "t": "canvas position",
+  "m": {
+   "ar": "مكان الـ node على الشاشة، بيأثر على ترتيب الفروع",
+   "en": "a node's place on screen, which affects branch order"
+  },
+  "ex": "Upper branches run first."
+ },
+ {
+  "w": 11,
+  "t": "Batch Size",
+  "m": {
+   "ar": "عدد الـ items في كل دفعة",
+   "en": "the number of items per batch"
+  },
+  "ex": "Batch Size: 10"
+ },
+ {
+  "w": 11,
+  "t": "loop output",
+  "m": {
+   "ar": "مخرج Loop Over Items للدفعة الحالية",
+   "en": "the Loop Over Items output for the current batch"
+  },
+  "ex": "Wire it back into the loop."
+ },
+ {
+  "w": 11,
+  "t": "done output",
+  "m": {
+   "ar": "مخرج Loop Over Items بعد ما يخلص كله",
+   "en": "the Loop Over Items output after everything is finished"
+  },
+  "ex": "done → summary email"
+ },
+ {
+  "w": 11,
+  "t": "exit condition",
+  "m": {
+   "ar": "الشرط اللي بيوقف التكرار",
+   "en": "the condition that stops a loop"
+  },
+  "ex": "has_more = false"
+ },
+ {
+  "w": 11,
+  "t": "max iterations",
+  "m": {
+   "ar": "حد أقصى لعدد اللفات للأمان",
+   "en": "a safety cap on the number of rounds"
+  },
+  "ex": "Stop after 50 pages."
+ },
+ {
+  "w": 11,
+  "t": "At Specified Time",
+  "m": {
+   "ar": "وضع Wait بيستنى لحد تاريخ وساعة محددين",
+   "en": "a Wait mode that pauses until a set date and time"
+  },
+  "ex": "Resume at 09:00 on Monday."
+ },
+ {
+  "w": 11,
+  "t": "$execution.resumeUrl",
+  "m": {
+   "ar": "لينك بيكمّل تنفيذ واقف في Wait",
+   "en": "a link that resumes an execution paused in a Wait"
+  },
+  "ex": "Put it in an Approve button."
+ },
+ {
+  "w": 11,
+  "t": "On Webhook Call",
+  "m": {
+   "ar": "وضع Wait بيستنى لحد ما حد ينادي الـ resume URL",
+   "en": "a Wait mode that pauses until the resume URL is called"
+  },
+  "ex": "Wait for the client to accept."
+ },
+ {
+  "w": 11,
+  "t": "waiting execution",
+  "m": {
+   "ar": "تنفيذ واقف بيستنى وقت أو حدث",
+   "en": "an execution paused for a time or an event"
+  },
+  "ex": "Shown as \"Waiting\" in Executions."
+ },
+ {
+  "w": 11,
+  "t": "follow-up",
+  "m": {
+   "ar": "متابعة بعد مدة (تذكير، سؤال)",
+   "en": "a later check-in (a reminder, a question)"
+  },
+  "ex": "Follow up after 3 days."
+ },
+ {
+  "w": 11,
+  "t": "fan-out",
+  "m": {
+   "ar": "توزيع نفس البيانات على مسارات كتير",
+   "en": "sending the same data down many paths"
+  },
+  "ex": "Order → sheet, email, Slack"
+ },
+ {
+  "w": 11,
+  "t": "fan-in",
+  "m": {
+   "ar": "تجميع نتايج مسارات كتير في مكان واحد",
+   "en": "gathering the results of many paths into one"
+  },
+  "ex": "Merge → Aggregate"
+ },
+ {
+  "w": 11,
+  "t": "All Item Data",
+  "m": {
+   "ar": "خيار Aggregate بيجمع كل الـ items في list",
+   "en": "an Aggregate option that collects all items into a list"
+  },
+  "ex": "One item with data: [...]"
+ },
+ {
+  "w": 11,
+  "t": "item linking",
+  "m": {
+   "ar": "الربط بين item ومصدره في nodes قبله",
+   "en": "the link between an item and its source in earlier nodes"
+  },
+  "ex": "Broken after a Code node."
+ },
+ {
+  "w": 11,
+  "t": "workflow diagram",
+  "m": {
+   "ar": "رسمة الـ workflow قبل البناء",
+   "en": "a sketch of the workflow before building"
+  },
+  "ex": "Boxes and arrows on paper."
  }
 ];
