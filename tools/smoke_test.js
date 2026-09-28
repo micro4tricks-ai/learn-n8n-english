@@ -66,6 +66,34 @@ function journeyChecks(doc, w, where) {
   check(doc.querySelector('.jr-main .lock-note'), where + ': week 9 shows lock note');
   doc.querySelector('[data-jtoday]').click();
 }
+// Open every ready week and every day with all progress unlocked; report Arabic left on the English page.
+function allWeeksChecks(doc, w, where) {
+  const J = w.JOURNEY, track = J.track(), p = { done: {}, answers: {}, tests: {}, imported: true };
+  Object.values(J.weeks[track]).forEach(week => {
+    week.days.forEach(day => {
+      (day.practice || []).forEach((_, i) => { p.done['p' + day.key + '_' + i] = true; });
+      (day.quiz || []).forEach((q, i) => { p.answers['q' + day.key + '_' + i] = q.a; });
+    });
+    p.tests['w' + String(week.n).padStart(2, '0') + '-test'] = [{ score: 1, total: 1, at: 1 }];
+  });
+  J.setProgress(p);
+  const left = new Set();
+  let views = 0;
+  Object.keys(J.weeks[track]).forEach(n => {
+    doc.querySelector('.jr-week[data-week="' + n + '"]').click();
+    for (let d = 1; d <= 6; d++) {
+      const tab = doc.querySelector('#jrTabs .day-tab[data-day="' + d + '"]');
+      check(tab && !tab.classList.contains('locked'), where + ': week ' + n + ' day ' + d + ' opens');
+      if (!tab) continue;
+      tab.click(); views++;
+      const walker = doc.createTreeWalker(doc.getElementById('journeyApp'), w.NodeFilter.SHOW_TEXT);
+      let t;
+      while ((t = walker.nextNode())) if (AR.test(t.nodeValue)) left.add('w' + n + 'd' + d + ': ' + t.nodeValue.trim().slice(0, 60));
+    }
+  });
+  check(views >= 6, where + ': rendered ' + views + ' day views');
+  if (left.size) { failed = true; console.log('  Arabic left in journey (EN):', [...left].slice(0, 10)); }
+}
 for (const file of ['index.html', 'n8n.html', 'english.html']) {
   for (const lang of ['ar', 'en']) {
     const { doc, w, errors } = run(file, lang);
@@ -75,6 +103,7 @@ for (const file of ['index.html', 'n8n.html', 'english.html']) {
     console.log(file, lang, JSON.stringify(info));
     if (errors.length) { failed = true; console.log('  ERRORS:', errors.slice(0, 5)); }
     if (file !== 'index.html') journeyChecks(doc, w, file + ' ' + lang);
+    if (file !== 'index.html' && lang === 'en') allWeeksChecks(doc, w, file + ' ' + lang);
     if (lang === 'en') {
       // exercise the interactive parts too, so their strings are rendered
       doc.querySelectorAll('.day-tab').forEach(b => b.click());

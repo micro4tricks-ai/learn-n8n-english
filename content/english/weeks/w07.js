@@ -712,7 +712,10 @@ JOURNEY.week({
    ],
    "read": [
     {
-     "t": "Python Tutorial (الرسمي)",
+     "t": {
+      "ar": "Python Tutorial (الرسمي)",
+      "en": "The Python Tutorial (official)"
+     },
      "url": "https://docs.python.org/3/tutorial/",
      "what": {
       "ar": "اقرا فصل «Virtual Environments and Packages» ونفّذ خطواته.",

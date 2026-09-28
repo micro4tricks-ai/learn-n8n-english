@@ -136,7 +136,10 @@ JOURNEY.week({
    ],
    "read": [
     {
-     "t": "Python Tutorial (الرسمي)",
+     "t": {
+      "ar": "Python Tutorial (الرسمي)",
+      "en": "The Python Tutorial (official)"
+     },
      "url": "https://docs.python.org/3/tutorial/",
      "what": {
       "ar": "اقرا أول صفحتين من الـ tutorial ولاحظ إزاي التوثيق مكتوب بالمضارع البسيط.",

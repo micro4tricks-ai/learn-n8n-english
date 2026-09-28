@@ -923,7 +923,10 @@ JOURNEY.week({
    ],
    "read": [
     {
-     "t": "Automate the Boring Stuff (النسخة الإنجليزي)",
+     "t": {
+      "ar": "Automate the Boring Stuff (النسخة الإنجليزي)",
+      "en": "Automate the Boring Stuff (English edition)"
+     },
      "url": "https://automatetheboringstuff.com/",
      "what": {
       "ar": "اقرا فصل «Pattern Matching with Regular Expressions» لحد «Grouping».",

@@ -41,12 +41,12 @@ function build(track, cfg){
     title: bi(s.title),
     goal: bi(s.goal),
     minutes: 120,
-    learn: s.learn.map(l => ({ h: bi(l[0]), p: bi(l[1]), ex: l[2] })),
+    learn: s.learn.map(l => ({ h: bi(l[0]), p: bi(l[1]), ex: bi(l[2]) })),
     practice: s.build.map(bi),
-    code: (s.code || []).map(c => ({ u: bi(c.u), p: c.p })),
-    words: cfg.words(s.d).map(w => ({ t: w.t, m: bi(w.m), ex: w.ex })),
+    code: (s.code || []).map(c => ({ u: bi(c.u), p: bi(c.p) })),
+    words: cfg.words(s.d).map(w => ({ t: w.t, m: bi(w.m), ex: bi(w.ex) })),
     read: cfg.D.LIBRARY.filter(b => (b.days || []).indexOf(s.d) !== -1)
-      .map(b => ({ t: b.t, url: b.url, what: bi(b.read) })),
+      .map(b => ({ t: bi(b.t), url: b.url, what: bi(b.read) })),
     challenge: bi(s.challenge),
     quiz: s.quiz.slice(0, 3).map(q)
   }));

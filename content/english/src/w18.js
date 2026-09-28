@@ -93,7 +93,7 @@ module.exports = {
       learn: [
         { h: B('الكلمات المهمة بتتضغط', 'Content words get the stress'),
           p: B('الأسماء والأفعال والصفات والأرقام بتتضغط، والكلمات الصغيرة (a، the، to، of) بتتقال بسرعة وخفيف. The BUILD FAILED on the STAGING SERVER.', 'Nouns, verbs, adjectives and numbers are stressed; small words (a, the, to, of) are quick and light. The BUILD FAILED on the STAGING SERVER.'),
-          ex: 'I DIDN\'T say he BROKE it. (فكرة مختلفة حسب الكلمة المضغوطة)\nWe need it by FRIDAY, not Monday.' },
+          ex: 'I DIDN\'T say he BROKE it. (the meaning changes with the stressed word)\nWe need it by FRIDAY, not Monday.' },
         { h: B('النغمة', 'Intonation'),
           p: B('سؤال yes/no النغمة بتطلع ↗: Is it ready? ↗. سؤال wh- والجمل العادية بتنزل ↘: Where\'s the log? ↘. والقوايم: كل بند طالع والأخير نازل.', 'Yes/no questions rise ↗: Is it ready? ↗. Wh- questions and statements fall ↘: Where\'s the log? ↘. Lists: every item rises, the last one falls.'),
           ex: 'We need Python ↗, Docker ↗, and Postgres ↘.' },

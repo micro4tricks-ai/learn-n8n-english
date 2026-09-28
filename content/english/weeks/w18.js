@@ -621,7 +621,7 @@ JOURNEY.week({
       "ar": "الأسماء والأفعال والصفات والأرقام بتتضغط، والكلمات الصغيرة (a، the، to، of) بتتقال بسرعة وخفيف. The BUILD FAILED on the STAGING SERVER.",
       "en": "Nouns, verbs, adjectives and numbers are stressed; small words (a, the, to, of) are quick and light. The BUILD FAILED on the STAGING SERVER."
      },
-     "ex": "I DIDN'T say he BROKE it. (فكرة مختلفة حسب الكلمة المضغوطة)\nWe need it by FRIDAY, not Monday."
+     "ex": "I DIDN'T say he BROKE it. (the meaning changes with the stressed word)\nWe need it by FRIDAY, not Monday."
     },
     {
      "h": {

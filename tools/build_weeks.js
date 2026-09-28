@@ -45,7 +45,7 @@ function word(w, where) {
   if (typeof w !== 'string') return w;
   const v = bank[w.toLowerCase()];
   if (!v) { problems.push(where + ': word not in the bank: ' + w); return { t: w, m: { ar: '', en: '' } }; }
-  return { t: v.t, m: en(v.m, where + ' ' + w), ex: v.ex };
+  return { t: v.t, m: en(v.m, where + ' ' + w), ex: en(v.ex, where + ' ' + w) };
 }
 function learn(l, where) {
   if (typeof l !== 'string') return l;
@@ -58,7 +58,7 @@ function read(r, where) {
   if (!ref) return r;
   const b = library[ref.replace(/^lib:/, '')];
   if (!b) { problems.push(where + ': library entry not found: ' + ref); return { t: ref, url: 'https://', what: { ar: '', en: '' } }; }
-  return { t: b.t, url: b.url, what: (typeof r === 'object' && r.what) || en(b.read, where) };
+  return { t: en(b.t, where), url: b.url, what: (typeof r === 'object' && r.what) || en(b.read, where) };
 }
 
 const pad = n => String(n).padStart(2, '0');

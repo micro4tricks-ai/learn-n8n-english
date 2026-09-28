@@ -136,7 +136,10 @@ JOURNEY.week({
    ],
    "read": [
     {
-     "t": "Pro Git (الكتاب الرسمي)",
+     "t": {
+      "ar": "Pro Git (الكتاب الرسمي)",
+      "en": "Pro Git (the official book)"
+     },
      "url": "https://git-scm.com/book/en/v2",
      "what": {
       "ar": "اقرا فصل «Git Basics» أول قسمين، وقول كل أمر بصوت عالي.",

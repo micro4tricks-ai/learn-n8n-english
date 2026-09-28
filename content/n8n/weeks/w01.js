@@ -48,7 +48,10 @@ JOURNEY.week({
       "ar": "لو دخل Edit Fields تلات items، هيخرج تلاتة، والـ Expression بيتحسب مرة لكل item. عشان كده مش محتاج Loop في 90% من الحالات.",
       "en": "If three items enter Edit Fields, three come out, and the expression is evaluated once per item. That's why you don't need a loop in 90% of cases."
      },
-     "ex": "3 items ← Edit Fields ← 3 items\n{{ $json.name }}  →  \"Ali\" ثم \"Sara\" ثم \"Omar\""
+     "ex": {
+      "ar": "3 items ← Edit Fields ← 3 items\n{{ $json.name }}  →  \"Ali\" ثم \"Sara\" ثم \"Omar\"",
+      "en": "3 items → Edit Fields → 3 items\n{{ $json.name }}  →  \"Ali\" then \"Sara\" then \"Omar\""
+     }
     },
     {
      "h": {
@@ -92,7 +95,10 @@ JOURNEY.week({
       "ar": "بعد ما نود تطلّع بيانات، ثبّتها (Pin). النودات اللي بعدها هتشتغل على البيانات المثبتة من غير ما تنادي الـ API أو تستنى Webhook تاني.",
       "en": "Once a node outputs data, pin it. The nodes after it will run on the pinned data without calling the API or waiting for another webhook."
      },
-     "ex": "Output ← أيقونة الدبوس 📌 ← Pinned"
+     "ex": {
+      "ar": "Output ← أيقونة الدبوس 📌 ← Pinned",
+      "en": "Output → the pin icon 📌 → Pinned"
+     }
     }
    ],
    "practice": [
@@ -214,7 +220,10 @@ JOURNEY.week({
       "ar": "بتضغط Execute بإيدك — للتجربة",
       "en": "You click Execute yourself — for testing"
      },
-     "ex": "Execute workflow ▶ (للتجربة)"
+     "ex": {
+      "ar": "Execute workflow ▶ (للتجربة)",
+      "en": "Execute workflow ▶ (for testing)"
+     }
     },
     {
      "t": "Webhook",
@@ -262,7 +271,10 @@ JOURNEY.week({
       "ar": "تثبيت بيانات تجريبية في نود",
       "en": "Pinning test data on a node"
      },
-     "ex": "📌 Output ثابت للتجربة"
+     "ex": {
+      "ar": "📌 Output ثابت للتجربة",
+      "en": "📌 Fixed output for testing"
+     }
     },
     {
      "t": "Edit Fields (Set)",
@@ -537,7 +549,10 @@ JOURNEY.week({
       "ar": "2xx نجاح، 4xx غلط منك، 5xx غلط من السيرفر. أهمهم 200 و201 و400 و401 و403 و404 و429 و500.",
       "en": "2xx success, 4xx your mistake, 5xx the server's mistake. The key ones are 200, 201, 400, 401, 403, 404, 429 and 500."
      },
-     "ex": "401 = مين انت؟ (المفتاح غلط)\n403 = عارفك بس ممنوع\n429 = بالراحة، طلبات كتير"
+     "ex": {
+      "ar": "401 = مين انت؟ (المفتاح غلط)\n403 = عارفك بس ممنوع\n429 = بالراحة، طلبات كتير",
+      "en": "401 = who are you? (wrong key)\n403 = I know you, but you're not allowed\n429 = slow down, too many requests"
+     }
     },
     {
      "h": {
@@ -570,7 +585,10 @@ JOURNEY.week({
       "ar": "IF بيقسم لمسارين true/false. Filter بيسيب اللي بيطابق بس ويرمي الباقي. Switch بيوزّع على أكتر من مسار بقواعد، وفيه Fallback للي مطابقش حاجة.",
       "en": "IF splits into two paths, true/false. Filter keeps what matches and drops the rest. Switch routes to several paths using rules, with a fallback for anything that matches none."
      },
-     "ex": "IF:     {{ $json.total }} > 1000  → VIP / عادي\nSwitch: status = new | paid | refunded"
+     "ex": {
+      "ar": "IF:     {{ $json.total }} > 1000  → VIP / عادي\nSwitch: status = new | paid | refunded",
+      "en": "IF:     {{ $json.total }} > 1000  → VIP / regular\nSwitch: status = new | paid | refunded"
+     }
     },
     {
      "h": {
@@ -581,7 +599,10 @@ JOURNEY.week({
       "ar": "Append بيحط الاتنين ورا بعض. Combine by Matching Fields بيعمل join على حقل مشترك (زي VLOOKUP). Combine by Position بيدمج الأول مع الأول.",
       "en": "Append puts both one after the other. Combine by Matching Fields joins on a shared field (like VLOOKUP). Combine by Position merges first with first."
      },
-     "ex": "users.id  ⟷  posts.userId\n→ كل post معاه اسم صاحبه"
+     "ex": {
+      "ar": "users.id  ⟷  posts.userId\n→ كل post معاه اسم صاحبه",
+      "en": "users.id  ⟷  posts.userId\n→ every post carries its author's name"
+     }
     }
    ],
    "practice": [
@@ -620,7 +641,10 @@ JOURNEY.week({
       "ar": "رابط Open-Meteo للقاهرة",
       "en": "Open-Meteo URL for Cairo"
      },
-     "p": "https://api.open-meteo.com/v1/forecast?latitude=30.04&longitude=31.24&current=temperature_2m,wind_speed_10m\n\n// في Edit Fields:\n{{ $json.current.temperature_2m }}\n{{ $json.current.wind_speed_10m }}"
+     "p": {
+      "ar": "https://api.open-meteo.com/v1/forecast?latitude=30.04&longitude=31.24&current=temperature_2m,wind_speed_10m\n\n// في Edit Fields:\n{{ $json.current.temperature_2m }}\n{{ $json.current.wind_speed_10m }}",
+      "en": "https://api.open-meteo.com/v1/forecast?latitude=30.04&longitude=31.24&current=temperature_2m,wind_speed_10m\n\n// In Edit Fields:\n{{ $json.current.temperature_2m }}\n{{ $json.current.wind_speed_10m }}"
+     }
     },
     {
      "u": {
@@ -1028,7 +1052,10 @@ JOURNEY.week({
       "ar": "Credential = بيانات دخول محفوظة مشفّرة. OAuth2 (جوجل مثلاً) بيفتحلك صفحة تسجيل دخول وترجع لـ n8n من غير ما تكتب باسوورد. لو n8n على جهازك محتاج Client ID وSecret من Google Cloud.",
       "en": "A credential = saved, encrypted login details. OAuth2 (Google, for example) opens a sign-in page and returns you to n8n without typing a password. If n8n runs on your machine you need a Client ID and Secret from Google Cloud."
      },
-     "ex": "Google Cloud → APIs & Services → Credentials\n→ OAuth client ID → Web application\n→ Redirect URI (انسخه من n8n)"
+     "ex": {
+      "ar": "Google Cloud → APIs & Services → Credentials\n→ OAuth client ID → Web application\n→ Redirect URI (انسخه من n8n)",
+      "en": "Google Cloud → APIs & Services → Credentials\n→ OAuth client ID → Web application\n→ Redirect URI (copy it from n8n)"
+     }
     },
     {
      "h": {
@@ -1039,7 +1066,10 @@ JOURNEY.week({
       "ar": "Webhook = الخدمة بتكلمك أول ما يحصل حدث. Polling = n8n بيسأل كل فترة «في جديد؟» (زي Google Sheets Trigger). Schedule = على وقت ثابت.",
       "en": "Webhook = the service calls you the moment something happens. Polling = n8n asks every so often “anything new?” (like the Google Sheets Trigger). Schedule = at a fixed time."
      },
-     "ex": "Webhook: فوري\nPolling: كل دقيقة مثلاً\nSchedule: 0 9 * * *"
+     "ex": {
+      "ar": "Webhook: فوري\nPolling: كل دقيقة مثلاً\nSchedule: 0 9 * * *",
+      "en": "Webhook: instant\nPolling: every minute, for example\nSchedule: 0 9 * * *"
+     }
     },
     {
      "h": {
@@ -1069,7 +1099,10 @@ JOURNEY.week({
       "ar": "5 خانات: دقيقة، ساعة، يوم في الشهر، شهر، يوم في الأسبوع (0 = الأحد). اضبط الـ Timezone في Workflow Settings.",
       "en": "5 fields: minute, hour, day of month, month, day of week (0 = Sunday). Set the timezone in Workflow Settings."
      },
-     "ex": "0 9 * * 0-4    الساعة 9، من الأحد للخميس\n*/15 * * * *   كل ربع ساعة\n0 8 1 * *      أول كل شهر 8 الصبح"
+     "ex": {
+      "ar": "0 9 * * 0-4    الساعة 9، من الأحد للخميس\n*/15 * * * *   كل ربع ساعة\n0 8 1 * *      أول كل شهر 8 الصبح",
+      "en": "0 9 * * 0-4    9 AM, Sunday to Thursday\n*/15 * * * *   every 15 minutes\n0 8 1 * *      the 1st of each month at 8 AM"
+     }
     },
     {
      "h": {
@@ -1080,7 +1113,10 @@ JOURNEY.week({
       "ar": "في Telegram اختار Parse Mode = HTML عشان تستخدم <b> و<i>. وفي Gmail اختار Email Type = HTML. خلي الـ Expressions جوه النص.",
       "en": "In Telegram choose Parse Mode = HTML so you can use <b> and <i>. In Gmail choose Email Type = HTML. Keep the expressions inside the text."
      },
-     "ex": "<b>عميل جديد</b>\nالاسم: {{ $json.name }}\nالمصدر: {{ $json.source }}"
+     "ex": {
+      "ar": "<b>عميل جديد</b>\nالاسم: {{ $json.name }}\nالمصدر: {{ $json.source }}",
+      "en": "<b>New customer</b>\nName: {{ $json.name }}\nSource: {{ $json.source }}"
+     }
     }
    ],
    "practice": [
@@ -1119,7 +1155,10 @@ JOURNEY.week({
       "ar": "رسالة Telegram (Parse Mode: HTML)",
       "en": "Telegram message (Parse Mode: HTML)"
      },
-     "p": "<b>🔔 Lead جديد</b>\nالاسم: {{ $json.name }}\nالإيميل: {{ $json.email }}\nالمصدر: {{ $json.source }}\nالوقت: {{ $now.setZone(\"Africa/Cairo\").toFormat(\"dd/MM HH:mm\") }}"
+     "p": {
+      "ar": "<b>🔔 Lead جديد</b>\nالاسم: {{ $json.name }}\nالإيميل: {{ $json.email }}\nالمصدر: {{ $json.source }}\nالوقت: {{ $now.setZone(\"Africa/Cairo\").toFormat(\"dd/MM HH:mm\") }}",
+      "en": "<b>🔔 New lead</b>\nName: {{ $json.name }}\nEmail: {{ $json.email }}\nSource: {{ $json.source }}\nTime: {{ $now.setZone(\"Africa/Cairo\").toFormat(\"dd/MM HH:mm\") }}"
+     }
     },
     {
      "u": {
@@ -1140,7 +1179,10 @@ JOURNEY.week({
       "ar": "Cron جاهز",
       "en": "Ready-made cron"
      },
-     "p": "0 9 * * 0-4      كل يوم عمل 9 الصبح (أحد → خميس)\n0 */2 * * *      كل ساعتين\n30 17 * * 4      الخميس 5:30 العصر\n0 0 1 * *        أول كل شهر نص الليل"
+     "p": {
+      "ar": "0 9 * * 0-4      كل يوم عمل 9 الصبح (أحد → خميس)\n0 */2 * * *      كل ساعتين\n30 17 * * 4      الخميس 5:30 العصر\n0 0 1 * *        أول كل شهر نص الليل",
+      "en": "0 9 * * 0-4      every workday at 9 AM (Sun → Thu)\n0 */2 * * *      every two hours\n30 17 * * 4      Thursday at 5:30 PM\n0 0 1 * *        the 1st of each month at midnight"
+     }
     }
    ],
    "words": [
@@ -1150,7 +1192,10 @@ JOURNEY.week({
       "ar": "بيانات الدخول المحفوظة مشفّرة",
       "en": "Saved login details, stored encrypted"
      },
-     "ex": "Google Sheets OAuth2 account (مشفّرة)"
+     "ex": {
+      "ar": "Google Sheets OAuth2 account (مشفّرة)",
+      "en": "Google Sheets OAuth2 account (encrypted)"
+     }
     },
     {
      "t": "Schedule Trigger",
@@ -1174,7 +1219,10 @@ JOURNEY.week({
       "ar": "فحص دوري بيسأل «في جديد؟» — عكس الـ Webhook",
       "en": "A periodic check asking “anything new?” — the opposite of a webhook"
      },
-     "ex": "كل دقيقة: «في صف جديد؟»"
+     "ex": {
+      "ar": "كل دقيقة: «في صف جديد؟»",
+      "en": "Every minute: “any new row?”"
+     }
     },
     {
      "t": "Telegram Trigger",
@@ -1745,7 +1793,10 @@ JOURNEY.week({
      }
     },
     {
-     "t": "n8n Docs: Luxon (التواريخ)",
+     "t": {
+      "ar": "n8n Docs: Luxon (التواريخ)",
+      "en": "n8n Docs: Luxon (dates)"
+     },
      "url": "https://docs.n8n.io/code/cookbook/luxon/",
      "what": {
       "ar": "الصفحة كلها، وجرّب كل مثال في Edit Fields.",
@@ -1825,7 +1876,10 @@ JOURNEY.week({
      }
     },
     {
-     "t": "موسوعة حسوب: JavaScript",
+     "t": {
+      "ar": "موسوعة حسوب: JavaScript",
+      "en": "Hsoub Wiki: JavaScript"
+     },
      "url": "https://wiki.hsoub.com/JavaScript",
      "what": {
       "ar": "Array و String ← map وfilter وreduce.",
@@ -1924,7 +1978,10 @@ JOURNEY.week({
       "ar": "n8n بيلف لوحده على الـ items، فالـ Loop الصريح محتاجه بس للدفعات (Batch) عشان حدود الطلبات، أو لما نود مبتدعمش items كتير، أو لما تحتاج Wait بين كل دفعة.",
       "en": "n8n loops over items on its own, so you only need an explicit loop for batches because of rate limits, when a node doesn't support many items, or when you need a Wait between batches."
      },
-     "ex": "Loop Over Items (Batch Size: 10)\n  └─ loop → HTTP Request → Wait 1s → (يرجع للـ Loop)\n  └─ done → تقرير نهائي"
+     "ex": {
+      "ar": "Loop Over Items (Batch Size: 10)\n  └─ loop → HTTP Request → Wait 1s → (يرجع للـ Loop)\n  └─ done → تقرير نهائي",
+      "en": "Loop Over Items (Batch Size: 10)\n  └─ loop → HTTP Request → Wait 1s → (back to the loop)\n  └─ done → final report"
+     }
     },
     {
      "h": "Sub-workflows",
@@ -1932,7 +1989,10 @@ JOURNEY.week({
       "ar": "Workflow صغير بيبدأ بـ Execute Workflow Trigger (When Executed by Another Workflow)، وبتناديه من أي Workflow بنود Execute Workflow. زي الدالة: اكتبها مرة واستخدمها كتير.",
       "en": "A small workflow that starts with Execute Workflow Trigger (When Executed by Another Workflow), which you call from any workflow with the Execute Workflow node. Like a function: write it once, use it many times."
      },
-     "ex": "Main: … → Execute Workflow (\"Clean Phone\")\nSub:  Execute Workflow Trigger → Code → (آخر نود = الرد)"
+     "ex": {
+      "ar": "Main: … → Execute Workflow (\"Clean Phone\")\nSub:  Execute Workflow Trigger → Code → (آخر نود = الرد)",
+      "en": "Main: … → Execute Workflow (\"Clean Phone\")\nSub:  Execute Workflow Trigger → Code → (last node = the response)"
+     }
     },
     {
      "h": {
@@ -1973,7 +2033,10 @@ JOURNEY.week({
       "ar": "كل تشغيلة ليها سجل فيه بيانات كل نود. من تشغيلة فاشلة اضغط Debug in editor (أو Copy to editor) عشان البيانات بتاعتها تتحمّل في الـ Editor وتصلّح عليها.",
       "en": "Every run has a log with each node's data. From a failed run click Debug in editor (or Copy to editor) to load its data into the editor and fix things against it."
      },
-     "ex": "Executions → فاشلة → Debug in editor → صلّح → شغّل تاني"
+     "ex": {
+      "ar": "Executions → فاشلة → Debug in editor → صلّح → شغّل تاني",
+      "en": "Executions → failed → Debug in editor → fix → run again"
+     }
     }
    ],
    "practice": [
@@ -2026,14 +2089,20 @@ JOURNEY.week({
       "ar": "Retry يدوي بسيط في Code (لـ fetch خارجي)",
       "en": "A simple manual retry in Code (for an external fetch)"
      },
-     "p": "// غالبًا Retry On Fail في إعدادات النود كفاية\nconst res = await this.helpers.httpRequest({\n  method: \"GET\",\n  url: \"https://jsonplaceholder.typicode.com/users/1\",\n  json: true\n});\nreturn [{ json: res }];"
+     "p": {
+      "ar": "// غالبًا Retry On Fail في إعدادات النود كفاية\nconst res = await this.helpers.httpRequest({\n  method: \"GET\",\n  url: \"https://jsonplaceholder.typicode.com/users/1\",\n  json: true\n});\nreturn [{ json: res }];",
+      "en": "// Retry On Fail in the node settings is usually enough\nconst res = await this.helpers.httpRequest({\n  method: \"GET\",\n  url: \"https://jsonplaceholder.typicode.com/users/1\",\n  json: true\n});\nreturn [{ json: res }];"
+     }
     },
     {
      "u": {
       "ar": "Sub-workflow: آخر نود هو الرد",
       "en": "Sub-workflow: the last node is the response"
      },
-     "p": "// في الـ Sub-workflow (Execute Workflow Trigger → Code):\nreturn $input.all().map(i => ({\n  json: { phone: String(i.json.phone).replace(/\\D/g, \"\") }\n}));\n\n// في الـ Main: {{ $json.phone }} بعد نود Execute Workflow"
+     "p": {
+      "ar": "// في الـ Sub-workflow (Execute Workflow Trigger → Code):\nreturn $input.all().map(i => ({\n  json: { phone: String(i.json.phone).replace(/\\D/g, \"\") }\n}));\n\n// في الـ Main: {{ $json.phone }} بعد نود Execute Workflow",
+      "en": "// In the sub-workflow (Execute Workflow Trigger → Code):\nreturn $input.all().map(i => ({\n  json: { phone: String(i.json.phone).replace(/\\D/g, \"\") }\n}));\n\n// In the main workflow: {{ $json.phone }} after the Execute Workflow node"
+     }
     }
    ],
    "words": [
@@ -2139,7 +2208,10 @@ JOURNEY.week({
       "ar": "Workflow بيتنادى من Workflow تاني زي الدالة",
       "en": "A workflow called from another workflow, like a function"
      },
-     "ex": "Execute Workflow Trigger → … → رد"
+     "ex": {
+      "ar": "Execute Workflow Trigger → … → رد",
+      "en": "Execute Workflow Trigger → … → response"
+     }
     },
     {
      "t": "error output",
@@ -2163,7 +2235,10 @@ JOURNEY.week({
       "ar": "تشغيله مرتين بيدي نفس النتيجة من غير تكرار",
       "en": "Running it twice gives the same result with no duplicates"
      },
-     "ex": "Upsert on email بدل Append"
+     "ex": {
+      "ar": "Upsert on email بدل Append",
+      "en": "Upsert on email instead of Append"
+     }
     },
     {
      "t": "Debug in editor",

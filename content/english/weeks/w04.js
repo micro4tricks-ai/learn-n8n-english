@@ -147,7 +147,10 @@ JOURNEY.week({
    ],
    "read": [
     {
-     "t": "Python Tutorial (الرسمي)",
+     "t": {
+      "ar": "Python Tutorial (الرسمي)",
+      "en": "The Python Tutorial (official)"
+     },
      "url": "https://docs.python.org/3/tutorial/",
      "what": {
       "ar": "اقرا فصل «An Informal Introduction to Python» وردد الأمثلة بصوت عالي.",
@@ -345,7 +348,10 @@ JOURNEY.week({
    ],
    "read": [
     {
-     "t": "Python Tutorial (الرسمي)",
+     "t": {
+      "ar": "Python Tutorial (الرسمي)",
+      "en": "The Python Tutorial (official)"
+     },
      "url": "https://docs.python.org/3/tutorial/",
      "what": {
       "ar": "اقرا فصل «Data Structures» لحد القواميس، ولاحظ الأفعال: append, remove, pop, contains.",
@@ -552,7 +558,10 @@ JOURNEY.week({
    ],
    "read": [
     {
-     "t": "Automate the Boring Stuff (النسخة الإنجليزي)",
+     "t": {
+      "ar": "Automate the Boring Stuff (النسخة الإنجليزي)",
+      "en": "Automate the Boring Stuff (English edition)"
+     },
      "url": "https://automatetheboringstuff.com/",
      "what": {
       "ar": "اقرا فصل «Flow Control» وردد جمل الشرح عن if وwhile وfor.",
@@ -765,7 +774,10 @@ JOURNEY.week({
    ],
    "read": [
     {
-     "t": "Python Tutorial (الرسمي)",
+     "t": {
+      "ar": "Python Tutorial (الرسمي)",
+      "en": "The Python Tutorial (official)"
+     },
      "url": "https://docs.python.org/3/tutorial/",
      "what": {
       "ar": "اقرا فصل «Classes» لحد «A First Look at Classes».",

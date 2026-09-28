@@ -260,7 +260,7 @@
     h += '<div class="sp-head"><h3>' + TF('اليوم {d}', { d: day.d }) + ': ' + esc(L(day.title)) + '</h3><p>' + esc(L(day.goal)) + '</p>' +
       '<div class="mono">' + headStats(day, st) + '</div></div>';
     h += block(++step, T('افهم: الشرح مع أمثلة'), '<div class="learn-grid">' + day.learn.map(function(l){
-      return '<div class="learn-card"><div class="lh">' + esc(L(l.h)) + '</div><p class="lp">' + fmt(L(l.p)) + '</p>' + (l.ex ? '<pre class="code">' + esc(l.ex) + '</pre>' : '') + '</div>';
+      return '<div class="learn-card"><div class="lh">' + esc(L(l.h)) + '</div><p class="lp">' + fmt(L(l.p)) + '</p>' + (l.ex ? '<pre class="code">' + esc(L(l.ex)) + '</pre>' : '') + '</div>';
     }).join('') + '</div>');
     h += block(++step, T('اتمرّن بإيدك'), '<div class="build-list">' + day.practice.map(function(t, i){
       return checkbox('p' + day.key + '_' + i, fmt(L(t)));
@@ -268,15 +268,15 @@
     if(day.code && day.code.length){
       h += block(++step, T('انسخ واستخدم'), '<div class="phrase-grid">' + day.code.map(function(c, i){
         return '<div class="phrase-card"><div class="row"><div class="u">' + esc(L(c.u)) + '</div><button type="button" class="copy-btn" data-jcopy="' + i + '">' + T('نسخ') + '</button></div>' +
-          '<pre class="code">' + esc(c.p) + '</pre></div>';
+          '<pre class="code">' + esc(L(c.p)) + '</pre></div>';
       }).join('') + '</div>');
     }
     h += block(++step, T('كلمات اليوم'), '<div class="vocab-grid">' + day.words.map(function(v){
       return '<div class="vocab-card"><div><div class="term">' + esc(v.t) + '</div><div class="mean">' + esc(L(v.m)) + '</div>' +
-        (v.ex ? '<div class="tex">' + esc(v.ex) + '</div>' : '') + '</div>' + (M.opts.wordActions ? '<div class="acts">' + M.opts.wordActions(v) + '</div>' : '') + '</div>';
+        (v.ex ? '<div class="tex">' + esc(L(v.ex)) + '</div>' : '') + '</div>' + (M.opts.wordActions ? '<div class="acts">' + M.opts.wordActions(v) + '</div>' : '') + '</div>';
     }).join('') + '</div>');
     h += block(++step, T('اقرا واسمع'), '<div class="read-list">' + day.read.map(function(r){
-      return '<div class="read-row"><a href="' + esc(r.url) + '" target="_blank" rel="noopener">' + esc(r.t) + ' ↗</a><span>' + fmt(L(r.what)) + '</span></div>';
+      return '<div class="read-row"><a href="' + esc(r.url) + '" target="_blank" rel="noopener">' + esc(L(r.t)) + ' ↗</a><span>' + fmt(L(r.what)) + '</span></div>';
     }).join('') + '</div>');
     if(day.challenge){
       h += block(++step, T('تحدي اليوم'), '<div class="challenge"><b>' + T('التحدي:') + ' </b>' + fmt(L(day.challenge)) +
@@ -376,7 +376,7 @@
       return;
     }
     var day = w.days[M.selDay - 1];
-    if(t.dataset.jcopy != null){ if(M.opts.copy) M.opts.copy(day.code[Number(t.dataset.jcopy)].p, t); return; }
+    if(t.dataset.jcopy != null){ if(M.opts.copy) M.opts.copy(L(day.code[Number(t.dataset.jcopy)].p), t); return; }
     if(t.dataset.jq){
       if(M.progress.answers[t.dataset.jq] != null) return;
       M.progress.answers[t.dataset.jq] = Number(t.dataset.o);

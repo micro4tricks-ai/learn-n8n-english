@@ -67,7 +67,10 @@ JOURNEY.week({
       "ar": "Error = حاجة وقفت البرنامج. Warning = تحذير والبرنامج كمّل. Exception = خطأ وقت التشغيل تقدر «تمسكه» (catch) بـ try/except.",
       "en": "Error = something stopped the program. Warning = a caution, and the program carried on. Exception = a run-time error you can “catch” with try/except."
      },
-     "ex": "DeprecationWarning: this function will be removed in version 3.0\n→ لسه شغال، بس غيّره قريب"
+     "ex": {
+      "ar": "DeprecationWarning: this function will be removed in version 3.0\n→ لسه شغال، بس غيّره قريب",
+      "en": "DeprecationWarning: this function will be removed in version 3.0\n→ still works, but change it soon"
+     }
     },
     {
      "h": {
@@ -305,7 +308,10 @@ JOURNEY.week({
    ],
    "read": [
     {
-     "t": "Automate the Boring Stuff (النسخة الإنجليزي)",
+     "t": {
+      "ar": "Automate the Boring Stuff (النسخة الإنجليزي)",
+      "en": "Automate the Boring Stuff (English edition)"
+     },
      "url": "https://automatetheboringstuff.com/",
      "what": {
       "ar": "نفس الفصل اللي بتذاكره بالعربي: اقرا صفحة بالإنجليزي الأول.",
@@ -691,7 +697,10 @@ JOURNEY.week({
      }
     },
     {
-     "t": "Python Tutorial (الرسمي)",
+     "t": {
+      "ar": "Python Tutorial (الرسمي)",
+      "en": "The Python Tutorial (official)"
+     },
      "url": "https://docs.python.org/3/tutorial/",
      "what": {
       "ar": "قسم 3 و4: اقرا من غير ترجمة، ودوّن الكلمات الجديدة.",
@@ -809,7 +818,10 @@ JOURNEY.week({
       "ar": "المتغير اسم (user وorders وtotal_price). والقيم اللي True/False بتبدأ بـ is أو has أو can أو should.",
       "en": "A variable is a noun (user, orders, total_price). True/False values start with is, has, can or should."
      },
-     "ex": "is_active, has_paid, can_edit, should_retry\nuser_count (مش count_user)"
+     "ex": {
+      "ar": "is_active, has_paid, can_edit, should_retry\nuser_count (مش count_user)",
+      "en": "is_active, has_paid, can_edit, should_retry\nuser_count (not count_user)"
+     }
     },
     {
      "h": {
@@ -899,7 +911,10 @@ JOURNEY.week({
       "ar": "أفعال الأسماء وأشهر معانيها",
       "en": "Naming verbs and their usual meanings"
      },
-     "p": "fetch  = يجيب من مكان بعيد (API)\nparse  = يحلّل نص لشكل مفهوم\nvalidate = يتأكد إنه صح\nhandle = يتعامل مع\nrender = يعرض / يرسم"
+     "p": {
+      "ar": "fetch  = يجيب من مكان بعيد (API)\nparse  = يحلّل نص لشكل مفهوم\nvalidate = يتأكد إنه صح\nhandle = يتعامل مع\nrender = يعرض / يرسم",
+      "en": "fetch  = get from somewhere remote (an API)\nparse  = turn text into a usable structure\nvalidate = check that it's correct\nhandle = deal with\nrender = display / draw"
+     }
     }
    ],
    "words": [
@@ -1026,7 +1041,10 @@ JOURNEY.week({
    ],
    "read": [
     {
-     "t": "Automate the Boring Stuff (النسخة الإنجليزي)",
+     "t": {
+      "ar": "Automate the Boring Stuff (النسخة الإنجليزي)",
+      "en": "Automate the Boring Stuff (English edition)"
+     },
      "url": "https://automatetheboringstuff.com/",
      "what": {
       "ar": "نفس الفصل اللي بتذاكره بالعربي: اقرا صفحة بالإنجليزي الأول.",

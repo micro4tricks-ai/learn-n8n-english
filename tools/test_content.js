@@ -42,12 +42,13 @@ for(const track of ['english', 'n8n']){
       if(i < 5){
         atLeast(d.learn, 3, D + ': learn'); atLeast(d.practice, 3, D + ': practice');
         atLeast(d.words, 5, D + ': words'); atLeast(d.read, 1, D + ': read'); atLeast(d.quiz, 3, D + ': quiz');
-        (d.learn || []).forEach((l, j) => { bi(l.h, D + ' learn ' + j + ' h'); bi(l.p, D + ' learn ' + j + ' p'); });
+        (d.learn || []).forEach((l, j) => { bi(l.h, D + ' learn ' + j + ' h'); bi(l.p, D + ' learn ' + j + ' p'); if(l.ex != null) bi(l.ex, D + ' learn ' + j + ' ex'); });
         (d.practice || []).forEach((p, j) => bi(p, D + ' practice ' + j));
-        (d.code || []).forEach((c, j) => { bi(c.u, D + ' code ' + j); if(typeof c.p !== 'string') problems.push(D + ' code ' + j + ': no snippet'); });
-        (d.words || []).forEach((w, j) => { if(!w.t) problems.push(D + ' word ' + j + ': no term'); bi(w.m, D + ' word ' + j); });
+        (d.code || []).forEach((c, j) => { bi(c.u, D + ' code ' + j); if(c.p == null) problems.push(D + ' code ' + j + ': no snippet'); else bi(c.p, D + ' code ' + j + ' snippet'); });
+        (d.words || []).forEach((w, j) => { if(!w.t) problems.push(D + ' word ' + j + ': no term'); bi(w.m, D + ' word ' + j); if(w.ex != null) bi(w.ex, D + ' word ' + j + ' ex'); });
         (d.read || []).forEach((r, j) => {
           if(!/^https:\/\//.test(r.url || '')) problems.push(D + ' read ' + j + ': url must be https');
+          bi(r.t, D + ' read ' + j + ' title');
           bi(r.what, D + ' read ' + j);
         });
         if(d.challenge) bi(d.challenge, D + ' challenge');
