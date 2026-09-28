@@ -2,9 +2,28 @@
 
 Each track (`n8n`, `english`) has 24 weeks. A week is one file, `content/<track>/weeks/wNN.js`, loaded only when a learner opens that week.
 
+You don't edit `weeks/` by hand. You write the source in `content/<track>/src/wNN.js` and build it:
+
+```bash
+node tools/build_weeks.js n8n            # or english — writes weeks/, terms.js and outline ready[]
+node tools/build_weeks.js n8n --check    # validate only
+```
+
+A source is a Node module (`module.exports = { level, title, goal, days }`, with `const B = (ar, en) => ({ ar, en })` for texts). It has the same shape as the week file below, plus shortcuts that pull shared content so it stays consistent with the rest of the page:
+
+| In the source | Becomes |
+|---|---|
+| `words: ['webhook', …]` | the bank entry (n8n glossary / English vocabulary) with its meaning and example |
+| `words: [{ t, m: B(…), ex }]` | a new word; it's also added to `content/<track>/terms.js` so it shows in the glossary |
+| `learn: ['g:<heading>']` (English) | a grammar rule from the page: heading, explanation, wrong → right |
+| `read: ['lib:<title>']` or `{ lib, what }` | a library entry (from the page data or `content/library/<track>.js`) |
+| `read: [{ t, url, what: B(…) }]` | a direct link |
+
+The build stops when a word is already taught in another week, a reference isn't found, or a bank entry has no English.
+
 ## 1. The outline
 
-`content/<track>/outline.js` lists the six months, the 24 week titles, and `ready`: the weeks that have a file. A week that isn't in `ready` shows "coming soon" on the map. After you add `w02.js`, change `ready: [1]` to `ready: [1, 2]`.
+`content/<track>/outline.js` lists the six months, the 24 week titles, and `ready`: the weeks that have a file. The build updates `ready` for you. A week that isn't in `ready` shows "coming soon" on the map.
 
 ## 2. The week file
 
@@ -43,6 +62,7 @@ Rules the validator enforces (`node tools/test_content.js`, also part of `npm te
 
 - A study day (1–5) is done when every `practice` task is checked **and** at least 60% of its `quiz` is right. The next day opens after that.
 - Day 6 opens when days 1–5 are done. The weekly `test` is answered in full, then submitted; every attempt is saved. The next week opens when the best attempt is **70% or more**.
+- Monthly exams (`m1-exam` … `m5-exam`) open when the month's 4 weekly tests are passed; each attempt draws 5 questions per week from that month's quizzes and tests. The final exam (`final-exam`) opens after week 24 and draws 2 per week from all 24 weeks. 70% passes; passing the final shows a printable certificate. So every quiz and test question you write can also appear in an exam — write it so it makes sense on its own.
 - Progress keys use the day key `wNNdD`, so don't reorder `practice` or `quiz` items after a week is published — add new ones at the end instead.
 
 ## 4. Writing guidelines
@@ -61,3 +81,16 @@ npm run serve                # then open http://localhost:8000/english.html#jour
 ```
 
 Bump the `?v=` number on the script tags in the pages when you release, so browsers load the new files.
+
+## 6. The library
+
+The original entries live in `assets/js/<track>-data.js` (Arabic, translated through the page dictionary). New entries go in `content/library/<track>.js` as rows with both languages:
+
+```js
+// [category, title, url, type, level, whyAr, whyEn, readAr, readEn, lang?]
+['n8n', 'n8n Docs: If node', D + 'if/', 'doc', 'b', 'الشروط…', 'Conditions…', 'Conditions.', 'Conditions.'],
+```
+
+- Link only free or official resources, and check every link before you add it.
+- Say exactly what to read (a chapter, a page, a section), not "read it all".
+- The level filter reads the `lvl` text: beginner / intermediate / advanced, a range, or "all levels".

@@ -38,8 +38,10 @@ const bank = Object.create(null);
   .forEach(v => { if (!bank[v.t.toLowerCase()]) bank[v.t.toLowerCase()] = v; });
 const grammar = Object.create(null);
 (D.GRAMMAR || []).forEach(g => { grammar[g.h] = g; });
+// the extra bilingual entries in content/library/<track>.js join the library (title/read may be {ar, en})
+vm.runInNewContext(fs.readFileSync(path.join(ROOT, 'content/library', track + '.js'), 'utf8'), win);
 const library = Object.create(null);
-D.LIBRARY.forEach(b => { library[b.t] = b; });
+D.LIBRARY.forEach(b => { if (typeof b.t === 'object') { library[b.t.en] = b; library[b.t.ar] = b; } else library[b.t] = b; });
 
 function word(w, where) {
   if (typeof w !== 'string') return w;
@@ -58,7 +60,8 @@ function read(r, where) {
   if (!ref) return r;
   const b = library[ref.replace(/^lib:/, '')];
   if (!b) { problems.push(where + ': library entry not found: ' + ref); return { t: ref, url: 'https://', what: { ar: '', en: '' } }; }
-  return { t: en(b.t, where), url: b.url, what: (typeof r === 'object' && r.what) || en(b.read, where) };
+  const bi = x => (x && typeof x === 'object') ? x : en(x, where);
+  return { t: bi(b.t), url: b.url, what: (typeof r === 'object' && r.what) || bi(b.read) };
 }
 
 const pad = n => String(n).padStart(2, '0');

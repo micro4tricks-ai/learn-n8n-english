@@ -54,7 +54,7 @@ Two free 24-week journeys in one site, for Arabic-speaking developers who want t
 
 Every week has five study days (explanation → hands-on practice → words/terms → reading → short quiz) and a sixth day with a review, a weekly project and a **weekly test**: the next week opens at **70%**. Monthly exams and a final exam with a capstone project close each month and the journey.
 
-> **Status:** week 1 of both journeys is ready (built from the old intensive week). Weeks 2–24, the monthly exams and the final exam are being written and show as "coming soon" until they ship. See the [design](docs/superpowers/specs/2026-09-28-24-week-program-design.md).
+> **Status:** all 24 weeks of both journeys are written (288 study days), with 5 monthly exams and a final exam per journey and a printable completion certificate. See the [student guide](docs/STUDENT_GUIDE.md) and the [design](docs/superpowers/specs/2026-09-28-24-week-program-design.md).
 
 <div dir="rtl">
 
@@ -69,15 +69,15 @@ Every week has five study days (explanation → hands-on practice → words/term
     <th align="left">⚙️ n8n Journey</th><th align="right">Count</th>
     <th align="left">📘 English for Developers</th><th align="right">Count</th>
   </tr>
-  <tr><td>Weeks in the journey (ready now)</td><td align="right">24 (1)</td><td>Weeks in the journey (ready now)</td><td align="right">24 (1)</td></tr>
-  <tr><td>Questions in week 1 (daily quizzes + weekly test)</td><td align="right">25</td><td>Questions (week 1 + grammar quiz + review)</td><td align="right">111</td></tr>
-  <tr><td>Worked, real-world workflows</td><td align="right">12</td><td>Worked texts (errors, docs, emails…)</td><td align="right">20</td></tr>
-  <tr><td>Glossary terms with examples</td><td align="right">247</td><td>Vocabulary words with audio</td><td align="right">887</td></tr>
-  <tr><td>Quick-reference cheat sheets</td><td align="right">12</td><td>Ready-made sentences</td><td align="right">73</td></tr>
+  <tr><td>Weeks / study days</td><td align="right">24 / 144</td><td>Weeks / study days</td><td align="right">24 / 144</td></tr>
+  <tr><td>Lessons with examples</td><td align="right">375</td><td>Lessons with examples</td><td align="right">390</td></tr>
+  <tr><td>Hands-on practice tasks</td><td align="right">495</td><td>Hands-on practice tasks</td><td align="right">490</td></tr>
+  <tr><td>Daily quiz + weekly test questions</td><td align="right">360 + 286</td><td>Daily quiz + weekly test questions</td><td align="right">360 + 294</td></tr>
+  <tr><td>Terms taught in the journey</td><td align="right">672</td><td>Vocabulary words taught (all with audio)</td><td align="right">887</td></tr>
+  <tr><td>Monthly exams + final exam</td><td align="right">5 + 1</td><td>Monthly exams + final exam</td><td align="right">5 + 1</td></tr>
+  <tr><td>Worked, real-world workflows</td><td align="right">12</td><td>Grammar rules (right vs. wrong)</td><td align="right">117</td></tr>
   <tr><td>Common errors explained</td><td align="right">34</td><td>Error messages and HTTP codes explained</td><td align="right">49</td></tr>
-  <tr><td>Monthly exams + final exam</td><td align="right">5 + 1 (coming)</td><td>Grammar rules (right vs. wrong)</td><td align="right">117</td></tr>
-  <tr><td>Language &amp; skill tracks</td><td align="right">11</td><td>Skill tracks</td><td align="right">6</td></tr>
-  <tr><td>Free library resources</td><td align="right">110</td><td>Free library resources</td><td align="right">155</td></tr>
+  <tr><td>Free library resources (with filters)</td><td align="right">294</td><td>Free library resources (with filters)</td><td align="right">290</td></tr>
 </table>
 
 ## The n8n Journey
@@ -119,12 +119,13 @@ Also on the page: worked texts, a vocabulary bank with audio, ready-made sentenc
 
 - 🗺️ **24-week journey** — a map of 6 months × 4 weeks; days open in order and each week opens after its weekly test (70%). "Continue where you left off" takes you to the right day.
 - 📝 **Tests that are recorded** — every weekly-test attempt is saved with its score and answers; retake as often as you like, the best score counts.
-- 👤 **Optional account** — sign in with a one-time email code (no password) to keep progress and test results online and continue on another device. Without an account everything still works in the browser.
+- 🎓 **Monthly and final exams** — each month's exam opens after its 4 weekly tests (20 questions drawn from that month); the final draws 48 questions from all 24 weeks. Every attempt gets new questions. Passing the final shows a printable certificate.
+- 👤 **Optional account** — sign in with a one-time link sent to your email (no password) to keep progress and test results online and continue on another device. Without an account everything still works in the browser.
 - 🌐 **Arabic ⇄ English on every page** — the UI, lessons, tasks, quizzes and vocabulary all switch language and direction (RTL ↔ LTR).
 - 📱 **Fits any screen** — phone (one column), tablet (two columns) and desktop (a sidebar with the weeks next to the lesson).
 - 🃏 **Flashcards** with a "Got it" pile, search, and audio pronunciation with a stop button.
 - 🔠 **Adjustable text size** (A− / A+) in the header.
-- 📚 **Library** of free official docs and books, each with what to read and when.
+- 📚 **Library** of 584 free resources (official docs, books, courses, practice APIs, podcasts, tools), each with what to read — filter by section, level, language and done/not done. Every link was checked.
 - 🪶 **Lightweight** — plain HTML, CSS and JavaScript; week content loads only when you open that week.
 
 ## Tech stack
@@ -134,7 +135,7 @@ Also on the page: worked texts, a vocabulary bank with audio, ready-made sentenc
 | Pages | HTML5, CSS3 (logical RTL/LTR styles through `html[dir]`) |
 | Logic | Vanilla JavaScript, no framework |
 | Audio | Browser speech synthesis (Web Speech API) |
-| Storage | `localStorage`, plus optional [Supabase](https://supabase.com) (email-code sign-in, Postgres with row-level security) |
+| Storage | `localStorage`, plus optional [Supabase](https://supabase.com) (email-link sign-in, Postgres with row-level security) |
 | Tooling | Node.js scripts with `jsdom` and `acorn` for string extraction and smoke tests |
 | Hosting | GitHub Pages |
 
@@ -159,7 +160,10 @@ n8n.html                The n8n journey page
 english.html            The English journey page
 content/
   <track>/outline.js    Months and the 24 week titles; which weeks are ready
-  <track>/weeks/wNN.js  One week per file (6 days, bilingual {ar, en}), loaded on demand
+  <track>/src/wNN.js    Week sources (Node modules) — edit these
+  <track>/weeks/wNN.js  Built weeks (6 days, bilingual {ar, en}), loaded on demand
+  <track>/terms.js      Built: journey words not in the bank, merged into the glossary
+  library/<track>.js    Extra bilingual library entries
 assets/
   css/site.css          Shared styles (RTL/LTR via html[dir], responsive breakpoints)
   js/i18n.js            Language switch + T()/TF()/TDEEP() helpers
@@ -176,6 +180,7 @@ docs/                   Content format, Supabase setup, design and plans, screen
 tools/                  Translation, content validation and test scripts (Node.js)
 ```
 
+- How to study with the site: [docs/STUDENT_GUIDE.md](docs/STUDENT_GUIDE.md)
 - How to write a week: [docs/CONTENT.md](docs/CONTENT.md)
 - How accounts are set up: [docs/SUPABASE.md](docs/SUPABASE.md)
 
