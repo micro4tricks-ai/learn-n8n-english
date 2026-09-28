@@ -2956,5 +2956,11 @@ window.I18N_ADD && I18N_ADD({
  "رحلة 24 أسبوع": "24-week journey",
  "⏱ 30 دقيقة: افهم": "⏱ 30 min: understand",
  "تقدّمك بيتحفظ في المتصفح. ولو عملت حساب بالإيميل، بيتحفظ أونلاين وتكمّل من أي جهاز.": "Your progress is saved in the browser. If you create an account with your email, it's saved online and you can continue on any device.",
- "من رحلة الـ 24 أسبوع": "From the 24-week journey"
+ "من رحلة الـ 24 أسبوع": "From the 24-week journey",
+ "قرابة 300 مصدر: قواميس بالنطق، وكتابة تقنية، وقواعد، وبودكاست وقنوات، ومدونات هندسية للقراءة، وكلمات، ومحادثة، واختبارات مستوى، ومقابلات وشغل. جنب كل مصدر مكتوب تستخدمه في إيه بالظبط. فلتر بالقسم أو المستوى، وعلّم اللي خلّصته.": "About 300 resources: dictionaries with pronunciation, technical writing, grammar, podcasts and channels, engineering blogs to read, vocabulary, speaking, level tests, and interviews and jobs. Each one says exactly what to use it for. Filter by section or level, and mark what you finish.",
+ "عربي": "Arabic",
+ "المستوى:": "Level:",
+ "الحالة:": "Status:",
+ "لسه مخلّصتوش": "Not done yet",
+ "خلّصته": "Done"
 });

@@ -132,6 +132,17 @@ for (const file of ['index.html', 'n8n.html', 'english.html']) {
       doc.querySelectorAll('.day-tab').forEach(b => b.click());
       doc.querySelectorAll('.map-cell').forEach(b => b.click());
       doc.querySelectorAll('#quizTabs .cat-tab').forEach(b => b.click());
+      // library filters narrow the list and reset cleanly
+      if (doc.getElementById('libLevel')) {
+        const all = c('.lib-card'), sel = (id, v) => { const el = doc.getElementById(id); el.value = v; el.dispatchEvent(new w.Event('change')); };
+        sel('libLevel', 'a'); const adv = c('.lib-card');
+        check(adv > 0 && adv < all, file + ': level filter narrows the library (' + adv + '/' + all + ')');
+        sel('libLevel', ''); sel('libStatus', 'done');
+        check(c('.lib-card') === 0, file + ': nothing marked done yet');
+        sel('libStatus', '');
+        if (doc.getElementById('libLang')) { sel('libLang', 'ar'); const n = c('.lib-card'); check(n > 0 && n < all, file + ': language filter works (' + n + ')'); sel('libLang', ''); }
+        check(c('.lib-card') === all, file + ': filters reset');
+      }
       const left = new Set();
       const walker = doc.createTreeWalker(doc.body, w.NodeFilter.SHOW_TEXT);
       let n;

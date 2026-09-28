@@ -340,10 +340,20 @@
       tabs.appendChild(b);
     });
   }
+  // level filter: a range like "Beginner → intermediate" matches both ends; "All levels" matches everything
+  var LVRX = { b: /مبتدئ|beginner|A1|A2/i, i: /متوسط|intermediate|B1|B2/i, a: /متقدم|advanced|C1|C2/i };
+  function libFilterOk(b){
+    var lv = $('libLevel').value, st = $('libStatus').value, lg = $('libLang') ? $('libLang').value : '';
+    if(lv && !/كل المستويات|all levels/i.test(b.lvl) && !LVRX[lv].test(b.lvl)) return false;
+    if(st && (st === 'done') !== !!state.lib[libKey(b)]) return false;
+    if(lg && (lg === 'ar') !== (b.lang === T('عربي'))) return false;
+    return true;
+  }
   function renderLibrary(){
     var q = ($('libSearch').value || '').trim().toLowerCase();
     var list = LIBRARY.filter(function(b){
       if(activeLib !== T('الكل') && b.c !== activeLib) return false;
+      if(!libFilterOk(b)) return false;
       return !q || [b.t, b.c, b.type, b.lang, b.why, b.read].join(' ').toLowerCase().indexOf(q) !== -1;
     });
     var readN = LIBRARY.filter(function(b){ return state.lib[libKey(b)]; }).length;
@@ -366,6 +376,7 @@
     if(!list.length) g.innerHTML = '<p class="sub-note">' + T('مفيش نتايج. جرّب كلمة تانية.') + '</p>';
   }
   $('libSearch').addEventListener('input', renderLibrary);
+  ['libLevel', 'libStatus', 'libLang'].forEach(function(id){ if($(id)) $(id).addEventListener('change', renderLibrary); });
   $('libGrid').addEventListener('change', function(e){
     if(!e.target.matches('input[data-lib]')) return;
     state.lib[e.target.dataset.lib] = e.target.checked;

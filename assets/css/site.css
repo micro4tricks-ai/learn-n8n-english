@@ -433,6 +433,13 @@ img{max-width:100%;}
   }
   .lib-search input:focus{outline:2px solid var(--accent);outline-offset:1px;}
   .lib-count{font-size:13.5px;color:var(--muted);}
+  .lib-filter{display:flex;align-items:center;gap:6px;font-size:14px;color:var(--muted);}
+  .lib-filter select{
+    font:inherit;font-size:14px;color:var(--ink);background:var(--surface);min-height:40px;
+    border:1px solid var(--border);border-radius:999px;padding:6px 12px;
+  }
+  .lib-filter select:focus{outline:2px solid var(--accent);outline-offset:1px;}
+  @media (max-width:600px){ .lib-filter{flex:1 1 45%;} .lib-filter select{flex:1;min-width:0;} }
   .lib-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:12px;}
   .lib-card{
     background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:16px 18px;

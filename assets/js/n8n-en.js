@@ -2007,5 +2007,13 @@ window.I18N_ADD && I18N_ADD({
  "تقدّمك بيتحفظ في المتصفح. ولو عملت حساب بالإيميل، بيتحفظ أونلاين وتكمّل من أي جهاز.": "Your progress is saved in the browser. If you create an account with your email, it's saved online and you can continue on any device.",
  "الأسبوع {w} · اليوم {d}: {n} مصطلح. بيتغيّروا مع اليوم اللي فاتحه في الرحلة.": "Week {w} · Day {d}: {n} terms. They change with the day you have open in the journey.",
  "افتح يوم في الرحلة وهتلاقي مصطلحاته هنا.": "Open a day in the journey and its terms will appear here.",
- "من رحلة الـ 24 أسبوع": "From the 24-week journey"
+ "من رحلة الـ 24 أسبوع": "From the 24-week journey",
+ "قرابة 300 مصدر مجاني: توثيق n8n الرسمي لكل node، وكتب وكورسات JavaScript وPython وSQL، وAPIs للتجربة، والسيرفرات والأمان، والذكاء الاصطناعي، والعمل الحر، بالعربي والإنجليزي. جنب كل مصدر مكتوب تقرا منه إيه بالظبط، عشان متضيعش وقت في فصول مش محتاجها. فلتر بالقسم أو المستوى أو اللغة، وعلّم اللي خلّصته. كل الروابط لمواقع رسمية أو كتب أصحابها نشروها مجانًا.": "About 300 free resources: the official n8n docs for every node, books and courses on JavaScript, Python and SQL, practice APIs, servers and security, AI, and freelancing — in Arabic and English. Each one tells you exactly what to read, so you don't waste time on chapters you don't need yet. Filter by section, level or language, and mark what you finish. Every link goes to an official site or a book its authors published for free.",
+ "المستوى:": "Level:",
+ "اللغة:": "Language:",
+ "كل اللغات": "All languages",
+ "إنجليزي": "English",
+ "الحالة:": "Status:",
+ "لسه مخلّصتوش": "Not done yet",
+ "خلّصته": "Done"
 });

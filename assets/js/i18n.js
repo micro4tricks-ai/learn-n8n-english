@@ -30,12 +30,21 @@
     return T(s).replace(/\{(\w+)\}/g, function(_, k){ return vars && vars[k] != null ? vars[k] : ''; });
   }
   // Deep-translate a data structure (arrays / objects / strings).
+  // A leaf written as {ar, en} (newer data, e.g. the library additions) resolves to the current language.
+  function isBi(o){ return o && typeof o === 'object' && typeof o.ar === 'string' && typeof o.en === 'string' && Object.keys(o).length === 2; }
   function TDEEP(o){
-    if(lang === 'ar') return o;
+    if(isBi(o)) return lang === 'ar' ? o.ar : o.en;
+    if(lang === 'ar' && !hasBi(o)) return o;
     if(typeof o === 'string') return T(o);
     if(Array.isArray(o)) return o.map(TDEEP);
     if(o && typeof o === 'object'){ var r = {}; for(var k in o) r[k] = TDEEP(o[k]); return r; }
     return o;
+  }
+  function hasBi(o){
+    if(!o || typeof o !== 'object') return false;
+    if(isBi(o)) return true;
+    for(var k in o) if(hasBi(o[k])) return true;
+    return false;
   }
   var missing = {};
   window.I18N_MISSING = missing;
