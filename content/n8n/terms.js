@@ -2898,5 +2898,203 @@ JOURNEY_TERMS["n8n"] = [
    "en": "storing an answer so you don't ask again"
   },
   "ex": "Same email hash → reuse the category"
+ },
+ {
+  "w": 18,
+  "t": "agent loop",
+  "m": {
+   "ar": "الموديل يفكّر ← ينادي أداة ← يقرا النتيجة ← يكرر",
+   "en": "the model reasons → calls a tool → reads the result → repeats"
+  },
+  "ex": "Stops when it can answer."
+ },
+ {
+  "w": 18,
+  "t": "tool description",
+  "m": {
+   "ar": "الوصف اللي الموديل بيختار بيه الأداة",
+   "en": "the description the model uses to pick a tool"
+  },
+  "ex": "Use it when the user asks about an order."
+ },
+ {
+  "w": 18,
+  "t": "Calculator tool",
+  "m": {
+   "ar": "أداة جاهزة للحسابات عشان الموديل ميغلطش",
+   "en": "a ready tool for maths so the model doesn't make mistakes"
+  },
+  "ex": "15% of 2,340"
+ },
+ {
+  "w": 18,
+  "t": "max iterations (agent)",
+  "m": {
+   "ar": "أقصى عدد لفات للـ agent قبل ما يقف",
+   "en": "the most rounds an agent may take before stopping"
+  },
+  "ex": "Max iterations: 5"
+ },
+ {
+  "w": 18,
+  "t": "HTTP Request Tool",
+  "m": {
+   "ar": "أداة للـ agent بتنادي API",
+   "en": "an agent tool that calls an API"
+  },
+  "ex": "GET /orders/{id}"
+ },
+ {
+  "w": 18,
+  "t": "Call n8n Workflow Tool",
+  "m": {
+   "ar": "بيخلّي workflow عندك أداة للـ agent",
+   "en": "makes one of your workflows an agent tool"
+  },
+  "ex": "get_order, create_ticket"
+ },
+ {
+  "w": 18,
+  "t": "Code Tool",
+  "m": {
+   "ar": "أداة بتشغّل كود JavaScript أو Python",
+   "en": "a tool that runs JavaScript or Python code"
+  },
+  "ex": "Convert units"
+ },
+ {
+  "w": 18,
+  "t": "tool input",
+  "m": {
+   "ar": "القيم اللي الأداة محتاجاها من الموديل",
+   "en": "the values a tool needs from the model"
+  },
+  "ex": "order_id (number)"
+ },
+ {
+  "w": 18,
+  "t": "session ID",
+  "m": {
+   "ar": "معرّف المحادثة اللي بيفصل مستخدم عن التاني",
+   "en": "the conversation ID that separates one user from another"
+  },
+  "ex": "chat.id on Telegram"
+ },
+ {
+  "w": 18,
+  "t": "Simple Memory",
+  "m": {
+   "ar": "ذاكرة مؤقتة جوه n8n للتجربة",
+   "en": "temporary in-n8n memory for testing"
+  },
+  "ex": "Lost after a restart."
+ },
+ {
+  "w": 18,
+  "t": "Postgres Chat Memory",
+  "m": {
+   "ar": "ذاكرة محادثة دايمة في Postgres",
+   "en": "persistent chat memory in Postgres"
+  },
+  "ex": "For production bots."
+ },
+ {
+  "w": 18,
+  "t": "context window length",
+  "m": {
+   "ar": "عدد الرسايل الأخيرة اللي الذاكرة بتبعتها للموديل",
+   "en": "how many recent messages memory sends to the model"
+  },
+  "ex": "10 messages"
+ },
+ {
+  "w": 18,
+  "t": "prompt injection",
+  "m": {
+   "ar": "نص بيحاول يغيّر تعليمات الموديل",
+   "en": "text that tries to override the model's instructions"
+  },
+  "ex": "\"Ignore previous instructions…\""
+ },
+ {
+  "w": 18,
+  "t": "tool permissions",
+  "m": {
+   "ar": "الأدوات اللي الـ agent مسموحله يستخدمها وحدودها",
+   "en": "which tools an agent may use, and their limits"
+  },
+  "ex": "Read-only by default"
+ },
+ {
+  "w": 18,
+  "t": "guardrails",
+  "m": {
+   "ar": "قيود بتمنع الـ AI يعمل حاجة غلط",
+   "en": "limits that stop the AI doing something wrong"
+  },
+  "ex": "Block refunds over 500 without approval."
+ },
+ {
+  "w": 18,
+  "t": "approval step",
+  "m": {
+   "ar": "خطوة إنسان يوافق فيها قبل التنفيذ",
+   "en": "a step where a human approves before execution"
+  },
+  "ex": "Approve / Reject on Telegram"
+ },
+ {
+  "w": 18,
+  "t": "untrusted input",
+  "m": {
+   "ar": "نص جاي من برّه تعامله كبيانات مش أوامر",
+   "en": "outside text treated as data, not commands"
+  },
+  "ex": "Emails, web pages, user messages"
+ },
+ {
+  "w": 18,
+  "t": "public chat URL",
+  "m": {
+   "ar": "لينك صفحة شات جاهزة من Chat Trigger",
+   "en": "a ready chat page link from the Chat Trigger"
+  },
+  "ex": "Make Chat Publicly Available"
+ },
+ {
+  "w": 18,
+  "t": "embedded chat widget",
+  "m": {
+   "ar": "فقاعة شات تحطها في موقعك",
+   "en": "a chat bubble you place on your website"
+  },
+  "ex": "@n8n/chat"
+ },
+ {
+  "w": 18,
+  "t": "handoff to human",
+  "m": {
+   "ar": "تحويل المحادثة لموظف",
+   "en": "passing the conversation to a staff member"
+  },
+  "ex": "When the agent is unsure."
+ },
+ {
+  "w": 18,
+  "t": "conversation log",
+  "m": {
+   "ar": "تسجيل المحادثات للمراجعة والتحسين",
+   "en": "recording conversations for review and improvement"
+  },
+  "ex": "Review 20 chats a week."
+ },
+ {
+  "w": 18,
+  "t": "fallback answer",
+  "m": {
+   "ar": "رد ثابت لما الـ agent ميعرفش",
+   "en": "a fixed reply when the agent doesn't know"
+  },
+  "ex": "\"Let me connect you with our team.\""
  }
 ];
