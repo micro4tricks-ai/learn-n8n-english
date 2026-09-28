@@ -1116,5 +1116,194 @@ JOURNEY_TERMS["n8n"] = [
    "en": "a periodic check that the endpoint is up"
   },
   "ex": "Ping /v1/health every 5 minutes."
+ },
+ {
+  "w": 8,
+  "t": "dot notation",
+  "m": {
+   "ar": "اسم حقل بنقط بيعمل object متداخل",
+   "en": "a field name with dots that creates a nested object"
+  },
+  "ex": "customer.address.city"
+ },
+ {
+  "w": 8,
+  "t": "Include Other Input Fields",
+  "m": {
+   "ar": "خيار في Edit Fields: تحتفظ بالحقول القديمة ولا لأ",
+   "en": "an Edit Fields option: keep the old fields or not"
+  },
+  "ex": "Off → only your fields leave the node."
+ },
+ {
+  "w": 8,
+  "t": "field type",
+  "m": {
+   "ar": "نوع قيمة الحقل: نص، رقم، boolean…",
+   "en": "the type of a field's value: text, number, boolean…"
+  },
+  "ex": "qty: Number"
+ },
+ {
+  "w": 8,
+  "t": "Rename Keys",
+  "m": {
+   "ar": "node بتغيّر أسماء الحقول",
+   "en": "a node that renames fields"
+  },
+  "ex": "first_name → firstName"
+ },
+ {
+  "w": 8,
+  "t": "output shape",
+  "m": {
+   "ar": "شكل البيانات اللي خارجة من node",
+   "en": "the shape of the data leaving a node"
+  },
+  "ex": "Match the output shape to the API docs."
+ },
+ {
+  "w": 8,
+  "t": "Append (Merge)",
+  "m": {
+   "ar": "وضع Merge بيحط المدخلين ورا بعض",
+   "en": "a Merge mode that stacks both inputs"
+  },
+  "ex": "Leads from 2 forms → one list"
+ },
+ {
+  "w": 8,
+  "t": "Combine by Position",
+  "m": {
+   "ar": "يربط أول item بأول item وهكذا",
+   "en": "links the first item with the first, and so on"
+  },
+  "ex": "Names list + scores list"
+ },
+ {
+  "w": 8,
+  "t": "SQL Query (Merge)",
+  "m": {
+   "ar": "وضع Merge بتكتب فيه SQL على المدخلين",
+   "en": "a Merge mode where you write SQL over both inputs"
+  },
+  "ex": "SELECT * FROM input1 LEFT JOIN input2 …"
+ },
+ {
+  "w": 8,
+  "t": "Choose Branch",
+  "m": {
+   "ar": "يستنى الفرعين ويطلّع بيانات واحد فيهم",
+   "en": "waits for both branches and outputs one of them"
+  },
+  "ex": "Continue after both steps finish."
+ },
+ {
+  "w": 8,
+  "t": "Keep Non-Matches",
+  "m": {
+   "ar": "يطلّع اللي ملهوش شريك في المدخل التاني",
+   "en": "outputs items with no partner in the other input"
+  },
+  "ex": "Customers without orders"
+ },
+ {
+  "w": 8,
+  "t": "strict equality (===)",
+  "m": {
+   "ar": "مقارنة بالقيمة والنوع مع بعض",
+   "en": "comparison of both value and type"
+  },
+  "ex": "\"5\" === 5 → false"
+ },
+ {
+  "w": 8,
+  "t": "typeof",
+  "m": {
+   "ar": "بيقولك نوع القيمة",
+   "en": "tells you the type of a value"
+  },
+  "ex": "typeof 42 → \"number\""
+ },
+ {
+  "w": 8,
+  "t": "In A only / In B only",
+  "m": {
+   "ar": "مخارج Compare Datasets للي موجود في مصدر واحد بس",
+   "en": "Compare Datasets outputs for items found in only one source"
+  },
+  "ex": "In A only → new products"
+ },
+ {
+  "w": 8,
+  "t": "normalization (data)",
+  "m": {
+   "ar": "توحيد شكل البيانات قبل المقارنة",
+   "en": "making data consistent before comparing"
+  },
+  "ex": "trim + lowercase emails"
+ },
+ {
+  "w": 8,
+  "t": "sync (two-way)",
+  "m": {
+   "ar": "مزامنة: التغيير في مكان يوصل للتاني",
+   "en": "syncing: a change in one place reaches the other"
+  },
+  "ex": "Shop ↔ sheet"
+ },
+ {
+  "w": 8,
+  "t": "top N",
+  "m": {
+   "ar": "أعلى N عناصر بعد الترتيب",
+   "en": "the top N items after sorting"
+  },
+  "ex": "Sort desc → Limit 10"
+ },
+ {
+  "w": 8,
+  "t": "lookup object",
+  "m": {
+   "ar": "object بيحوّل قيمة لقيمة تانية",
+   "en": "an object that turns one value into another"
+  },
+  "ex": "{ paid: \"PAID\" }[status]"
+ },
+ {
+  "w": 8,
+  "t": "mapping table",
+  "m": {
+   "ar": "جدول بيربط قيم نظام بقيم نظام تاني",
+   "en": "a table linking one system's values to another's"
+  },
+  "ex": "shop_sku → erp_code"
+ },
+ {
+  "w": 8,
+  "t": "toLocaleString()",
+  "m": {
+   "ar": "بينسّق الأرقام والعملات حسب البلد",
+   "en": "formats numbers and currencies by locale"
+  },
+  "ex": "1234.5 → \"$1,234.50\""
+ },
+ {
+  "w": 8,
+  "t": "cents (minor units)",
+  "m": {
+   "ar": "تخزين الفلوس كأرقام صحيحة بأصغر وحدة",
+   "en": "storing money as whole numbers of the smallest unit"
+  },
+  "ex": "12.99 → 1299"
+ },
+ {
+  "w": 8,
+  "t": "source of truth",
+  "m": {
+   "ar": "المكان الوحيد اللي بيانته هي المرجع",
+   "en": "the one place whose data is the reference"
+  },
+  "ex": "The ERP is the source of truth for stock."
  }
 ];
