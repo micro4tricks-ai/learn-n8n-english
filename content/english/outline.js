@@ -1,7 +1,7 @@
 // The 24-week English journey: months, week titles, and which weeks already have content.
 JOURNEY.outline({
  track: 'english',
- ready: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22],
+ ready: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24],
  months: [
   { n: 1, level: 'A1 → A2', title: { ar: 'أساسيات الجملة والأخطاء', en: 'Sentence basics and errors' } },
   { n: 2, level: 'A2', title: { ar: 'التوثيق ولغة الكود', en: 'Docs and the language of code' } },
