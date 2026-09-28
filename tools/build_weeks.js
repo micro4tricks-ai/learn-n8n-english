@@ -33,12 +33,12 @@ function en(ar, where) {
   if (dict[k] == null) { problems.push(where + ': no English for «' + k.slice(0, 80) + '»'); return { ar, en: '' }; }
   return { ar, en: dict[k] };
 }
-const bank = {};
+const bank = Object.create(null);
 (track === 'english' ? D.VOCAB.map(v => ({ t: v.term, m: v.mean, ex: v.ex })) : D.TERMS.map(v => ({ t: v.t, m: v.m, ex: v.ex })))
   .forEach(v => { if (!bank[v.t.toLowerCase()]) bank[v.t.toLowerCase()] = v; });
-const grammar = {};
+const grammar = Object.create(null);
 (D.GRAMMAR || []).forEach(g => { grammar[g.h] = g; });
-const library = {};
+const library = Object.create(null);
 D.LIBRARY.forEach(b => { library[b.t] = b; });
 
 function word(w, where) {
@@ -64,7 +64,7 @@ function read(r, where) {
 const pad = n => String(n).padStart(2, '0');
 const srcDir = path.join(ROOT, 'content', track, 'src');
 const outDir = path.join(ROOT, 'content', track, 'weeks');
-const seenWords = {};
+const seenWords = Object.create(null);
 // words already used in the ready weeks that have no source (week 1)
 fs.readdirSync(outDir).filter(f => /^w\d\d\.js$/.test(f)).forEach(f => {
   if (fs.existsSync(path.join(srcDir, f))) return;
