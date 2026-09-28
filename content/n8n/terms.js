@@ -3870,5 +3870,437 @@ JOURNEY_TERMS["n8n"] = [
    "en": "hiding part of sensitive data"
   },
   "ex": "a***@x.com"
+ },
+ {
+  "w": 23,
+  "t": "worker",
+  "m": {
+   "ar": "process بيسحب تنفيذات من الطابور وينفّذها",
+   "en": "a process pulling executions from the queue and running them"
+  },
+  "ex": "n8n worker"
+ },
+ {
+  "w": 23,
+  "t": "Redis",
+  "m": {
+   "ar": "قاعدة بيانات في الذاكرة بتستخدم كطابور",
+   "en": "an in-memory database used as the queue"
+  },
+  "ex": "redis:7-alpine"
+ },
+ {
+  "w": 23,
+  "t": "concurrency",
+  "m": {
+   "ar": "عدد التنفيذات في نفس الوقت",
+   "en": "how many executions run at the same time"
+  },
+  "ex": "--concurrency=10"
+ },
+ {
+  "w": 23,
+  "t": "horizontal scaling",
+  "m": {
+   "ar": "التوسّع بزيادة عدد النسخ مش حجمها",
+   "en": "scaling by adding more instances, not bigger ones"
+  },
+  "ex": "--scale n8n-worker=3"
+ },
+ {
+  "w": 23,
+  "t": "healthcheck (/healthz)",
+  "m": {
+   "ar": "رابط بيرد لو الخدمة شغالة",
+   "en": "an endpoint that responds when the service is up"
+  },
+  "ex": "200 OK"
+ },
+ {
+  "w": 23,
+  "t": "uptime monitoring",
+  "m": {
+   "ar": "مراقبة إن الخدمة شغالة طول الوقت",
+   "en": "watching that a service stays up"
+  },
+  "ex": "Uptime Kuma, UptimeRobot"
+ },
+ {
+  "w": 23,
+  "t": "Prometheus metrics",
+  "m": {
+   "ar": "أرقام بصيغة Prometheus عن حالة الخدمة",
+   "en": "numbers about service health in Prometheus format"
+  },
+  "ex": "N8N_METRICS=true"
+ },
+ {
+  "w": 23,
+  "t": "Grafana dashboard",
+  "m": {
+   "ar": "لوحة رسوم بيانية للمقاييس",
+   "en": "a board of charts for metrics"
+  },
+  "ex": "Executions per hour"
+ },
+ {
+  "w": 23,
+  "t": "N8N_LOG_LEVEL",
+  "m": {
+   "ar": "مستوى تفاصيل الـ logs",
+   "en": "how detailed the logs are"
+  },
+  "ex": "info, warn, debug"
+ },
+ {
+  "w": 23,
+  "t": "X-N8N-API-KEY",
+  "m": {
+   "ar": "الـ header اللي فيه مفتاح n8n API",
+   "en": "the header carrying the n8n API key"
+  },
+  "ex": "-H \"X-N8N-API-KEY: …\""
+ },
+ {
+  "w": 23,
+  "t": "n8n import:workflow",
+  "m": {
+   "ar": "أمر CLI بيستورد workflow من JSON",
+   "en": "a CLI command importing a workflow from JSON"
+  },
+  "ex": "--input=wf.json"
+ },
+ {
+  "w": 23,
+  "t": "promote to production",
+  "m": {
+   "ar": "نقل workflow من التجربة للإنتاج",
+   "en": "moving a workflow from testing to production"
+  },
+  "ex": "staging → prod"
+ },
+ {
+  "w": 23,
+  "t": "n8n node",
+  "m": {
+   "ar": "node جوه n8n بيكلّم n8n API",
+   "en": "a node inside n8n that calls the n8n API"
+  },
+  "ex": "Get many executions"
+ },
+ {
+  "w": 23,
+  "t": "community node",
+  "m": {
+   "ar": "node من برّه n8n الرسمي بتتثبّت كحزمة",
+   "en": "a node outside core n8n installed as a package"
+  },
+  "ex": "Settings → Community nodes"
+ },
+ {
+  "w": 23,
+  "t": "n8n-nodes-starter",
+  "m": {
+   "ar": "قالب رسمي لبدء node جديد",
+   "en": "the official template for starting a new node"
+  },
+  "ex": "git clone …/n8n-nodes-starter"
+ },
+ {
+  "w": 23,
+  "t": "TypeScript",
+  "m": {
+   "ar": "JavaScript بأنواع (types)",
+   "en": "JavaScript with types"
+  },
+  "ex": "const n: number = 5;"
+ },
+ {
+  "w": 23,
+  "t": "declarative routing",
+  "m": {
+   "ar": "node بتوصف الطلبات بدل ما تكتب execute",
+   "en": "a node that describes requests instead of writing execute"
+  },
+  "ex": "routing: { request: { url: \"/weather\" } }"
+ },
+ {
+  "w": 23,
+  "t": "npm link",
+  "m": {
+   "ar": "تربط حزمة محلية عشان تجرّبها",
+   "en": "link a local package to try it"
+  },
+  "ex": "npm link n8n-nodes-weather"
+ },
+ {
+  "w": 23,
+  "t": "memory leak",
+  "m": {
+   "ar": "ذاكرة بتزيد ومبتتحررش لحد ما السيرفر يقع",
+   "en": "memory that keeps growing and is never freed until the server crashes"
+  },
+  "ex": "RAM 95% after 3 days"
+ },
+ {
+  "w": 23,
+  "t": "bulk endpoint",
+  "m": {
+   "ar": "endpoint بياخد عناصر كتير في طلب واحد",
+   "en": "an endpoint taking many items in one request"
+  },
+  "ex": "/contacts/batch"
+ },
+ {
+  "w": 23,
+  "t": "cache",
+  "m": {
+   "ar": "تخزين نتيجة عشان متطلبهاش تاني",
+   "en": "storing a result so you don't fetch it again"
+  },
+  "ex": "Exchange rates cached for 1 hour"
+ },
+ {
+  "w": 23,
+  "t": "token cost",
+  "m": {
+   "ar": "تكلفة الـ AI حسب عدد الـ tokens",
+   "en": "AI cost based on the number of tokens"
+  },
+  "ex": "input + output tokens"
+ },
+ {
+  "w": 23,
+  "t": "bottleneck",
+  "m": {
+   "ar": "أبطأ جزء بيأخّر كل حاجة",
+   "en": "the slowest part holding everything back"
+  },
+  "ex": "One slow API call"
+ },
+ {
+  "w": 24,
+  "t": "portfolio",
+  "m": {
+   "ar": "مجموعة شغلك اللي بتعرضها للعملاء",
+   "en": "the collection of work you show clients"
+  },
+  "ex": "3 strong case studies"
+ },
+ {
+  "w": 24,
+  "t": "case study",
+  "m": {
+   "ar": "قصة مشروع: مشكلة وحل ونتيجة",
+   "en": "a project story: problem, solution, result"
+  },
+  "ex": "Saved 10 hours a week"
+ },
+ {
+  "w": 24,
+  "t": "value proposition",
+  "m": {
+   "ar": "جملة بتقول بتحل إيه ولمين",
+   "en": "a sentence saying what you solve and for whom"
+  },
+  "ex": "I automate lead follow-up for clinics."
+ },
+ {
+  "w": 24,
+  "t": "niche",
+  "m": {
+   "ar": "مجال محدد بتتخصص فيه",
+   "en": "a specific field you specialise in"
+  },
+  "ex": "Real estate automation"
+ },
+ {
+  "w": 24,
+  "t": "n8n template",
+  "m": {
+   "ar": "workflow منشور يقدر أي حد يستخدمه",
+   "en": "a published workflow anyone can use"
+  },
+  "ex": "n8n.io/workflows"
+ },
+ {
+  "w": 24,
+  "t": "proposal",
+  "m": {
+   "ar": "عرض مكتوب للعميل بالحل والسعر",
+   "en": "a written offer to a client with the solution and price"
+  },
+  "ex": "Start with their problem."
+ },
+ {
+  "w": 24,
+  "t": "discovery call",
+  "m": {
+   "ar": "مكالمة تفهم فيها احتياج العميل",
+   "en": "a call to understand the client's needs"
+  },
+  "ex": "15 minutes, 5 questions"
+ },
+ {
+  "w": 24,
+  "t": "scope creep",
+  "m": {
+   "ar": "الشغل بيكبر شوية بشوية من غير اتفاق",
+   "en": "work growing little by little without an agreement"
+  },
+  "ex": "\"Just one more small thing…\""
+ },
+ {
+  "w": 24,
+  "t": "lead generation",
+  "m": {
+   "ar": "جذب عملاء محتملين",
+   "en": "attracting potential clients"
+  },
+  "ex": "LinkedIn posts, templates"
+ },
+ {
+  "w": 24,
+  "t": "upwork",
+  "m": {
+   "ar": "منصة عمل حر عالمية",
+   "en": "a global freelancing platform"
+  },
+  "ex": "Search \"n8n\""
+ },
+ {
+  "w": 24,
+  "t": "fixed price",
+  "m": {
+   "ar": "سعر ثابت لمشروع كامل",
+   "en": "one set price for the whole project"
+  },
+  "ex": "$800 for the invoice bot"
+ },
+ {
+  "w": 24,
+  "t": "value-based pricing",
+  "m": {
+   "ar": "تسعير حسب القيمة اللي العميل بيكسبها",
+   "en": "pricing by the value the client gains"
+  },
+  "ex": "Saves $600/month"
+ },
+ {
+  "w": 24,
+  "t": "retainer",
+  "m": {
+   "ar": "مبلغ شهري ثابت للدعم والصيانة",
+   "en": "a fixed monthly fee for support and maintenance"
+  },
+  "ex": "$150/month"
+ },
+ {
+  "w": 24,
+  "t": "milestone",
+  "m": {
+   "ar": "مرحلة في المشروع ليها دفعة",
+   "en": "a project stage with its own payment"
+  },
+  "ex": "Milestone 2: CRM sync"
+ },
+ {
+  "w": 24,
+  "t": "change request",
+  "m": {
+   "ar": "طلب تعديل برّه الـ scope بسعر جديد",
+   "en": "a request outside scope with a new price"
+  },
+  "ex": "\"Can it also post to Slack?\""
+ },
+ {
+  "w": 24,
+  "t": "handover",
+  "m": {
+   "ar": "تسليم المشروع للعميل بكل اللي يحتاجه",
+   "en": "handing the project over with everything the client needs"
+  },
+  "ex": "Docs + training + access"
+ },
+ {
+  "w": 24,
+  "t": "client onboarding",
+  "m": {
+   "ar": "بداية الشغل مع عميل: وصول وحسابات ومعلومات",
+   "en": "starting with a client: access, accounts and information"
+  },
+  "ex": "Access checklist"
+ },
+ {
+  "w": 24,
+  "t": "SLA",
+  "m": {
+   "ar": "اتفاق على وقت الرد ومستوى الخدمة",
+   "en": "an agreement on response time and service level"
+  },
+  "ex": "Reply within 1 business day"
+ },
+ {
+  "w": 24,
+  "t": "testimonial",
+  "m": {
+   "ar": "رأي عميل مبسوط تعرضه",
+   "en": "a happy client's review you can show"
+  },
+  "ex": "\"Saved us 10 hours a week.\""
+ },
+ {
+  "w": 24,
+  "t": "upsell",
+  "m": {
+   "ar": "عرض شغل إضافي لعميل حالي",
+   "en": "offering extra work to an existing client"
+  },
+  "ex": "Add AI replies next month"
+ },
+ {
+  "w": 24,
+  "t": "capstone project",
+  "m": {
+   "ar": "مشروع نهائي بيجمع كل اللي اتعلمته",
+   "en": "a final project combining everything learned"
+  },
+  "ex": "Clinic automation system"
+ },
+ {
+  "w": 24,
+  "t": "architecture diagram",
+  "m": {
+   "ar": "رسم بيوضح أجزاء النظام وإزاي بتتكلم",
+   "en": "a drawing of the system parts and how they talk"
+  },
+  "ex": "Form → n8n → DB → AI → WhatsApp"
+ },
+ {
+  "w": 24,
+  "t": "end-to-end",
+  "m": {
+   "ar": "من أول خطوة لآخر خطوة",
+   "en": "from the first step to the last"
+  },
+  "ex": "Test the whole flow end-to-end."
+ },
+ {
+  "w": 24,
+  "t": "requirements",
+  "m": {
+   "ar": "الحاجات اللي النظام لازم يعملها",
+   "en": "what the system must do"
+  },
+  "ex": "Must confirm within 5 minutes"
+ },
+ {
+  "w": 24,
+  "t": "demo",
+  "m": {
+   "ar": "عرض عملي للنظام وهو شغال",
+   "en": "a live showing of the system working"
+  },
+  "ex": "2-minute demo video"
  }
 ];
