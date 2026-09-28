@@ -2529,5 +2529,176 @@ JOURNEY_TERMS["n8n"] = [
    "en": "encrypted file transfer over SSH"
   },
   "ex": "Prefer SFTP to plain FTP."
+ },
+ {
+  "w": 15,
+  "t": "DOM tree",
+  "m": {
+   "ar": "بنية الصفحة كشجرة عناصر جوه بعض",
+   "en": "the page structure as a tree of nested elements"
+  },
+  "ex": "html > body > div > span"
+ },
+ {
+  "w": 15,
+  "t": "class / id",
+  "m": {
+   "ar": "أسماء للعناصر: class بيتكرر، id فريد",
+   "en": "element names: a class repeats, an id is unique"
+  },
+  "ex": ".product, #main"
+ },
+ {
+  "w": 15,
+  "t": "Inspect (DevTools)",
+  "m": {
+   "ar": "أداة المتصفح تشوف بيها HTML أي عنصر",
+   "en": "the browser tool that shows an element's HTML"
+  },
+  "ex": "Right-click → Inspect"
+ },
+ {
+  "w": 15,
+  "t": "Extract HTML Content",
+  "m": {
+   "ar": "عملية HTML node بتطلّع بيانات بـ selectors",
+   "en": "the HTML node operation that extracts data with selectors"
+  },
+  "ex": "key + selector + return value"
+ },
+ {
+  "w": 15,
+  "t": "Return Array",
+  "m": {
+   "ar": "خيار بيرجّع كل النتايج مش أول واحدة",
+   "en": "an option that returns every match, not just the first"
+  },
+  "ex": "All product names"
+ },
+ {
+  "w": 15,
+  "t": "nth-child",
+  "m": {
+   "ar": "selector لعنصر بترتيبه",
+   "en": "a selector for an element by its position"
+  },
+  "ex": "li:nth-child(2)"
+ },
+ {
+  "w": 15,
+  "t": "Terms of Service",
+  "m": {
+   "ar": "شروط استخدام الموقع",
+   "en": "a site's rules of use"
+  },
+  "ex": "Check them before scraping."
+ },
+ {
+  "w": 15,
+  "t": "User-Agent",
+  "m": {
+   "ar": "header بيعرّف البرنامج اللي بيطلب",
+   "en": "a header identifying the program making the request"
+  },
+  "ex": "MyPriceBot/1.0"
+ },
+ {
+  "w": 15,
+  "t": "crawl delay",
+  "m": {
+   "ar": "مدة الانتظار بين الطلبات عشان متضغطش على الموقع",
+   "en": "the pause between requests so you don't overload a site"
+  },
+  "ex": "Crawl-delay: 10"
+ },
+ {
+  "w": 15,
+  "t": "JavaScript-rendered page",
+  "m": {
+   "ar": "صفحة بتتملى بالبيانات بعد ما JavaScript يشتغل",
+   "en": "a page filled with data after JavaScript runs"
+  },
+  "ex": "<div id=\"app\"></div>"
+ },
+ {
+  "w": 15,
+  "t": "Network tab",
+  "m": {
+   "ar": "تبويب DevTools اللي بيعرض كل الطلبات",
+   "en": "the DevTools tab listing every request"
+  },
+  "ex": "Filter: Fetch/XHR"
+ },
+ {
+  "w": 15,
+  "t": "hidden API",
+  "m": {
+   "ar": "API داخلي الموقع بيستخدمه لبياناته",
+   "en": "an internal API a site uses for its own data"
+  },
+  "ex": "/api/products?page=1"
+ },
+ {
+  "w": 15,
+  "t": "headless browser",
+  "m": {
+   "ar": "متصفح من غير شاشة بيشغّل JavaScript",
+   "en": "a browser without a window that runs JavaScript"
+  },
+  "ex": "Browserless, Puppeteer"
+ },
+ {
+  "w": 15,
+  "t": "Copy as cURL",
+  "m": {
+   "ar": "خيار في DevTools بينسخ الطلب كأمر curl",
+   "en": "a DevTools option that copies a request as a curl command"
+  },
+  "ex": "Right-click the request → Copy → Copy as cURL"
+ },
+ {
+  "w": 15,
+  "t": "change detection",
+  "m": {
+   "ar": "اكتشاف إن صفحة أو قيمة اتغيّرت",
+   "en": "noticing that a page or value changed"
+  },
+  "ex": "Compare with the stored value."
+ },
+ {
+  "w": 15,
+  "t": "content hash",
+  "m": {
+   "ar": "بصمة قصيرة للمحتوى بتتغيّر لو هو اتغيّر",
+   "en": "a short fingerprint of content that changes when it does"
+  },
+  "ex": "SHA256 of #terms"
+ },
+ {
+  "w": 15,
+  "t": "price tracker",
+  "m": {
+   "ar": "workflow بيراقب الأسعار ويبلّغ",
+   "en": "a workflow that watches prices and alerts"
+  },
+  "ex": "Alert when the price drops."
+ },
+ {
+  "w": 15,
+  "t": "threshold",
+  "m": {
+   "ar": "حد لازم التغيير يعدّيه عشان تبلّغ",
+   "en": "a limit a change must pass before alerting"
+  },
+  "ex": "> 10% drop"
+ },
+ {
+  "w": 15,
+  "t": "stored state",
+  "m": {
+   "ar": "آخر قيمة محفوظة عشان تقارن بيها",
+   "en": "the last saved value used for comparison"
+  },
+  "ex": "last_price in Postgres"
  }
 ];
