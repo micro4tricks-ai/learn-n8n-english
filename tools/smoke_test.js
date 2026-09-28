@@ -88,7 +88,7 @@ function allWeeksChecks(doc, w, where) {
       tab.click(); views++;
       const walker = doc.createTreeWalker(doc.getElementById('journeyApp'), w.NodeFilter.SHOW_TEXT);
       let t;
-      while ((t = walker.nextNode())) if (AR.test(t.nodeValue)) left.add('w' + n + 'd' + d + ': ' + t.nodeValue.trim().slice(0, 60));
+      while ((t = walker.nextNode())) if (AR.test(t.nodeValue) && !t.parentElement.closest('pre,code,.tex')) left.add('w' + n + 'd' + d + ': ' + t.nodeValue.trim().slice(0, 60));
     }
   });
   check(views >= 6, where + ': rendered ' + views + ' day views');

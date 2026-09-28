@@ -1521,5 +1521,203 @@ JOURNEY_TERMS["n8n"] = [
    "en": "a sign that code needs cleaning up"
   },
   "ex": "A 200-line Code node is a smell."
+ },
+ {
+  "w": 10,
+  "t": "character class",
+  "m": {
+   "ar": "مجموعة حروف بين [ ] أو اختصار زي \\d",
+   "en": "a set of characters in [ ] or a shortcut like \\d"
+  },
+  "ex": "[0-9], \\d, \\w"
+ },
+ {
+  "w": 10,
+  "t": "anchor (^ $)",
+  "m": {
+   "ar": "علامات أول وآخر النص",
+   "en": "marks for the start and end of text"
+  },
+  "ex": "^start … end$"
+ },
+ {
+  "w": 10,
+  "t": "escape (\\)",
+  "m": {
+   "ar": "شرطة مايلة بتخلي الحرف الخاص عادي",
+   "en": "a backslash that makes a special character literal"
+  },
+  "ex": "\\. matches a real dot"
+ },
+ {
+  "w": 10,
+  "t": "named group",
+  "m": {
+   "ar": "capture group ليه اسم (?<name>…)",
+   "en": "a capture group with a name (?<name>…)"
+  },
+  "ex": "m.groups.amount"
+ },
+ {
+  "w": 10,
+  "t": "match()",
+  "m": {
+   "ar": "بيطلّع النتيجة أو null",
+   "en": "returns the match or null"
+  },
+  "ex": "text.match(/\\d+/)"
+ },
+ {
+  "w": 10,
+  "t": "matchAll()",
+  "m": {
+   "ar": "بيرجّع كل النتايج بالـ groups",
+   "en": "returns every match with its groups"
+  },
+  "ex": "[...text.matchAll(re)]"
+ },
+ {
+  "w": 10,
+  "t": "global flag (g)",
+  "m": {
+   "ar": "flag بيجيب كل النتايج",
+   "en": "a flag that returns all matches"
+  },
+  "ex": "/\\d+/g"
+ },
+ {
+  "w": 10,
+  "t": "replace() with regex",
+  "m": {
+   "ar": "استبدال كل اللي بيطابق الـ pattern",
+   "en": "replace everything that matches the pattern"
+  },
+  "ex": "text.replace(/\\s+/g, \" \")"
+ },
+ {
+  "w": 10,
+  "t": "whitespace collapse",
+  "m": {
+   "ar": "تحويل المسافات المتكررة لمسافة واحدة",
+   "en": "turning repeated spaces into a single space"
+  },
+  "ex": "\"a   b\" → \"a b\""
+ },
+ {
+  "w": 10,
+  "t": "diacritics (tashkeel)",
+  "m": {
+   "ar": "علامات التشكيل فوق وتحت الحروف",
+   "en": "marks above and below letters"
+  },
+  "ex": "مُحَمَّد → محمد"
+ },
+ {
+  "w": 10,
+  "t": "Unicode range",
+  "m": {
+   "ar": "نطاق أكواد حروف في الـ regex",
+   "en": "a range of character codes in a regex"
+  },
+  "ex": "[\\u0600-\\u06FF] = Arabic letters"
+ },
+ {
+  "w": 10,
+  "t": "slug",
+  "m": {
+   "ar": "نص صالح للـ URL: صغير وبشرطات",
+   "en": "URL-safe text: lowercase with hyphens"
+  },
+  "ex": "hello-world"
+ },
+ {
+  "w": 10,
+  "t": "test()",
+  "m": {
+   "ar": "بيرجّع true لو النص بيطابق الـ pattern",
+   "en": "returns true if the text matches the pattern"
+  },
+  "ex": "/^\\d+$/.test(\"42\")"
+ },
+ {
+  "w": 10,
+  "t": "word boundary (\\b)",
+  "m": {
+   "ar": "حدود كلمة في الـ regex",
+   "en": "a word edge in a regex"
+  },
+  "ex": "\\bcat\\b"
+ },
+ {
+  "w": 10,
+  "t": "greedy vs lazy",
+  "m": {
+   "ar": "بياخد أكتر حاجة ممكنة ضد أقل حاجة",
+   "en": "takes as much as possible vs. as little as possible"
+  },
+  "ex": ".* vs .*?"
+ },
+ {
+  "w": 10,
+  "t": "full match",
+  "m": {
+   "ar": "الـ pattern يطابق النص كله بـ ^ و$",
+   "en": "the pattern matches the whole text with ^ and $"
+  },
+  "ex": "/^INV-\\d+$/"
+ },
+ {
+  "w": 10,
+  "t": "isEmail()",
+  "m": {
+   "ar": "دالة n8n للتحقق من الإيميل",
+   "en": "n8n's email validation function"
+  },
+  "ex": "{{ $json.email.isEmail() }}"
+ },
+ {
+  "w": 10,
+  "t": "line break (\\n)",
+  "m": {
+   "ar": "علامة سطر جديد في النص",
+   "en": "the new-line character in text"
+  },
+  "ex": "text.split(\"\\n\")"
+ },
+ {
+  "w": 10,
+  "t": "keyword routing",
+  "m": {
+   "ar": "توجيه الرسالة حسب كلمات فيها",
+   "en": "routing a message by the words in it"
+  },
+  "ex": "(refund|استرداد) → Refunds"
+ },
+ {
+  "w": 10,
+  "t": "placeholder",
+  "m": {
+   "ar": "مكان في القالب بيتملى بقيمة",
+   "en": "a spot in a template that gets filled with a value"
+  },
+  "ex": "Hello {name}"
+ },
+ {
+  "w": 10,
+  "t": "filter(Boolean)",
+  "m": {
+   "ar": "بيشيل القيم الفاضية من array",
+   "en": "removes empty values from an array"
+  },
+  "ex": "[\"a\",\"\",null].filter(Boolean)"
+ },
+ {
+  "w": 10,
+  "t": "text parsing",
+  "m": {
+   "ar": "تحويل نص حر لبيانات منظمة",
+   "en": "turning free text into structured data"
+  },
+  "ex": "\"2 x Pizza\" → { qty: 2, item: \"Pizza\" }"
  }
 ];

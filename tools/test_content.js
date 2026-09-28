@@ -7,10 +7,12 @@ const problems = []; let count = 0;
 const seenUrl = {};
 
 // A content string is either {ar, en} (both filled, en without Arabic) or a plain string without Arabic.
-function bi(x, where){
-  if(typeof x === 'string'){ if(AR.test(x)) problems.push(where + ': Arabic text without {ar, en}'); return; }
+// Arabic is allowed inside `code` (rendered as code, e.g. lessons about processing Arabic text).
+const noCode = s => String(s).replace(/`[^`]*`/g, '');
+function bi(x, where, codeBlock){
+  if(typeof x === 'string'){ if(!codeBlock && AR.test(noCode(x))) problems.push(where + ': Arabic text without {ar, en}'); return; }
   if(!x || !x.ar || !x.en){ problems.push(where + ': missing ar/en'); return; }
-  if(AR.test(x.en)) problems.push(where + ': Arabic left in en');
+  if(!codeBlock && AR.test(noCode(x.en))) problems.push(where + ': Arabic left in en');
 }
 function question(x, where){
   bi(x.q, where + ' q'); bi(x.why, where + ' why');
@@ -42,10 +44,10 @@ for(const track of ['english', 'n8n']){
       if(i < 5){
         atLeast(d.learn, 3, D + ': learn'); atLeast(d.practice, 3, D + ': practice');
         atLeast(d.words, 5, D + ': words'); atLeast(d.read, 1, D + ': read'); atLeast(d.quiz, 3, D + ': quiz');
-        (d.learn || []).forEach((l, j) => { bi(l.h, D + ' learn ' + j + ' h'); bi(l.p, D + ' learn ' + j + ' p'); if(l.ex != null) bi(l.ex, D + ' learn ' + j + ' ex'); });
+        (d.learn || []).forEach((l, j) => { bi(l.h, D + ' learn ' + j + ' h'); bi(l.p, D + ' learn ' + j + ' p'); if(l.ex != null) bi(l.ex, D + ' learn ' + j + ' ex', true); });
         (d.practice || []).forEach((p, j) => bi(p, D + ' practice ' + j));
-        (d.code || []).forEach((c, j) => { bi(c.u, D + ' code ' + j); if(c.p == null) problems.push(D + ' code ' + j + ': no snippet'); else bi(c.p, D + ' code ' + j + ' snippet'); });
-        (d.words || []).forEach((w, j) => { if(!w.t) problems.push(D + ' word ' + j + ': no term'); bi(w.m, D + ' word ' + j); if(w.ex != null) bi(w.ex, D + ' word ' + j + ' ex'); });
+        (d.code || []).forEach((c, j) => { bi(c.u, D + ' code ' + j); if(c.p == null) problems.push(D + ' code ' + j + ': no snippet'); else bi(c.p, D + ' code ' + j + ' snippet', true); });
+        (d.words || []).forEach((w, j) => { if(!w.t) problems.push(D + ' word ' + j + ': no term'); bi(w.m, D + ' word ' + j); if(w.ex != null) bi(w.ex, D + ' word ' + j + ' ex', true); });
         (d.read || []).forEach((r, j) => {
           if(!/^https:\/\//.test(r.url || '')) problems.push(D + ' read ' + j + ': url must be https');
           bi(r.t, D + ' read ' + j + ' title');
