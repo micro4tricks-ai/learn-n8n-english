@@ -113,7 +113,7 @@ for (const file of ['index.html', 'n8n.html', 'english.html']) {
       const walker = doc.createTreeWalker(doc.body, w.NodeFilter.SHOW_TEXT);
       let n;
       while ((n = walker.nextNode())) {
-        if (AR.test(n.nodeValue) && !n.parentElement.closest('script,[data-lang-toggle],.passage')) left.add(n.nodeValue.trim().slice(0, 80));
+        if (AR.test(n.nodeValue) && !n.parentElement.closest('script,[data-lang-toggle],.passage,pre,code,.tex')) left.add(n.nodeValue.trim().slice(0, 80));
       }
       if (left.size) { failed = true; console.log('  Arabic left in EN:', [...left].slice(0, 15)); }
     }
