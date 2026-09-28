@@ -2304,5 +2304,230 @@ JOURNEY_TERMS["n8n"] = [
    "en": "a file that changes the table structure in order"
   },
   "ex": "002_add_status.sql"
+ },
+ {
+  "w": 14,
+  "t": "Read/Write Files from Disk",
+  "m": {
+   "ar": "node بتقرا وتكتب ملفات على السيرفر (self-hosted)",
+   "en": "a node that reads and writes files on the server (self-hosted)"
+  },
+  "ex": "Write to /data/out/report.csv"
+ },
+ {
+  "w": 14,
+  "t": "MIME type",
+  "m": {
+   "ar": "نوع الملف الرسمي زي text/csv",
+   "en": "a file's official type, such as text/csv"
+  },
+  "ex": "application/pdf"
+ },
+ {
+  "w": 14,
+  "t": "fileName",
+  "m": {
+   "ar": "اسم الملف جوه binary",
+   "en": "the file name inside binary"
+  },
+  "ex": "sales-2026-09.csv"
+ },
+ {
+  "w": 14,
+  "t": "binary data mode",
+  "m": {
+   "ar": "مكان تخزين الملفات: ذاكرة أو ديسك",
+   "en": "where files are stored: memory or disk"
+  },
+  "ex": "filesystem for large files"
+ },
+ {
+  "w": 14,
+  "t": "Response Format: File",
+  "m": {
+   "ar": "خيار HTTP Request ينزّل الرد كملف",
+   "en": "an HTTP Request option that saves the response as a file"
+  },
+  "ex": "Download a PDF invoice."
+ },
+ {
+  "w": 14,
+  "t": "UTF-8 BOM",
+  "m": {
+   "ar": "علامة في أول الملف بتخلي Excel يقرا UTF-8 صح",
+   "en": "a marker at the start of a file that makes Excel read UTF-8 correctly"
+  },
+  "ex": "Include BOM for Arabic CSVs."
+ },
+ {
+  "w": 14,
+  "t": "quoted field",
+  "m": {
+   "ar": "قيمة بين علامات تنصيص عشان فيها فاصلة",
+   "en": "a value in quotes because it contains a comma"
+  },
+  "ex": "\"Cairo, Egypt\""
+ },
+ {
+  "w": 14,
+  "t": "CSV injection",
+  "m": {
+   "ar": "قيمة بتتنفّذ كمعادلة لما تتفتح في Excel",
+   "en": "a value executed as a formula when opened in Excel"
+  },
+  "ex": "Values starting with ="
+ },
+ {
+  "w": 14,
+  "t": "delimiter (, ;)",
+  "m": {
+   "ar": "العلامة اللي بتفصل الأعمدة",
+   "en": "the character that separates columns"
+  },
+  "ex": "European Excel uses ;"
+ },
+ {
+  "w": 14,
+  "t": "row count check",
+  "m": {
+   "ar": "تتأكد إن عدد الصفوف منطقي بعد القراءة",
+   "en": "checking the number of rows makes sense after reading"
+  },
+  "ex": "Expected ~500, got 3 → alert"
+ },
+ {
+  "w": 14,
+  "t": "XLSX",
+  "m": {
+   "ar": "صيغة ملفات Excel الحديثة",
+   "en": "the modern Excel file format"
+  },
+  "ex": "report.xlsx"
+ },
+ {
+  "w": 14,
+  "t": "sheet name (Excel)",
+  "m": {
+   "ar": "اسم التبويب جوه ملف Excel",
+   "en": "the name of a tab inside an Excel file"
+  },
+  "ex": "Sheet: \"Sales 2026\""
+ },
+ {
+  "w": 14,
+  "t": "Excel date serial",
+  "m": {
+   "ar": "رقم Excel بيمثل تاريخ (أيام من 1900)",
+   "en": "Excel's number for a date (days since 1900)"
+  },
+  "ex": "45930"
+ },
+ {
+  "w": 14,
+  "t": "range (A1:F500)",
+  "m": {
+   "ar": "جزء من الجدول بتحدده بالخانات",
+   "en": "a part of the sheet defined by cells"
+  },
+  "ex": "A1:F500"
+ },
+ {
+  "w": 14,
+  "t": "Microsoft Excel 365 node",
+  "m": {
+   "ar": "node بتشتغل على ملفات Excel أونلاين",
+   "en": "a node that works with online Excel files"
+  },
+  "ex": "Append rows to a OneDrive workbook."
+ },
+ {
+  "w": 14,
+  "t": "text layer",
+  "m": {
+   "ar": "النص الحقيقي جوه PDF اللي ينفع يتنسخ",
+   "en": "the real, copyable text inside a PDF"
+  },
+  "ex": "Scans have no text layer."
+ },
+ {
+  "w": 14,
+  "t": "OCR",
+  "m": {
+   "ar": "قراءة النص من صورة",
+   "en": "reading text from an image"
+  },
+  "ex": "Send scans to an OCR service."
+ },
+ {
+  "w": 14,
+  "t": "HTML to PDF",
+  "m": {
+   "ar": "تحويل صفحة HTML لملف PDF",
+   "en": "turning an HTML page into a PDF file"
+  },
+  "ex": "Invoices, reports"
+ },
+ {
+  "w": 14,
+  "t": "Gotenberg",
+  "m": {
+   "ar": "خدمة مفتوحة المصدر بتحوّل HTML ومستندات لـ PDF",
+   "en": "an open-source service that converts HTML and documents to PDF"
+  },
+  "ex": "Run it with Docker."
+ },
+ {
+  "w": 14,
+  "t": "scanned document",
+  "m": {
+   "ar": "مستند متصوّر كصورة مش نص",
+   "en": "a document captured as an image, not text"
+  },
+  "ex": "Needs OCR."
+ },
+ {
+  "w": 14,
+  "t": "Google Drive node",
+  "m": {
+   "ar": "node لرفع وتنزيل وتنظيم ملفات Drive",
+   "en": "a node to upload, download and organise Drive files"
+  },
+  "ex": "Upload to folder \"Invoices\""
+ },
+ {
+  "w": 14,
+  "t": "folder ID",
+  "m": {
+   "ar": "الكود اللي بيحدد فولدر في Drive",
+   "en": "the code identifying a Drive folder"
+  },
+  "ex": "drive.google.com/drive/folders/<ID>"
+ },
+ {
+  "w": 14,
+  "t": "S3 bucket",
+  "m": {
+   "ar": "حاوية ملفات في object storage",
+   "en": "a container for files in object storage"
+  },
+  "ex": "my-backups"
+ },
+ {
+  "w": 14,
+  "t": "presigned URL",
+  "m": {
+   "ar": "لينك مؤقت لملف خاص",
+   "en": "a temporary link to a private file"
+  },
+  "ex": "Valid for 1 hour."
+ },
+ {
+  "w": 14,
+  "t": "SFTP",
+  "m": {
+   "ar": "نقل ملفات مشفّر عن طريق SSH",
+   "en": "encrypted file transfer over SSH"
+  },
+  "ex": "Prefer SFTP to plain FTP."
  }
 ];
