@@ -1305,5 +1305,221 @@ JOURNEY_TERMS["n8n"] = [
    "en": "the one place whose data is the reference"
   },
   "ex": "The ERP is the source of truth for stock."
+ },
+ {
+  "w": 9,
+  "t": "$input.all()",
+  "m": {
+   "ar": "كل الـ items الداخلة للـ Code node",
+   "en": "every item coming into the Code node"
+  },
+  "ex": "for (const item of $input.all())"
+ },
+ {
+  "w": 9,
+  "t": "$input.item",
+  "m": {
+   "ar": "الـ item الحالي في وضع Each Item",
+   "en": "the current item in Each Item mode"
+  },
+  "ex": "$input.item.json.email"
+ },
+ {
+  "w": 9,
+  "t": "return format",
+  "m": {
+   "ar": "شكل اللي لازم ترجّعه: array من { json }",
+   "en": "what you must return: an array of { json }"
+  },
+  "ex": "return [{ json: {...} }];"
+ },
+ {
+  "w": 9,
+  "t": "console.log()",
+  "m": {
+   "ar": "يطبع قيمة في console المتصفح للـ debug",
+   "en": "prints a value to the browser console for debugging"
+  },
+  "ex": "console.log(items.length)"
+ },
+ {
+  "w": 9,
+  "t": "DevTools (F12)",
+  "m": {
+   "ar": "أدوات المطور في المتصفح",
+   "en": "the browser's developer tools"
+  },
+  "ex": "Open the Console tab."
+ },
+ {
+  "w": 9,
+  "t": "reduce()",
+  "m": {
+   "ar": "يجمّع القايمة في قيمة واحدة",
+   "en": "combines a list into one value"
+  },
+  "ex": "items.reduce((sum, i) => sum + i.json.total, 0)"
+ },
+ {
+  "w": 9,
+  "t": "sort comparator",
+  "m": {
+   "ar": "دالة بتقول sort يرتّب إزاي",
+   "en": "a function telling sort how to order"
+  },
+  "ex": "(a, b) => b.total - a.total"
+ },
+ {
+  "w": 9,
+  "t": "find()",
+  "m": {
+   "ar": "يرجّع أول عنصر مطابق للشرط",
+   "en": "returns the first element matching a condition"
+  },
+  "ex": "orders.find(o => o.total > 1000)"
+ },
+ {
+  "w": 9,
+  "t": "some() / every()",
+  "m": {
+   "ar": "في عنصر مطابق؟ / الكل مطابق؟",
+   "en": "does any element match? / do all match?"
+  },
+  "ex": "emails.every(e => e.includes(\"@\"))"
+ },
+ {
+  "w": 9,
+  "t": "Object.entries()",
+  "m": {
+   "ar": "يحوّل object لأزواج [مفتاح، قيمة]",
+   "en": "turns an object into [key, value] pairs"
+  },
+  "ex": "Object.entries({a:1}) → [[\"a\",1]]"
+ },
+ {
+  "w": 9,
+  "t": "this.helpers.httpRequest",
+  "m": {
+   "ar": "دالة لطلبات HTTP جوه Code node",
+   "en": "a function for HTTP requests inside the Code node"
+  },
+  "ex": "await this.helpers.httpRequest({ url })"
+ },
+ {
+  "w": 9,
+  "t": "Promise.all",
+  "m": {
+   "ar": "يستنى مجموعة طلبات متوازية تخلص",
+   "en": "waits for a group of parallel requests to finish"
+  },
+  "ex": "await Promise.all(urls.map(get))"
+ },
+ {
+  "w": 9,
+  "t": "try / catch (JS)",
+  "m": {
+   "ar": "يمسك الخطأ عشان الكود يكمّل",
+   "en": "catches an error so the code can continue"
+  },
+  "ex": "try { … } catch (e) { … }"
+ },
+ {
+  "w": 9,
+  "t": "e.message",
+  "m": {
+   "ar": "نص رسالة الخطأ",
+   "en": "the text of an error message"
+  },
+  "ex": "error: e.message"
+ },
+ {
+  "w": 9,
+  "t": "Buffer",
+  "m": {
+   "ar": "بيانات الملف كبايتات في Node.js",
+   "en": "a file's data as bytes in Node.js"
+  },
+  "ex": "Buffer.from(\"hello\")"
+ },
+ {
+  "w": 9,
+  "t": "getBinaryDataBuffer",
+  "m": {
+   "ar": "دالة بتقرا ملف الـ item كـ Buffer",
+   "en": "a helper that reads an item's file as a Buffer"
+  },
+  "ex": "await this.helpers.getBinaryDataBuffer(0, \"data\")"
+ },
+ {
+  "w": 9,
+  "t": "prepareBinaryData",
+  "m": {
+   "ar": "دالة بتحوّل Buffer لـ binary item",
+   "en": "a helper that turns a Buffer into item binary data"
+  },
+  "ex": "prepareBinaryData(buf, \"a.csv\")"
+ },
+ {
+  "w": 9,
+  "t": "base64",
+  "m": {
+   "ar": "طريقة تكتب بايتات كنص",
+   "en": "a way of writing bytes as text"
+  },
+  "ex": "aGVsbG8= → \"hello\""
+ },
+ {
+  "w": 9,
+  "t": "DateTime.fromFormat",
+  "m": {
+   "ar": "يقرا تاريخ بشكل تحدده",
+   "en": "reads a date in a format you specify"
+  },
+  "ex": "fromFormat(\"28/09/2026\", \"dd/MM/yyyy\")"
+ },
+ {
+  "w": 9,
+  "t": "helper function",
+  "m": {
+   "ar": "دالة صغيرة بتعمل حاجة واحدة وبتتكرر",
+   "en": "a small reusable function that does one thing"
+  },
+  "ex": "function cleanEmail(e) { … }"
+ },
+ {
+  "w": 9,
+  "t": "magic number",
+  "m": {
+   "ar": "رقم في الكود من غير اسم بيشرح معناه",
+   "en": "a number in code with no name explaining it"
+  },
+  "ex": "0.14 → const TAX = 0.14"
+ },
+ {
+  "w": 9,
+  "t": "early return",
+  "m": {
+   "ar": "ترجع بدري لو الحالة غلط",
+   "en": "return early when the case is invalid"
+  },
+  "ex": "if (!email) return [];"
+ },
+ {
+  "w": 9,
+  "t": "pure function",
+  "m": {
+   "ar": "دالة نتيجتها بتعتمد على مدخلها بس",
+   "en": "a function whose result depends only on its input"
+  },
+  "ex": "add(a, b) → a + b"
+ },
+ {
+  "w": 9,
+  "t": "code smell",
+  "m": {
+   "ar": "علامة إن الكود محتاج تنضيف",
+   "en": "a sign that code needs cleaning up"
+  },
+  "ex": "A 200-line Code node is a smell."
  }
 ];
