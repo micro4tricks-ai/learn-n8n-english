@@ -2160,5 +2160,149 @@ JOURNEY_TERMS["n8n"] = [
    "en": "the number of attempts so far"
   },
   "ex": "Give up after tries = 5."
+ },
+ {
+  "w": 13,
+  "t": "ORDER BY / LIMIT",
+  "m": {
+   "ar": "ترتيب النتايج وتحديد عددها",
+   "en": "sorting results and limiting how many"
+  },
+  "ex": "ORDER BY total DESC LIMIT 5"
+ },
+ {
+  "w": 13,
+  "t": "CREATE TABLE",
+  "m": {
+   "ar": "أمر بيعمل جدول جديد بأعمدته",
+   "en": "a command that creates a new table with its columns"
+  },
+  "ex": "CREATE TABLE leads (…)"
+ },
+ {
+  "w": 13,
+  "t": "COUNT / SUM / AVG",
+  "m": {
+   "ar": "دوال تجميع: عدد، مجموع، متوسط",
+   "en": "aggregate functions: count, sum, average"
+  },
+  "ex": "SUM(total) AS spent"
+ },
+ {
+  "w": 13,
+  "t": "query parameters ($1)",
+  "m": {
+   "ar": "أماكن في الـ SQL بتتملى بقيم بأمان",
+   "en": "placeholders in SQL filled with values safely"
+  },
+  "ex": "WHERE email = $1"
+ },
+ {
+  "w": 13,
+  "t": "Insert or Update (Postgres)",
+  "m": {
+   "ar": "upsert: يضيف أو يحدّث حسب عمود مطابقة",
+   "en": "upsert: insert or update by a match column"
+  },
+  "ex": "Match on email"
+ },
+ {
+  "w": 13,
+  "t": "RETURNING",
+  "m": {
+   "ar": "يرجّع أعمدة من الصف اللي اتضاف أو اتعدّل",
+   "en": "returns columns from the inserted or updated row"
+  },
+  "ex": "RETURNING id"
+ },
+ {
+  "w": 13,
+  "t": "NOT NULL",
+  "m": {
+   "ar": "العمود لازم فيه قيمة",
+   "en": "the column must have a value"
+  },
+  "ex": "email TEXT NOT NULL"
+ },
+ {
+  "w": 13,
+  "t": "UNIQUE constraint",
+  "m": {
+   "ar": "مينفعش قيمتين متكررين في العمود",
+   "en": "no two rows may share the value"
+  },
+  "ex": "email TEXT UNIQUE"
+ },
+ {
+  "w": 13,
+  "t": "NUMERIC (money)",
+  "m": {
+   "ar": "نوع أرقام دقيق للفلوس",
+   "en": "an exact number type for money"
+  },
+  "ex": "total NUMERIC(10,2)"
+ },
+ {
+  "w": 13,
+  "t": "TIMESTAMPTZ",
+  "m": {
+   "ar": "وقت وتاريخ بالتوقيت",
+   "en": "a date and time with timezone"
+  },
+  "ex": "created_at TIMESTAMPTZ DEFAULT now()"
+ },
+ {
+  "w": 13,
+  "t": "index (SQL)",
+  "m": {
+   "ar": "فهرس بيسرّع البحث في عمود",
+   "en": "a structure that speeds up searching a column"
+  },
+  "ex": "CREATE INDEX … ON orders (email);"
+ },
+ {
+  "w": 13,
+  "t": "connection string",
+  "m": {
+   "ar": "سطر واحد فيه كل بيانات الاتصال بالقاعدة",
+   "en": "one line holding all the database connection details"
+  },
+  "ex": "postgresql://user:pass@host:5432/db"
+ },
+ {
+  "w": 13,
+  "t": "SSL mode",
+  "m": {
+   "ar": "إعداد تشفير الاتصال بالقاعدة",
+   "en": "the setting for encrypting the database connection"
+  },
+  "ex": "sslmode=require"
+ },
+ {
+  "w": 13,
+  "t": "BEGIN / COMMIT / ROLLBACK",
+  "m": {
+   "ar": "بداية transaction وتأكيدها أو إلغاؤها",
+   "en": "start a transaction, confirm it, or undo it"
+  },
+  "ex": "ROLLBACK on error"
+ },
+ {
+  "w": 13,
+  "t": "pg_dump",
+  "m": {
+   "ar": "أداة بتاخد نسخة احتياطية من Postgres",
+   "en": "a tool that backs up a Postgres database"
+  },
+  "ex": "pg_dump mydb > backup.sql"
+ },
+ {
+  "w": 13,
+  "t": "migration (schema)",
+  "m": {
+   "ar": "ملف بيغيّر شكل الجداول بترتيب",
+   "en": "a file that changes the table structure in order"
+  },
+  "ex": "002_add_status.sql"
  }
 ];
