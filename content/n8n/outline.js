@@ -1,7 +1,7 @@
 // The 24-week n8n journey: months, week titles, and which weeks already have content.
 JOURNEY.outline({
  track: 'n8n',
- ready: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21],
+ ready: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22],
  months: [
   { n: 1, level: { ar: 'مبتدئ', en: 'Beginner' }, title: { ar: 'الأساسيات', en: 'The basics' } },
   { n: 2, level: { ar: 'مبتدئ', en: 'Beginner' }, title: { ar: 'الربط والبيانات', en: 'Integrations and data' } },

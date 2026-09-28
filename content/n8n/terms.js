@@ -3645,5 +3645,230 @@ JOURNEY_TERMS["n8n"] = [
    "en": "the domain and protocol n8n runs on"
   },
   "ex": "n8n.example.com / https"
+ },
+ {
+  "w": 22,
+  "t": "user management",
+  "m": {
+   "ar": "إدارة المستخدمين وصلاحياتهم في n8n",
+   "en": "managing users and their permissions in n8n"
+  },
+  "ex": "owner, admin, member"
+ },
+ {
+  "w": 22,
+  "t": "2FA (MFA)",
+  "m": {
+   "ar": "دخول بخطوتين: باسورد + كود",
+   "en": "two-step login: password + code"
+  },
+  "ex": "Enable it for every account."
+ },
+ {
+  "w": 22,
+  "t": "NODES_EXCLUDE",
+  "m": {
+   "ar": "متغيّر بيقفل nodes معينة",
+   "en": "a variable that disables specific nodes"
+  },
+  "ex": "executeCommand"
+ },
+ {
+  "w": 22,
+  "t": "N8N_BLOCK_ENV_ACCESS_IN_NODE",
+  "m": {
+   "ar": "بيمنع الـ workflows تقرا متغيّرات البيئة",
+   "en": "stops workflows from reading environment variables"
+  },
+  "ex": "true"
+ },
+ {
+  "w": 22,
+  "t": "n8n audit",
+  "m": {
+   "ar": "أمر بيعمل تقرير أمان للـ instance",
+   "en": "a command producing a security report for the instance"
+  },
+  "ex": "Run it monthly."
+ },
+ {
+  "w": 22,
+  "t": "credential sharing",
+  "m": {
+   "ar": "تديك استخدام credential من غير ما تشوف قيمته",
+   "en": "letting someone use a credential without seeing its value"
+  },
+  "ex": "Share, don't send passwords."
+ },
+ {
+  "w": 22,
+  "t": "restricted API key",
+  "m": {
+   "ar": "مفتاح بصلاحيات محدودة",
+   "en": "a key with limited permissions"
+  },
+  "ex": "Read-only key"
+ },
+ {
+  "w": 22,
+  "t": "secret rotation",
+  "m": {
+   "ar": "تغيير المفاتيح والباسوردات دوريًا",
+   "en": "changing keys and passwords periodically"
+  },
+  "ex": "Every 90 days"
+ },
+ {
+  "w": 22,
+  "t": "revoke",
+  "m": {
+   "ar": "تلغي مفتاح أو token فورًا",
+   "en": "cancel a key or token immediately"
+  },
+  "ex": "Revoke the leaked key."
+ },
+ {
+  "w": 22,
+  "t": "external secrets (vault)",
+  "m": {
+   "ar": "خزنة أسرار برّه n8n بتقرا منها",
+   "en": "a secrets store outside n8n that it reads from"
+  },
+  "ex": "HashiCorp Vault, AWS Secrets Manager"
+ },
+ {
+  "w": 22,
+  "t": "n8n export:workflow",
+  "m": {
+   "ar": "أمر CLI بيصدّر الـ workflows JSON",
+   "en": "a CLI command exporting workflows as JSON"
+  },
+  "ex": "--all --separate --output=…"
+ },
+ {
+  "w": 22,
+  "t": "3-2-1 backup rule",
+  "m": {
+   "ar": "3 نسخ، نوعين تخزين، واحدة برّه",
+   "en": "3 copies, 2 storage types, 1 off-site"
+  },
+  "ex": "Server + S3 + Drive"
+ },
+ {
+  "w": 22,
+  "t": "restore test",
+  "m": {
+   "ar": "تجربة استرجاع النسخة فعلًا",
+   "en": "actually trying to restore a backup"
+  },
+  "ex": "Monthly on a fresh VM"
+ },
+ {
+  "w": 22,
+  "t": "off-site backup",
+  "m": {
+   "ar": "نسخة برّه السيرفر الأساسي",
+   "en": "a copy outside the main server"
+  },
+  "ex": "S3 bucket in another region"
+ },
+ {
+  "w": 22,
+  "t": "RPO / RTO",
+  "m": {
+   "ar": "أقصى بيانات ممكن تضيع / أقصى وقت للرجوع",
+   "en": "the most data you may lose / the longest time to recover"
+  },
+  "ex": "RPO 24h · RTO 2h"
+ },
+ {
+  "w": 22,
+  "t": "release notes",
+  "m": {
+   "ar": "ملاحظات بكل الجديد والتغييرات في نسخة",
+   "en": "notes listing what's new and changed in a version"
+  },
+  "ex": "Read them before updating."
+ },
+ {
+  "w": 22,
+  "t": "breaking change",
+  "m": {
+   "ar": "تغيير ممكن يكسر حاجة شغالة",
+   "en": "a change that may break something that works"
+  },
+  "ex": "A renamed node"
+ },
+ {
+  "w": 22,
+  "t": "pinned version",
+  "m": {
+   "ar": "رقم نسخة ثابت بدل latest",
+   "en": "a fixed version number instead of latest"
+  },
+  "ex": "n8n:1.110.1"
+ },
+ {
+  "w": 22,
+  "t": "staging instance",
+  "m": {
+   "ar": "نسخة تجربة من الإنتاج",
+   "en": "a test copy of production"
+  },
+  "ex": "Update staging first."
+ },
+ {
+  "w": 22,
+  "t": "rollback",
+  "m": {
+   "ar": "الرجوع للنسخة القديمة لو التحديث فشل",
+   "en": "going back to the old version if an update fails"
+  },
+  "ex": "Old image tag + DB restore"
+ },
+ {
+  "w": 22,
+  "t": "PII (personal data)",
+  "m": {
+   "ar": "بيانات بتحدد شخص: اسم، إيميل، تليفون",
+   "en": "data that identifies a person: name, email, phone"
+  },
+  "ex": "Protect and minimise it."
+ },
+ {
+  "w": 22,
+  "t": "data retention",
+  "m": {
+   "ar": "مدة الاحتفاظ بالبيانات قبل ما تتمسح",
+   "en": "how long data is kept before deletion"
+  },
+  "ex": "Delete leads after 12 months."
+ },
+ {
+  "w": 22,
+  "t": "GDPR",
+  "m": {
+   "ar": "قانون حماية البيانات الأوروبي",
+   "en": "the European data protection law"
+  },
+  "ex": "Applies to EU customers."
+ },
+ {
+  "w": 22,
+  "t": "EXECUTIONS_DATA_MAX_AGE",
+  "m": {
+   "ar": "أقصى عمر للتنفيذات المحفوظة بالساعات",
+   "en": "the maximum age of saved executions, in hours"
+  },
+  "ex": "336 = 14 days"
+ },
+ {
+  "w": 22,
+  "t": "data masking",
+  "m": {
+   "ar": "إخفاء جزء من البيانات الحساسة",
+   "en": "hiding part of sensitive data"
+  },
+  "ex": "a***@x.com"
  }
 ];
