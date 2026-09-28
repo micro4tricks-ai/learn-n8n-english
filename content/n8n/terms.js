@@ -477,5 +477,203 @@ JOURNEY_TERMS["n8n"] = [
    "en": "a node that hasn't run in this execution, so you can't read from it"
   },
   "ex": "Referenced node is unexecuted"
+ },
+ {
+  "w": 5,
+  "t": "header row",
+  "m": {
+   "ar": "أول صف فيه أسماء الأعمدة",
+   "en": "the first row, with the column names"
+  },
+  "ex": "n8n uses the header row as field names."
+ },
+ {
+  "w": 5,
+  "t": "Column to match on",
+  "m": {
+   "ar": "العمود اللي n8n بيدوّر بيه على الصف عشان يحدّثه",
+   "en": "the column n8n uses to find the row to update"
+  },
+  "ex": "Match on: email"
+ },
+ {
+  "w": 5,
+  "t": "Get Row(s)",
+  "m": {
+   "ar": "عملية قراءة صفوف من الشيت، بفلاتر اختيارية",
+   "en": "the operation that reads rows from a sheet, with optional filters"
+  },
+  "ex": "Get Row(s) → Filters: status = new"
+ },
+ {
+  "w": 5,
+  "t": "row_number",
+  "m": {
+   "ar": "رقم الصف اللي n8n بيرجّعه مع كل صف",
+   "en": "the row number n8n returns with each row"
+  },
+  "ex": "Use it to update the same row later."
+ },
+ {
+  "w": 5,
+  "t": "spreadsheet ID",
+  "m": {
+   "ar": "الكود الطويل في لينك الشيت اللي بيحدده",
+   "en": "the long code in the sheet URL that identifies it"
+  },
+  "ex": "docs.google.com/spreadsheets/d/<ID>/edit"
+ },
+ {
+  "w": 5,
+  "t": "binary property",
+  "m": {
+   "ar": "اسم المكان اللي الملف متخزن فيه جوه الـ item (غالبًا data)",
+   "en": "the name under which a file is stored on the item (usually data)"
+  },
+  "ex": "Attachments: data"
+ },
+ {
+  "w": 5,
+  "t": "HTML email",
+  "m": {
+   "ar": "إيميل متنسق بـ HTML (خط تقيل، لينكات، جداول)",
+   "en": "an email formatted with HTML (bold, links, tables)"
+  },
+  "ex": "<p>Hi <b>Ali</b></p>"
+ },
+ {
+  "w": 5,
+  "t": "sending limit",
+  "m": {
+   "ar": "أقصى عدد إيميلات مسموح في اليوم من الحساب",
+   "en": "the maximum number of emails an account may send per day"
+  },
+  "ex": "Personal Gmail accounts have daily limits."
+ },
+ {
+  "w": 5,
+  "t": "Simplify",
+  "m": {
+   "ar": "خيار بيرجّع بيانات الإيميل الأساسية بشكل مختصر",
+   "en": "an option that returns the main email fields in a compact shape"
+  },
+  "ex": "Turn Simplify off to get every header."
+ },
+ {
+  "w": 5,
+  "t": "Download Attachments",
+  "m": {
+   "ar": "خيار بينزّل مرفقات الإيميل كـ binary",
+   "en": "an option that downloads email attachments as binary data"
+  },
+  "ex": "attachment_0, attachment_1…"
+ },
+ {
+  "w": 5,
+  "t": "label (Gmail)",
+  "m": {
+   "ar": "تصنيف على الإيميل زي folder",
+   "en": "a tag on an email, like a folder"
+  },
+  "ex": "Add the label \"processed\"."
+ },
+ {
+  "w": 5,
+  "t": "thread",
+  "m": {
+   "ar": "سلسلة رسايل ورا بعض على نفس الموضوع",
+   "en": "a chain of messages on the same topic"
+  },
+  "ex": "Reply in the same thread."
+ },
+ {
+  "w": 5,
+  "t": "BotFather",
+  "m": {
+   "ar": "بوت Telegram الرسمي اللي بيعمل البوتات ويدي الـ token",
+   "en": "Telegram's official bot that creates bots and gives their token"
+  },
+  "ex": "/newbot → token"
+ },
+ {
+  "w": 5,
+  "t": "bot token",
+  "m": {
+   "ar": "المفتاح السري بتاع البوت",
+   "en": "the bot's secret key"
+  },
+  "ex": "Store it in a Telegram credential."
+ },
+ {
+  "w": 5,
+  "t": "bot command",
+  "m": {
+   "ar": "رسالة بتبدأ بـ / بتطلب من البوت حاجة",
+   "en": "a message starting with / that asks the bot to do something"
+  },
+  "ex": "/report"
+ },
+ {
+  "w": 5,
+  "t": "chat.id",
+  "m": {
+   "ar": "رقم المحادثة اللي البوت يرد عليها",
+   "en": "the ID of the chat the bot replies to"
+  },
+  "ex": "{{ $json.message.chat.id }}"
+ },
+ {
+  "w": 5,
+  "t": "escape (HTML)",
+  "m": {
+   "ar": "تبدّل < > & عشان متتقريش كـ HTML",
+   "en": "replace < > & so they aren't read as HTML"
+  },
+  "ex": "& → &amp;"
+ },
+ {
+  "w": 5,
+  "t": "inline keyboard",
+  "m": {
+   "ar": "أزرار تحت رسالة Telegram",
+   "en": "buttons under a Telegram message"
+  },
+  "ex": "Approve / Reject"
+ },
+ {
+  "w": 5,
+  "t": "callback data",
+  "m": {
+   "ar": "القيمة اللي بتتبعت لما حد يدوس زرار",
+   "en": "the value sent when someone presses a button"
+  },
+  "ex": "approve_42"
+ },
+ {
+  "w": 5,
+  "t": "callback_query",
+  "m": {
+   "ar": "نوع update بيوصل لما حد يدوس زرار inline",
+   "en": "the update type received when someone presses an inline button"
+  },
+  "ex": "Trigger updates: callback_query"
+ },
+ {
+  "w": 5,
+  "t": "Send and Wait for Response",
+  "m": {
+   "ar": "عملية بتبعت رسالة وتوقف الـ workflow لحد ما يجي رد",
+   "en": "an operation that sends a message and pauses the workflow until a reply comes"
+  },
+  "ex": "Wait for approval before paying."
+ },
+ {
+  "w": 5,
+  "t": "Send Document",
+  "m": {
+   "ar": "عملية Telegram لإرسال ملف",
+   "en": "the Telegram operation that sends a file"
+  },
+  "ex": "Send the monthly PDF."
  }
 ];
