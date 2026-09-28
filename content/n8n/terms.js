@@ -3519,5 +3519,131 @@ JOURNEY_TERMS["n8n"] = [
    "en": "user feedback flowing back to improve the system"
   },
   "ex": "👎 → add to the evaluation set"
+ },
+ {
+  "w": 21,
+  "t": "fair-code licence",
+  "m": {
+   "ar": "رخصة n8n: الكود متاح بس بقيود على بيعه كخدمة",
+   "en": "n8n's licence: the code is open but reselling it as a service is restricted"
+  },
+  "ex": "Sustainable Use License"
+ },
+ {
+  "w": 21,
+  "t": "server sizing",
+  "m": {
+   "ar": "تحديد CPU وRAM والديسك المناسبين",
+   "en": "choosing the right CPU, RAM and disk"
+  },
+  "ex": "2 vCPU · 4 GB RAM"
+ },
+ {
+  "w": 21,
+  "t": "docker run",
+  "m": {
+   "ar": "أمر بيعمل ويشغّل container",
+   "en": "the command that creates and starts a container"
+  },
+  "ex": "docker run -d --name n8n …"
+ },
+ {
+  "w": 21,
+  "t": "port mapping",
+  "m": {
+   "ar": "ربط بورت الجهاز ببورت الـ container",
+   "en": "linking a host port to a container port"
+  },
+  "ex": "-p 5678:5678"
+ },
+ {
+  "w": 21,
+  "t": ".env file",
+  "m": {
+   "ar": "ملف فيه متغيّرات البيئة والأسرار",
+   "en": "a file holding environment variables and secrets"
+  },
+  "ex": "Never commit it."
+ },
+ {
+  "w": 21,
+  "t": "restart policy",
+  "m": {
+   "ar": "إمتى Docker يعيد تشغيل الخدمة لوحده",
+   "en": "when Docker restarts a service automatically"
+  },
+  "ex": "restart: unless-stopped"
+ },
+ {
+  "w": 21,
+  "t": "service (compose)",
+  "m": {
+   "ar": "خدمة واحدة في ملف compose",
+   "en": "one service in a compose file"
+  },
+  "ex": "n8n, postgres, caddy"
+ },
+ {
+  "w": 21,
+  "t": "SSH key",
+  "m": {
+   "ar": "مفتاح بدل الباسورد للدخول على السيرفر",
+   "en": "a key used instead of a password to log in"
+  },
+  "ex": "ssh-keygen -t ed25519"
+ },
+ {
+  "w": 21,
+  "t": "firewall (ufw)",
+  "m": {
+   "ar": "بيقفل كل البورتات ما عدا اللي بتحددها",
+   "en": "blocks every port except the ones you allow"
+  },
+  "ex": "ufw allow 443"
+ },
+ {
+  "w": 21,
+  "t": "non-root user",
+  "m": {
+   "ar": "مستخدم عادي بدل root للأمان",
+   "en": "a normal user instead of root, for safety"
+  },
+  "ex": "deploy (with sudo)"
+ },
+ {
+  "w": 21,
+  "t": "DNS A record",
+  "m": {
+   "ar": "بيربط اسم الدومين بـ IP السيرفر",
+   "en": "links a domain name to the server's IP"
+  },
+  "ex": "n8n.example.com → 203.0.113.10"
+ },
+ {
+  "w": 21,
+  "t": "Caddy",
+  "m": {
+   "ar": "reverse proxy بيعمل HTTPS تلقائي",
+   "en": "a reverse proxy with automatic HTTPS"
+  },
+  "ex": "reverse_proxy n8n:5678"
+ },
+ {
+  "w": 21,
+  "t": "Let's Encrypt",
+  "m": {
+   "ar": "جهة بتدي شهادات HTTPS مجانًا",
+   "en": "an authority that issues free HTTPS certificates"
+  },
+  "ex": "Renewed automatically by Caddy."
+ },
+ {
+  "w": 21,
+  "t": "N8N_HOST / N8N_PROTOCOL",
+  "m": {
+   "ar": "الدومين والبروتوكول اللي n8n شغال عليهم",
+   "en": "the domain and protocol n8n runs on"
+  },
+  "ex": "n8n.example.com / https"
  }
 ];
