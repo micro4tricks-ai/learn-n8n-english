@@ -73,6 +73,8 @@ fs.readdirSync(outDir).filter(f => /^w\d\d\.js$/.test(f)).forEach(f => {
 const files = fs.existsSync(srcDir) ? fs.readdirSync(srcDir).filter(f => /^w\d\d\.js$/.test(f)).sort() : [];
 const check = process.argv.includes('--check');
 for (const f of files) {
+  // a grammar reference must be a plain string, not an expression left behind while editing
+  if (/'g:[^']*'\s*(===|&&|\?)/.test(fs.readFileSync(path.join(srcDir, f), 'utf8'))) problems.push(track + '/src/' + f + ': a grammar reference is inside an expression');
   delete require.cache[require.resolve(path.join(srcDir, f))];
   const src = require(path.join(srcDir, f));
   const n = Number(f.slice(1, 3));
