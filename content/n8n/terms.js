@@ -108,5 +108,374 @@ JOURNEY_TERMS["n8n"] = [
    "en": "the first line of a response, with the status code"
   },
   "ex": "HTTP/1.1 404 Not Found"
+ },
+ {
+  "w": 3,
+  "t": "event",
+  "m": {
+   "ar": "حدث بيحصل وبيشغّل الـ workflow (رسالة، دفع، فورم)",
+   "en": "something that happens and starts a workflow (a message, a payment, a form)"
+  },
+  "ex": "Each new order is an event."
+ },
+ {
+  "w": 3,
+  "t": "multiple triggers",
+  "m": {
+   "ar": "أكتر من trigger في نفس الـ workflow",
+   "en": "more than one trigger in the same workflow"
+  },
+  "ex": "Run it every hour, or manually when needed."
+ },
+ {
+  "w": 3,
+  "t": "instant vs polling",
+  "m": {
+   "ar": "فوري (الخدمة بتبعت) ضد فحص دوري (انت بتسأل)",
+   "en": "instant (the service pushes) vs. periodic checks (you ask)"
+  },
+  "ex": "Webhooks are instant; polling can be minutes late."
+ },
+ {
+  "w": 3,
+  "t": "interval",
+  "m": {
+   "ar": "مسافة زمنية ثابتة بين كل تشغيل",
+   "en": "a fixed time between runs"
+  },
+  "ex": "Run every 30 minutes."
+ },
+ {
+  "w": 3,
+  "t": "cron expression",
+  "m": {
+   "ar": "5 خانات بتحدد ميعاد التشغيل",
+   "en": "five fields that define when to run"
+  },
+  "ex": "0 9 * * 1-5"
+ },
+ {
+  "w": 3,
+  "t": "day of week (cron)",
+  "m": {
+   "ar": "آخر خانة في الـ cron: 0 الأحد لحد 6 السبت",
+   "en": "the last cron field: 0 Sunday to 6 Saturday"
+  },
+  "ex": "1-5 = Monday to Friday"
+ },
+ {
+  "w": 3,
+  "t": "daylight saving time",
+  "m": {
+   "ar": "تغيير الساعة في الصيف في بعض البلاد",
+   "en": "moving the clock in summer in some countries"
+  },
+  "ex": "The run shifts by an hour after DST."
+ },
+ {
+  "w": 3,
+  "t": "workflow settings",
+  "m": {
+   "ar": "إعدادات الـ workflow: التوقيت، الـ error workflow، حفظ التنفيذات",
+   "en": "a workflow's settings: timezone, error workflow, saving executions"
+  },
+  "ex": "Set the timezone in workflow settings."
+ },
+ {
+  "w": 3,
+  "t": "poll times",
+  "m": {
+   "ar": "كل قد إيه الـ trigger يسأل الخدمة",
+   "en": "how often a trigger checks the service"
+  },
+  "ex": "Poll Times: every 10 minutes"
+ },
+ {
+  "w": 3,
+  "t": "deduplication",
+  "m": {
+   "ar": "منع تكرار نفس العنصر",
+   "en": "preventing the same item from being handled twice"
+  },
+  "ex": "Deduplicate by the article link."
+ },
+ {
+  "w": 3,
+  "t": "search query (filter)",
+  "m": {
+   "ar": "شرط بحث في الـ trigger بيجيب اللي انت عايزه بس",
+   "en": "a search condition in the trigger that fetches only what you need"
+  },
+  "ex": "from:billing@ has:attachment"
+ },
+ {
+  "w": 3,
+  "t": "webhook path",
+  "m": {
+   "ar": "الجزء الأخير من الـ URL اللي بيحدد الـ webhook",
+   "en": "the last part of the URL that identifies the webhook"
+  },
+  "ex": "/webhook/new-order"
+ },
+ {
+  "w": 3,
+  "t": "Basic Auth",
+  "m": {
+   "ar": "حماية باسم مستخدم وباسورد في الطلب",
+   "en": "protection with a username and password in the request"
+  },
+  "ex": "Authorization: Basic …"
+ },
+ {
+  "w": 3,
+  "t": "response code",
+  "m": {
+   "ar": "الـ status اللي الـ webhook بيرد بيه",
+   "en": "the status code the webhook replies with"
+  },
+  "ex": "Respond with 201 Created."
+ },
+ {
+  "w": 3,
+  "t": "Respond immediately",
+  "m": {
+   "ar": "الـ webhook يرد على طول قبل ما الـ workflow يخلص",
+   "en": "the webhook replies at once, before the workflow finishes"
+  },
+  "ex": "Use it when the work takes long."
+ },
+ {
+  "w": 3,
+  "t": "Form node",
+  "m": {
+   "ar": "نود بتضيف صفحة تانية للفورم أو صفحة نهاية",
+   "en": "a node that adds another form page or an ending page"
+  },
+  "ex": "Page 1: contact details → Page 2: project details"
+ },
+ {
+  "w": 3,
+  "t": "form field",
+  "m": {
+   "ar": "خانة في الفورم (نص، إيميل، قايمة…)",
+   "en": "a box in the form (text, email, dropdown…)"
+  },
+  "ex": "Field type: Email, required"
+ },
+ {
+  "w": 3,
+  "t": "Chat Trigger",
+  "m": {
+   "ar": "trigger بيبدأ الـ workflow من رسالة شات",
+   "en": "a trigger that starts the workflow from a chat message"
+  },
+  "ex": "Chat Trigger → AI Agent"
+ },
+ {
+  "w": 3,
+  "t": "When Executed by Another Workflow",
+  "m": {
+   "ar": "trigger بيخلّي workflow تاني يشغّل الـ workflow ده",
+   "en": "a trigger that lets another workflow run this one"
+  },
+  "ex": "The start of every sub-workflow."
+ },
+ {
+  "w": 4,
+  "t": "ternary operator",
+  "m": {
+   "ar": "شرط في سطر: شرط ? لو صح : لو غلط",
+   "en": "a one-line condition: condition ? if true : if false"
+  },
+  "ex": "{{ $json.paid ? \"✅\" : \"⏳\" }}"
+ },
+ {
+  "w": 4,
+  "t": "string method",
+  "m": {
+   "ar": "دالة بتشتغل على نص: trim وreplace وsplit…",
+   "en": "a function that works on text: trim, replace, split…"
+  },
+  "ex": "$json.email.trim().toLowerCase()"
+ },
+ {
+  "w": 4,
+  "t": "expression editor",
+  "m": {
+   "ar": "المحرر اللي بتكتب فيه الـ expression وتشوف نتيجته",
+   "en": "the editor where you write an expression and see its result"
+  },
+  "ex": "Open it with the expand icon."
+ },
+ {
+  "w": 4,
+  "t": "toFixed()",
+  "m": {
+   "ar": "يقرّب رقم لعدد خانات عشرية ويرجّعه نص",
+   "en": "rounds a number to a number of decimals and returns text"
+  },
+  "ex": "{{ ($json.total * 1.14).toFixed(2) }}"
+ },
+ {
+  "w": 4,
+  "t": "$prevNode.name",
+  "m": {
+   "ar": "اسم الـ node اللي قبلك مباشرة",
+   "en": "the name of the node right before this one"
+  },
+  "ex": "{{ $prevNode.name }}"
+ },
+ {
+  "w": 4,
+  "t": "$(\"Node\").first()",
+  "m": {
+   "ar": "أول item من node معينة",
+   "en": "the first item of a given node"
+  },
+  "ex": "$(\"Settings\").first().json.currency"
+ },
+ {
+  "w": 4,
+  "t": ".all()",
+  "m": {
+   "ar": "كل الـ items من node كـ array",
+   "en": "all items of a node, as an array"
+  },
+  "ex": "$(\"Get orders\").all().length"
+ },
+ {
+  "w": 4,
+  "t": "$execution.id",
+  "m": {
+   "ar": "رقم التشغيل الحالي",
+   "en": "the ID of the current run"
+  },
+  "ex": "Include it in error alerts."
+ },
+ {
+  "w": 4,
+  "t": "$workflow.name",
+  "m": {
+   "ar": "اسم الـ workflow الحالي",
+   "en": "the name of the current workflow"
+  },
+  "ex": "{{ $workflow.name }} failed"
+ },
+ {
+  "w": 4,
+  "t": "plus() / minus()",
+  "m": {
+   "ar": "تزود أو تنقص مدة من تاريخ",
+   "en": "add or subtract a duration from a date"
+  },
+  "ex": "$now.plus({ days: 3 })"
+ },
+ {
+  "w": 4,
+  "t": "toFormat()",
+  "m": {
+   "ar": "ينسّق التاريخ بالشكل اللي تحدده",
+   "en": "formats a date the way you specify"
+  },
+  "ex": "toFormat(\"dd/MM/yyyy\")"
+ },
+ {
+  "w": 4,
+  "t": "diff()",
+  "m": {
+   "ar": "الفرق بين تاريخين بوحدة تختارها",
+   "en": "the difference between two dates in a unit you choose"
+  },
+  "ex": "$now.diff(due, \"days\").days"
+ },
+ {
+  "w": 4,
+  "t": "startOf() / endOf()",
+  "m": {
+   "ar": "أول أو آخر يوم/شهر/أسبوع",
+   "en": "the start or end of a day, month or week"
+  },
+  "ex": "$now.startOf(\"month\")"
+ },
+ {
+  "w": 4,
+  "t": "setZone()",
+  "m": {
+   "ar": "يحوّل التاريخ لتوقيت منطقة معينة",
+   "en": "converts a date to a specific timezone"
+  },
+  "ex": "setZone(\"Asia/Riyadh\")"
+ },
+ {
+  "w": 4,
+  "t": "isEmpty()",
+  "m": {
+   "ar": "دالة n8n بتقول القيمة فاضية ولا لأ",
+   "en": "an n8n function that tells whether a value is empty"
+  },
+  "ex": "{{ $json.phone.isEmpty() }}"
+ },
+ {
+  "w": 4,
+  "t": "extractEmail()",
+  "m": {
+   "ar": "بتطلّع أول إيميل من نص",
+   "en": "pulls the first email address out of text"
+  },
+  "ex": "{{ $json.body.extractEmail() }}"
+ },
+ {
+  "w": 4,
+  "t": "pluck()",
+  "m": {
+   "ar": "بتطلّع حقل واحد من كل object في قايمة",
+   "en": "pulls one field from each object in a list"
+  },
+  "ex": "items.pluck(\"price\")"
+ },
+ {
+  "w": 4,
+  "t": "nullish coalescing (??)",
+  "m": {
+   "ar": "قيمة بديلة لو اللي قبلها null أو undefined",
+   "en": "a fallback value when the left side is null or undefined"
+  },
+  "ex": "$json.city ?? \"Unknown\""
+ },
+ {
+  "w": 4,
+  "t": "$ifEmpty()",
+  "m": {
+   "ar": "دالة n8n بتدي قيمة بديلة لو الأولى فاضية",
+   "en": "an n8n function that returns a fallback if the first value is empty"
+  },
+  "ex": "$ifEmpty($json.phone, \"—\")"
+ },
+ {
+  "w": 4,
+  "t": "JSON.stringify()",
+  "m": {
+   "ar": "بيحوّل object لنص JSON عشان تشوفه أو تبعته",
+   "en": "turns an object into JSON text so you can see or send it"
+  },
+  "ex": "JSON.stringify($json.address)"
+ },
+ {
+  "w": 4,
+  "t": "Number() / String()",
+  "m": {
+   "ar": "تحويل قيمة لرقم أو لنص",
+   "en": "convert a value to a number or to text"
+  },
+  "ex": "Number(\"42\") → 42"
+ },
+ {
+  "w": 4,
+  "t": "unexecuted node",
+  "m": {
+   "ar": "node لسه متشغلتش في التنفيذ ده، فمينفعش تقرا منها",
+   "en": "a node that hasn't run in this execution, so you can't read from it"
+  },
+  "ex": "Referenced node is unexecuted"
  }
 ];
