@@ -1944,5 +1944,221 @@ JOURNEY_TERMS["n8n"] = [
    "en": "a sketch of the workflow before building"
   },
   "ex": "Boxes and arrows on paper."
+ },
+ {
+  "w": 12,
+  "t": "Stop Workflow",
+  "m": {
+   "ar": "الـ workflow كله يقف عند الخطأ",
+   "en": "the whole workflow stops on error"
+  },
+  "ex": "The default On Error setting."
+ },
+ {
+  "w": 12,
+  "t": "Continue (using error output)",
+  "m": {
+   "ar": "الـ items اللي فشلت تروح لمخرج منفصل",
+   "en": "failed items go to a separate output"
+  },
+  "ex": "error → failed_items sheet"
+ },
+ {
+  "w": 12,
+  "t": "partial failure",
+  "m": {
+   "ar": "جزء من الـ items نجح وجزء فشل",
+   "en": "some items succeeded and some failed"
+  },
+  "ex": "97 ok, 3 failed"
+ },
+ {
+  "w": 12,
+  "t": "failed items log",
+  "m": {
+   "ar": "مكان بتسجّل فيه الـ items اللي فشلت عشان تعيدها",
+   "en": "a place recording failed items so you can retry them"
+  },
+  "ex": "Sheet: id, error, time"
+ },
+ {
+  "w": 12,
+  "t": "essential step",
+  "m": {
+   "ar": "خطوة الباقي ملوش معنى من غيرها",
+   "en": "a step the rest can't do without"
+  },
+  "ex": "No payment → stop."
+ },
+ {
+  "w": 12,
+  "t": "execution.url",
+  "m": {
+   "ar": "لينك التنفيذ اللي وقع، جوه بيانات Error Trigger",
+   "en": "the link to the failed execution, in the Error Trigger data"
+  },
+  "ex": "Put it in every alert."
+ },
+ {
+  "w": 12,
+  "t": "lastNodeExecuted",
+  "m": {
+   "ar": "اسم آخر node اشتغلت (غالبًا اللي وقعت)",
+   "en": "the name of the last node that ran (usually the one that failed)"
+  },
+  "ex": "$json.execution.lastNodeExecuted"
+ },
+ {
+  "w": 12,
+  "t": "alert fatigue",
+  "m": {
+   "ar": "تنبيهات كتير لدرجة إن محدش بيقراها",
+   "en": "so many alerts that nobody reads them"
+  },
+  "ex": "Group minor errors into a daily digest."
+ },
+ {
+  "w": 12,
+  "t": "alert severity",
+  "m": {
+   "ar": "درجة خطورة التنبيه",
+   "en": "how serious an alert is"
+  },
+  "ex": "critical / warning / info"
+ },
+ {
+  "w": 12,
+  "t": "runbook",
+  "m": {
+   "ar": "خطوات مكتوبة تعمل إيه لما خطأ معين يحصل",
+   "en": "written steps for what to do when a given error occurs"
+  },
+  "ex": "If the token expired: reconnect the credential."
+ },
+ {
+  "w": 12,
+  "t": "workflow inputs",
+  "m": {
+   "ar": "الحقول اللي الـ sub-workflow مستنيها من اللي بيناديه",
+   "en": "the fields a sub-workflow expects from its caller"
+  },
+  "ex": "email (string), name (string)"
+ },
+ {
+  "w": 12,
+  "t": "Wait for Sub-Workflow Completion",
+  "m": {
+   "ar": "خيار في Execute Workflow يستنى النتيجة",
+   "en": "an Execute Workflow option that waits for the result"
+  },
+  "ex": "Off for fire-and-forget alerts."
+ },
+ {
+  "w": 12,
+  "t": "return data",
+  "m": {
+   "ar": "البيانات اللي الـ sub-workflow بيرجّعها",
+   "en": "the data a sub-workflow sends back"
+  },
+  "ex": "The last node's output."
+ },
+ {
+  "w": 12,
+  "t": "reusable module",
+  "m": {
+   "ar": "قطعة شغل بتستخدمها في أكتر من مكان",
+   "en": "a piece of work used in several places"
+  },
+  "ex": "Notify team, Clean customer"
+ },
+ {
+  "w": 12,
+  "t": "fire and forget",
+  "m": {
+   "ar": "تبعت الشغل ومتستناش نتيجته",
+   "en": "start a job without waiting for its result"
+  },
+  "ex": "Send the alert and move on."
+ },
+ {
+  "w": 12,
+  "t": "Retry execution",
+  "m": {
+   "ar": "إعادة تشغيل تنفيذ فشل",
+   "en": "rerunning a failed execution"
+  },
+  "ex": "Retry from the failed node."
+ },
+ {
+  "w": 12,
+  "t": "Save execution progress",
+  "m": {
+   "ar": "حفظ بعد كل node عشان تقدر تكمّل",
+   "en": "saving after each node so you can resume"
+  },
+  "ex": "Slower, but safer for long workflows."
+ },
+ {
+  "w": 12,
+  "t": "execution filter",
+  "m": {
+   "ar": "فلترة التنفيذات حسب الحالة أو الوقت",
+   "en": "filtering executions by status or time"
+  },
+  "ex": "Status: Error, last 24 h"
+ },
+ {
+  "w": 12,
+  "t": "workflow history",
+  "m": {
+   "ar": "نسخ الـ workflow القديمة اللي ترجعلها",
+   "en": "earlier versions of a workflow you can go back to"
+  },
+  "ex": "Restore yesterday's version."
+ },
+ {
+  "w": 12,
+  "t": "dead-letter store",
+  "m": {
+   "ar": "مكان للـ items اللي فشلت نهائيًا",
+   "en": "a place for items that failed for good"
+  },
+  "ex": "failed_items sheet"
+ },
+ {
+  "w": 12,
+  "t": "replay",
+  "m": {
+   "ar": "إعادة تشغيل items فشلت قبل كده",
+   "en": "rerunning items that failed before"
+  },
+  "ex": "Replay after the API is back."
+ },
+ {
+  "w": 12,
+  "t": "test data set",
+  "m": {
+   "ar": "بيانات تجربة بتغطي الحالات المختلفة",
+   "en": "test data covering the different cases"
+  },
+  "ex": "normal, missing field, duplicate…"
+ },
+ {
+  "w": 12,
+  "t": "workflow smoke test",
+  "m": {
+   "ar": "تشغيل سريع ببيانات تجربة بعد أي تعديل",
+   "en": "a quick run with test data after every change"
+  },
+  "ex": "Run it before activating."
+ },
+ {
+  "w": 12,
+  "t": "retry count",
+  "m": {
+   "ar": "عدد المحاولات لحد دلوقتي",
+   "en": "the number of attempts so far"
+  },
+  "ex": "Give up after tries = 5."
  }
 ];
