@@ -2700,5 +2700,59 @@ JOURNEY_TERMS["n8n"] = [
    "en": "the last saved value used for comparison"
   },
   "ex": "last_price in Postgres"
+ },
+ {
+  "w": 16,
+  "t": "uvicorn",
+  "m": {
+   "ar": "السيرفر اللي بيشغّل تطبيق FastAPI",
+   "en": "the server that runs a FastAPI app"
+  },
+  "ex": "uvicorn main:app --port 8000"
+ },
+ {
+  "w": 16,
+  "t": "offset pagination",
+  "m": {
+   "ar": "صفحات برقم أو إزاحة (page / offset)",
+   "en": "pages by number or offset (page / offset)"
+  },
+  "ex": "?page=3&limit=100"
+ },
+ {
+  "w": 16,
+  "t": "cursor pagination",
+  "m": {
+   "ar": "صفحات بعلامة من الرد اللي فات",
+   "en": "pages using a marker from the previous response"
+  },
+  "ex": "?cursor=abc123"
+ },
+ {
+  "w": 16,
+  "t": "Pagination (HTTP Request option)",
+  "m": {
+   "ar": "إعداد بيجيب كل الصفحات أوتوماتيك",
+   "en": "a setting that fetches every page automatically"
+  },
+  "ex": "Complete when: no next"
+ },
+ {
+  "w": 16,
+  "t": "chunking",
+  "m": {
+   "ar": "تقسيم شغل كبير لقطع صغيرة",
+   "en": "splitting a big job into small pieces"
+  },
+  "ex": "500 pages → 500 sub-workflow runs"
+ },
+ {
+  "w": 16,
+  "t": "checkpoint",
+  "m": {
+   "ar": "علامة محفوظة بآخر مكان وصلته عشان تكمّل منه",
+   "en": "a saved marker of how far you got, to resume from"
+  },
+  "ex": "last_page = 237"
  }
 ];
