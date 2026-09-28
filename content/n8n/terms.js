@@ -675,5 +675,446 @@ JOURNEY_TERMS["n8n"] = [
    "en": "the Telegram operation that sends a file"
   },
   "ex": "Send the monthly PDF."
+ },
+ {
+  "w": 6,
+  "t": "base URL",
+  "m": {
+   "ar": "الجزء الثابت في أول كل روابط الـ API",
+   "en": "the fixed start of every URL in an API"
+  },
+  "ex": "https://api.example.com/v1"
+ },
+ {
+  "w": 6,
+  "t": "resource",
+  "m": {
+   "ar": "الحاجة اللي الـ API بيتعامل معاها (orders، users)",
+   "en": "the thing an API deals with (orders, users)"
+  },
+  "ex": "/customers is a resource."
+ },
+ {
+  "w": 6,
+  "t": "REST",
+  "m": {
+   "ar": "أسلوب تصميم APIs: resources وmethods بمعاني ثابتة",
+   "en": "a style of API design: resources and methods with fixed meanings"
+  },
+  "ex": "GET /orders/42"
+ },
+ {
+  "w": 6,
+  "t": "sandbox / test mode",
+  "m": {
+   "ar": "بيئة تجربة ببيانات مش حقيقية",
+   "en": "a test environment with fake data"
+  },
+  "ex": "Use Stripe test mode first."
+ },
+ {
+  "w": 6,
+  "t": "API reference",
+  "m": {
+   "ar": "صفحة التوثيق اللي فيها كل الـ endpoints بالتفصيل",
+   "en": "the docs page listing every endpoint in detail"
+  },
+  "ex": "Check the API reference for required fields."
+ },
+ {
+  "w": 6,
+  "t": "Query Auth",
+  "m": {
+   "ar": "مصادقة بتحط المفتاح كـ query parameter",
+   "en": "authentication that adds the key as a query parameter"
+  },
+  "ex": "?api_key=••••"
+ },
+ {
+  "w": 6,
+  "t": "Predefined Credential Type",
+  "m": {
+   "ar": "credential جاهز لخدمة معروفة تستخدمه في HTTP Request",
+   "en": "a ready credential for a known service, usable in HTTP Request"
+  },
+  "ex": "Use the Google credential for an extra endpoint."
+ },
+ {
+  "w": 6,
+  "t": "Generic Credential Type",
+  "m": {
+   "ar": "مصادقة عامة (Header، Query، Basic، OAuth2) لأي API",
+   "en": "generic auth (Header, Query, Basic, OAuth2) for any API"
+  },
+  "ex": "Generic → Header Auth"
+ },
+ {
+  "w": 6,
+  "t": "X-Api-Key",
+  "m": {
+   "ar": "اسم header شائع للمفتاح",
+   "en": "a common header name for an API key"
+  },
+  "ex": "X-Api-Key: ••••"
+ },
+ {
+  "w": 6,
+  "t": "client ID",
+  "m": {
+   "ar": "معرّف عام لتطبيقك عند الخدمة",
+   "en": "the public identifier of your app at the service"
+  },
+  "ex": "Paste the Client ID into n8n."
+ },
+ {
+  "w": 6,
+  "t": "client secret",
+  "m": {
+   "ar": "سر التطبيق، زي الباسورد",
+   "en": "the app's secret, like a password"
+  },
+  "ex": "Never share the client secret."
+ },
+ {
+  "w": 6,
+  "t": "refresh token",
+  "m": {
+   "ar": "token بيجيب access tokens جديدة من غير تسجيل دخول",
+   "en": "a token that gets new access tokens without logging in again"
+  },
+  "ex": "n8n uses it to renew access."
+ },
+ {
+  "w": 6,
+  "t": "consent screen",
+  "m": {
+   "ar": "الشاشة اللي بتطلب موافقة المستخدم على الصلاحيات",
+   "en": "the screen asking the user to approve permissions"
+  },
+  "ex": "Set the app name and support email."
+ },
+ {
+  "w": 6,
+  "t": "access token expiry",
+  "m": {
+   "ar": "مدة صلاحية الـ access token قبل ما يتجدد",
+   "en": "how long an access token lasts before renewal"
+  },
+  "ex": "Usually about one hour."
+ },
+ {
+  "w": 6,
+  "t": "Retry-After",
+  "m": {
+   "ar": "header بيقول تستنى قد إيه قبل ما تحاول تاني",
+   "en": "a header saying how long to wait before trying again"
+  },
+  "ex": "Retry-After: 30"
+ },
+ {
+  "w": 6,
+  "t": "exponential backoff",
+  "m": {
+   "ar": "الانتظار بيتضاعف بين كل محاولة",
+   "en": "the wait doubles between attempts"
+  },
+  "ex": "2s, 4s, 8s"
+ },
+ {
+  "w": 6,
+  "t": "Batching (HTTP Request)",
+  "m": {
+   "ar": "إرسال الـ items على دفعات بفاصل زمني",
+   "en": "sending items in groups with a delay between them"
+  },
+  "ex": "10 items per batch, 1 s apart"
+ },
+ {
+  "w": 6,
+  "t": "timeout (request)",
+  "m": {
+   "ar": "أقصى وقت تستنى فيه الرد",
+   "en": "the longest time to wait for a response"
+  },
+  "ex": "Timeout: 30000 ms"
+ },
+ {
+  "w": 6,
+  "t": "transient error",
+  "m": {
+   "ar": "خطأ مؤقت بيروح لوحده (زي 503)",
+   "en": "a temporary error that goes away (like 503)"
+  },
+  "ex": "Retry transient errors; don't retry 400s."
+ },
+ {
+  "w": 6,
+  "t": "PUT vs PATCH",
+  "m": {
+   "ar": "PUT يبدّل الحاجة كلها، PATCH يعدّل جزء",
+   "en": "PUT replaces the whole thing; PATCH changes part of it"
+  },
+  "ex": "PATCH /users/1 { \"email\": \"…\" }"
+ },
+ {
+  "w": 6,
+  "t": "multipart/form-data",
+  "m": {
+   "ar": "نوع body بيسمح برفع ملفات",
+   "en": "a body type that allows file uploads"
+  },
+  "ex": "Upload the PDF as form-data."
+ },
+ {
+  "w": 6,
+  "t": "x-www-form-urlencoded",
+  "m": {
+   "ar": "body زي فورم الويب: key=value&key2=value2",
+   "en": "a body like a web form: key=value&key2=value2"
+  },
+  "ex": "name=Ali&city=Cairo"
+ },
+ {
+  "w": 6,
+  "t": "Using JSON",
+  "m": {
+   "ar": "طريقة تكتب بيها الـ body كـ JSON كامل في HTTP Request",
+   "en": "a way to write the whole body as JSON in HTTP Request"
+  },
+  "ex": "{ \"id\": {{ $json.id }} }"
+ },
+ {
+  "w": 6,
+  "t": "n8n Binary File",
+  "m": {
+   "ar": "نوع parameter بيرفع ملف من الـ binary",
+   "en": "a parameter type that uploads a file from binary data"
+  },
+  "ex": "file = data"
+ },
+ {
+  "w": 7,
+  "t": "route",
+  "m": {
+   "ar": "مسار + method بيحدد endpoint",
+   "en": "a path + method that defines an endpoint"
+  },
+  "ex": "GET /v1/orders"
+ },
+ {
+  "w": 7,
+  "t": "path parameter",
+  "m": {
+   "ar": "قيمة جوه المسار زي /orders/:id",
+   "en": "a value inside the path, like /orders/:id"
+  },
+  "ex": "$json.params.id"
+ },
+ {
+  "w": 7,
+  "t": "API versioning",
+  "m": {
+   "ar": "رقم نسخة في المسار عشان التغييرات متكسرش المستخدمين",
+   "en": "a version in the path so changes don't break users"
+  },
+  "ex": "/v1/orders → /v2/orders"
+ },
+ {
+  "w": 7,
+  "t": "response envelope",
+  "m": {
+   "ar": "شكل ثابت لكل الردود ({ok, data, error})",
+   "en": "a fixed shape for every response ({ok, data, error})"
+  },
+  "ex": "{ \"ok\": false, \"error\": {…} }"
+ },
+ {
+  "w": 7,
+  "t": "$json.params",
+  "m": {
+   "ar": "فين بتلاقي الـ path parameters في Webhook",
+   "en": "where a webhook exposes path parameters"
+  },
+  "ex": "$json.params.id"
+ },
+ {
+  "w": 7,
+  "t": "422 Unprocessable",
+  "m": {
+   "ar": "الطلب شكله صح بس القيم مش مقبولة",
+   "en": "the request is well-formed but its values are not acceptable"
+  },
+  "ex": "qty must be positive → 422"
+ },
+ {
+  "w": 7,
+  "t": "required field",
+  "m": {
+   "ar": "حقل لازم يتبعت",
+   "en": "a field that must be sent"
+  },
+  "ex": "email is required"
+ },
+ {
+  "w": 7,
+  "t": "error code",
+  "m": {
+   "ar": "كود قصير ثابت بيوصف الخطأ للبرامج",
+   "en": "a short fixed code that describes an error for programs"
+  },
+  "ex": "\"code\": \"invalid_email\""
+ },
+ {
+  "w": 7,
+  "t": "fail fast",
+  "m": {
+   "ar": "ترفض بدري قبل ما تعمل شغل",
+   "en": "reject early, before doing any work"
+  },
+  "ex": "Validate before writing to the sheet."
+ },
+ {
+  "w": 7,
+  "t": "guard clause",
+  "m": {
+   "ar": "شرط في الأول بيوقف لو المدخل غلط",
+   "en": "an early check that stops when the input is wrong"
+  },
+  "ex": "if (!email) return error"
+ },
+ {
+  "w": 7,
+  "t": "HMAC signature",
+  "m": {
+   "ar": "توقيع للـ body بسر مشترك يثبت إن الطلب من المصدر الصح",
+   "en": "a signature of the body with a shared secret proving who sent it"
+  },
+  "ex": "X-Hub-Signature-256"
+ },
+ {
+  "w": 7,
+  "t": "Crypto node",
+  "m": {
+   "ar": "node بتعمل hash وHMAC وتوليد قيم عشوائية",
+   "en": "a node that creates hashes, HMACs and random values"
+  },
+  "ex": "Crypto → Hmac → SHA256"
+ },
+ {
+  "w": 7,
+  "t": "JWT",
+  "m": {
+   "ar": "token موقّع فيه بيانات وتاريخ انتهاء",
+   "en": "a signed token carrying data and an expiry"
+  },
+  "ex": "Authorization: Bearer eyJ…"
+ },
+ {
+  "w": 7,
+  "t": "Raw Body",
+  "m": {
+   "ar": "خيار في Webhook بيسيب الـ body زي ما هو (مهم للتوقيع)",
+   "en": "a Webhook option that keeps the body exactly as sent (needed for signatures)"
+  },
+  "ex": "Enable Raw Body before verifying."
+ },
+ {
+  "w": 7,
+  "t": "IP whitelist",
+  "m": {
+   "ar": "قايمة عناوين مسموحلها بس تكلم الـ endpoint",
+   "en": "a list of the only addresses allowed to call the endpoint"
+  },
+  "ex": "IP(s) Whitelist: 203.0.113.10"
+ },
+ {
+  "w": 7,
+  "t": "event type",
+  "m": {
+   "ar": "نوع الحدث اللي الخدمة بتبلّغ عنه",
+   "en": "the kind of event a service reports"
+  },
+  "ex": "payment.succeeded"
+ },
+ {
+  "w": 7,
+  "t": "event ID",
+  "m": {
+   "ar": "رقم فريد لكل حدث، بتستخدمه تمنع التكرار",
+   "en": "a unique ID for each event, used to avoid duplicates"
+  },
+  "ex": "evt_123"
+ },
+ {
+  "w": 7,
+  "t": "webhook retries (sender)",
+  "m": {
+   "ar": "الخدمة بتعيد إرسال الحدث لو ردك اتأخر أو فشل",
+   "en": "the service resends an event if your reply is slow or fails"
+  },
+  "ex": "Reply 200 quickly to stop retries."
+ },
+ {
+  "w": 7,
+  "t": "delivery log",
+  "m": {
+   "ar": "سجل في لوحة الخدمة بكل webhook اتبعت وردّه",
+   "en": "a record in the service dashboard of every webhook sent and its reply"
+  },
+  "ex": "Check the delivery log first."
+ },
+ {
+  "w": 7,
+  "t": "signing secret",
+  "m": {
+   "ar": "السر اللي الخدمة بتوقّع بيه الـ webhooks",
+   "en": "the secret a service uses to sign webhooks"
+  },
+  "ex": "whsec_•••"
+ },
+ {
+  "w": 7,
+  "t": "Postman collection",
+  "m": {
+   "ar": "مجموعة طلبات محفوظة لاختبار API",
+   "en": "a saved set of requests for testing an API"
+  },
+  "ex": "Export the collection with the repo."
+ },
+ {
+  "w": 7,
+  "t": "CORS",
+  "m": {
+   "ar": "قواعد المتصفح لطلبات من موقع لموقع تاني",
+   "en": "browser rules for requests from one site to another"
+  },
+  "ex": "Allowed Origins: https://mysite.com"
+ },
+ {
+  "w": 7,
+  "t": "regression test",
+  "m": {
+   "ar": "اختبار بتعيده بعد أي تعديل عشان متكسرش حاجة كانت شغالة",
+   "en": "a test you rerun after every change so working things don't break"
+  },
+  "ex": "Run the 8 tests after each edit."
+ },
+ {
+  "w": 7,
+  "t": "sample request",
+  "m": {
+   "ar": "مثال طلب جاهز في التوثيق",
+   "en": "a ready example request in the docs"
+  },
+  "ex": "curl -X POST … -d '{\"email\":\"a@b.c\",\"qty\":1}'"
+ },
+ {
+  "w": 7,
+  "t": "uptime check",
+  "m": {
+   "ar": "فحص دوري إن الـ endpoint شغال",
+   "en": "a periodic check that the endpoint is up"
+  },
+  "ex": "Ping /v1/health every 5 minutes."
  }
 ];
