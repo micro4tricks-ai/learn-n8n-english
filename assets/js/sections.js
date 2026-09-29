@@ -33,6 +33,7 @@
     secs.forEach(function(s, i){
       var el = document.createElement('section');
       el.id = s.id;
+      if(i === 0 || s.open) el.setAttribute('data-open', '');
       el.innerHTML = '<h2><span class="n">' + ('0' + (i + 1)).slice(-2) + '</span> ' + esc(L(s.title)) + '</h2>' +
         (s.desc ? '<div class="section-desc">' + S.md(s.desc) + '</div>' : '') + '<div class="sec-body"></div>';
       main.appendChild(el);

@@ -61,7 +61,8 @@
     btn.appendChild(hint);
     h2.appendChild(btn);
     sec.classList.add('fold');
-    setOpen(sec, !!open[sec.id], false);
+    // closed unless the viewer opened it before; a section marked data-open starts open until the viewer closes it
+    setOpen(sec, Object.prototype.hasOwnProperty.call(open, sec.id) ? !!open[sec.id] : sec.hasAttribute('data-open'), false);
     btn.addEventListener('click', function(){ setOpen(sec, sec.classList.contains('closed'), true); });
   });
   function openSection(id){
@@ -79,7 +80,7 @@
     return { id: i === -1 ? h : h.slice(0, i), p: p };
   }
   // A section without a search box: try each of its tabs until a card holding the text shows, and mark that card.
-  var CARDS = '.g-card,.err-card,.phrase-card,.lib-card,.vocab-card,.q-card,.read-row,.track-card,.day-card,.proj-card,.res-card,.ex-card,.md-card';
+  var CARDS = '.g-card,.err-card,.phrase-card,.lib-card,.vocab-card,.q-card,.read-row,.track-card,.day-card,.proj-card,.res-card,.ex-card,.md-card,.sheet.on';
   function findCard(sec, q){
     q = q.toLowerCase();
     function look(){
