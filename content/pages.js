@@ -10,7 +10,7 @@ window.SITE_PAGES = [
     desc: { ar: 'رحلة 24 أسبوع في الإنجليزي اللي المبرمج بيحتاجه.', en: 'A 24-week journey in the English a developer needs.' } },
   { id: 'review', href: 'review.html', nav: 'more', icon: '🔁', scripts: ['vendor/ts-fsrs.umd.js', 'review.js'], title: { ar: 'مراجعتي', en: 'My review' },
     desc: { ar: 'مراجعة متباعدة بخوارزمية FSRS، ودفتر أخطائك، وإحصائياتك، ونسخة احتياطية من تقدّمك.', en: 'Spaced review with FSRS, your mistakes notebook, your stats, and a backup of your progress.' } },
-  { id: 'lab', href: 'lab.html', nav: 'more', icon: '🧪', scripts: ['lab.js'], title: { ar: 'المعمل', en: 'Lab' },
+  { id: 'lab', href: 'lab.html', nav: 'more', icon: '🧪', scripts: ['lab-expr.js', 'lab.js'], title: { ar: 'المعمل', en: 'Lab' },
     desc: { ar: 'اكتب وشغّل JavaScript وExpressions وPython وSQL في المتصفح، واعرض أي Workflow كرسمة وافحصه.', en: 'Write and run JavaScript, expressions, Python and SQL in the browser, and view and check any workflow as a diagram.' } },
   { id: 'speak', href: 'speak.html', nav: 'more', icon: '🎙️', scripts: ['speak.js'], title: { ar: 'تدريب الكلام', en: 'Speaking practice' },
     desc: { ar: 'نطق بتقييم، وShadowing، وإملاء، ومواقف شغل حقيقية بالإنجليزي.', en: 'Scored pronunciation, shadowing, dictation and real work situations in English.' } },
