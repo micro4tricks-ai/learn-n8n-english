@@ -277,7 +277,7 @@
     var svg = '<svg class="bars" viewBox="0 0 ' + w + ' ' + h + '" role="img" aria-label="' + esc(B('أحسن درجة في كل اختبار أسبوعي', 'Best score in each weekly test')) + '" dir="ltr">';
     [0, 50, 100].forEach(function(v){ var y = base - v * (base - top) / 100; svg += '<line x1="30" x2="' + (w - 4) + '" y1="' + y + '" y2="' + y + '" class="grid"/><text x="26" y="' + (y + 4) + '" class="ax" text-anchor="end">' + v + '%</text>'; });
     var y70 = base - 70 * (base - top) / 100;
-    svg += '<line x1="30" x2="' + (w - 4) + '" y1="' + y70 + '" y2="' + y70 + '" class="pass"/><text x="' + (w - 4) + '" y="' + (y70 - 3) + '" class="ax" text-anchor="end">' + esc(B('النجاح 70%', 'pass 70%')) + '</text>';
+    svg += '<line x1="30" x2="' + (w - 4) + '" y1="' + y70 + '" y2="' + y70 + '" class="pass"/><text x="' + (w - 4) + '" y="' + (y70 - 3) + '" class="ax" text-anchor="end">70%</text>';
     J.weeks.forEach(function(x, i){
       var bx = 34 + i * 18, bw = 14;
       var tip = B('الأسبوع ' + x.n + ': ', 'Week ' + x.n + ': ') + (x.best == null ? B('لسه ما اتختبرتش', 'not taken yet') : x.best + '% · ' + B(x.tries + ' محاولة', x.tries + (x.tries === 1 ? ' try' : ' tries')));
@@ -308,7 +308,7 @@
         '<p class="sub-note">' + esc(B('ذاكرت ' + hm.studied + ' يوم في آخر 26 أسبوع، وأطول سلسلة ' + hm.best + ' يوم.', 'You studied on ' + hm.studied + ' days in the last 26 weeks; your longest run is ' + hm.best + ' days.')) + '</p></div>';
       tracks.forEach(function(t){
         h += '<div class="chart-box"><h3 class="sub-h">' + esc(t.name) + ' — ' + esc(B('عدّيت ' + t.J.passed + ' من 24 أسبوع · ' + t.J.exams + ' من 6 امتحانات', t.J.passed + ' of 24 weeks passed · ' + t.J.exams + ' of 6 exams')) + '</h3>' +
-          bars(t.id, t.J) + '<details class="ans"><summary>' + esc(B('اعرض الأرقام كجدول', 'Show the numbers as a table')) + '</summary><table class="num-table"><tr><th>' + esc(B('الأسبوع', 'Week')) + '</th><th>' +
+          bars(t.id, t.J) + '<p class="sub-note">' + esc(B('كل عمود = أحسن درجة في اختبار الأسبوع. الخط البرتقالي = 70%، درجة النجاح اللي بتفتح الأسبوع اللي بعده.', 'Each bar is your best weekly-test score. The orange line is 70%, the pass mark that opens the next week.')) + '</p>' + '<details class="ans"><summary>' + esc(B('اعرض الأرقام كجدول', 'Show the numbers as a table')) + '</summary><table class="num-table"><tr><th>' + esc(B('الأسبوع', 'Week')) + '</th><th>' +
           esc(B('أحسن درجة', 'Best score')) + '</th><th>' + esc(B('محاولات', 'Tries')) + '</th></tr>' +
           t.J.weeks.filter(function(w){ return w.tries; }).map(function(w){ return '<tr><td>' + w.n + '</td><td>' + w.best + '%</td><td>' + w.tries + '</td></tr>'; }).join('') +
           '</table></details></div>';

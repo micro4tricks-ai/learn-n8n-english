@@ -921,3 +921,14 @@ details.lesson .ok{color:var(--accent-ink);}
 .talk summary{cursor:pointer;font-family:'Cairo';font-weight:700;color:var(--accent-ink);}
 .talk-box{min-height:40px;}
 .page-talk{margin-top:30px;}
+
+/* SVG text follows the page direction (text-anchor flips in RTL): keep the drawings left-to-right */
+.wf-svg,.heat,.bars{direction:ltr;unicode-bidi:isolate;}
+.wf-svg text,.heat text,.bars text{direction:ltr;}
+.wf-sticky-t{direction:ltr;text-align:left;}
+.heat-m{font-size:8px;}
+.var-form label.wide{grid-column:1/-1;}
+.var-form textarea{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:13px;border:1px solid var(--border);border-radius:9px;padding:7px 10px;background:var(--surface);color:var(--ink);resize:vertical;min-width:0;}
+.var-form textarea:focus{outline:2px solid var(--accent);border-color:transparent;}
+/* code inside code blocks: no inline-code chip */
+.md-code code,.lab-out code{background:none;padding:0;border-radius:0;font-size:inherit;color:inherit;}

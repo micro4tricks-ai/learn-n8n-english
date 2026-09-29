@@ -27,7 +27,7 @@
       var names = X.vars(p.text), v = vals[p.id] || (vals[p.id] = {});
       return '<article class="md-card" data-id="' + esc(p.id) + '"><div class="md-top"><h3 class="mine-user" dir="auto">' + esc(p.t) + '</h3></div>' +
         (p.tags && p.tags.length ? '<div class="lib-badges">' + p.tags.map(function(t){ return '<span class="tag mine-user">' + esc(t) + '</span>'; }).join('') + '</div>' : '') +
-        (names.length ? '<div class="var-form">' + names.map(function(n){ return '<label><span class="mine-user">' + esc(n) + '</span><input type="text" data-var="' + esc(n) + '" value="' + esc(v[n] || '') + '" dir="auto"></label>'; }).join('') + '</div>' : '') +
+        (names.length ? '<div class="var-form">' + names.map(function(n){ return '<label' + (X.multi(n) ? ' class="wide"' : '') + '><span class="mine-user">' + esc(n) + '</span>' + (X.multi(n) ? '<textarea rows="3" data-var="' + esc(n) + '" dir="auto">' + esc(v[n] || '') + '</textarea>' : '<input type="text" data-var="' + esc(n) + '" value="' + esc(v[n] || '') + '" dir="auto">') + '</label>'; }).join('') + '</div>' : '') +
         '<pre class="md-code mine-user" dir="auto"><code>' + esc(X.fill(p.text, v)) + '</code></pre>' +
         '<div class="jr-actions"><button type="button" class="copy-btn" data-copy>' + esc(B('نسخ', 'Copy')) + '</button>' +
         '<button type="button" class="ghost-btn" data-edit>' + esc(B('تعديل', 'Edit')) + '</button>' +

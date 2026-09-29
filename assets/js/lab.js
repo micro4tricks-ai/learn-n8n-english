@@ -355,14 +355,15 @@
   // Python: one worker that keeps Pyodide loaded; a run that hangs replaces the worker
   var py = null;
   function pyWorker(){
-    var src = 'importScripts(' + JSON.stringify(CDN.pyodide + 'pyodide.js') + ');\n' +
+    // a module worker: Pyodide's current builds load as an ES module
+    var src = 'import { loadPyodide } from ' + JSON.stringify(CDN.pyodide + 'pyodide.mjs') + ';\n' +
       'var ready = loadPyodide({ indexURL: ' + JSON.stringify(CDN.pyodide) + ' });\n' +
       'self.onmessage = function(e){ ready.then(function(p){ var out = []; p.setStdout({ batched: function(s){ out.push(s); } }); p.setStderr({ batched: function(s){ out.push(s); } });\n' +
       '  try{ p.runPython(e.data.code, { globals: p.toPy({}) }); postMessage({ ok: true, out: out.join("\\n") }); }\n' +
       '  catch(err){ var m = String(err && err.message || err); var lines = m.split("\\n").filter(function(l){ return l && !/^  File "\\/lib|^    |_pyodide|pyodide\\/|Traceback/.test(l); }); postMessage({ ok: false, out: out.join("\\n"), error: lines.slice(-3).join("\\n") || m }); } },\n' +
       '  function(err){ postMessage({ ok: false, load: true, error: String(err) }); }); };\n' +
       'ready.then(function(){ postMessage({ ready: true }); }, function(err){ postMessage({ ok: false, load: true, error: String(err) }); });';
-    var w = new Worker(URL.createObjectURL(new Blob([src], { type: 'text/javascript' })));
+    var w = new Worker(URL.createObjectURL(new Blob([src], { type: 'text/javascript' })), { type: 'module' });
     var st = { w: w, ready: false, wait: [] };
     st.readyP = new Promise(function(res, rej){
       w.onmessage = function(e){

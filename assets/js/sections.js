@@ -54,6 +54,8 @@
     while((m = VAR.exec(text))){ if(out.indexOf(m[1]) === -1) out.push(m[1]); }
     return out;
   };
+  // boxes for long input (code, pasted text) are multi-line
+  X.multi = function(name){ return /^(code|text|json|notes|diff|data|sample|tables|example|complaint|facts|input|output|messages|tools|words)$/i.test(name); };
   X.fill = function(text, vals){
     return text.replace(VAR, function(all, k){ return vals[k] != null && vals[k] !== '' ? vals[k] : all; });
   };
@@ -98,7 +100,9 @@
         else{
           if(names.length) h += '<div class="var-form">' + names.map(function(n){
             var label = (it.vars && it.vars[n]) ? L(it.vars[n]) : n;
-            return '<label><span>' + esc(label) + '</span><input type="text" data-var="' + esc(n) + '" value="' + esc(v[n] || '') + '" dir="auto"></label>';
+            return '<label' + (X.multi(n) ? ' class="wide"' : '') + '><span>' + esc(label) + '</span>' + (X.multi(n)
+              ? '<textarea rows="3" data-var="' + esc(n) + '" dir="auto" spellcheck="false">' + esc(v[n] || '') + '</textarea>'
+              : '<input type="text" data-var="' + esc(n) + '" value="' + esc(v[n] || '') + '" dir="auto">') + '</label>';
           }).join('') + '</div>';
           h += '<pre class="md-code" dir="' + (it.rtl ? 'rtl' : 'ltr') + '"><code>' + esc(X.fill(code, v)) + '</code></pre>' +
             '<div class="jr-actions"><button type="button" class="copy-btn" data-copy>' + B('نسخ', 'Copy') + '</button>' +
