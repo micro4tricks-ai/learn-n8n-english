@@ -70,16 +70,50 @@
   }
   window.openSection = openSection;
 
-  // links like #library open their section first
+  // links like #library open their section first; #terms?q=webhook also fills the section's search box,
+  // and #journey?w=5&d=2 is passed on to the page (site:deeplink) to open that week and day.
+  function parse(h){
+    h = (h || '').replace(/^#/, '');
+    var i = h.indexOf('?'), p = {};
+    if(i !== -1) h.slice(i + 1).split('&').forEach(function(kv){ var x = kv.split('='); if(x[0]) p[decodeURIComponent(x[0])] = decodeURIComponent((x[1] || '').replace(/\+/g, ' ')); });
+    return { id: i === -1 ? h : h.slice(0, i), p: p };
+  }
+  // A section without a search box: try each of its tabs until a card holding the text shows, and mark that card.
+  var CARDS = '.g-card,.err-card,.phrase-card,.lib-card,.vocab-card,.q-card,.read-row,.track-card,.day-card,.proj-card,.res-card,.ex-card,.md-card';
+  function findCard(sec, q){
+    q = q.toLowerCase();
+    function look(){
+      var list = sec.querySelectorAll(CARDS);
+      for(var i = 0; i < list.length; i++) if(list[i].textContent.toLowerCase().indexOf(q) !== -1) return list[i];
+      return null;
+    }
+    var hit = look(), tabs = sec.querySelectorAll('.cat-tabs .cat-tab');
+    for(var i = 0; !hit && i < tabs.length; i++){ tabs[i].click(); hit = look(); }
+    if(hit){
+      hit.classList.add('hit');
+      setTimeout(function(){ hit.classList.remove('hit'); }, 2600);
+      var det = hit.tagName === 'DETAILS' ? hit : hit.querySelector('details'); if(det) det.open = true;
+    }
+    return hit;
+  }
+  function follow(h, scroll){
+    var d = parse(h);
+    if(!d.id) return;
+    openSection(d.id);
+    var t = document.getElementById(d.id);
+    if(!t) return;
+    if(d.p.q != null){
+      var box = t.querySelector('input[type="search"]');
+      if(box){ box.value = d.p.q; box.dispatchEvent(new Event('input', { bubbles: true })); }
+      else if(d.p.q){ var hit = findCard(t, d.p.q); if(hit){ hit.scrollIntoView({ block: 'center' }); return; } }
+    }
+    try{ document.dispatchEvent(new CustomEvent('site:deeplink', { detail: d })); }catch(e){}
+    if(scroll) t.scrollIntoView();
+  }
   document.addEventListener('click', function(e){
     var a = e.target.closest ? e.target.closest('a[href^="#"]') : null;
-    if(a && a.getAttribute('href').length > 1) openSection(a.getAttribute('href').slice(1));
+    if(a && a.getAttribute('href').length > 1) openSection(parse(a.getAttribute('href')).id);
   }, true);
-  try{ if(location.hash){ openSection(location.hash.slice(1)); var t = document.getElementById(location.hash.slice(1)); if(t) t.scrollIntoView(); } }catch(e){}
-  window.addEventListener('hashchange', function(){
-    var id = location.hash.slice(1);
-    if(!id) return;
-    openSection(id);
-    var t = document.getElementById(id); if(t) t.scrollIntoView();
-  });
+  try{ if(location.hash) follow(location.hash, true); }catch(e){}
+  window.addEventListener('hashchange', function(){ follow(location.hash, true); });
 })();

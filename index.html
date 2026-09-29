@@ -5,7 +5,10 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>رحلة المبرمج</title>
 <meta name="description" content="خطتين تعلم مجانيتين بالعربي والإنجليزي: أتمتة n8n واللغات اللي معاها، والإنجليزي التقني للمبرمجين.">
+<meta name="theme-color" content="#3f8f63">
+<link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/icons/icon-192.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@500;700;800&family=Tajawal:wght@400;500;700&family=JetBrains+Mono:wght@400;500;700&display=swap">
@@ -30,6 +33,14 @@
   .how{margin-top:40px;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;}
   .how div{background:var(--surface-2);border-radius:14px;padding:16px 18px;font-size:14.5px;}
   .how b{font-family:'Cairo',sans-serif;display:block;margin-bottom:4px;color:var(--ink);}
+  .tools-h{margin-top:36px;}
+  .tools-home{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,230px),1fr));gap:12px;}
+  .tool-home{display:grid;gap:4px;align-content:start;background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:14px 16px;
+    box-shadow:var(--shadow);text-decoration:none;color:var(--ink);}
+  .tool-home:hover{border-color:var(--accent);}
+  .tool-home .ti{font-size:24px;line-height:1;}
+  .tool-home b{font-family:'Cairo';font-size:16px;color:var(--accent-ink);}
+  .tool-home span:last-child{font-size:14px;color:var(--muted);}
 </style>
 <script src="assets/js/i18n.js?v=202609281"></script>
 </head>
@@ -59,9 +70,9 @@
       <ul>
         <li>24 أسبوع في 6 شهور: من الأساسيات للإنتاج والشغل الحر</li>
         <li>12 Workflow محلول من شغل حقيقي</li>
-        <li>أكتر من 200 مصطلح بأمثلة، وبطاقات للمراجعة</li>
-        <li>مشروع واختبار كل أسبوع، والأسبوع اللي بعده بيفتح بـ 70%</li>
-        <li>مكتبة فيها 110 مصدر مجاني بالعربي والإنجليزي</li>
+        <li>قرابة 700 مصطلح بأمثلة، ومراجعة متباعدة بخوارزمية FSRS</li>
+        <li>مشروع واختبار كل أسبوع، وامتحان كل شهر، وامتحان نهائي بشهادة</li>
+        <li>مكتبة فيها قرابة 300 مصدر مجاني بالعربي والإنجليزي</li>
       </ul>
       <span class="go">ابدأ رحلة n8n ←</span>
     </a>
@@ -72,18 +83,21 @@
       <ul>
         <li>24 أسبوع في 6 شهور: من A1 لحد B2/C1</li>
         <li>نصوص محلولة من الشغل الحقيقي</li>
-        <li>أكتر من 850 كلمة بأمثلة ونطق صوتي</li>
+        <li>قرابة 900 كلمة بأمثلة ونطق صوتي، ومراجعة متباعدة</li>
         <li>أكتر من 110 قاعدة جرامر، واختبارات قواعد ومراجعة</li>
-        <li>مكتبة فيها 155 مصدر للقراءة والاستماع والكلام</li>
+        <li>مكتبة فيها قرابة 300 مصدر للقراءة والاستماع والكلام</li>
       </ul>
       <span class="go">ابدأ الإنجليزي ←</span>
     </a>
   </div>
 
+  <h2 class="sub-h tools-h">أدوات تساعدك في الرحلتين</h2>
+  <div class="tools-home" id="toolsHome"></div>
+
   <div class="how">
     <div data-t><b>1. ابدأ من الأسبوع 1</b>ساعتين في اليوم، 6 أيام في الأسبوع. كل يوم بيخلص باختبار قصير، واليوم اللي بعده بيفتح لما تخلّص مهامك.</div>
     <div data-t><b>2. عدّي اختبار الأسبوع</b>اليوم السادس مراجعة ومشروع واختبار. محتاج 70% عشان الأسبوع اللي بعده يفتح، وتقدر تعيده.</div>
-    <div data-t><b>3. راجع بالبطاقات</b>كل يوم 10 دقايق على الكلمات اللي لسه ما حفظتهاش.</div>
+    <div data-t><b>3. راجع كل يوم</b>10–15 دقيقة في صفحة «مراجعتي»: البطاقات بترجعلك قبل ما تنساها، ودفتر أخطائك بيرجّعلك الأسئلة اللي غلطت فيها.</div>
     <div data-t><b>4. التقدم بيتحفظ عندك</b>في المتصفح من غير أي حساب، ولو سجّلت بالإيميل بيتحفظ أونلاين وتكمّل من أي جهاز.</div>
   </div>
 
@@ -98,8 +112,19 @@
   I18N.translateDOM(document.body);
   I18N.bindToggle();
 </script>
-<script src="assets/js/ui.js?v=202609281"></script>
+<script src="content/pages.js?v=202609281"></script>
 <script src="assets/js/config.js?v=202609281"></script>
+<script src="assets/js/site.js?v=202609281"></script>
+<script>
+  // the tool pages, from content/pages.js
+  (function(){
+    var el = document.getElementById('toolsHome');
+    el.innerHTML = SITE.pages.filter(function(p){ return p.nav === 'more'; }).map(function(p){
+      return '<a class="tool-home" href="' + p.href + '"><span class="ti" aria-hidden="true">' + p.icon + '</span><b>' + SITE.esc(SITE.L(p.title)) + '</b><span>' + SITE.esc(SITE.L(p.desc)) + '</span></a>';
+    }).join('');
+  })();
+</script>
+<script src="assets/js/ui.js?v=202609281"></script>
 <script src="assets/js/vendor/supabase.js?v=202609281"></script>
 <script src="assets/js/account.js?v=202609281"></script>
 </body>

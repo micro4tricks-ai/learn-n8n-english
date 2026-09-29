@@ -202,6 +202,11 @@
     var q = J.rules.quizRight(day, M.progress.answers);
     return { done: studyDone(day), pct: pt + qt ? Math.round((p + q) / (pt + qt) * 100) : 0, p: p, pt: pt, q: q, qt: qt };
   }
+  // a deep link (#journey?w=5&d=2) asks for a day; it opens only if it is unlocked
+  function pickDay(w){
+    var d = M.wantDay; M.wantDay = 0;
+    return d && d >= 1 && d <= 6 && dayOpen(w, d) ? d : firstOpenDay(w);
+  }
   function firstOpenDay(w){
     for(var i = 0; i < w.days.length; i++){ if(!dayStat(w, w.days[i]).done) return w.days[i].d; }
     return 6;
@@ -336,7 +341,7 @@
       M.main.innerHTML = weekHead(n, '<p class="sub-note" aria-live="polite">' + T('بيحمّل الأسبوع…') + '</p>');
       J.loadWeek(M.track, n, function(ok){
         if(!M || M.selWeek !== n) return;
-        if(ok){ M.selDay = firstOpenDay(weekObj(n)); renderAll(); return; }
+        if(ok){ M.selDay = pickDay(weekObj(n)); renderAll(); return; }
         M.main.innerHTML = weekHead(n, '<p class="lock-note">' + T('مقدرناش نحمّل الأسبوع ده. اتأكد من النت وجرّب تاني.') + '</p>' +
           '<button type="button" class="link-btn" data-jretry>' + T('إعادة المحاولة') + '</button>');
       });
@@ -463,7 +468,7 @@
   function selectWeek(n, scroll){
     M.selWeek = n; M.selExam = 0; M.testSel = {}; M.testResult = null;
     var w = weekObj(n);
-    M.selDay = w ? firstOpenDay(w) : 1;
+    M.selDay = w ? pickDay(w) : 1;
     M.el.classList.remove('side-open');
     var sb = M.el.querySelector('[data-jside]'); if(sb) sb.setAttribute('aria-expanded', 'false');
     renderSide(); renderMain();
@@ -506,6 +511,8 @@
     if(t.dataset.jq){
       if(M.progress.answers[t.dataset.jq] != null) return;
       M.progress.answers[t.dataset.jq] = Number(t.dataset.o);
+      var qi = Number(t.dataset.jq.split('_').pop());
+      if(day.quiz[qi] && Number(t.dataset.o) !== day.quiz[qi].a) wrong(t.dataset.jq.slice(1).replace('_', 'q'), day.quiz[qi], Number(t.dataset.o), { ar: 'الأسبوع {w} · اليوم {d}', en: 'Week {w} · Day {d}' }, { w: w.n, d: day.d });
       save(); refreshDay(w);
       return;
     }
@@ -532,6 +539,7 @@
       var id = J.rules.testId(w.n);
       (M.progress.tests[id] || (M.progress.tests[id] = [])).push(attempt);
       M.testResult = attempt;
+      day.test.forEach(function(q, i){ if(answers[i] !== q.a) wrong('w' + pad(w.n) + 't' + i, q, answers[i], { ar: 'اختبار الأسبوع {w}', en: 'Week {w} test' }, { w: w.n }); });
       save();
       if(M.opts.onAttempt) M.opts.onAttempt(id, attempt);
       emit('journey:attempt', { track: M.track, testId: id, attempt: attempt });
@@ -556,6 +564,7 @@
       var id = J.rules.examId(m);
       (M.progress.tests[id] || (M.progress.tests[id] = [])).push(attempt);
       E.result = attempt;
+      E.qs.forEach(function(qid, i){ var q = J.question(M.track, qid); if(q && answers[i] !== q.a) wrong(qid, q, answers[i], m === 6 ? { ar: 'الامتحان النهائي', en: 'Final exam' } : { ar: 'امتحان الشهر {n}', en: 'Month {n} exam' }, { n: m }); });
       save();
       if(M.opts.onAttempt) M.opts.onAttempt(id, attempt);
       emit('journey:attempt', { track: M.track, testId: id, attempt: attempt });
@@ -583,6 +592,24 @@
     renderSum(); renderSide();
   }
 
+  // wrong answers go to the mistakes notebook (review page); ids match J.pool: wNNd<d>q<i> and wNNt<i>
+  // `from` says where the question was ({ar, en} template with {name} placeholders)
+  function wrong(id, q, chosen, from, vars){
+    if(!window.SITE || !SITE.mistake) return;
+    var fill = function(s){ return s.replace(/\{(\w+)\}/g, function(_, k){ return vars && vars[k] != null ? vars[k] : ''; }); };
+    SITE.mistake(M.track, M.track + ':' + id, q, chosen, { ar: fill(from.ar), en: fill(from.en) });
+  }
+  // #journey?w=5&d=2 opens week 5 (day 2 when it is unlocked); #journey?exam=2 opens the month 2 exam
+  function onDeepLink(e){
+    var d = e.detail || {};
+    if(!M || d.id !== 'journey') return;
+    var w = Number(d.p.w), ex = Number(d.p.exam);
+    if(ex >= 1 && ex <= 6){ selectExam(ex); return; }
+    if(!(w >= 1 && w <= 24)) return;
+    M.wantDay = Number(d.p.d) || 0;
+    selectWeek(w, true);
+  }
+
   // ---- public ----
   // opts: {track, el, storeKey, legacyKey, wordActions(word)→html, copy(text, btn), onActivity(), onChange(progress),
   //        onAttempt(testId, attempt), onDay(week, day), onExternal()}
@@ -605,6 +632,7 @@
     M.main = opts.el.querySelector('.jr-main');
     opts.el.addEventListener('click', onClick);
     opts.el.addEventListener('change', onChange);
+    document.addEventListener('site:deeplink', onDeepLink);
     M.selWeek = currentWeek();
     var w = weekObj(M.selWeek);
     M.selDay = w ? firstOpenDay(w) : 1;

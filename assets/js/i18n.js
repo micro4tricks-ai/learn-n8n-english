@@ -91,6 +91,14 @@
     });
   }
 
+  // The same text in both languages, whatever the page language is: {ar, en}. Used when something is
+  // kept for later (the mistakes notebook), so it reads right after switching languages.
+  function BI(s){
+    if(isBi(s) || typeof s !== 'string') return s;
+    var v = AR.test(s) ? DICT[s.trim()] : s;
+    return { ar: s, en: v == null ? s : v };
+  }
+
   window.T = T; window.TF = TF; window.TDEEP = TDEEP;
-  window.I18N = { translateDOM: translateDOM, bindToggle: bindToggle, setLang: setLang };
+  window.I18N = { translateDOM: translateDOM, bindToggle: bindToggle, setLang: setLang, bi: BI };
 })();

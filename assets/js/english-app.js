@@ -233,6 +233,13 @@
     var id = b.dataset.q;
     if(state.quiz[id] !== undefined) return;
     state.quiz[id] = Number(b.dataset.o);
+    // a wrong answer goes to the mistakes notebook, kept in both languages from the Arabic source
+    var src = /^qg/.test(id) ? window.EN_DATA.GRAMMAR_QUIZ : window.EN_DATA.EXTRA_QUIZ, raw = src[Number(id.replace(/\D+/g, ''))];
+    if(raw && state.quiz[id] !== raw.a && window.SITE && window.I18N){
+      var bi = I18N.bi;
+      SITE.mistake('english', 'english:quiz-' + id, { q: bi(raw.q), o: raw.o.map(bi), a: raw.a, why: bi(raw.why) }, state.quiz[id],
+        /^qg/.test(id) ? { ar: 'اختبار القواعد', en: 'Grammar quiz' } : { ar: 'اختبار المراجعة', en: 'Review quiz' });
+    }
     markToday(); saveState();
     renderQuiz(); updateTotals();
   });

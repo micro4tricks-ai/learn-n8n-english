@@ -141,5 +141,12 @@ window.I18N_ADD && I18N_ADD({
  "شهادة إتمام": "Certificate of completion",
  "خلّصت رحلة الـ 24 أسبوع في «{track}»: 144 يوم، و24 اختبار أسبوعي، و5 امتحانات شهرية، والامتحان النهائي بأحسن درجة {p}%.": "Completed the 24-week journey in “{track}”: 144 days, 24 weekly tests, 5 monthly exams, and the final exam with a best score of {p}%.",
  "اطبع الشهادة": "Print the certificate",
- "نجحت 🎉 الامتحان النهائي اتفتح.": "You passed 🎉 The final exam is now open."
+ "نجحت 🎉 الامتحان النهائي اتفتح.": "You passed 🎉 The final exam is now open.",
+ "<b>3. راجع كل يوم</b>10–15 دقيقة في صفحة «مراجعتي»: البطاقات بترجعلك قبل ما تنساها، ودفتر أخطائك بيرجّعلك الأسئلة اللي غلطت فيها.": "<b>3. Review every day</b>10–15 minutes on the «My review» page: cards come back just before you forget them, and your mistakes notebook brings back the questions you got wrong.",
+ "قرابة 700 مصطلح بأمثلة، ومراجعة متباعدة بخوارزمية FSRS": "About 700 terms with examples, and spaced review with FSRS",
+ "مشروع واختبار كل أسبوع، وامتحان كل شهر، وامتحان نهائي بشهادة": "A project and a test every week, an exam every month, and a final exam with a certificate",
+ "مكتبة فيها قرابة 300 مصدر مجاني بالعربي والإنجليزي": "A library of about 300 free resources in Arabic and English",
+ "قرابة 900 كلمة بأمثلة ونطق صوتي، ومراجعة متباعدة": "About 900 words with examples and audio, and spaced review",
+ "مكتبة فيها قرابة 300 مصدر للقراءة والاستماع والكلام": "A library of about 300 resources for reading, listening and speaking",
+ "أدوات تساعدك في الرحلتين": "Tools that help in both journeys"
 });
