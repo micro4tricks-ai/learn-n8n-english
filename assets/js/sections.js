@@ -43,7 +43,8 @@
   };
 
   // ---------- helpers shared by the types ----------
-  var VAR = /\{\{\s*([^{}]+?)\s*\}\}/g;
+  // {{name}} is a box to fill; n8n expressions such as {{ $json.x }} stay as they are
+  var VAR = /\{\{\s*([A-Za-z_؀-ۿ][\w؀-ۿ]*)\s*\}\}/g;
   X.vars = function(text){
     var out = [], m;
     VAR.lastIndex = 0;
@@ -98,6 +99,7 @@
           }).join('') + '</div>';
           h += '<pre class="md-code" dir="' + (it.rtl ? 'rtl' : 'ltr') + '"><code>' + esc(X.fill(code, v)) + '</code></pre>' +
             '<div class="jr-actions"><button type="button" class="copy-btn" data-copy>' + B('نسخ', 'Copy') + '</button>' +
+            (sec.saveLabel ? '<button type="button" class="ghost-btn" data-save>' + esc(L(sec.saveLabel)) + '</button>' : '') +
             (names.length ? '<span class="sub-note">' + esc(B('املا الخانات والبرومبت بيتملي لوحده قبل النسخ.', 'Fill the boxes and the text updates before you copy.')) + '</span>' : '') + '</div>';
         }
       }
@@ -126,6 +128,8 @@
       }
       if(b.hasAttribute('data-open')){ open[it.id] = 1; art.outerHTML = card(it); return; }
       if(b.hasAttribute('data-copy')) S.copy(X.fill(String(L(it.code)), vals[it.id] || {}), b);
+      // a page script can take a card (e.g. «save to my prompts»)
+      if(b.hasAttribute('data-save')) S.emit('sections:save', { sec: sec, item: it, values: vals[it.id] || {} });
     });
     el.addEventListener('input', function(e){
       if(e.target === input){ q = input.value.trim(); paint(); return; }
