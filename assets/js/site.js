@@ -405,6 +405,24 @@
     el.appendChild(s);
     return true;
   };
+  // a folded «Discussion» box; giscus loads only when it is opened, after checking the app is installed
+  S.commentsOn = function(){ var g = CFG.giscus; return !!(g && g.repoId && g.categoryId); };
+  S.commentsHtml = function(term, title){
+    if(!S.commentsOn()) return '';
+    return '<details class="talk" data-term="' + S.esc(term) + '"><summary>💬 ' + S.esc(S.B('النقاش والأسئلة', 'Discussion and questions')) + (title ? ': ' + S.esc(title) : '') + '</summary>' +
+      '<p class="sub-note">' + S.esc(S.B('اسأل أو شارك حلّك أو بلّغ عن غلطة. التعليقات بحساب GitHub وبتتحفظ كـ Discussions في مستودع الموقع.', 'Ask, share your solution or report a mistake. Comments use a GitHub account and are kept as Discussions in the site repository.')) + '</p><div class="talk-box"></div></details>';
+  };
+  document.addEventListener('toggle', function(e){
+    var d = e.target;
+    if(!d.classList || !d.classList.contains('talk') || !d.open || d._loaded) return;
+    d._loaded = true;
+    var box = d.querySelector('.talk-box');
+    box.innerHTML = '<p class="sub-note">' + S.esc(S.B('بيحمّل النقاش…', 'Loading the discussion…')) + '</p>';
+    fetch('https://giscus.app/api/discussions/categories?repo=' + encodeURIComponent(CFG.giscus.repo)).then(function(r){ return r.json(); }).then(function(j){
+      if(j && j.error){ box.innerHTML = '<p class="sub-note">' + S.esc(S.B('النقاش لسه بيتجهز وهيفتح قريب.', 'The discussion is being set up and opens soon.')) + '</p>'; d._loaded = false; return; }
+      S.comments(box, d.getAttribute('data-term'));
+    }, function(){ box.innerHTML = '<p class="sub-note">' + S.esc(S.B('مقدرناش نحمّل النقاش. اتأكد من النت.', 'Could not load the discussion. Check your connection.')) + '</p>'; d._loaded = false; });
+  }, true);
   function analytics(){
     if(!CFG.goatcounter || /^(localhost|127\.|\[::1\])/.test(location.hostname) || location.protocol === 'file:') return;
     var s = document.createElement('script');

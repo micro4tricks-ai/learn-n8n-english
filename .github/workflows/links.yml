@@ -1,0 +1,18 @@
+# Checks every external link on the site each Monday (and on demand). The report is in the run summary;
+# a broken link fails the run, and GitHub emails the repository owner.
+name: Link check
+on:
+  schedule:
+    - cron: '0 6 * * 1'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  links:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node tools/check_links.js

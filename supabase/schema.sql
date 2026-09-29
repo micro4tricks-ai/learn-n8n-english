@@ -45,3 +45,22 @@ create policy "own attempts insert" on public.test_attempts
 -- keep the progress JSON a sane size (a full 24-week journey is well under 1 MB)
 alter table public.progress drop constraint if exists progress_size;
 alter table public.progress add constraint progress_size check (pg_column_size(data) < 1000000);
+
+-- user_store: the site's other synced stores (review cards, mistakes notebook, lab, prompts, favourites,
+-- speaking scores, finished lessons), one row per user and store key. Each `data` is a map {id: {…, at}};
+-- the browser merges item by item (newer `at` wins), so edits from two devices both survive.
+create table if not exists public.user_store (
+  user_id uuid not null references auth.users(id) on delete cascade,
+  key text not null check (key ~ '^[a-z][a-z0-9_-]{0,31}$'),
+  data jsonb not null default '{}'::jsonb,
+  updated_at timestamptz not null default now(),
+  primary key (user_id, key)
+);
+alter table public.user_store enable row level security;
+drop policy if exists "own store" on public.user_store;
+create policy "own store" on public.user_store
+  for all to authenticated
+  using ((select auth.uid()) = user_id)
+  with check ((select auth.uid()) = user_id);
+alter table public.user_store drop constraint if exists user_store_size;
+alter table public.user_store add constraint user_store_size check (pg_column_size(data) < 2000000);

@@ -8,6 +8,7 @@ Accounts are optional. The site works fully without them; with `assets/js/config
 |---|---|---|
 | `progress` | one per user and track (`english`, `n8n`): the same JSON the browser keeps (`done`, `answers`, `tests`) | only that user |
 | `test_attempts` | one per test attempt: `test_id`, `score`, `total`, `answers`, `taken_at` | only that user |
+| `user_store` | one per user and store key (`srs`, `mistakes`, `lab`, `prompts`, `fav`, `speak`, `done`): a map `{id: {…, at}}` | only that user |
 
 Row-level security is in [`supabase/schema.sql`](../supabase/schema.sql). The anon key in `config.js` is public by design; it can't read anyone's rows.
 
@@ -17,6 +18,7 @@ Row-level security is in [`supabase/schema.sql`](../supabase/schema.sql). The an
 2. After sign-in, the page reads the user's `progress` row for its track and **merges** it with the browser's copy: anything done on either device stays done, and every test attempt from both is kept (see `JOURNEY.mergeProgress`).
 3. The merged copy is saved in the browser and uploaded. New test attempts are also added to `test_attempts`, once each.
 4. Later changes upload about 2 seconds after they happen, and again when the tab comes back into view or the connection returns. If the server can't be reached, the page keeps working and says so in the account dialog.
+5. On every page (the tool pages too) the `user_store` rows are read, merged item by item with the browser's stores (the newer `at` wins; removals are kept as `{del: 1}`), and only the rows that changed are written back. See `SITE.merge` in `assets/js/site.js`. The `user_store` table was added on 2026-09-30; until it exists, the journey still syncs and the stores stay local.
 
 ## The live project
 

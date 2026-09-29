@@ -41,6 +41,8 @@
       var body = el.querySelector('.sec-body');
       if(fn) fn(body, s); else body.innerHTML = '<p class="lock-note">Unknown section type: ' + esc(s.type) + '</p>';
     });
+    // one discussion per tool page
+    if(S.commentsHtml && info){ var talk = document.createElement('div'); talk.className = 'page-talk'; talk.innerHTML = S.commentsHtml('page-' + page, L(info.title)); main.appendChild(talk); }
   };
 
   // ---------- helpers shared by the types ----------

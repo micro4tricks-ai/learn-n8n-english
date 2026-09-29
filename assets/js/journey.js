@@ -348,7 +348,8 @@
       return;
     }
     M.main.innerHTML = weekHead(n, '<p>' + esc(L(w.goal)) + '</p>') +
-      '<div class="day-tabs jr-days" id="jrTabs"></div><p class="lock-note" id="jrLock" hidden aria-live="polite"></p><div id="jrDay"></div>';
+      '<div class="day-tabs jr-days" id="jrTabs"></div><p class="lock-note" id="jrLock" hidden aria-live="polite"></p><div id="jrDay"></div>' +
+      (window.SITE && SITE.commentsHtml ? SITE.commentsHtml(M.track + '-week-' + pad(n), L(w.title)) : '');
     renderTabs(w);
     renderDay(w);
   }

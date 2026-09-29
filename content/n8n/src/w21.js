@@ -28,7 +28,7 @@ module.exports = {
       words: ['self-hosted', 'n8n Cloud', 'VPS',
         { t: 'fair-code licence', m: B('رخصة n8n: الكود متاح بس بقيود على بيعه كخدمة', 'n8n\'s licence: the code is open but reselling it as a service is restricted'), ex: 'Sustainable Use License' },
         { t: 'server sizing', m: B('تحديد CPU وRAM والديسك المناسبين', 'choosing the right CPU, RAM and disk'), ex: '2 vCPU · 4 GB RAM' }],
-      read: ['lib:n8n Docs: Docker installation', { t: 'n8n Sustainable Use License', url: 'https://docs.n8n.io/sustainable-use-license/', what: B('اقرا ملخص المسموح والممنوع.', 'Read the summary of what is and isn\'t allowed.') }],
+      read: ['lib:n8n Docs: Docker installation', { t: 'n8n license (fair-code)', url: 'https://docs.n8n.io/n8n-community-license', what: B('اقرا ملخص المسموح والممنوع.', 'Read the summary of what is and isn\'t allowed.') }],
       challenge: B('اكتب «hosting decision» لعميلين مختلفين (مطعم صغير وشركة بيانات حساسة) بالتكلفة الشهرية والمسؤوليات.', 'Write a "hosting decision" for two different clients (a small restaurant and a company with sensitive data), with monthly cost and responsibilities.'),
       quiz: [
         { q: B('عميل صغير من غير فريق تقني:', 'A small client with no tech team:'), o: ['n8n Cloud', 'a Kubernetes cluster', 'a home server'], a: 0, why: B('من غير صيانة.', 'No maintenance.') },

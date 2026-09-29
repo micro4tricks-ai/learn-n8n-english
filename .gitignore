@@ -3,3 +3,4 @@ tools/missing-*.json
 .DS_Store
 Thumbs.db
 *.log
+tools/links-report.md

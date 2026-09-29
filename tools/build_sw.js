@@ -11,7 +11,7 @@ pages.forEach(p => {
   const html = fs.readFileSync(path.join(ROOT, p), 'utf8');
   for(const m of html.matchAll(/(?:src|href)="([^"#:]+?)"/g)){
     const u = m[1];
-    if(/^(https?:)?\/\//.test(u) || u.endsWith('.html')) continue;
+    if(/^(https?:)?\/\//.test(u) || u.endsWith('.html') || /['\s+]/.test(u)) continue;   // skip remote links, pages and code inside inline scripts
     files.add(u);
     const v = u.match(/\?v=(\w+)/); if(v) version = v[1];
   }

@@ -43,10 +43,22 @@
 
 فيها قرابة 600 مصدر مجاني (توثيق رسمي، كتب، كورسات، APIs للتجربة، بودكاست…). كل مصدر مكتوب جنبه **تقرا منه إيه بالظبط**. استخدم الفلاتر: القسم، والمستوى، واللغة، و«لسه مخلّصتوش». متحاولش تقرا المكتبة كلها؛ هي مرجع ترجعله لما تحتاج.
 
+## الأدوات اللي معاك (قايمة «المزيد»)
+
+- **🔁 مراجعتي**: كل يوم 10–15 دقيقة، ويفضّل أول حاجة في الساعتين. البطاقات (كلمات، مصطلحات n8n، قواعد) بترجعلك قبل ما تنساها. افتكر المعنى **قبل** ما تقلب، وبعدين قيّم نفسك بصراحة. تحتها **دفتر الأخطاء**: كل سؤال غلطت فيه في أي اختبار بيتسجل لوحده ويرجعلك لحد ما تجاوبه صح مرتين. وفيه **إحصائياتك** و**نسخة احتياطية** وزرار تحمّل بيه الرحلتين للمذاكرة من غير نت.
+- **🧪 المعمل**: لما الدرس فيه Expressions أو JavaScript أو Python أو SQL، اتمرّن على التحديات هنا من غير ما تثبّت حاجة. والصق أي Workflow عملته عشان تشوفه رسمة ويتفحص قبل ما تسلّمه (أسرار مكتوبة في النود، Webhook مفتوح، مفيش معالجة أخطاء…). وتقدر تدوّر في قوالب n8n الرسمية.
+- **🎙️ تدريب الكلام**: 10 دقايق كل يوم في رحلة الإنجليزي: نطق بتقييم، وShadowing بتسجيل صوتك، وإملاء، و10 مواقف شغل حقيقية.
+- **🤖 البرومبتات**: برومبتات جاهزة تملا خاناتها وتنسخها، وكورس قصير في كتابة البرومبت (مفيد جدًا في شهر الذكاء الاصطناعي في رحلة n8n)، وتقدر تحفظ برومبتاتك.
+- **📄 الملخصات**: اطبع الملخص اللي محتاجه وحطه جنبك وانت بتذاكر.
+- **🔍 البحث**: من أي صفحة دوس `Ctrl K` أو `/` واكتب أي كلمة بالعربي أو الإنجليزي.
+- **📲 ثبّت الموقع**: من «المزيد» ← «ثبّت الموقع كتطبيق»، أو من قايمة المتصفح ← «إضافة للشاشة الرئيسية».
+
 ## حفظ التقدّم والحساب
 
 - تقدّمك بيتحفظ في **المتصفح** تلقائي. لو مسحت بيانات المتصفح أو غيّرت الجهاز، هيضيع.
 - عشان تحفظه أونلاين: اضغط «سجّل دخول» واكتب إيميلك، هيوصلك **رابط دخول** (من غير باسورد). بعد كده تقدّمك ونتايج كل الاختبارات بتتحفظ وتقدر تكمّل من أي جهاز.
+- الحساب بيحفظ كمان المراجعة ودفتر الأخطاء وتحديات المعمل وبرومبتاتك.
+- من غير حساب: من «مراجعتي» ← «نسخة احتياطية» نزّل ملف بتقدّمك ورجّعه على أي جهاز.
 - محدش غيرك يقدر يشوف بياناتك.
 
 ## لو حاجة مش شغالة
@@ -67,4 +79,5 @@ Two 24-week journeys (n8n automation, and English for developers), 2 hours a day
 - **Day 6**: review, the weekly project, and the weekly test. The next week opens at **70%**; retake as often as you like — your best score counts.
 - **Monthly exams** (20 questions drawn from the month) open after the month's four weekly tests. The **final exam** (48 questions from all 24 weeks) opens after week 24; passing it shows a printable certificate. Every attempt draws new questions.
 - **Library**: about 600 free resources, each saying exactly what to read; filter by section, level, language and done/not done.
-- **Progress** is saved in your browser. Sign in with an email link (no password) to keep it online and continue on any device.
+- **Progress** is saved in your browser. Sign in with an email link (no password) to keep it online and continue on any device, or download a backup file from «My review».
+- **Tools** (menu «More»): *My review* (10–15 min of spaced review a day + the mistakes notebook), *Lab* (expressions, JavaScript, Python and SQL challenges; view and check any workflow), *Speaking practice*, *Prompts*, *Cheat sheets*. Search everything with `Ctrl K` or `/`.

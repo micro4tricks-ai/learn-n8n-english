@@ -915,3 +915,9 @@ details.lesson .ok{color:var(--accent-ink);}
 .sp-hint{font-family:'JetBrains Mono',monospace;letter-spacing:1px;color:var(--muted);margin:0;text-align:left;}
 .diff{font-size:18px;line-height:1.9;text-align:left;}
 .sp-nav{align-items:center;}
+
+/* ---------- v2: discussions ---------- */
+.talk{margin-top:18px;background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:10px 16px;}
+.talk summary{cursor:pointer;font-family:'Cairo';font-weight:700;color:var(--accent-ink);}
+.talk-box{min-height:40px;}
+.page-talk{margin-top:30px;}

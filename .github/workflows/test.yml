@@ -1,0 +1,27 @@
+# Runs the whole test suite (pages in Arabic and English, journey rules, content, lab challenges) on every
+# push and pull request, and checks that the generated files are up to date with their sources.
+name: Tests
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: npm ci
+      - name: Generated files match their sources
+        run: |
+          npm run build
+          git diff --exit-code -- content assets/data sw.js || (echo "::error::Run npm run build and commit the result" && exit 1)
+      - run: npm test

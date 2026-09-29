@@ -19,7 +19,7 @@
 
 <a href="https://micro4tricks-ai.github.io/learn-n8n-english/"><img src="docs/screenshot.png" alt="Developer Journey home page" width="860"></a>
 
-[**Open the site**](https://micro4tricks-ai.github.io/learn-n8n-english/) · [n8n plan](https://micro4tricks-ai.github.io/learn-n8n-english/n8n.html) · [English plan](https://micro4tricks-ai.github.io/learn-n8n-english/english.html) · [Report a problem](https://github.com/micro4tricks-ai/learn-n8n-english/issues/new/choose)
+[**Open the site**](https://micro4tricks-ai.github.io/learn-n8n-english/) · [n8n plan](https://micro4tricks-ai.github.io/learn-n8n-english/n8n.html) · [English plan](https://micro4tricks-ai.github.io/learn-n8n-english/english.html) · [Review](https://micro4tricks-ai.github.io/learn-n8n-english/review.html) · [Lab](https://micro4tricks-ai.github.io/learn-n8n-english/lab.html) · [Prompts](https://micro4tricks-ai.github.io/learn-n8n-english/prompts.html) · [Report a problem](https://github.com/micro4tricks-ai/learn-n8n-english/issues/new/choose)
 
 </div>
 
@@ -31,12 +31,14 @@
 - [What's inside](#whats-inside)
 - [The n8n Journey](#the-n8n-journey)
 - [English for Developers](#english-for-developers)
+- [The tools](#the-tools)
 - [Screenshots](#screenshots)
 - [Features](#features)
 - [Tech stack](#tech-stack)
 - [Getting started](#getting-started)
 - [Project structure](#project-structure)
 - [How translation works](#how-translation-works)
+- [Common commands](#common-commands)
 - [Deploy](#deploy)
 - [Contributing](#contributing)
 - [Privacy](#privacy)
@@ -106,6 +108,20 @@ Also on the page: **worked workflows** from real work, a glossary with flashcard
 
 Also on the page: worked texts, a vocabulary bank with audio, ready-made sentences, grammar rules by topic with a grammar quiz, error messages and HTTP codes, references and a library.
 
+## The tools
+
+Five pages that work with both journeys (menu **More**):
+
+| Page | What you do there |
+|---|---|
+| 🔁 **My review** — `review.html` | 10–15 minutes a day of spaced review with **FSRS** (the Anki algorithm, via [ts-fsrs](https://github.com/open-spaced-repetition/ts-fsrs)) over ~1,700 cards: English words, n8n terms, grammar rules. A **mistakes notebook** collects every question you got wrong in the journey, exams and quizzes and asks it again, mixed, until you answer it right twice. **Stats**: a study-day heatmap, your best weekly-test scores in both journeys, weak spots. **Backup** to a file and restore on any device, and download all 48 weeks for offline use. |
+| 🧪 **Lab** — `lab.html` | Paste any n8n workflow JSON (or open a sample) to see it as a zoomable **diagram**, a **step-by-step explanation**, and a **checker** (secrets typed into nodes, open webhooks, unconnected nodes, no error handling, pinned data…). Search the **official n8n template library** and open any template the same way. **Playgrounds** with 45 checked challenges: n8n expressions (with `$json`, `$input`, Luxon `$now` and n8n's extra methods), JavaScript for the Code node, **Python** (real CPython via Pyodide) and **SQL** (SQLite via sql.js on a shop database). |
+| 🎙️ **Speaking practice** — `speak.html` | **Scored pronunciation** (your speech is turned into text and compared word by word), **shadowing** with your own recording next to the model voice, **dictation** with a word diff, and **10 real work situations** (stand-up, asking for help, bug report, code review, estimates, client call, status email, interview, disagreeing, demo). |
+| 🤖 **Prompts** — `prompts.html` | A library of **36 prompts** for coding, n8n agents, learning English, client work, studying and data: fill the boxes and copy. A **10-lesson prompt-writing course**. **My prompts**: save your own with variables, tags, version history, export/import; synced with your account. |
+| 📄 **Cheat sheets** — `sheets.html` | 11 print-ready A4 sheets: n8n expressions, main nodes, JavaScript for the Code node, Python, SQL, Git, Docker for n8n, HTTP and status codes, Regex, English tenses for work, ready phrases. |
+
+On every page: **site-wide search** (`Ctrl K` or `/`) across ~3,000 entries in Arabic and English, with links straight to the word, rule, resource, week or day.
+
 ## Screenshots
 
 <table>
@@ -126,7 +142,11 @@ Also on the page: worked texts, a vocabulary bank with audio, ready-made sentenc
 - 🃏 **Flashcards** with a "Got it" pile, search, and audio pronunciation with a stop button.
 - 🔠 **Adjustable text size** (A− / A+) in the header.
 - 📚 **Library** of 584 free resources (official docs, books, courses, practice APIs, podcasts, tools), each with what to read — filter by section, level, language and done/not done. Every link was checked.
-- 🪶 **Lightweight** — plain HTML, CSS and JavaScript; week content loads only when you open that week.
+- 🔍 **Search the whole site** — `Ctrl K` / `/` from any page; results open the exact card, week or day (links like `n8n.html#journey?w=5&d=2`).
+- 🔁 **Spaced review and a mistakes notebook** — see [The tools](#the-tools).
+- 📴 **Works offline and installs as an app** (PWA) — the pages you open are cached; the review page downloads all 48 weeks at once.
+- 💬 **Discussions** — a discussion box under every week and tool page (GitHub Discussions through [giscus](https://giscus.app)).
+- 🪶 **Lightweight** — plain HTML, CSS and JavaScript; week content loads only when you open that week, and the big tools (Python, SQL) only when you use them.
 
 ## Tech stack
 
@@ -134,9 +154,11 @@ Also on the page: worked texts, a vocabulary bank with audio, ready-made sentenc
 |---|---|
 | Pages | HTML5, CSS3 (logical RTL/LTR styles through `html[dir]`) |
 | Logic | Vanilla JavaScript, no framework |
-| Audio | Browser speech synthesis (Web Speech API) |
+| Audio | Browser speech synthesis and recognition (Web Speech API), MediaRecorder |
+| Learning tools | [ts-fsrs](https://github.com/open-spaced-repetition/ts-fsrs) (MIT, vendored), [Pyodide](https://pyodide.org), [sql.js](https://sql.js.org), [Luxon](https://moment.github.io/luxon/) — the last three from jsDelivr on first use |
+| Offline | Service worker + web app manifest |
 | Storage | `localStorage`, plus optional [Supabase](https://supabase.com) (email-link sign-in, Postgres with row-level security) |
-| Tooling | Node.js scripts with `jsdom` and `acorn` for string extraction and smoke tests |
+| Tooling | Node.js scripts (`jsdom`, `acorn`, `sql.js`) for building data, string extraction and tests; GitHub Actions for tests and a weekly link check |
 | Hosting | GitHub Pages |
 
 ## Getting started
@@ -158,7 +180,11 @@ Opening `index.html` straight from disk also works, but each page then keeps its
 index.html              Landing page
 n8n.html                The n8n journey page
 english.html            The English journey page
+review.html lab.html speak.html prompts.html sheets.html   Tool pages (built from content/sections)
+sw.js · manifest.webmanifest                               Offline app (sw.js is generated)
 content/
+  pages.js              The list of pages: menus, footer, home cards and search read it
+  sections/<page>.js    The sections of each tool page (data)
   <track>/outline.js    Months and the 24 week titles; which weeks are ready
   <track>/src/wNN.js    Week sources (Node modules) — edit these
   <track>/weeks/wNN.js  Built weeks (6 days, bilingual {ar, en}), loaded on demand
@@ -167,6 +193,10 @@ content/
 assets/
   css/site.css          Shared styles (RTL/LTR via html[dir], responsive breakpoints)
   js/i18n.js            Language switch + T()/TF()/TDEEP() helpers
+  js/site.js            Shell: menu, site search, deep links, stores, backup, speech, comments, offline
+  js/sections.js        Builds a page from sections (cards, lessons, sheets, or a page's own types)
+  js/review.js lab.js lab-expr.js speak.js prompts.js      The tool pages' own section types
+  data/                 Generated: search index and review deck
   js/journey.js         The 24-week engine: unlock rules, map, day view, tests, progress
   js/account.js         Optional email-code account and cloud sync (Supabase)
   js/config.js          Supabase URL + public anon key (empty = no accounts)
@@ -180,6 +210,7 @@ docs/                   Content format, Supabase setup, design and plans, screen
 tools/                  Translation, content validation and test scripts (Node.js)
 ```
 
+- How the site works and how to add a tab: [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)
 - How to study with the site: [docs/STUDENT_GUIDE.md](docs/STUDENT_GUIDE.md)
 - How to write a week: [docs/CONTENT.md](docs/CONTENT.md)
 - How accounts are set up: [docs/SUPABASE.md](docs/SUPABASE.md)
@@ -207,7 +238,19 @@ npm test                    # journey rules, week-file validation, and every pag
 
 Week files don't use the dictionaries: every content string in `content/` is written as `{ar: '…', en: '…'}`.
 
-Local CSS and JS are loaded with a `?v=YYYYMMDD` query for cache-busting — bump it on every release.
+Local CSS and JS are loaded with a `?v=YYYYMMDDn` query for cache-busting. `npm run release` bumps it, rebuilds the generated files and runs the tests.
+
+The tool pages don't use the dictionaries at all: their texts are `{ar, en}` in `content/sections/` and `SITE.B('…', '…')` in code.
+
+## Common commands
+
+| Command | Does |
+|---|---|
+| `npm run build` | Week files, search index, review deck, offline file list |
+| `npm test` | Every test (pages in both languages, journey, content, lab challenges, tool pages, search) |
+| `npm run release` | New asset version + build + test |
+| `npm run new:page -- <id> "<عربي>" "<English>"` | A new tool page with its menu entry ([how](docs/ARCHITECTURE.md#adding-a-new-tab-a-page)) |
+| `npm run links` | Check every external link |
 
 ## Deploy
 
@@ -230,7 +273,9 @@ Suggestions, corrections and new free resources are welcome.
 
 ## Privacy
 
-No analytics, no ads, no tracking cookies. Without an account, everything you do stays in your own browser's `localStorage`. If you choose to sign in, your email address, your journey progress and your test attempts are stored in the project's Supabase database, where row-level security lets only your account read them. Signing out keeps your progress on the device.
+No ads and no tracking cookies. Without an account, everything you do stays in your own browser's `localStorage`. If you choose to sign in, your email address, your journey progress, your test attempts and your review, mistakes, lab and prompts data are stored in the project's Supabase database, where row-level security lets only your account read them. Signing out keeps your progress on the device.
+
+A few features talk to other services only when you use them: pronunciation scoring uses the browser's speech recognition (Chrome sends the audio to Google), the template search calls api.n8n.io, the Python/SQL playgrounds download their engines from jsDelivr, and the discussion boxes load giscus (GitHub). Workflow JSON you paste in the lab and your recordings never leave the browser. Visit counting (GoatCounter, no cookies, no personal data) is off unless a site code is set in `assets/js/config.js`.
 
 ## Content and credits
 

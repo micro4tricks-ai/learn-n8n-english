@@ -134,8 +134,8 @@ JOURNEY.week({
      }
     },
     {
-     "t": "n8n Sustainable Use License",
-     "url": "https://docs.n8n.io/sustainable-use-license/",
+     "t": "n8n license (fair-code)",
+     "url": "https://docs.n8n.io/n8n-community-license",
      "what": {
       "ar": "اقرا ملخص المسموح والممنوع.",
       "en": "Read the summary of what is and isn't allowed."

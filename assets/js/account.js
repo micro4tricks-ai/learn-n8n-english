@@ -1,5 +1,5 @@
-/* Optional account: sign in with an email link or code (Supabase), then the journey progress and every
- * test attempt are kept online and merged across devices. Without an account (or offline) the
+/* Optional account: sign in with an email link or code (Supabase), then the journey progress, every
+ * test attempt and the site stores (review, mistakes, lab, prompts…) are kept online and merged across devices. Without an account (or offline) the
  * site keeps working from localStorage; sync retries when the connection comes back. */
 (function(){
   var cfg = window.JOURNEY_SUPABASE || {};
@@ -35,7 +35,7 @@
     if(status === 'syncing') return T('بيزامن…');
     if(status === 'error') return T('مش قادرين نوصل للسيرفر دلوقتي. تقدمك محفوظ على الجهاز ده، وهنزامن تاني لما النت يرجع.');
     if(lastSync) return TF('آخر مزامنة: {t}', { t: new Date(lastSync).toLocaleTimeString(window.LANG === 'en' ? 'en-US' : 'ar-EG', { hour: '2-digit', minute: '2-digit' }) });
-    return J && J.track() ? T('لسه ما زامنّاش.') : T('التقدم بيتزامن لما تفتح صفحة n8n أو الإنجليزي.');
+    return T('لسه ما زامنّاش.');
   }
   function render(){
     renderBtn();
@@ -130,13 +130,36 @@
       try{ localStorage.setItem(LOG_KEY(), JSON.stringify(logged)); }catch(e){}
     });
   }
+  // The site's other stores (site.js: review cards, mistakes, lab, prompts…): one user_store row per key,
+  // merged item by item with the local copy; only the rows that changed are written back.
+  function syncStores(){
+    var S = window.SITE;
+    if(!S || !S.SYNC_KEYS) return Promise.resolve();
+    return client.from('user_store').select('key,data').then(function(r){
+      if(r.error){
+        // the table is added by supabase/schema.sql; until it exists the journey still syncs
+        if(/user_store|relation|schema cache/i.test(r.error.message || '')) return;
+        throw r.error;
+      }
+      var cloud = {};
+      (r.data || []).forEach(function(row){ cloud[row.key] = row.data || {}; });
+      var up = [];
+      S.SYNC_KEYS.forEach(function(k){
+        var local = S.get(k), merged = S.merge(local, cloud[k]);
+        if(canon(merged) !== canon(local)){ S.put(k, merged, true); S.emit('site:store', { key: k, remote: true }); }
+        if(!cloud[k] ? Object.keys(merged).length : canon(merged) !== canon(cloud[k])) up.push({ user_id: user.id, key: k, data: merged, updated_at: new Date().toISOString() });
+      });
+      if(!up.length) return;
+      return client.from('user_store').upsert(up).then(function(u){ if(u.error) throw u.error; });
+    });
+  }
   var busy = false, again = false, timer = null;
   function syncNow(){
-    if(!user || !J || !J.track()) { render(); return; }
+    if(!user) { render(); return; }
     if(busy){ again = true; return; }
     busy = true; status = 'syncing'; render();
-    var track = J.track(), local = J.getProgress();
-    client.from('progress').select('data').eq('track', track).maybeSingle().then(function(r){
+    var track = J && J.track(), local = track && J.getProgress();
+    (!track ? Promise.resolve() : client.from('progress').select('data').eq('track', track).maybeSingle().then(function(r){
       if(r.error) throw r.error;
       var cloud = r.data ? r.data.data : null;
       var merged = J.mergeProgress(local, cloud);
@@ -145,7 +168,7 @@
         ? client.from('progress').upsert({ user_id: user.id, track: track, data: merged, updated_at: new Date().toISOString() }).then(function(u){ if(u.error) throw u.error; })
         : Promise.resolve();
       return push.then(function(){ return uploadAttempts(track, merged); });
-    }).then(function(){
+    })).then(syncStores).then(function(){
       status = 'ok'; lastSync = Date.now(); lastError = '';
     }, function(e){
       status = 'error';
@@ -162,6 +185,7 @@
   }
   document.addEventListener('journey:change', function(){ if(user) schedule(2000); });
   document.addEventListener('journey:attempt', function(){ if(user) schedule(300); });
+  document.addEventListener('site:store', function(e){ if(user && !(e.detail && e.detail.remote)) schedule(2500); });
   window.addEventListener('online', function(){ if(user) schedule(500); });
   document.addEventListener('visibilitychange', function(){ if(user && document.visibilityState === 'visible') schedule(500); });
 
