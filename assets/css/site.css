@@ -903,3 +903,15 @@ details.lesson .ok{color:var(--accent-ink);}
 .sql-wrap{overflow-x:auto;max-height:360px;}
 .sql-table td,.sql-table th{white-space:nowrap;font-family:'JetBrains Mono',monospace;font-size:12.5px;}
 .lab-sol{margin-top:10px;}
+
+/* ---------- v2: speaking practice ---------- */
+.sp-card{max-width:760px;margin-top:10px;}
+.sp-sent{font-size:clamp(19px,3.4vw,24px);font-weight:700;line-height:1.6;text-align:left;}
+.sp-ar{margin:0;color:var(--muted);font-size:15px;}
+.w-ok{color:var(--accent-ink);background:var(--accent-soft);border-radius:5px;padding:0 3px;}
+.w-miss{color:#a4442a;background:#fbe9e3;border-radius:5px;padding:0 3px;text-decoration:underline wavy #d9866a;text-underline-offset:4px;}
+.rec-on{background:#b8482c!important;border-color:#b8482c!important;color:#fff!important;}
+.sp-steps{margin:0;padding-inline-start:22px;font-size:14.5px;}
+.sp-hint{font-family:'JetBrains Mono',monospace;letter-spacing:1px;color:var(--muted);margin:0;text-align:left;}
+.diff{font-size:18px;line-height:1.9;text-align:left;}
+.sp-nav{align-items:center;}
