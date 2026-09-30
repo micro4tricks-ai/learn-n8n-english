@@ -251,6 +251,7 @@ The tool pages don't use the dictionaries at all: their texts are `{ar, en}` in 
 | `npm run release` | New asset version + build + test |
 | `npm run new:page -- <id> "<عربي>" "<English>"` | A new tool page with its menu entry ([how](docs/ARCHITECTURE.md#adding-a-new-tab-a-page)) |
 | `npm run links` | Check every external link |
+| `npm run artifact` | One-file copy of the n8n page (for the claude.ai artifact) |
 | `npm run a11y` | Accessibility audit of every page (needs Chrome) |
 | `npm run e2e` | The tool pages in a real Chrome (needs Chrome and internet) |
 

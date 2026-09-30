@@ -107,6 +107,7 @@ After changing `tools/page.template.html`, rewrite every tool page with `node to
 | `npm test` | Old pages in both languages (jsdom), journey rules, content validation, every lab challenge against its solution (Python through the local `python`), the tool pages and the search |
 | `npm run release` | Bumps `?v=` on every page (`tools/bump_version.js`), builds, tests |
 | `npm run links` | Checks every external link → `tools/links-report.md` (also runs every Monday on GitHub) |
+| `npm run artifact` | One-file copy of the n8n page for the claude.ai artifact (`dist/n8n-artifact.html`): everything inlined, links to the other pages go to the live site (`window.SITE_EMBED`). Republish it after a release |
 | `npm run a11y` | Accessibility audit (axe-core) of every page in Chrome; fails on any serious or critical violation (it was brought to zero on 2026-09-30) |
 | `npm run e2e` | Opens every tool page in a real Chrome (Playwright): Python, SQL, workers, the offline app, the template search, phone layout; screenshots in `tools/e2e-shots/` |
 | `npm run new:page` | See above |

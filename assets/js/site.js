@@ -210,8 +210,15 @@
 
   // ---------- menu and footer ----------
   var PAGES = window.SITE_PAGES || [];
-  var here = (location.pathname.split('/').pop() || 'index.html').replace(/^$/, 'index.html');
+  // A page copied into one file elsewhere (the claude.ai copy, tools/build_artifact.js) sets
+  // window.SITE_EMBED = {base: live site URL, here: its page}: links to other pages then open the live site.
+  var EMBED = window.SITE_EMBED || null;
+  var here = EMBED ? EMBED.here : (location.pathname.split('/').pop() || 'index.html').replace(/^$/, 'index.html');
   if(!/\.html$/.test(here)) here = 'index.html';
+  function pageLink(a, href){
+    if(EMBED && href !== here){ a.href = EMBED.base + (href === 'index.html' ? '' : href); a.target = '_blank'; a.rel = 'noopener'; }
+    else a.href = EMBED ? '#' : href;
+  }
   S.pages = PAGES;
   S.page = PAGES.filter(function(p){ return p.href === here; })[0] || null;
   var installEvt = null;
@@ -223,7 +230,7 @@
     Array.prototype.slice.call(links.querySelectorAll(':scope > a, :scope > .more-menu, :scope > .search-btn')).forEach(function(a){ a.remove(); });
     PAGES.filter(function(p){ return p.nav === 'main'; }).forEach(function(p){
       var a = document.createElement('a');
-      a.href = p.href;
+      pageLink(a, p.href);
       a.textContent = S.L(p.title);
       if(p.href === here) a.setAttribute('aria-current', 'page');
       links.insertBefore(a, lang);
@@ -238,6 +245,7 @@
           return '<a role="listitem" href="' + p.href + '"' + (p.href === here ? ' aria-current="page"' : '') + '><span aria-hidden="true">' + p.icon + '</span> ' + S.esc(S.L(p.title)) + '</a>';
         }).join('') + '<button type="button" class="more-install" hidden>📲 ' + S.B('ثبّت الموقع كتطبيق', 'Install as an app') + '</button></div>';
       links.insertBefore(d, lang);
+      if(EMBED) d.querySelectorAll('.more-list a').forEach(function(a){ pageLink(a, a.getAttribute('href')); });
       document.addEventListener('click', function(e){ if(d.open && !d.contains(e.target)) d.open = false; });
       // keep the open menu inside the screen (on a phone the menu button can sit near either edge)
       d.addEventListener('toggle', function(){
@@ -268,8 +276,11 @@
     var f = document.querySelector('.site-foot .foot-links');
     if(!f || !PAGES.length) return;
     f.innerHTML = PAGES.map(function(p){
-      return '<a href="' + p.href + '"' + (p.href === here ? ' aria-current="page"' : '') + '>' + S.esc(S.L(p.title)) + '</a>';
+      return '<a data-page="' + p.href + '"' + (p.href === here ? ' aria-current="page"' : '') + '>' + S.esc(S.L(p.title)) + '</a>';
     }).join('') + '<a href="https://github.com/micro4tricks-ai/learn-n8n-english" target="_blank" rel="noopener">' + S.B('الكود على GitHub ↗', 'Code on GitHub ↗') + '</a>';
+    f.querySelectorAll('[data-page]').forEach(function(a){ pageLink(a, a.getAttribute('data-page')); });
+    var home = document.querySelector('.topbar .home');
+    if(home && EMBED) pageLink(home, 'index.html');
   }
   window.addEventListener('beforeinstallprompt', function(e){
     e.preventDefault();
@@ -295,7 +306,7 @@
   var INDEX = null, dlg = null, results = [], sel = 0;
   function loadIndex(){
     if(INDEX) return Promise.resolve(INDEX);
-    return S.loadScript('assets/data/search-index.js' + (S.version ? '?v=' + S.version : '')).then(function(){
+    return (window.SITE_INDEX ? Promise.resolve() : S.loadScript('assets/data/search-index.js' + (S.version ? '?v=' + S.version : ''))).then(function(){
       var extra = PAGES.filter(function(p){ return p.desc; }).map(function(p){ return ['pg', p.title, p.desc, p.href]; });
       INDEX = (window.SITE_INDEX || []).concat(extra).map(function(r){
         var title = r[1], snip = r[2];
@@ -342,6 +353,8 @@
         if(e.key === 'ArrowDown'){ e.preventDefault(); sel = Math.min(results.length - 1, sel + 1); paint(); }
         if(e.key === 'ArrowUp'){ e.preventDefault(); sel = Math.max(0, sel - 1); paint(); }
         if(e.key === 'Enter' && results[sel]){ e.preventDefault(); go(S.L(results[sel].u)); }
+        // Esc in a search box only clears it in some browsers: close the search right away
+        if(e.key === 'Escape'){ e.preventDefault(); closeSearch(); }
       });
       dlg.addEventListener('click', function(e){
         if(e.target === dlg || (e.target.closest && e.target.closest('[data-sx]'))) closeSearch();
@@ -362,6 +375,13 @@
   function go(u){
     closeSearch();
     var page = u.split('#')[0];
+    if(EMBED && page && page !== here){
+      // another page: open it on the live site with a real link (new tab)
+      var a = document.createElement('a');
+      a.href = EMBED.base + u; a.target = '_blank'; a.rel = 'noopener';
+      document.body.appendChild(a); a.click(); document.body.removeChild(a);
+      return;
+    }
     if(page === here || page === ''){
       var h = u.indexOf('#') !== -1 ? u.slice(u.indexOf('#')) : '';
       if(location.hash === h) window.dispatchEvent(new Event('hashchange')); else location.hash = h;
@@ -445,6 +465,7 @@
 
   // ---------- offline app ----------
   function registerSW(){
+    if(EMBED) return;
     if(!('serviceWorker' in navigator) || !/^https:$/.test(location.protocol) && !/^(localhost|127\.0\.0\.1)$/.test(location.hostname)) return;
     window.addEventListener('load', function(){ navigator.serviceWorker.register('sw.js').catch(function(){}); });
   }

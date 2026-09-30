@@ -14,7 +14,8 @@
     "i18n:build": "node tools/make_dicts.js --freeze",
     "serve": "python -m http.server 8000",
     "e2e": "node tools/e2e.js",
-    "a11y": "node tools/a11y.js"
+    "a11y": "node tools/a11y.js",
+    "artifact": "node tools/build_artifact.js n8n"
   },
   "devDependencies": {
     "acorn": "^8.18.0",

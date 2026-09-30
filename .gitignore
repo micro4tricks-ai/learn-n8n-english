@@ -5,3 +5,4 @@ Thumbs.db
 *.log
 tools/links-report.md
 tools/e2e-shots/
+dist/
