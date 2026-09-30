@@ -3,7 +3,8 @@
  * cached: accounts (Supabase), CDNs and other sites always go to the network. */
 var VERSION = '__VERSION__';
 var CACHE = 'site-' + VERSION;
-var FILES = __FILES__;
+var FILES = __FILES__;   // the shared shell, kept on install
+var LAZY = __LAZY__;     // page data and scripts: kept when used, or all at once on «Download for offline»
 
 self.addEventListener('install', function(e){
   e.waitUntil(caches.open(CACHE).then(function(c){ return c.addAll(FILES); }).then(function(){ return self.skipWaiting(); }));
@@ -32,10 +33,10 @@ self.addEventListener('fetch', function(e){
     return hit || fetch(req).then(function(res){ return put(req, res); });
   }));
 });
-// the review page asks for every week file to be kept offline
+// the review page asks for the whole site to be kept offline: every page's files plus the week files it sends
 self.addEventListener('message', function(e){
   if(!e.data || e.data.type !== 'cache-all' || !e.data.urls) return;
-  var urls = e.data.urls, done = 0, port = e.ports && e.ports[0];
+  var urls = LAZY.concat(e.data.urls), done = 0, port = e.ports && e.ports[0];
   caches.open(CACHE).then(function(c){
     return Promise.all(urls.map(function(u){
       return c.match(u).then(function(hit){ return hit || c.add(u); }).catch(function(){}).then(function(){ done++; if(port) port.postMessage({ done: done, total: urls.length }); });

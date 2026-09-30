@@ -353,9 +353,9 @@
           '</p><div class="jr-actions"><button type="button" class="link-btn" data-restore>' + esc(B('أيوه، رجّعها', 'Yes, restore it')) + '</button><button type="button" class="ghost-btn" data-cancel>' + esc(B('إلغاء', 'Cancel')) + '</button></div>' : '') +
         '<p class="acct-msg" role="alert">' + esc(msg) + '</p></div>' +
         '<div class="md-card"><h3>📴 ' + esc(B('من غير نت', 'Offline')) + '</h3><p>' + esc(!sw ? B('المتصفح ده مش بيدعم الاستخدام من غير نت.', 'This browser does not support offline use.') :
-          ctl ? B('الموقع شغّال كتطبيق: الصفحات اللي فتحتها متاحة من غير نت. حمّل الأسابيع كلها عشان الرحلة كلها تبقى متاحة.', 'The site runs as an app: the pages you opened work offline. Download every week so the whole journey is available.') :
+          ctl ? B('الموقع شغّال كتطبيق: الصفحات اللي فتحتها قبل كده متاحة من غير نت. دوس تحت عشان تحمّل كل حاجة مرة واحدة (الرحلتين بالـ 48 أسبوع، والمراجعة، والبحث، والمعمل): حوالي 3 ميجا، والأحسن على Wi-Fi.', 'The site runs as an app: the pages you opened before work offline. Press below to download everything at once (both journeys with all 48 weeks, review, search and the lab): about 3 MB, best on Wi-Fi.') :
           B('افتح الموقع مرة كمان وهو متصل عشان يتجهّز للاستخدام من غير نت.', 'Open the site once more while online so it can get ready for offline use.')) + '</p>' +
-        (ctl ? '<div class="jr-actions"><button type="button" class="link-btn" data-offline>' + esc(B('حمّل الـ 48 أسبوع', 'Download all 48 weeks')) + '</button><span class="sub-note" data-offmsg aria-live="polite"></span></div>' : '') +
+        (ctl ? '<div class="jr-actions"><button type="button" class="link-btn" data-offline>' + esc(B('حمّل الموقع كله للمذاكرة من غير نت', 'Download the whole site for offline study')) + '</button><span class="sub-note" data-offmsg aria-live="polite"></span></div>' : '') +
         '<p class="sub-note">' + esc(B('وتقدر تثبّت الموقع على الموبايل أو الكمبيوتر من قايمة «المزيد» أو من قايمة المتصفح ← «إضافة للشاشة الرئيسية».', 'You can also install the site on your phone or computer from the «More» menu or the browser menu → «Add to home screen».')) + '</p></div>' +
         '<div class="md-card"><h3>☁️ ' + esc(B('الحساب', 'Account')) + '</h3><p>' + esc(B('لو سجّلت دخول (زرار «سجّل دخول» فوق)، المراجعة ودفتر الأخطاء والمعمل وبرومبتاتك بيتزامنوا أونلاين مع الرحلتين، وتكمّل من أي جهاز.', 'When you sign in (the «Sign in» button above), your review, mistakes, lab and prompts sync online along with both journeys, so you can continue on any device.')) + '</p></div></div>';
     }
@@ -375,7 +375,7 @@
         var out = el.querySelector('[data-offmsg]'), ch = new MessageChannel();
         b.disabled = true;
         ch.port1.onmessage = function(ev){
-          out.textContent = ev.data.end ? B('✓ الرحلتين متاحين من غير نت.', '✓ Both journeys are available offline.') : B('بيحمّل ' + ev.data.done + ' من ' + ev.data.total, 'Downloading ' + ev.data.done + ' of ' + ev.data.total);
+          out.textContent = ev.data.end ? B('✓ الموقع كله متاح من غير نت.', '✓ The whole site is available offline.') : B('بيحمّل ' + ev.data.done + ' من ' + ev.data.total, 'Downloading ' + ev.data.done + ' of ' + ev.data.total);
           if(ev.data.end) b.disabled = false;
         };
         navigator.serviceWorker.controller.postMessage({ type: 'cache-all', urls: urls }, [ch.port2]);

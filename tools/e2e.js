@@ -142,6 +142,29 @@ const log = (ok, what, extra) => { out.push((ok ? 'PASS ' : 'FAIL ') + what + (e
   await page.pdf({ path: path.join(SHOTS, 'sheet.pdf'), format: 'A4' }).catch(e => log(false, 'pdf', e.message));
   await page.emulateMedia({ media: 'screen' });
 
+  // ---- offline: download everything from the review page, cut the network, open a week
+  await page.goto(BASE + 'review.html');
+  await page.waitForTimeout(1500);
+  await page.reload();   // the page is now controlled by the service worker
+  await page.waitForTimeout(1200);
+  await page.click('#backup > h2 button');
+  const off = await page.$('#backup [data-offline]');
+  log(!!off, 'offline download button shown');
+  if(off){
+    await off.click();
+    await page.waitForFunction(() => /✓/.test((document.querySelector('#backup [data-offmsg]') || {}).textContent || ''), null, { timeout: 60000 })
+      .then(() => log(true, 'whole site downloaded for offline'), () => log(false, 'whole site downloaded for offline'));
+    await ctx.setOffline(true);
+    await page.goto(BASE + 'n8n.html#journey?w=5').catch(e => log(false, 'offline page load', e.message));
+    await page.waitForTimeout(1500);
+    const weekOk = await page.evaluate(() => new Promise(r => JOURNEY.loadWeek('n8n', 5, r)));
+    log(weekOk, 'offline: n8n week 5 opens with no network');
+    await page.goto(BASE + 'lab.html').catch(() => {});
+    await page.waitForTimeout(800);
+    log(await page.$$eval('#js [data-run]', l => l.length) === 1, 'offline: the lab page works');
+    await ctx.setOffline(false);
+  }
+
   // ---- phone
   await page.setViewportSize({ width: 390, height: 844 });
   for(const p of ['index', 'review', 'lab', 'prompts']){

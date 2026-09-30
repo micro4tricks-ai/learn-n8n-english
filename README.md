@@ -246,7 +246,7 @@ The tool pages don't use the dictionaries at all: their texts are `{ar, en}` in 
 
 | Command | Does |
 |---|---|
-| `npm run build` | Week files, search index, review deck, offline file list |
+| `npm run build` | Week files, search index, review deck, sharing tags + sitemap, offline file lists |
 | `npm test` | Every test (pages in both languages, journey, content, lab challenges, tool pages, search) |
 | `npm run release` | New asset version + build + test |
 | `npm run new:page -- <id> "<عربي>" "<English>"` | A new tool page with its menu entry ([how](docs/ARCHITECTURE.md#adding-a-new-tab-a-page)) |

@@ -2,50 +2,24 @@
 /* The offline app. Pages are network-first (fresh when online, cached copy when offline); versioned
  * assets (?v=…) are cache-first since a new release changes their URL. Only this site's own files are
  * cached: accounts (Supabase), CDNs and other sites always go to the network. */
-var VERSION = '202609302';
+var VERSION = '202609303';
 var CACHE = 'site-' + VERSION;
 var FILES = [
  "./",
- "assets/css/site.css?v=202609302",
- "assets/data/deck.js?v=202609302",
- "assets/data/search-index.js?v=202609302",
+ "assets/css/site.css?v=202609303",
  "assets/favicon.svg",
  "assets/icons/icon-192.png",
  "assets/icons/icon-512.png",
- "assets/js/account.js?v=202609302",
- "assets/js/common-en.js?v=202609302",
- "assets/js/config.js?v=202609302",
- "assets/js/english-app.js?v=202609302",
- "assets/js/english-data.js?v=202609302",
- "assets/js/english-en.js?v=202609302",
- "assets/js/i18n.js?v=202609302",
- "assets/js/journey.js?v=202609302",
- "assets/js/lab-expr.js?v=202609302",
- "assets/js/lab.js?v=202609302",
- "assets/js/n8n-app.js?v=202609302",
- "assets/js/n8n-data.js?v=202609302",
- "assets/js/n8n-en.js?v=202609302",
- "assets/js/prompts.js?v=202609302",
- "assets/js/review.js?v=202609302",
- "assets/js/sections.js?v=202609302",
- "assets/js/site.js?v=202609302",
- "assets/js/speak.js?v=202609302",
- "assets/js/ui.js?v=202609302",
- "assets/js/vendor/supabase.js?v=202609302",
- "assets/js/vendor/ts-fsrs.umd.js?v=202609302",
+ "assets/js/account.js?v=202609303",
+ "assets/js/common-en.js?v=202609303",
+ "assets/js/config.js?v=202609303",
+ "assets/js/i18n.js?v=202609303",
+ "assets/js/sections.js?v=202609303",
+ "assets/js/site.js?v=202609303",
+ "assets/js/ui.js?v=202609303",
+ "assets/js/vendor/supabase.js?v=202609303",
  "assets/logo.svg",
- "content/english/outline.js?v=202609302",
- "content/english/terms.js?v=202609302",
- "content/library/english.js?v=202609302",
- "content/library/n8n.js?v=202609302",
- "content/n8n/outline.js?v=202609302",
- "content/n8n/terms.js?v=202609302",
- "content/pages.js?v=202609302",
- "content/sections/lab.js?v=202609302",
- "content/sections/prompts.js?v=202609302",
- "content/sections/review.js?v=202609302",
- "content/sections/sheets.js?v=202609302",
- "content/sections/speak.js?v=202609302",
+ "content/pages.js?v=202609303",
  "english.html",
  "index.html",
  "lab.html",
@@ -55,7 +29,35 @@ var FILES = [
  "review.html",
  "sheets.html",
  "speak.html"
-];
+];   // the shared shell, kept on install
+var LAZY = [
+ "assets/data/deck.js?v=202609303",
+ "assets/data/search-index.js?v=202609303",
+ "assets/js/english-app.js?v=202609303",
+ "assets/js/english-data.js?v=202609303",
+ "assets/js/english-en.js?v=202609303",
+ "assets/js/journey.js?v=202609303",
+ "assets/js/lab-expr.js?v=202609303",
+ "assets/js/lab.js?v=202609303",
+ "assets/js/n8n-app.js?v=202609303",
+ "assets/js/n8n-data.js?v=202609303",
+ "assets/js/n8n-en.js?v=202609303",
+ "assets/js/prompts.js?v=202609303",
+ "assets/js/review.js?v=202609303",
+ "assets/js/speak.js?v=202609303",
+ "assets/js/vendor/ts-fsrs.umd.js?v=202609303",
+ "content/english/outline.js?v=202609303",
+ "content/english/terms.js?v=202609303",
+ "content/library/english.js?v=202609303",
+ "content/library/n8n.js?v=202609303",
+ "content/n8n/outline.js?v=202609303",
+ "content/n8n/terms.js?v=202609303",
+ "content/sections/lab.js?v=202609303",
+ "content/sections/prompts.js?v=202609303",
+ "content/sections/review.js?v=202609303",
+ "content/sections/sheets.js?v=202609303",
+ "content/sections/speak.js?v=202609303"
+];     // page data and scripts: kept when used, or all at once on «Download for offline»
 
 self.addEventListener('install', function(e){
   e.waitUntil(caches.open(CACHE).then(function(c){ return c.addAll(FILES); }).then(function(){ return self.skipWaiting(); }));
@@ -84,10 +86,10 @@ self.addEventListener('fetch', function(e){
     return hit || fetch(req).then(function(res){ return put(req, res); });
   }));
 });
-// the review page asks for every week file to be kept offline
+// the review page asks for the whole site to be kept offline: every page's files plus the week files it sends
 self.addEventListener('message', function(e){
   if(!e.data || e.data.type !== 'cache-all' || !e.data.urls) return;
-  var urls = e.data.urls, done = 0, port = e.ports && e.ports[0];
+  var urls = LAZY.concat(e.data.urls), done = 0, port = e.ports && e.ports[0];
   caches.open(CACHE).then(function(c){
     return Promise.all(urls.map(function(u){
       return c.match(u).then(function(hit){ return hit || c.add(u); }).catch(function(){}).then(function(){ done++; if(port) port.postMessage({ done: done, total: urls.length }); });

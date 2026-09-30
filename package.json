@@ -4,7 +4,7 @@
   "private": true,
   "description": "Bilingual (Arabic/English) learning plans: n8n automation and technical English for developers.",
   "scripts": {
-    "build": "node tools/build_weeks.js n8n && node tools/build_weeks.js english && node tools/build_index.js && node tools/build_sw.js",
+    "build": "node tools/build_weeks.js n8n && node tools/build_weeks.js english && node tools/build_index.js && node tools/build_meta.js && node tools/build_sw.js",
     "test": "node tools/smoke_test.js && node tools/test_journey.js && node tools/test_content.js && node tools/test_lab.js && node tools/smoke_pages.js",
     "release": "node tools/bump_version.js && npm run build && npm test",
     "new:page": "node tools/new_page.js",
