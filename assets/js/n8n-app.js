@@ -13,7 +13,7 @@
       return s;
     }catch(e){ return freshState(); }
   }
-  function saveState(){ try{ localStorage.setItem(STORE_KEY, JSON.stringify(state)); }catch(e){} }
+  function saveState(){ try{ localStorage.setItem(STORE_KEY, JSON.stringify(state)); }catch(e){} if(window.SITE && SITE.touch) SITE.touch(); }
   var state = loadState();
 
   function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
@@ -123,7 +123,7 @@
       card.className = 'phrase-card';
       card.innerHTML =
         '<div class="row"><div class="u">' + esc(item.u) + '</div><button type="button" class="copy-btn">' + T('نسخ') + '</button></div>' +
-        '<pre class="code">' + esc(item.p) + '</pre>';
+        '<pre class="code" tabindex="0">' + esc(item.p) + '</pre>';
       card.querySelector('.copy-btn').addEventListener('click', function(e){ copyText(item.p, e.currentTarget); });
       grid.appendChild(card);
     });
@@ -315,7 +315,7 @@
         '<div class="ex-use">' + esc(x.use) + '</div><div class="ex-more">' + T('افتح الحل') + ' ⌄</div></summary>' +
         '<div class="ex-body"><div class="flow">' + flow + '</div>' +
         '<ol>' + x.steps.map(function(s){ return '<li>' + fmt(s) + '</li>'; }).join('') + '</ol>' +
-        '<div class="phrase-card"><div class="row"><div class="u">' + T('الكود / الـ Expression المهم') + '</div><button type="button" class="copy-btn">' + T('نسخ') + '</button></div><pre class="code">' + esc(x.code) + '</pre></div>' +
+        '<div class="phrase-card"><div class="row"><div class="u">' + T('الكود / الـ Expression المهم') + '</div><button type="button" class="copy-btn">' + T('نسخ') + '</button></div><pre class="code" tabindex="0">' + esc(x.code) + '</pre></div>' +
         '<div class="ex-tip">💡 ' + fmt(x.tip) + '</div></div>';
       d.querySelector('.copy-btn').addEventListener('click', function(e){ copyText(x.code, e.currentTarget); });
       g.appendChild(d);

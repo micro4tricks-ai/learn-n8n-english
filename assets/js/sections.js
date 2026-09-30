@@ -73,7 +73,7 @@
     var vals = {};   // variable values typed per card, kept for the session
     el.innerHTML = '<div class="lib-tools"><label class="lib-search"><span>' + B('ابحث:', 'Search:') + '</span>' +
       '<input type="search" autocomplete="off" placeholder="' + esc(L(sec.searchHint || { ar: 'اكتب كلمة…', en: 'Type a word…' })) + '"></label>' +
-      '<span class="lib-count" aria-live="polite"></span></div><div class="cat-tabs" role="tablist"></div><div class="md-grid"></div>';
+      '<span class="lib-count" aria-live="polite"></span></div><div class="cat-tabs"></div><div class="md-grid"></div>';
     var input = el.querySelector('input'), tabsEl = el.querySelector('.cat-tabs'), grid = el.querySelector('.md-grid'), count = el.querySelector('.lib-count');
     function tabs(){
       var all = [['all', B('الكل', 'All')]].concat(cats.map(function(c){ return [c.id, L(c.t)]; }), [['fav', '⭐ ' + B('المفضّلة', 'Favourites')]]);
@@ -104,14 +104,14 @@
               ? '<textarea rows="3" data-var="' + esc(n) + '" dir="auto" spellcheck="false">' + esc(v[n] || '') + '</textarea>'
               : '<input type="text" data-var="' + esc(n) + '" value="' + esc(v[n] || '') + '" dir="auto">') + '</label>';
           }).join('') + '</div>';
-          h += '<pre class="md-code" dir="' + (it.rtl ? 'rtl' : 'ltr') + '"><code>' + esc(X.fill(code, v)) + '</code></pre>' +
+          h += '<pre tabindex="0" class="md-code" dir="' + (it.rtl ? 'rtl' : 'ltr') + '"><code>' + esc(X.fill(code, v)) + '</code></pre>' +
             '<div class="jr-actions"><button type="button" class="copy-btn" data-copy>' + B('نسخ', 'Copy') + '</button>' +
             (sec.saveLabel ? '<button type="button" class="ghost-btn" data-save>' + esc(L(sec.saveLabel)) + '</button>' : '') +
             (names.length ? '<span class="sub-note">' + esc(B('املا الخانات والبرومبت بيتملي لوحده قبل النسخ.', 'Fill the boxes and the text updates before you copy.')) + '</span>' : '') + '</div>';
         }
       }
       if(it.tip) h += '<div class="ex-tip">💡 ' + S.inline(it.tip) + '</div>';
-      if(it.bad) h += '<details class="ans"><summary>' + esc(B('قارن: نسخة ضعيفة من نفس الطلب', 'Compare: a weak version of the same request')) + '</summary><pre class="md-code weak" dir="ltr"><code>' + esc(L(it.bad)) + '</code></pre>' +
+      if(it.bad) h += '<details class="ans"><summary>' + esc(B('قارن: نسخة ضعيفة من نفس الطلب', 'Compare: a weak version of the same request')) + '</summary><pre tabindex="0" class="md-code weak" dir="ltr"><code>' + esc(L(it.bad)) + '</code></pre>' +
         (it.badWhy ? '<p class="sub-note">' + S.inline(it.badWhy) + '</p>' : '') + '</details>';
       if(it.links) h += '<div class="md-links">' + it.links.map(function(l){ return '<a href="' + esc(l.url) + '" target="_blank" rel="noopener">' + esc(L(l.t)) + ' ↗</a>'; }).join('') + '</div>';
       return h + '</article>';
@@ -161,7 +161,7 @@
           return '<details class="md-card lesson' + (d ? ' done' : '') + '" data-id="' + esc(it.id) + '"><summary><span class="ln">' + (i + 1) + '</span><span class="lt">' + esc(L(it.t)) + '</span>' +
             (it.min ? '<span class="tag">⏱ ' + it.min + B(' دقيقة', ' min') + '</span>' : '') + (d ? '<span class="ok">✓</span>' : '') + '</summary>' +
             '<div class="md-body">' + S.md(it.body) + '</div>' +
-            (it.example ? '<pre class="md-code" dir="ltr"><code>' + esc(L(it.example)) + '</code></pre>' : '') +
+            (it.example ? '<pre tabindex="0" class="md-code" dir="ltr"><code>' + esc(L(it.example)) + '</code></pre>' : '') +
             (it['try'] ? '<div class="challenge"><b>' + esc(B('جرّب بنفسك:', 'Try it:')) + '</b> ' + S.md(it['try']) + '</div>' : '') +
             (it.links ? '<div class="md-links">' + it.links.map(function(l){ return '<a href="' + esc(l.url) + '" target="_blank" rel="noopener">' + esc(L(l.t)) + ' ↗</a>'; }).join('') + '</div>' : '') +
             '<label class="task"><input type="checkbox" data-done' + (d ? ' checked' : '') + '> ' + esc(B('خلّصت الدرس ده', 'I finished this lesson')) + '</label></details>';

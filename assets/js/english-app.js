@@ -13,7 +13,7 @@
       return s;
     }catch(e){ return freshState(); }
   }
-  function saveState(){ try{ localStorage.setItem(STORE_KEY, JSON.stringify(state)); }catch(e){} }
+  function saveState(){ try{ localStorage.setItem(STORE_KEY, JSON.stringify(state)); }catch(e){} if(window.SITE && SITE.touch) SITE.touch(); }
   var state = loadState();
   function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
   // `text` in backticks becomes inline code

@@ -263,7 +263,7 @@
       var params = JSON.stringify(n.parameters || {}, null, 2);
       d.innerHTML = '<div class="md-card"><div class="md-top"><h3>' + esc(ic[0] + ' ' + n.name) + '</h3><button type="button" class="acct-x" data-close aria-label="' + esc(B('إغلاق', 'Close')) + '">✕</button></div>' +
         '<p class="sub-note" dir="ltr">' + esc(n.type) + (n.typeVersion ? ' · v' + n.typeVersion : '') + '</p><p>' + esc(B(ic[1], ic[2])) + '</p>' +
-        '<pre class="md-code" dir="ltr"><code>' + esc(params.length > 2500 ? params.slice(0, 2500) + '\n…' : params) + '</code></pre></div>';
+        '<pre tabindex="0" class="md-code" dir="ltr"><code>' + esc(params.length > 2500 ? params.slice(0, 2500) + '\n…' : params) + '</code></pre></div>';
     }
     el.addEventListener('click', function(e){
       var t = e.target.closest('button, .wf-node');
@@ -429,7 +429,7 @@
         '</select></label><span class="lab-prog">' + esc(B('حلّيت ' + n + ' من ' + items.length, 'Solved ' + n + ' of ' + items.length)) + '</span></div>' +
         '<div class="progress-bar"><div class="progress-fill" style="width:' + Math.round(n / items.length * 100) + '%"></div></div>' +
         '<div class="md-card lab-task"><div class="md-top"><h3>' + esc(L(cur.t)) + '</h3>' + X.lvl(cur.lvl) + '</div><div class="md-body">' + S.md(cur.task) + '</div>' +
-        (lang === 'sql' ? '<details class="ans"><summary>' + esc(B('الجداول', 'The tables')) + '</summary><pre class="md-code" dir="ltr"><code>' + esc(sec.schema.filter(function(s){ return /^CREATE/.test(s); }).join('\n')) + '</code></pre></details>' : '') + '</div>' +
+        (lang === 'sql' ? '<details class="ans"><summary>' + esc(B('الجداول', 'The tables')) + '</summary><pre tabindex="0" class="md-code" dir="ltr"><code>' + esc(sec.schema.filter(function(s){ return /^CREATE/.test(s); }).join('\n')) + '</code></pre></details>' : '') + '</div>' +
         (lang === 'expr' ? '<label class="lab-lbl">' + esc(B('البيانات (الـ items اللي داخلة، JSON):', 'The data (incoming items, JSON):')) + '<textarea class="lab-code input" rows="4" dir="ltr" spellcheck="false">' + esc(JSON.stringify(cur.input || [{}], null, 2)) + '</textarea></label>' : '') +
         '<label class="lab-lbl">' + esc(lang === 'expr' ? B('الـ Expression:', 'The expression:') : B('الكود:', 'The code:')) +
         '<textarea class="lab-code main" rows="' + (lang === 'expr' ? 2 : lang === 'sql' ? 5 : 10) + '" dir="ltr" spellcheck="false" autocapitalize="off" autocomplete="off">' + esc(draftOf(cur)) + '</textarea></label>' +
@@ -438,7 +438,7 @@
         '<button type="button" class="ghost-btn" data-reset>' + esc(B('ابدأ من الأول', 'Start over')) + '</button>' +
         (lang === 'sql' ? '<button type="button" class="ghost-btn" data-resetdb>' + esc(B('رجّع البيانات', 'Reset data')) + '</button>' : '') + '</div>' +
         '<div class="lab-result" aria-live="polite"></div><pre class="lab-out" dir="ltr" hidden></pre><div class="lab-table"></div>' +
-        '<details class="ans lab-sol"><summary>' + esc(B('اعرض الحل (بعد ما تحاول)', 'Show the solution (after you try)')) + '</summary><pre class="md-code" dir="ltr"><code>' + esc(cur.solution) + '</code></pre></details>';
+        '<details class="ans lab-sol"><summary>' + esc(B('اعرض الحل (بعد ما تحاول)', 'Show the solution (after you try)')) + '</summary><pre tabindex="0" class="md-code" dir="ltr"><code>' + esc(cur.solution) + '</code></pre></details>';
     }
     function result(ok, text){ var r = el.querySelector('.lab-result'); r.className = 'lab-result jr-result ' + (ok ? 'pass' : 'fail'); r.textContent = text; }
     function output(text, isErr){ var o = el.querySelector('.lab-out'); o.hidden = !text; o.textContent = text || ''; o.classList.toggle('err', !!isErr); }

@@ -326,7 +326,7 @@ SECTIONS.add({
         R('Can you hear me?  /  You are on mute.', 'سامعني؟ / المايك مقفول', 'Can you hear me? / Your mic is off'),
         R('Could you repeat that, please?', 'ممكن تعيد؟', 'Could you say it again?'),
         R('Just to confirm, …', 'بس عشان أتأكد…', 'To confirm…'),
-        R('Let us take it offline.', 'نتكلم فيها بعدين', 'We will discuss it later'),
+        R('Let\'s take it offline.', 'نتكلم فيها بعدين', 'We will discuss it later'),
         R('I will share my screen.', 'هشارك الشاشة', 'I will share my screen')
       ] },
       { t: { ar: 'الكود والمراجعة', en: 'Code and review' }, rows: [

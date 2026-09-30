@@ -13,11 +13,13 @@
     "i18n:apply": "node tools/apply_translations.js",
     "i18n:build": "node tools/make_dicts.js --freeze",
     "serve": "python -m http.server 8000",
-    "e2e": "node tools/e2e.js"
+    "e2e": "node tools/e2e.js",
+    "a11y": "node tools/a11y.js"
   },
   "devDependencies": {
     "acorn": "^8.18.0",
     "acorn-walk": "^8.3.5",
+    "axe-core": "^4.13.0",
     "jsdom": "^30.1.1",
     "playwright-core": "^1.63.0",
     "sql.js": "^1.14.2"

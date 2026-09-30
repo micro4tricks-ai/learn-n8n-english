@@ -381,7 +381,7 @@
     h += '<div class="sp-head"><h3>' + TF('اليوم {d}', { d: day.d }) + ': ' + esc(L(day.title)) + '</h3><p>' + esc(L(day.goal)) + '</p>' +
       '<div class="mono">' + headStats(day, st) + '</div></div>';
     h += block(++step, T('افهم: الشرح مع أمثلة'), '<div class="learn-grid">' + day.learn.map(function(l){
-      return '<div class="learn-card"><div class="lh">' + esc(L(l.h)) + '</div><p class="lp">' + fmt(L(l.p)) + '</p>' + (l.ex ? '<pre class="code">' + esc(L(l.ex)) + '</pre>' : '') + '</div>';
+      return '<div class="learn-card"><div class="lh">' + esc(L(l.h)) + '</div><p class="lp">' + fmt(L(l.p)) + '</p>' + (l.ex ? '<pre class="code" tabindex="0">' + esc(L(l.ex)) + '</pre>' : '') + '</div>';
     }).join('') + '</div>');
     h += block(++step, T('اتمرّن بإيدك'), '<div class="build-list">' + day.practice.map(function(t, i){
       return checkbox('p' + day.key + '_' + i, fmt(L(t)));
@@ -389,7 +389,7 @@
     if(day.code && day.code.length){
       h += block(++step, T('انسخ واستخدم'), '<div class="phrase-grid">' + day.code.map(function(c, i){
         return '<div class="phrase-card"><div class="row"><div class="u">' + esc(L(c.u)) + '</div><button type="button" class="copy-btn" data-jcopy="' + i + '">' + T('نسخ') + '</button></div>' +
-          '<pre class="code">' + esc(L(c.p)) + '</pre></div>';
+          '<pre class="code" tabindex="0">' + esc(L(c.p)) + '</pre></div>';
       }).join('') + '</div>');
     }
     h += block(++step, T('كلمات اليوم'), '<div class="vocab-grid">' + day.words.map(function(v){

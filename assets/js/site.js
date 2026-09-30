@@ -32,7 +32,7 @@
     var src = S.L(x), out = [], parts = src.split(/```/);
     parts.forEach(function(part, i){
       if(i % 2){
-        out.push('<pre class="md-code" dir="ltr"><code>' + S.esc(part.replace(/^\w*\n/, '').replace(/\n$/, '')) + '</code></pre>');
+        out.push('<pre tabindex="0" class="md-code" dir="ltr"><code>' + S.esc(part.replace(/^\w*\n/, '').replace(/\n$/, '')) + '</code></pre>');
         return;
       }
       part.split(/\n{2,}/).forEach(function(b){
@@ -171,6 +171,7 @@
     while(keys.length > 400) delete a[keys.shift()];
     try{ localStorage.setItem(PREFIX + 'activity', JSON.stringify(a)); }catch(e){}
   }
+  S.touch = activity;   // for the reference sections of the journey pages (flashcards, quizzes…)
   S.activity = function(){ try{ return JSON.parse(localStorage.getItem(PREFIX + 'activity')) || {}; }catch(e){ return {}; } };
   S.streak = function(){
     var a = S.activity(), d = new Date(), n = 0;
@@ -238,6 +239,16 @@
         }).join('') + '<button type="button" class="more-install" hidden>📲 ' + S.B('ثبّت الموقع كتطبيق', 'Install as an app') + '</button></div>';
       links.insertBefore(d, lang);
       document.addEventListener('click', function(e){ if(d.open && !d.contains(e.target)) d.open = false; });
+      // keep the open menu inside the screen (on a phone the menu button can sit near either edge)
+      d.addEventListener('toggle', function(){
+        var list = d.querySelector('.more-list');
+        list.style.transform = '';
+        if(!d.open) return;
+        var r = list.getBoundingClientRect(), w = document.documentElement.clientWidth, dx = 0;
+        if(r.right > w - 8) dx = w - 8 - r.right;
+        if(r.left + dx < 8) dx = 8 - r.left;
+        if(dx) list.style.transform = 'translateX(' + Math.round(dx) + 'px)';
+      });
       d.querySelector('.more-install').addEventListener('click', function(){
         if(!installEvt) return;
         installEvt.prompt();

@@ -9,11 +9,11 @@ img{max-width:100%;}
     --surface:#ffffff;
     --surface-2:#e9ede9;
     --ink:#3a453f;
-    --muted:#6f7d76;
-    --accent:#5a9c7a;
-    --accent-ink:#3f7a5d;
+    --muted:#5f6c65;        /* 4.5:1 on white and the page background (WCAG AA) */
+    --accent:#447f62;       /* white text on it: 4.7:1 */
+    --accent-ink:#3a7156;
     --accent-soft:#e8f2ec;
-    --accent-2:#b5713a;
+    --accent-2:#985c2c;
     --accent-2-soft:#f6ece0;
     --border:#e2e7e3;
     --shadow: 0 1px 2px rgba(58,69,63,.04), 0 6px 18px -10px rgba(58,69,63,.10);
@@ -102,6 +102,7 @@ img{max-width:100%;}
     display:inline-flex;align-items:center;gap:8px;
   }
   .cat-tab .cnt{font-family:'JetBrains Mono';direction:ltr;font-size:12px;font-weight:500;opacity:.75;}
+  .cat-tab.active .cnt{opacity:1;}
   .cat-tab.active{background:var(--accent);border-color:var(--accent);color:#fff;}
 
   /* journey map */
@@ -569,7 +570,7 @@ section.fold{margin-block:14px;}
 @media (prefers-reduced-motion: reduce){ .fold-hint::after{transition:none;} }
 
 /* ---------- locked sprint days ---------- */
-.day-tab.locked{opacity:.55;cursor:not-allowed;background:var(--surface-2);}
+.day-tab.locked{cursor:not-allowed;background:var(--surface-2);color:var(--muted);}
 .lock-note{margin:-8px 0 16px;font-size:14px;color:var(--accent-2);background:var(--accent-2-soft);
   border-radius:10px;padding:8px 14px;}
 
@@ -619,7 +620,9 @@ section.fold{margin-block:14px;}
 .jr-week .jr-wt{font-size:12px;color:var(--muted);line-height:1.4;}
 .jr-week.sel{border-color:var(--accent);box-shadow:0 0 0 2px var(--accent-soft);}
 .jr-week.done{background:var(--accent-soft);}
-.jr-week.locked{opacity:.6;background:var(--surface-2);}
+.jr-week.locked{background:var(--surface-2);}
+/* locked items: muted text instead of opacity, so the text keeps 4.5:1 contrast */
+.jr-week.locked,.jr-week.locked *,.jr-exam.locked,.jr-exam.locked *{color:var(--muted)!important;}
 .jr-week.soon:not(.locked){border-style:dashed;}
 .jr-exam{
   font:inherit;font-family:'Cairo';font-weight:800;font-size:13px;width:100%;margin-top:8px;cursor:pointer;text-align:start;
@@ -630,7 +633,7 @@ section.fold{margin-block:14px;}
 .jr-exam span{font-family:'JetBrains Mono',ui-monospace,monospace;font-weight:400;font-size:11.5px;background:var(--surface-2);border-radius:6px;padding:0 6px;}
 .jr-exam.sel{border-style:solid;box-shadow:0 0 0 2px var(--accent-2-soft);}
 .jr-exam.done{background:var(--accent-soft);border:1px solid var(--accent);}
-.jr-exam.locked{opacity:.6;background:var(--surface-2);}
+.jr-exam.locked{background:var(--surface-2);}
 .jr-from{font-size:11.5px;color:var(--accent-2);margin-bottom:2px;}
 .jr-cert{margin-top:18px;border:2px solid var(--accent);border-radius:16px;padding:22px;text-align:center;background:var(--accent-soft);}
 .jr-cert-t{font-family:'Cairo';font-weight:800;font-size:24px;color:var(--accent-ink);margin-bottom:8px;}
@@ -810,7 +813,7 @@ details.lesson .ok{color:var(--accent-ink);}
 .srs-front{font-family:'Cairo';font-weight:800;font-size:clamp(24px,5vw,34px);line-height:1.35;text-align:center;overflow-wrap:anywhere;margin:0;}
 .srs-front[dir="ltr"]{font-family:'JetBrains Mono',ui-monospace,monospace;font-weight:700;}
 .srs-show{justify-self:center;}
-.srs-show kbd,.rate kbd{font-family:'JetBrains Mono';font-size:11px;opacity:.7;}
+.srs-show kbd,.rate kbd{font-family:'JetBrains Mono';font-size:11px;}
 .srs-back{border-top:1px dashed var(--border);padding-top:12px;display:grid;gap:8px;text-align:center;}
 .srs-mean{margin:0;font-size:17px;}
 .srs-ex{margin:0;font-family:'JetBrains Mono',monospace;font-size:14px;color:var(--muted);text-align:center;}

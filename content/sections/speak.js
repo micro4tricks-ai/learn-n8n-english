@@ -33,7 +33,7 @@ var SPEAK_SENTENCES = [
   { id: 'a3', lvl: 'a', en: 'The root cause was a missing index on the orders table.', ar: 'السبب الأساسي كان index ناقص على جدول الطلبات.' },
   { id: 'a4', lvl: 'a', en: 'I see your point, but I am worried about the extra cost.', ar: 'فاهم وجهة نظرك، بس أنا قلقان من التكلفة الزيادة.' },
   { id: 'a5', lvl: 'a', en: 'We need to handle the case where the customer has no email address.', ar: 'لازم نتعامل مع الحالة اللي العميل فيها مالوش إيميل.' },
-  { id: 'a6', lvl: 'a', en: 'Before we deploy, let us make sure the credentials are not hardcoded.', ar: 'قبل ما ننشر، خلّينا نتأكد إن الـ credentials مش مكتوبة في الكود.' },
+  { id: 'a6', lvl: 'a', en: 'Before we deploy, let\'s make sure the credentials are not hardcoded.', ar: 'قبل ما ننشر، خلّينا نتأكد إن الـ credentials مش مكتوبة في الكود.' },
   { id: 'a7', lvl: 'a', en: 'The agent calls the right tool, but it sometimes ignores the instructions.', ar: 'الوكيل بينادي الأداة الصح، بس أحيانًا بيتجاهل التعليمات.' },
   { id: 'a8', lvl: 'a', en: 'In my last project, I automated the whole onboarding process for new clients.', ar: 'في آخر مشروع، عملت أتمتة لكل خطوات استقبال العملاء الجداد.' },
   { id: 'a9', lvl: 'a', en: 'Could you clarify what you mean by real time in this context?', ar: 'ممكن توضّح تقصد إيه بـ real time هنا؟' },
@@ -78,8 +78,8 @@ SECTIONS.add({
   items: [
     { id: 'standup', min: 15, t: { ar: 'الـ Daily standup', en: 'The daily standup' },
       body: {
-        ar: 'تلات أسئلة ثابتة، وكل واحد بيجاوب في دقيقة: عملت إيه امبارح، هتعمل إيه النهارده، وفيه حاجة موقفاك؟\n\n- `Yesterday I worked on…` — امبارح اشتغلت على…\n- `Today I am going to…` — النهارده هعمل…\n- `I am blocked by…` / `No blockers.` — واقف بسبب… / مفيش حاجة موقفاني.\n- `I need help with…` — محتاج مساعدة في…\n\nاستخدم الماضي البسيط لامبارح، و`going to` للنهارده، وخلّيها قصيرة: الـ standup مش مكان حل المشاكل. لو المشكلة كبيرة قول `Let us take it offline.` (نتكلم فيها بعد الاجتماع).',
-        en: 'Three fixed questions, a minute each: what you did yesterday, what you will do today, and whether anything is blocking you.\n\n- `Yesterday I worked on…`\n- `Today I am going to…`\n- `I am blocked by…` / `No blockers.`\n- `I need help with…`\n\nUse the past simple for yesterday and `going to` for today, and keep it short: the standup is not the place to solve problems. For a big one, say `Let us take it offline.` (we will talk after the meeting).'
+        ar: 'تلات أسئلة ثابتة، وكل واحد بيجاوب في دقيقة: عملت إيه امبارح، هتعمل إيه النهارده، وفيه حاجة موقفاك؟\n\n- `Yesterday I worked on…` — امبارح اشتغلت على…\n- `Today I am going to…` — النهارده هعمل…\n- `I am blocked by…` / `No blockers.` — واقف بسبب… / مفيش حاجة موقفاني.\n- `I need help with…` — محتاج مساعدة في…\n\nاستخدم الماضي البسيط لامبارح، و`going to` للنهارده، وخلّيها قصيرة: الـ standup مش مكان حل المشاكل. لو المشكلة كبيرة قول `Let\'s take it offline.` (نتكلم فيها بعد الاجتماع).',
+        en: 'Three fixed questions, a minute each: what you did yesterday, what you will do today, and whether anything is blocking you.\n\n- `Yesterday I worked on…`\n- `Today I am going to…`\n- `I am blocked by…` / `No blockers.`\n- `I need help with…`\n\nUse the past simple for yesterday and `going to` for today, and keep it short: the standup is not the place to solve problems. For a big one, say `Let\'s take it offline.` (we will talk after the meeting).'
       },
       example: 'Yesterday I finished the Telegram alerts and fixed the date bug.\nToday I am going to connect the workflow to the client\'s Google Sheet.\nI am blocked by the sheet permissions. I asked Sara for access this morning.',
       try: { ar: 'سجّل الـ standup بتاعك النهارده بصوتك (3 جمل) في قسم الـ Shadowing أو على موبايلك، واسمعه.', en: 'Record your own standup for today (3 sentences) in the Shadowing section or on your phone, and listen to it.' } },

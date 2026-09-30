@@ -117,7 +117,7 @@ Five pages that work with both journeys (menu **More**):
 | 🔁 **My review** — `review.html` | 10–15 minutes a day of spaced review with **FSRS** (the Anki algorithm, via [ts-fsrs](https://github.com/open-spaced-repetition/ts-fsrs)) over ~1,700 cards: English words, n8n terms, grammar rules. A **mistakes notebook** collects every question you got wrong in the journey, exams and quizzes and asks it again, mixed, until you answer it right twice. **Stats**: a study-day heatmap, your best weekly-test scores in both journeys, weak spots. **Backup** to a file and restore on any device, and download all 48 weeks for offline use. |
 | 🧪 **Lab** — `lab.html` | Paste any n8n workflow JSON (or open a sample) to see it as a zoomable **diagram**, a **step-by-step explanation**, and a **checker** (secrets typed into nodes, open webhooks, unconnected nodes, no error handling, pinned data…). Search the **official n8n template library** and open any template the same way. **Playgrounds** with 45 checked challenges: n8n expressions (with `$json`, `$input`, Luxon `$now` and n8n's extra methods), JavaScript for the Code node, **Python** (real CPython via Pyodide) and **SQL** (SQLite via sql.js on a shop database). |
 | 🎙️ **Speaking practice** — `speak.html` | **Scored pronunciation** (your speech is turned into text and compared word by word), **shadowing** with your own recording next to the model voice, **dictation** with a word diff, and **10 real work situations** (stand-up, asking for help, bug report, code review, estimates, client call, status email, interview, disagreeing, demo). |
-| 🤖 **Prompts** — `prompts.html` | A library of **36 prompts** for coding, n8n agents, learning English, client work, studying and data: fill the boxes and copy. A **10-lesson prompt-writing course**. **My prompts**: save your own with variables, tags, version history, export/import; synced with your account. |
+| 🤖 **Prompts** — `prompts.html` | A library of **38 prompts** for coding, n8n agents, learning English, client work, studying and data: fill the boxes and copy. A **10-lesson prompt-writing course**. **My prompts**: save your own with variables, tags, version history, export/import; synced with your account. |
 | 📄 **Cheat sheets** — `sheets.html` | 11 print-ready A4 sheets: n8n expressions, main nodes, JavaScript for the Code node, Python, SQL, Git, Docker for n8n, HTTP and status codes, Regex, English tenses for work, ready phrases. |
 
 On every page: **site-wide search** (`Ctrl K` or `/`) across ~3,000 entries in Arabic and English, with links straight to the word, rule, resource, week or day.
@@ -251,6 +251,7 @@ The tool pages don't use the dictionaries at all: their texts are `{ar, en}` in 
 | `npm run release` | New asset version + build + test |
 | `npm run new:page -- <id> "<عربي>" "<English>"` | A new tool page with its menu entry ([how](docs/ARCHITECTURE.md#adding-a-new-tab-a-page)) |
 | `npm run links` | Check every external link |
+| `npm run a11y` | Accessibility audit of every page (needs Chrome) |
 | `npm run e2e` | The tool pages in a real Chrome (needs Chrome and internet) |
 
 ## Deploy
