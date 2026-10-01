@@ -1,9 +1,9 @@
-/* Journey engine: the 24-week plan shared by the n8n and English pages.
+/* Journey engine: the 24-week plan shared by the n8n, English and Python pages.
  * Week content lives in content/<track>/weeks/wNN.js and calls JOURNEY.week({...}).
  * Content strings are {ar, en} and are read through L(); UI strings use T(). */
 (function(){
   var J = window.JOURNEY = window.JOURNEY || {};
-  J.weeks = { english: {}, n8n: {} };
+  J.weeks = { english: {}, n8n: {}, python: {} };
 
   J.L = function(x){
     if(x == null) return '';
@@ -119,7 +119,12 @@
   }
   var L = J.L;
   function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
-  function fmt(s){ return esc(s).replace(/`([^`]+)`/g, '<code>$1</code>'); }
+  // content text: `code` and **bold** (bold only outside code, so `2 ** 3` stays as written)
+  function fmt(s){
+    return String(s == null ? '' : s).split(/(`[^`]+`)/).map(function(p){
+      return /^`[^`]+`$/.test(p) ? '<code>' + esc(p.slice(1, -1)) + '</code>' : esc(p).replace(/\*\*([^*\n]+?)\*\*/g, '<b>$1</b>');
+    }).join('');
+  }
   var VERSION = (function(){
     try{ var m = (document.currentScript.src || '').match(/[?&]v=(\d+)/); return m ? m[1] : ''; }catch(e){ return ''; }
   })();
@@ -192,7 +197,8 @@
   function attempts(n){ return M.progress.tests[J.rules.testId(n)] || []; }
   function weekPassed(n){ return J.rules.weekPassed(attempts(n)); }
   function studyDone(day){ return J.rules.dayDone(day, M.progress.done, M.progress.answers); }
-  function dayOpen(w, d){ return weekOpen(w.n) && (d === 1 || studyDone(w.days[d - 2])); }
+  // a passed week stays open whole (its weekly test proves the days), so a learner can go back to any day
+  function dayOpen(w, d){ return weekOpen(w.n) && (d === 1 || weekPassed(w.n) || studyDone(w.days[d - 2])); }
   function dayStat(w, day){
     if(day.d === 6){
       return { done: weekPassed(w.n), pct: Math.round(J.rules.best(attempts(w.n)) * 100) };
@@ -258,7 +264,7 @@
     return '<div class="jr-whead"><div class="jr-eyebrow mono">' + TF('الشهر {m} · الأسبوع {n} من 24', { m: Math.ceil(n / 4), n: n }) + '</div>' +
       '<h3>' + esc(L(M.outline.weeks[n - 1])) + '</h3>' + (extra || '') + '</div>';
   }
-  var TRACK_NAME = { n8n: { ar: 'أتمتة n8n', en: 'n8n automation' }, english: { ar: 'الإنجليزي للمبرمجين', en: 'English for developers' } };
+  var TRACK_NAME = { n8n: { ar: 'أتمتة n8n', en: 'n8n automation' }, english: { ar: 'الإنجليزي للمبرمجين', en: 'English for developers' }, python: { ar: 'بايثون للأتمتة والويب', en: 'Python for automation and the web' } };
   function examHead(m){
     var r = J.rules.examWeeks(m);
     return '<div class="jr-whead"><div class="jr-eyebrow mono">' + (m === 6 ? T('الامتحان النهائي · الأسابيع 1–24')
@@ -298,9 +304,9 @@
     qs.forEach(function(id, i){
       var q = J.question(M.track, id), wk = '<div class="jr-from mono">' + TF('من الأسبوع {n}', { n: Number(id.slice(1, 3)) }) + '</div>';
       if(!q) return;
-      if(res){ h += quizCard(q, i, 'e' + i, res.answers[i], 'je').replace('<div class="q-card">', '<div class="q-card">' + wk); return; }
+      if(res){ h += quizCard(q, i, 'e' + i, res.answers[i], 'je', id).replace('<div class="q-card">', '<div class="q-card">' + wk); return; }
       h += '<div class="q-card">' + wk + '<div class="qn">Q' + (i + 1) + '</div><div class="qq">' + fmt(L(q.q)) + '</div><div class="q-opts">' +
-        q.o.map(function(o, oi){
+        optOrder(q, id).map(function(oi){ var o = q.o[oi];
           var on = E.sel[i] === oi;
           return '<button type="button" class="q-opt' + (on ? ' picked' : '') + '" data-je="' + i + '" data-o="' + oi + '" aria-pressed="' + on + '">' + fmt(L(o)) + '</button>';
         }).join('') + '</div></div>';
@@ -363,6 +369,16 @@
         '<span class="dt">' + esc(L(day.title)) + '</span><div class="mini-bar"><div class="mini-fill" style="width:' + st.pct + '%"></div></div></button>';
     }).join('');
   }
+  // «Run» under an example marked run (1 = Python, 'html' = a page preview, 'js' = JavaScript with its console) when the page
+  // gives opts.runCode; `html` on a js example is the page it runs in. «Edit» makes the code editable first.
+  function runBar(x){
+    if(!x.run || !M.opts.runCode) return '';
+    var kind = x.run === 1 || x.run === true ? 'py' : String(x.run);
+    return '<div class="jr-run"><button type="button" class="link-btn" data-jrun="' + esc(kind) + '"' + (x.html ? ' data-html="' + esc(x.html) + '"' : '') + '>▶ ' + T(kind === 'html' ? 'اعرض' : 'شغّل') + '</button>' +
+      '<button type="button" class="ghost-btn" data-jedit aria-pressed="false">✎ ' + T('عدّل الكود') + '</button>' +
+      (x.stdin != null ? '<label class="run-in"><span>' + T('اللي هتكتبه لـ input() (سطر لكل مرة):') + '</span><textarea rows="2" dir="ltr" spellcheck="false">' + esc(x.stdin) + '</textarea></label>' : '') +
+      '</div><pre class="run-out" hidden aria-live="polite"></pre>';
+  }
   function block(step, title, body){
     return '<div class="sp-block"><h4><span class="step">' + step + '</span> ' + title + '</h4>' + body + '</div>';
   }
@@ -381,7 +397,7 @@
     h += '<div class="sp-head"><h3>' + TF('اليوم {d}', { d: day.d }) + ': ' + esc(L(day.title)) + '</h3><p>' + esc(L(day.goal)) + '</p>' +
       '<div class="mono">' + headStats(day, st) + '</div></div>';
     h += block(++step, T('افهم: الشرح مع أمثلة'), '<div class="learn-grid">' + day.learn.map(function(l){
-      return '<div class="learn-card"><div class="lh">' + esc(L(l.h)) + '</div><p class="lp">' + fmt(L(l.p)) + '</p>' + (l.ex ? '<pre class="code" tabindex="0">' + esc(L(l.ex)) + '</pre>' : '') + '</div>';
+      return '<div class="learn-card"><div class="lh">' + esc(L(l.h)) + '</div><p class="lp">' + fmt(L(l.p)) + '</p>' + (l.ex ? '<pre class="code" tabindex="0">' + esc(L(l.ex)) + '</pre>' + runBar(l) : '') + '</div>';
     }).join('') + '</div>');
     h += block(++step, T('اتمرّن بإيدك'), '<div class="build-list">' + day.practice.map(function(t, i){
       return checkbox('p' + day.key + '_' + i, fmt(L(t)));
@@ -389,7 +405,7 @@
     if(day.code && day.code.length){
       h += block(++step, T('انسخ واستخدم'), '<div class="phrase-grid">' + day.code.map(function(c, i){
         return '<div class="phrase-card"><div class="row"><div class="u">' + esc(L(c.u)) + '</div><button type="button" class="copy-btn" data-jcopy="' + i + '">' + T('نسخ') + '</button></div>' +
-          '<pre class="code" tabindex="0">' + esc(L(c.p)) + '</pre></div>';
+          '<pre class="code" tabindex="0">' + esc(L(c.p)) + '</pre>' + runBar(c) + '</div>';
       }).join('') + '</div>');
     }
     h += block(++step, T('كلمات اليوم'), '<div class="vocab-grid">' + day.words.map(function(v){
@@ -397,7 +413,8 @@
         (v.ex ? '<div class="tex">' + esc(L(v.ex)) + '</div>' : '') + '</div>' + (M.opts.wordActions ? '<div class="acts">' + M.opts.wordActions(v) + '</div>' : '') + '</div>';
     }).join('') + '</div>');
     h += block(++step, T('اقرا واسمع'), '<div class="read-list">' + day.read.map(function(r){
-      return '<div class="read-row"><a href="' + esc(r.url) + '" target="_blank" rel="noopener">' + esc(L(r.t)) + ' ↗</a><span>' + fmt(L(r.what)) + '</span></div>';
+      var ext = /^https?:/.test(r.url);   // a page of this site opens in the same tab
+      return '<div class="read-row"><a href="' + esc(r.url) + '"' + (ext ? ' target="_blank" rel="noopener"' : '') + '>' + esc(L(r.t)) + (ext ? ' ↗' : ' ←') + '</a><span>' + fmt(L(r.what)) + '</span></div>';
     }).join('') + '</div>');
     if(day.challenge){
       h += block(++step, T('تحدي اليوم'), '<div class="challenge"><b>' + T('التحدي:') + ' </b>' + fmt(L(day.challenge)) +
@@ -414,9 +431,11 @@
     box.innerHTML = h;
     if(M.opts.onDay) M.opts.onDay(w, day);
   }
-  function quizCard(q, i, id, ans, kind){
+  // options are shown in a stable shuffled order (most correct answers are written first in the sources)
+  function optOrder(q, key){ return window.SITE && SITE.order ? SITE.order(q.o.length, M.track + ':' + key) : q.o.map(function(_, i){ return i; }); }
+  function quizCard(q, i, id, ans, kind, key){
     var h = '<div class="q-card"><div class="qn">Q' + (i + 1) + '</div><div class="qq">' + fmt(L(q.q)) + '</div><div class="q-opts">';
-    q.o.forEach(function(o, oi){
+    optOrder(q, key || M.selWeek + ':' + id).forEach(function(oi){ var o = q.o[oi];
       var cls = '';
       if(ans != null){ if(oi === q.a) cls = ' right'; else if(oi === ans) cls = ' wrong'; }
       h += '<button type="button" class="q-opt' + cls + '" data-' + kind + '="' + id + '" data-o="' + oi + '"' + (ans != null ? ' disabled' : '') + '>' + fmt(L(o)) + '</button>';
@@ -434,9 +453,9 @@
     var th = '<p class="sub-note">' + TF('{n} سؤال. محتاج 70% أو أكتر عشان الأسبوع {next} يفتح. تقدر تعيده أكتر من مرة، وأحسن درجة هي اللي بتتحسب.', { n: day.test.length, next: w.n + 1 }) + '</p>';
     if(list.length) th += '<p class="jr-attempts">' + TF('محاولاتك: {c} · أحسن درجة: {b}%', { c: list.length, b: Math.round(best * 100) }) + (passed ? ' ✓' : '') + '</p>';
     day.test.forEach(function(q, i){
-      if(r){ th += quizCard(q, i, 't' + i, r.answers[i], 'jt'); return; }
+      if(r){ th += quizCard(q, i, 't' + i, r.answers[i], 'jt', w.n + ':t' + i); return; }
       th += '<div class="q-card"><div class="qn">Q' + (i + 1) + '</div><div class="qq">' + fmt(L(q.q)) + '</div><div class="q-opts">' +
-        q.o.map(function(o, oi){
+        optOrder(q, w.n + ':t' + i).map(function(oi){ var o = q.o[oi];
           var on = M.testSel[i] === oi;
           return '<button type="button" class="q-opt' + (on ? ' picked' : '') + '" data-jt="' + i + '" data-o="' + oi + '" aria-pressed="' + on + '">' + fmt(L(o)) + '</button>';
         }).join('') + '</div></div>';
@@ -508,6 +527,22 @@
       return;
     }
     var day = w.days[M.selDay - 1];
+    if(t.hasAttribute('data-jrun') || t.hasAttribute('data-jedit')){
+      var bar = t.parentNode, pre = bar.previousElementSibling, out = bar.nextElementSibling;
+      if(t.hasAttribute('data-jedit')){
+        var on = pre.getAttribute('contenteditable') !== 'true';
+        if(on){ pre.setAttribute('contenteditable', 'true'); pre.setAttribute('spellcheck', 'false'); pre.focus(); }
+        else pre.removeAttribute('contenteditable');
+        pre.classList.toggle('editing', on);
+        t.setAttribute('aria-pressed', on);
+        return;
+      }
+      var input = bar.querySelector('.run-in textarea');
+      var runBtn = bar.querySelector('[data-jrun]');
+      M.opts.runCode(pre.innerText, out, runBtn, input ? input.value : '', runBtn.getAttribute('data-jrun') || 'py', runBtn.getAttribute('data-html') || '');
+      if(M.opts.onActivity) M.opts.onActivity();
+      return;
+    }
     if(t.dataset.jcopy != null){ if(M.opts.copy) M.opts.copy(L(day.code[Number(t.dataset.jcopy)].p), t); return; }
     if(t.dataset.jq){
       if(M.progress.answers[t.dataset.jq] != null) return;

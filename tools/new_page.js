@@ -2,7 +2,7 @@
 // entry in content/pages.js (so it shows in the «More» menu, the footer and the search).
 // usage: node tools/new_page.js <id> "<Arabic title>" "<English title>" [page-script.js …]
 //   extra page scripts (assets/js/<name>) are loaded after the content file, e.g. a script that adds its own section types;
-//   for a page already in content/pages.js they come from its `scripts` field.
+//   for a page already in content/pages.js they come from its `scripts` field (a path starting with content/ is used as is).
 // usage: node tools/new_page.js --all   rewrites every section page from the template
 // Re-running for an existing id only rewrites the HTML (after a template change); content and menu stay.
 const fs = require('fs'), path = require('path');
@@ -24,7 +24,7 @@ if(!entry && (!ar || !en)){ console.error('a new page needs its Arabic and Engli
 const V = (fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8').match(/\?v=(\w+)/) || [])[1];
 const title = entry ? entry.title.ar : ar;
 const desc = entry && entry.desc ? entry.desc.ar : ar;
-const scripts = ['content/sections/' + id + '.js'].concat((extra.length ? extra : (entry && entry.scripts) || []).map(f => 'assets/js/' + f))
+const scripts = ['content/sections/' + id + '.js'].concat((extra.length ? extra : (entry && entry.scripts) || []).map(f => /^content\//.test(f) ? f : 'assets/js/' + f))
   .map(s => '<script src="' + s + '?v=' + V + '"></script>\n').join('');
 const html = fs.readFileSync(path.join(__dirname, 'page.template.html'), 'utf8')
   .replace(/__V__/g, V).replace(/__ID__/g, id).replace('__TITLE__', title).replace('__DESC__', desc.replace(/"/g, '&quot;')).replace('__SCRIPTS__', scripts);

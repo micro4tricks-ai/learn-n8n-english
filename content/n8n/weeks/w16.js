@@ -140,6 +140,17 @@ JOURNEY.week({
       "ar": "الأقسام 3–8 و10 (Standard Library).",
       "en": "Sections 3–8 and 10 (Standard Library)."
      }
+    },
+    {
+     "t": {
+      "ar": "رحلة بايثون على الموقع",
+      "en": "The Python journey on this site"
+     },
+     "url": "python.html#journey",
+     "what": {
+      "ar": "لو عايز تتعمق: 24 أسبوع Python للأتمتة بأمثلة بتشتغل في الصفحة.",
+      "en": "To go deeper: 24 weeks of Python for automation, with examples that run on the page."
+     }
     }
    ],
    "challenge": {

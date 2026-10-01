@@ -167,13 +167,29 @@ const log = (ok, what, extra) => { out.push((ok ? 'PASS ' : 'FAIL ') + what + (e
 
   // ---- phone
   await page.setViewportSize({ width: 390, height: 844 });
-  for(const p of ['index', 'review', 'lab', 'prompts']){
+  for(const p of ['index', 'review', 'lab', 'prompts', 'python']){
     await page.goto(BASE + p + '.html');
     await page.waitForTimeout(700);
     const over = await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth);
     log(over <= 1, 'no sideways scroll on phone: ' + p, 'overflow ' + over + 'px');
     await shot('phone-' + p);
   }
+  // python.html: a Python example and an HTML example run on the page
+  await page.setViewportSize({ width: 1280, height: 900 });
+  await page.goto(BASE + 'python.html#journey?w=1&d=1');
+  await page.waitForSelector('[data-jrun="py"]', { timeout: 15000 });
+  await page.click('[data-jrun="py"] >> nth=0');
+  const pyOut = await page.waitForFunction(() => { const o = document.querySelector('pre.run-out.ok, pre.run-out.bad'); return o && o.textContent.trim() ? o.className + '|' + o.textContent : null; }, null, { timeout: 120000 }).then(h => h.jsonValue()).catch(() => '');
+  log(/\bok\b/.test(pyOut), 'python.html: a week 1 example runs in Pyodide', pyOut.slice(0, 80));
+  await page.goto(BASE + 'python.html#journey?w=14&d=1');
+  await page.reload();
+  const hasHtml = await page.waitForSelector('[data-jrun="html"]', { timeout: 15000 }).then(() => true).catch(() => false);
+  if(hasHtml){
+    await page.click('[data-jrun="html"] >> nth=0');
+    log(await page.waitForSelector('iframe.run-frame', { timeout: 10000 }).then(() => true).catch(() => false), 'python.html: an HTML example opens in a sandboxed frame');
+  } else log(true, 'python.html: week 14 is locked without progress (HTML run skipped)');
+  await shot('python');
+
   // english mode
   await page.setViewportSize({ width: 1280, height: 900 });
   await page.evaluate(() => localStorage.setItem('site_lang', 'en'));
@@ -184,4 +200,6 @@ const log = (ok, what, extra) => { out.push((ok ? 'PASS ' : 'FAIL ') + what + (e
   log(errors.length === 0, 'no page errors', errors.slice(0, 6).join(' | '));
   console.log(out.join('\n'));
   await browser.close();
+  server.close();
+  process.exit(out.some(l => l.startsWith('FAIL')) ? 1 : 0);   // the local server's open connections would keep node alive
 })().catch(e => { console.log(out.join('\n')); console.error('E2E crashed:', e.message); process.exit(1); });

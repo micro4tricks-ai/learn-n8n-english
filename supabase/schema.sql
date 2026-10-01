@@ -5,7 +5,7 @@
 
 create table if not exists public.progress (
   user_id uuid not null references auth.users(id) on delete cascade,
-  track text not null check (track in ('english', 'n8n')),
+  track text not null check (track in ('english', 'n8n', 'python')),
   data jsonb not null default '{}'::jsonb,
   updated_at timestamptz not null default now(),
   primary key (user_id, track)
@@ -14,7 +14,7 @@ create table if not exists public.progress (
 create table if not exists public.test_attempts (
   id bigint generated always as identity primary key,
   user_id uuid not null references auth.users(id) on delete cascade,
-  track text not null check (track in ('english', 'n8n')),
+  track text not null check (track in ('english', 'n8n', 'python')),
   test_id text not null check (char_length(test_id) <= 40),
   score int not null check (score >= 0),
   total int not null check (total > 0 and score <= total),
@@ -24,6 +24,12 @@ create table if not exists public.test_attempts (
   unique (user_id, track, test_id, taken_at)
 );
 create index if not exists test_attempts_user on public.test_attempts (user_id, track, test_id);
+
+-- tracks: the allowed journeys (re-run safely on an existing database when a journey is added)
+alter table public.progress drop constraint if exists progress_track_check;
+alter table public.progress add constraint progress_track_check check (track in ('english', 'n8n', 'python'));
+alter table public.test_attempts drop constraint if exists test_attempts_track_check;
+alter table public.test_attempts add constraint test_attempts_track_check check (track in ('english', 'n8n', 'python'));
 
 alter table public.progress enable row level security;
 alter table public.test_attempts enable row level security;

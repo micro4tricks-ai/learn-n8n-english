@@ -1,11 +1,11 @@
 # Writing a week
 
-Each track (`n8n`, `english`) has 24 weeks. A week is one file, `content/<track>/weeks/wNN.js`, loaded only when a learner opens that week.
+Each track (`n8n`, `english`, `python`) has 24 weeks. A week is one file, `content/<track>/weeks/wNN.js`, loaded only when a learner opens that week.
 
 You don't edit `weeks/` by hand. You write the source in `content/<track>/src/wNN.js` and build it:
 
 ```bash
-node tools/build_weeks.js n8n            # or english — writes weeks/, terms.js and outline ready[]
+node tools/build_weeks.js n8n            # or english / python — writes weeks/, terms.js and outline ready[]
 node tools/build_weeks.js n8n --check    # validate only
 ```
 
@@ -17,7 +17,19 @@ A source is a Node module (`module.exports = { level, title, goal, days }`, with
 | `words: [{ t, m: B(…), ex }]` | a new word; it's also added to `content/<track>/terms.js` so it shows in the glossary |
 | `learn: ['g:<heading>']` (English) | a grammar rule from the page: heading, explanation, wrong → right |
 | `read: ['lib:<title>']` or `{ lib, what }` | a library entry (from the page data or `content/library/<track>.js`) |
-| `read: [{ t, url, what: B(…) }]` | a direct link |
+| `read: [{ t, url, what: B(…) }]` | a direct link (`https://…`, or a page of this site like `python.html#journey`) |
+
+Python weeks have no word bank: every word is written as `{ t, m, ex }`. A `learn` item's example can carry extra fields:
+
+| Field | Means |
+|---|---|
+| `run: 1` | Python that runs on the page (Pyodide); `stdin: '…'` feeds `input()` |
+| `run: 'html'` / `run: 'js'` | runs in a sandboxed frame; `html: '…'` is the page a `js` example works on |
+| `err: 1` | the example fails on purpose (the checker expects an error) |
+| `show: 1` | shown only, never run (needs a file, a key or a server) |
+| `lang: 'html' / 'css' / 'js' / 'text'` | a snippet that isn't Python |
+
+`npm test` runs every `run: 1` example in a fresh folder with your Python (`PYTHON=path/to/python` to pick one; examples whose libraries aren't installed are skipped) and every `run: 'js'` example in jsdom. `node tools/run_week_examples.js N` runs one week's examples. In sources, regex escapes are written `\\d` (the build stops on a single backslash).
 
 The build stops when a word is already taught in another week, a reference isn't found, or a bank entry has no English.
 
@@ -56,7 +68,7 @@ Rules the validator enforces (`node tools/test_content.js`, also part of `npm te
 - exactly 6 days, numbered 1–6; `n` matches the file name and `track` the folder;
 - every text is `{ar, en}` with both filled and no Arabic in `en` — a plain string is allowed only when it has no Arabic (code, English examples, answer options like `$json`);
 - questions have 2–5 options and `a` is a valid option index;
-- every link is `https://`.
+- every link is `https://` (a `read` link may also be a page of this site).
 
 ## 3. How a learner moves through it
 

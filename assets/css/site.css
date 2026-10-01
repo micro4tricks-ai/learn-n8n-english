@@ -298,6 +298,7 @@ img{max-width:100%;}
     color:var(--accent-ink);background:var(--surface-2);border-radius:6px;padding:3px 8px;margin-top:6px;
     word-break:break-word;
   }
+  .vocab-card .tex code{background:none;padding:0;border:0;font:inherit;color:inherit;}
   .vocab-card > div{min-width:0;}
 
   /* sprint */
@@ -935,3 +936,18 @@ details.lesson .ok{color:var(--accent-ink);}
 .var-form textarea:focus{outline:2px solid var(--accent);border-color:transparent;}
 /* code inside code blocks: no inline-code chip */
 .md-code code,.lab-out code{background:none;padding:0;border-radius:0;font-size:inherit;color:inherit;}
+
+/* ---------- runnable examples (python.html journey) ---------- */
+.jr-run{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:8px;}
+.jr-run .link-btn,.jr-run .ghost-btn{padding:5px 14px;font-size:13px;}
+.jr-run .run-in{display:flex;flex-direction:column;gap:4px;flex:1 1 220px;font-size:12.5px;color:var(--muted);}
+.jr-run .run-in textarea{direction:ltr;text-align:left;font-family:'JetBrains Mono',monospace;font-size:12.5px;border:1px solid var(--border);border-radius:8px;padding:6px 8px;background:var(--surface);color:var(--ink);resize:vertical;}
+pre.run-out{direction:ltr;text-align:left;margin:8px 0 0;font-family:'JetBrains Mono',monospace;font-size:12.5px;line-height:1.6;background:#26302b;color:#e3ece6;border-radius:8px;padding:10px 12px;white-space:pre-wrap;word-break:break-word;max-height:300px;overflow:auto;}
+pre.run-out.bad{color:#ffd2c2;}
+pre.run-out.ok::before{content:'▶ ';color:#9fd8b6;}
+pre.code.editing{outline:2px solid var(--accent);outline-offset:1px;background:var(--surface);}
+.run-frame{display:block;width:100%;height:280px;margin-top:8px;border:1px solid var(--border);border-radius:8px;background:#fff;}
+.run-images{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px;}
+.run-images figure{margin:0;background:#fff;border:1px solid var(--border);border-radius:8px;padding:6px;max-width:100%;}
+.run-images img{display:block;max-width:100%;height:auto;}
+.run-images figcaption{direction:ltr;font-family:'JetBrains Mono',monospace;font-size:11.5px;color:#5f6c65;margin-top:4px;}

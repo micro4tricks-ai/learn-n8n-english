@@ -148,5 +148,19 @@ window.I18N_ADD && I18N_ADD({
  "مكتبة فيها قرابة 300 مصدر مجاني بالعربي والإنجليزي": "A library of about 300 free resources in Arabic and English",
  "قرابة 900 كلمة بأمثلة ونطق صوتي، ومراجعة متباعدة": "About 900 words with examples and audio, and spaced review",
  "مكتبة فيها قرابة 300 مصدر للقراءة والاستماع والكلام": "A library of about 300 resources for reading, listening and speaking",
- "أدوات تساعدك في الرحلتين": "Tools that help in both journeys"
+ "أدوات تساعدك في الرحلتين": "Tools that help in both journeys",
+ "شغّل": "Run",
+ "عدّل الكود": "Edit the code",
+ "اللي هتكتبه لـ input() (سطر لكل مرة):": "What input() reads (one line per call):",
+ "تلات رحلات مجانية، كل رحلة 24 أسبوع (6 شهور) من الصفر للاحتراف، ساعتين في اليوم. كل يوم فيه شرح وتطبيق واختبار، وكل أسبوع بيخلص بمشروع واختبار لازم تعدّيه عشان تكمّل. تقدمك بيتحفظ في المتصفح، ولو عملت حساب بالإيميل بيتحفظ أونلاين.": "Three free journeys, each 24 weeks (6 months) from zero to professional, two hours a day. Every day has an explanation, practice and a quiz, and every week ends with a project and a test you must pass to continue. Your progress is saved in the browser, and online when you sign up with your email.",
+ "رحلة بايثون للأتمتة والويب": "The Python journey: automation and the web",
+ "من أول سطر Python لحد أدوات بتشتغل لوحدها: ملفات وExcel وإيميل وAPIs وScraping وذكاء اصطناعي، ومعاهم HTML وCSS وJavaScript.": "From your first line of Python to tools that run by themselves: files, Excel, email, APIs, scraping and AI, plus HTML, CSS and JavaScript.",
+ "24 أسبوع في 6 شهور: من الأساسيات لـ FastAPI وDocker وMCP": "24 weeks in 6 months: from the basics to FastAPI, Docker and MCP",
+ "أمثلة بتشغّلها جوه الصفحة: Python وHTML وJavaScript": "Examples you run right on the page: Python, HTML and JavaScript",
+ "قرابة 760 مصطلح، و10 مشاريع أتمتة، وملخصات للطباعة": "About 760 terms, 10 automation projects and printable cheat sheets",
+ "مكتبة مصادر مجانية ورسمية: كتب وكورسات وتوثيق": "A library of free, official sources: books, courses and docs",
+ "ابدأ رحلة بايثون ←": "Start the Python journey →",
+ "أدوات تساعدك في كل الرحلات": "Tools that help in every journey",
+ "تلات رحلات تعلم مجانية بالعربي والإنجليزي: أتمتة n8n، وبايثون للأتمتة والويب، والإنجليزي التقني للمبرمجين.": "Three free learning journeys in Arabic and English: n8n automation, Python for automation and the web, and technical English for developers.",
+ "اعرض": "Preview"
 });

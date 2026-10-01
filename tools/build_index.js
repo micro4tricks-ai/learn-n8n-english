@@ -1,6 +1,6 @@
 // Builds the data the site loads on demand:
 //   assets/data/search-index.js — every searchable thing on the site: [kind, title, snippet, url]
-//   assets/data/deck.js         — the review cards (English words, n8n terms, grammar rules) for FSRS
+//   assets/data/deck.js         — the review cards (English words, n8n terms, Python terms, grammar rules) for FSRS
 // Texts are {ar, en}: Arabic from the page data, English from the page dictionaries (assets/js/*-en.js).
 // Run it after changing any content: node tools/build_index.js  (npm run build does it with the rest)
 const fs = require('fs'), path = require('path'), vm = require('vm');
@@ -101,6 +101,24 @@ const push = (k, t, s, u) => index.push([k, t, short(s), u]);
     push('w', w.title, w.goal, 'english.html#journey?w=' + w.n);
     w.days.forEach(d => push('d', d.title, d.goal, 'english.html#journey?w=' + w.n + '&d=' + d.d));
   });
+}
+// ---------------- Python (the words live in the weeks; the library is content/library/python.js) ----------------
+{
+  const win = {}; win.window = win;
+  vm.runInNewContext(read('content/library/python.js'), win);
+  const terms = {}; const tw = { JOURNEY_TERMS: terms }; tw.window = tw;
+  vm.runInNewContext(read('content/python/terms.js'), tw);
+  (terms.python || []).forEach(v => {
+    push('t', v.t, v.m, 'python.html#terms?q=' + q(v.t));
+    deck.push({ id: 'p:' + v.t.toLowerCase(), tr: 'python', t: v.t, m: v.m, ex: v.ex || '', w: v.w || 0 });
+  });
+  win.PY_DATA.LIBRARY.forEach(b => push('l', b.t, b.why, link('python.html#library', b.t)));
+  const wdir = path.join(ROOT, 'content', 'python', 'weeks');
+  fs.readdirSync(wdir).filter(f => /^w\d\d\.js$/.test(f)).sort().forEach(f =>
+    vm.runInNewContext(fs.readFileSync(path.join(wdir, f), 'utf8'), { JOURNEY: { week: w => {
+      push('w', w.title, w.goal, 'python.html#journey?w=' + w.n);
+      w.days.forEach(d => push('d', d.title, d.goal, 'python.html#journey?w=' + w.n + '&d=' + d.d));
+    } } }));
 }
 // ---------------- pages built from content/sections ----------------
 {

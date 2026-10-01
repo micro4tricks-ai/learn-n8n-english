@@ -10,13 +10,14 @@
   var DECKS = [
     { id: 'english', t: ['كلمات الإنجليزي', 'English words'] },
     { id: 'n8n', t: ['مصطلحات n8n', 'n8n terms'] },
+    { id: 'python', t: ['مصطلحات بايثون', 'Python terms'] },
     { id: 'grammar', t: ['قواعد الجرامر', 'Grammar rules'] }
   ];
 
   // ---------------- today's review ----------------
   X.type('srs', function(el){
     var sched = F ? F.fsrs(F.generatorParameters({ enable_fuzz: true, request_retention: 0.9, maximum_interval: 365 })) : null;
-    var prefs = lsGet('site_review_prefs', { decks: { english: true, n8n: true, grammar: false }, perDay: 15 });
+    var prefs = lsGet('site_review_prefs', { decks: { english: true, n8n: true, python: true, grammar: false }, perDay: 15 });
     var deck = null, byId = {}, queue = [], cur = null, shown = false, again = [];
     function log(){ var l = lsGet('site_review_log', {}); return l[S.today()] || { n: 0, fresh: 0, again: 0 }; }
     function bump(rating, fresh){
@@ -172,7 +173,7 @@
     }
     function paint(){
       var all = S.items('mistakes'), l = list();
-      var h = '<div class="cat-tabs">' + [['all', 'الكل', 'All'], ['n8n', 'n8n', 'n8n'], ['english', 'الإنجليزي', 'English']].map(function(t){
+      var h = '<div class="cat-tabs">' + [['all', 'الكل', 'All'], ['n8n', 'n8n', 'n8n'], ['python', 'بايثون', 'Python'], ['english', 'الإنجليزي', 'English']].map(function(t){
         var n = t[0] === 'all' ? all.length : all.filter(function(m){ return m.tr === t[0]; }).length;
         return '<button type="button" class="cat-tab' + (tab === t[0] ? ' active' : '') + '" data-tab="' + t[0] + '">' + esc(B(t[1], t[2])) + ' (' + n + ')</button>';
       }).join('') + '</div>';
@@ -184,7 +185,7 @@
       var q = cur;
       h += '<div class="q-card mk-card"><div class="qn">' + esc(L(q.from)) + ' · ' + esc(B('غلطت فيه ' + q.n + ' مرة', 'wrong ' + q.n + '×')) +
         (q.ok ? ' · ' + esc(B('صح مرة، فاضل مرة', 'right once, one more to go')) : '') + '</div><div class="qq">' + fmt(q.q) + '</div><div class="q-opts">' +
-        q.o.map(function(o, i){
+        S.order(q.o.length, q.id || JSON.stringify(q.q)).map(function(i){ var o = q.o[i];
           var cls = '';
           if(answered != null){ if(i === q.a) cls = ' right'; else if(i === answered) cls = ' wrong'; }
           return '<button type="button" class="q-opt' + cls + '" data-o="' + i + '"' + (answered != null ? ' disabled' : '') + '>' + fmt(o) + '</button>';
@@ -204,7 +205,7 @@
     }
     // a link back to where the question came from
     function weekLink(q){
-      var m = /^(n8n|english):w(\d\d)(?:d(\d))?/.exec(q.id);
+      var m = /^(n8n|english|python):w(\d\d)(?:d(\d))?/.exec(q.id);
       if(!m) return q.tr === 'english' && /quiz-/.test(q.id) ? '<a class="ghost-btn" href="english.html#quiz">' + esc(B('افتح الاختبار', 'Open the quiz')) + '</a>' : '';
       return '<a class="ghost-btn" href="' + m[1] + '.html#journey?w=' + Number(m[2]) + (m[3] ? '&d=' + m[3] : '') + '">' + esc(B('راجع الدرس', 'Review the lesson')) + '</a>';
     }
@@ -298,7 +299,7 @@
       var hm = heat(), srs = S.items('srs'), log = lsGet('site_review_log', {}), n = 0, ag = 0, since = new Date(); since.setDate(since.getDate() - 30);
       Object.keys(log).forEach(function(d){ if(new Date(d) >= since){ n += log[d].n; ag += log[d].again; } });
       var mature = srs.filter(function(s){ return s.c && s.c.stability >= 21; }).length;
-      var tracks = [['n8n', 'رحلة n8n', 'n8n journey'], ['english', 'إنجليزي المبرمج', 'Programmer English']].map(function(t){ return { id: t[0], name: B(t[1], t[2]), J: journeyOf(t[0]) }; });
+      var tracks = [['n8n', 'رحلة n8n', 'n8n journey'], ['python', 'رحلة بايثون', 'Python journey'], ['english', 'إنجليزي المبرمج', 'Programmer English']].map(function(t){ return { id: t[0], name: B(t[1], t[2]), J: journeyOf(t[0]) }; });
       var tile = function(num, lbl){ return '<div class="streak-card"><div class="num">' + num + '</div><div class="lbl">' + esc(lbl) + '</div></div>'; };
       var h = '<div class="stat-cards stats-tiles">' +
         tile(S.streak(), B('يوم متتالي 🔥', 'day streak 🔥')) + tile(hm.studied, B('يوم ذاكرت فيه (6 شهور)', 'study days (6 months)')) +
@@ -318,7 +319,7 @@
       S.items('mistakes').forEach(function(m){ var k = L(m.from) || '—'; (groups[k] = groups[k] || { n: 0, m: m }).n += m.n || 1; });
       var weak = Object.keys(groups).sort(function(a, b){ return groups[b].n - groups[a].n; }).slice(0, 6);
       h += '<div class="chart-box"><h3 class="sub-h">' + esc(B('نقط ضعفك', 'Your weak spots')) + '</h3>' + (weak.length ? '<ul class="weak-list">' + weak.map(function(k){
-        var m = /^(n8n|english):w(\d\d)(?:d(\d))?/.exec(groups[k].m.id);
+        var m = /^(n8n|english|python):w(\d\d)(?:d(\d))?/.exec(groups[k].m.id);
         var link = m ? '<a href="' + m[1] + '.html#journey?w=' + Number(m[2]) + (m[3] ? '&d=' + m[3] : '') + '">' + esc(B('راجع', 'Review')) + ' ↗</a>' : '';
         return '<li><b>' + esc(k) + '</b> <span class="sub-note">' + esc(B(groups[k].n + ' غلطة', groups[k].n + ' mistakes')) + '</span> ' + link + '</li>';
       }).join('') + '</ul>' : '<p class="sub-note">' + esc(B('لسه مفيش أخطاء متسجلة.', 'No mistakes recorded yet.')) + '</p>') + '</div>';
@@ -346,18 +347,18 @@
     function paint(){
       var sw = 'serviceWorker' in navigator, ctl = sw && navigator.serviceWorker.controller;
       el.innerHTML = '<div class="learn-grid bk-grid">' +
-        '<div class="md-card"><h3>💾 ' + esc(B('نسخة احتياطية', 'Backup')) + '</h3><p>' + esc(B('ملف JSON فيه تقدّمك في الرحلتين والاختبارات والمراجعة ودفتر الأخطاء والمعمل وبرومبتاتك.', 'A JSON file with your progress in both journeys, tests, review, mistakes, lab and your prompts.')) + '</p>' +
+        '<div class="md-card"><h3>💾 ' + esc(B('نسخة احتياطية', 'Backup')) + '</h3><p>' + esc(B('ملف JSON فيه تقدّمك في كل الرحلات والاختبارات والمراجعة ودفتر الأخطاء والمعمل وبرومبتاتك.', 'A JSON file with your progress in every journey, tests, review, mistakes, lab and your prompts.')) + '</p>' +
         '<div class="jr-actions"><button type="button" class="link-btn" data-export>' + esc(B('نزّل النسخة', 'Download backup')) + '</button>' +
         '<label class="ghost-btn file-btn">' + esc(B('رجّع نسخة…', 'Restore a backup…')) + '<input type="file" accept="application/json,.json" data-import hidden></label></div>' +
         (pending ? '<p class="lock-note">' + esc(B('الملف ده هيستبدل التقدّم اللي على المتصفح ده (' + pending.n + ' عنصر، اتعمل ' + pending.at + ').', 'This file will replace the progress in this browser (' + pending.n + ' items, made ' + pending.at + ').')) +
           '</p><div class="jr-actions"><button type="button" class="link-btn" data-restore>' + esc(B('أيوه، رجّعها', 'Yes, restore it')) + '</button><button type="button" class="ghost-btn" data-cancel>' + esc(B('إلغاء', 'Cancel')) + '</button></div>' : '') +
         '<p class="acct-msg" role="alert">' + esc(msg) + '</p></div>' +
         '<div class="md-card"><h3>📴 ' + esc(B('من غير نت', 'Offline')) + '</h3><p>' + esc(!sw ? B('المتصفح ده مش بيدعم الاستخدام من غير نت.', 'This browser does not support offline use.') :
-          ctl ? B('الموقع شغّال كتطبيق: الصفحات اللي فتحتها قبل كده متاحة من غير نت. دوس تحت عشان تحمّل كل حاجة مرة واحدة (الرحلتين بالـ 48 أسبوع، والمراجعة، والبحث، والمعمل): حوالي 3 ميجا، والأحسن على Wi-Fi.', 'The site runs as an app: the pages you opened before work offline. Press below to download everything at once (both journeys with all 48 weeks, review, search and the lab): about 3 MB, best on Wi-Fi.') :
+          ctl ? B('الموقع شغّال كتطبيق: الصفحات اللي فتحتها قبل كده متاحة من غير نت. دوس تحت عشان تحمّل كل حاجة مرة واحدة (الرحلات التلاتة بالـ 72 أسبوع، والمراجعة، والبحث، والمعمل): حوالي 5 ميجا، والأحسن على Wi-Fi.', 'The site runs as an app: the pages you opened before work offline. Press below to download everything at once (all three journeys with their 72 weeks, review, search and the lab): about 5 MB, best on Wi-Fi.') :
           B('افتح الموقع مرة كمان وهو متصل عشان يتجهّز للاستخدام من غير نت.', 'Open the site once more while online so it can get ready for offline use.')) + '</p>' +
         (ctl ? '<div class="jr-actions"><button type="button" class="link-btn" data-offline>' + esc(B('حمّل الموقع كله للمذاكرة من غير نت', 'Download the whole site for offline study')) + '</button><span class="sub-note" data-offmsg aria-live="polite"></span></div>' : '') +
         '<p class="sub-note">' + esc(B('وتقدر تثبّت الموقع على الموبايل أو الكمبيوتر من قايمة «المزيد» أو من قايمة المتصفح ← «إضافة للشاشة الرئيسية».', 'You can also install the site on your phone or computer from the «More» menu or the browser menu → «Add to home screen».')) + '</p></div>' +
-        '<div class="md-card"><h3>☁️ ' + esc(B('الحساب', 'Account')) + '</h3><p>' + esc(B('لو سجّلت دخول (زرار «سجّل دخول» فوق)، المراجعة ودفتر الأخطاء والمعمل وبرومبتاتك بيتزامنوا أونلاين مع الرحلتين، وتكمّل من أي جهاز.', 'When you sign in (the «Sign in» button above), your review, mistakes, lab and prompts sync online along with both journeys, so you can continue on any device.')) + '</p></div></div>';
+        '<div class="md-card"><h3>☁️ ' + esc(B('الحساب', 'Account')) + '</h3><p>' + esc(B('لو سجّلت دخول (زرار «سجّل دخول» فوق)، المراجعة ودفتر الأخطاء والمعمل وبرومبتاتك بيتزامنوا أونلاين مع الرحلات، وتكمّل من أي جهاز.', 'When you sign in (the «Sign in» button above), your review, mistakes, lab and prompts sync online along with the journeys, so you can continue on any device.')) + '</p></div></div>';
     }
     el.addEventListener('click', function(e){
       var b = e.target.closest('button');
@@ -371,7 +372,7 @@
       }
       if(b.hasAttribute('data-offline')){
         var urls = [];
-        ['n8n', 'english'].forEach(function(t){ for(var i = 1; i <= 24; i++) urls.push('content/' + t + '/weeks/w' + (i < 10 ? '0' : '') + i + '.js' + (S.version ? '?v=' + S.version : '')); });
+        ['n8n', 'english', 'python'].forEach(function(t){ for(var i = 1; i <= 24; i++) urls.push('content/' + t + '/weeks/w' + (i < 10 ? '0' : '') + i + '.js' + (S.version ? '?v=' + S.version : '')); });
         var out = el.querySelector('[data-offmsg]'), ch = new MessageChannel();
         b.disabled = true;
         ch.port1.onmessage = function(ev){

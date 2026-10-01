@@ -4,12 +4,13 @@
 
 ## الفكرة في سطرين
 
-رحلتين، كل واحدة **24 أسبوع (6 شهور)** بـ **ساعتين في اليوم، 6 أيام في الأسبوع**:
+تلات رحلات، كل واحدة **24 أسبوع (6 شهور)** بـ **ساعتين في اليوم، 6 أيام في الأسبوع**:
 
 - **رحلة n8n** (`n8n.html`): من أول ما تشغّل n8n لحد ما تسلّم أنظمة أتمتة لعملاء على سيرفر، ومعاها JavaScript وPython وSQL وRegex وGit وDocker والذكاء الاصطناعي.
+- **رحلة بايثون** (`python.html`): Python للأتمتة من أول سطر: ملفات وExcel وPDF وإيميل وAPIs وScraping وSQL وpandas وFastAPI والذكاء الاصطناعي وMCP، ومعاها HTML وCSS وJavaScript. أغلب الأمثلة فيها زرار **شغّل** بيشغّلها جوه الصفحة، وتقدر تعدّل الكود وتجرّب.
 - **إنجليزي المبرمج** (`english.html`): من A1 لحد B2/C1 في إنجليزي الشغل: رسايل الأخطاء، والتوثيق، والإيميلات، والاجتماعات، والمقابلات.
 
-تقدر تمشي في الاتنين مع بعض (4 ساعات في اليوم)، أو تبدأ بواحدة. لو إنجليزيك ضعيف جدًا، ابدأ بالإنجليزي شهر الأول، لأن توثيق n8n كله إنجليزي.
+تقدر تمشي في رحلتين مع بعض (4 ساعات في اليوم)، أو تبدأ بواحدة. لو إنجليزيك ضعيف جدًا، ابدأ بالإنجليزي شهر الأول، لأن التوثيق كله إنجليزي. ورحلة بايثون بتكمّل رحلة n8n: اللي n8n مش بيعرف يعمله لوحده بتكتبه بـ Python.
 
 ## اليوم بتاعك (120 دقيقة)
 
@@ -73,11 +74,11 @@
 
 ## In English (short)
 
-Two 24-week journeys (n8n automation, and English for developers), 2 hours a day, 6 days a week.
+Three 24-week journeys (n8n automation, Python for automation and the web, and English for developers), 2 hours a day, 6 days a week. In the Python journey most examples have a **Run** button: Python runs in the browser, and HTML/JavaScript in a sandboxed frame; you can edit the code first.
 
 - **Study days 1–5**: understand → practise (check each task) → words → reading → a 3-question quiz. A day is done when every practice task is checked and 60% of the quiz is right.
 - **Day 6**: review, the weekly project, and the weekly test. The next week opens at **70%**; retake as often as you like — your best score counts.
 - **Monthly exams** (20 questions drawn from the month) open after the month's four weekly tests. The **final exam** (48 questions from all 24 weeks) opens after week 24; passing it shows a printable certificate. Every attempt draws new questions.
-- **Library**: about 600 free resources, each saying exactly what to read; filter by section, level, language and done/not done.
+- **Library**: about 700 free resources, each saying exactly what to read; filter by section, level, language and done/not done.
 - **Progress** is saved in your browser. Sign in with an email link (no password) to keep it online and continue on any device, or download a backup file from «My review».
 - **Tools** (menu «More»): *My review* (10–15 min of spaced review a day + the mistakes notebook), *Lab* (expressions, JavaScript, Python and SQL challenges; view and check any workflow), *Speaking practice*, *Prompts*, *Cheat sheets*. Search everything with `Ctrl K` or `/`.

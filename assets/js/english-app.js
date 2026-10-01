@@ -216,7 +216,7 @@
       var card = document.createElement('div');
       card.className = 'q-card';
       var h = '<div class="qn">' + (x.d === 'g' ? 'GRAMMAR' : 'REVIEW') + ' · Q' + (x.i + 1) + '</div><div class="qq">' + fmt(x.q.q) + '</div><div class="q-opts">';
-      x.q.o.forEach(function(o, oi){
+      SITE.order(x.q.o.length, 'english:' + x.id).forEach(function(oi){ var o = x.q.o[oi];
         var cls = '';
         if(ans !== undefined){ if(oi === x.q.a) cls = ' right'; else if(oi === ans) cls = ' wrong'; }
         h += '<button type="button" class="q-opt' + cls + '" data-q="' + x.id + '" data-o="' + oi + '">' + fmt(o) + '</button>';

@@ -9,12 +9,15 @@ except the optional services listed under [Outside services](#outside-services).
 | Page | What it is | Built from |
 |---|---|---|
 | `index.html` | Home | static HTML + the tool cards from `content/pages.js` |
-| `n8n.html`, `english.html` | The two 24-week journeys and their reference sections | static HTML + `assets/js/*-data.js` + `assets/js/journey.js` + the week files |
+| `n8n.html`, `english.html` | Two of the 24-week journeys and their reference sections | static HTML + `assets/js/*-data.js` + `assets/js/journey.js` + the week files |
+| `python.html` | The Python journey, built like a tool page | sections (`content/sections/python.js`, `python-ref.js`) + `content/library/python.js` + `assets/js/python-app.js` + `journey.js` + the week files |
 | `review.html` | Spaced review (FSRS), mistakes notebook, stats, backup | sections (`content/sections/review.js`) + `assets/js/review.js` |
 | `lab.html` | Workflow viewer/checker, template search, playgrounds | sections + `assets/js/lab.js`, `assets/js/lab-expr.js` |
 | `speak.html` | Pronunciation, shadowing, dictation, work situations | sections + `assets/js/speak.js` |
 | `prompts.html` | Prompt library, prompt course, my prompts | sections + `assets/js/prompts.js` |
 | `sheets.html` | Printable cheat sheets | sections only |
+
+Runnable examples: `journey.js` adds a Run/Edit bar to any example with `run`, and calls the page's `runCode`. On `python.html` that is `assets/js/pyrun.js` (Pyodide in a module worker: loads the libraries the code imports, 15 s limit, returns printed output and saved images) for Python, and a `sandbox="allow-scripts"` iframe for HTML/JavaScript. The lab's Python playground uses the same `pyrun.js`.
 
 Every page loads, in this order: `i18n.js` → the English dictionaries → `content/pages.js` → `config.js` →
 `site.js` → (page data and app) → `ui.js` → Supabase → `account.js`.
@@ -104,7 +107,7 @@ After changing `tools/page.template.html`, rewrite every tool page with `node to
 | Command | Does |
 |---|---|
 | `npm run build` | Builds the week files from `content/<track>/src`, the search index and review deck (`assets/data/`), the sharing tags of every page + `sitemap.xml` (`tools/build_meta.js`), and `sw.js` |
-| `npm test` | Old pages in both languages (jsdom), journey rules, content validation, every lab challenge against its solution (Python through the local `python`), the tool pages and the search |
+| `npm test` | Old pages in both languages (jsdom), journey rules, content validation, every lab challenge against its solution (Python through the local `python`), every runnable example of the Python journey (`tools/test_python_examples.js`, `tools/test_web_examples.js`), the tool pages and the search |
 | `npm run release` | Bumps `?v=` on every page (`tools/bump_version.js`), builds, tests |
 | `npm run links` | Checks every external link → `tools/links-report.md` (also runs every Monday on GitHub) |
 | `npm run artifact` | One-file copy of the n8n page for the claude.ai artifact (`dist/n8n-artifact.html`): everything inlined, links to the other pages go to the live site (`window.SITE_EMBED`). Republish it after a release |

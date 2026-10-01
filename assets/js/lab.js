@@ -5,7 +5,6 @@
   var S = window.SITE, X = window.SECTIONS, B = S.B, L = S.L, esc = S.esc;
   var CDN = {
     luxon: 'https://cdn.jsdelivr.net/npm/luxon@3.7.2/build/global/luxon.min.js',
-    pyodide: 'https://cdn.jsdelivr.net/pyodide/v314.0.7/full/',
     sqljs: 'https://cdn.jsdelivr.net/npm/sql.js@1.14.2/dist/'
   };
   function lsGet(k, d){ try{ var v = JSON.parse(localStorage.getItem(k)); return v == null ? d : v; }catch(e){ return d; } }
@@ -352,42 +351,8 @@
       w.postMessage(msg);
     });
   }
-  // Python: one worker that keeps Pyodide loaded; a run that hangs replaces the worker
-  var py = null;
-  function pyWorker(){
-    // a module worker: Pyodide's current builds load as an ES module
-    var src = 'import { loadPyodide } from ' + JSON.stringify(CDN.pyodide + 'pyodide.mjs') + ';\n' +
-      'var ready = loadPyodide({ indexURL: ' + JSON.stringify(CDN.pyodide) + ' });\n' +
-      'self.onmessage = function(e){ ready.then(function(p){ var out = []; p.setStdout({ batched: function(s){ out.push(s); } }); p.setStderr({ batched: function(s){ out.push(s); } });\n' +
-      '  try{ p.runPython(e.data.code, { globals: p.toPy({}) }); postMessage({ ok: true, out: out.join("\\n") }); }\n' +
-      '  catch(err){ var m = String(err && err.message || err); var lines = m.split("\\n").filter(function(l){ return l && !/^  File "\\/lib|^    |_pyodide|pyodide\\/|Traceback/.test(l); }); postMessage({ ok: false, out: out.join("\\n"), error: lines.slice(-3).join("\\n") || m }); } },\n' +
-      '  function(err){ postMessage({ ok: false, load: true, error: String(err) }); }); };\n' +
-      'ready.then(function(){ postMessage({ ready: true }); }, function(err){ postMessage({ ok: false, load: true, error: String(err) }); });';
-    var w = new Worker(URL.createObjectURL(new Blob([src], { type: 'text/javascript' })), { type: 'module' });
-    var st = { w: w, ready: false, wait: [] };
-    st.readyP = new Promise(function(res, rej){
-      w.onmessage = function(e){
-        if(e.data.ready){ st.ready = true; res(); return; }
-        if(e.data.load){ rej(new Error(e.data.error)); return; }
-        var cb = st.wait.shift(); if(cb) cb(e.data);
-      };
-      w.onerror = function(e){ rej(new Error(e.message || 'worker')); };
-    });
-    return st;
-  }
-  function runPy(code, onStatus){
-    if(!py) py = pyWorker();
-    var mine = py;
-    if(!mine.ready && onStatus) onStatus(B('بيحمّل Python (حوالي 10 ميجا، أول مرة بس)…', 'Loading Python (about 10 MB, first time only)…'));
-    return mine.readyP.then(function(){
-      return new Promise(function(resolve){
-        var done = false;
-        var t = setTimeout(function(){ if(done) return; done = true; mine.w.terminate(); if(py === mine) py = null; resolve({ ok: false, error: B('الكود أخد أكتر من 15 ثانية ووقفناه (هنحمّل Python تاني في التشغيل الجاي).', 'The code took more than 15 seconds and was stopped (Python reloads on the next run).') }); }, 15000);
-        mine.wait.push(function(r){ if(done) return; done = true; clearTimeout(t); resolve(r); });
-        mine.w.postMessage({ code: code });
-      });
-    }, function(err){ if(py === mine) py = null; return { ok: false, error: B('مقدرناش نحمّل Python. اتأكد من النت وجرّب تاني.', 'Could not load Python. Check your connection and try again.') + ' (' + err.message + ')' }; });
-  }
+  // Python: assets/js/pyrun.js (shared with the Python journey)
+  function runPy(code, onStatus){ return window.PYRUN.run(code, onStatus); }
   // SQL: sql.js on the page; the practice database is rebuilt from the section's schema
   var SQLP = null;
   function sqlLib(){

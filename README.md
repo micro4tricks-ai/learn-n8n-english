@@ -4,7 +4,7 @@
 
 # Developer Journey · رحلة المبرمج
 
-**Learn n8n automation and technical English with a clear day-by-day plan — free, bilingual, in your browser.**
+**Learn n8n automation, Python for automation and the web, and technical English with a clear day-by-day plan — free, bilingual, in your browser.**
 
 [![Live site](https://img.shields.io/badge/Live%20site-Open%20→-3f8f63?style=for-the-badge)](https://micro4tricks-ai.github.io/learn-n8n-english/)
 &nbsp;
@@ -19,7 +19,7 @@
 
 <a href="https://micro4tricks-ai.github.io/learn-n8n-english/"><img src="docs/screenshot.png" alt="Developer Journey home page" width="860"></a>
 
-[**Open the site**](https://micro4tricks-ai.github.io/learn-n8n-english/) · [n8n plan](https://micro4tricks-ai.github.io/learn-n8n-english/n8n.html) · [English plan](https://micro4tricks-ai.github.io/learn-n8n-english/english.html) · [Review](https://micro4tricks-ai.github.io/learn-n8n-english/review.html) · [Lab](https://micro4tricks-ai.github.io/learn-n8n-english/lab.html) · [Prompts](https://micro4tricks-ai.github.io/learn-n8n-english/prompts.html) · [Report a problem](https://github.com/micro4tricks-ai/learn-n8n-english/issues/new/choose)
+[**Open the site**](https://micro4tricks-ai.github.io/learn-n8n-english/) · [n8n plan](https://micro4tricks-ai.github.io/learn-n8n-english/n8n.html) · [Python plan](https://micro4tricks-ai.github.io/learn-n8n-english/python.html) · [English plan](https://micro4tricks-ai.github.io/learn-n8n-english/english.html) · [Review](https://micro4tricks-ai.github.io/learn-n8n-english/review.html) · [Lab](https://micro4tricks-ai.github.io/learn-n8n-english/lab.html) · [Prompts](https://micro4tricks-ai.github.io/learn-n8n-english/prompts.html) · [Report a problem](https://github.com/micro4tricks-ai/learn-n8n-english/issues/new/choose)
 
 </div>
 
@@ -30,6 +30,7 @@
 - [About](#about)
 - [What's inside](#whats-inside)
 - [The n8n Journey](#the-n8n-journey)
+- [The Python Journey](#the-python-journey)
 - [English for Developers](#english-for-developers)
 - [The tools](#the-tools)
 - [Screenshots](#screenshots)
@@ -47,20 +48,21 @@
 
 ## About
 
-Two free 24-week journeys in one site, for Arabic-speaking developers who want to **automate real work with n8n** and **work confidently in English**:
+Three free 24-week journeys in one site, for Arabic-speaking developers who want to **automate real work with n8n**, **write the Python behind it** and **work confidently in English**:
 
 | Journey | For | Length | Pace |
 |---|---|---|---|
 | ⚙️ **The n8n Journey** — `n8n.html` | Building automations with n8n plus the languages around it: JavaScript, Python, JSON/HTTP, SQL, Regex, Git, Docker and AI — up to client work in production | 24 weeks (6 months) | 2 h/day, 6 days a week |
+| 🐍 **The Python Journey** — `python.html` | Python for automation from the first line: files, Excel, PDF, email, APIs, scraping, SQL, pandas, FastAPI, LLMs and MCP — plus the HTML, CSS and JavaScript around it. Examples run on the page | 24 weeks (6 months) | 2 h/day, 6 days a week |
 | 📘 **English for Developers** — `english.html` | The English you use every day at work: error messages, docs, READMEs, commits, emails, meetings and interviews — from A1 to B2/C1 | 24 weeks (6 months) | 2 h/day, 6 days a week |
 
 Every week has five study days (explanation → hands-on practice → words/terms → reading → short quiz) and a sixth day with a review, a weekly project and a **weekly test**: the next week opens at **70%**. Monthly exams and a final exam with a capstone project close each month and the journey.
 
-> **Status:** all 24 weeks of both journeys are written (288 study days), with 5 monthly exams and a final exam per journey and a printable completion certificate. See the [student guide](docs/STUDENT_GUIDE.md) and the [design](docs/superpowers/specs/2026-09-28-24-week-program-design.md).
+> **Status:** all 24 weeks of the three journeys are written (432 study days), with 5 monthly exams and a final exam per journey and a printable completion certificate. See the [student guide](docs/STUDENT_GUIDE.md) and the [design](docs/superpowers/specs/2026-09-28-24-week-program-design.md).
 
 <div dir="rtl">
 
-**بالعربي:** رحلتان مجانيتان في موقع واحد، كل رحلة 24 أسبوعاً (6 أشهر) بساعتين في اليوم: «رحلة n8n» لبناء الأتمتة ومعها JavaScript وPython وSQL وDocker والذكاء الاصطناعي حتى العمل مع العملاء، و«إنجليزي المبرمج» من A1 إلى B2/C1 في إنجليزية العمل. كل أسبوع خمسة أيام مذاكرة ويوم مراجعة ومشروع واختبار، والأسبوع التالي يُفتح عند 70%. التقدّم يُحفظ في المتصفح، ويمكن إنشاء حساب بالبريد الإلكتروني لحفظه أونلاين.
+**بالعربي:** ثلاث رحلات مجانية في موقع واحد، كل رحلة 24 أسبوعاً (6 أشهر) بساعتين في اليوم: «رحلة n8n» لبناء الأتمتة ومعها JavaScript وPython وSQL وDocker والذكاء الاصطناعي حتى العمل مع العملاء، و«رحلة بايثون» للأتمتة والويب من أول سطر حتى FastAPI وDocker وMCP ومعها HTML وCSS وJavaScript وأمثلة تعمل داخل الصفحة، و«إنجليزي المبرمج» من A1 إلى B2/C1 في إنجليزية العمل. كل أسبوع خمسة أيام مذاكرة ويوم مراجعة ومشروع واختبار، والأسبوع التالي يُفتح عند 70%. التقدّم يُحفظ في المتصفح، ويمكن إنشاء حساب بالبريد الإلكتروني لحفظه أونلاين.
 
 </div>
 
@@ -79,7 +81,19 @@ Every week has five study days (explanation → hands-on practice → words/term
   <tr><td>Monthly exams + final exam</td><td align="right">5 + 1</td><td>Monthly exams + final exam</td><td align="right">5 + 1</td></tr>
   <tr><td>Worked, real-world workflows</td><td align="right">12</td><td>Grammar rules (right vs. wrong)</td><td align="right">117</td></tr>
   <tr><td>Common errors explained</td><td align="right">34</td><td>Error messages and HTTP codes explained</td><td align="right">49</td></tr>
-  <tr><td>Free library resources (with filters)</td><td align="right">294</td><td>Free library resources (with filters)</td><td align="right">290</td></tr>
+  <tr><td>Free library resources (with filters)</td><td align="right">301</td><td>Free library resources (with filters)</td><td align="right">290</td></tr>
+</table>
+
+<table>
+  <tr><th align="left">🐍 Python Journey</th><th align="right">Count</th></tr>
+  <tr><td>Weeks / study days</td><td align="right">24 / 144</td></tr>
+  <tr><td>Lessons with examples (256 run on the page: Python, HTML, JavaScript)</td><td align="right">360</td></tr>
+  <tr><td>Hands-on practice tasks</td><td align="right">480</td></tr>
+  <tr><td>Daily quiz + weekly test questions</td><td align="right">362 + 288</td></tr>
+  <tr><td>Terms taught in the journey</td><td align="right">761</td></tr>
+  <tr><td>Monthly exams + final exam</td><td align="right">5 + 1</td></tr>
+  <tr><td>Automation projects / cheat sheets / common errors</td><td align="right">10 / 9 / 28</td></tr>
+  <tr><td>Free library resources (books, courses, docs)</td><td align="right">117</td></tr>
 </table>
 
 ## The n8n Journey
@@ -94,6 +108,19 @@ Every week has five study days (explanation → hands-on practice → words/term
 | 6 | 21–24 | Production and career: Docker and a VPS, security, queue mode and monitoring, custom nodes, freelancing, capstone | Docker, Linux, YAML |
 
 Also on the page: **worked workflows** from real work, a glossary with flashcards, quick-reference cheat sheets, common errors explained, language tracks and a library of free resources.
+
+## The Python Journey
+
+| Month | Weeks | Topic | Covers |
+|:-:|:-:|---|---|
+| 1 | 1–4 | Python basics | Running Python, strings and numbers, conditions and loops, lists and tuples |
+| 2 | 5–8 | Functions and data structures | dict/set/JSON, functions, modules, pip/venv/uv, errors, debugging and logging |
+| 3 | 9–12 | Automating files and office work | Files and folders, Regex and cleaning Arabic text, CSV and Excel, PDF, Word, images and email |
+| 4 | 13–16 | The web: APIs, HTML, CSS and JavaScript | HTTP and requests, HTML and CSS, JavaScript, scraping |
+| 5 | 17–20 | Objects, data and databases | Classes, SQL with sqlite3, pandas, charts, dates, command-line tools and scheduling |
+| 6 | 21–24 | Production and AI | FastAPI with n8n, tests and code quality, LLMs, the Claude API and MCP, Docker, a VPS, CI and freelancing |
+
+Most examples have a **Run** button: Python runs in the browser (Pyodide, with pandas, sqlite3, Beautiful Soup and matplotlib), and HTML/JavaScript run in a sandboxed frame. You can edit the code and feed `input()`. Also on the page: a glossary by month, 9 printable cheat sheets, 10 automation projects, 28 common errors explained and a library of free books, courses and docs.
 
 ## English for Developers
 
@@ -179,6 +206,7 @@ Opening `index.html` straight from disk also works, but each page then keeps its
 ```
 index.html              Landing page
 n8n.html                The n8n journey page
+python.html             The Python journey page
 english.html            The English journey page
 review.html lab.html speak.html prompts.html sheets.html   Tool pages (built from content/sections)
 sw.js · manifest.webmanifest                               Offline app (sw.js is generated)
@@ -247,7 +275,7 @@ The tool pages don't use the dictionaries at all: their texts are `{ar, en}` in 
 | Command | Does |
 |---|---|
 | `npm run build` | Week files, search index, review deck, sharing tags + sitemap, offline file lists |
-| `npm test` | Every test (pages in both languages, journey, content, lab challenges, tool pages, search) |
+| `npm test` | Every test (pages in both languages, journey, content, lab challenges, every runnable Python/JavaScript example, tool pages, search) |
 | `npm run release` | New asset version + build + test |
 | `npm run new:page -- <id> "<عربي>" "<English>"` | A new tool page with its menu entry ([how](docs/ARCHITECTURE.md#adding-a-new-tab-a-page)) |
 | `npm run links` | Check every external link |

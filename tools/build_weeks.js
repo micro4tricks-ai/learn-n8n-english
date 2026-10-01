@@ -9,22 +9,23 @@
 //   read:  ['lib:BBC Learning English', {lib:'…', what:{ar,en}}] → a library entry (its own note, or `what`)
 // English for bank entries comes from the page dictionaries (assets/js/<track>-en.js); a missing one stops the build.
 //
-// usage: node tools/build_weeks.js english|n8n [--check]
+// The python track has no page data file: its words are written in the weeks and its library is content/library/python.js.
+//
+// usage: node tools/build_weeks.js english|n8n|python [--check]
 const fs = require('fs'), path = require('path'), vm = require('vm');
 const ROOT = path.resolve(__dirname, '..');
 const track = process.argv[2];
-if (!['english', 'n8n'].includes(track)) { console.error('usage: node tools/build_weeks.js english|n8n'); process.exit(2); }
+if (!['english', 'n8n', 'python'].includes(track)) { console.error('usage: node tools/build_weeks.js english|n8n|python'); process.exit(2); }
 const js = f => fs.readFileSync(path.join(ROOT, 'assets/js', f), 'utf8');
 const AR = /[\u0600-\u06FF]/;
 
 // ---- the page data and its English dictionary ----
 const win = {}; win.window = win;
-vm.runInNewContext(js(track === 'english' ? 'english-data.js' : 'n8n-data.js'), win);
-const D = track === 'english' ? win.EN_DATA : win.N8N_DATA;
+if (track !== 'python') vm.runInNewContext(js(track === 'english' ? 'english-data.js' : 'n8n-data.js'), win);
 const dict = {};
 const ctx = { I18N_ADD: d => Object.assign(dict, d) };
 ctx.window = { I18N_ADD: ctx.I18N_ADD };
-['common-en.js', track + '-en.js'].forEach(f => vm.runInNewContext(js(f), ctx));
+['common-en.js'].concat(track === 'python' ? [] : [track + '-en.js']).forEach(f => vm.runInNewContext(js(f), ctx));
 
 const problems = [];
 function en(ar, where) {
@@ -33,13 +34,14 @@ function en(ar, where) {
   if (dict[k] == null) { problems.push(where + ': no English for «' + k.slice(0, 80) + '»'); return { ar, en: '' }; }
   return { ar, en: dict[k] };
 }
+// the extra bilingual entries in content/library/<track>.js join the library (title/read may be {ar, en})
+vm.runInNewContext(fs.readFileSync(path.join(ROOT, 'content/library', track + '.js'), 'utf8'), win);
+const D = track === 'english' ? win.EN_DATA : track === 'n8n' ? win.N8N_DATA : { TERMS: [], LIBRARY: win.PY_DATA.LIBRARY };
 const bank = Object.create(null);
 (track === 'english' ? D.VOCAB.map(v => ({ t: v.term, m: v.mean, ex: v.ex })) : D.TERMS.map(v => ({ t: v.t, m: v.m, ex: v.ex })))
   .forEach(v => { if (!bank[v.t.toLowerCase()]) bank[v.t.toLowerCase()] = v; });
 const grammar = Object.create(null);
 (D.GRAMMAR || []).forEach(g => { grammar[g.h] = g; });
-// the extra bilingual entries in content/library/<track>.js join the library (title/read may be {ar, en})
-vm.runInNewContext(fs.readFileSync(path.join(ROOT, 'content/library', track + '.js'), 'utf8'), win);
 const library = Object.create(null);
 D.LIBRARY.forEach(b => { if (typeof b.t === 'object') { library[b.t.en] = b; library[b.t.ar] = b; } else library[b.t] = b; });
 
@@ -78,6 +80,9 @@ const check = process.argv.includes('--check');
 for (const f of files) {
   // a grammar reference must be a plain string, not an expression left behind while editing
   if (/'g:[^']*'\s*(===|&&|\?)/.test(fs.readFileSync(path.join(srcDir, f), 'utf8'))) problems.push(track + '/src/' + f + ': a grammar reference is inside an expression');
+  // in a JS string a single backslash before d, w, s, b… is lost (\d becomes d, \b a backspace): regex samples need \\d
+  const lost = fs.readFileSync(path.join(srcDir, f), 'utf8').split('\n').findIndex(l => /(^|[^\\])\\[dwsbDWSB.]/.test(l));
+  if (lost !== -1) problems.push(track + '/src/' + f + ':' + (lost + 1) + ': write \\\\d (two backslashes) in a regex sample, a single one is lost');
   delete require.cache[require.resolve(path.join(srcDir, f))];
   const src = require(path.join(srcDir, f));
   const n = Number(f.slice(1, 3));

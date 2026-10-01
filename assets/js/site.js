@@ -18,6 +18,18 @@
     if(typeof x !== 'object') return String(x);
     return x[LANG] || x.ar || x.en || '';
   };
+  // The display order of n answer options for a question key: shuffled, but always the same for the same key
+  // (so the options do not move after answering). Answers are still stored as the original option index.
+  S.order = function(n, key){
+    var h = 2166136261, s = String(key), out = [];
+    for(var i = 0; i < s.length; i++){ h ^= s.charCodeAt(i); h = Math.imul(h, 16777619); }
+    for(i = 0; i < n; i++) out.push(i);
+    for(i = n - 1; i > 0; i--){
+      h = Math.imul(h ^ (h >>> 15), 2246822507); h = Math.imul(h ^ (h >>> 13), 3266489909); h ^= h >>> 16;
+      var j = (h >>> 0) % (i + 1), x = out[i]; out[i] = out[j]; out[j] = x;
+    }
+    return out;
+  };
   S.esc = function(s){ return String(s == null ? '' : s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); };
   // inline: `code`, **bold**, [text](https://link)
   function inline(s){

@@ -26,7 +26,7 @@ module.exports = {
         B('حل 3 تمارين Python على Exercism.', 'Solve 3 Python exercises on Exercism.')
       ],
       words: ['variable', 'string / int / float / bool', 'f-string', 'list', 'dictionary'],
-      read: ['lib:Python for Everybody', 'lib:The Python Tutorial (الرسمي)'],
+      read: ['lib:Python for Everybody', 'lib:The Python Tutorial (الرسمي)', { t: B('رحلة بايثون على الموقع', 'The Python journey on this site'), url: 'python.html#journey', what: B('لو عايز تتعمق: 24 أسبوع Python للأتمتة بأمثلة بتشتغل في الصفحة.', 'To go deeper: 24 weeks of Python for automation, with examples that run on the page.') }],
       challenge: B('اكتب سكربت Python بيقرا orders.json، ويحسب الإجمالي لكل عميل، ويكتب النتيجة في summary.json.', 'Write a Python script that reads orders.json, totals each customer\'s orders, and writes the result to summary.json.'),
       quiz: [
         { q: B('في Python البلوك بيتحدد بـ:', 'In Python a block is defined by:'), o: ['indentation', 'curly braces', 'semicolons'], a: 0, why: B('المسافات.', 'The spaces.') },

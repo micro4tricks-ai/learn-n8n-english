@@ -22,7 +22,7 @@ function question(x, where){
 }
 function atLeast(list, n, where){ if(!Array.isArray(list) || list.length < n) problems.push(where + ' < ' + n); }
 
-for(const track of ['english', 'n8n']){
+for(const track of ['english', 'n8n', 'python']){
   const dir = path.join(ROOT, 'content', track, 'weeks');
   if(!fs.existsSync(dir)) continue;
   for(const f of fs.readdirSync(dir).filter(f => /^w\d\d\.js$/.test(f)).sort()){
@@ -49,7 +49,8 @@ for(const track of ['english', 'n8n']){
         (d.code || []).forEach((c, j) => { bi(c.u, D + ' code ' + j); if(c.p == null) problems.push(D + ' code ' + j + ': no snippet'); else bi(c.p, D + ' code ' + j + ' snippet', true); });
         (d.words || []).forEach((w, j) => { if(!w.t) problems.push(D + ' word ' + j + ': no term'); bi(w.m, D + ' word ' + j); if(w.ex != null) bi(w.ex, D + ' word ' + j + ' ex', true); });
         (d.read || []).forEach((r, j) => {
-          if(!/^https:\/\//.test(r.url || '')) problems.push(D + ' read ' + j + ': url must be https');
+          // https, or another page of this site (python.html#journey)
+          if(!/^https:\/\//.test(r.url || '') && !/^[a-z0-9-]+\.html(#[\w=&?-]*)?$/.test(r.url || '')) problems.push(D + ' read ' + j + ': url must be https or a page of this site');
           bi(r.t, D + ' read ' + j + ' title');
           bi(r.what, D + ' read ' + j);
         });
