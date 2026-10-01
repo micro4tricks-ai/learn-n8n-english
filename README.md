@@ -147,7 +147,7 @@ Five pages that work with both journeys (menu **More**):
 | 🤖 **Prompts** — `prompts.html` | A library of **38 prompts** for coding, n8n agents, learning English, client work, studying and data: fill the boxes and copy. A **10-lesson prompt-writing course**. **My prompts**: save your own with variables, tags, version history, export/import; synced with your account. |
 | 📄 **Cheat sheets** — `sheets.html` | 11 print-ready A4 sheets: n8n expressions, main nodes, JavaScript for the Code node, Python, SQL, Git, Docker for n8n, HTTP and status codes, Regex, English tenses for work, ready phrases. |
 
-On every page: **site-wide search** (`Ctrl K` or `/`) across ~3,000 entries in Arabic and English, with links straight to the word, rule, resource, week or day.
+On every page: **site-wide search** (`Ctrl K` or `/`) across ~4,100 entries in Arabic and English, with links straight to the word, rule, resource, week or day.
 
 ## Screenshots
 
@@ -155,6 +155,10 @@ On every page: **site-wide search** (`Ctrl K` or `/`) across ~3,000 entries in A
   <tr>
     <td width="50%"><img src="docs/n8n-plan-en.png" alt="The n8n plan in English"><p align="center"><sub>The n8n plan (English)</sub></p></td>
     <td width="50%"><img src="docs/english-plan-en.png" alt="The English plan in English"><p align="center"><sub>English for Developers (English)</sub></p></td>
+  </tr>
+  <tr>
+    <td width="50%"><img src="docs/python-plan-en.png" alt="The Python journey in English"><p align="center"><sub>The Python Journey (English)</sub></p></td>
+    <td width="50%"><img src="docs/screenshot.png" alt="The home page in Arabic"><p align="center"><sub>The home page (Arabic)</sub></p></td>
   </tr>
 </table>
 

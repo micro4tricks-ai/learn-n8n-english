@@ -162,5 +162,6 @@ window.I18N_ADD && I18N_ADD({
  "ابدأ رحلة بايثون ←": "Start the Python journey →",
  "أدوات تساعدك في كل الرحلات": "Tools that help in every journey",
  "تلات رحلات تعلم مجانية بالعربي والإنجليزي: أتمتة n8n، وبايثون للأتمتة والويب، والإنجليزي التقني للمبرمجين.": "Three free learning journeys in Arabic and English: n8n automation, Python for automation and the web, and technical English for developers.",
- "اعرض": "Preview"
+ "اعرض": "Preview",
+ "اتعلم الأتمتة وبايثون والإنجليزي التقني بخطة واضحة يوم بيوم": "Learn automation, Python and technical English with a clear day-by-day plan"
 });
