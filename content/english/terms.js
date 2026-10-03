@@ -2880,5 +2880,905 @@ JOURNEY_TERMS["english"] = [
    "en": "ready steps for handling a situation"
   },
   "ex": "Follow the payments runbook."
+ },
+ {
+  "w": 33,
+  "t": "objective",
+  "m": {
+   "ar": "هدف الاجتماع",
+   "en": "the purpose of a meeting"
+  },
+  "ex": "State the objective in the invite."
+ },
+ {
+  "w": 33,
+  "t": "outcome",
+  "m": {
+   "ar": "النتيجة المطلوبة",
+   "en": "the result you want to leave with"
+  },
+  "ex": "The outcome is a decision."
+ },
+ {
+  "w": 33,
+  "t": "timebox",
+  "m": {
+   "ar": "وقت محدد لبند",
+   "en": "a fixed amount of time for an item"
+  },
+  "ex": "Timebox the options discussion to 20 minutes."
+ },
+ {
+  "w": 33,
+  "t": "pre-read",
+  "m": {
+   "ar": "مستند يتقري قبل الاجتماع",
+   "en": "a document to read before a meeting"
+  },
+  "ex": "Please read the pre-read first."
+ },
+ {
+  "w": 33,
+  "t": "attendees",
+  "m": {
+   "ar": "الحاضرين",
+   "en": "the people taking part"
+  },
+  "ex": "Keep the attendees to five."
+ },
+ {
+  "w": 33,
+  "t": "facilitator",
+  "m": {
+   "ar": "اللي بيدير النقاش",
+   "en": "the person who guides the discussion"
+  },
+  "ex": "The facilitator keeps time."
+ },
+ {
+  "w": 33,
+  "t": "parking lot",
+  "m": {
+   "ar": "قايمة مواضيع نأجلها لبعدين",
+   "en": "a list of topics postponed for later"
+  },
+  "ex": "Add SMS orders to the parking lot."
+ },
+ {
+  "w": 33,
+  "t": "take offline",
+  "m": {
+   "ar": "نكمّل النقاش بره الاجتماع",
+   "en": "to continue a discussion outside the meeting"
+  },
+  "ex": "Let’s take that offline."
+ },
+ {
+  "w": 33,
+  "t": "going off topic",
+  "m": {
+   "ar": "الخروج عن الموضوع",
+   "en": "drifting away from the subject"
+  },
+  "ex": "We are going off topic."
+ },
+ {
+  "w": 33,
+  "t": "recap",
+  "m": {
+   "ar": "تلخيص سريع",
+   "en": "a quick summary"
+  },
+  "ex": "Let me recap before we move on."
+ },
+ {
+  "w": 33,
+  "t": "quiet participant",
+  "m": {
+   "ar": "حد مش بيتكلم كتير في الاجتماع",
+   "en": "someone who says little in a meeting"
+  },
+  "ex": "Invite the quiet participant by name."
+ },
+ {
+  "w": 33,
+  "t": "interrupt politely",
+  "m": {
+   "ar": "تقاطع بأدب",
+   "en": "to cut in courteously"
+  },
+  "ex": "Interrupt politely with «Sorry to jump in»."
+ },
+ {
+  "w": 33,
+  "t": "jump in",
+  "m": {
+   "ar": "تدخل في الكلام",
+   "en": "to join a conversation suddenly"
+  },
+  "ex": "Can I jump in here?"
+ },
+ {
+  "w": 33,
+  "t": "go round the table",
+  "m": {
+   "ar": "كل واحد يتكلم بالدور",
+   "en": "let each person speak in turn"
+  },
+  "ex": "Let’s go round the table."
+ },
+ {
+  "w": 33,
+  "t": "just to check",
+  "m": {
+   "ar": "عبارة للتأكد من الفهم",
+   "en": "a phrase used to confirm understanding"
+  },
+  "ex": "Just to check: Thursday, not Friday?"
+ },
+ {
+  "w": 33,
+  "t": "propose",
+  "m": {
+   "ar": "يقترح",
+   "en": "to suggest formally"
+  },
+  "ex": "I propose we start with Postgres."
+ },
+ {
+  "w": 33,
+  "t": "consensus",
+  "m": {
+   "ar": "توافق من غير اعتراض قوي",
+   "en": "agreement with no strong objection"
+  },
+  "ex": "We reached consensus quickly."
+ },
+ {
+  "w": 33,
+  "t": "can live with",
+  "m": {
+   "ar": "مقبول عندي حتى لو مش المفضّل",
+   "en": "acceptable even if not my favourite"
+  },
+  "ex": "I can live with that decision."
+ },
+ {
+  "w": 33,
+  "t": "disagree and commit",
+  "m": {
+   "ar": "تعترض بس تلتزم بالقرار",
+   "en": "to object but still support the decision"
+  },
+  "ex": "Omar chose to disagree and commit."
+ },
+ {
+  "w": 33,
+  "t": "decision log",
+  "m": {
+   "ar": "سجل القرارات وأسبابها",
+   "en": "a record of decisions and their reasons"
+  },
+  "ex": "Add it to the decision log."
+ },
+ {
+  "w": 33,
+  "t": "closing remarks",
+  "m": {
+   "ar": "كلمة الختام",
+   "en": "the final words of a meeting or talk"
+  },
+  "ex": "Keep your closing remarks short."
+ },
+ {
+  "w": 33,
+  "t": "minutes",
+  "m": {
+   "ar": "محضر الاجتماع",
+   "en": "the written record of a meeting"
+  },
+  "ex": "I’ll send the minutes today."
+ },
+ {
+  "w": 33,
+  "t": "chair",
+  "m": {
+   "ar": "رئيس/مدير الاجتماع",
+   "en": "the person in charge of a meeting"
+  },
+  "ex": "Sara will chair the meeting."
+ },
+ {
+  "w": 33,
+  "t": "action owner",
+  "m": {
+   "ar": "المسؤول عن خطوة",
+   "en": "the person responsible for an action"
+  },
+  "ex": "Every action needs an action owner."
+ },
+ {
+  "w": 33,
+  "t": "productive",
+  "m": {
+   "ar": "مثمر ومفيد",
+   "en": "achieving useful results"
+  },
+  "ex": "Thanks, that was productive."
+ },
+ {
+  "w": 34,
+  "t": "persuade",
+  "m": {
+   "ar": "يقنع",
+   "en": "to convince"
+  },
+  "ex": "Use numbers to persuade the client."
+ },
+ {
+  "w": 34,
+  "t": "prep structure",
+  "m": {
+   "ar": "نقطة، سبب، مثال، نقطة",
+   "en": "point, reason, example, point"
+  },
+  "ex": "The PREP structure keeps you short."
+ },
+ {
+  "w": 34,
+  "t": "supporting evidence",
+  "m": {
+   "ar": "الدليل اللي بيدعم الرأي",
+   "en": "proof backing your view"
+  },
+  "ex": "Bring supporting evidence from the test."
+ },
+ {
+  "w": 34,
+  "t": "reasoning",
+  "m": {
+   "ar": "طريقة التفكير اللي وراك",
+   "en": "the logic behind your view"
+  },
+  "ex": "Explain your reasoning step by step."
+ },
+ {
+  "w": 34,
+  "t": "benefit",
+  "m": {
+   "ar": "الفايدة",
+   "en": "an advantage someone gets"
+  },
+  "ex": "The benefit is fewer angry customers."
+ },
+ {
+  "w": 34,
+  "t": "what's in it for them",
+  "m": {
+   "ar": "الفايدة اللي هتعود عليهم",
+   "en": "the benefit they will get"
+  },
+  "ex": "Always think about what’s in it for them."
+ },
+ {
+  "w": 34,
+  "t": "buy-in",
+  "m": {
+   "ar": "اقتناع ومشاركة حقيقية",
+   "en": "real agreement and involvement"
+  },
+  "ex": "Get buy-in from the support team early."
+ },
+ {
+  "w": 34,
+  "t": "concern",
+  "m": {
+   "ar": "قلق أو تخوّف",
+   "en": "a worry"
+  },
+  "ex": "Her main concern was cost."
+ },
+ {
+  "w": 34,
+  "t": "priorities",
+  "m": {
+   "ar": "الأولويات",
+   "en": "the things that matter most"
+  },
+  "ex": "Cost is high on his priorities."
+ },
+ {
+  "w": 34,
+  "t": "input",
+  "m": {
+   "ar": "رأي أو مساهمة",
+   "en": "an opinion or contribution"
+  },
+  "ex": "I’d value your input."
+ },
+ {
+  "w": 34,
+  "t": "acknowledge",
+  "m": {
+   "ar": "تعترف بكلام حد / تقدّره",
+   "en": "to recognise someone’s point"
+  },
+  "ex": "Acknowledge the concern before answering."
+ },
+ {
+  "w": 34,
+  "t": "reassure",
+  "m": {
+   "ar": "تطمّن",
+   "en": "to remove someone’s worry"
+  },
+  "ex": "Reassure the client about data safety."
+ },
+ {
+  "w": 34,
+  "t": "feel felt found",
+  "m": {
+   "ar": "أسلوب تعاطف: بتحس، حسّوا، لقوا",
+   "en": "an empathy pattern: feel, felt, found"
+  },
+  "ex": "Use feel felt found with nervous clients."
+ },
+ {
+  "w": 34,
+  "t": "concede",
+  "m": {
+   "ar": "تعترف بنقطة صحيحة",
+   "en": "to admit a valid point"
+  },
+  "ex": "Concede the small point, defend the big one."
+ },
+ {
+  "w": 34,
+  "t": "counter-argument",
+  "m": {
+   "ar": "حجة مضادة",
+   "en": "an argument against yours"
+  },
+  "ex": "Prepare for the counter-argument on cost."
+ },
+ {
+  "w": 34,
+  "t": "concession",
+  "m": {
+   "ar": "تنازل في التفاوض",
+   "en": "something you give up in a negotiation"
+  },
+  "ex": "Never make a concession for nothing."
+ },
+ {
+  "w": 34,
+  "t": "anchor",
+  "m": {
+   "ar": "أول رقم بيأثر على النقاش",
+   "en": "the first number that shapes the discussion"
+  },
+  "ex": "Your price is the anchor."
+ },
+ {
+  "w": 34,
+  "t": "walk-away point",
+  "m": {
+   "ar": "أقل حاجة تقبلها",
+   "en": "the least you will accept"
+  },
+  "ex": "My walk-away point is 18,000 EGP."
+ },
+ {
+  "w": 34,
+  "t": "batna",
+  "m": {
+   "ar": "أحسن بديل لو مفيش اتفاق",
+   "en": "the best alternative if there is no deal"
+  },
+  "ex": "A strong BATNA keeps you calm."
+ },
+ {
+  "w": 34,
+  "t": "win-win",
+  "m": {
+   "ar": "الطرفين كسبانين",
+   "en": "good for both sides"
+  },
+  "ex": "Aim for a win-win agreement."
+ },
+ {
+  "w": 34,
+  "t": "push back",
+  "m": {
+   "ar": "تعترض بأدب",
+   "en": "to resist politely"
+  },
+  "ex": "It’s fine to push back on unrealistic deadlines."
+ },
+ {
+  "w": 34,
+  "t": "i'm afraid",
+  "m": {
+   "ar": "عبارة مهذبة قبل خبر مش حلو",
+   "en": "a polite phrase before unwelcome news"
+  },
+  "ex": "I’m afraid we can’t do it this week."
+ },
+ {
+  "w": 34,
+  "t": "alternative offer",
+  "m": {
+   "ar": "عرض بديل",
+   "en": "a different option you can provide"
+  },
+  "ex": "Always include an alternative offer."
+ },
+ {
+  "w": 34,
+  "t": "manage expectations",
+  "m": {
+   "ar": "تظبط توقعات الناس بدري",
+   "en": "to set people’s expectations early"
+  },
+  "ex": "Manage expectations about the deadline."
+ },
+ {
+  "w": 34,
+  "t": "firm but polite",
+  "m": {
+   "ar": "واضح ومحترم في نفس الوقت",
+   "en": "clear and respectful at once"
+  },
+  "ex": "Be firm but polite about the scope."
+ },
+ {
+  "w": 35,
+  "t": "sbi model",
+  "m": {
+   "ar": "موقف، سلوك، أثر",
+   "en": "situation, behaviour, impact"
+  },
+  "ex": "Use the SBI model for feedback."
+ },
+ {
+  "w": 35,
+  "t": "behaviour",
+  "m": {
+   "ar": "السلوك اللي اتشاف",
+   "en": "what someone observably did"
+  },
+  "ex": "Describe the behaviour, not the person."
+ },
+ {
+  "w": 35,
+  "t": "constructive",
+  "m": {
+   "ar": "بنّاء وهدفه التحسين",
+   "en": "helpful and aimed at improvement"
+  },
+  "ex": "Give constructive feedback in private."
+ },
+ {
+  "w": 35,
+  "t": "praise",
+  "m": {
+   "ar": "مدح وتقدير",
+   "en": "words of approval"
+  },
+  "ex": "Specific praise is remembered."
+ },
+ {
+  "w": 35,
+  "t": "timely",
+  "m": {
+   "ar": "في وقته",
+   "en": "happening at the right time"
+  },
+  "ex": "Feedback should be timely."
+ },
+ {
+  "w": 35,
+  "t": "softener",
+  "m": {
+   "ar": "كلمة بتخفف حدة الكلام",
+   "en": "a word that makes a message gentler"
+  },
+  "ex": "«Might» is a useful softener."
+ },
+ {
+  "w": 35,
+  "t": "i noticed",
+  "m": {
+   "ar": "عبارة بتبدأ بيها ملاحظة بلطف",
+   "en": "a gentle way to start a remark"
+  },
+  "ex": "I noticed the tests are failing."
+ },
+ {
+  "w": 35,
+  "t": "have you considered",
+  "m": {
+   "ar": "عبارة بتقترح بلطف",
+   "en": "a gentle way to suggest"
+  },
+  "ex": "Have you considered caching the result?"
+ },
+ {
+  "w": 35,
+  "t": "it might be worth",
+  "m": {
+   "ar": "ممكن يستاهل",
+   "en": "it could be useful to"
+  },
+  "ex": "It might be worth adding a retry."
+ },
+ {
+  "w": 35,
+  "t": "harsh",
+  "m": {
+   "ar": "قاسي/حاد",
+   "en": "unkind or too strong"
+  },
+  "ex": "The comment sounded harsh."
+ },
+ {
+  "w": 35,
+  "t": "receive feedback",
+  "m": {
+   "ar": "تستقبل الملاحظات",
+   "en": "to take in comments on your work"
+  },
+  "ex": "Learn to receive feedback calmly."
+ },
+ {
+  "w": 35,
+  "t": "defensive",
+  "m": {
+   "ar": "بيدافع عن نفسه بزيادة",
+   "en": "quick to protect yourself"
+  },
+  "ex": "Try not to be defensive."
+ },
+ {
+  "w": 35,
+  "t": "take on board",
+  "m": {
+   "ar": "تاخد بالكلام وتعمل بيه",
+   "en": "to accept and act on"
+  },
+  "ex": "I’ll take that on board."
+ },
+ {
+  "w": 35,
+  "t": "fair comment",
+  "m": {
+   "ar": "ملاحظة في محلها",
+   "en": "a criticism that is reasonable"
+  },
+  "ex": "Fair comment — I’ll fix the naming."
+ },
+ {
+  "w": 35,
+  "t": "blind spot",
+  "m": {
+   "ar": "نقطة مش واخد بالك منها في نفسك",
+   "en": "something about yourself you cannot see"
+  },
+  "ex": "Feedback reveals your blind spots."
+ },
+ {
+  "w": 35,
+  "t": "mentor",
+  "m": {
+   "ar": "مرشد بيساعد حد أقل خبرة",
+   "en": "an experienced guide who helps someone grow"
+  },
+  "ex": "My mentor helped me plan my career."
+ },
+ {
+  "w": 35,
+  "t": "mentee",
+  "m": {
+   "ar": "الشخص اللي بيتعلم من مرشد",
+   "en": "the person being mentored"
+  },
+  "ex": "The mentee chose today’s topic."
+ },
+ {
+  "w": 35,
+  "t": "coaching question",
+  "m": {
+   "ar": "سؤال مفتوح بيخلّي الشخص يفكّر",
+   "en": "an open question that helps someone think"
+  },
+  "ex": "Ask a coaching question instead of giving the answer."
+ },
+ {
+  "w": 35,
+  "t": "active listening",
+  "m": {
+   "ar": "استماع بتركيز وإعادة وتأكد",
+   "en": "listening with focus, restating and checking"
+  },
+  "ex": "Active listening builds trust."
+ },
+ {
+  "w": 35,
+  "t": "sounding board",
+  "m": {
+   "ar": "حد بتجرّب أفكارك عليه",
+   "en": "someone you test ideas on"
+  },
+  "ex": "A mentor can be a sounding board."
+ },
+ {
+  "w": 35,
+  "t": "one-on-one",
+  "m": {
+   "ar": "اجتماع فردي منتظم",
+   "en": "a regular meeting between two people"
+  },
+  "ex": "Our one-on-one is every other Monday."
+ },
+ {
+  "w": 35,
+  "t": "check in",
+  "m": {
+   "ar": "تطمن على حد أو حاجة",
+   "en": "to briefly ask how someone or something is"
+  },
+  "ex": "Let’s check in next week."
+ },
+ {
+  "w": 35,
+  "t": "career goal",
+  "m": {
+   "ar": "هدف مهني",
+   "en": "a goal for your working life"
+  },
+  "ex": "Her career goal is to lead a team."
+ },
+ {
+  "w": 35,
+  "t": "stretch goal",
+  "m": {
+   "ar": "هدف صعب شوية بس ممكن",
+   "en": "a challenging but reachable goal"
+  },
+  "ex": "Running the demo is a stretch goal."
+ },
+ {
+  "w": 35,
+  "t": "energised",
+  "m": {
+   "ar": "متحمس ومليان طاقة",
+   "en": "full of energy and motivation"
+  },
+  "ex": "The new project energised him."
+ },
+ {
+  "w": 36,
+  "t": "talk",
+  "m": {
+   "ar": "محاضرة/عرض قصير قدام جمهور",
+   "en": "a presentation given to an audience"
+  },
+  "ex": "My talk is 20 minutes long."
+ },
+ {
+  "w": 36,
+  "t": "big idea",
+  "m": {
+   "ar": "الفكرة الأساسية الواحدة",
+   "en": "the one central idea"
+  },
+  "ex": "Every slide serves the big idea."
+ },
+ {
+  "w": 36,
+  "t": "story arc",
+  "m": {
+   "ar": "تسلسل الحكاية من البداية للنهاية",
+   "en": "the shape of a story from start to end"
+  },
+  "ex": "The story arc starts with a failure."
+ },
+ {
+  "w": 36,
+  "t": "call for papers",
+  "m": {
+   "ar": "دعوة المؤتمر لتقديم محاضرات",
+   "en": "an event’s invitation to submit talks"
+  },
+  "ex": "The call for papers closes on Friday."
+ },
+ {
+  "w": 36,
+  "t": "lightning talk",
+  "m": {
+   "ar": "محاضرة قصيرة جدًا (5 دقايق)",
+   "en": "a very short talk (about 5 minutes)"
+  },
+  "ex": "Start with a lightning talk."
+ },
+ {
+  "w": 36,
+  "t": "slide deck",
+  "m": {
+   "ar": "مجموعة الشرايح",
+   "en": "the set of slides"
+  },
+  "ex": "Share the slide deck after the talk."
+ },
+ {
+  "w": 36,
+  "t": "one idea per slide",
+  "m": {
+   "ar": "قاعدة فكرة واحدة لكل شريحة",
+   "en": "the rule of a single idea on each slide"
+  },
+  "ex": "Follow one idea per slide."
+ },
+ {
+  "w": 36,
+  "t": "speaker notes",
+  "m": {
+   "ar": "ملاحظات المتحدث المخفية",
+   "en": "the presenter’s hidden notes"
+  },
+  "ex": "Keep the details in the speaker notes."
+ },
+ {
+  "w": 36,
+  "t": "visual",
+  "m": {
+   "ar": "رسمة أو صورة توضيحية",
+   "en": "an image or diagram"
+  },
+  "ex": "Use a visual instead of bullets."
+ },
+ {
+  "w": 36,
+  "t": "highlight",
+  "m": {
+   "ar": "تبرز/تظلّل",
+   "en": "to make something stand out"
+  },
+  "ex": "Highlight the key line of code."
+ },
+ {
+  "w": 36,
+  "t": "pace",
+  "m": {
+   "ar": "سرعة الكلام",
+   "en": "the speed of speaking"
+  },
+  "ex": "Slow your pace when you are nervous."
+ },
+ {
+  "w": 36,
+  "t": "pause",
+  "m": {
+   "ar": "وقفة قصيرة",
+   "en": "a short stop"
+  },
+  "ex": "Pause after the key number."
+ },
+ {
+  "w": 36,
+  "t": "eye contact",
+  "m": {
+   "ar": "التواصل بالعين",
+   "en": "looking at people’s eyes"
+  },
+  "ex": "Make eye contact with the whole room."
+ },
+ {
+  "w": 36,
+  "t": "stage fright",
+  "m": {
+   "ar": "رهبة المسرح/التوتر قبل العرض",
+   "en": "nervousness before performing"
+  },
+  "ex": "Everyone has some stage fright."
+ },
+ {
+  "w": 36,
+  "t": "rehearse",
+  "m": {
+   "ar": "تعمل بروفة",
+   "en": "to practise before the real event"
+  },
+  "ex": "Rehearse the talk three times."
+ },
+ {
+  "w": 36,
+  "t": "live demo",
+  "m": {
+   "ar": "عرض حي للبرنامج",
+   "en": "showing the software working live"
+  },
+  "ex": "The live demo took four minutes."
+ },
+ {
+  "w": 36,
+  "t": "backup recording",
+  "m": {
+   "ar": "فيديو احتياطي للديمو",
+   "en": "a spare video of the demo"
+  },
+  "ex": "Switch to the backup recording if Wi-Fi fails."
+ },
+ {
+  "w": 36,
+  "t": "q&a",
+  "m": {
+   "ar": "فقرة الأسئلة والأجوبة",
+   "en": "the questions-and-answers part"
+  },
+  "ex": "We have ten minutes for Q&A."
+ },
+ {
+  "w": 36,
+  "t": "follow up later",
+  "m": {
+   "ar": "ترجع بالإجابة بعدين",
+   "en": "to answer later"
+  },
+  "ex": "I’ll follow up later by email."
+ },
+ {
+  "w": 36,
+  "t": "hostile question",
+  "m": {
+   "ar": "سؤال عدائي/هجومي",
+   "en": "an aggressive question"
+  },
+  "ex": "Stay calm with a hostile question."
+ },
+ {
+  "w": 36,
+  "t": "webinar",
+  "m": {
+   "ar": "محاضرة أونلاين",
+   "en": "an online seminar"
+  },
+  "ex": "Join our webinar on Thursday."
+ },
+ {
+  "w": 36,
+  "t": "screen share",
+  "m": {
+   "ar": "مشاركة الشاشة",
+   "en": "showing your screen to others"
+  },
+  "ex": "Screen share only the browser window."
+ },
+ {
+  "w": 36,
+  "t": "mic check",
+  "m": {
+   "ar": "اختبار الميكروفون",
+   "en": "a quick microphone test"
+  },
+  "ex": "Do a mic check five minutes early."
+ },
+ {
+  "w": 36,
+  "t": "dry run",
+  "m": {
+   "ar": "بروفة كاملة قبل الحقيقي",
+   "en": "a full practice before the real thing"
+  },
+  "ex": "We did a dry run yesterday."
+ },
+ {
+  "w": 36,
+  "t": "captions",
+  "m": {
+   "ar": "ترجمة/نص مكتوب على الفيديو",
+   "en": "text of the speech shown on a video"
+  },
+  "ex": "Add captions for accessibility."
  }
 ];
