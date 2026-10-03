@@ -11538,5 +11538,284 @@ JOURNEY_TERMS["python"] = [
    "en": "gradual change in behaviour or data"
   },
   "ex": "Watch for drift after the holiday season."
+ },
+ {
+  "w": 40,
+  "t": "json-rpc",
+  "m": {
+   "ar": "بروتوكول طلب ورد بـ JSON",
+   "en": "a request/response protocol using JSON"
+  },
+  "ex": "MCP messages are JSON-RPC 2.0."
+ },
+ {
+  "w": 40,
+  "t": "capability negotiation",
+  "m": {
+   "ar": "الاتفاق على الإمكانيات المدعومة",
+   "en": "agreeing which features both sides support"
+  },
+  "ex": "Capability negotiation happens in initialize."
+ },
+ {
+  "w": 40,
+  "t": "protocol version",
+  "m": {
+   "ar": "نسخة البروتوكول",
+   "en": "the version of the protocol in use"
+  },
+  "ex": "Log the negotiated protocol version."
+ },
+ {
+  "w": 40,
+  "t": "tools/list",
+  "m": {
+   "ar": "طلب قايمة الأدوات",
+   "en": "the request listing a server’s tools"
+  },
+  "ex": "The client calls tools/list after initialize."
+ },
+ {
+  "w": 40,
+  "t": "tools/call",
+  "m": {
+   "ar": "طلب تشغيل أداة",
+   "en": "the request running a tool"
+  },
+  "ex": "tools/call carries the tool name and arguments."
+ },
+ {
+  "w": 40,
+  "t": "mcp prompt",
+  "m": {
+   "ar": "قالب برومبت بيعرضه السيرفر",
+   "en": "a prompt template a server offers"
+  },
+  "ex": "The user picked the weekly_review MCP prompt."
+ },
+ {
+  "w": 40,
+  "t": "progress notification",
+  "m": {
+   "ar": "إشعار تقدّم لعملية طويلة",
+   "en": "a message reporting progress of long work"
+  },
+  "ex": "Send a progress notification every 100 files."
+ },
+ {
+  "w": 40,
+  "t": "elicitation",
+  "m": {
+   "ar": "السيرفر يطلب معلومة من المستخدم",
+   "en": "a server asking the user for input"
+  },
+  "ex": "Elicitation asked which branch to use."
+ },
+ {
+  "w": 40,
+  "t": "sampling",
+  "m": {
+   "ar": "السيرفر يطلب كتابة من نموذج الـ client",
+   "en": "a server asking the client’s model to generate"
+  },
+  "ex": "Sampling lets the server summarise without its own key."
+ },
+ {
+  "w": 40,
+  "t": "tool annotations",
+  "m": {
+   "ar": "تلميحات عن طبيعة الأداة",
+   "en": "hints describing a tool’s behaviour"
+  },
+  "ex": "Tool annotations mark cancel_order as destructive."
+ },
+ {
+  "w": 40,
+  "t": "readOnlyHint",
+  "m": {
+   "ar": "تلميح: الأداة بتقرا بس",
+   "en": "a hint that a tool only reads"
+  },
+  "ex": "Set readOnlyHint on reporting tools."
+ },
+ {
+  "w": 40,
+  "t": "destructiveHint",
+  "m": {
+   "ar": "تلميح: الأداة ممكن تغيّر أو تمسح",
+   "en": "a hint that a tool may change or delete"
+  },
+  "ex": "Clients ask before destructiveHint tools."
+ },
+ {
+  "w": 40,
+  "t": "structured content",
+  "m": {
+   "ar": "نتيجة JSON منظمة",
+   "en": "machine-readable tool output"
+  },
+  "ex": "Return structured content with the text."
+ },
+ {
+  "w": 40,
+  "t": "output schema",
+  "m": {
+   "ar": "شكل نتيجة الأداة",
+   "en": "the schema of a tool’s result"
+  },
+  "ex": "The output schema lets clients validate results."
+ },
+ {
+  "w": 40,
+  "t": "resource template",
+  "m": {
+   "ar": "resource بمتغيّر في العنوان",
+   "en": "a resource address with variables"
+  },
+  "ex": "shop://orders/{order_id} is a resource template."
+ },
+ {
+  "w": 40,
+  "t": "cursor pagination",
+  "m": {
+   "ar": "صفحات بمؤشر للصفحة الجاية",
+   "en": "paging with a token for the next page"
+  },
+  "ex": "Use cursor pagination for long lists."
+ },
+ {
+  "w": 40,
+  "t": "remote mcp server",
+  "m": {
+   "ar": "سيرفر MCP على الشبكة",
+   "en": "an MCP server reached over the network"
+  },
+  "ex": "The remote MCP server sits behind Caddy."
+ },
+ {
+  "w": 40,
+  "t": "streamable http",
+  "m": {
+   "ar": "نقل MCP عبر HTTP بـ endpoint واحد",
+   "en": "MCP transport over HTTP with one endpoint"
+  },
+  "ex": "Use streamable HTTP for remote clients."
+ },
+ {
+  "w": 40,
+  "t": "session id",
+  "m": {
+   "ar": "معرّف الجلسة",
+   "en": "an identifier for one client session"
+  },
+  "ex": "The session id travels in a header."
+ },
+ {
+  "w": 40,
+  "t": "oauth 2.1",
+  "m": {
+   "ar": "نسخة OAuth المستخدمة في MCP العام",
+   "en": "the OAuth version used by public MCP servers"
+  },
+  "ex": "Public servers authenticate users with OAuth 2.1."
+ },
+ {
+  "w": 40,
+  "t": "rate limiter",
+  "m": {
+   "ar": "محدد عدد الطلبات",
+   "en": "a component limiting calls per time"
+  },
+  "ex": "The rate limiter allows 60 calls a minute."
+ },
+ {
+  "w": 40,
+  "t": "contract test",
+  "m": {
+   "ar": "اختبار العقد بين السيرفر والـ clients",
+   "en": "a test that the interface clients rely on is unchanged"
+  },
+  "ex": "The contract test caught a renamed tool."
+ },
+ {
+  "w": 40,
+  "t": "snapshot test",
+  "m": {
+   "ar": "اختبار مقارنة بنسخة محفوظة",
+   "en": "a test comparing output with a saved copy"
+  },
+  "ex": "Update the snapshot test on purpose only."
+ },
+ {
+  "w": 40,
+  "t": "breaking change",
+  "m": {
+   "ar": "تغيير بيكسر الـ clients",
+   "en": "a change that breaks existing clients"
+  },
+  "ex": "A new required parameter is a breaking change."
+ },
+ {
+  "w": 40,
+  "t": "in-process client",
+  "m": {
+   "ar": "client في نفس العملية للاختبار",
+   "en": "a test client running in the same process"
+  },
+  "ex": "An in-process client calls tools/list in tests."
+ },
+ {
+  "w": 40,
+  "t": "call log",
+  "m": {
+   "ar": "سجل النداءات",
+   "en": "a record of each tool call"
+  },
+  "ex": "The call log shows who called which tool."
+ },
+ {
+  "w": 40,
+  "t": "tool poisoning",
+  "m": {
+   "ar": "تعليمات خبيثة مستخبية في وصف أداة",
+   "en": "malicious instructions hidden in a tool description"
+  },
+  "ex": "Review descriptions to catch tool poisoning."
+ },
+ {
+  "w": 40,
+  "t": "confused deputy",
+  "m": {
+   "ar": "نظام بصلاحيات بينفّذ طلب حد مالوش الصلاحية",
+   "en": "a privileged system misused on behalf of someone else"
+  },
+  "ex": "Per-user checks prevent a confused deputy."
+ },
+ {
+  "w": 40,
+  "t": "mcp security",
+  "m": {
+   "ar": "أمان سيرفرات MCP",
+   "en": "the security practices for MCP servers"
+  },
+  "ex": "MCP security starts with trusted sources."
+ },
+ {
+  "w": 40,
+  "t": "uvx",
+  "m": {
+   "ar": "أمر بيشغّل حزمة Python من غير تثبيت دائم",
+   "en": "a command running a Python package without installing it"
+  },
+  "ex": "Run the server with uvx shop-mcp==0.4.0."
+ },
+ {
+  "w": 40,
+  "t": "rug pull",
+  "m": {
+   "ar": "تحديث بيقلب السيرفر لخبيث",
+   "en": "a trusted package turning malicious in an update"
+  },
+  "ex": "Pin versions to avoid a rug pull."
  }
 ];
