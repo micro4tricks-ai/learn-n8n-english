@@ -7182,5 +7182,905 @@ JOURNEY_TERMS["n8n"] = [
    "en": "turning an HTML page into a PDF file"
   },
   "ex": "PDF rendering runs in a small Docker service."
+ },
+ {
+  "w": 33,
+  "t": "multi-agent",
+  "m": {
+   "ar": "نظام فيه أكتر من وكيل AI بيتعاونوا",
+   "en": "a system with several AI agents working together"
+  },
+  "ex": "A multi-agent setup handles mixed requests."
+ },
+ {
+  "w": 33,
+  "t": "supervisor agent",
+  "m": {
+   "ar": "وكيل بيوزّع الشغل على وكلاء تانيين",
+   "en": "an agent that routes work to other agents"
+  },
+  "ex": "The supervisor agent calls the billing agent."
+ },
+ {
+  "w": 33,
+  "t": "specialist agent",
+  "m": {
+   "ar": "وكيل بمهمة ضيقة وأدوات قليلة",
+   "en": "an agent with a narrow task and few tools"
+  },
+  "ex": "The booking specialist agent has three tools."
+ },
+ {
+  "w": 33,
+  "t": "agent as tool",
+  "m": {
+   "ar": "وكيل بيتنادي كأداة من وكيل تاني",
+   "en": "an agent called as a tool by another agent"
+  },
+  "ex": "Expose the support bot as an agent as tool."
+ },
+ {
+  "w": 33,
+  "t": "agent handoff",
+  "m": {
+   "ar": "تسليم المحادثة من وكيل لوكيل",
+   "en": "passing a conversation from one agent to another"
+  },
+  "ex": "The agent handoff keeps the context."
+ },
+ {
+  "w": 33,
+  "t": "chat memory",
+  "m": {
+   "ar": "ذاكرة رسايل المحادثة الأخيرة",
+   "en": "memory of a conversation’s recent messages"
+  },
+  "ex": "Store chat memory in Postgres for production."
+ },
+ {
+  "w": 33,
+  "t": "session key",
+  "m": {
+   "ar": "المفتاح اللي بيفصل ذاكرة كل عميل",
+   "en": "the key that separates each customer’s memory"
+  },
+  "ex": "Use the phone number as the session key."
+ },
+ {
+  "w": 33,
+  "t": "long-term memory",
+  "m": {
+   "ar": "حقائق بتتفتكر لفترة طويلة",
+   "en": "facts remembered for a long time"
+  },
+  "ex": "Long-term memory keeps the customer’s language."
+ },
+ {
+  "w": 33,
+  "t": "summary memory",
+  "m": {
+   "ar": "ملخص للمحادثة القديمة بدل نصها كامل",
+   "en": "a summary of the old conversation instead of its full text"
+  },
+  "ex": "Summary memory cuts the token cost."
+ },
+ {
+  "w": 33,
+  "t": "memory pruning",
+  "m": {
+   "ar": "تنضيف الذاكرة القديمة بانتظام",
+   "en": "regularly cleaning out old memory"
+  },
+  "ex": "Memory pruning runs every night."
+ },
+ {
+  "w": 33,
+  "t": "agent role",
+  "m": {
+   "ar": "دور الوكيل ومهمته المحددة",
+   "en": "an agent’s role and specific task"
+  },
+  "ex": "Write the agent role in one line."
+ },
+ {
+  "w": 33,
+  "t": "agent card",
+  "m": {
+   "ar": "وصف قصير للوكيل: مهمته وأدواته وحدوده",
+   "en": "a short description of an agent: task, tools and limits"
+  },
+  "ex": "The agent card becomes its system prompt."
+ },
+ {
+  "w": 33,
+  "t": "structured handoff",
+  "m": {
+   "ar": "تسليم بين الوكلاء بـ JSON ثابت",
+   "en": "passing data between agents as fixed JSON"
+  },
+  "ex": "A structured handoff is easy to test."
+ },
+ {
+  "w": 33,
+  "t": "least access",
+  "m": {
+   "ar": "أقل صلاحيات تكفي المهمة",
+   "en": "the minimum permissions the task needs"
+  },
+  "ex": "Give the support agent least access."
+ },
+ {
+  "w": 33,
+  "t": "bounded task",
+  "m": {
+   "ar": "مهمة محددة ليها حدود واضحة",
+   "en": "a task with clear limits"
+  },
+  "ex": "Each specialist has a bounded task."
+ },
+ {
+  "w": 33,
+  "t": "model routing",
+  "m": {
+   "ar": "اختيار الموديل المناسب لكل خطوة",
+   "en": "choosing the right model for each step"
+  },
+  "ex": "Model routing cut our AI bill in half."
+ },
+ {
+  "w": 33,
+  "t": "step limit",
+  "m": {
+   "ar": "أقصى عدد خطوات مسموح للوكيل",
+   "en": "the most steps an agent may take"
+  },
+  "ex": "A step limit of 6 stops loops."
+ },
+ {
+  "w": 33,
+  "t": "cost per conversation",
+  "m": {
+   "ar": "متوسط تكلفة المحادثة الواحدة",
+   "en": "the average cost of one conversation"
+  },
+  "ex": "Track cost per conversation weekly."
+ },
+ {
+  "w": 33,
+  "t": "daily cap",
+  "m": {
+   "ar": "حد أقصى يومي",
+   "en": "a maximum per day"
+  },
+  "ex": "A daily cap of 50 messages per customer."
+ },
+ {
+  "w": 33,
+  "t": "response time",
+  "m": {
+   "ar": "الوقت لحد ما الرد يوصل",
+   "en": "the time until the reply arrives"
+  },
+  "ex": "Keep response time under 10 seconds."
+ },
+ {
+  "w": 33,
+  "t": "intermediate steps",
+  "m": {
+   "ar": "الخطوات اللي الوكيل عملها قبل الرد",
+   "en": "the steps an agent took before replying"
+  },
+  "ex": "Save the intermediate steps for each chat."
+ },
+ {
+  "w": 33,
+  "t": "trace",
+  "m": {
+   "ar": "سجل كامل لمسار طلب واحد",
+   "en": "a complete record of one request’s path"
+  },
+  "ex": "The trace showed the wrong tool input."
+ },
+ {
+  "w": 33,
+  "t": "tool misuse",
+  "m": {
+   "ar": "استخدام الوكيل لأداة غلط أو بمدخلات غلط",
+   "en": "an agent using the wrong tool or wrong inputs"
+  },
+  "ex": "Tool misuse dropped after a clearer description."
+ },
+ {
+  "w": 33,
+  "t": "rubric",
+  "m": {
+   "ar": "معايير ثابتة للتقييم",
+   "en": "fixed criteria for scoring"
+  },
+  "ex": "Score every reviewed chat with the rubric."
+ },
+ {
+  "w": 33,
+  "t": "random sample",
+  "m": {
+   "ar": "عينة مختارة عشوائيًا",
+   "en": "a randomly chosen subset"
+  },
+  "ex": "Review a random sample of 20 chats."
+ },
+ {
+  "w": 34,
+  "t": "evaluation",
+  "m": {
+   "ar": "قياس جودة نظام بمجموعة اختبار ثابتة",
+   "en": "measuring a system’s quality on a fixed test set"
+  },
+  "ex": "Run the evaluation after every prompt change."
+ },
+ {
+  "w": 34,
+  "t": "test set",
+  "m": {
+   "ar": "أمثلة ثابتة بإجاباتها الصح للقياس",
+   "en": "fixed examples with their correct answers, for measuring"
+  },
+  "ex": "The test set has 60 real messages."
+ },
+ {
+  "w": 34,
+  "t": "metric",
+  "m": {
+   "ar": "رقم بيقيس الجودة",
+   "en": "a number that measures quality"
+  },
+  "ex": "Accuracy is our main metric."
+ },
+ {
+  "w": 34,
+  "t": "baseline",
+  "m": {
+   "ar": "النتيجة الحالية اللي بتقارن بيها",
+   "en": "the current result you compare against"
+  },
+  "ex": "The baseline accuracy is 85%."
+ },
+ {
+  "w": 34,
+  "t": "faithfulness",
+  "m": {
+   "ar": "إن الرد معتمد على المصادر بس",
+   "en": "a reply being based only on the sources"
+  },
+  "ex": "Faithfulness dropped when we added more chunks."
+ },
+ {
+  "w": 34,
+  "t": "evaluation run",
+  "m": {
+   "ar": "تشغيل واحد للتقييم على كل المجموعة",
+   "en": "one run of the evaluation over the whole set"
+  },
+  "ex": "Compare this evaluation run with the last one."
+ },
+ {
+  "w": 34,
+  "t": "eval dataset",
+  "m": {
+   "ar": "جدول أمثلة التقييم بإجاباتها",
+   "en": "the table of evaluation examples with answers"
+  },
+  "ex": "Keep the eval dataset in a Data Table."
+ },
+ {
+  "w": 34,
+  "t": "quality regression",
+  "m": {
+   "ar": "نزول الجودة بعد تعديل",
+   "en": "a drop in quality after a change"
+  },
+  "ex": "The new prompt caused a quality regression."
+ },
+ {
+  "w": 34,
+  "t": "prompt version",
+  "m": {
+   "ar": "نسخة مرقّمة من البرومبت",
+   "en": "a numbered version of a prompt"
+  },
+  "ex": "Prompt version 4 is in production."
+ },
+ {
+  "w": 34,
+  "t": "accuracy",
+  "m": {
+   "ar": "نسبة الإجابات الصح",
+   "en": "the share of correct answers"
+  },
+  "ex": "Accuracy rose from 85% to 93%."
+ },
+ {
+  "w": 34,
+  "t": "llm-as-judge",
+  "m": {
+   "ar": "استخدام موديل لتقييم ردود موديل",
+   "en": "using a model to score another model’s replies"
+  },
+  "ex": "LLM-as-judge scores tone and correctness."
+ },
+ {
+  "w": 34,
+  "t": "judge prompt",
+  "m": {
+   "ar": "البرومبت اللي بيطلب من الحكم يقيّم",
+   "en": "the prompt asking the judge to score"
+  },
+  "ex": "The judge prompt includes the rubric."
+ },
+ {
+  "w": 34,
+  "t": "human label",
+  "m": {
+   "ar": "تقييم إنسان كمرجع",
+   "en": "a person’s score used as the reference"
+  },
+  "ex": "Compare the judge with human labels."
+ },
+ {
+  "w": 34,
+  "t": "calibration",
+  "m": {
+   "ar": "ضبط الحكم عشان يتفق مع البشر",
+   "en": "adjusting the judge to agree with people"
+  },
+  "ex": "Calibration reached 87% agreement."
+ },
+ {
+  "w": 34,
+  "t": "length bias",
+  "m": {
+   "ar": "ميل الحكم للردود الأطول",
+   "en": "a judge favouring longer replies"
+  },
+  "ex": "Tell the judge to ignore length to reduce length bias."
+ },
+ {
+  "w": 34,
+  "t": "guardrail",
+  "m": {
+   "ar": "حاجز بيمنع مدخل أو رد خطر",
+   "en": "a barrier that blocks a dangerous input or reply"
+  },
+  "ex": "Add a guardrail before the agent."
+ },
+ {
+  "w": 34,
+  "t": "input guardrail",
+  "m": {
+   "ar": "فحص المدخلات قبل الموديل",
+   "en": "checking inputs before the model"
+  },
+  "ex": "The input guardrail masks card numbers."
+ },
+ {
+  "w": 34,
+  "t": "pii",
+  "m": {
+   "ar": "بيانات شخصية تعرّف الشخص",
+   "en": "personal data that identifies someone"
+  },
+  "ex": "Never send PII to an external model."
+ },
+ {
+  "w": 34,
+  "t": "redaction",
+  "m": {
+   "ar": "إخفاء البيانات الحساسة من نص",
+   "en": "hiding sensitive data in a text"
+  },
+  "ex": "Redaction replaced the card with [CARD]."
+ },
+ {
+  "w": 34,
+  "t": "jailbreak",
+  "m": {
+   "ar": "محاولة تخلّي الموديل يكسر قواعده",
+   "en": "an attempt to make the model break its rules"
+  },
+  "ex": "The guard caught a jailbreak attempt."
+ },
+ {
+  "w": 34,
+  "t": "output guardrail",
+  "m": {
+   "ar": "فحص الرد قبل ما يوصل للعميل",
+   "en": "checking a reply before it reaches the customer"
+  },
+  "ex": "The output guardrail caught a wrong price."
+ },
+ {
+  "w": 34,
+  "t": "policy check",
+  "m": {
+   "ar": "فحص الرد ضد قواعد ممنوعة",
+   "en": "checking a reply against forbidden rules"
+  },
+  "ex": "The policy check blocks medical advice."
+ },
+ {
+  "w": 34,
+  "t": "fallback reply",
+  "m": {
+   "ar": "رد آمن جاهز لما حاجة تفشل",
+   "en": "a ready safe reply when something fails"
+  },
+  "ex": "Send the fallback reply and hand over."
+ },
+ {
+  "w": 34,
+  "t": "groundedness",
+  "m": {
+   "ar": "إن كل معلومة في الرد من المصادر",
+   "en": "every fact in a reply coming from the sources"
+  },
+  "ex": "Check groundedness before sending RAG answers."
+ },
+ {
+  "w": 34,
+  "t": "refusal",
+  "m": {
+   "ar": "رفض مهذب لطلب",
+   "en": "a polite decline of a request"
+  },
+  "ex": "A short refusal is better than a made-up answer."
+ },
+ {
+  "w": 35,
+  "t": "workflow tool",
+  "m": {
+   "ar": "sub-workflow بيستخدمه الوكيل كأداة",
+   "en": "a sub-workflow an agent uses as a tool"
+  },
+  "ex": "get_free_slots is a workflow tool."
+ },
+ {
+  "w": 35,
+  "t": "tool result",
+  "m": {
+   "ar": "اللي الأداة بترجّعه للوكيل",
+   "en": "what a tool returns to the agent"
+  },
+  "ex": "Keep the tool result small."
+ },
+ {
+  "w": 35,
+  "t": "tool error",
+  "m": {
+   "ar": "خطأ بترجّعه الأداة كبيانات مفهومة",
+   "en": "an error a tool returns as understandable data"
+  },
+  "ex": "The tool error told the agent to ask for a future date."
+ },
+ {
+  "w": 35,
+  "t": "response trimming",
+  "m": {
+   "ar": "تصغير الرد للحقول المهمة بس",
+   "en": "cutting a reply down to the important fields"
+  },
+  "ex": "Response trimming saved 2,000 tokens."
+ },
+ {
+  "w": 35,
+  "t": "tool catalogue",
+  "m": {
+   "ar": "قايمة بكل الأدوات ووصفها",
+   "en": "a list of all tools and their descriptions"
+  },
+  "ex": "Review the tool catalogue every month."
+ },
+ {
+  "w": 35,
+  "t": "fromai",
+  "m": {
+   "ar": "دالة n8n بتخلي الموديل يملأ خانة",
+   "en": "an n8n function letting the model fill a field"
+  },
+  "ex": "$fromAI fills the date field."
+ },
+ {
+  "w": 35,
+  "t": "tool parameter",
+  "m": {
+   "ar": "مدخل بتاخده الأداة",
+   "en": "an input a tool takes"
+  },
+  "ex": "Describe each tool parameter with an example."
+ },
+ {
+  "w": 35,
+  "t": "read-only tool",
+  "m": {
+   "ar": "أداة بتقرا بس من غير ما تغيّر حاجة",
+   "en": "a tool that only reads and changes nothing"
+  },
+  "ex": "Search is a read-only tool."
+ },
+ {
+  "w": 35,
+  "t": "write tool",
+  "m": {
+   "ar": "أداة بتغيّر حاجة (حجز، إرسال، دفع)",
+   "en": "a tool that changes something (book, send, pay)"
+  },
+  "ex": "Every write tool needs confirmation."
+ },
+ {
+  "w": 35,
+  "t": "confirmation step",
+  "m": {
+   "ar": "خطوة تأكيد قبل الفعل",
+   "en": "a step confirming before the action"
+  },
+  "ex": "The confirmation step stopped a wrong booking."
+ },
+ {
+  "w": 35,
+  "t": "wrapped tool",
+  "m": {
+   "ar": "أداة بتغلّف API بقيود ثابتة",
+   "en": "a tool wrapping an API with fixed limits"
+  },
+  "ex": "Use a wrapped tool instead of a generic HTTP tool."
+ },
+ {
+  "w": 35,
+  "t": "domain allowlist",
+  "m": {
+   "ar": "قايمة الدومينات المسموحة بس",
+   "en": "the list of only the allowed domains"
+  },
+  "ex": "The domain allowlist blocked an unknown host."
+ },
+ {
+  "w": 35,
+  "t": "exfiltration",
+  "m": {
+   "ar": "تسريب بيانات لبره بطريقة خفية",
+   "en": "secretly sending data out"
+  },
+  "ex": "An allowlist prevents exfiltration through tools."
+ },
+ {
+  "w": 35,
+  "t": "result cap",
+  "m": {
+   "ar": "حد أقصى لعدد النتايج",
+   "en": "a maximum number of results"
+  },
+  "ex": "A result cap of 10 keeps replies short."
+ },
+ {
+  "w": 35,
+  "t": "generic tool",
+  "m": {
+   "ar": "أداة عامة بتعمل أي حاجة (خطر)",
+   "en": "an all-purpose tool that can do anything (risky)"
+  },
+  "ex": "Avoid giving agents a generic tool."
+ },
+ {
+  "w": 35,
+  "t": "mcp",
+  "m": {
+   "ar": "بروتوكول مفتوح لربط تطبيقات AI بالأدوات",
+   "en": "an open protocol connecting AI apps to tools"
+  },
+  "ex": "Claude uses your tools over MCP."
+ },
+ {
+  "w": 35,
+  "t": "tool exposure",
+  "m": {
+   "ar": "الأدوات اللي بتعرضها للعملاء",
+   "en": "the tools you make available to clients"
+  },
+  "ex": "Keep tool exposure small and read-only."
+ },
+ {
+  "w": 35,
+  "t": "bearer auth",
+  "m": {
+   "ar": "مصادقة بتوكن في header",
+   "en": "authentication with a token in a header"
+  },
+  "ex": "Enable bearer auth on the MCP server."
+ },
+ {
+  "w": 35,
+  "t": "tool versioning",
+  "m": {
+   "ar": "إصدارات للأدوات عشان متكسرش المستخدمين",
+   "en": "versioning tools so clients do not break"
+  },
+  "ex": "Tool versioning keeps old clients working."
+ },
+ {
+  "w": 35,
+  "t": "mcp inspector",
+  "m": {
+   "ar": "أداة رسمية لتجربة سيرفرات MCP",
+   "en": "an official tool for testing MCP servers"
+  },
+  "ex": "Test the server with the MCP Inspector."
+ },
+ {
+  "w": 35,
+  "t": "remote tools",
+  "m": {
+   "ar": "أدوات بيقدمها سيرفر خارجي للوكيل",
+   "en": "tools offered to the agent by an outside server"
+  },
+  "ex": "Select only the remote tools you need."
+ },
+ {
+  "w": 35,
+  "t": "tool poisoning",
+  "m": {
+   "ar": "تعليمات خبيثة مخفية في وصف أداة",
+   "en": "malicious instructions hidden in a tool description"
+  },
+  "ex": "Review descriptions to catch tool poisoning."
+ },
+ {
+  "w": 35,
+  "t": "third-party server",
+  "m": {
+   "ar": "سيرفر من جهة تانية مش انت",
+   "en": "a server run by someone else"
+  },
+  "ex": "Pin the version of every third-party server."
+ },
+ {
+  "w": 35,
+  "t": "untrusted data",
+  "m": {
+   "ar": "بيانات من مصدر مش مضمون",
+   "en": "data from a source you cannot vouch for"
+  },
+  "ex": "Treat tool results as untrusted data."
+ },
+ {
+  "w": 35,
+  "t": "version pinning",
+  "m": {
+   "ar": "تثبيت إصدار معيّن من أداة",
+   "en": "fixing a tool to a specific version"
+  },
+  "ex": "Version pinning avoids surprise changes."
+ },
+ {
+  "w": 36,
+  "t": "voice note",
+  "m": {
+   "ar": "رسالة صوتية قصيرة",
+   "en": "a short recorded voice message"
+  },
+  "ex": "Most customers send a voice note."
+ },
+ {
+  "w": 36,
+  "t": "speech to text",
+  "m": {
+   "ar": "تحويل الكلام لنص",
+   "en": "turning speech into text"
+  },
+  "ex": "Speech to text handles the voice notes."
+ },
+ {
+  "w": 36,
+  "t": "transcription",
+  "m": {
+   "ar": "النص المكتوب من التسجيل",
+   "en": "the written text from a recording"
+  },
+  "ex": "Check the transcription for names."
+ },
+ {
+  "w": 36,
+  "t": "media download",
+  "m": {
+   "ar": "تنزيل ملف الصوت أو الصورة من المنصة",
+   "en": "downloading the audio or image file from the platform"
+  },
+  "ex": "The media download needs the access token."
+ },
+ {
+  "w": 36,
+  "t": "diarization",
+  "m": {
+   "ar": "تحديد مين اتكلم في كل جزء",
+   "en": "identifying who spoke in each part"
+  },
+  "ex": "Diarization separates the doctor and the patient."
+ },
+ {
+  "w": 36,
+  "t": "text to speech",
+  "m": {
+   "ar": "تحويل النص لكلام مسموع",
+   "en": "turning text into spoken audio"
+  },
+  "ex": "Text to speech reads the reminder aloud."
+ },
+ {
+  "w": 36,
+  "t": "tts",
+  "m": {
+   "ar": "اختصار text to speech",
+   "en": "short for text to speech"
+  },
+  "ex": "The TTS voice sounds natural."
+ },
+ {
+  "w": 36,
+  "t": "ogg",
+  "m": {
+   "ar": "صيغة صوت بتتعرض كرسالة صوتية",
+   "en": "an audio format shown as a voice message"
+  },
+  "ex": "Send the reply as ogg with opus."
+ },
+ {
+  "w": 36,
+  "t": "voice reply",
+  "m": {
+   "ar": "رد بالصوت بدل النص",
+   "en": "a reply in voice instead of text"
+  },
+  "ex": "A voice reply suits older customers."
+ },
+ {
+  "w": 36,
+  "t": "spoken style",
+  "m": {
+   "ar": "كتابة مناسبة للسماع",
+   "en": "writing suited to listening"
+  },
+  "ex": "Rewrite the answer in spoken style first."
+ },
+ {
+  "w": 36,
+  "t": "voice agent",
+  "m": {
+   "ar": "وكيل AI بيتكلم ويسمع",
+   "en": "an AI agent that listens and speaks"
+  },
+  "ex": "The voice agent books appointments by phone."
+ },
+ {
+  "w": 36,
+  "t": "telephony",
+  "m": {
+   "ar": "خدمات الأرقام والمكالمات",
+   "en": "phone number and calling services"
+  },
+  "ex": "The telephony provider routes the call."
+ },
+ {
+  "w": 36,
+  "t": "turn-taking",
+  "m": {
+   "ar": "تبادل الكلام بين المتصلين من غير مقاطعة",
+   "en": "taking turns to speak without interrupting"
+  },
+  "ex": "Good turn-taking feels natural."
+ },
+ {
+  "w": 36,
+  "t": "voice latency",
+  "m": {
+   "ar": "التأخير بين كلام العميل ورد الوكيل",
+   "en": "the delay between the caller speaking and the agent replying"
+  },
+  "ex": "Keep voice latency under a second."
+ },
+ {
+  "w": 36,
+  "t": "call summary",
+  "m": {
+   "ar": "ملخص المكالمة بعد ما تخلص",
+   "en": "a summary of a call after it ends"
+  },
+  "ex": "Save the call summary in the CRM."
+ },
+ {
+  "w": 36,
+  "t": "image understanding",
+  "m": {
+   "ar": "فهم محتوى الصورة بموديل",
+   "en": "understanding an image’s content with a model"
+  },
+  "ex": "Image understanding classifies the damage."
+ },
+ {
+  "w": 36,
+  "t": "damage photo",
+  "m": {
+   "ar": "صورة بتوضّح ضرر في منتج",
+   "en": "a photo showing damage to a product"
+  },
+  "ex": "Ask for a damage photo for every return."
+ },
+ {
+  "w": 36,
+  "t": "image moderation",
+  "m": {
+   "ar": "فحص الصور قبل قبولها",
+   "en": "checking images before accepting them"
+  },
+  "ex": "Image moderation rejects unrelated photos."
+ },
+ {
+  "w": 36,
+  "t": "photo quality",
+  "m": {
+   "ar": "وضوح الصورة وإضاءتها",
+   "en": "how clear and well-lit a photo is"
+  },
+  "ex": "Low photo quality → ask for another."
+ },
+ {
+  "w": 36,
+  "t": "forged receipt",
+  "m": {
+   "ar": "إيصال متزوّر أو متعدّل",
+   "en": "a faked or edited receipt"
+  },
+  "ex": "Check the bank to catch a forged receipt."
+ },
+ {
+  "w": 36,
+  "t": "image generation",
+  "m": {
+   "ar": "إنشاء صور بموديل AI",
+   "en": "creating images with an AI model"
+  },
+  "ex": "Use image generation for offer banners."
+ },
+ {
+  "w": 36,
+  "t": "brand prompt",
+  "m": {
+   "ar": "برومبت أساسي ثابت لأسلوب البراند",
+   "en": "a fixed base prompt for the brand style"
+  },
+  "ex": "Start every image from the brand prompt."
+ },
+ {
+  "w": 36,
+  "t": "brand safety",
+  "m": {
+   "ar": "حماية سمعة البراند من محتوى غلط",
+   "en": "protecting a brand’s reputation from bad content"
+  },
+  "ex": "Brand safety requires human approval."
+ },
+ {
+  "w": 36,
+  "t": "aspect ratio",
+  "m": {
+   "ar": "نسبة عرض الصورة لطولها",
+   "en": "an image’s width-to-height ratio"
+  },
+  "ex": "Use a 9:16 aspect ratio for stories."
+ },
+ {
+  "w": 36,
+  "t": "commercial use",
+  "m": {
+   "ar": "استخدام في شغل بيكسب فلوس",
+   "en": "use in work that earns money"
+  },
+  "ex": "Check the terms for commercial use."
  }
 ];

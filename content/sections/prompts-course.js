@@ -58,7 +58,7 @@
       },
       example: 'test_set.csv → input, expected_label\nv1 prompt: 41/50 correct (82%), 2 invalid JSON\nv2 (added 2 hard examples): 46/50 (92%), 0 invalid JSON  ← keep\nv3 (shorter instructions): 43/50 (86%)  ← revert',
       try: { ar: 'اعمل شيت فيه 20 مثال وإجابتهم، وWorkflow في n8n يشغّل البرومبت على كل سطر ويكتب صح/غلط. ده أول eval ليك.', en: 'Make a sheet with 20 examples and their answers, and an n8n workflow that runs the prompt on each row and writes right/wrong. That is your first eval.' },
-      links: [{ t: { ar: 'Anthropic: معايير النجاح والاختبارات', en: 'Anthropic: success criteria and evaluations' }, url: 'https://platform.claude.com/docs/en/test-and-evaluate/develop-tests' }, { t: { ar: 'n8n: Evaluations', en: 'n8n: evaluations' }, url: 'https://docs.n8n.io/advanced-ai/evaluations/overview/' }] },
+      links: [{ t: { ar: 'Anthropic: معايير النجاح والاختبارات', en: 'Anthropic: success criteria and evaluations' }, url: 'https://platform.claude.com/docs/en/test-and-evaluate/develop-tests' }, { t: { ar: 'n8n: Evaluations', en: 'n8n: evaluations' }, url: 'https://docs.n8n.io/build/integrate-ai/test-and-improve-ai-workflows/understand-why-to-test' }] },
     { id: 'cost', min: 10, t: { ar: 'متقدم: التكلفة والسرعة', en: 'Advanced: cost and speed' },
       body: {
         ar: 'في الأتمتة البرومبت بيشتغل آلاف المرات، فكل كلمة ليها تمن:\n\n- **الموديل المناسب**: التصنيف والاستخراج البسيط ينفع بموديل صغير سريع؛ سيب الكبير للتفكير الصعب.\n- **اختصر المدخلات**: ابعت الحقول المهمة بس، مش الإيميل كله بالـ HTML.\n- **حدّد طول الرد**: `max 50 words` أو JSON بس.\n- **prompt caching**: الجزء الثابت الطويل (التعليمات، الأمثلة، المستندات) حطه في الأول عشان يتكيّش ويبقى أرخص وأسرع.\n- **متكلمش الموديل خالص** لو قاعدة بسيطة (IF/regex) تكفي.',
