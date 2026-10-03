@@ -6705,5 +6705,320 @@ JOURNEY_TERMS["english"] = [
    "en": "related to long-term goals"
   },
   "ex": "Link the update to strategic goals."
+ },
+ {
+  "w": 46,
+  "t": "leveling",
+  "m": {
+   "ar": "سلم المستويات الوظيفية",
+   "en": "a company’s ladder of job levels"
+  },
+  "ex": "Ask how leveling works here."
+ },
+ {
+  "w": 46,
+  "t": "senior engineer",
+  "m": {
+   "ar": "مهندس سينيور",
+   "en": "an experienced independent engineer"
+  },
+  "ex": "Senior engineers lift the team."
+ },
+ {
+  "w": 46,
+  "t": "staff engineer",
+  "m": {
+   "ar": "مهندس بتأثير على فرق كتير",
+   "en": "an engineer with cross-team influence"
+  },
+  "ex": "A staff engineer sets direction."
+ },
+ {
+  "w": 46,
+  "t": "tech lead",
+  "m": {
+   "ar": "قائد تقني لفريق",
+   "en": "the technical leader of a team"
+  },
+  "ex": "She is the tech lead on payments."
+ },
+ {
+  "w": 46,
+  "t": "career narrative",
+  "m": {
+   "ar": "قصة مسيرتك المهنية",
+   "en": "the story linking your career"
+  },
+  "ex": "Practise your career narrative."
+ },
+ {
+  "w": 46,
+  "t": "influence without authority",
+  "m": {
+   "ar": "تأثير من غير سلطة",
+   "en": "persuading people who don’t report to you"
+  },
+  "ex": "Influence without authority is a senior skill."
+ },
+ {
+  "w": 46,
+  "t": "cross-functional",
+  "m": {
+   "ar": "بين أقسام مختلفة",
+   "en": "involving several departments"
+  },
+  "ex": "It was a cross-functional project."
+ },
+ {
+  "w": 46,
+  "t": "system design",
+  "m": {
+   "ar": "تصميم الأنظمة",
+   "en": "planning a system’s architecture"
+  },
+  "ex": "The system design round lasts an hour."
+ },
+ {
+  "w": 46,
+  "t": "scope the problem",
+  "m": {
+   "ar": "تحدد حدود المشكلة",
+   "en": "to define what the problem includes"
+  },
+  "ex": "Scope the problem before drawing."
+ },
+ {
+  "w": 46,
+  "t": "requirements gathering",
+  "m": {
+   "ar": "جمع المتطلبات",
+   "en": "collecting what the system must do"
+  },
+  "ex": "Spend five minutes on requirements gathering."
+ },
+ {
+  "w": 46,
+  "t": "back-of-the-envelope",
+  "m": {
+   "ar": "حساب تقريبي سريع",
+   "en": "a quick rough calculation"
+  },
+  "ex": "A back-of-the-envelope estimate is enough."
+ },
+ {
+  "w": 46,
+  "t": "capacity estimate",
+  "m": {
+   "ar": "تقدير الحمل",
+   "en": "an estimate of load and storage"
+  },
+  "ex": "Start with a capacity estimate."
+ },
+ {
+  "w": 46,
+  "t": "think aloud",
+  "m": {
+   "ar": "تفكر بصوت عالي",
+   "en": "to say your reasoning as you go"
+  },
+  "ex": "Think aloud so they follow you."
+ },
+ {
+  "w": 46,
+  "t": "trade-off discussion",
+  "m": {
+   "ar": "نقاش الموازنات",
+   "en": "comparing options’ pros and cons"
+  },
+  "ex": "The trade-off discussion matters most."
+ },
+ {
+  "w": 46,
+  "t": "single point of failure",
+  "m": {
+   "ar": "نقطة فشل وحيدة",
+   "en": "a part that can stop everything"
+  },
+  "ex": "The database is a single point of failure."
+ },
+ {
+  "w": 46,
+  "t": "failure story",
+  "m": {
+   "ar": "قصة فشل",
+   "en": "an interview story about a mistake"
+  },
+  "ex": "A good failure story shows learning."
+ },
+ {
+  "w": 46,
+  "t": "conflict resolution",
+  "m": {
+   "ar": "حل الخلافات",
+   "en": "settling disagreements"
+  },
+  "ex": "Give a conflict resolution example."
+ },
+ {
+  "w": 46,
+  "t": "mentorship",
+  "m": {
+   "ar": "الإرشاد",
+   "en": "guiding someone’s growth"
+  },
+  "ex": "Mentorship is expected at senior level."
+ },
+ {
+  "w": 46,
+  "t": "leadership principles",
+  "m": {
+   "ar": "مبادئ القيادة للشركة",
+   "en": "a company’s stated leadership values"
+  },
+  "ex": "Learn their leadership principles."
+ },
+ {
+  "w": 46,
+  "t": "values",
+  "m": {
+   "ar": "القيم",
+   "en": "principles a company believes in"
+  },
+  "ex": "Prepare a story for each of their values."
+ },
+ {
+  "w": 46,
+  "t": "culture fit",
+  "m": {
+   "ar": "التوافق مع ثقافة الشركة",
+   "en": "matching a company’s way of working"
+  },
+  "ex": "The last round checks culture fit."
+ },
+ {
+  "w": 46,
+  "t": "hiring manager",
+  "m": {
+   "ar": "المدير اللي بيوظّف",
+   "en": "the manager filling the role"
+  },
+  "ex": "The hiring manager asked about my projects."
+ },
+ {
+  "w": 46,
+  "t": "take-home",
+  "m": {
+   "ar": "مهمة في البيت",
+   "en": "an assignment done at home"
+  },
+  "ex": "The take-home took four hours."
+ },
+ {
+  "w": 46,
+  "t": "panel interview",
+  "m": {
+   "ar": "مقابلة مع لجنة",
+   "en": "an interview with several people"
+  },
+  "ex": "The panel interview had four people."
+ },
+ {
+  "w": 46,
+  "t": "questions for the interviewer",
+  "m": {
+   "ar": "أسئلتك للمحاور",
+   "en": "what you ask at the end"
+  },
+  "ex": "Prepare five questions for the interviewer."
+ },
+ {
+  "w": 46,
+  "t": "why this company",
+  "m": {
+   "ar": "ليه الشركة دي",
+   "en": "your reason for choosing them"
+  },
+  "ex": "Make «why this company» specific."
+ },
+ {
+  "w": 46,
+  "t": "red flag",
+  "m": {
+   "ar": "علامة خطر",
+   "en": "a warning sign"
+  },
+  "ex": "Pressure to sign quickly is a red flag."
+ },
+ {
+  "w": 46,
+  "t": "green flag",
+  "m": {
+   "ar": "علامة كويسة",
+   "en": "a positive sign"
+  },
+  "ex": "Honesty about problems is a green flag."
+ },
+ {
+  "w": 46,
+  "t": "offer letter",
+  "m": {
+   "ar": "خطاب العرض الوظيفي",
+   "en": "the written job offer"
+  },
+  "ex": "Read the offer letter carefully."
+ },
+ {
+  "w": 46,
+  "t": "total compensation",
+  "m": {
+   "ar": "إجمالي التعويض",
+   "en": "salary plus bonus, equity and perks"
+  },
+  "ex": "Compare total compensation, not salary."
+ },
+ {
+  "w": 46,
+  "t": "equity",
+  "m": {
+   "ar": "أسهم في الشركة",
+   "en": "ownership shares or stock options"
+  },
+  "ex": "The equity vests over four years."
+ },
+ {
+  "w": 46,
+  "t": "signing bonus",
+  "m": {
+   "ar": "مكافأة توقيع",
+   "en": "a one-time payment for joining"
+  },
+  "ex": "They offered a signing bonus."
+ },
+ {
+  "w": 46,
+  "t": "salary expectations",
+  "m": {
+   "ar": "المرتب المتوقع",
+   "en": "the pay you hope for"
+  },
+  "ex": "They asked my salary expectations early."
+ },
+ {
+  "w": 46,
+  "t": "counteroffer",
+  "m": {
+   "ar": "عرض مضاد",
+   "en": "a counter-proposal or retention offer"
+  },
+  "ex": "My manager made a counteroffer."
+ },
+ {
+  "w": 46,
+  "t": "reference check",
+  "m": {
+   "ar": "التحقق من المراجع",
+   "en": "contacting your former colleagues"
+  },
+  "ex": "Brief your referees before the reference check."
  }
 ];
