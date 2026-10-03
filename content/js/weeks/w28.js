@@ -60,7 +60,7 @@ JOURNEY.week({
       "ar": "ركّز على القواعد اللي بتمسك أخطاء حقيقية، مش ذوق: الكود ده فيه 4 مشاكل ESLint كان هيقولك عليها قبل ما العميل يلاقيها — شغّله وشوف النتيجة الغلط:",
       "en": "Focus on rules that catch real bugs, not taste: this code has 4 problems ESLint would report before a customer found them — run it and see the wrong result:"
      },
-     "ex": "function totalPaid(orders) {\n  let total = 0, count = 0;                    // no-unused-vars: count is never read\n  for (const o of orders) {\n    if (o.status == \"paid\") total += o.total;   // eqeqeq: fine here, but \"0\" == 0 bites later\n    if (o.total = 0) console.log(\"free?\");      // no-cond-assign: = instead of ===, sets total to 0!\n  }\n  return total;\n  console.log(\"done\");                          // no-unreachable\n}\nconsole.log(totalPaid([{ status: \"paid\", total: 250 }, { status: \"paid\", total: 90 }]), \"— expected 340\");",
+     "ex": "function totalPaid(orders) {\n  let total = 0, count = 0;                    // no-unused-vars: count is never read\n  for (const o of orders) {\n    if (o.total = 0) console.log(\"free?\");      // no-cond-assign: = instead of ===, sets every total to 0!\n    if (o.status == \"paid\") total += o.total;   // eqeqeq: fine here, but \"0\" == 0 bites later\n  }\n  return total;\n  console.log(\"done\");                          // no-unreachable\n}\nconsole.log(totalPaid([{ status: \"paid\", total: 250 }, { status: \"paid\", total: 90 }]), \"— expected 340\");",
      "node": 1
     }
    ],
@@ -253,7 +253,7 @@ JOURNEY.week({
       "en": "**prettier** = a **formatter**: it rewrites layout (spaces, brackets, commas, line length) one fixed way. ESLint for bugs, Prettier for looks — and keep ESLint out of formatting. The result: clean diffs and no «add a space here» in reviews."
      },
      "ex": "// before (written in a hurry)\nconst order={id:101,customer:\"Sara\",items:[{sku:\"A1\",qty:2},{sku:\"B2\",qty:1}],total:250}\nif(order.total>100){notify(order.customer,`big order ${order.id}`)}\n\n// after `npx prettier --write .`\nconst order = {\n  id: 101,\n  customer: \"Sara\",\n  items: [\n    { sku: \"A1\", qty: 2 },\n    { sku: \"B2\", qty: 1 },\n  ],\n  total: 250,\n};\nif (order.total > 100) {\n  notify(order.customer, `big order ${order.id}`);\n}",
-     "lang": "js"
+     "lang": "text"
     },
     {
      "h": {
