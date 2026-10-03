@@ -11223,5 +11223,275 @@ JOURNEY_TERMS["js"] = [
    "en": "a form for bug reports"
   },
   "ex": "The issue template asks for the n8n version."
+ },
+ {
+  "w": 40,
+  "t": "browser extension",
+  "m": {
+   "ar": "إضافة متصفح",
+   "en": "an add-on extending the browser"
+  },
+  "ex": "Our browser extension sends orders to n8n."
+ },
+ {
+  "w": 40,
+  "t": "manifest v3",
+  "m": {
+   "ar": "الإصدار الحالي لنظام الإضافات",
+   "en": "the current extension platform version"
+  },
+  "ex": "Chrome requires Manifest V3."
+ },
+ {
+  "w": 40,
+  "t": "manifest.json",
+  "m": {
+   "ar": "ملف تعريف الإضافة",
+   "en": "the extension’s definition file"
+  },
+  "ex": "manifest.json lists the permissions."
+ },
+ {
+  "w": 40,
+  "t": "service worker",
+  "m": {
+   "ar": "كود الخلفية اللي بيصحى على أحداث",
+   "en": "background code woken by events"
+  },
+  "ex": "The service worker sleeps after 30 seconds."
+ },
+ {
+  "w": 40,
+  "t": "content script",
+  "m": {
+   "ar": "سكربت جوه الصفحة",
+   "en": "a script running inside web pages"
+  },
+  "ex": "The content script reads the order number."
+ },
+ {
+  "w": 40,
+  "t": "popup",
+  "m": {
+   "ar": "النافذة الصغيرة للأيقونة",
+   "en": "the small window under the toolbar icon"
+  },
+  "ex": "The popup has a Send button."
+ },
+ {
+  "w": 40,
+  "t": "options page",
+  "m": {
+   "ar": "صفحة إعدادات الإضافة",
+   "en": "the extension’s settings page"
+  },
+  "ex": "Enter the webhook URL on the options page."
+ },
+ {
+  "w": 40,
+  "t": "side panel",
+  "m": {
+   "ar": "لوحة جانبية جنب الصفحة",
+   "en": "a panel shown beside the page"
+  },
+  "ex": "The AI reply appears in the side panel."
+ },
+ {
+  "w": 40,
+  "t": "host permissions",
+  "m": {
+   "ar": "صلاحيات المواقع",
+   "en": "which sites an extension may access"
+  },
+  "ex": "Limit host permissions to the admin site."
+ },
+ {
+  "w": 40,
+  "t": "activetab",
+  "m": {
+   "ar": "صلاحية مؤقتة للتاب الحالي",
+   "en": "temporary access to the current tab"
+  },
+  "ex": "activeTab avoids permanent site access."
+ },
+ {
+  "w": 40,
+  "t": "isolated world",
+  "m": {
+   "ar": "بيئة معزولة للـ content script",
+   "en": "the separate JS context of a content script"
+  },
+  "ex": "In its isolated world the script cannot see page variables."
+ },
+ {
+  "w": 40,
+  "t": "message passing",
+  "m": {
+   "ar": "تبادل الرسايل بين الأجزاء",
+   "en": "communication between extension parts"
+  },
+  "ex": "Message passing links the popup and the page."
+ },
+ {
+  "w": 40,
+  "t": "sendmessage",
+  "m": {
+   "ar": "إرسال رسالة",
+   "en": "the API call that sends a message"
+  },
+  "ex": "The content script calls sendMessage."
+ },
+ {
+  "w": 40,
+  "t": "chrome.runtime",
+  "m": {
+   "ar": "API الإضافة الأساسية",
+   "en": "the core extension runtime API"
+  },
+  "ex": "chrome.runtime.onMessage receives messages."
+ },
+ {
+  "w": 40,
+  "t": "message router",
+  "m": {
+   "ar": "موجّه الرسايل في الخلفية",
+   "en": "code dispatching messages to handlers"
+  },
+  "ex": "The message router rejects unknown types."
+ },
+ {
+  "w": 40,
+  "t": "chrome.storage",
+  "m": {
+   "ar": "تخزين بيانات الإضافة",
+   "en": "the extension storage API"
+  },
+  "ex": "Save the queue in chrome.storage.local."
+ },
+ {
+  "w": 40,
+  "t": "chrome.alarms",
+  "m": {
+   "ar": "تنبيهات مجدولة للإضافة",
+   "en": "scheduled events for extensions"
+  },
+  "ex": "chrome.alarms wakes the worker every 5 minutes."
+ },
+ {
+  "w": 40,
+  "t": "context menu",
+  "m": {
+   "ar": "قايمة الكليك اليمين",
+   "en": "the right-click menu"
+  },
+  "ex": "Add «Send to n8n» to the context menu."
+ },
+ {
+  "w": 40,
+  "t": "badge",
+  "m": {
+   "ar": "رقم أو نص صغير على الأيقونة",
+   "en": "a small label on the toolbar icon"
+  },
+  "ex": "The badge shows 3 waiting orders."
+ },
+ {
+  "w": 40,
+  "t": "offline queue",
+  "m": {
+   "ar": "طابور للإرسال لما النت يرجع",
+   "en": "a queue sending once back online"
+  },
+  "ex": "The offline queue survived a Wi-Fi drop."
+ },
+ {
+  "w": 40,
+  "t": "your backend",
+  "m": {
+   "ar": "السيرفر بتاعك اللي معاه المفاتيح",
+   "en": "your own server holding the secrets"
+  },
+  "ex": "The extension calls your backend, never Claude directly."
+ },
+ {
+  "w": 40,
+  "t": "user token",
+  "m": {
+   "ar": "توكن خاص بكل مستخدم",
+   "en": "a revocable per-user credential"
+  },
+  "ex": "Revoke the user token when an employee leaves."
+ },
+ {
+  "w": 40,
+  "t": "csp",
+  "m": {
+   "ar": "سياسة أمان المحتوى",
+   "en": "content security policy"
+  },
+  "ex": "The extension CSP forbids eval."
+ },
+ {
+  "w": 40,
+  "t": "minimal data",
+  "m": {
+   "ar": "أقل بيانات لازمة",
+   "en": "only the data actually needed"
+  },
+  "ex": "Send minimal data: no addresses."
+ },
+ {
+  "w": 40,
+  "t": "cross-origin request",
+  "m": {
+   "ar": "طلب لموقع تاني",
+   "en": "a request to a different origin"
+  },
+  "ex": "Cross-origin requests go out from the service worker."
+ },
+ {
+  "w": 40,
+  "t": "unpacked extension",
+  "m": {
+   "ar": "إضافة محمّلة من مجلد للتطوير",
+   "en": "an extension loaded from a folder"
+  },
+  "ex": "Load the unpacked extension from dist."
+ },
+ {
+  "w": 40,
+  "t": "chrome web store",
+  "m": {
+   "ar": "متجر إضافات Chrome",
+   "en": "Google’s extension marketplace"
+  },
+  "ex": "Submit the zip to the Chrome Web Store."
+ },
+ {
+  "w": 40,
+  "t": "privacy policy",
+  "m": {
+   "ar": "سياسة الخصوصية",
+   "en": "a statement of data use"
+  },
+  "ex": "The privacy policy lists what we collect."
+ },
+ {
+  "w": 40,
+  "t": "permission justification",
+  "m": {
+   "ar": "تبرير الصلاحية",
+   "en": "why an extension needs a permission"
+  },
+  "ex": "Write a permission justification for alarms."
+ },
+ {
+  "w": 40,
+  "t": "webextensions api",
+  "m": {
+   "ar": "واجهة الإضافات المشتركة بين المتصفحات",
+   "en": "the cross-browser extension API"
+  },
+  "ex": "Firefox supports the WebExtensions API."
  }
 ];
