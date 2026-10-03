@@ -102,24 +102,24 @@ const push = (k, t, s, u) => index.push([k, t, short(s), u]);
     w.days.forEach(d => push('d', d.title, d.goal, 'english.html#journey?w=' + w.n + '&d=' + d.d));
   });
 }
-// ---------------- Python (the words live in the weeks; the library is content/library/python.js) ----------------
-{
+// ---------------- Python and JavaScript (the words live in the weeks; the library is content/library/<track>.js) ----------------
+[['python', 'PY_DATA', 'p:'], ['js', 'JS_DATA', 'j:']].forEach(([track, data, prefix]) => {
   const win = {}; win.window = win;
-  vm.runInNewContext(read('content/library/python.js'), win);
+  vm.runInNewContext(read('content/library/' + track + '.js'), win);
   const terms = {}; const tw = { JOURNEY_TERMS: terms }; tw.window = tw;
-  vm.runInNewContext(read('content/python/terms.js'), tw);
-  (terms.python || []).forEach(v => {
-    push('t', v.t, v.m, 'python.html#terms?q=' + q(v.t));
-    deck.push({ id: 'p:' + v.t.toLowerCase(), tr: 'python', t: v.t, m: v.m, ex: v.ex || '', w: v.w || 0 });
+  if (fs.existsSync(path.join(ROOT, 'content', track, 'terms.js'))) vm.runInNewContext(read('content/' + track + '/terms.js'), tw);
+  (terms[track] || []).forEach(v => {
+    push('t', v.t, v.m, track + '.html#terms?q=' + q(v.t));
+    deck.push({ id: prefix + v.t.toLowerCase(), tr: track, t: v.t, m: v.m, ex: v.ex || '', w: v.w || 0 });
   });
-  win.PY_DATA.LIBRARY.forEach(b => push('l', b.t, b.why, link('python.html#library', b.t)));
-  const wdir = path.join(ROOT, 'content', 'python', 'weeks');
-  fs.readdirSync(wdir).filter(f => /^w\d\d\.js$/.test(f)).sort().forEach(f =>
+  win[data].LIBRARY.forEach(b => push('l', b.t, b.why, link(track + '.html#library', b.t)));
+  const wdir = path.join(ROOT, 'content', track, 'weeks');
+  if (fs.existsSync(wdir)) fs.readdirSync(wdir).filter(f => /^w\d\d\.js$/.test(f)).sort().forEach(f =>
     vm.runInNewContext(fs.readFileSync(path.join(wdir, f), 'utf8'), { JOURNEY: { week: w => {
-      push('w', w.title, w.goal, 'python.html#journey?w=' + w.n);
-      w.days.forEach(d => push('d', d.title, d.goal, 'python.html#journey?w=' + w.n + '&d=' + d.d));
+      push('w', w.title, w.goal, track + '.html#journey?w=' + w.n);
+      w.days.forEach(d => push('d', d.title, d.goal, track + '.html#journey?w=' + w.n + '&d=' + d.d));
     } } }));
-}
+});
 // ---------------- pages built from content/sections ----------------
 {
   const secs = [];

@@ -43,22 +43,25 @@ const e = J.mergeProgress({ done: { a: true } }, null);
 assert.deepStrictEqual(e.done, { a: true });
 assert.deepStrictEqual(e.tests, {});
 
-// exams: months 1-5 cover their 4 weeks, month 6 is the final on all 24; each opens after its weekly tests are passed
+// exams: months 1-11 cover their 4 weeks, month 12 is the final on all 48; each opens after its weekly tests are passed
 assert.strictEqual(J.rules.examId(2), 'm2-exam');
-assert.strictEqual(J.rules.examId(6), 'final-exam');
+assert.strictEqual(J.rules.examId(12), 'final-exam');
+assert.strictEqual(J.rules.examId(6), 'm6-exam');
+assert.strictEqual(J.rules.examId(6, 6), 'final-exam');   // a 6-month plan still works
 assert.deepStrictEqual(J.rules.examWeeks(3), [9, 12]);
-assert.deepStrictEqual(J.rules.examWeeks(6), [1, 24]);
+assert.deepStrictEqual(J.rules.examWeeks(12), [1, 48]);
+assert.deepStrictEqual(J.rules.examWeeks(6), [21, 24]);
 const passed = n => ({ tests: Object.fromEntries(Array.from({ length: n }, (_, i) => [J.rules.testId(i + 1), [{ score: 7, total: 10 }]])) });
 assert.strictEqual(J.rules.examOpen(1, passed(3)), false);
 assert.strictEqual(J.rules.examOpen(1, passed(4)), true);
 assert.strictEqual(J.rules.examOpen(2, passed(4)), false);
-assert.strictEqual(J.rules.examOpen(6, passed(23)), false);
-assert.strictEqual(J.rules.examOpen(6, passed(24)), true);
+assert.strictEqual(J.rules.examOpen(12, passed(47)), false);
+assert.strictEqual(J.rules.examOpen(12, passed(48)), true);
 
-// the question draw: 5 per week for a month exam, 2 per week for the final, stable for a seed, ids resolve back
+// the question draw: 5 per week for a month exam, 1 per week for the 48-week final, stable for a seed, ids resolve back
 const mk = n => ({ track: 'n8n', n, days: [1, 2, 3, 4, 5].map(d => ({ d, quiz: [0, 1, 2].map(i => ({ q: n + '-' + d + '-' + i, o: ['a', 'b'], a: 0 })) }))
   .concat([{ d: 6, test: Array.from({ length: 12 }, (_, i) => ({ q: n + '-t-' + i, o: ['a', 'b'], a: 1 })) }]) });
-for (let n = 1; n <= 24; n++) J.week(mk(n));
+for (let n = 1; n <= 48; n++) J.week(mk(n));
 assert.strictEqual(J.pool(J.weeks.n8n[1]).length, 27);
 const a1 = J.drawExam('n8n', 1, 42), a2 = J.drawExam('n8n', 1, 42), b1 = J.drawExam('n8n', 1, 43);
 assert.strictEqual(a1.length, 20);
@@ -66,10 +69,12 @@ assert.deepStrictEqual(a1, a2);
 assert.notDeepStrictEqual(a1, b1);
 assert.strictEqual(new Set(a1).size, 20);
 [1, 2, 3, 4].forEach(n => assert.strictEqual(a1.filter(id => id.startsWith('w0' + n)).length, 5));
-assert.strictEqual(J.drawExam('n8n', 6, 7).length, 48);
+assert.strictEqual(J.drawExam('n8n', 12, 7).length, 48);
+assert.strictEqual(J.drawExam('n8n', 6, 7).length, 20);
+assert.deepStrictEqual(J.span('n8n'), { weeks: 48, months: 12, days: 288 });
 assert.strictEqual(J.question('n8n', 'w03t5').q, '3-t-5');
 assert.strictEqual(J.question('n8n', 'w12d4q2').q, '12-4-2');
-assert.strictEqual(J.question('n8n', 'w30t1'), null);
+assert.strictEqual(J.question('n8n', 'w60t1'), null);
 a1.forEach(id => assert.ok(J.question('n8n', id), id));
 
 console.log('journey core OK');

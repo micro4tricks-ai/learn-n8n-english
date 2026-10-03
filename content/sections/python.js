@@ -1,5 +1,5 @@
 // Sections of python.html: the 24-week journey, the term bank, the cheat sheets, the automation projects,
-// the common errors and the library. Section types: journey/pyterms/pylibrary (assets/js/python-app.js),
+// the common errors and the library. Section types: journey/pyterms/pylibrary (assets/js/code-app.js),
 // sheets/lessons/cards (assets/js/sections.js). Sheets, projects and errors live in content/sections/python-ref.js.
 SECTIONS.add({
   page: 'python', id: 'journey', order: 1, type: 'journey', open: true,

@@ -71,7 +71,7 @@ const checks = {
       const nx = doc.querySelector('#mistakes [data-next]'); if(nx) nx.click();
     }
     check(w.SITE.items('mistakes').length === 0, where + ': two right answers clear the mistake');
-    check(doc.querySelector('#stats svg.heat') && doc.querySelectorAll('#stats svg.bars').length === 3, where + ': heatmap and a score chart per journey');
+    check(doc.querySelector('#stats svg.heat') && doc.querySelectorAll('#stats svg.bars').length === 4, where + ': heatmap and a score chart per journey');
     check(doc.querySelector('#backup [data-export]'), where + ': backup button');
   },
   async lab({ doc }, where){

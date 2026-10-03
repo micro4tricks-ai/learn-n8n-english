@@ -1,0 +1,9 @@
+{
+ "164": "{w} of {tw} weeks passed · {d} of {td} days done",
+ "165": "Month {m} · week {n} of {t}",
+ "166": "Final exam · weeks 1–{t}",
+ "167": "You finished the {w}-week «{track}» journey from beginner to expert: {d} days, {w} weekly tests, {e} monthly exams, and the final exam with a best score of {p}%.",
+ "168": "Intensive hour",
+ "169": "A Node.js example: save it as main.mjs on your computer and run node main.mjs",
+ "170": "All weeks ({n})"
+}

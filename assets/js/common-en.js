@@ -163,5 +163,12 @@ window.I18N_ADD && I18N_ADD({
  "أدوات تساعدك في كل الرحلات": "Tools that help in every journey",
  "تلات رحلات تعلم مجانية بالعربي والإنجليزي: أتمتة n8n، وبايثون للأتمتة والويب، والإنجليزي التقني للمبرمجين.": "Three free learning journeys in Arabic and English: n8n automation, Python for automation and the web, and technical English for developers.",
  "اعرض": "Preview",
- "اتعلم الأتمتة وبايثون والإنجليزي التقني بخطة واضحة يوم بيوم": "Learn automation, Python and technical English with a clear day-by-day plan"
+ "اتعلم الأتمتة وبايثون والإنجليزي التقني بخطة واضحة يوم بيوم": "Learn automation, Python and technical English with a clear day-by-day plan",
+ "عدّيت {w} من {tw} أسبوع · خلّصت {d} من {td} يوم": "{w} of {tw} weeks passed · {d} of {td} days done",
+ "الشهر {m} · الأسبوع {n} من {t}": "Month {m} · week {n} of {t}",
+ "الامتحان النهائي · الأسابيع 1–{t}": "Final exam · weeks 1–{t}",
+ "خلّصت رحلة الـ {w} أسبوع في «{track}» من مبتدئ لخبير: {d} يوم، و{w} اختبار أسبوعي، و{e} امتحان شهري، والامتحان النهائي بأحسن درجة {p}%.": "You finished the {w}-week «{track}» journey from beginner to expert: {d} days, {w} weekly tests, {e} monthly exams, and the final exam with a best score of {p}%.",
+ "ساعة التكثيف": "Intensive hour",
+ "مثال Node.js: احفظه في ملف main.mjs على جهازك وشغّله بـ node main.mjs": "A Node.js example: save it as main.mjs on your computer and run node main.mjs",
+ "كل الأسابيع ({n})": "All weeks ({n})"
 });

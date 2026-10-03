@@ -10,7 +10,7 @@ except the optional services listed under [Outside services](#outside-services).
 |---|---|---|
 | `index.html` | Home | static HTML + the tool cards from `content/pages.js` |
 | `n8n.html`, `english.html` | Two of the 24-week journeys and their reference sections | static HTML + `assets/js/*-data.js` + `assets/js/journey.js` + the week files |
-| `python.html` | The Python journey, built like a tool page | sections (`content/sections/python.js`, `python-ref.js`) + `content/library/python.js` + `assets/js/python-app.js` + `journey.js` + the week files |
+| `python.html` | The Python journey, built like a tool page | sections (`content/sections/python.js`, `python-ref.js`) + `content/library/python.js` + `assets/js/code-app.js` + `journey.js` + the week files |
 | `review.html` | Spaced review (FSRS), mistakes notebook, stats, backup | sections (`content/sections/review.js`) + `assets/js/review.js` |
 | `lab.html` | Workflow viewer/checker, template search, playgrounds | sections + `assets/js/lab.js`, `assets/js/lab-expr.js` |
 | `speak.html` | Pronunciation, shadowing, dictation, work situations | sections + `assets/js/speak.js` |

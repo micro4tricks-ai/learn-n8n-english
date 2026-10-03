@@ -202,7 +202,7 @@ JOURNEY.week({
      }
     }
    ],
-   "minutes": 120
+   "minutes": 180
   },
   {
    "d": 2,
@@ -382,7 +382,7 @@ JOURNEY.week({
      }
     }
    ],
-   "minutes": 120
+   "minutes": 180
   },
   {
    "d": 3,
@@ -585,7 +585,7 @@ JOURNEY.week({
      }
     }
    ],
-   "minutes": 120
+   "minutes": 180
   },
   {
    "d": 4,
@@ -782,7 +782,7 @@ JOURNEY.week({
      }
     }
    ],
-   "minutes": 120
+   "minutes": 180
   },
   {
    "d": 5,
@@ -985,7 +985,7 @@ JOURNEY.week({
      }
     }
    ],
-   "minutes": 120
+   "minutes": 180
   },
   {
    "d": 6,
@@ -1292,7 +1292,7 @@ JOURNEY.week({
      }
     }
    ],
-   "minutes": 120
+   "minutes": 180
   }
  ]
 });

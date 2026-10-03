@@ -9,23 +9,29 @@
 //   read:  ['lib:BBC Learning English', {lib:'…', what:{ar,en}}] → a library entry (its own note, or `what`)
 // English for bank entries comes from the page dictionaries (assets/js/<track>-en.js); a missing one stops the build.
 //
-// The python track has no page data file: its words are written in the weeks and its library is content/library/python.js.
+// The python and js tracks have no page data file: their words are written in the weeks and their library is
+// content/library/<track>.js (window.PY_DATA / window.JS_DATA).
 //
-// usage: node tools/build_weeks.js english|n8n|python [--check]
+// The intensive start: weeks 1–12 are 3 hours a day. A week of n8n, English or Python (written for 2 hours) gets its
+// extra hour from content/<track>/intensive/wNN.js — {days: [{learn, practice, code, words}, … ×5, {review}]} —
+// appended to each day and marked `deep` (shown as «⚡ ساعة التكثيف»). Days of weeks 1–12 default to 180 minutes.
+//
+// usage: node tools/build_weeks.js english|n8n|python|js [--check]
 const fs = require('fs'), path = require('path'), vm = require('vm');
 const ROOT = path.resolve(__dirname, '..');
 const track = process.argv[2];
-if (!['english', 'n8n', 'python'].includes(track)) { console.error('usage: node tools/build_weeks.js english|n8n|python'); process.exit(2); }
+const CODE = track === 'python' || track === 'js';   // tracks whose words and library live in content/
+if (!['english', 'n8n', 'python', 'js'].includes(track)) { console.error('usage: node tools/build_weeks.js english|n8n|python|js'); process.exit(2); }
 const js = f => fs.readFileSync(path.join(ROOT, 'assets/js', f), 'utf8');
 const AR = /[\u0600-\u06FF]/;
 
 // ---- the page data and its English dictionary ----
 const win = {}; win.window = win;
-if (track !== 'python') vm.runInNewContext(js(track === 'english' ? 'english-data.js' : 'n8n-data.js'), win);
+if (!CODE) vm.runInNewContext(js(track === 'english' ? 'english-data.js' : 'n8n-data.js'), win);
 const dict = {};
 const ctx = { I18N_ADD: d => Object.assign(dict, d) };
 ctx.window = { I18N_ADD: ctx.I18N_ADD };
-['common-en.js'].concat(track === 'python' ? [] : [track + '-en.js']).forEach(f => vm.runInNewContext(js(f), ctx));
+['common-en.js'].concat(CODE ? [] : [track + '-en.js']).forEach(f => vm.runInNewContext(js(f), ctx));
 
 const problems = [];
 function en(ar, where) {
@@ -36,7 +42,7 @@ function en(ar, where) {
 }
 // the extra bilingual entries in content/library/<track>.js join the library (title/read may be {ar, en})
 vm.runInNewContext(fs.readFileSync(path.join(ROOT, 'content/library', track + '.js'), 'utf8'), win);
-const D = track === 'english' ? win.EN_DATA : track === 'n8n' ? win.N8N_DATA : { TERMS: [], LIBRARY: win.PY_DATA.LIBRARY };
+const D = track === 'english' ? win.EN_DATA : track === 'n8n' ? win.N8N_DATA : { TERMS: [], LIBRARY: (track === 'js' ? win.JS_DATA : win.PY_DATA).LIBRARY };
 const bank = Object.create(null);
 (track === 'english' ? D.VOCAB.map(v => ({ t: v.term, m: v.mean, ex: v.ex })) : D.TERMS.map(v => ({ t: v.t, m: v.m, ex: v.ex })))
   .forEach(v => { if (!bank[v.t.toLowerCase()]) bank[v.t.toLowerCase()] = v; });
@@ -69,6 +75,8 @@ function read(r, where) {
 const pad = n => String(n).padStart(2, '0');
 const srcDir = path.join(ROOT, 'content', track, 'src');
 const outDir = path.join(ROOT, 'content', track, 'weeks');
+const deepDir = path.join(ROOT, 'content', track, 'intensive');
+fs.mkdirSync(outDir, { recursive: true });
 const seenWords = Object.create(null);
 // words already used in the ready weeks that have no source (week 1)
 fs.readdirSync(outDir).filter(f => /^w\d\d\.js$/.test(f)).forEach(f => {
@@ -87,9 +95,29 @@ for (const f of files) {
   const src = require(path.join(srcDir, f));
   const n = Number(f.slice(1, 3));
   const W = track + '/src/' + f;
-  const days = src.days.map((d, i) => {
+  // the intensive hour of weeks 1–12, kept in its own file
+  const deepFile = path.join(deepDir, f);
+  let deep = null;
+  if (fs.existsSync(deepFile)) {
+    const dsrc = fs.readFileSync(deepFile, 'utf8');
+    const dl = dsrc.split('\n').findIndex(l => /(^|[^\\])\\[dwsbDWSB.]/.test(l));
+    if (dl !== -1) problems.push(track + '/intensive/' + f + ':' + (dl + 1) + ': write \\\\d (two backslashes) in a regex sample, a single one is lost');
+    delete require.cache[require.resolve(deepFile)];
+    deep = require(deepFile);
+    if (n > 12) problems.push(track + '/intensive/' + f + ': only weeks 1–12 are intensive');
+  }
+  const mark = x => (x && typeof x === 'object' && !Array.isArray(x)) ? Object.assign({}, x, { deep: 1 }) : x;
+  const days = src.days.map((d0, i) => {
     const w = W + ' day ' + (i + 1);
-    const out = Object.assign({ d: i + 1 }, d, { minutes: d.minutes || 120 });
+    const x = deep && deep.days && deep.days[i];
+    const d = Object.assign({}, d0);
+    if (x) {
+      ['learn', 'practice', 'code', 'review'].forEach(k => { if (x[k]) d[k] = (d[k] || []).concat(x[k].map(mark)); });
+      if (x.words) d.words = (d.words || []).concat(x.words);
+      if (x.quiz) d.quiz = (d.quiz || []).concat(x.quiz);
+      if (x.test) d.test = (d.test || []).concat(x.test);
+    }
+    const out = Object.assign({ d: i + 1 }, d, { minutes: d.minutes || (n <= 12 ? 180 : 120) });
     if (d.learn) out.learn = d.learn.map(l => learn(l, w));
     if (d.words) out.words = d.words.map(x => word(x, w));
     if (d.read) out.read = d.read.map(r => read(r, w));

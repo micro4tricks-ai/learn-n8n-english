@@ -1,14 +1,21 @@
-// The 24-week Python journey (Python for automation, plus the HTML, CSS and JavaScript around it): months, week titles, ready weeks.
+// The 48-week (12-month) Python journey (Python for automation, plus the HTML, CSS and JavaScript around it): months, week titles, ready weeks.
+// Months 1–3 are the intensive start (3 hours a day); then 2 hours a day from intermediate to expert.
 JOURNEY.outline({
  track: 'python',
  ready: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24],
  months: [
-  { n: 1, level: { ar: 'مبتدئ', en: 'Beginner' }, title: { ar: 'أساسيات بايثون', en: 'Python basics' } },
-  { n: 2, level: { ar: 'مبتدئ', en: 'Beginner' }, title: { ar: 'الدوال وهياكل البيانات', en: 'Functions and data structures' } },
-  { n: 3, level: { ar: 'متوسط', en: 'Intermediate' }, title: { ar: 'أتمتة الملفات والمكتب', en: 'Automating files and office work' } },
+  { n: 1, level: { ar: 'مبتدئ · مكثّف', en: 'Beginner · intensive' }, title: { ar: 'أساسيات بايثون', en: 'Python basics' } },
+  { n: 2, level: { ar: 'مبتدئ · مكثّف', en: 'Beginner · intensive' }, title: { ar: 'الدوال وهياكل البيانات', en: 'Functions and data structures' } },
+  { n: 3, level: { ar: 'مبتدئ · مكثّف', en: 'Beginner · intensive' }, title: { ar: 'أتمتة الملفات والمكتب', en: 'Automating files and office work' } },
   { n: 4, level: { ar: 'متوسط', en: 'Intermediate' }, title: { ar: 'الويب: APIs وHTML وCSS وJavaScript', en: 'The web: APIs, HTML, CSS and JavaScript' } },
-  { n: 5, level: { ar: 'متقدم', en: 'Advanced' }, title: { ar: 'الكائنات والبيانات وقواعد البيانات', en: 'Objects, data and databases' } },
-  { n: 6, level: { ar: 'محترف', en: 'Professional' }, title: { ar: 'الاحتراف والذكاء الاصطناعي', en: 'Production and AI' } }
+  { n: 5, level: { ar: 'متوسط', en: 'Intermediate' }, title: { ar: 'الكائنات والبيانات وقواعد البيانات', en: 'Objects, data and databases' } },
+  { n: 6, level: { ar: 'متوسط', en: 'Intermediate' }, title: { ar: 'الاحتراف والذكاء الاصطناعي', en: 'Production and AI' } },
+  { n: 7, level: { ar: 'محترف', en: 'Professional' }, title: { ar: 'بايثون المتقدم', en: 'Advanced Python' } },
+  { n: 8, level: { ar: 'محترف', en: 'Professional' }, title: { ar: 'هندسة البيانات', en: 'Data engineering' } },
+  { n: 9, level: { ar: 'محترف', en: 'Professional' }, title: { ar: 'أتمتة الويب والـ APIs المتقدمة', en: 'Advanced web automation and APIs' } },
+  { n: 10, level: { ar: 'خبير', en: 'Expert' }, title: { ar: 'هندسة الذكاء الاصطناعي', en: 'AI engineering' } },
+  { n: 11, level: { ar: 'خبير', en: 'Expert' }, title: { ar: 'الجودة والمعمارية', en: 'Quality and architecture' } },
+  { n: 12, level: { ar: 'خبير', en: 'Expert' }, title: { ar: 'الخبير في الإنتاج', en: 'The expert in production' } }
  ],
  weeks: [
   { ar: 'البداية: Python والمتغيرات والأنواع', en: 'Getting started: Python, variables and types' },
@@ -34,6 +41,30 @@ JOURNEY.outline({
   { ar: 'بناء APIs بـ FastAPI والربط مع n8n', en: 'Building APIs with FastAPI and connecting n8n' },
   { ar: 'الجودة: الاختبارات والأنواع وasync', en: 'Quality: tests, types and async' },
   { ar: 'Python والذكاء الاصطناعي: LLMs وMCP', en: 'Python and AI: LLMs and MCP' },
-  { ar: 'النشر ومشروع التخرج', en: 'Deployment and the capstone project' }
+  { ar: 'النشر ومشروع التخرج', en: 'Deployment and the capstone project' },
+  { ar: 'الدوال المتقدمة: Decorators وClosures وGenerators', en: 'Advanced functions: decorators, closures and generators' },
+  { ar: 'Context managers وdataclasses والأنواع بعمق', en: 'Context managers, dataclasses and typing in depth' },
+  { ar: 'التزامن: Threads وProcesses وasyncio', en: 'Concurrency: threads, processes and asyncio' },
+  { ar: 'التغليف والنشر على PyPI ومشروع الشهر', en: 'Packaging, publishing on PyPI and the month project' },
+  { ar: 'pandas المتقدم وPolars', en: 'Advanced pandas and Polars' },
+  { ar: 'PostgreSQL وSQLAlchemy والـ Migrations', en: 'PostgreSQL, SQLAlchemy and migrations' },
+  { ar: 'خطوط البيانات ETL والجدولة', en: 'ETL pipelines and scheduling' },
+  { ar: 'جودة البيانات والتحقق ومشروع الشهر', en: 'Data quality, validation and the month project' },
+  { ar: 'أتمتة المتصفح بـ Playwright', en: 'Browser automation with Playwright' },
+  { ar: 'الـ Scraping على نطاق واسع وأخلاقياته', en: 'Scraping at scale, and its ethics' },
+  { ar: 'FastAPI المتقدم: الصلاحيات والمهام والـ WebSockets', en: 'Advanced FastAPI: auth, background tasks and WebSockets' },
+  { ar: 'تكاملات Google وSlack وTelegram ومشروع الشهر', en: 'Google, Slack and Telegram integrations, and the month project' },
+  { ar: 'الـ Embeddings والـ RAG بـ Python', en: 'Embeddings and RAG in Python' },
+  { ar: 'وكلاء بالأدوات مع Claude API', en: 'Agents with tools on the Claude API' },
+  { ar: 'تقييم واختبار تطبيقات الـ LLM', en: 'Evaluating and testing LLM apps' },
+  { ar: 'خوادم MCP بعمق ومشروع الشهر', en: 'MCP servers in depth and the month project' },
+  { ar: 'الأداء والـ Profiling', en: 'Performance and profiling' },
+  { ar: 'أنماط التصميم والمعمارية النضيفة', en: 'Design patterns and clean architecture' },
+  { ar: 'الاختبار بعمق: Fixtures وMocking وProperty tests', en: 'Testing in depth: fixtures, mocking and property tests' },
+  { ar: 'أمان تطبيقات بايثون ومشروع الشهر', en: 'Securing Python apps and the month project' },
+  { ar: 'CI/CD والحاويات المتقدمة', en: 'CI/CD and advanced containers' },
+  { ar: 'النشر على السحابة والـ Serverless', en: 'Cloud deployment and serverless' },
+  { ar: 'المراقبة والصيانة طويلة المدى', en: 'Observability and long-term maintenance' },
+  { ar: 'مشروع الخبير النهائي', en: 'The expert capstone project' }
  ]
 });

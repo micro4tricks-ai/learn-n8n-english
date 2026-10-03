@@ -1,7 +1,8 @@
-/* python.html: section types for the Python journey page.
- *   journey   — the 24-week journey (journey.js), with «Run» on Python examples (pyrun.js)
- *   pyterms   — the words of the journey weeks (content/python/terms.js) by month, with search
- *   pylibrary — the free library (content/library/python.js) with category, level, language and «read» filters */
+/* Section types for the code journeys, python.html and js.html (`track` on the section says which):
+ *   journey   — the 48-week journey (journey.js), with «Run» on the examples: Python through pyrun.js,
+ *               HTML and JavaScript in the sandboxed frame (sandbox.js)
+ *   pyterms   — the words of the journey weeks (content/<track>/terms.js) by month, with search
+ *   pylibrary — the free library (window.PY_DATA, or the global named by `data`) with category, level, language and «read» filters */
 (function(){
   var S = window.SITE, X = window.SECTIONS, B = S.B, L = S.L, esc = S.esc;
 
@@ -85,8 +86,9 @@
   X.type('journey', function(el, sec){
     el.innerHTML = (sec.intro ? '<div class="sprint-intro">' + S.md(sec.intro) + '<div class="rhythm" aria-label="' + esc(B('تقسيم اليوم', 'How a day is split')) + '">' +
       (sec.rhythm || []).map(function(r){ return '<span>' + esc(L(r)) + '</span>'; }).join('') + '</div></div>' : '') + '<div class="py-journey"></div>';
+    var track = sec.track || 'python';
     JOURNEY.mount({
-      track: 'python', el: el.querySelector('.py-journey'), storeKey: 'journey_python_v1',
+      track: track, el: el.querySelector('.py-journey'), storeKey: 'journey_' + track + '_v1',
       copy: S.copy, runCode: runCode,
       onActivity: function(){ S.touch(); stats(); },
       onChange: stats, onExternal: stats
@@ -95,13 +97,13 @@
   });
 
   X.type('pyterms', function(el, sec){
-    var all = ((window.JOURNEY_TERMS || {}).python || []).slice(), month = 0, q = '';
+    var track = sec.track || 'python', all = ((window.JOURNEY_TERMS || {})[track] || []).slice(), month = 0, q = '';
     el.innerHTML = '<div class="lib-tools"><label class="lib-search"><span>' + esc(B('ابحث في المصطلحات:', 'Search the terms:')) + '</span>' +
-      '<input type="search" autocomplete="off" placeholder="list, dict, request, selector…"></label><span class="lib-count" aria-live="polite"></span></div>' +
+      '<input type="search" autocomplete="off" placeholder="' + esc(sec.placeholder || 'list, dict, request, selector…') + '"></label><span class="lib-count" aria-live="polite"></span></div>' +
       '<div class="cat-tabs"></div><div class="vocab-grid"></div>' +
-      '<p class="sub-note">' + S.inline(B('كل المصطلحات دي بتدخل مراجعتك اليومية في [صفحة المراجعة](review.html) (فعّل «مصطلحات بايثون»).', 'All of these terms join your daily review on [the review page](review.html) (turn on «Python terms»).')) + '</p>';
+      '<p class="sub-note">' + S.inline(sec.reviewNote || B('كل المصطلحات دي بتدخل مراجعتك اليومية في [صفحة المراجعة](review.html) (فعّل «مصطلحات بايثون»).', 'All of these terms join your daily review on [the review page](review.html) (turn on «Python terms»).')) + '</p>';
     var input = el.querySelector('input'), tabs = el.querySelector('.cat-tabs'), grid = el.querySelector('.vocab-grid'), count = el.querySelector('.lib-count');
-    var months = (JOURNEY.outlines.python || {}).months || [];
+    var months = (JOURNEY.outlines[track] || {}).months || [];
     function paint(){
       tabs.innerHTML = [[0, B('الكل', 'All')]].concat(months.map(function(m){ return [m.n, B('الشهر ', 'Month ') + m.n + ': ' + L(m.title)]; })).map(function(t){
         return '<button type="button" class="cat-tab' + (t[0] === month ? ' active' : '') + '" data-m="' + t[0] + '">' + esc(t[1]) + '</button>';
@@ -125,11 +127,11 @@
   });
 
   X.type('pylibrary', function(el, sec){
-    var LIB = (window.PY_DATA || {}).LIBRARY || [], CATS = (window.PY_DATA || {}).CATS || {};
+    var DATA = window[sec.data || 'PY_DATA'] || {}, LIB = DATA.LIBRARY || [], CATS = DATA.CATS || {}, KEY = sec.doneKey || 'pylib';
     var cat = 'all', q = '', lvl = '', lang = '', status = '';
-    function read(b){ var d = S.get('done')['pylib:' + b.id]; return !!(d && !d.del); }
+    function read(b){ var d = S.get('done')[KEY + ':' + b.id]; return !!(d && !d.del); }
     el.innerHTML = '<div class="lib-tools">' +
-      '<label class="lib-search"><span>' + esc(B('ابحث:', 'Search:')) + '</span><input type="search" autocomplete="off" placeholder="pandas, CSS, scraping…"></label>' +
+      '<label class="lib-search"><span>' + esc(B('ابحث:', 'Search:')) + '</span><input type="search" autocomplete="off" placeholder="' + esc(sec.libPlaceholder || 'pandas, CSS, scraping…') + '"></label>' +
       '<label class="lib-filter"><span>' + esc(B('المستوى:', 'Level:')) + '</span><select data-f="lvl"><option value="">' + esc(B('كل المستويات', 'All levels')) + '</option>' +
         '<option value="b">' + esc(B('مبتدئ', 'Beginner')) + '</option><option value="i">' + esc(B('متوسط', 'Intermediate')) + '</option><option value="a">' + esc(B('متقدم', 'Advanced')) + '</option></select></label>' +
       '<label class="lib-filter"><span>' + esc(B('اللغة:', 'Language:')) + '</span><select data-f="lang"><option value="">' + esc(B('كل اللغات', 'All languages')) + '</option>' +
@@ -169,7 +171,7 @@
       if(f){ if(f === 'lvl') lvl = e.target.value; if(f === 'lang') lang = e.target.value; if(f === 'status') status = e.target.value; paint(); return; }
       var id = e.target.dataset.lib;
       if(id == null) return;
-      if(e.target.checked){ S.setItem('done', 'pylib:' + id, { on: 1 }); S.touch(); } else S.removeItem('done', 'pylib:' + id);
+      if(e.target.checked){ S.setItem('done', KEY + ':' + id, { on: 1 }); S.touch(); } else S.removeItem('done', KEY + ':' + id);
       paint();
     });
     tabs.addEventListener('click', function(e){ var b = e.target.closest('[data-cat]'); if(!b) return; cat = b.dataset.cat; paint(); });

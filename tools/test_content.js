@@ -22,7 +22,7 @@ function question(x, where){
 }
 function atLeast(list, n, where){ if(!Array.isArray(list) || list.length < n) problems.push(where + ' < ' + n); }
 
-for(const track of ['english', 'n8n', 'python']){
+for(const track of ['english', 'n8n', 'python', 'js']){
   const dir = path.join(ROOT, 'content', track, 'weeks');
   if(!fs.existsSync(dir)) continue;
   for(const f of fs.readdirSync(dir).filter(f => /^w\d\d\.js$/.test(f)).sort()){

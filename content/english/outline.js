@@ -1,4 +1,5 @@
-// The 24-week English journey: months, week titles, and which weeks already have content.
+// The 48-week (12-month) English journey: months, week titles, and which weeks already have content.
+// Months 1–3 are the intensive start (3 hours a day); then 2 hours a day up to C1–C2.
 JOURNEY.outline({
  track: 'english',
  ready: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24],
@@ -8,7 +9,13 @@ JOURNEY.outline({
   { n: 3, level: 'B1', title: { ar: 'الكتابة التقنية', en: 'Technical writing' } },
   { n: 4, level: 'B1', title: { ar: 'التواصل في الشغل', en: 'Communication at work' } },
   { n: 5, level: 'B1 → B2', title: { ar: 'الاستماع والنطق والعرض', en: 'Listening, pronunciation and presenting' } },
-  { n: 6, level: 'B2 → C1', title: { ar: 'المقابلات والعملاء والاحتراف', en: 'Interviews, clients and professional English' } }
+  { n: 6, level: 'B2', title: { ar: 'المقابلات والعملاء', en: 'Interviews and clients' } },
+  { n: 7, level: 'B2', title: { ar: 'القراءة التقنية المتقدمة', en: 'Advanced technical reading' } },
+  { n: 8, level: 'B2 → C1', title: { ar: 'الكتابة الاحترافية المتقدمة', en: 'Advanced professional writing' } },
+  { n: 9, level: 'C1', title: { ar: 'التحدث والقيادة', en: 'Speaking and leading' } },
+  { n: 10, level: 'C1', title: { ar: 'إنجليزي البيزنس للفريلانسر', en: 'Business English for freelancers' } },
+  { n: 11, level: 'C1 → C2', title: { ar: 'الطلاقة والدقة', en: 'Fluency and nuance' } },
+  { n: 12, level: 'C2', title: { ar: 'تواصل الخبراء', en: 'Expert communication' } }
  ],
  weeks: [
   { ar: 'اقرا الأخطاء والتوثيق واكتب وتواصل', en: 'Read errors and docs, write, and communicate' },
@@ -34,6 +41,30 @@ JOURNEY.outline({
   { ar: 'المقابلات التقنية', en: 'Technical interviews' },
   { ar: 'العرض الوظيفي وبيئة الشغل والسفر', en: 'The job offer, the workplace and business travel' },
   { ar: 'البورتفوليو وLinkedIn', en: 'Your portfolio and LinkedIn' },
-  { ar: 'الكتابة الاحترافية الطويلة ومشروع التخرج', en: 'Long professional writing and the capstone project' }
+  { ar: 'الكتابة الاحترافية الطويلة ومشروع التخرج', en: 'Long professional writing and the capstone project' },
+  { ar: 'قراءة المواصفات والـ RFCs', en: 'Reading specifications and RFCs' },
+  { ar: 'قراءة الكود والـ Changelogs والـ Issues', en: 'Reading code, changelogs and issues' },
+  { ar: 'المقالات التقنية والأوراق البحثية', en: 'Technical articles and research papers' },
+  { ar: 'التلخيص وتدوين الملاحظات ومشروع الشهر', en: 'Summarising, note-taking and the month project' },
+  { ar: 'مستندات التصميم والمقترحات', en: 'Design docs and proposals' },
+  { ar: 'أدلة الأسلوب والتوثيق الاحترافي', en: 'Style guides and professional documentation' },
+  { ar: 'كتابة الشروحات والمقالات', en: 'Writing tutorials and articles' },
+  { ar: 'تقارير الحوادث والـ Postmortems ومشروع الشهر', en: 'Incident reports, postmortems and the month project' },
+  { ar: 'إدارة الاجتماعات', en: 'Running meetings' },
+  { ar: 'الإقناع والرد على الاعتراضات', en: 'Persuasion and handling objections' },
+  { ar: 'الملاحظات والتوجيه', en: 'Giving feedback and mentoring' },
+  { ar: 'المحاضرات والعروض الكبيرة ومشروع الشهر', en: 'Talks, big presentations and the month project' },
+  { ar: 'مكالمات المبيعات والاكتشاف', en: 'Sales calls and discovery' },
+  { ar: 'لغة العقود ونطاق الشغل', en: 'The language of contracts and scope' },
+  { ar: 'التسعير والفواتير والتفاوض', en: 'Pricing, invoices and negotiation' },
+  { ar: 'دعم العملاء والمحادثات الصعبة ومشروع الشهر', en: 'Customer support, hard conversations and the month project' },
+  { ar: 'التعبيرات والـ Phrasal verbs في التقنية', en: 'Idioms and phrasal verbs in tech' },
+  { ar: 'النبرة والتلطيف والفروق الثقافية', en: 'Tone, hedging and cultural nuance' },
+  { ar: 'قواعد متقدمة للدقة', en: 'Advanced grammar for precision' },
+  { ar: 'مفردات الذكاء الاصطناعي والسحابة والأمان ومشروع الشهر', en: 'The vocabulary of AI, cloud and security, and the month project' },
+  { ar: 'الكتابة للإدارة العليا', en: 'Writing for executives' },
+  { ar: 'مقابلات المستوى السينيور', en: 'Senior-level interviews' },
+  { ar: 'حضورك العام: محاضرات ومصادر مفتوحة', en: 'Your public presence: talks and open source' },
+  { ar: 'مشروع الخبير النهائي', en: 'The expert capstone project' }
  ]
 });

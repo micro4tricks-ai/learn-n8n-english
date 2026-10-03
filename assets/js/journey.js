@@ -1,9 +1,10 @@
-/* Journey engine: the 24-week plan shared by the n8n, English and Python pages.
+/* Journey engine: the 12-month (48-week) plan shared by the n8n, English, Python and JavaScript pages.
+ * Months 1–3 are the intensive start (3 hours a day), then 2 hours a day up to expert level.
  * Week content lives in content/<track>/weeks/wNN.js and calls JOURNEY.week({...}).
  * Content strings are {ar, en} and are read through L(); UI strings use T(). */
 (function(){
   var J = window.JOURNEY = window.JOURNEY || {};
-  J.weeks = { english: {}, n8n: {}, python: {} };
+  J.weeks = { english: {}, n8n: {}, python: {}, js: {} };
 
   J.L = function(x){
     if(x == null) return '';
@@ -17,6 +18,11 @@
   };
   J.outlines = {};
   J.outline = function(o){ J.outlines[o.track] = o; };
+  // the plan's length: 4 weeks a month, from the outline (48 weeks / 12 months when it isn't loaded)
+  J.span = function(track){
+    var o = J.outlines[track], w = o && o.weeks && o.weeks.length ? o.weeks.length : 48;
+    return { weeks: w, months: Math.ceil(w / 4), days: w * 6 };
+  };
 
   function best(attempts){
     var b = 0;
@@ -48,13 +54,14 @@
       var n = (day.quiz || []).length;
       return ok && J.rules.quizRight(day, answers) >= Math.ceil(n * J.rules.DAY_PASS);
     },
-    // Exams: months 1-5 have a monthly exam on their 4 weeks; month 6 holds the final exam on all 24 weeks.
+    // Exams: every month but the last has a monthly exam on its 4 weeks; the last month holds the final exam
+    // on all the weeks (48 questions). `months` is the plan's length (12 by default).
     // An exam opens when every weekly test in its range is passed. Each attempt draws new questions.
-    examId: function(m){ return m === 6 ? 'final-exam' : 'm' + m + '-exam'; },
-    examWeeks: function(m){ return m === 6 ? [1, 24] : [(m - 1) * 4 + 1, m * 4]; },
-    examPerWeek: function(m){ return m === 6 ? 2 : 5; },
-    examOpen: function(m, progress){
-      var r = J.rules.examWeeks(m), tests = (progress && progress.tests) || {};
+    examId: function(m, months){ return m === (months || 12) ? 'final-exam' : 'm' + m + '-exam'; },
+    examWeeks: function(m, months){ months = months || 12; return m === months ? [1, months * 4] : [(m - 1) * 4 + 1, m * 4]; },
+    examPerWeek: function(m, months){ months = months || 12; return m === months ? Math.max(1, Math.round(48 / (months * 4))) : 5; },
+    examOpen: function(m, progress, months){
+      var r = J.rules.examWeeks(m, months), tests = (progress && progress.tests) || {};
       for(var n = r[0]; n <= r[1]; n++){ if(!J.rules.weekPassed(tests[J.rules.testId(n)])) return false; }
       return true;
     }
@@ -72,7 +79,7 @@
   // Deterministic pick for a seed: `per` random questions from each week of the exam's range.
   J.drawExam = function(track, m, seed){
     var rnd = (function(a){ return function(){ a = (a + 0x6D2B79F5) | 0; var t = Math.imul(a ^ (a >>> 15), 1 | a); t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t; return ((t ^ (t >>> 14)) >>> 0) / 4294967296; }; })(seed);
-    var r = J.rules.examWeeks(m), per = J.rules.examPerWeek(m), ids = [];
+    var span = J.span(track), r = J.rules.examWeeks(m, span.months), per = J.rules.examPerWeek(m, span.months), ids = [];
     for(var n = r[0]; n <= r[1]; n++){
       var w = J.weeks[track][n];
       if(!w) continue;
@@ -192,6 +199,8 @@
 
   // ---- rules applied to the mounted track ----
   function weekObj(n){ return J.weeks[M.track][n]; }
+  function N(){ return M.span.weeks; }        // weeks in the plan
+  function LAST(){ return M.span.months; }    // the month of the final exam
   function isReady(n){ return (M.outline.ready || []).indexOf(n) !== -1; }
   function weekOpen(n){ return J.rules.weekUnlocked(M.track, n, M.progress); }
   function attempts(n){ return M.progress.tests[J.rules.testId(n)] || []; }
@@ -218,29 +227,29 @@
     return 6;
   }
   function currentWeek(){
-    for(var n = 1; n <= 24; n++){ if(!weekPassed(n)) return n; }
-    return 24;
+    for(var n = 1; n <= N(); n++){ if(!weekPassed(n)) return n; }
+    return N();
   }
   J.stats = function(){
     if(!M) return { weeks: 0, days: 0, pct: 0 };
     var weeks = 0, days = 0;
-    for(var n = 1; n <= 24; n++){
+    for(var n = 1; n <= N(); n++){
       if(weekPassed(n)){ weeks++; days += 6; continue; }
       var w = weekObj(n);
       if(w) w.days.slice(0, 5).forEach(function(d){ if(studyDone(d)) days++; });
     }
     var exams = 0;
-    for(var m = 1; m <= 6; m++){ if(examPassed(m)) exams++; }
-    return { weeks: weeks, days: days, exams: exams, pct: Math.round(days / 144 * 100) };
+    for(var m = 1; m <= LAST(); m++){ if(examPassed(m)) exams++; }
+    return { weeks: weeks, days: days, exams: exams, pct: Math.round(days / M.span.days * 100), totalWeeks: N(), totalDays: M.span.days };
   };
-  function examAttempts(m){ return M.progress.tests[J.rules.examId(m)] || []; }
+  function examAttempts(m){ return M.progress.tests[J.rules.examId(m, LAST())] || []; }
   function examPassed(m){ return J.rules.weekPassed(examAttempts(m)); }
-  function examOpen(m){ return J.rules.examOpen(m, M.progress); }
+  function examOpen(m){ return J.rules.examOpen(m, M.progress, LAST()); }
 
   // ---- rendering ----
   function renderSum(){
     var s = J.stats();
-    M.sum.textContent = TF('عدّيت {w} من 24 أسبوع · خلّصت {d} من 144 يوم', { w: s.weeks, d: s.days });
+    M.sum.textContent = TF('عدّيت {w} من {tw} أسبوع · خلّصت {d} من {td} يوم', { w: s.weeks, tw: N(), d: s.days, td: M.span.days });
   }
   function renderSide(){
     var o = M.outline, h = '';
@@ -255,25 +264,25 @@
       }
       var eo = examOpen(m.n), ep = examPassed(m.n), eb = examAttempts(m.n).length ? Math.round(J.rules.best(examAttempts(m.n)) * 100) + '%' : '';
       h += '</div><button type="button" class="jr-exam' + (M.selExam === m.n ? ' sel' : '') + (ep ? ' done' : '') + (eo ? '' : ' locked') + '" data-exam="' + m.n + '"' +
-        (M.selExam === m.n ? ' aria-current="true"' : '') + '>' + (m.n === 6 ? '🎓 ' + T('الامتحان النهائي') : '📝 ' + TF('امتحان الشهر {n}', { n: m.n })) +
+        (M.selExam === m.n ? ' aria-current="true"' : '') + '>' + (m.n === LAST() ? '🎓 ' + T('الامتحان النهائي') : '📝 ' + TF('امتحان الشهر {n}', { n: m.n })) +
         ' <span>' + (ep ? '✓ ' + eb : eo ? eb : '🔒') + '</span></button></div>';
     });
     M.side.innerHTML = h;
   }
   function weekHead(n, extra){
-    return '<div class="jr-whead"><div class="jr-eyebrow mono">' + TF('الشهر {m} · الأسبوع {n} من 24', { m: Math.ceil(n / 4), n: n }) + '</div>' +
+    return '<div class="jr-whead"><div class="jr-eyebrow mono">' + TF('الشهر {m} · الأسبوع {n} من {t}', { m: Math.ceil(n / 4), n: n, t: N() }) + '</div>' +
       '<h3>' + esc(L(M.outline.weeks[n - 1])) + '</h3>' + (extra || '') + '</div>';
   }
-  var TRACK_NAME = { n8n: { ar: 'أتمتة n8n', en: 'n8n automation' }, english: { ar: 'الإنجليزي للمبرمجين', en: 'English for developers' }, python: { ar: 'بايثون للأتمتة والويب', en: 'Python for automation and the web' } };
+  var TRACK_NAME = { n8n: { ar: 'أتمتة n8n', en: 'n8n automation' }, english: { ar: 'الإنجليزي للمبرمجين', en: 'English for developers' }, python: { ar: 'بايثون للأتمتة والويب', en: 'Python for automation and the web' }, js: { ar: 'جافاسكريبت والويب للأتمتة', en: 'JavaScript and the web for automation' } };
   function examHead(m){
-    var r = J.rules.examWeeks(m);
-    return '<div class="jr-whead"><div class="jr-eyebrow mono">' + (m === 6 ? T('الامتحان النهائي · الأسابيع 1–24')
+    var r = J.rules.examWeeks(m, LAST());
+    return '<div class="jr-whead"><div class="jr-eyebrow mono">' + (m === LAST() ? TF('الامتحان النهائي · الأسابيع 1–{t}', { t: N() })
       : TF('امتحان الشهر {m} · الأسابيع {a}–{b}', { m: m, a: r[0], b: r[1] })) + '</div>' +
-      '<h3>' + (m === 6 ? T('الامتحان النهائي') : esc(L(M.outline.months[m - 1].title))) + '</h3></div>';
+      '<h3>' + (m === LAST() ? T('الامتحان النهائي') : esc(L(M.outline.months[m - 1].title))) + '</h3></div>';
   }
   // Loads every week of the exam's range, then draws the questions (a fresh seed for each attempt).
   function renderExam(){
-    var m = M.selExam, r = J.rules.examWeeks(m), E = M.exam;
+    var m = M.selExam, r = J.rules.examWeeks(m, LAST()), E = M.exam;
     if(!examOpen(m)){
       M.main.innerHTML = examHead(m) + '<p class="lock-note">' + TF('الامتحان ده بيفتح لما تعدّي اختبارات الأسابيع {a}–{b} كلها 🔒', { a: r[0], b: r[1] }) + '</p>';
       return;
@@ -314,18 +323,18 @@
     if(res){
       var ok = res.score / res.total >= J.rules.PASS;
       h += '<div class="jr-result ' + (ok ? 'pass' : 'fail') + '" role="status"><b>' + TF('درجتك: {s} من {t} ({p}%)', { s: res.score, t: res.total, p: Math.round(res.score / res.total * 100) }) + '</b> ' +
-        (ok ? (m === 6 ? T('نجحت في الامتحان النهائي 🎓 خلّصت الرحلة كلها.') : T('نجحت في امتحان الشهر 🎉')) : T('لسه أقل من 70%. راجع الأسابيع اللي الأسئلة الغلط جاية منها، وبعدين جرّب تاني بأسئلة جديدة.')) + '</div>' +
+        (ok ? (m === LAST() ? T('نجحت في الامتحان النهائي 🎓 خلّصت الرحلة كلها.') : T('نجحت في امتحان الشهر 🎉')) : T('لسه أقل من 70%. راجع الأسابيع اللي الأسئلة الغلط جاية منها، وبعدين جرّب تاني بأسئلة جديدة.')) + '</div>' +
         '<div class="jr-actions"><button type="button" class="ghost-btn" data-jeretake>' + T('امتحان جديد بأسئلة تانية') + '</button></div>';
     }else{
       var picked = qs.filter(function(_, i){ return E.sel[i] != null; }).length;
       h += '<div class="jr-actions"><button type="button" class="link-btn" data-jesubmit' + (picked === qs.length ? '' : ' disabled') + '>' + T('سلّم الاختبار') + '</button>' +
         '<span class="sub-note">' + TF('جاوبت {a} من {n}', { a: picked, n: qs.length }) + '</span></div>';
     }
-    if(m === 6 && examPassed(m)){
+    if(m === LAST() && examPassed(m)){
       var at = list.filter(function(t){ return t.score / t.total >= J.rules.PASS; })[0];
       h += '<div class="jr-cert" id="jrCert"><div class="jr-cert-t">🎓 ' + T('شهادة إتمام') + '</div>' +
-        '<p>' + TF('خلّصت رحلة الـ 24 أسبوع في «{track}»: 144 يوم، و24 اختبار أسبوعي، و5 امتحانات شهرية، والامتحان النهائي بأحسن درجة {p}%.',
-          { track: L(TRACK_NAME[M.track]), p: Math.round(best * 100) }) + '</p>' +
+        '<p>' + TF('خلّصت رحلة الـ {w} أسبوع في «{track}» من مبتدئ لخبير: {d} يوم، و{w} اختبار أسبوعي، و{e} امتحان شهري، والامتحان النهائي بأحسن درجة {p}%.',
+          { track: L(TRACK_NAME[M.track]), w: N(), d: M.span.days, e: LAST() - 1, p: Math.round(best * 100) }) + '</p>' +
         '<p class="mono">' + new Date(at ? at.at : Date.now()).toISOString().slice(0, 10) + ' · micro4tricks-ai.github.io/learn-n8n-english</p>' +
         '<button type="button" class="ghost-btn" data-jprint>' + T('اطبع الشهادة') + '</button></div>';
     }
@@ -379,6 +388,10 @@
       (x.stdin != null ? '<label class="run-in"><span>' + T('اللي هتكتبه لـ input() (سطر لكل مرة):') + '</span><textarea rows="2" dir="ltr" spellcheck="false">' + esc(x.stdin) + '</textarea></label>' : '') +
       '</div><pre class="run-out" hidden aria-live="polite"></pre>';
   }
+  // content of the intensive hour (months 1–3, content/<track>/intensive)
+  function deepTag(x){ return x && x.deep ? '<span class="deep-tag">⚡ ' + T('ساعة التكثيف') + '</span> ' : ''; }
+  // a Node.js example can't run in the page: say how to run it on your computer
+  function nodeNote(x){ return x && x.node && !x.run ? '<p class="sub-note node-note">⬢ ' + T('مثال Node.js: احفظه في ملف main.mjs على جهازك وشغّله بـ node main.mjs') + '</p>' : ''; }
   function block(step, title, body){
     return '<div class="sp-block"><h4><span class="step">' + step + '</span> ' + title + '</h4>' + body + '</div>';
   }
@@ -387,7 +400,7 @@
       '<label for="jr_' + id + '">' + label + '</label></div>';
   }
   function headStats(day, st){
-    return '⏱ ' + (day.minutes || 120) + ' min · practice ' + st.p + '/' + st.pt + ' · quiz ' + st.q + '/' + st.qt;
+    return '⏱ ' + (day.minutes || (M.selWeek <= 12 ? 180 : 120)) + ' min · practice ' + st.p + '/' + st.pt + ' · quiz ' + st.q + '/' + st.qt;
   }
   function renderDay(w){
     var day = w.days[M.selDay - 1], box = document.getElementById('jrDay');
@@ -397,14 +410,14 @@
     h += '<div class="sp-head"><h3>' + TF('اليوم {d}', { d: day.d }) + ': ' + esc(L(day.title)) + '</h3><p>' + esc(L(day.goal)) + '</p>' +
       '<div class="mono">' + headStats(day, st) + '</div></div>';
     h += block(++step, T('افهم: الشرح مع أمثلة'), '<div class="learn-grid">' + day.learn.map(function(l){
-      return '<div class="learn-card"><div class="lh">' + esc(L(l.h)) + '</div><p class="lp">' + fmt(L(l.p)) + '</p>' + (l.ex ? '<pre class="code" tabindex="0">' + esc(L(l.ex)) + '</pre>' + runBar(l) : '') + '</div>';
+      return '<div class="learn-card' + (l.deep ? ' deep' : '') + '"><div class="lh">' + deepTag(l) + esc(L(l.h)) + '</div><p class="lp">' + fmt(L(l.p)) + '</p>' + (l.ex ? '<pre class="code" tabindex="0">' + esc(L(l.ex)) + '</pre>' + runBar(l) + nodeNote(l) : '') + '</div>';
     }).join('') + '</div>');
     h += block(++step, T('اتمرّن بإيدك'), '<div class="build-list">' + day.practice.map(function(t, i){
-      return checkbox('p' + day.key + '_' + i, fmt(L(t)));
+      return checkbox('p' + day.key + '_' + i, deepTag(t) + fmt(L(t)));
     }).join('') + '</div>');
     if(day.code && day.code.length){
       h += block(++step, T('انسخ واستخدم'), '<div class="phrase-grid">' + day.code.map(function(c, i){
-        return '<div class="phrase-card"><div class="row"><div class="u">' + esc(L(c.u)) + '</div><button type="button" class="copy-btn" data-jcopy="' + i + '">' + T('نسخ') + '</button></div>' +
+        return '<div class="phrase-card"><div class="row"><div class="u">' + deepTag(c) + esc(L(c.u)) + '</div><button type="button" class="copy-btn" data-jcopy="' + i + '">' + T('نسخ') + '</button></div>' +
           '<pre class="code" tabindex="0">' + esc(L(c.p)) + '</pre>' + runBar(c) + '</div>';
       }).join('') + '</div>');
     }
@@ -447,7 +460,7 @@
   function renderTestDay(w, day, box){
     var list = attempts(w.n), best = J.rules.best(list), passed = weekPassed(w.n), r = M.testResult;
     var h = '<div class="sp-head"><h3>' + esc(L(day.title)) + '</h3><p>' + esc(L(day.goal)) + '</p></div>';
-    h += block(1, T('راجع الأسبوع'), '<ul class="jr-review">' + day.review.map(function(x){ return '<li>' + fmt(L(x)) + '</li>'; }).join('') + '</ul>');
+    h += block(1, T('راجع الأسبوع'), '<ul class="jr-review">' + day.review.map(function(x){ return '<li>' + deepTag(x) + fmt(L(x)) + '</li>'; }).join('') + '</ul>');
     h += block(2, T('مشروع الأسبوع'), '<div class="challenge">' + fmt(L(day.project)) +
       '<div style="margin-top:10px">' + checkbox('projw' + pad(w.n), T('خلّصت المشروع')) + '</div></div>');
     var th = '<p class="sub-note">' + TF('{n} سؤال. محتاج 70% أو أكتر عشان الأسبوع {next} يفتح. تقدر تعيده أكتر من مرة، وأحسن درجة هي اللي بتتحسب.', { n: day.test.length, next: w.n + 1 }) + '</p>';
@@ -463,11 +476,11 @@
     if(r){
       var ok = r.score / r.total >= J.rules.PASS;
       th += '<div class="jr-result ' + (ok ? 'pass' : 'fail') + '" role="status"><b>' + TF('درجتك: {s} من {t} ({p}%)', { s: r.score, t: r.total, p: Math.round(r.score / r.total * 100) }) + '</b> ' +
-        (ok ? (w.n < 24 ? TF('نجحت 🎉 الأسبوع {n} اتفتح.', { n: w.n + 1 }) : T('نجحت 🎉 الامتحان النهائي اتفتح.')) : T('لسه أقل من 70%. راجع الأسئلة اللي غلطت فيها وأيامها، وبعدين أعد الاختبار.')) + '</div>' +
+        (ok ? (w.n < N() ? TF('نجحت 🎉 الأسبوع {n} اتفتح.', { n: w.n + 1 }) : T('نجحت 🎉 الامتحان النهائي اتفتح.')) : T('لسه أقل من 70%. راجع الأسئلة اللي غلطت فيها وأيامها، وبعدين أعد الاختبار.')) + '</div>' +
         '<div class="jr-actions"><button type="button" class="ghost-btn" data-jretake>' + T('أعد الاختبار') + '</button>' +
         (ok && w.n % 4 === 0 && examOpen(w.n / 4) ? '<button type="button" class="ghost-btn" data-exam="' + (w.n / 4) + '">' +
-          (w.n === 24 ? '🎓 ' + T('الامتحان النهائي') : '📝 ' + TF('امتحان الشهر {n}', { n: w.n / 4 })) + '</button>' : '') +
-        (ok && w.n < 24 ? '<button type="button" class="link-btn" data-jweek="' + (w.n + 1) + '">' + TF('ابدأ الأسبوع {n}', { n: w.n + 1 }) + ' ' + T('←') + '</button>' : '') + '</div>';
+          (w.n === N() ? '🎓 ' + T('الامتحان النهائي') : '📝 ' + TF('امتحان الشهر {n}', { n: w.n / 4 })) + '</button>' : '') +
+        (ok && w.n < N() ? '<button type="button" class="link-btn" data-jweek="' + (w.n + 1) + '">' + TF('ابدأ الأسبوع {n}', { n: w.n + 1 }) + ' ' + T('←') + '</button>' : '') + '</div>';
     }else{
       var picked = day.test.filter(function(_, i){ return M.testSel[i] != null; }).length;
       th += '<div class="jr-actions"><button type="button" class="link-btn" data-jsubmit' + (picked === day.test.length ? '' : ' disabled') + '>' + T('سلّم الاختبار') + '</button>' +
@@ -597,10 +610,10 @@
       if(answers.some(function(a){ return a == null; })) return;
       var score = E.qs.filter(function(id, i){ var q = J.question(M.track, id); return q && answers[i] === q.a; }).length;
       var attempt = { score: score, total: E.qs.length, at: Date.now(), answers: answers, qs: E.qs };
-      var id = J.rules.examId(m);
+      var id = J.rules.examId(m, LAST());
       (M.progress.tests[id] || (M.progress.tests[id] = [])).push(attempt);
       E.result = attempt;
-      E.qs.forEach(function(qid, i){ var q = J.question(M.track, qid); if(q && answers[i] !== q.a) wrong(qid, q, answers[i], m === 6 ? { ar: 'الامتحان النهائي', en: 'Final exam' } : { ar: 'امتحان الشهر {n}', en: 'Month {n} exam' }, { n: m }); });
+      E.qs.forEach(function(qid, i){ var q = J.question(M.track, qid); if(q && answers[i] !== q.a) wrong(qid, q, answers[i], m === LAST() ? { ar: 'الامتحان النهائي', en: 'Final exam' } : { ar: 'امتحان الشهر {n}', en: 'Month {n} exam' }, { n: m }); });
       save();
       if(M.opts.onAttempt) M.opts.onAttempt(id, attempt);
       emit('journey:attempt', { track: M.track, testId: id, attempt: attempt });
@@ -640,8 +653,8 @@
     var d = e.detail || {};
     if(!M || d.id !== 'journey') return;
     var w = Number(d.p.w), ex = Number(d.p.exam);
-    if(ex >= 1 && ex <= 6){ selectExam(ex); return; }
-    if(!(w >= 1 && w <= 24)) return;
+    if(ex >= 1 && ex <= LAST()){ selectExam(ex); return; }
+    if(!(w >= 1 && w <= N())) return;
     M.wantDay = Number(d.p.d) || 0;
     selectWeek(w, true);
   }
@@ -657,11 +670,11 @@
     p = normalize(p);
     var wasImported = p.imported;
     importLegacy(p, opts.legacyKey);
-    M = { track: opts.track, outline: outline, key: opts.storeKey, progress: p, opts: opts, el: opts.el, testSel: {}, testResult: null, selExam: 0, exam: null };
+    M = { track: opts.track, outline: outline, span: J.span(opts.track), key: opts.storeKey, progress: p, opts: opts, el: opts.el, testSel: {}, testResult: null, selExam: 0, exam: null };
     if(!wasImported) storeLocal();
     opts.el.innerHTML =
       '<div class="jr-bar"><button type="button" class="link-btn jr-today" data-jtoday>▶ ' + T('كمّل من حيث وقفت') + '</button>' +
-      '<span class="jr-sum"></span><button type="button" class="ghost-btn jr-side-btn" data-jside aria-expanded="false">☰ ' + T('كل الأسابيع (24)') + '</button></div>' +
+      '<span class="jr-sum"></span><button type="button" class="ghost-btn jr-side-btn" data-jside aria-expanded="false">☰ ' + TF('كل الأسابيع ({n})', { n: J.span(opts.track).weeks }) + '</button></div>' +
       '<div class="jr-layout"><nav class="jr-side" aria-label="' + esc(T('أسابيع الرحلة')) + '"></nav><div class="jr-main"></div></div>';
     M.sum = opts.el.querySelector('.jr-sum');
     M.side = opts.el.querySelector('.jr-side');

@@ -1,14 +1,21 @@
-// The 24-week n8n journey: months, week titles, and which weeks already have content.
+// The 48-week (12-month) n8n journey: months, week titles, and which weeks already have content.
+// Months 1–3 are the intensive start (3 hours a day); then 2 hours a day from intermediate to expert.
 JOURNEY.outline({
  track: 'n8n',
  ready: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24],
  months: [
-  { n: 1, level: { ar: 'مبتدئ', en: 'Beginner' }, title: { ar: 'الأساسيات', en: 'The basics' } },
-  { n: 2, level: { ar: 'مبتدئ', en: 'Beginner' }, title: { ar: 'الربط والبيانات', en: 'Integrations and data' } },
-  { n: 3, level: { ar: 'متوسط', en: 'Intermediate' }, title: { ar: 'الكود والمنطق', en: 'Code and logic' } },
+  { n: 1, level: { ar: 'مبتدئ · مكثّف', en: 'Beginner · intensive' }, title: { ar: 'الأساسيات', en: 'The basics' } },
+  { n: 2, level: { ar: 'مبتدئ · مكثّف', en: 'Beginner · intensive' }, title: { ar: 'الربط والبيانات', en: 'Integrations and data' } },
+  { n: 3, level: { ar: 'مبتدئ · مكثّف', en: 'Beginner · intensive' }, title: { ar: 'الكود والمنطق', en: 'Code and logic' } },
   { n: 4, level: { ar: 'متوسط', en: 'Intermediate' }, title: { ar: 'أنظمة البيانات', en: 'Data systems' } },
-  { n: 5, level: { ar: 'متقدم', en: 'Advanced' }, title: { ar: 'الذكاء الاصطناعي', en: 'AI' } },
-  { n: 6, level: { ar: 'محترف', en: 'Professional' }, title: { ar: 'الإنتاج والاحتراف', en: 'Production and career' } }
+  { n: 5, level: { ar: 'متوسط', en: 'Intermediate' }, title: { ar: 'الذكاء الاصطناعي', en: 'AI' } },
+  { n: 6, level: { ar: 'متوسط', en: 'Intermediate' }, title: { ar: 'الإنتاج والعمل الحر', en: 'Production and freelancing' } },
+  { n: 7, level: { ar: 'محترف', en: 'Professional' }, title: { ar: 'معمارية الـ Workflows المتقدمة', en: 'Advanced workflow architecture' } },
+  { n: 8, level: { ar: 'محترف', en: 'Professional' }, title: { ar: 'أنظمة الشغل الحقيقية', en: 'Real business systems' } },
+  { n: 9, level: { ar: 'محترف', en: 'Professional' }, title: { ar: 'ذكاء اصطناعي متقدم', en: 'Advanced AI automation' } },
+  { n: 10, level: { ar: 'خبير', en: 'Expert' }, title: { ar: 'هندسة n8n من جوه', en: 'Engineering n8n from the inside' } },
+  { n: 11, level: { ar: 'خبير', en: 'Expert' }, title: { ar: 'المؤسسات والأمان والتوسّع', en: 'Enterprise, security and scale' } },
+  { n: 12, level: { ar: 'خبير', en: 'Expert' }, title: { ar: 'الخبير: البيع والقيادة', en: 'The expert: selling and leading' } }
  ],
  weeks: [
   { ar: 'عقل n8n: البيانات والـ APIs والربط', en: 'How n8n thinks: data, APIs and connections' },
@@ -34,6 +41,30 @@ JOURNEY.outline({
   { ar: 'Docker والـ VPS', en: 'Docker and a VPS' },
   { ar: 'الأمان والنسخ الاحتياطي', en: 'Security and backups' },
   { ar: 'Queue mode والمراقبة والـ Custom nodes', en: 'Queue mode, monitoring and custom nodes' },
-  { ar: 'الشغل الحر ومشروع التخرج', en: 'Freelancing and the capstone project' }
+  { ar: 'الشغل الحر ومشروع التخرج', en: 'Freelancing and the capstone project' },
+  { ar: 'أنماط التصميم ومعمارية الـ Workflows', en: 'Design patterns and workflow architecture' },
+  { ar: 'البيانات المتقدمة: Binary والدمج والتجميع', en: 'Advanced data: binary, merging and aggregation' },
+  { ar: 'الاعتمادية: Retries وIdempotency وطوابير الفشل', en: 'Reliability: retries, idempotency and dead-letter queues' },
+  { ar: 'الاختبار والإصدارات والبيئات ومشروع الشهر', en: 'Testing, versions, environments and the month project' },
+  { ar: 'الـ CRM وأنظمة المبيعات', en: 'CRMs and sales systems' },
+  { ar: 'التجارة الإلكترونية والمدفوعات وتوقيع الـ Webhooks', en: 'E-commerce, payments and webhook signatures' },
+  { ar: 'واتساب والإيميل والرسائل على نطاق واسع', en: 'WhatsApp, email and messaging at scale' },
+  { ar: 'المستندات والـ OCR ومشروع الشهر', en: 'Documents, OCR and the month project' },
+  { ar: 'الوكلاء المتعددين والذاكرة', en: 'Multi-agent systems and memory' },
+  { ar: 'تقييم الذكاء الاصطناعي والحواجز الأمنية', en: 'AI evaluation and guardrails' },
+  { ar: 'أدوات وMCP مخصصة للوكلاء', en: 'Custom tools and MCP for agents' },
+  { ar: 'الصوت والصورة ومشروع الشهر', en: 'Voice, vision and the month project' },
+  { ar: 'بناء Nodes مخصصة بـ TypeScript', en: 'Building custom nodes in TypeScript' },
+  { ar: 'n8n API والإدارة بالكود', en: 'The n8n API and managing workflows in code' },
+  { ar: 'الأداء: Workers وRedis والتوسّع الأفقي', en: 'Performance: workers, Redis and scaling out' },
+  { ar: 'المراقبة: Logs وMetrics وتنبيهات ومشروع الشهر', en: 'Observability: logs, metrics, alerts and the month project' },
+  { ar: 'الأمان بعمق: الأسرار والصلاحيات والمراجعة', en: 'Security in depth: secrets, access and audit' },
+  { ar: 'الخصوصية وحماية البيانات الشخصية', en: 'Privacy and protecting personal data' },
+  { ar: 'التوافر العالي والنسخ الاحتياطي والتعافي', en: 'High availability, backups and recovery' },
+  { ar: 'Kubernetes والتوسّع ومشروع الشهر', en: 'Kubernetes, scaling and the month project' },
+  { ar: 'بيع الأتمتة: الاكتشاف والتسعير والعروض', en: 'Selling automation: discovery, pricing and proposals' },
+  { ar: 'إدارة وكالة أتمتة: الصيانة والـ SLA والتوثيق', en: 'Running an automation agency: maintenance, SLAs and docs' },
+  { ar: 'القيادة والتعليم والقوالب', en: 'Leading, teaching and templates' },
+  { ar: 'مشروع الخبير النهائي', en: 'The expert capstone project' }
  ]
 });
