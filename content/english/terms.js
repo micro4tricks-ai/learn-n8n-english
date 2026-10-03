@@ -4005,5 +4005,293 @@ JOURNEY_TERMS["english"] = [
    "en": "a gentle reminder"
   },
   "ex": "A nudge with a case study works well."
+ },
+ {
+  "w": 38,
+  "t": "party",
+  "m": {
+   "ar": "طرف في العقد",
+   "en": "a side in a contract"
+  },
+  "ex": "Each party signs the agreement."
+ },
+ {
+  "w": 38,
+  "t": "terms and conditions",
+  "m": {
+   "ar": "الشروط والأحكام العامة",
+   "en": "the general rules of an agreement"
+  },
+  "ex": "Read the terms and conditions carefully."
+ },
+ {
+  "w": 38,
+  "t": "scope of work",
+  "m": {
+   "ar": "نطاق العمل",
+   "en": "the work to be done"
+  },
+  "ex": "The scope of work lists four workflows."
+ },
+ {
+  "w": 38,
+  "t": "signatory",
+  "m": {
+   "ar": "الشخص المخوّل بالتوقيع",
+   "en": "the person authorised to sign"
+  },
+  "ex": "Who is the authorised signatory?"
+ },
+ {
+  "w": 38,
+  "t": "amendment",
+  "m": {
+   "ar": "تعديل رسمي على العقد",
+   "en": "a formal change to a contract"
+  },
+  "ex": "Any change needs a signed amendment."
+ },
+ {
+  "w": 38,
+  "t": "plain english",
+  "m": {
+   "ar": "لغة بسيطة وواضحة",
+   "en": "clear, simple language"
+  },
+  "ex": "Write the contract in plain English."
+ },
+ {
+  "w": 38,
+  "t": "redline",
+  "m": {
+   "ar": "نسخة بالتعديلات ظاهرة",
+   "en": "a version showing edits"
+  },
+  "ex": "I’ve attached a redline."
+ },
+ {
+  "w": 38,
+  "t": "counter-proposal",
+  "m": {
+   "ar": "اقتراح بديل",
+   "en": "an alternative offer"
+  },
+  "ex": "We sent a counter-proposal on payment."
+ },
+ {
+  "w": 38,
+  "t": "shall",
+  "m": {
+   "ar": "لازم (التزام في العقود)",
+   "en": "must (an obligation in contracts)"
+  },
+  "ex": "The Provider shall keep data confidential."
+ },
+ {
+  "w": 38,
+  "t": "may",
+  "m": {
+   "ar": "يجوز (حق مش التزام)",
+   "en": "is allowed to (a right, not a duty)"
+  },
+  "ex": "The Client may cancel with notice."
+ },
+ {
+  "w": 38,
+  "t": "must",
+  "m": {
+   "ar": "لازم (التزام واضح)",
+   "en": "has to (a clear obligation)"
+  },
+  "ex": "Invoices must be paid within 30 days."
+ },
+ {
+  "w": 38,
+  "t": "in writing",
+  "m": {
+   "ar": "مكتوب",
+   "en": "written down"
+  },
+  "ex": "Changes must be agreed in writing."
+ },
+ {
+  "w": 38,
+  "t": "hereby",
+  "m": {
+   "ar": "بموجب هذا (رسمي)",
+   "en": "by this document (formal)"
+  },
+  "ex": "The parties hereby agree as follows."
+ },
+ {
+  "w": 38,
+  "t": "acceptance criteria",
+  "m": {
+   "ar": "شروط قبول الشغل",
+   "en": "the conditions for accepting work"
+  },
+  "ex": "Agree the acceptance criteria before building."
+ },
+ {
+  "w": 38,
+  "t": "assumption",
+  "m": {
+   "ar": "حاجة الخطة مبنية عليها",
+   "en": "something the plan relies on"
+  },
+  "ex": "One assumption was API access in 3 days."
+ },
+ {
+  "w": 38,
+  "t": "change request",
+  "m": {
+   "ar": "طلب تغيير في النطاق",
+   "en": "a request to change the scope"
+  },
+  "ex": "New features need a change request."
+ },
+ {
+  "w": 38,
+  "t": "warranty",
+  "m": {
+   "ar": "ضمان",
+   "en": "a promise of performance for a period"
+  },
+  "ex": "The warranty lasts 30 days."
+ },
+ {
+  "w": 38,
+  "t": "renewal",
+  "m": {
+   "ar": "تجديد",
+   "en": "continuing a contract for a new period"
+  },
+  "ex": "The renewal is automatic each month."
+ },
+ {
+  "w": 38,
+  "t": "payment terms",
+  "m": {
+   "ar": "شروط الدفع",
+   "en": "when and how payment is made"
+  },
+  "ex": "Our payment terms are net 30."
+ },
+ {
+  "w": 38,
+  "t": "deposit",
+  "m": {
+   "ar": "دفعة مقدمة",
+   "en": "an advance payment"
+  },
+  "ex": "A 40% deposit is due on signing."
+ },
+ {
+  "w": 38,
+  "t": "net 30",
+  "m": {
+   "ar": "الدفع خلال 30 يوم من الفاتورة",
+   "en": "payment within 30 days of the invoice"
+  },
+  "ex": "Invoices are payable net 30."
+ },
+ {
+  "w": 38,
+  "t": "late fee",
+  "m": {
+   "ar": "رسوم التأخير",
+   "en": "a charge for paying late"
+  },
+  "ex": "A 2% late fee applies monthly."
+ },
+ {
+  "w": 38,
+  "t": "termination",
+  "m": {
+   "ar": "إنهاء العقد",
+   "en": "ending a contract"
+  },
+  "ex": "Termination needs 30 days’ notice."
+ },
+ {
+  "w": 38,
+  "t": "notice period",
+  "m": {
+   "ar": "مدة الإخطار قبل الإنهاء",
+   "en": "the warning time before ending"
+  },
+  "ex": "The notice period is 30 days."
+ },
+ {
+  "w": 38,
+  "t": "liability",
+  "m": {
+   "ar": "المسؤولية القانونية",
+   "en": "legal responsibility"
+  },
+  "ex": "Liability is capped at 12 months of fees."
+ },
+ {
+  "w": 38,
+  "t": "indemnify",
+  "m": {
+   "ar": "يعوّض عن مطالبات",
+   "en": "to compensate for claims"
+  },
+  "ex": "Do not agree to indemnify without a cap."
+ },
+ {
+  "w": 38,
+  "t": "confidentiality",
+  "m": {
+   "ar": "السرية",
+   "en": "keeping information private"
+  },
+  "ex": "Confidentiality lasts two years after the contract."
+ },
+ {
+  "w": 38,
+  "t": "non-disclosure agreement",
+  "m": {
+   "ar": "اتفاقية عدم إفصاح",
+   "en": "an agreement not to share information"
+  },
+  "ex": "Sign a non-disclosure agreement first."
+ },
+ {
+  "w": 38,
+  "t": "intellectual property",
+  "m": {
+   "ar": "الملكية الفكرية",
+   "en": "ownership of creations and ideas"
+  },
+  "ex": "Who owns the intellectual property?"
+ },
+ {
+  "w": 38,
+  "t": "force majeure",
+  "m": {
+   "ar": "القوة القاهرة",
+   "en": "events beyond anyone’s control"
+  },
+  "ex": "The outage counted as force majeure."
+ },
+ {
+  "w": 38,
+  "t": "governing law",
+  "m": {
+   "ar": "القانون الحاكم للعقد",
+   "en": "the law that governs a contract"
+  },
+  "ex": "The governing law is Egyptian law."
+ },
+ {
+  "w": 38,
+  "t": "notwithstanding",
+  "m": {
+   "ar": "بالرغم من",
+   "en": "despite"
+  },
+  "ex": "Notwithstanding clause 7, confidentiality survives."
  }
 ];
