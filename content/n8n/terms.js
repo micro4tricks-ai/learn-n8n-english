@@ -8082,5 +8082,455 @@ JOURNEY_TERMS["n8n"] = [
    "en": "use in work that earns money"
   },
   "ex": "Check the terms for commercial use."
+ },
+ {
+  "w": 37,
+  "t": "custom node",
+  "m": {
+   "ar": "node بتبنيه بنفسك لخدمة",
+   "en": "a node you build yourself for a service"
+  },
+  "ex": "The custom node wraps the billing API."
+ },
+ {
+  "w": 37,
+  "t": "declarative style",
+  "m": {
+   "ar": "وصف الطلبات من غير كود تنفيذ",
+   "en": "describing requests without execution code"
+  },
+  "ex": "Use the declarative style for plain REST."
+ },
+ {
+  "w": 37,
+  "t": "programmatic style",
+  "m": {
+   "ar": "كتابة execute بنفسك",
+   "en": "writing execute yourself"
+  },
+  "ex": "GraphQL needs the programmatic style."
+ },
+ {
+  "w": 37,
+  "t": "node description",
+  "m": {
+   "ar": "وصف الـ node: الاسم والخصائص والواجهة",
+   "en": "the node’s name, properties and UI"
+  },
+  "ex": "The node description lists the fields."
+ },
+ {
+  "w": 37,
+  "t": "routing",
+  "m": {
+   "ar": "ربط خصائص الواجهة بالطلبات",
+   "en": "linking UI properties to requests"
+  },
+  "ex": "routing sends amount in the body."
+ },
+ {
+  "w": 37,
+  "t": "node properties",
+  "m": {
+   "ar": "حقول واجهة الـ node",
+   "en": "the fields of a node’s UI"
+  },
+  "ex": "The node properties include Amount."
+ },
+ {
+  "w": 37,
+  "t": "operation",
+  "m": {
+   "ar": "الفعل اللي الـ node بيعمله",
+   "en": "the action a node performs"
+  },
+  "ex": "Choose the Create operation."
+ },
+ {
+  "w": 37,
+  "t": "displayoptions",
+  "m": {
+   "ar": "شرط ظهور الحقل",
+   "en": "the condition for showing a field"
+  },
+  "ex": "displayOptions hides Amount on Get."
+ },
+ {
+  "w": 37,
+  "t": "load options",
+  "m": {
+   "ar": "قايمة اختيارات بتيجي من الـ API",
+   "en": "a list of choices fetched from the API"
+  },
+  "ex": "Load options fill the Branch dropdown."
+ },
+ {
+  "w": 37,
+  "t": "requestdefaults",
+  "m": {
+   "ar": "الإعدادات المشتركة لكل طلبات الـ node",
+   "en": "settings shared by all the node’s requests"
+  },
+  "ex": "requestDefaults sets the base URL."
+ },
+ {
+  "w": 37,
+  "t": "execute method",
+  "m": {
+   "ar": "الدالة اللي بتشغّل الـ node",
+   "en": "the function that runs the node"
+  },
+  "ex": "The execute method loops over items."
+ },
+ {
+  "w": 37,
+  "t": "getnodeparameter",
+  "m": {
+   "ar": "قراءة قيمة حقل لـ item معين",
+   "en": "reading a field’s value for one item"
+  },
+  "ex": "getNodeParameter(\"amount\", i)."
+ },
+ {
+  "w": 37,
+  "t": "nodeapierror",
+  "m": {
+   "ar": "خطأ API بشكل n8n",
+   "en": "an API error in n8n’s format"
+  },
+  "ex": "Wrap the 422 in a NodeApiError."
+ },
+ {
+  "w": 37,
+  "t": "nodeoperationerror",
+  "m": {
+   "ar": "خطأ في منطق الـ node",
+   "en": "an error in the node’s logic"
+  },
+  "ex": "A missing id throws NodeOperationError."
+ },
+ {
+  "w": 37,
+  "t": "continueonfail",
+  "m": {
+   "ar": "احترام إعداد كمّل عند الفشل",
+   "en": "honouring the continue-on-fail setting"
+  },
+  "ex": "Check continueOnFail before throwing."
+ },
+ {
+  "w": 37,
+  "t": "credential type",
+  "m": {
+   "ar": "تعريف حقول ومصادقة خدمة",
+   "en": "a definition of a service’s fields and auth"
+  },
+  "ex": "The credential type stores the API key."
+ },
+ {
+  "w": 37,
+  "t": "credential test",
+  "m": {
+   "ar": "طلب بيتأكد إن المفتاح صح",
+   "en": "a request checking the key works"
+  },
+  "ex": "The credential test calls /me."
+ },
+ {
+  "w": 37,
+  "t": "node linter",
+  "m": {
+   "ar": "أداة فحص قواعد nodes n8n",
+   "en": "a checker for n8n node rules"
+  },
+  "ex": "The node linter flagged a description."
+ },
+ {
+  "w": 37,
+  "t": "local n8n",
+  "m": {
+   "ar": "نسخة n8n على جهازك للتطوير",
+   "en": "an n8n copy on your machine for development"
+  },
+  "ex": "Test the node on a local n8n."
+ },
+ {
+  "w": 37,
+  "t": "test workflow",
+  "m": {
+   "ar": "workflow محفوظ لاختبار الـ node",
+   "en": "a saved workflow for testing the node"
+  },
+  "ex": "Run the test workflow before releasing."
+ },
+ {
+  "w": 37,
+  "t": "verified node",
+  "m": {
+   "ar": "node مراجَع من n8n لكل المستخدمين",
+   "en": "a node reviewed by n8n for all users"
+  },
+  "ex": "A verified node appears in n8n Cloud."
+ },
+ {
+  "w": 37,
+  "t": "node version",
+  "m": {
+   "ar": "إصدار شكل الـ node جوه n8n",
+   "en": "a version of the node’s shape inside n8n"
+  },
+  "ex": "Add node version 2 for the new output."
+ },
+ {
+  "w": 37,
+  "t": "defaultversion",
+  "m": {
+   "ar": "الإصدار اللي بيتحط في workflows جديدة",
+   "en": "the version used in new workflows"
+  },
+  "ex": "defaultVersion is 2."
+ },
+ {
+  "w": 37,
+  "t": "provenance",
+  "m": {
+   "ar": "إثبات إن الباكدج اتبنى من الكود ده",
+   "en": "proof a package was built from this code"
+  },
+  "ex": "Publish with npm provenance."
+ },
+ {
+  "w": 37,
+  "t": "backward compatibility",
+  "m": {
+   "ar": "القديم يفضل شغال بعد التحديث",
+   "en": "old usage keeps working after an update"
+  },
+  "ex": "Node versions keep backward compatibility."
+ },
+ {
+  "w": 38,
+  "t": "public api",
+  "m": {
+   "ar": "الـ REST API الرسمي لـ n8n",
+   "en": "n8n’s official REST API"
+  },
+  "ex": "The public API lists the workflows."
+ },
+ {
+  "w": 38,
+  "t": "api key header",
+  "m": {
+   "ar": "الـ header اللي فيه مفتاح API",
+   "en": "the header carrying the API key"
+  },
+  "ex": "Send X-N8N-API-KEY as the API key header."
+ },
+ {
+  "w": 38,
+  "t": "executions endpoint",
+  "m": {
+   "ar": "endpoint سجلات التشغيل",
+   "en": "the endpoint for run records"
+  },
+  "ex": "Query the executions endpoint for errors."
+ },
+ {
+  "w": 38,
+  "t": "includedata",
+  "m": {
+   "ar": "خيار جلب تفاصيل التشغيل كاملة",
+   "en": "the option fetching full run details"
+  },
+  "ex": "Set includeData=false for speed."
+ },
+ {
+  "w": 38,
+  "t": "admin workflow",
+  "m": {
+   "ar": "workflow بيدير n8n نفسه",
+   "en": "a workflow that manages n8n itself"
+  },
+  "ex": "The admin workflow reports failures daily."
+ },
+ {
+  "w": 38,
+  "t": "workflow json",
+  "m": {
+   "ar": "ملف الـ workflow بصيغة JSON",
+   "en": "a workflow as a JSON file"
+  },
+  "ex": "Commit the workflow JSON to Git."
+ },
+ {
+  "w": 38,
+  "t": "export:workflow",
+  "m": {
+   "ar": "أمر CLI لتصدير الـ workflows",
+   "en": "the CLI command exporting workflows"
+  },
+  "ex": "export:workflow --backup writes one file each."
+ },
+ {
+  "w": 38,
+  "t": "import:workflow",
+  "m": {
+   "ar": "أمر CLI لاستيراد الـ workflows",
+   "en": "the CLI command importing workflows"
+  },
+  "ex": "import:workflow restores them."
+ },
+ {
+  "w": 38,
+  "t": "workflows as code",
+  "m": {
+   "ar": "إدارة الـ workflows كملفات في Git",
+   "en": "managing workflows as files in Git"
+  },
+  "ex": "Workflows as code give us history."
+ },
+ {
+  "w": 38,
+  "t": "diff noise",
+  "m": {
+   "ar": "تغييرات ملهاش معنى في الـ diff",
+   "en": "changes in a diff that mean nothing"
+  },
+  "ex": "Moving nodes creates diff noise."
+ },
+ {
+  "w": 38,
+  "t": "environment",
+  "m": {
+   "ar": "نسخة n8n منفصلة لغرض",
+   "en": "a separate n8n copy for a purpose"
+  },
+  "ex": "Test in the staging environment."
+ },
+ {
+  "w": 38,
+  "t": "promotion",
+  "m": {
+   "ar": "نقل workflow لبيئة أعلى بعد الاختبار",
+   "en": "moving a workflow up after testing"
+  },
+  "ex": "Promotion happens through a PR."
+ },
+ {
+  "w": 38,
+  "t": "$vars",
+  "m": {
+   "ar": "متغيرات n8n لكل بيئة",
+   "en": "n8n variables per environment"
+  },
+  "ex": "Read the API URL from $vars."
+ },
+ {
+  "w": 38,
+  "t": "credential per environment",
+  "m": {
+   "ar": "نفس اسم الـ credential بقيم مختلفة لكل بيئة",
+   "en": "the same credential name with values per environment"
+  },
+  "ex": "A credential per environment keeps workflows identical."
+ },
+ {
+  "w": 38,
+  "t": "rollback plan",
+  "m": {
+   "ar": "خطة الرجوع للنسخة القديمة",
+   "en": "the plan for returning to the old version"
+  },
+  "ex": "Every promotion has a rollback plan."
+ },
+ {
+  "w": 38,
+  "t": "backup script",
+  "m": {
+   "ar": "سكربت النسخ الاحتياطي",
+   "en": "the backup script"
+  },
+  "ex": "The backup script runs at 02:30."
+ },
+ {
+  "w": 38,
+  "t": "restore drill",
+  "m": {
+   "ar": "تجربة استرجاع النسخة",
+   "en": "a practice run of restoring a backup"
+  },
+  "ex": "The monthly restore drill passed."
+ },
+ {
+  "w": 38,
+  "t": "stale workflow",
+  "m": {
+   "ar": "workflow مشغّل ومبيستخدمش",
+   "en": "an active workflow nobody uses"
+  },
+  "ex": "Deactivate the stale workflow."
+ },
+ {
+  "w": 38,
+  "t": "workflow audit",
+  "m": {
+   "ar": "مراجعة دورية للـ workflows",
+   "en": "a regular review of workflows"
+  },
+  "ex": "The workflow audit found 7 without owners."
+ },
+ {
+  "w": 38,
+  "t": "retention policy",
+  "m": {
+   "ar": "سياسة مدة الاحتفاظ بالبيانات",
+   "en": "how long data is kept"
+  },
+  "ex": "The retention policy keeps 14 days."
+ },
+ {
+  "w": 38,
+  "t": "pinned data",
+  "m": {
+   "ar": "بيانات مثبّتة لخرج node للاختبار",
+   "en": "frozen node output for testing"
+  },
+  "ex": "Use pinned data while building."
+ },
+ {
+  "w": 38,
+  "t": "test execution",
+  "m": {
+   "ar": "تشغيل تجريبي للـ workflow",
+   "en": "a trial run of a workflow"
+  },
+  "ex": "Run a test execution with the Arabic case."
+ },
+ {
+  "w": 38,
+  "t": "workflow linter",
+  "m": {
+   "ar": "سكربت بيفحص قواعد ملفات الـ workflows",
+   "en": "a script checking rules on workflow files"
+  },
+  "ex": "The workflow linter found a webhook with no auth."
+ },
+ {
+  "w": 38,
+  "t": "ci job",
+  "m": {
+   "ar": "خطوة آلية في CI",
+   "en": "an automatic step in CI"
+  },
+  "ex": "The CI job runs the smoke cases."
+ },
+ {
+  "w": 38,
+  "t": "test header",
+  "m": {
+   "ar": "header بيحوّل الـ workflow لوضع الاختبار",
+   "en": "a header switching a workflow to test mode"
+  },
+  "ex": "X-Test is the test header."
  }
 ];
