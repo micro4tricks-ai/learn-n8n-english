@@ -9729,5 +9729,905 @@ JOURNEY_TERMS["python"] = [
    "en": "reprocessing rows after fixing them"
   },
   "ex": "Replay rows from quarantine after the fix."
+ },
+ {
+  "w": 33,
+  "t": "browser context",
+  "m": {
+   "ar": "جلسة متصفح معزولة بكوكيز خاصة",
+   "en": "an isolated browser session with its own cookies"
+  },
+  "ex": "Use one browser context per account."
+ },
+ {
+  "w": 33,
+  "t": "get_by_role",
+  "m": {
+   "ar": "اختيار عنصر بدوره (زر، رابط) واسمه",
+   "en": "selecting an element by its role (button, link) and name"
+  },
+  "ex": "get_by_role(\"button\", name=\"Save\") is stable."
+ },
+ {
+  "w": 33,
+  "t": "auto-waiting",
+  "m": {
+   "ar": "انتظار تلقائي لحد ما العنصر يبقى جاهز",
+   "en": "waiting automatically until an element is ready"
+  },
+  "ex": "Auto-waiting removes the need for sleep."
+ },
+ {
+  "w": 33,
+  "t": "expect assertion",
+  "m": {
+   "ar": "تأكيد بيعيد المحاولة لحد مهلة",
+   "en": "a check that retries up to a timeout"
+  },
+  "ex": "An expect assertion waits for the text."
+ },
+ {
+  "w": 33,
+  "t": "data-testid",
+  "m": {
+   "ar": "خاصية HTML مخصوصة للاختبار والأتمتة",
+   "en": "an HTML attribute meant for tests and automation"
+  },
+  "ex": "Ask developers to add data-testid."
+ },
+ {
+  "w": 33,
+  "t": "storage state",
+  "m": {
+   "ar": "الكوكيز والتخزين المحفوظ لجلسة",
+   "en": "the saved cookies and storage of a session"
+  },
+  "ex": "Reuse the storage state to skip login."
+ },
+ {
+  "w": 33,
+  "t": "two-factor",
+  "m": {
+   "ar": "تأكيد دخول بخطوة تانية زي كود",
+   "en": "a second login step such as a code"
+  },
+  "ex": "Do not bypass two-factor authentication."
+ },
+ {
+  "w": 33,
+  "t": "session expiry",
+  "m": {
+   "ar": "انتهاء صلاحية جلسة الدخول",
+   "en": "a login session ceasing to be valid"
+  },
+  "ex": "Alert on session expiry."
+ },
+ {
+  "w": 33,
+  "t": "written permission",
+  "m": {
+   "ar": "إذن مكتوب من صاحب الحساب أو الموقع",
+   "en": "written consent from the account or site owner"
+  },
+  "ex": "Automate a client portal only with written permission."
+ },
+ {
+  "w": 33,
+  "t": "headed mode",
+  "m": {
+   "ar": "تشغيل المتصفح ظاهر",
+   "en": "running the browser visibly"
+  },
+  "ex": "Use headed mode for the first login."
+ },
+ {
+  "w": 33,
+  "t": "select_option",
+  "m": {
+   "ar": "اختيار قيمة من قايمة منسدلة",
+   "en": "choosing a value from a dropdown"
+  },
+  "ex": "select_option picks the city."
+ },
+ {
+  "w": 33,
+  "t": "set_input_files",
+  "m": {
+   "ar": "رفع ملف في خانة ملفات",
+   "en": "putting a file into an upload field"
+  },
+  "ex": "set_input_files attaches the invoice."
+ },
+ {
+  "w": 33,
+  "t": "expect_download",
+  "m": {
+   "ar": "انتظار تنزيل والإمساك بيه",
+   "en": "waiting for and capturing a download"
+  },
+  "ex": "Use expect_download around the click."
+ },
+ {
+  "w": 33,
+  "t": "dialog",
+  "m": {
+   "ar": "نافذة تنبيه أو تأكيد من المتصفح",
+   "en": "a browser alert or confirmation window"
+  },
+  "ex": "Accept the dialog before deleting."
+ },
+ {
+  "w": 33,
+  "t": "frame_locator",
+  "m": {
+   "ar": "اختيار عناصر جوه iframe",
+   "en": "selecting elements inside an iframe"
+  },
+  "ex": "Use frame_locator for the payment form."
+ },
+ {
+  "w": 33,
+  "t": "network interception",
+  "m": {
+   "ar": "التحكم في طلبات الصفحة (حجب، تعديل)",
+   "en": "controlling a page’s requests (blocking, changing)"
+  },
+  "ex": "Network interception blocked the ads."
+ },
+ {
+  "w": 33,
+  "t": "expect_response",
+  "m": {
+   "ar": "انتظار رد شبكة معيّن والإمساك بيه",
+   "en": "waiting for and capturing a specific network reply"
+  },
+  "ex": "expect_response grabbed the products JSON."
+ },
+ {
+  "w": 33,
+  "t": "route",
+  "m": {
+   "ar": "قاعدة بتقرر يحصل إيه لطلب",
+   "en": "a rule deciding what happens to a request"
+  },
+  "ex": "page.route aborts image requests."
+ },
+ {
+  "w": 33,
+  "t": "resource type",
+  "m": {
+   "ar": "نوع الطلب (صورة، سكربت، xhr)",
+   "en": "the kind of request (image, script, xhr)"
+  },
+  "ex": "Block by resource type."
+ },
+ {
+  "w": 33,
+  "t": "internal api",
+  "m": {
+   "ar": "API الموقع بيستخدمه لنفسه",
+   "en": "an API a site uses for itself"
+  },
+  "ex": "The page loads products from an internal API."
+ },
+ {
+  "w": 33,
+  "t": "codegen",
+  "m": {
+   "ar": "أداة بتسجّل خطواتك وتحوّلها كود",
+   "en": "a tool that records your steps and turns them into code"
+  },
+  "ex": "Start with codegen, then clean up."
+ },
+ {
+  "w": 33,
+  "t": "trace viewer",
+  "m": {
+   "ar": "أداة بتعرض كل خطوة في تشغيل فاشل",
+   "en": "a tool showing every step of a failed run"
+  },
+  "ex": "The trace viewer showed a cookie banner."
+ },
+ {
+  "w": 33,
+  "t": "page object pattern",
+  "m": {
+   "ar": "class لكل صفحة فيها عناصرها وأفعالها",
+   "en": "a class per page holding its elements and actions"
+  },
+  "ex": "The page object pattern keeps locators in one place."
+ },
+ {
+  "w": 33,
+  "t": "headless",
+  "m": {
+   "ar": "تشغيل المتصفح من غير واجهة",
+   "en": "running the browser without a visible window"
+  },
+  "ex": "Servers run Chromium headless."
+ },
+ {
+  "w": 33,
+  "t": "full_page",
+  "m": {
+   "ar": "لقطة للصفحة كلها مش الظاهر بس",
+   "en": "a screenshot of the whole page, not just the visible part"
+  },
+  "ex": "Save a full_page screenshot on failure."
+ },
+ {
+  "w": 34,
+  "t": "robotparser",
+  "m": {
+   "ar": "موديول بيقرا قواعد robots.txt",
+   "en": "a module that reads robots.txt rules"
+  },
+  "ex": "Check every URL with robotparser."
+ },
+ {
+  "w": 34,
+  "t": "crawl-delay",
+  "m": {
+   "ar": "الانتظار المطلوب بين الطلبات",
+   "en": "the requested wait between requests"
+  },
+  "ex": "The crawl-delay is two seconds."
+ },
+ {
+  "w": 34,
+  "t": "copyright",
+  "m": {
+   "ar": "حقوق الملكية للمحتوى",
+   "en": "ownership rights over content"
+  },
+  "ex": "Do not republish articles under copyright."
+ },
+ {
+  "w": 34,
+  "t": "personal data",
+  "m": {
+   "ar": "بيانات بتعرّف شخص",
+   "en": "data identifying a person"
+  },
+  "ex": "Avoid collecting personal data."
+ },
+ {
+  "w": 34,
+  "t": "bot identity",
+  "m": {
+   "ar": "اسم البوت ووسيلة التواصل في الطلب",
+   "en": "the bot’s name and contact in the request"
+  },
+  "ex": "State your bot identity in the User-Agent."
+ },
+ {
+  "w": 34,
+  "t": "polite crawling",
+  "m": {
+   "ar": "زحف بيحترم السيرفر وقواعده",
+   "en": "crawling that respects the server and its rules"
+  },
+  "ex": "Polite crawling keeps you unblocked."
+ },
+ {
+  "w": 34,
+  "t": "token bucket",
+  "m": {
+   "ar": "طريقة تحديد معدل برصيد بيتملي",
+   "en": "a rate-limiting method with a refilling balance"
+  },
+  "ex": "The token bucket allows 5 requests a second."
+ },
+ {
+  "w": 34,
+  "t": "per-domain limit",
+  "m": {
+   "ar": "حد طلبات لكل موقع",
+   "en": "a request limit per website"
+  },
+  "ex": "Set a per-domain limit of one per second."
+ },
+ {
+  "w": 34,
+  "t": "conditional request",
+  "m": {
+   "ar": "طلب بيقول «ابعت لو اتغيّر بس»",
+   "en": "a request saying «send only if changed»"
+  },
+  "ex": "A conditional request returned 304."
+ },
+ {
+  "w": 34,
+  "t": "etag",
+  "m": {
+   "ar": "بصمة نسخة الصفحة من السيرفر",
+   "en": "the server’s fingerprint of a page version"
+  },
+  "ex": "Store the ETag with the HTML."
+ },
+ {
+  "w": 34,
+  "t": "url frontier",
+  "m": {
+   "ar": "طابور الروابط اللي لسه هتتزار",
+   "en": "the queue of links still to visit"
+  },
+  "ex": "The URL frontier holds 3,000 links."
+ },
+ {
+  "w": 34,
+  "t": "visited set",
+  "m": {
+   "ar": "مجموعة الروابط اللي اتزارت",
+   "en": "the set of links already visited"
+  },
+  "ex": "Check the visited set before fetching."
+ },
+ {
+  "w": 34,
+  "t": "url normalization",
+  "m": {
+   "ar": "توحيد أشكال الروابط",
+   "en": "turning link variants into one form"
+  },
+  "ex": "URL normalization removed utm_ parameters."
+ },
+ {
+  "w": 34,
+  "t": "crawl depth",
+  "m": {
+   "ar": "عدد الخطوات من صفحة البداية",
+   "en": "the number of steps from the start page"
+  },
+  "ex": "Limit the crawl depth to 3."
+ },
+ {
+  "w": 34,
+  "t": "scrapy",
+  "m": {
+   "ar": "فرامورك scraping متكامل في بايثون",
+   "en": "a full scraping framework in Python"
+  },
+  "ex": "Scrapy obeys robots.txt when configured."
+ },
+ {
+  "w": 34,
+  "t": "parse rate",
+  "m": {
+   "ar": "نسبة الصفحات اللي اتقرت صح",
+   "en": "the share of pages parsed correctly"
+  },
+  "ex": "The parse rate fell to 41%."
+ },
+ {
+  "w": 34,
+  "t": "layout change",
+  "m": {
+   "ar": "تغيير شكل صفحة الموقع",
+   "en": "a change in a site’s page structure"
+  },
+  "ex": "A layout change broke the price selector."
+ },
+ {
+  "w": 34,
+  "t": "change detection",
+  "m": {
+   "ar": "اكتشاف إن محتوى اتغيّر",
+   "en": "noticing that content has changed"
+  },
+  "ex": "Change detection found 12 new prices."
+ },
+ {
+  "w": 34,
+  "t": "content hash",
+  "m": {
+   "ar": "بصمة لمحتوى معيّن",
+   "en": "a fingerprint of some content"
+  },
+  "ex": "Compare the content hash with yesterday’s."
+ },
+ {
+  "w": 34,
+  "t": "html.parser",
+  "m": {
+   "ar": "parser HTML في المكتبة القياسية",
+   "en": "the HTML parser in the standard library"
+  },
+  "ex": "html.parser needs no installation."
+ },
+ {
+  "w": 34,
+  "t": "raw html",
+  "m": {
+   "ar": "نص الصفحة زي ما وصل",
+   "en": "the page source exactly as received"
+  },
+  "ex": "Keep the raw HTML for re-parsing."
+ },
+ {
+  "w": 34,
+  "t": "recrawl",
+  "m": {
+   "ar": "زيارة صفحة تاني بعد فترة",
+   "en": "visiting a page again later"
+  },
+  "ex": "Recrawl price pages daily."
+ },
+ {
+  "w": 34,
+  "t": "adaptive interval",
+  "m": {
+   "ar": "فترة بتتغير حسب تغيّر الصفحة",
+   "en": "an interval that adapts to how often a page changes"
+  },
+  "ex": "The adaptive interval grew to 20 days."
+ },
+ {
+  "w": 34,
+  "t": "change report",
+  "m": {
+   "ar": "تقرير بالحاجات اللي اتغيرت",
+   "en": "a report of what changed"
+  },
+  "ex": "The client reads the change report every morning."
+ },
+ {
+  "w": 34,
+  "t": "gzip",
+  "m": {
+   "ar": "ضغط ملفات شائع",
+   "en": "a common file compression format"
+  },
+  "ex": "gzip shrinks HTML by 80%."
+ },
+ {
+  "w": 35,
+  "t": "depends",
+  "m": {
+   "ar": "آلية FastAPI لحقن الاعتماديات",
+   "en": "FastAPI’s way of injecting dependencies"
+  },
+  "ex": "Inject the session with Depends."
+ },
+ {
+  "w": 35,
+  "t": "pydantic-settings",
+  "m": {
+   "ar": "مكتبة إعدادات من البيئة بأنواع",
+   "en": "a library for typed settings from the environment"
+  },
+  "ex": "pydantic-settings fails fast on a missing secret."
+ },
+ {
+  "w": 35,
+  "t": "lifespan",
+  "m": {
+   "ar": "كود بيشتغل عند بداية ونهاية التطبيق",
+   "en": "code running at application start-up and shutdown"
+  },
+  "ex": "Open the HTTP client in the lifespan."
+ },
+ {
+  "w": 35,
+  "t": "dependency_overrides",
+  "m": {
+   "ar": "تبديل اعتمادية في الاختبار",
+   "en": "replacing a dependency in tests"
+  },
+  "ex": "Use dependency_overrides for a fake database."
+ },
+ {
+  "w": 35,
+  "t": "service layer",
+  "m": {
+   "ar": "طبقة المنطق بعيد عن HTTP",
+   "en": "the logic layer away from HTTP"
+  },
+  "ex": "Test the service layer without a server."
+ },
+ {
+  "w": 35,
+  "t": "password hashing",
+  "m": {
+   "ar": "تحويل كلمة السر لبصمة مش بترجع",
+   "en": "turning a password into a one-way fingerprint"
+  },
+  "ex": "Use password hashing, never plain text."
+ },
+ {
+  "w": 35,
+  "t": "salt",
+  "m": {
+   "ar": "قيمة عشوائية بتتضاف لكل كلمة سر قبل التشفير",
+   "en": "a random value added to each password before hashing"
+  },
+  "ex": "Each user gets a unique salt."
+ },
+ {
+  "w": 35,
+  "t": "jwt",
+  "m": {
+   "ar": "توكن موقّع فيه بيانات مقروءة",
+   "en": "a signed token holding readable data"
+  },
+  "ex": "The JWT expires after 15 minutes."
+ },
+ {
+  "w": 35,
+  "t": "refresh token",
+  "m": {
+   "ar": "توكن طويل بيجيب access جديد",
+   "en": "a long-lived token used to get new access tokens"
+  },
+  "ex": "Store the refresh token securely."
+ },
+ {
+  "w": 35,
+  "t": "api key header",
+  "m": {
+   "ar": "مفتاح API بيتبعت في header",
+   "en": "an API key sent in a header"
+  },
+  "ex": "n8n sends the API key header."
+ },
+ {
+  "w": 35,
+  "t": "task queue",
+  "m": {
+   "ar": "طابور مهام بيتعالج بعمّال منفصلين",
+   "en": "a queue of tasks processed by separate workers"
+  },
+  "ex": "Heavy reports go to the task queue."
+ },
+ {
+  "w": 35,
+  "t": "202 accepted",
+  "m": {
+   "ar": "رد بيقول «استلمنا وهنعالج بعدين»",
+   "en": "a reply meaning «received; will process later»"
+  },
+  "ex": "Return 202 Accepted with a job id."
+ },
+ {
+  "w": 35,
+  "t": "job status",
+  "m": {
+   "ar": "حالة مهمة في الطابور",
+   "en": "the state of a queued task"
+  },
+  "ex": "Poll the job status every 10 seconds."
+ },
+ {
+  "w": 35,
+  "t": "arq",
+  "m": {
+   "ar": "مكتبة طوابير async بـ Redis",
+   "en": "an async task queue library using Redis"
+  },
+  "ex": "arq retries failed jobs."
+ },
+ {
+  "w": 35,
+  "t": "celery",
+  "m": {
+   "ar": "نظام طوابير مهام شهير في بايثون",
+   "en": "a popular task queue system in Python"
+  },
+  "ex": "Celery suits large deployments."
+ },
+ {
+  "w": 35,
+  "t": "websocket",
+  "m": {
+   "ar": "اتصال مفتوح في الاتجاهين",
+   "en": "an open two-way connection"
+  },
+  "ex": "The dashboard uses a WebSocket."
+ },
+ {
+  "w": 35,
+  "t": "connection manager",
+  "m": {
+   "ar": "كائن بيدير الاتصالات المفتوحة",
+   "en": "an object managing open connections"
+  },
+  "ex": "The connection manager broadcasts updates."
+ },
+ {
+  "w": 35,
+  "t": "broadcast",
+  "m": {
+   "ar": "تبعت رسالة لكل المتصلين",
+   "en": "to send a message to everyone connected"
+  },
+  "ex": "Broadcast the new order to all screens."
+ },
+ {
+  "w": 35,
+  "t": "server-sent events",
+  "m": {
+   "ar": "تحديثات من السيرفر في اتجاه واحد",
+   "en": "one-way updates from the server"
+  },
+  "ex": "Server-sent events show job progress."
+ },
+ {
+  "w": 35,
+  "t": "pub/sub",
+  "m": {
+   "ar": "نشر واشتراك بين خدمات",
+   "en": "publish/subscribe between services"
+  },
+  "ex": "Redis pub/sub links several servers."
+ },
+ {
+  "w": 35,
+  "t": "middleware",
+  "m": {
+   "ar": "كود بيلف كل طلب ورد",
+   "en": "code wrapping every request and reply"
+  },
+  "ex": "The middleware adds a request id."
+ },
+ {
+  "w": 35,
+  "t": "request id",
+  "m": {
+   "ar": "معرّف لكل طلب بيظهر في الرد واللوج",
+   "en": "an identifier per request in the reply and logs"
+  },
+  "ex": "Search the logs by request id."
+ },
+ {
+  "w": 35,
+  "t": "exception handler",
+  "m": {
+   "ar": "دالة بتحوّل خطأ لرد موحّد",
+   "en": "a function turning an error into a uniform reply"
+  },
+  "ex": "An exception handler returns our error shape."
+ },
+ {
+  "w": 35,
+  "t": "asgi",
+  "m": {
+   "ar": "المعيار اللي FastAPI بيشتغل عليه",
+   "en": "the standard FastAPI runs on"
+  },
+  "ex": "Test the ASGI app without a server."
+ },
+ {
+  "w": 35,
+  "t": "allowed origins",
+  "m": {
+   "ar": "المواقع المسموحلها تنادي الـ API من المتصفح",
+   "en": "the sites allowed to call the API from a browser"
+  },
+  "ex": "Set the allowed origins explicitly."
+ },
+ {
+  "w": 36,
+  "t": "service account",
+  "m": {
+   "ar": "حساب للبرنامج نفسه مش لشخص",
+   "en": "an account for the program itself, not a person"
+  },
+  "ex": "Share the sheet with the service account."
+ },
+ {
+  "w": 36,
+  "t": "oauth consent",
+  "m": {
+   "ar": "شاشة موافقة المستخدم على الصلاحيات",
+   "en": "the screen where a user approves permissions"
+  },
+  "ex": "The oauth consent screen lists the scopes."
+ },
+ {
+  "w": 36,
+  "t": "google sheets api",
+  "m": {
+   "ar": "واجهة جوجل البرمجية للجداول",
+   "en": "Google’s programming interface for spreadsheets"
+  },
+  "ex": "The Google Sheets API has per-minute quotas."
+ },
+ {
+  "w": 36,
+  "t": "gspread",
+  "m": {
+   "ar": "مكتبة بايثون سهلة لـ Google Sheets",
+   "en": "an easy Python library for Google Sheets"
+  },
+  "ex": "gspread reads all records as dicts."
+ },
+ {
+  "w": 36,
+  "t": "a1 notation",
+  "m": {
+   "ar": "طريقة كتابة نطاق خلايا زي A1:C3",
+   "en": "the way to write a cell range like A1:C3"
+  },
+  "ex": "Use A1 notation for the target range."
+ },
+ {
+  "w": 36,
+  "t": "bot token",
+  "m": {
+   "ar": "توكن البوت اللي بيبعت باسمه",
+   "en": "the token the bot acts with"
+  },
+  "ex": "Keep the bot token in settings."
+ },
+ {
+  "w": 36,
+  "t": "block kit",
+  "m": {
+   "ar": "نظام Slack لبناء رسايل غنية",
+   "en": "Slack’s system for building rich messages"
+  },
+  "ex": "Block Kit adds buttons to the alert."
+ },
+ {
+  "w": 36,
+  "t": "signing secret",
+  "m": {
+   "ar": "سر بيتحقق بيه من إن الطلب من Slack",
+   "en": "a secret used to verify a request came from Slack"
+  },
+  "ex": "Check every request with the signing secret."
+ },
+ {
+  "w": 36,
+  "t": "slash command",
+  "m": {
+   "ar": "أمر بيبدأ بـ / في الشات",
+   "en": "a chat command starting with /"
+  },
+  "ex": "The /orders slash command returns today’s numbers."
+ },
+ {
+  "w": 36,
+  "t": "replay attack",
+  "m": {
+   "ar": "إعادة إرسال طلب قديم صحيح",
+   "en": "resending an old valid request"
+  },
+  "ex": "The timestamp check blocks replay attacks."
+ },
+ {
+  "w": 36,
+  "t": "long polling",
+  "m": {
+   "ar": "سؤال السيرفر عن تحديثات بطلب بيفضل مفتوح",
+   "en": "asking a server for updates with a request that stays open"
+  },
+  "ex": "Use long polling while testing locally."
+ },
+ {
+  "w": 36,
+  "t": "setwebhook",
+  "m": {
+   "ar": "أمر Telegram لتسجيل رابط استقبال",
+   "en": "the Telegram method that registers a receiving URL"
+  },
+  "ex": "Call setWebhook with a secret token."
+ },
+ {
+  "w": 36,
+  "t": "webhook secret",
+  "m": {
+   "ar": "سر بيثبت إن الطلب من المصدر الصح",
+   "en": "a secret proving a request comes from the right source"
+  },
+  "ex": "Compare the webhook secret on every request."
+ },
+ {
+  "w": 36,
+  "t": "inline keyboard",
+  "m": {
+   "ar": "أزرار تحت رسالة البوت",
+   "en": "buttons under a bot message"
+  },
+  "ex": "The inline keyboard has Ship and Cancel."
+ },
+ {
+  "w": 36,
+  "t": "callback query",
+  "m": {
+   "ar": "حدث ضغط زرار في Telegram",
+   "en": "the event of a button press in Telegram"
+  },
+  "ex": "Answer every callback query quickly."
+ },
+ {
+  "w": 36,
+  "t": "quota",
+  "m": {
+   "ar": "حد الاستخدام المسموح من خدمة",
+   "en": "the allowed usage limit of a service"
+  },
+  "ex": "We hit the daily quota at noon."
+ },
+ {
+  "w": 36,
+  "t": "sdk",
+  "m": {
+   "ar": "مكتبة رسمية للتعامل مع خدمة",
+   "en": "an official library for working with a service"
+  },
+  "ex": "The SDK retries rate-limited calls."
+ },
+ {
+  "w": 36,
+  "t": "least privilege",
+  "m": {
+   "ar": "أقل صلاحيات لازمة للشغل",
+   "en": "the minimum permissions the job needs"
+  },
+  "ex": "Least privilege limits the damage of a leak."
+ },
+ {
+  "w": 36,
+  "t": "token rotation",
+  "m": {
+   "ar": "تغيير التوكنات دوريًا",
+   "en": "replacing tokens regularly"
+  },
+  "ex": "Token rotation takes one environment variable."
+ },
+ {
+  "w": 36,
+  "t": "batch update",
+  "m": {
+   "ar": "تحديث مجموعة حاجات في طلب واحد",
+   "en": "updating many things in one request"
+  },
+  "ex": "One batch update writes the whole table."
+ },
+ {
+  "w": 36,
+  "t": "adapter",
+  "m": {
+   "ar": "طبقة بتوحّد التعامل مع خدمة خارجية",
+   "en": "a layer that standardises working with an external service"
+  },
+  "ex": "The Slack adapter implements send()."
+ },
+ {
+  "w": 36,
+  "t": "fake client",
+  "m": {
+   "ar": "نسخة وهمية من خدمة للاختبار",
+   "en": "a pretend version of a service for tests"
+  },
+  "ex": "The fake client records sent messages."
+ },
+ {
+  "w": 36,
+  "t": "runbook",
+  "m": {
+   "ar": "دليل خطوات التعامل مع المشاكل",
+   "en": "a step-by-step guide for handling incidents"
+  },
+  "ex": "Follow the runbook when alerts stop."
+ },
+ {
+  "w": 36,
+  "t": "app manifest",
+  "m": {
+   "ar": "ملف إعدادات تطبيق Slack",
+   "en": "the configuration file of a Slack app"
+  },
+  "ex": "Keep the app manifest in Git."
+ },
+ {
+  "w": 36,
+  "t": "capstone",
+  "m": {
+   "ar": "مشروع ختامي بيجمع كل اللي اتعلمته",
+   "en": "a final project combining everything learned"
+  },
+  "ex": "The capstone joins scraping and alerts."
  }
 ];
