@@ -10926,5 +10926,293 @@ JOURNEY_TERMS["python"] = [
    "en": "to rebuild the search index"
   },
   "ex": "Re-index a file when its hash changes."
+ },
+ {
+  "w": 38,
+  "t": "agent",
+  "m": {
+   "ar": "وكيل: نموذج بيختار خطواته وأدواته",
+   "en": "a model choosing its own steps and tools"
+  },
+  "ex": "The agent decided to read the logs."
+ },
+ {
+  "w": 38,
+  "t": "workflow vs agent",
+  "m": {
+   "ar": "خطوات ثابتة مقابل قرار النموذج",
+   "en": "fixed steps versus model-chosen steps"
+  },
+  "ex": "Start with workflow vs agent: most jobs need a workflow."
+ },
+ {
+  "w": 38,
+  "t": "deterministic",
+  "m": {
+   "ar": "نفس المدخل يدي نفس النتيجة",
+   "en": "giving the same output for the same input"
+  },
+  "ex": "Billing must stay deterministic."
+ },
+ {
+  "w": 38,
+  "t": "stop reason",
+  "m": {
+   "ar": "سبب وقوف رد النموذج",
+   "en": "why the model stopped replying"
+  },
+  "ex": "A tool_use stop reason means run a tool."
+ },
+ {
+  "w": 38,
+  "t": "tool result",
+  "m": {
+   "ar": "نتيجة الأداة اللي بترجع للنموذج",
+   "en": "a tool’s output sent back to the model"
+  },
+  "ex": "Match each tool result to its tool_use_id."
+ },
+ {
+  "w": 38,
+  "t": "max iterations",
+  "m": {
+   "ar": "أقصى عدد لفات",
+   "en": "the ceiling on loop steps"
+  },
+  "ex": "Set max iterations to eight."
+ },
+ {
+  "w": 38,
+  "t": "parallel tool calls",
+  "m": {
+   "ar": "كذا أداة في نفس الرد",
+   "en": "several tool requests in one reply"
+  },
+  "ex": "Return parallel tool calls in one message."
+ },
+ {
+  "w": 38,
+  "t": "tool schema",
+  "m": {
+   "ar": "تعريف الأداة: اسم ووصف ومدخلات",
+   "en": "a tool’s name, description and input schema"
+  },
+  "ex": "Improve the tool schema description first."
+ },
+ {
+  "w": 38,
+  "t": "input_schema",
+  "m": {
+   "ar": "شكل مدخلات الأداة بـ JSON Schema",
+   "en": "the JSON Schema of a tool’s input"
+  },
+  "ex": "Use enum in the input_schema."
+ },
+ {
+  "w": 38,
+  "t": "is_error",
+  "m": {
+   "ar": "علامة إن نتيجة الأداة خطأ",
+   "en": "a flag marking a tool result as an error"
+  },
+  "ex": "Return is_error so the model can retry."
+ },
+ {
+  "w": 38,
+  "t": "tool error",
+  "m": {
+   "ar": "خطأ في تنفيذ الأداة",
+   "en": "a failure while running a tool"
+  },
+  "ex": "A tool error should not crash the agent."
+ },
+ {
+  "w": 38,
+  "t": "compact result",
+  "m": {
+   "ar": "نتيجة مختصرة",
+   "en": "a small, focused tool output"
+  },
+  "ex": "A compact result saves tokens."
+ },
+ {
+  "w": 38,
+  "t": "untrusted input",
+  "m": {
+   "ar": "مدخلات من برّه مش موثوقة",
+   "en": "outside text that may be malicious"
+  },
+  "ex": "Treat every email as untrusted input."
+ },
+ {
+  "w": 38,
+  "t": "guardrail",
+  "m": {
+   "ar": "حاجز حماية في الكود",
+   "en": "a protective check in code"
+  },
+  "ex": "The guardrail blocked the large refund."
+ },
+ {
+  "w": 38,
+  "t": "allowlist",
+  "m": {
+   "ar": "قايمة المسموح بس",
+   "en": "a list of what is permitted"
+  },
+  "ex": "Each task has its own allowlist of tools."
+ },
+ {
+  "w": 38,
+  "t": "human approval",
+  "m": {
+   "ar": "موافقة إنسان",
+   "en": "a person confirming an action"
+  },
+  "ex": "Refunds need human approval."
+ },
+ {
+  "w": 38,
+  "t": "approval queue",
+  "m": {
+   "ar": "طابور الموافقات",
+   "en": "a list of actions waiting for a person"
+  },
+  "ex": "The approval queue is a Telegram chat."
+ },
+ {
+  "w": 38,
+  "t": "token budget",
+  "m": {
+   "ar": "أقصى توكنز للمهمة",
+   "en": "the maximum tokens for a task"
+  },
+  "ex": "Each task has a token budget."
+ },
+ {
+  "w": 38,
+  "t": "cost cap",
+  "m": {
+   "ar": "سقف التكلفة",
+   "en": "a maximum spend"
+  },
+  "ex": "The daily cost cap is ten dollars."
+ },
+ {
+  "w": 38,
+  "t": "trace",
+  "m": {
+   "ar": "سجل خطوات التشغيل",
+   "en": "a record of every step of a run"
+  },
+  "ex": "Open the trace to see the tool calls."
+ },
+ {
+  "w": 38,
+  "t": "transcript",
+  "m": {
+   "ar": "المحادثة الكاملة المحفوظة",
+   "en": "the full saved conversation"
+  },
+  "ex": "Redact the transcript before storing it."
+ },
+ {
+  "w": 38,
+  "t": "replay",
+  "m": {
+   "ar": "إعادة تشغيل على نفس المدخلات",
+   "en": "rerunning with the same inputs"
+  },
+  "ex": "Replay the failed run after the fix."
+ },
+ {
+  "w": 38,
+  "t": "task success rate",
+  "m": {
+   "ar": "نسبة نجاح المهام",
+   "en": "the share of tasks completed correctly"
+  },
+  "ex": "Task success rate rose to 92%."
+ },
+ {
+  "w": 38,
+  "t": "non-deterministic",
+  "m": {
+   "ar": "ممكن يدي نتايج مختلفة كل مرة",
+   "en": "may give different results each run"
+  },
+  "ex": "Agents are non-deterministic: test several runs."
+ },
+ {
+  "w": 38,
+  "t": "orchestrator",
+  "m": {
+   "ar": "المنسّق اللي بيقسّم الشغل",
+   "en": "the agent that splits and combines work"
+  },
+  "ex": "The orchestrator sends batches to subagents."
+ },
+ {
+  "w": 38,
+  "t": "subagent",
+  "m": {
+   "ar": "وكيل فرعي بمهمة محددة",
+   "en": "an agent handling one part"
+  },
+  "ex": "Each subagent has read-only tools."
+ },
+ {
+  "w": 38,
+  "t": "planning",
+  "m": {
+   "ar": "التخطيط: تقسيم المهمة لخطوات",
+   "en": "breaking a task into steps"
+  },
+  "ex": "Planning first saves tokens later."
+ },
+ {
+  "w": 38,
+  "t": "handoff",
+  "m": {
+   "ar": "تسليم المهمة بملخص",
+   "en": "passing work on with a summary"
+  },
+  "ex": "Write a clear handoff for finance."
+ },
+ {
+  "w": 38,
+  "t": "agent memory",
+  "m": {
+   "ar": "ذاكرة الوكيل برّه الـ context",
+   "en": "notes an agent keeps outside its context"
+  },
+  "ex": "Agent memory stores client preferences."
+ },
+ {
+  "w": 38,
+  "t": "long-running agent",
+  "m": {
+   "ar": "وكيل بيشتغل لفترة طويلة",
+   "en": "an agent working for hours or days"
+  },
+  "ex": "A long-running agent needs checkpoints."
+ },
+ {
+  "w": 38,
+  "t": "checkpoint",
+  "m": {
+   "ar": "نقطة حفظ للحالة",
+   "en": "a saved state to resume from"
+  },
+  "ex": "Resume from the last checkpoint."
+ },
+ {
+  "w": 38,
+  "t": "compaction",
+  "m": {
+   "ar": "تلخيص المحادثة الطويلة",
+   "en": "summarising a long conversation to save context"
+  },
+  "ex": "Compaction keeps long sessions within the limit."
  }
 ];
