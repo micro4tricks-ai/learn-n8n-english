@@ -12051,5 +12051,329 @@ JOURNEY_TERMS["js"] = [
    "en": "a switch enabling a feature at run time"
   },
   "ex": "Turn the feature flag on for acme only."
+ },
+ {
+  "w": 43,
+  "t": "stored xss",
+  "m": {
+   "ar": "XSS متخزن في القاعدة",
+   "en": "XSS saved in the database"
+  },
+  "ex": "A review field held stored XSS."
+ },
+ {
+  "w": 43,
+  "t": "reflected xss",
+  "m": {
+   "ar": "XSS جاي من الرابط",
+   "en": "XSS bounced back from the request"
+  },
+  "ex": "The search page had reflected XSS."
+ },
+ {
+  "w": 43,
+  "t": "dom-based xss",
+  "m": {
+   "ar": "XSS من كود الصفحة نفسه",
+   "en": "XSS created by client-side code"
+  },
+  "ex": "innerHTML with location.hash caused DOM-based XSS."
+ },
+ {
+  "w": 43,
+  "t": "context-aware escaping",
+  "m": {
+   "ar": "هروب حسب المكان",
+   "en": "escaping suited to where data goes"
+  },
+  "ex": "Attributes need context-aware escaping."
+ },
+ {
+  "w": 43,
+  "t": "javascript: url",
+  "m": {
+   "ar": "رابط بيشغّل كود",
+   "en": "a link that runs script"
+  },
+  "ex": "Block javascript: URLs in hrefs."
+ },
+ {
+  "w": 43,
+  "t": "sanitizer",
+  "m": {
+   "ar": "منظّف HTML",
+   "en": "a tool removing dangerous HTML"
+  },
+  "ex": "Use a sanitizer for rich text."
+ },
+ {
+  "w": 43,
+  "t": "dompurify",
+  "m": {
+   "ar": "مكتبة تنظيف HTML",
+   "en": "a widely used HTML sanitizer"
+  },
+  "ex": "DOMPurify cleans the AI reply."
+ },
+ {
+  "w": 43,
+  "t": "trusted types",
+  "m": {
+   "ar": "نظام بيمنع strings خطرة في innerHTML",
+   "en": "a browser feature blocking unsafe DOM writes"
+  },
+  "ex": "Trusted Types made innerHTML throw."
+ },
+ {
+  "w": 43,
+  "t": "csp nonce",
+  "m": {
+   "ar": "رقم عشوائي لكل طلب في CSP",
+   "en": "a per-request random value allowing scripts"
+  },
+  "ex": "Only scripts with the CSP nonce run."
+ },
+ {
+  "w": 43,
+  "t": "strict-dynamic",
+  "m": {
+   "ar": "سماح للسكربتات الموثوقة تحمّل غيرها",
+   "en": "a CSP keyword trusting scripts loaded by trusted ones"
+  },
+  "ex": "strict-dynamic simplifies the CSP."
+ },
+ {
+  "w": 43,
+  "t": "prototype pollution",
+  "m": {
+   "ar": "تلويث الـ prototype",
+   "en": "modifying Object.prototype through input"
+  },
+  "ex": "A deep merge allowed prototype pollution."
+ },
+ {
+  "w": 43,
+  "t": "__proto__",
+  "m": {
+   "ar": "مفتاح بيوصل للـ prototype",
+   "en": "the key reaching an object’s prototype"
+  },
+  "ex": "Reject __proto__ keys in input."
+ },
+ {
+  "w": 43,
+  "t": "mass assignment",
+  "m": {
+   "ar": "تعيين حقول مش مسموحة من الطلب",
+   "en": "saving unexpected fields from a request"
+  },
+  "ex": "Mass assignment made a user an admin."
+ },
+ {
+  "w": 43,
+  "t": "allowlist fields",
+  "m": {
+   "ar": "الحقول المسموحة بس",
+   "en": "only the fields an operation accepts"
+  },
+  "ex": "Use allowlist fields for profile updates."
+ },
+ {
+  "w": 43,
+  "t": "nosql injection",
+  "m": {
+   "ar": "حقن في قواعد NoSQL",
+   "en": "injecting operators into NoSQL queries"
+  },
+  "ex": "A $ne operator was a NoSQL injection."
+ },
+ {
+  "w": 43,
+  "t": "new function",
+  "m": {
+   "ar": "إنشاء دالة من نص",
+   "en": "creating a function from a string"
+  },
+  "ex": "new Function with input is like eval."
+ },
+ {
+  "w": 43,
+  "t": "vm module",
+  "m": {
+   "ar": "تشغيل كود في سياق منفصل",
+   "en": "Node’s module for running code in contexts"
+  },
+  "ex": "The vm module is not a security sandbox."
+ },
+ {
+  "w": 43,
+  "t": "ssrf",
+  "m": {
+   "ar": "تزوير طلبات من السيرفر",
+   "en": "server-side request forgery"
+  },
+  "ex": "The URL importer allowed SSRF."
+ },
+ {
+  "w": 43,
+  "t": "blocklist",
+  "m": {
+   "ar": "قايمة عناوين ممنوعة",
+   "en": "a list of blocked addresses"
+  },
+  "ex": "net.BlockList rejects private ranges."
+ },
+ {
+  "w": 43,
+  "t": "dns rebinding",
+  "m": {
+   "ar": "اسم بيتحل لعنوان عام ثم داخلي",
+   "en": "a name switching to an internal IP"
+  },
+  "ex": "Check the resolved IP to stop DNS rebinding."
+ },
+ {
+  "w": 43,
+  "t": "open redirect",
+  "m": {
+   "ar": "تحويل لأي موقع من مدخل",
+   "en": "redirecting to any site from input"
+  },
+  "ex": "The next parameter was an open redirect."
+ },
+ {
+  "w": 43,
+  "t": "webhook replay",
+  "m": {
+   "ar": "إعادة إرسال webhook قديم",
+   "en": "resending a recorded webhook"
+  },
+  "ex": "A timestamp check stops webhook replay."
+ },
+ {
+  "w": 43,
+  "t": "timestamp tolerance",
+  "m": {
+   "ar": "هامش الوقت المقبول",
+   "en": "the accepted age of a signed request"
+  },
+  "ex": "Our timestamp tolerance is five minutes."
+ },
+ {
+  "w": 43,
+  "t": "install scripts",
+  "m": {
+   "ar": "سكربتات بتشتغل وقت التثبيت",
+   "en": "code run by packages at install time"
+  },
+  "ex": "Install scripts can run anything on CI."
+ },
+ {
+  "w": 43,
+  "t": "typosquatting",
+  "m": {
+   "ar": "حزمة باسم شبه المشهورة",
+   "en": "a malicious package with a look-alike name"
+  },
+  "ex": "«expres» is typosquatting."
+ },
+ {
+  "w": 43,
+  "t": "dependency confusion",
+  "m": {
+   "ar": "تنزيل اسم داخلي من المستودع العام",
+   "en": "pulling an internal name from the public registry"
+  },
+  "ex": "Scoped names prevent dependency confusion."
+ },
+ {
+  "w": 43,
+  "t": "subresource integrity",
+  "m": {
+   "ar": "التحقق من hash ملف خارجي",
+   "en": "verifying a fetched file by its hash"
+  },
+  "ex": "Subresource integrity blocked the tampered script."
+ },
+ {
+  "w": 43,
+  "t": "sri",
+  "m": {
+   "ar": "اختصار Subresource Integrity",
+   "en": "subresource integrity"
+  },
+  "ex": "Add an SRI hash to the CDN tag."
+ },
+ {
+  "w": 43,
+  "t": "self-host",
+  "m": {
+   "ar": "استضافة الملفات عندك",
+   "en": "serving third-party files yourself"
+  },
+  "ex": "We self-host every library."
+ },
+ {
+  "w": 43,
+  "t": "secret scanning",
+  "m": {
+   "ar": "فحص الكود عن أسرار",
+   "en": "searching code for leaked secrets"
+  },
+  "ex": "Secret scanning blocked the commit."
+ },
+ {
+  "w": 43,
+  "t": "dast",
+  "m": {
+   "ar": "اختبار أمان على التطبيق الشغال",
+   "en": "dynamic application security testing"
+  },
+  "ex": "DAST runs nightly on staging."
+ },
+ {
+  "w": 43,
+  "t": "zap baseline",
+  "m": {
+   "ar": "فحص OWASP ZAP السريع",
+   "en": "OWASP ZAP’s quick passive scan"
+  },
+  "ex": "The ZAP baseline flagged a missing header."
+ },
+ {
+  "w": 43,
+  "t": "threat model",
+  "m": {
+   "ar": "تحليل التهديدات",
+   "en": "an analysis of possible attacks"
+  },
+  "ex": "Write a threat model before the import feature."
+ },
+ {
+  "w": 43,
+  "t": "stride",
+  "m": {
+   "ar": "إطار تصنيف التهديدات",
+   "en": "a six-category threat framework"
+  },
+  "ex": "STRIDE found a repudiation gap."
+ },
+ {
+  "w": 43,
+  "t": "security review",
+  "m": {
+   "ar": "مراجعة أمان",
+   "en": "a security check of a change"
+  },
+  "ex": "Payments PRs need a security review."
+ },
+ {
+  "w": 43,
+  "t": "responsible disclosure",
+  "m": {
+   "ar": "الإبلاغ المسؤول عن الثغرات",
+   "en": "reporting flaws privately to the owner"
+  },
+  "ex": "Publish a responsible disclosure page."
  }
 ];
