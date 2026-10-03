@@ -13032,5 +13032,365 @@ JOURNEY_TERMS["python"] = [
    "en": "a file stating how to report vulnerabilities"
   },
   "ex": "Add /.well-known/security.txt."
+ },
+ {
+  "w": 45,
+  "t": "multi-stage build",
+  "m": {
+   "ar": "بناء على مراحل",
+   "en": "a Dockerfile with separate build and runtime stages"
+  },
+  "ex": "A multi-stage build cut the image to 140 MB."
+ },
+ {
+  "w": 45,
+  "t": "base image",
+  "m": {
+   "ar": "الصورة الأساسية",
+   "en": "the image a Dockerfile starts from"
+  },
+  "ex": "Pin the base image version."
+ },
+ {
+  "w": 45,
+  "t": "slim image",
+  "m": {
+   "ar": "صورة مصغّرة",
+   "en": "a minimal variant of an official image"
+  },
+  "ex": "python:3.13-slim is a slim image."
+ },
+ {
+  "w": 45,
+  "t": "distroless",
+  "m": {
+   "ar": "صورة من غير نظام تشغيل كامل",
+   "en": "an image with only the app and its runtime"
+  },
+  "ex": "Distroless images have no shell."
+ },
+ {
+  "w": 45,
+  "t": "non-root user",
+  "m": {
+   "ar": "مستخدم عادي مش root",
+   "en": "a user without admin rights"
+  },
+  "ex": "The container runs as a non-root user."
+ },
+ {
+  "w": 45,
+  "t": "layer caching",
+  "m": {
+   "ar": "إعادة استخدام طبقات البناء",
+   "en": "reusing unchanged build layers"
+  },
+  "ex": "Layer caching makes rebuilds fast."
+ },
+ {
+  "w": 45,
+  "t": "uv in docker",
+  "m": {
+   "ar": "استخدام uv جوه Docker",
+   "en": "installing dependencies with uv in an image"
+  },
+  "ex": "uv in docker with a cache mount takes seconds."
+ },
+ {
+  "w": 45,
+  "t": "dockerfile linting",
+  "m": {
+   "ar": "فحص الـ Dockerfile",
+   "en": "checking a Dockerfile for mistakes"
+  },
+  "ex": "Dockerfile linting runs in CI."
+ },
+ {
+  "w": 45,
+  "t": "hadolint",
+  "m": {
+   "ar": "أداة فحص Dockerfile",
+   "en": "a Dockerfile linter"
+  },
+  "ex": "hadolint warned about latest."
+ },
+ {
+  "w": 45,
+  "t": "sigterm",
+  "m": {
+   "ar": "إشارة طلب الإقفال",
+   "en": "the signal asking a process to stop"
+  },
+  "ex": "Docker sends SIGTERM before SIGKILL."
+ },
+ {
+  "w": 45,
+  "t": "graceful shutdown",
+  "m": {
+   "ar": "إقفال بأدب",
+   "en": "stopping after finishing current work"
+  },
+  "ex": "Graceful shutdown prevents half-done orders."
+ },
+ {
+  "w": 45,
+  "t": "liveness probe",
+  "m": {
+   "ar": "فحص «البرنامج عايش؟»",
+   "en": "a check that the process is alive"
+  },
+  "ex": "The liveness probe ignores the database."
+ },
+ {
+  "w": 45,
+  "t": "readiness probe",
+  "m": {
+   "ar": "فحص «جاهز ياخد طلبات؟»",
+   "en": "a check that the service can take traffic"
+  },
+  "ex": "The readiness probe fails during shutdown."
+ },
+ {
+  "w": 45,
+  "t": "stop grace period",
+  "m": {
+   "ar": "مهلة الإقفال قبل القتل",
+   "en": "the wait between SIGTERM and SIGKILL"
+  },
+  "ex": "Set the stop grace period to 30 seconds."
+ },
+ {
+  "w": 45,
+  "t": "ci pipeline",
+  "m": {
+   "ar": "خط التكامل المستمر",
+   "en": "the automated checks on every change"
+  },
+  "ex": "The CI pipeline runs in eight minutes."
+ },
+ {
+  "w": 45,
+  "t": "matrix build",
+  "m": {
+   "ar": "تشغيل على تركيبات نسخ وأنظمة",
+   "en": "running jobs across version/OS combinations"
+  },
+  "ex": "The matrix build covers 3.12 and 3.13."
+ },
+ {
+  "w": 45,
+  "t": "artifact",
+  "m": {
+   "ar": "ناتج محفوظ من الـ pipeline",
+   "en": "a file saved from a pipeline run"
+  },
+  "ex": "Download the test report artifact."
+ },
+ {
+  "w": 45,
+  "t": "required check",
+  "m": {
+   "ar": "فحص لازم ينجح قبل الدمج",
+   "en": "a CI status needed before merging"
+  },
+  "ex": "Make tests a required check."
+ },
+ {
+  "w": 45,
+  "t": "concurrency group",
+  "m": {
+   "ar": "مجموعة بتلغي التشغيل القديم",
+   "en": "a group cancelling older runs"
+  },
+  "ex": "A concurrency group saves CI minutes."
+ },
+ {
+  "w": 45,
+  "t": "oidc",
+  "m": {
+   "ar": "توكن مؤقت موقّع بدل المفاتيح",
+   "en": "short-lived signed identity tokens"
+  },
+  "ex": "OIDC removed the long-lived AWS key."
+ },
+ {
+  "w": 45,
+  "t": "build once deploy many",
+  "m": {
+   "ar": "ابني مرة وانشر نفس الصورة",
+   "en": "promoting one build through environments"
+  },
+  "ex": "Build once deploy many avoids surprises."
+ },
+ {
+  "w": 45,
+  "t": "image digest",
+  "m": {
+   "ar": "بصمة الصورة الثابتة",
+   "en": "the immutable sha256 of an image"
+  },
+  "ex": "Pin production to the image digest."
+ },
+ {
+  "w": 45,
+  "t": "image tag",
+  "m": {
+   "ar": "اسم قابل للتحريك للصورة",
+   "en": "a movable label for an image"
+  },
+  "ex": "An image tag like main can move."
+ },
+ {
+  "w": 45,
+  "t": "staging",
+  "m": {
+   "ar": "بيئة تجربة شبه الإنتاج",
+   "en": "a near-production test environment"
+  },
+  "ex": "Every merge deploys to staging."
+ },
+ {
+  "w": 45,
+  "t": "approval gate",
+  "m": {
+   "ar": "بوابة موافقة قبل النشر",
+   "en": "a manual approval before a deploy"
+  },
+  "ex": "Production has an approval gate."
+ },
+ {
+  "w": 45,
+  "t": "continuous deployment",
+  "m": {
+   "ar": "نشر تلقائي لكل تغيير ناجح",
+   "en": "automatically releasing every passing change"
+  },
+  "ex": "Continuous deployment needs strong monitoring."
+ },
+ {
+  "w": 45,
+  "t": "rolling update",
+  "m": {
+   "ar": "تبديل الـ instances واحد واحد",
+   "en": "replacing instances one at a time"
+  },
+  "ex": "Kubernetes uses a rolling update."
+ },
+ {
+  "w": 45,
+  "t": "blue-green",
+  "m": {
+   "ar": "نسختين كاملتين وتحويل الـ traffic",
+   "en": "two full environments with a traffic switch"
+  },
+  "ex": "Blue-green makes rollback instant."
+ },
+ {
+  "w": 45,
+  "t": "zero-downtime",
+  "m": {
+   "ar": "نشر من غير توقف",
+   "en": "deploying without interrupting users"
+  },
+  "ex": "Zero-downtime needs compatible migrations."
+ },
+ {
+  "w": 45,
+  "t": "expand and contract",
+  "m": {
+   "ar": "توسيع ثم تقليص لتغيير القاعدة بأمان",
+   "en": "a safe multi-step schema change"
+  },
+  "ex": "Rename the column with expand and contract."
+ },
+ {
+  "w": 45,
+  "t": "semantic versioning",
+  "m": {
+   "ar": "ترقيم MAJOR.MINOR.PATCH",
+   "en": "MAJOR.MINOR.PATCH version numbers"
+  },
+  "ex": "We follow semantic versioning."
+ },
+ {
+  "w": 45,
+  "t": "conventional commits",
+  "m": {
+   "ar": "صيغة رسايل commits منظمة",
+   "en": "a structured commit message format"
+  },
+  "ex": "Conventional commits drive the changelog."
+ },
+ {
+  "w": 45,
+  "t": "changelog",
+  "m": {
+   "ar": "سجل التغييرات",
+   "en": "a list of changes per version"
+  },
+  "ex": "Read the changelog before upgrading."
+ },
+ {
+  "w": 45,
+  "t": "release",
+  "m": {
+   "ar": "إصدار: tag وصورة وملاحظات",
+   "en": "a tagged, published version"
+  },
+  "ex": "Release 1.9.0 shipped on Tuesday."
+ },
+ {
+  "w": 45,
+  "t": "image scanning",
+  "m": {
+   "ar": "فحص الصورة عن ثغرات",
+   "en": "checking an image for known vulnerabilities"
+  },
+  "ex": "Image scanning blocked a critical CVE."
+ },
+ {
+  "w": 45,
+  "t": "trivy",
+  "m": {
+   "ar": "أداة فحص صور الـ containers",
+   "en": "a container image vulnerability scanner"
+  },
+  "ex": "trivy runs after every build."
+ },
+ {
+  "w": 45,
+  "t": "image signing",
+  "m": {
+   "ar": "توقيع الصورة رقميًا",
+   "en": "cryptographically signing an image"
+  },
+  "ex": "Image signing proves where it was built."
+ },
+ {
+  "w": 45,
+  "t": "cosign",
+  "m": {
+   "ar": "أداة توقيع الصور",
+   "en": "a tool for signing container images"
+  },
+  "ex": "cosign signs keylessly with OIDC."
+ },
+ {
+  "w": 45,
+  "t": "reusable workflow",
+  "m": {
+   "ar": "pipeline مشترك بين ريبوهات",
+   "en": "a workflow called by other workflows"
+  },
+  "ex": "All services use the reusable workflow."
+ },
+ {
+  "w": 45,
+  "t": "workflow_dispatch",
+  "m": {
+   "ar": "تشغيل يدوي بمدخلات",
+   "en": "a manual trigger with inputs"
+  },
+  "ex": "Roll back with workflow_dispatch."
  }
 ];
