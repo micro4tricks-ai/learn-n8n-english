@@ -10350,5 +10350,275 @@ JOURNEY_TERMS["js"] = [
    "en": "a process moving events from the outbox to the queue"
   },
   "ex": "The relay runs every second."
+ },
+ {
+  "w": 37,
+  "t": "anthropic sdk",
+  "m": {
+   "ar": "مكتبة Claude الرسمية",
+   "en": "the official Claude client library"
+  },
+  "ex": "Install the Anthropic SDK with npm."
+ },
+ {
+  "w": 37,
+  "t": "messages api",
+  "m": {
+   "ar": "واجهة الرسايل في Claude",
+   "en": "Claude’s main request/response API"
+  },
+  "ex": "The Messages API takes a list of turns."
+ },
+ {
+  "w": 37,
+  "t": "system prompt",
+  "m": {
+   "ar": "التعليمات الثابتة للنموذج",
+   "en": "standing instructions for the model"
+  },
+  "ex": "The system prompt sets the tone."
+ },
+ {
+  "w": 37,
+  "t": "max_tokens",
+  "m": {
+   "ar": "أقصى طول للرد",
+   "en": "the maximum reply length in tokens"
+  },
+  "ex": "Set max_tokens for every call."
+ },
+ {
+  "w": 37,
+  "t": "content block",
+  "m": {
+   "ar": "جزء من محتوى الرد",
+   "en": "one piece of a reply’s content"
+  },
+  "ex": "Read the text from each content block."
+ },
+ {
+  "w": 37,
+  "t": "token",
+  "m": {
+   "ar": "وحدة النص اللي النموذج بيعدّها",
+   "en": "the unit of text a model counts"
+  },
+  "ex": "Arabic uses more tokens per word."
+ },
+ {
+  "w": 37,
+  "t": "conversation history",
+  "m": {
+   "ar": "تاريخ المحادثة",
+   "en": "the earlier turns sent with each request"
+  },
+  "ex": "Trim the conversation history when it grows."
+ },
+ {
+  "w": 37,
+  "t": "streaming",
+  "m": {
+   "ar": "الرد بيوصل حتة حتة",
+   "en": "receiving a reply in pieces as it is generated"
+  },
+  "ex": "Streaming makes long replies feel fast."
+ },
+ {
+  "w": 37,
+  "t": "content_block_delta",
+  "m": {
+   "ar": "event بحتة نص جديدة",
+   "en": "the event carrying a new piece of content"
+  },
+  "ex": "Append each content_block_delta to the text."
+ },
+ {
+  "w": 37,
+  "t": "text_delta",
+  "m": {
+   "ar": "حتة النص في الـ delta",
+   "en": "the text fragment inside a delta"
+  },
+  "ex": "A text_delta may hold half a word."
+ },
+ {
+  "w": 37,
+  "t": "message_stop",
+  "m": {
+   "ar": "event نهاية الرسالة",
+   "en": "the event marking the end of a message"
+  },
+  "ex": "Close the connection after message_stop."
+ },
+ {
+  "w": 37,
+  "t": "textdecoder",
+  "m": {
+   "ar": "تحويل البايتات لنص",
+   "en": "converting bytes to text"
+  },
+  "ex": "Use TextDecoder with stream: true for Arabic."
+ },
+ {
+  "w": 37,
+  "t": "readablestream",
+  "m": {
+   "ar": "stream للقراية في المتصفح وNode",
+   "en": "a readable stream of data chunks"
+  },
+  "ex": "response.body is a ReadableStream."
+ },
+ {
+  "w": 37,
+  "t": "tool use",
+  "m": {
+   "ar": "استخدام النموذج للأدوات",
+   "en": "a model calling functions you define"
+  },
+  "ex": "Tool use lets Claude look up orders."
+ },
+ {
+  "w": 37,
+  "t": "tool_use",
+  "m": {
+   "ar": "block طلب تشغيل أداة",
+   "en": "the block asking to run a tool"
+  },
+  "ex": "Each tool_use block has an id."
+ },
+ {
+  "w": 37,
+  "t": "tool_result",
+  "m": {
+   "ar": "block نتيجة الأداة",
+   "en": "the block returning a tool’s output"
+  },
+  "ex": "Send the tool_result with the same id."
+ },
+ {
+  "w": 37,
+  "t": "input_schema",
+  "m": {
+   "ar": "شكل مدخلات الأداة",
+   "en": "the JSON Schema of a tool’s input"
+  },
+  "ex": "The input_schema marks order_id as required."
+ },
+ {
+  "w": 37,
+  "t": "tool_choice",
+  "m": {
+   "ar": "اختيار أو إجبار أداة",
+   "en": "controlling which tool the model uses"
+  },
+  "ex": "Force extraction with tool_choice."
+ },
+ {
+  "w": 37,
+  "t": "tool runner",
+  "m": {
+   "ar": "أداة بتلف لفة الأدوات لوحدها",
+   "en": "an SDK helper running the tool loop"
+  },
+  "ex": "The tool runner stops at max_iterations."
+ },
+ {
+  "w": 37,
+  "t": "structured output",
+  "m": {
+   "ar": "مخرجات منظمة بشكل محدد",
+   "en": "output in a defined machine-readable shape"
+  },
+  "ex": "Use a forced tool for structured output."
+ },
+ {
+  "w": 37,
+  "t": "json schema",
+  "m": {
+   "ar": "وصف شكل بيانات JSON",
+   "en": "a description of a JSON shape"
+  },
+  "ex": "The JSON schema lists required fields."
+ },
+ {
+  "w": 37,
+  "t": "forced tool",
+  "m": {
+   "ar": "أداة إجبارية للاستخراج",
+   "en": "a tool the model must call"
+  },
+  "ex": "A forced tool returns clean fields."
+ },
+ {
+  "w": 37,
+  "t": "validation retry",
+  "m": {
+   "ar": "إعادة المحاولة بعد فشل التحقق",
+   "en": "retrying with the validation errors"
+  },
+  "ex": "One validation retry fixed most failures."
+ },
+ {
+  "w": 37,
+  "t": "base64 image",
+  "m": {
+   "ar": "صورة مشفرة نصيًا",
+   "en": "an image encoded as base64 text"
+  },
+  "ex": "Send the receipt as a base64 image."
+ },
+ {
+  "w": 37,
+  "t": "overloaded",
+  "m": {
+   "ar": "الخدمة عليها ضغط مؤقت",
+   "en": "a temporary capacity error"
+  },
+  "ex": "Retry overloaded errors with backoff."
+ },
+ {
+  "w": 37,
+  "t": "exponential backoff",
+  "m": {
+   "ar": "انتظار بيتضاعف بين المحاولات",
+   "en": "waiting longer after each failure"
+  },
+  "ex": "Exponential backoff with jitter avoids storms."
+ },
+ {
+  "w": 37,
+  "t": "retry budget",
+  "m": {
+   "ar": "سقف المحاولات والوقت الكلي",
+   "en": "a cap on attempts and total retry time"
+  },
+  "ex": "A retry budget of 5 attempts or 60 s."
+ },
+ {
+  "w": 37,
+  "t": "maxretries",
+  "m": {
+   "ar": "أقصى عدد إعادات في الـ SDK",
+   "en": "the SDK’s retry limit"
+  },
+  "ex": "Set maxRetries to four."
+ },
+ {
+  "w": 37,
+  "t": "prompt caching",
+  "m": {
+   "ar": "تخزين جزء البرومبت الثابت",
+   "en": "reusing a fixed prompt prefix cheaply"
+  },
+  "ex": "Prompt caching cut costs by 70%."
+ },
+ {
+  "w": 37,
+  "t": "cache_control",
+  "m": {
+   "ar": "علامة الجزء اللي يتخزّن",
+   "en": "the marker for the cached prefix"
+  },
+  "ex": "Put cache_control on the policies block."
  }
 ];
