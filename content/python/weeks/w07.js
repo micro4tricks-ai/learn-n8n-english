@@ -62,6 +62,18 @@ JOURNEY.week({
      },
      "ex": "import sys\nimport json\nprint(\"json\" in sys.modules)\nprint(sys.version.split()[0])\nprint(len(sys.modules), \"modules loaded so far\")",
      "run": 1
+    },
+    {
+     "h": {
+      "ar": "نقطة البداية: if __name__ == \"__main__\"",
+      "en": "The entry point: if __name__ == \"__main__\""
+     },
+     "p": {
+      "ar": "الكود اللي تحت `if __name__ == \"__main__\":` بيشتغل لما تشغّل الملف مباشرة بس، مش لما ملف تاني يعمله import. كده ملفك ينفع **سكربت** و**مكتبة** في نفس الوقت. وحط الشغل في دالة `main()` وناديها من هناك.",
+      "en": "Code under `if __name__ == \"__main__\":` runs only when you run the file directly, not when another file imports it. Your file then works as both a **script** and a **library**. Put the work in a `main()` function and call it from there."
+     },
+     "ex": "def clean_phone(p): ...\n\ndef main():\n    print(clean_phone(\" 010 1234 5678 \"))\n\nif __name__ == \"__main__\":\n    main()",
+     "deep": 1
     }
    ],
    "practice": [
@@ -80,6 +92,16 @@ JOURNEY.week({
     {
      "ar": "سمّي ملف عندك `random.py` واعمل `import random` في ملف جنبه، وشوف المشكلة، وبعدين غيّر الاسم.",
      "en": "Name a file of yours `random.py`, `import random` from a file next to it, see the problem, then rename it."
+    },
+    {
+     "ar": "اعمل ملف `tools.py` فيه دالتين و`main()`، واعمله import من ملف تاني واتأكد إن main مااشتغلتش.",
+     "en": "Make a `tools.py` with two functions and `main()`, import it from another file and check main did not run.",
+     "deep": 1
+    },
+    {
+     "ar": "حوّل سكربت قديم عندك للشكل ده.",
+     "en": "Convert an old script of yours to this shape.",
+     "deep": 1
     }
    ],
    "code": [
@@ -90,6 +112,15 @@ JOURNEY.week({
      },
      "p": "# prices.py\nVAT = 0.14\n\ndef with_vat(amount: float) -> float:\n    return round(amount * (1 + VAT), 2)\n\n# app.py\nimport prices\nfrom prices import with_vat\n\nprint(prices.VAT, with_vat(100))",
      "show": 1
+    },
+    {
+     "u": {
+      "ar": "ملف سكربت ومكتبة",
+      "en": "A file that is a script and a library"
+     },
+     "p": "def clean_phone(raw):\n    digits = \"\".join(ch for ch in raw if ch.isdigit())\n    return \"+20\" + digits[1:] if digits.startswith(\"0\") else \"+\" + digits\n\ndef main():\n    for p in [\" 010 1234 5678 \", \"201112223334\"]:\n        print(repr(p), \"->\", clean_phone(p))\n\nprint(\"__name__ is\", repr(__name__))\nif __name__ == \"__main__\":\n    main()",
+     "run": 1,
+     "deep": 1
     }
    ],
    "words": [
@@ -140,6 +171,22 @@ JOURNEY.week({
       "en": "an error when a module is not installed or not on the path"
      },
      "ex": "No module named 'requests'"
+    },
+    {
+     "t": "entry point",
+     "m": {
+      "ar": "المكان اللي البرنامج بيبدأ منه",
+      "en": "the place where a program starts"
+     },
+     "ex": "main() is the entry point."
+    },
+    {
+     "t": "shebang",
+     "m": {
+      "ar": "أول سطر #! بيقول النظام يشغّل الملف بإيه",
+      "en": "the first #! line telling the system what runs the file"
+     },
+     "ex": "#!/usr/bin/env python3 is a shebang."
     }
    ],
    "read": [
@@ -221,6 +268,22 @@ JOURNEY.week({
       "ar": "اسم مختصر.",
       "en": "A short name."
      }
+    },
+    {
+     "q": {
+      "ar": "لما ملف يتعمله import، `__name__` بيساوي:",
+      "en": "When a file is imported, `__name__` equals:"
+     },
+     "o": [
+      "the module name",
+      "\"__main__\"",
+      "None"
+     ],
+     "a": 0,
+     "why": {
+      "ar": "\"__main__\" لما يتشغّل مباشرة بس.",
+      "en": "\"__main__\" only when run directly."
+     }
     }
    ],
    "minutes": 180
@@ -271,6 +334,18 @@ JOURNEY.week({
      },
      "ex": "from functools import lru_cache, partial\nimport statistics, textwrap\n\n@lru_cache(maxsize=None)\ndef fib(n):\n    return n if n < 2 else fib(n - 1) + fib(n - 2)\n\nprint(fib(80))\nround2 = partial(round, ndigits=2)\nprint(round2(3.14159))\nprint(statistics.median([120, 85, 300, 42]), round(statistics.stdev([120, 85, 300, 42]), 1))\nprint(textwrap.shorten(\"A very long product description that will not fit in the table\", width=30))",
      "run": 1
+    },
+    {
+     "h": {
+      "ar": "مكتبات جاهزة مفيدة: datetime وbase64 وhashlib",
+      "en": "Useful built-ins: datetime, base64 and hashlib"
+     },
+     "p": {
+      "ar": "`datetime` للتواريخ والمدد (`timedelta(days=7)`). `base64` لتحويل بيانات لنص آمن في JSON أو headers (مش تشفير!). `hashlib.sha256` لبصمة ثابتة لبيانات — تعرف بيها لو ملف اتغيّر أو تعمل مفتاح منع تكرار.",
+      "en": "`datetime` for dates and durations (`timedelta(days=7)`). `base64` to turn data into text safe for JSON or headers (not encryption!). `hashlib.sha256` for a fixed fingerprint of data — to tell if a file changed or to make a de-duplication key."
+     },
+     "ex": "due = date.today() + timedelta(days=14)\nbase64.b64encode(b\"user:pass\")     # b'dXNlcjpwYXNz'\nhashlib.sha256(b\"hello\").hexdigest()[:12]",
+     "deep": 1
     }
    ],
    "practice": [
@@ -289,6 +364,16 @@ JOURNEY.week({
     {
      "ar": "قيس وقت `fib(32)` من غير cache ومعاه.",
      "en": "Time `fib(32)` without and with the cache."
+    },
+    {
+     "ar": "احسب لـ 5 فواتير تاريخ الاستحقاق وعدد الأيام المتبقية.",
+     "en": "Compute the due date and days left for 5 invoices.",
+     "deep": 1
+    },
+    {
+     "ar": "اعمل بصمة sha256 لكل سطر في قايمة واستخدمها لاكتشاف السطور المكررة.",
+     "en": "Make a sha256 fingerprint of each line in a list and use it to find duplicate lines.",
+     "deep": 1
     }
    ],
    "code": [
@@ -299,6 +384,15 @@ JOURNEY.week({
      },
      "p": "from itertools import batched\nemails = [f\"user{i}@example.com\" for i in range(1, 251)]\nfor n, batch in enumerate(batched(emails, 100), 1):\n    print(f\"batch {n}: {len(batch)} emails, first {batch[0]}\")",
      "run": 1
+    },
+    {
+     "u": {
+      "ar": "تاريخ استحقاق وبصمة",
+      "en": "A due date and a fingerprint"
+     },
+     "p": "import base64, hashlib\nfrom datetime import date, timedelta\ninvoice_day = date(2026, 10, 3)\ndue = invoice_day + timedelta(days=14)\nprint(\"due:\", due.isoformat(), due.strftime(\"%A\"))\ntoken = base64.b64encode(\"sara:demo\".encode()).decode()\nprint(\"base64:\", token, \"->\", base64.b64decode(token).decode())\nrow = \"1042|Sara|350\"\nprint(\"fingerprint:\", hashlib.sha256(row.encode()).hexdigest()[:16])",
+     "run": 1,
+     "deep": 1
     }
    ],
    "words": [
@@ -349,6 +443,22 @@ JOURNEY.week({
       "en": "a group of items processed together"
      },
      "ex": "100 records per request"
+    },
+    {
+     "t": "datetime",
+     "m": {
+      "ar": "مكتبة التواريخ والأوقات",
+      "en": "the dates and times module"
+     },
+     "ex": "Use datetime for due dates."
+    },
+    {
+     "t": "base64 encode",
+     "m": {
+      "ar": "تحويل bytes لنص آمن (مش تشفير)",
+      "en": "turning bytes into safe text (not encryption)"
+     },
+     "ex": "Base64 encode the file before sending it as JSON."
     }
    ],
    "read": [
@@ -439,6 +549,22 @@ JOURNEY.week({
       "ar": "أول اتنين.",
       "en": "The first two."
      }
+    },
+    {
+     "q": {
+      "ar": "base64 هو:",
+      "en": "base64 is:"
+     },
+     "o": [
+      "an encoding, not encryption",
+      "strong encryption",
+      "a hash"
+     ],
+     "a": 0,
+     "why": {
+      "ar": "أي حد يقدر يفكّه.",
+      "en": "Anyone can decode it."
+     }
     }
    ],
    "minutes": 180
@@ -487,6 +613,18 @@ JOURNEY.week({
       "en": "A package is code that runs on your machine with your permissions. Before installing: is the name spelt right? (malicious packages copy famous names, like `reqeusts`). Does its pypi.org page link to the source, show recent releases and many downloads? And what exactly do the official docs tell you to install?"
      },
      "ex": "python -m pip install reqeusts    # typo: never install a misspelt name\npython -m pip index versions requests   # list the published versions\npython -m pip install requests==2.32.3   # pin what you tested"
+    },
+    {
+     "h": {
+      "ar": "ملف requirements وتثبيت الإصدارات",
+      "en": "The requirements file and pinning versions"
+     },
+     "p": {
+      "ar": "`requirements.txt` فيه المكتبات اللي مشروعك محتاجها: `requests==2.32.3` (إصدار متثبّت بالظبط) أو `requests>=2.31,<3` (مدى). التثبيت الدقيق بيخلّي السكربت يشتغل نفس الشكل على جهاز العميل بعد سنة. `pip freeze > requirements.txt` بيكتب اللي متثبّت عندك.",
+      "en": "`requirements.txt` lists the libraries your project needs: `requests==2.32.3` (an exact pinned version) or `requests>=2.31,<3` (a range). Exact pins make the script behave the same on the client’s machine a year later. `pip freeze > requirements.txt` writes what you have installed."
+     },
+     "ex": "requests==2.32.3\nopenpyxl>=3.1,<4\npython-dotenv==1.0.1\n\npip install -r requirements.txt",
+     "deep": 1
     }
    ],
    "practice": [
@@ -505,6 +643,16 @@ JOURNEY.week({
     {
      "ar": "استخدم `rich` تطبع جدول ملوّن صغير (من التوثيق بتاعه).",
      "en": "Use `rich` to print a small coloured table (from its docs)."
+    },
+    {
+     "ar": "اعمل `requirements.txt` لمشروعك وثبّت كل إصدار.",
+     "en": "Create a `requirements.txt` for your project and pin every version.",
+     "deep": 1
+    },
+    {
+     "ar": "في venv جديد، ثبّت منه واتأكد إن السكربت شغال.",
+     "en": "In a fresh venv, install from it and check the script runs.",
+     "deep": 1
     }
    ],
    "code": [
@@ -514,6 +662,15 @@ JOURNEY.week({
       "en": "A table with rich (after installing)"
      },
      "p": "# python -m pip install rich\nfrom rich.console import Console\nfrom rich.table import Table\n\ntable = Table(title=\"Orders\")\ntable.add_column(\"ID\")\ntable.add_column(\"Customer\")\ntable.add_column(\"Total\", justify=\"right\")\ntable.add_row(\"1042\", \"Sara\", \"1,200.00\")\ntable.add_row(\"1043\", \"Omar\", \"450.50\")\nConsole().print(table)"
+    },
+    {
+     "u": {
+      "ar": "قراءة ملف requirements",
+      "en": "Reading a requirements file"
+     },
+     "p": "text = \"\"\"requests==2.32.3\nopenpyxl>=3.1,<4\n# dev tools\npytest\n\"\"\"\nfor line in text.splitlines():\n    line = line.strip()\n    if not line or line.startswith(\"#\"):\n        continue\n    for op in (\"==\", \">=\", \"<=\", \"~=\"):\n        if op in line:\n            name, rest = line.split(op, 1)\n            print(f\"{name:<10} {op}{rest}\")\n            break\n    else:\n        print(f\"{line:<10} (not pinned)\")",
+     "run": 1,
+     "deep": 1
     }
    ],
    "words": [
@@ -572,6 +729,22 @@ JOURNEY.week({
       "en": "a malicious package named like a famous one"
      },
      "ex": "reqeusts instead of requests"
+    },
+    {
+     "t": "requirements file",
+     "m": {
+      "ar": "ملف بقايمة المكتبات المطلوبة",
+      "en": "a file listing the libraries needed"
+     },
+     "ex": "Commit the requirements file to Git."
+    },
+    {
+     "t": "version pin",
+     "m": {
+      "ar": "تحديد إصدار مكتبة بالظبط",
+      "en": "fixing a library to an exact version"
+     },
+     "ex": "A version pin avoids surprise updates."
     }
    ],
    "read": [
@@ -671,6 +844,22 @@ JOURNEY.week({
       "ar": "== تثبيت.",
       "en": "== pins it."
      }
+    },
+    {
+     "q": {
+      "ar": "`requests==2.32.3` معناها:",
+      "en": "`requests==2.32.3` means:"
+     },
+     "o": [
+      "exactly this version",
+      "any version",
+      "at least this version"
+     ],
+     "a": 0,
+     "why": {
+      "ar": "== تثبيت.",
+      "en": "== pins it."
+     }
     }
    ],
    "minutes": 180
@@ -719,6 +908,18 @@ JOURNEY.week({
       "en": "`uv` creates the environment, installs packages and even fetches Python itself, much faster than pip. `uv init` creates a project with a `pyproject.toml`, `uv add requests` installs and records it, `uv run main.py` runs inside the environment with no activation, and `uv.lock` pins the exact versions."
      },
      "ex": "uv init sales-report\ncd sales-report\nuv add requests openpyxl\nuv run main.py\n\n# pyproject.toml (made by uv)\n[project]\nname = \"sales-report\"\nrequires-python = \">=3.12\"\ndependencies = [\"openpyxl>=3.1.5\", \"requests>=2.32.3\"]"
+    },
+    {
+     "h": {
+      "ar": "بيئة معزولة قابلة للتكرار",
+      "en": "An isolated, repeatable environment"
+     },
+     "p": {
+      "ar": "كل مشروع ليه venv لوحده عشان مكتبات مشروع ميتلخبطوش مع التاني. اتأكد إنك جوه البيئة: `sys.prefix != sys.base_prefix`. وأدوات زي **uv** بتعمل ملف قفل `uv.lock` بكل الإصدارات (حتى مكتبات المكتبات) عشان التثبيت يتكرر بالظبط.",
+      "en": "Each project gets its own venv so one project’s libraries do not clash with another’s. Check you are inside it: `sys.prefix != sys.base_prefix`. Tools like **uv** write a lock file `uv.lock` with every version (even libraries of libraries) so installs repeat exactly."
+     },
+     "ex": "python -m venv .venv\n.venv\\Scripts\\activate      # Windows\nsource .venv/bin/activate   # macOS/Linux\nuv init && uv add requests  # writes pyproject.toml + uv.lock",
+     "deep": 1
     }
    ],
    "practice": [
@@ -737,6 +938,16 @@ JOURNEY.week({
     {
      "ar": "ثبّت uv من موقعه الرسمي واعمل مشروع بـ `uv init` وزوّد حزمة بـ `uv add`.",
      "en": "Install uv from its official site, create a project with `uv init` and add a package with `uv add`."
+    },
+    {
+     "ar": "اعمل venv لمشروعين وثبّت إصدارين مختلفين من نفس المكتبة في كل واحد.",
+     "en": "Create venvs for two projects and install different versions of the same library in each.",
+     "deep": 1
+    },
+    {
+     "ar": "جرّب uv: `uv init` و`uv add` وافتح الـ lock file.",
+     "en": "Try uv: `uv init` and `uv add`, then open the lock file.",
+     "deep": 1
     }
    ],
    "code": [
@@ -746,6 +957,15 @@ JOURNEY.week({
       "en": "Steps for any new project (venv)"
      },
      "p": "mkdir invoice-bot && cd invoice-bot\npython -m venv .venv\n.venv\\Scripts\\Activate.ps1\npython -m pip install -U pip\npython -m pip install requests python-dotenv\npython -m pip freeze > requirements.txt\necho .venv/ >> .gitignore"
+    },
+    {
+     "u": {
+      "ar": "أنا جوه venv؟",
+      "en": "Am I inside a venv?"
+     },
+     "p": "import sys\ninside = sys.prefix != sys.base_prefix\nprint(\"Python\", sys.version.split()[0])\nprint(\"inside a virtual environment:\", inside)\nprint(\"packages go to:\", \"the project venv\" if inside else \"the system Python\")",
+     "run": 1,
+     "deep": 1
     }
    ],
    "words": [
@@ -804,6 +1024,22 @@ JOURNEY.week({
       "en": "a file recording exact versions so installs repeat"
      },
      "ex": "uv.lock"
+    },
+    {
+     "t": "isolated",
+     "m": {
+      "ar": "معزول عن الباقي",
+      "en": "kept apart from the rest"
+     },
+     "ex": "Each project has an isolated environment."
+    },
+    {
+     "t": "reproducible install",
+     "m": {
+      "ar": "تثبيت بيطلع نفس النتيجة على أي جهاز",
+      "en": "an install that gives the same result on any machine"
+     },
+     "ex": "A lock file gives a reproducible install."
     }
    ],
    "read": [
@@ -894,6 +1130,22 @@ JOURNEY.week({
       "ar": "بيطبع المسار.",
       "en": "It prints the path."
      }
+    },
+    {
+     "q": {
+      "ar": "ليه venv لكل مشروع؟",
+      "en": "Why a venv per project?"
+     },
+     "o": [
+      "so library versions do not clash",
+      "to make Python faster",
+      "to hide the code"
+     ],
+     "a": 0,
+     "why": {
+      "ar": "كل مشروع ومكتباته.",
+      "en": "Each project with its own libraries."
+     }
     }
    ],
    "minutes": 180
@@ -942,6 +1194,18 @@ JOURNEY.week({
       "en": "`.gitignore` tells Git what to ignore: `.venv/`, `.env`, `__pycache__/` and output files. README.md is the first thing anyone reads: what the project does, how to install it, how to run it, and examples. Git in depth is in week 2 of the n8n journey."
      },
      "ex": "# .gitignore\n.venv/\n.env\n__pycache__/\n*.pyc\noutput/\n\n# README.md\n# Invoice bot\nSends the monthly invoices by email.\n## Setup\npython -m venv .venv\npip install -r requirements.txt\ncp .env.example .env   # then fill it in\n## Run\npython main.py --month 2026-09"
+    },
+    {
+     "h": {
+      "ar": "الأسرار في .env وGit",
+      "en": "Secrets in .env and Git"
+     },
+     "p": {
+      "ar": "المفاتيح في ملف `.env` (`API_KEY=...`) وبتتقرا بـ `os.environ` أو `python-dotenv`. والـ `.env` **لازم** في `.gitignore`. وحط `.env.example` فيه الأسماء من غير القيم عشان اللي ياخد المشروع يعرف محتاج إيه. ولو مفتاح اتعمله commit بالغلط: اعتبره اتسرّب وغيّره.",
+      "en": "Keys live in a `.env` file (`API_KEY=...`) and are read with `os.environ` or `python-dotenv`. `.env` **must** be in `.gitignore`. Add a `.env.example` with the names but no values so whoever gets the project knows what is needed. If a key was committed by mistake: treat it as leaked and replace it."
+     },
+     "ex": "# .gitignore\n.env\n.venv/\n__pycache__/\n\n# .env.example\nAPI_KEY=\nTELEGRAM_CHAT_ID=",
+     "deep": 1
     }
    ],
    "practice": [
@@ -960,6 +1224,16 @@ JOURNEY.week({
     {
      "ar": "اعمل `git init` و`git status` واتأكد إن `.env` و`.venv` مش ظاهرين.",
      "en": "Run `git init` and `git status` and confirm `.env` and `.venv` do not show up."
+    },
+    {
+     "ar": "اعمل `.env.example` و`.gitignore` لمشروعك واتأكد بـ `git status` إن .env مش ظاهر.",
+     "en": "Create `.env.example` and `.gitignore` for your project and check with `git status` that .env is not listed.",
+     "deep": 1
+    },
+    {
+     "ar": "خلّي السكربت يقف برسالة واضحة لو مفتاح ناقص.",
+     "en": "Make the script stop with a clear message if a key is missing.",
+     "deep": 1
     }
    ],
    "code": [
@@ -970,6 +1244,15 @@ JOURNEY.week({
      },
      "p": "import os\n\nclass Settings:\n    api_url = os.environ.get(\"SHOP_API_URL\", \"https://jsonplaceholder.typicode.com\")\n    timeout = float(os.environ.get(\"TIMEOUT\", \"10\"))\n    debug = os.environ.get(\"DEBUG\", \"0\") == \"1\"\n\nprint(Settings.api_url, Settings.timeout, Settings.debug)",
      "run": 1
+    },
+    {
+     "u": {
+      "ar": "قراءة إعداد من البيئة بأمان",
+      "en": "Reading a setting from the environment safely"
+     },
+     "p": "import os\n\ndef setting(name, default=None, required=False):\n    value = os.environ.get(name, default)\n    if required and not value:\n        raise SystemExit(f\"Missing setting {name}: add it to your .env file\")\n    return value\n\nprint(\"timezone:\", setting(\"APP_TZ\", \"Africa/Cairo\"))\nkey = setting(\"DEMO_API_KEY\", \"\")\nprint(\"API key set:\", bool(key))  # never print the key itself",
+     "run": 1,
+     "deep": 1
     }
    ],
    "words": [
@@ -1020,6 +1303,22 @@ JOURNEY.week({
       "en": "the main explanation file of a project"
      },
      "ex": "README.md"
+    },
+    {
+     "t": "dotenv",
+     "m": {
+      "ar": "ملف .env والمكتبة اللي بتقراه",
+      "en": "the .env file and the library that reads it"
+     },
+     "ex": "Load the keys with dotenv."
+    },
+    {
+     "t": "gitignore",
+     "m": {
+      "ar": "ملف بيقول لـ Git يتجاهل ملفات معيّنة",
+      "en": "a file telling Git to ignore certain files"
+     },
+     "ex": "Add .env to the gitignore."
     }
    ],
    "read": [
@@ -1110,6 +1409,22 @@ JOURNEY.week({
       "ar": "دليل للي هيشغّل المشروع.",
       "en": "A guide for whoever runs the project."
      }
+    },
+    {
+     "q": {
+      "ar": "مفتاح اتعمله commit بالغلط:",
+      "en": "A key was committed by mistake:"
+     },
+     "o": [
+      "replace the key",
+      "delete the commit and keep the key",
+      "make the repo private only"
+     ],
+     "a": 0,
+     "why": {
+      "ar": "اعتبره اتسرّب.",
+      "en": "Treat it as leaked."
+     }
     }
    ],
    "minutes": 180
@@ -1144,6 +1459,16 @@ JOURNEY.week({
     {
      "ar": "الـ package و`__init__.py` و.env و.gitignore وREADME.",
      "en": "Packages, `__init__.py`, .env, .gitignore and the README."
+    },
+    {
+     "ar": "⚡ __main__ ونقطة البداية، وdatetime وbase64 وhashlib.",
+     "en": "⚡ __main__ and the entry point, datetime, base64 and hashlib.",
+     "deep": 1
+    },
+    {
+     "ar": "⚡ requirements والتثبيت الدقيق، والبيئة المعزولة، و.env و.gitignore: جهّز مشروعك عشان يشتغل على جهاز عميل.",
+     "en": "⚡ Requirements and pinning, isolated environments, .env and .gitignore: prepare your project to run on a client’s machine.",
+     "deep": 1
     }
    ],
    "project": {

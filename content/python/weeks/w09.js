@@ -62,6 +62,18 @@ JOURNEY.week({
      },
      "ex": "customers = [\"Sara\", \"Omar\", \"Mona\"]\nwith open(\"customers.txt\", \"w\", encoding=\"utf-8\") as f:\n    f.write(\"\\n\".join(customers) + \"\\n\")\n    print(\"total:\", len(customers), file=f)\nprint(open(\"customers.txt\", encoding=\"utf-8\").read())\ntry:\n    open(\"missing.txt\", encoding=\"utf-8\")\nexcept FileNotFoundError as e:\n    print(\"FileNotFoundError:\", e.filename)",
      "run": 1
+    },
+    {
+     "h": {
+      "ar": "الكتابة الآمنة (atomic write)",
+      "en": "Safe writing (atomic write)"
+     },
+     "p": {
+      "ar": "لو السكربت وقف وهو بيكتب ملف مهم، الملف ممكن يبقى نصه مكتوب ونصه ضايع. الحل: اكتب في **ملف مؤقت** جنبه، وبعدين `os.replace(tmp, path)` — دي عملية واحدة: يا الملف القديم كامل يا الجديد كامل.",
+      "en": "If a script stops while writing an important file, the file can end up half written. The fix: write to a **temporary file** next to it, then `os.replace(tmp, path)` — one operation: either the old file stays complete or the new one is complete."
+     },
+     "ex": "tmp = path.with_suffix(\".tmp\")\ntmp.write_text(data, encoding=\"utf-8\")\nos.replace(tmp, path)   # all or nothing",
+     "deep": 1
     }
    ],
    "practice": [
@@ -80,6 +92,16 @@ JOURNEY.week({
     {
      "ar": "اكتب ملف بالعربي من غير encoding على Windows وافتحه، وبعدين بـ utf-8، وقارن.",
      "en": "Write an Arabic file without encoding on Windows and open it, then with utf-8, and compare."
+    },
+    {
+     "ar": "استخدم الكتابة الآمنة في سكربت بيحفظ آخر ID اتعالج.",
+     "en": "Use safe writing in a script that saves the last processed ID.",
+     "deep": 1
+    },
+    {
+     "ar": "اقرا عن `tempfile.NamedTemporaryFile` واكتب سطرين عن إمتى تستخدمه.",
+     "en": "Read about `tempfile.NamedTemporaryFile` and write two lines on when to use it.",
+     "deep": 1
     }
    ],
    "code": [
@@ -90,6 +112,15 @@ JOURNEY.week({
      },
      "p": "from collections import Counter\nwith open(\"server.log\", \"w\", encoding=\"utf-8\") as f:\n    f.write(\"2026-10-01 INFO login\\n2026-10-01 ERROR timeout\\n2026-10-02 WARNING slow\\n2026-10-02 ERROR timeout\\n\")\nlevels = Counter()\nwith open(\"server.log\", encoding=\"utf-8\") as f:\n    for line in f:\n        date, level, msg = line.split(maxsplit=2)\n        levels[level] += 1\nprint(dict(levels))",
      "run": 1
+    },
+    {
+     "u": {
+      "ar": "حفظ JSON بأمان",
+      "en": "Saving JSON safely"
+     },
+     "p": "import json, os\nfrom pathlib import Path\n\ndef save_json_atomic(path, data):\n    path = Path(path)\n    tmp = path.with_suffix(path.suffix + \".tmp\")\n    tmp.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding=\"utf-8\")\n    os.replace(tmp, path)\n\nsave_json_atomic(\"state.json\", {\"last_id\": 1042, \"ok\": True})\nsave_json_atomic(\"state.json\", {\"last_id\": 1043, \"ok\": True})\nprint(Path(\"state.json\").read_text(encoding=\"utf-8\"))\nprint(\"temp left behind:\", Path(\"state.json.tmp\").exists())",
+     "run": 1,
+     "deep": 1
     }
    ],
    "words": [
@@ -140,6 +171,22 @@ JOURNEY.week({
       "en": "the \\n at the end of each line in a file"
      },
      "ex": "line.rstrip(\"\\n\")"
+    },
+    {
+     "t": "atomic write",
+     "m": {
+      "ar": "كتابة يا تكمل كلها يا متحصلش خالص",
+      "en": "a write that either completes fully or not at all"
+     },
+     "ex": "Use an atomic write for the state file."
+    },
+    {
+     "t": "temp file",
+     "m": {
+      "ar": "ملف مؤقت بيتمسح بعد الاستخدام",
+      "en": "a temporary file deleted after use"
+     },
+     "ex": "Write to a temp file first."
     }
    ],
    "read": [
@@ -230,6 +277,22 @@ JOURNEY.week({
       "ar": "سطر سطر من غير ما يتحمّل كله.",
       "en": "Line by line, never loading it all."
      }
+    },
+    {
+     "q": {
+      "ar": "`os.replace(tmp, path)` ميزته:",
+      "en": "The benefit of `os.replace(tmp, path)`:"
+     },
+     "o": [
+      "the file is never half written",
+      "it compresses the file",
+      "it makes a backup"
+     ],
+     "a": 0,
+     "why": {
+      "ar": "عملية واحدة.",
+      "en": "One step."
+     }
     }
    ],
    "minutes": 180
@@ -280,6 +343,18 @@ JOURNEY.week({
      },
      "ex": "from pathlib import Path\nbase = Path(\"inbox\")\nfor name in [\"a.pdf\", \"b.PDF\", \"notes.txt\", \"2026/c.pdf\", \"2026/09/d.pdf\"]:\n    f = base / name\n    f.parent.mkdir(parents=True, exist_ok=True)\n    f.write_text(\"x\", encoding=\"utf-8\")\nprint([p.name for p in base.glob(\"*.pdf\")])\nprint(sorted(str(p.relative_to(base)) for p in base.rglob(\"*\") if p.suffix.lower() == \".pdf\"))",
      "run": 1
+    },
+    {
+     "h": {
+      "ar": "glob وrglob ودمج المسارات",
+      "en": "glob, rglob and joining paths"
+     },
+     "p": {
+      "ar": "`Path(\"in\").glob(\"*.csv\")` الملفات في الفولدر ده بس، و`rglob(\"*.csv\")` في كل الفولدرات اللي جواه. ودمج المسارات بـ `/`: `Path(\"data\") / \"2026\" / \"orders.csv\"` — بيشتغل على ويندوز ولينكس من غير ما تفكّر في `\\` أو `/`.",
+      "en": "`Path(\"in\").glob(\"*.csv\")` finds files in that folder only, and `rglob(\"*.csv\")` in every folder inside it. Join paths with `/`: `Path(\"data\") / \"2026\" / \"orders.csv\"` — works on Windows and Linux without thinking about `\\` or `/`."
+     },
+     "ex": "for f in Path(\"reports\").rglob(\"*.xlsx\"):\n    print(f.relative_to(\"reports\"))\nout = Path(\"out\") / f\"{day}.csv\"",
+     "deep": 1
     }
    ],
    "practice": [
@@ -298,6 +373,16 @@ JOURNEY.week({
     {
      "ar": "اكتب واقرا ملف بـ `write_text` و`read_text` بدل open.",
      "en": "Write and read a file with `write_text` and `read_text` instead of open."
+    },
+    {
+     "ar": "اطبع كل ملفات PDF في فولدر التنزيلات وفولدراته بحجم كل واحد.",
+     "en": "Print every PDF in your downloads folder and its subfolders with each size.",
+     "deep": 1
+    },
+    {
+     "ar": "ابني مسارات إخراج بـ `/` بدل جمع النصوص.",
+     "en": "Build output paths with `/` instead of joining strings.",
+     "deep": 1
     }
    ],
    "code": [
@@ -308,6 +393,15 @@ JOURNEY.week({
      },
      "p": "from pathlib import Path\nfrom datetime import date\ntoday = date.today()\nfolder = Path(\"reports\") / f\"{today:%Y}\" / f\"{today:%m}\"\nfolder.mkdir(parents=True, exist_ok=True)\nreport = folder / f\"sales_{today:%Y-%m-%d}.txt\"\nreport.write_text(\"total: 0\\n\", encoding=\"utf-8\")\nprint(report, report.exists())",
      "run": 1
+    },
+    {
+     "u": {
+      "ar": "دوّر على ملفات في فولدرات",
+      "en": "Finding files in folders"
+     },
+     "p": "from pathlib import Path\nfor p in [\"data/top.csv\", \"data/2026/09/a.csv\", \"data/2026/10/b.csv\", \"data/notes.txt\", \"data/2026/c.csv\"]:\n    Path(p).parent.mkdir(parents=True, exist_ok=True)\n    Path(p).write_text(\"x\")\nroot = Path(\"data\")\nprint(\"glob:\", sorted(f.name for f in root.glob(\"*.csv\")))\nprint(\"rglob:\", sorted(str(f.relative_to(root)).replace(\"\\\\\", \"/\") for f in root.rglob(\"*.csv\")))\nprint((Path(\"out\") / \"2026\" / \"report.csv\").as_posix())",
+     "run": 1,
+     "deep": 1
     }
    ],
    "words": [
@@ -366,6 +460,22 @@ JOURNEY.week({
       "en": "glob in a folder and every folder inside it"
      },
      "ex": "Path(\".\").rglob(\"*.csv\")"
+    },
+    {
+     "t": "glob",
+     "m": {
+      "ar": "نمط بأسماء الملفات زي *.csv",
+      "en": "a file name pattern like *.csv"
+     },
+     "ex": "glob(\"*.csv\") finds the CSV files."
+    },
+    {
+     "t": "path join",
+     "m": {
+      "ar": "ربط أجزاء مسار مع بعض",
+      "en": "joining the parts of a path"
+     },
+     "ex": "Use / for a path join with pathlib."
     }
    ],
    "read": [
@@ -447,6 +557,22 @@ JOURNEY.week({
       "ar": "r = recursive.",
       "en": "r = recursive."
      }
+    },
+    {
+     "q": {
+      "ar": "عشان تلاقي ملفات في الفولدرات الفرعية كمان:",
+      "en": "To find files in subfolders too:"
+     },
+     "o": [
+      "rglob",
+      "glob",
+      "listdir"
+     ],
+     "a": 0,
+     "why": {
+      "ar": "r = recursive.",
+      "en": "r = recursive."
+     }
     }
    ],
    "minutes": 180
@@ -497,6 +623,18 @@ JOURNEY.week({
      },
      "ex": "from pathlib import Path\nfrom datetime import datetime\nfor name, size in [(\"small.txt\", 10), (\"big.bin\", 50_000), (\"mid.csv\", 2_000)]:\n    Path(name).write_bytes(b\"x\" * size)\n\ndef human(n):\n    for unit in [\"B\", \"KB\", \"MB\", \"GB\"]:\n        if n < 1024:\n            return f\"{n:.0f} {unit}\"\n        n /= 1024\n    return f\"{n:.1f} TB\"\n\nfiles = sorted(Path(\".\").glob(\"*.*\"), key=lambda p: p.stat().st_size, reverse=True)\nfor p in files:\n    st = p.stat()\n    print(f\"{p.name:<10}{human(st.st_size):>8}  {datetime.fromtimestamp(st.st_mtime):%Y-%m-%d %H:%M}\")",
      "run": 1
+    },
+    {
+     "h": {
+      "ar": "نسخة احتياطية قبل أي تعديل",
+      "en": "A backup before any change"
+     },
+     "p": {
+      "ar": "قبل ما سكربت ينقل أو يعدّل ملفات: انسخها لفولدر `backup/<التاريخ>` بـ `shutil.copy2` (بيحافظ على التاريخ). واعمل **checksum** للنسخة والأصل عشان تتأكد إنهم زي بعض. لو حاجة باظت، ترجّع منها.",
+      "en": "Before a script moves or edits files: copy them to a `backup/<date>` folder with `shutil.copy2` (it keeps the dates). Compute a **checksum** of the copy and the original to be sure they match. If something breaks, restore from it."
+     },
+     "ex": "backup = Path(\"backup\") / date.today().isoformat()\nbackup.mkdir(parents=True, exist_ok=True)\nshutil.copy2(src, backup / src.name)",
+     "deep": 1
     }
    ],
    "practice": [
@@ -515,6 +653,16 @@ JOURNEY.week({
     {
      "ar": "اكتب كود بيلاقي الملفات الأقدم من 30 يوم في فولدر (من غير ما يمسحها — اطبعها بس).",
      "en": "Write code that finds files older than 30 days in a folder (do not delete them — just print)."
+    },
+    {
+     "ar": "ضيف نسخة احتياطية قبل سكربت تنظيم الفولدر بتاعك.",
+     "en": "Add a backup step before your folder-organising script.",
+     "deep": 1
+    },
+    {
+     "ar": "اكتب دالة `restore(day)` بترجّع الملفات من نسخة يوم معيّن.",
+     "en": "Write a `restore(day)` function that brings files back from a given day’s backup.",
+     "deep": 1
     }
    ],
    "code": [
@@ -525,6 +673,15 @@ JOURNEY.week({
      },
      "p": "from pathlib import Path\nfolder = Path(\"photos\"); folder.mkdir(exist_ok=True)\nfor n in [\"IMG_0412.JPG\", \"IMG_0409.jpg\", \"IMG_0415.jpeg\"]:\n    (folder / n).write_text(\"x\", encoding=\"utf-8\")\nfor i, f in enumerate(sorted(folder.iterdir()), 1):\n    new = f.with_name(f\"trip-{i:03}{f.suffix.lower().replace('.jpeg', '.jpg')}\")\n    print(f.name, \"->\", new.name)\n    f.rename(new)",
      "run": 1
+    },
+    {
+     "u": {
+      "ar": "نسخة احتياطية مع checksum",
+      "en": "A backup with a checksum"
+     },
+     "p": "import hashlib, shutil\nfrom pathlib import Path\n\ndef checksum(path):\n    return hashlib.sha256(Path(path).read_bytes()).hexdigest()[:16]\n\nsrc = Path(\"prices.csv\")\nsrc.write_text(\"tea,15\\ncoffee,25\\n\")\nbackup_dir = Path(\"backup\") / \"2026-10-03\"\nbackup_dir.mkdir(parents=True, exist_ok=True)\ncopy = Path(shutil.copy2(src, backup_dir / src.name))\nprint(copy.as_posix())\nprint(\"same content:\", checksum(src) == checksum(copy))",
+     "run": 1,
+     "deep": 1
     }
    ],
    "words": [
@@ -575,6 +732,22 @@ JOURNEY.week({
       "en": "a spare copy to go back to if something goes wrong"
      },
      "ex": "shutil.copytree(\"project\", \"backup_2026-10-01\")"
+    },
+    {
+     "t": "checksum",
+     "m": {
+      "ar": "رقم بيتحسب من محتوى الملف عشان تتأكد إنه متغيّرش",
+      "en": "a value computed from a file’s content to check it did not change"
+     },
+     "ex": "Compare the checksum after copying."
+    },
+    {
+     "t": "backup copy",
+     "m": {
+      "ar": "نسخة احتياطية من ملف",
+      "en": "a spare copy of a file"
+     },
+     "ex": "Make a backup copy before renaming."
     }
    ],
    "read": [
@@ -671,6 +844,22 @@ JOURNEY.week({
       "ar": "حوّله بنفسك للوحدات.",
       "en": "Convert it to units yourself."
      }
+    },
+    {
+     "q": {
+      "ar": "`shutil.copy2` بيختلف عن `copy` في:",
+      "en": "`shutil.copy2` differs from `copy` by:"
+     },
+     "o": [
+      "keeping file dates",
+      "being faster",
+      "compressing"
+     ],
+     "a": 0,
+     "why": {
+      "ar": "بيحافظ على الـ metadata.",
+      "en": "It keeps the metadata."
+     }
     }
    ],
    "minutes": 180
@@ -721,6 +910,18 @@ JOURNEY.week({
      },
      "ex": "import hashlib\nfrom collections import defaultdict\nfrom pathlib import Path\nfor name, body in [(\"a.txt\", \"hello\"), (\"copy of a.txt\", \"hello\"), (\"b.txt\", \"world\"), (\"c.txt\", \"hello\")]:\n    Path(name).write_text(body, encoding=\"utf-8\")\n\ndef file_hash(p, chunk=65536):\n    h = hashlib.sha256()\n    with open(p, \"rb\") as f:\n        while block := f.read(chunk):\n            h.update(block)\n    return h.hexdigest()\n\nby_size = defaultdict(list)\nfor p in Path(\".\").glob(\"*.txt\"):\n    by_size[p.stat().st_size].append(p)\nby_hash = defaultdict(list)\nfor group in by_size.values():\n    if len(group) > 1:\n        for p in group:\n            by_hash[file_hash(p)].append(p.name)\nfor h, names in by_hash.items():\n    if len(names) > 1:\n        print(h[:10], sorted(names))",
      "run": 1
+    },
+    {
+     "h": {
+      "ar": "اكتشاف الملفات المكررة بذكاء",
+      "en": "Finding duplicate files smartly"
+     },
+     "p": {
+      "ar": "مقارنة كل ملف بكل ملف بطيئة. الأسرع: جمّع الملفات حسب **الحجم** الأول (ملفين بحجم مختلف مستحيل يكونوا زي بعض)، وبعدين احسب **sha256** للمجموعات اللي فيها أكتر من ملف بس.",
+      "en": "Comparing every file with every other is slow. Faster: group files by **size** first (two files of different sizes cannot be the same), then compute **sha256** only for groups with more than one file."
+     },
+     "ex": "by_size = defaultdict(list)\nfor f in files: by_size[f.stat().st_size].append(f)\ncandidates = [g for g in by_size.values() if len(g) > 1]",
+     "deep": 1
     }
    ],
    "practice": [
@@ -739,6 +940,16 @@ JOURNEY.week({
     {
      "ar": "تخطّى `.git` و`.venv` في os.walk واتأكد إنهم مش ظاهرين.",
      "en": "Skip `.git` and `.venv` in os.walk and confirm they do not appear."
+    },
+    {
+     "ar": "شغّله على فولدر صور عندك (من غير مسح!) واطبع المكرر.",
+     "en": "Run it on one of your photo folders (without deleting!) and print the duplicates.",
+     "deep": 1
+    },
+    {
+     "ar": "ضيف حساب المساحة اللي ممكن توفّرها.",
+     "en": "Add the space you could save.",
+     "deep": 1
     }
    ],
    "code": [
@@ -749,6 +960,15 @@ JOURNEY.week({
      },
      "p": "import re\nfrom pathlib import Path\nPath(\"app.py\").write_text(\"token = 'demo-token-not-real-1234'\\nurl = 'https://x.com'\\n\", encoding=\"utf-8\")\nPATTERN = re.compile(r\"(token|secret|password|api_key)\\s*=\\s*['\\\"][^'\\\"]+\", re.I)\nfor f in Path(\".\").rglob(\"*.py\"):\n    for n, line in enumerate(f.read_text(encoding=\"utf-8\").splitlines(), 1):\n        if PATTERN.search(line):\n            print(f\"possible secret: {f}:{n}\")",
      "run": 1
+    },
+    {
+     "u": {
+      "ar": "مكتشف ملفات مكررة",
+      "en": "A duplicate finder"
+     },
+     "p": "import hashlib\nfrom collections import defaultdict\nfrom pathlib import Path\nfiles = {\"a.txt\": \"hello\", \"b.txt\": \"hello\", \"c.txt\": \"world\", \"d.txt\": \"hellp\"}\nfor name, text in files.items():\n    Path(name).write_text(text)\nby_size = defaultdict(list)\nfor f in map(Path, files):\n    by_size[f.stat().st_size].append(f)\nby_hash = defaultdict(list)\nfor group in by_size.values():\n    if len(group) > 1:\n        for f in group:\n            by_hash[hashlib.sha256(f.read_bytes()).hexdigest()].append(f.name)\nprint([names for names in by_hash.values() if len(names) > 1])",
+     "run": 1,
+     "deep": 1
     }
    ],
    "words": [
@@ -807,6 +1027,22 @@ JOURNEY.week({
       "en": "a piece of a file read at a time instead of the whole file"
      },
      "ex": "f.read(65536)"
+    },
+    {
+     "t": "sha256",
+     "m": {
+      "ar": "خوارزمية بصمة 256 بت",
+      "en": "a 256-bit fingerprint algorithm"
+     },
+     "ex": "Equal sha256 means equal content."
+    },
+    {
+     "t": "duplicate finder",
+     "m": {
+      "ar": "برنامج بيلاقي الملفات المكررة",
+      "en": "a program that finds repeated files"
+     },
+     "ex": "The duplicate finder groups by size first."
     }
    ],
    "read": [
@@ -906,6 +1142,22 @@ JOURNEY.week({
       "ar": "مفيد في البحث في ملفات كتير.",
       "en": "Useful when searching many files."
      }
+    },
+    {
+     "q": {
+      "ar": "ليه نجمّع بالحجم الأول؟",
+      "en": "Why group by size first?"
+     },
+     "o": [
+      "different sizes cannot be duplicates",
+      "size is more accurate",
+      "hashes are wrong"
+     ],
+     "a": 0,
+     "why": {
+      "ar": "بيوفّر حساب البصمات.",
+      "en": "It saves computing hashes."
+     }
     }
    ],
    "minutes": 180
@@ -956,6 +1208,18 @@ JOURNEY.week({
      },
      "ex": "import zipfile, shutil\nfrom pathlib import Path\nPath(\"report\").mkdir(exist_ok=True)\nPath(\"report/sales.csv\").write_text(\"city,total\\nCairo,1200\\n\", encoding=\"utf-8\")\nPath(\"old_arabic.txt\").write_bytes(\"القاهرة\".encode(\"cp1256\"))\nwith zipfile.ZipFile(\"report.zip\", \"w\", zipfile.ZIP_DEFLATED) as z:\n    z.write(\"report/sales.csv\", arcname=\"sales.csv\")\nprint(zipfile.ZipFile(\"report.zip\").namelist())\nshutil.make_archive(\"report_backup\", \"zip\", \"report\")\nprint(Path(\"report_backup.zip\").exists())\ntry:\n    Path(\"old_arabic.txt\").read_text(encoding=\"utf-8\")\nexcept UnicodeDecodeError:\n    print(\"not utf-8 ->\", Path(\"old_arabic.txt\").read_text(encoding=\"cp1256\"))",
      "run": 1
+    },
+    {
+     "h": {
+      "ar": "الترميز والـ BOM وملفات zip",
+      "en": "Encodings, the BOM and zip files"
+     },
+     "p": {
+      "ar": "ملفات من Excel أحيانًا بتبدأ بـ **BOM** (حروف خفية) فأول عمود اسمه `\\ufeffname`. افتحها بـ `encoding=\"utf-8-sig\"` عشان يتشال. ولو الملف عربي قديم ومش UTF-8 جرّب `cp1256`. ولضغط تقرير: `zipfile.ZipFile(\"out.zip\", \"w\", zipfile.ZIP_DEFLATED)`.",
+      "en": "Files from Excel sometimes start with a **BOM** (hidden characters), so the first column is named `\\ufeffname`. Open them with `encoding=\"utf-8-sig\"` to remove it. For old Arabic files that are not UTF-8, try `cp1256`. To compress a report: `zipfile.ZipFile(\"out.zip\", \"w\", zipfile.ZIP_DEFLATED)`."
+     },
+     "ex": "text = path.read_text(encoding=\"utf-8-sig\")\nwith zipfile.ZipFile(\"reports.zip\", \"w\", zipfile.ZIP_DEFLATED) as z:\n    z.write(\"report.csv\")",
+     "deep": 1
     }
    ],
    "practice": [
@@ -974,6 +1238,16 @@ JOURNEY.week({
     {
      "ar": "احفظ نص عربي بـ cp1256 واقراه بـ utf-8 (شوف الخطأ) وبعدين بـ cp1256.",
      "en": "Save Arabic text as cp1256, read it as utf-8 (see the error), then as cp1256."
+    },
+    {
+     "ar": "صدّر شيت من Excel كـ CSV UTF-8 واقراه بالطريقتين وشوف الفرق.",
+     "en": "Export a sheet from Excel as CSV UTF-8 and read it both ways to see the difference.",
+     "deep": 1
+    },
+    {
+     "ar": "اضغط كل تقارير الشهر في zip واحد باسم الشهر.",
+     "en": "Zip all of the month’s reports into one archive named after the month.",
+     "deep": 1
     }
    ],
    "code": [
@@ -984,6 +1258,15 @@ JOURNEY.week({
      },
      "p": "from pathlib import Path\nsrc = Path(\"customers_old.csv\")\nsrc.write_bytes(\"الاسم,المدينة\\nسارة,القاهرة\\n\".encode(\"cp1256\"))\ntext = src.read_text(encoding=\"cp1256\")\nPath(\"customers_utf8.csv\").write_text(text, encoding=\"utf-8-sig\")   # -sig helps Excel open it\nprint(Path(\"customers_utf8.csv\").read_text(encoding=\"utf-8-sig\"))",
      "run": 1
+    },
+    {
+     "u": {
+      "ar": "ملف بـ BOM وأرشيف zip",
+      "en": "A file with a BOM and a zip archive"
+     },
+     "p": "import zipfile\nfrom pathlib import Path\nPath(\"names.csv\").write_text(\"name,city\\nسارة,Giza\\n\", encoding=\"utf-8-sig\")\nprint(repr(Path(\"names.csv\").read_text(encoding=\"utf-8\").splitlines()[0]))\nprint(repr(Path(\"names.csv\").read_text(encoding=\"utf-8-sig\").splitlines()[0]))\nwith zipfile.ZipFile(\"archive.zip\", \"w\", zipfile.ZIP_DEFLATED) as z:\n    z.write(\"names.csv\")\nwith zipfile.ZipFile(\"archive.zip\") as z:\n    print(z.namelist(), z.read(\"names.csv\").decode(\"utf-8-sig\").splitlines()[1])",
+     "run": 1,
+     "deep": 1
     }
    ],
    "words": [
@@ -1050,6 +1333,22 @@ JOURNEY.week({
       "en": "a mark at the start of a file that helps Excel detect UTF-8"
      },
      "ex": "encoding=\"utf-8-sig\""
+    },
+    {
+     "t": "utf-8 bom",
+     "m": {
+      "ar": "حروف خفية في أول ملف بتقول إنه UTF-8",
+      "en": "hidden characters at the start of a file marking it as UTF-8"
+     },
+     "ex": "Use utf-8-sig to drop the UTF-8 BOM."
+    },
+    {
+     "t": "archive",
+     "m": {
+      "ar": "ملف واحد فيه ملفات كتير مضغوطة",
+      "en": "one file holding many compressed files"
+     },
+     "ex": "Send the reports as one archive."
     }
    ],
    "read": [
@@ -1134,6 +1433,22 @@ JOURNEY.week({
       "ar": "بتقرا بايتات.",
       "en": "It reads bytes."
      }
+    },
+    {
+     "q": {
+      "ar": "أول عمود اسمه `\\ufeffname`. الحل:",
+      "en": "The first column is `\\ufeffname`. Fix:"
+     },
+     "o": [
+      "open with utf-8-sig",
+      "rename the column by hand",
+      "use cp1256"
+     ],
+     "a": 0,
+     "why": {
+      "ar": "ده BOM.",
+      "en": "That is a BOM."
+     }
     }
    ],
    "minutes": 180
@@ -1168,6 +1483,16 @@ JOURNEY.week({
     {
      "ar": "json.dump/load وTOML وzip وcp1256.",
      "en": "json.dump/load, TOML, zip and cp1256."
+    },
+    {
+     "ar": "⚡ الكتابة الآمنة، وglob/rglob و/، والنسخ الاحتياطي بـ checksum.",
+     "en": "⚡ Safe writing, glob/rglob and /, and backups with checksums.",
+     "deep": 1
+    },
+    {
+     "ar": "⚡ اكتشاف المكرر بالحجم ثم البصمة، والـ BOM وzip: ابني أداة تنظيم فولدرات آمنة.",
+     "en": "⚡ Finding duplicates by size then hash, the BOM and zip: build a safe folder-organising tool.",
+     "deep": 1
     }
    ],
    "project": {

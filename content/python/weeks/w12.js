@@ -59,6 +59,18 @@ JOURNEY.week({
       "en": "The real job: 200 PDF invoices from a supplier, and you want the invoice number, date and total in Excel. Read the text, extract the fields with named regex groups, and put the ones that did not match on a manual-review list. If the invoices are scanned, n8n and AI (week 23) read them better."
      },
      "ex": "import re\nfrom pathlib import Path\nfrom pypdf import PdfReader\n\nFIELDS = {\n    \"number\": re.compile(r\"Invoice\\s*(?:No\\.?|#)\\s*([A-Z0-9-]+)\", re.I),\n    \"date\": re.compile(r\"Date[:\\s]+(\\d{4}-\\d{2}-\\d{2}|\\d{2}/\\d{2}/\\d{4})\", re.I),\n    \"total\": re.compile(r\"Total[:\\s]+([\\d,]+\\.\\d{2})\", re.I),\n}\nrows, review = [], []\nfor pdf in sorted(Path(\"invoices\").glob(\"*.pdf\")):\n    text = \"\\n\".join(p.extract_text() or \"\" for p in PdfReader(pdf).pages)\n    found = {k: (m.group(1) if (m := rx.search(text)) else None) for k, rx in FIELDS.items()}\n    (rows if all(found.values()) else review).append({\"file\": pdf.name, **found})\nprint(len(rows), \"read,\", len(review), \"need a human\")"
+    },
+    {
+     "h": {
+      "ar": "مدى الصفحات «1-3,7»",
+      "en": "Page ranges «1-3,7»"
+     },
+     "p": {
+      "ar": "لما المستخدم يطلب «اطبع صفحات 1-3 و7» في أداة PDF، حوّل النص لقايمة أرقام صفحات صالحة قبل ما تفتح الملف (`pypdf` بيعد الصفحات من 0). اتحقق من الحدود، وشيل التكرار، ورتّب.",
+      "en": "When a user asks for «pages 1-3 and 7» in a PDF tool, turn the text into a list of valid page numbers before opening the file (`pypdf` counts pages from 0). Check the limits, remove repeats, and sort."
+     },
+     "ex": "from pypdf import PdfReader, PdfWriter\nreader = PdfReader(\"in.pdf\"); writer = PdfWriter()\nfor n in parse_pages(\"1-3,7\", len(reader.pages)):\n    writer.add_page(reader.pages[n - 1])",
+     "deep": 1
     }
    ],
    "practice": [
@@ -77,6 +89,16 @@ JOURNEY.week({
     {
      "ar": "جرّب `extract_text()` على PDF ممسوح ضوئيًا وشوف إنها بترجّع فاضي.",
      "en": "Try `extract_text()` on a scanned PDF and see it return nothing."
+    },
+    {
+     "ar": "ضيف دعم `last` (آخر صفحة) و`odd` (الفردي).",
+     "en": "Add support for `last` (the final page) and `odd` (odd pages).",
+     "deep": 1
+    },
+    {
+     "ar": "لو pypdf متثبتة: قسّم PDF حسب مدى بيدخله المستخدم.",
+     "en": "If pypdf is installed: split a PDF by a range the user enters.",
+     "deep": 1
     }
    ],
    "code": [
@@ -86,6 +108,15 @@ JOURNEY.week({
       "en": "Searching every PDF"
      },
      "p": "from pathlib import Path\nfrom pypdf import PdfReader\n\ndef search_pdfs(folder, word):\n    for pdf in Path(folder).rglob(\"*.pdf\"):\n        try:\n            reader = PdfReader(pdf)\n        except Exception as e:\n            print(\"cannot read\", pdf, e)\n            continue\n        for n, page in enumerate(reader.pages, 1):\n            if word.lower() in (page.extract_text() or \"\").lower():\n                print(f\"{pdf.name}: page {n}\")\n\nsearch_pdfs(\"Documents\", \"contract\")"
+    },
+    {
+     "u": {
+      "ar": "تحليل مدى صفحات",
+      "en": "Parsing a page range"
+     },
+     "p": "def parse_pages(spec, page_count):\n    pages = set()\n    for part in spec.replace(\" \", \"\").split(\",\"):\n        if not part:\n            continue\n        start, _, end = part.partition(\"-\")\n        a, b = int(start), int(end or start)\n        if a > b:\n            a, b = b, a\n        if a < 1 or b > page_count:\n            raise ValueError(f\"{part}: pages must be between 1 and {page_count}\")\n        pages.update(range(a, b + 1))\n    return sorted(pages)\n\nprint(parse_pages(\"1-3, 7, 2\", 10))\nprint(parse_pages(\"9-8\", 10))\ntry:\n    parse_pages(\"5-12\", 10)\nexcept ValueError as e:\n    print(\"Error:\", e)",
+     "run": 1,
+     "deep": 1
     }
    ],
    "words": [
@@ -136,6 +167,22 @@ JOURNEY.week({
       "en": "builds a new PDF from pages"
      },
      "ex": "writer.append(\"a.pdf\")"
+    },
+    {
+     "t": "page range",
+     "m": {
+      "ar": "مجموعة صفحات زي 1-3,7",
+      "en": "a set of pages like 1-3,7"
+     },
+     "ex": "Validate the page range first."
+    },
+    {
+     "t": "extract text",
+     "m": {
+      "ar": "تطلّع النص من ملف زي PDF",
+      "en": "to pull the text out of a file such as a PDF"
+     },
+     "ex": "Extract text from each page."
     }
    ],
    "read": [
@@ -217,6 +264,22 @@ JOURNEY.week({
       "ar": "بتبدأ من صفر.",
       "en": "It starts at zero."
      }
+    },
+    {
+     "q": {
+      "ar": "`parse_pages(\"2,2,1\", 5)` =",
+      "en": "`parse_pages(\"2,2,1\", 5)` ="
+     },
+     "o": [
+      "[1, 2]",
+      "[2, 2, 1]",
+      "[2, 1]"
+     ],
+     "a": 0,
+     "why": {
+      "ar": "set ثم sorted.",
+      "en": "A set, then sorted."
+     }
     }
    ],
    "minutes": 180
@@ -264,6 +327,18 @@ JOURNEY.week({
       "en": "Design the template in Word yourself with the formatting you want and put placeholders like `{{name}}` and `{{date}}`. The script opens the template, replaces the placeholders in every paragraph and saves a copy per customer. Note: Word sometimes splits `{{name}}` across several runs, so type each placeholder in one go without editing inside it. (The `docxtpl` library does this more robustly if you need it.)"
      },
      "ex": "from pathlib import Path\nfrom docx import Document\n\ndef fill(template, values, out):\n    doc = Document(template)\n    for p in doc.paragraphs:\n        for key, val in values.items():\n            mark = \"{{\" + key + \"}}\"\n            if mark in p.text:\n                for run in p.runs:\n                    run.text = run.text.replace(mark, str(val))\n    doc.save(out)\n\nPath(\"letters\").mkdir(exist_ok=True)\nfor c in [{\"name\": \"Sara Ahmed\", \"amount\": \"1,200.00\", \"date\": \"2026-10-01\"}, {\"name\": \"Omar Adel\", \"amount\": \"450.50\", \"date\": \"2026-10-01\"}]:\n    fill(\"reminder_template.docx\", c, Path(\"letters\") / f\"reminder_{c['name'].replace(' ', '_')}.docx\")"
+    },
+    {
+     "h": {
+      "ar": "قوالب بخانات: string.Template",
+      "en": "Templates with placeholders: string.Template"
+     },
+     "p": {
+      "ar": "لعقود أو خطابات Word: القالب فيه خانات زي `$name` و`${date}`، وتملاها لكل عميل. `string.Template` آمن (مفيهوش تنفيذ كود) و`safe_substitute` بيسيب الخانة الناقصة زي ما هي بدل ما يكسر — تقدر بعدها تدوّر على `$` باقية. نفس الفكرة مع docx: تبدّل نص الخانة في كل paragraph.",
+      "en": "For Word contracts or letters: the template has placeholders like `$name` and `${date}`, filled per client. `string.Template` is safe (no code runs) and `safe_substitute` leaves a missing placeholder as it is instead of failing — then you can search for leftover `$`. The same idea works with docx: replace the placeholder text in each paragraph."
+     },
+     "ex": "from string import Template\nTemplate(\"Dear $name, your invoice ${number} is due.\").substitute(name=\"Sara\", number=\"INV-7\")",
+     "deep": 1
     }
    ],
    "practice": [
@@ -282,6 +357,16 @@ JOURNEY.week({
     {
      "ar": "اقرا مستند Word موجود واطبع كل العناوين بس (`p.style.name.startswith(\"Heading\")`).",
      "en": "Read an existing Word document and print only its headings (`p.style.name.startswith(\"Heading\")`)."
+    },
+    {
+     "ar": "اعمل قالب عرض سعر بـ 6 خانات واملاه لـ 3 عملاء.",
+     "en": "Build a quotation template with 6 placeholders and fill it for 3 clients.",
+     "deep": 1
+    },
+    {
+     "ar": "لو python-docx متثبتة: بدّل الخانات في ملف docx.",
+     "en": "If python-docx is installed: replace the placeholders in a docx file.",
+     "deep": 1
     }
    ],
    "code": [
@@ -291,6 +376,15 @@ JOURNEY.week({
       "en": "An outline of a Word document"
      },
      "p": "from docx import Document\n\ndoc = Document(\"report.docx\")\nfor p in doc.paragraphs:\n    if p.style.name.startswith(\"Heading\"):\n        level = p.style.name.replace(\"Heading\", \"\").strip() or \"1\"\n        print(\"  \" * (int(level) - 1) + p.text)\nprint(len(doc.tables), \"tables\")"
+    },
+    {
+     "u": {
+      "ar": "ملء قالب خطاب",
+      "en": "Filling a letter template"
+     },
+     "p": "from string import Template\nimport re\nletter = Template(\"\"\"Dear $name,\nThank you for choosing $company. Your plan \"$plan\" starts on ${start}.\nTotal: $total EGP.\"\"\")\nclients = [\n    {\"name\": \"Sara Adel\", \"company\": \"Nile Tech\", \"plan\": \"Automation Pro\", \"start\": \"2026-11-01\", \"total\": \"4,500\"},\n    {\"name\": \"Omar Ali\", \"company\": \"Nile Tech\", \"plan\": \"Starter\"},\n]\nfor c in clients:\n    text = letter.safe_substitute(c)\n    missing = re.findall(r\"\\$\\{?(\\w+)\", text)\n    print(text)\n    print(\"missing:\", missing or \"none\", \"\\n\")",
+     "run": 1,
+     "deep": 1
     }
    ],
    "words": [
@@ -341,6 +435,22 @@ JOURNEY.week({
       "en": "a marker in a template replaced by a value"
      },
      "ex": "{{name}}"
+    },
+    {
+     "t": "placeholder tag",
+     "m": {
+      "ar": "علامة في القالب بتتبدل بقيمة زي $name",
+      "en": "a marker in a template replaced by a value, like $name"
+     },
+     "ex": "Every placeholder tag must be filled."
+    },
+    {
+     "t": "paragraph style",
+     "m": {
+      "ar": "شكل فقرة في Word (عنوان، نص عادي)",
+      "en": "the look of a paragraph in Word (heading, normal)"
+     },
+     "ex": "Keep the paragraph style when you replace text."
     }
    ],
    "read": [
@@ -440,6 +550,22 @@ JOURNEY.week({
       "ar": "وبعدين add_row لكل سجل.",
       "en": "Then add_row for each record."
      }
+    },
+    {
+     "q": {
+      "ar": "`safe_substitute` لو خانة ناقصة:",
+      "en": "`safe_substitute` with a missing value:"
+     },
+     "o": [
+      "leaves the placeholder",
+      "raises KeyError",
+      "deletes the line"
+     ],
+     "a": 0,
+     "why": {
+      "ar": "substitute العادية هي اللي بتكسر.",
+      "en": "Plain substitute is the one that fails."
+     }
     }
    ],
    "minutes": 180
@@ -487,6 +613,18 @@ JOURNEY.week({
       "en": "`img.crop((left, top, right, bottom))` crops, and `ImageOps.fit(img, (600, 600))` centre-crops to an exact square (great for profile and product pictures). For a watermark: `ImageDraw.Draw(img).text(...)` with a font and a see-through colour, or `img.paste(logo, position, logo)` for a logo."
      },
      "ex": "from PIL import Image, ImageDraw, ImageFont, ImageOps\n\nimg = Image.open(\"product.jpg\").convert(\"RGBA\")\nsquare = ImageOps.fit(img, (800, 800))\nlayer = Image.new(\"RGBA\", square.size, (0, 0, 0, 0))\ndraw = ImageDraw.Draw(layer)\nfont = ImageFont.load_default(size=36)\ndraw.text((20, 740), \"© Nile Shop\", font=font, fill=(255, 255, 255, 140))\nresult = Image.alpha_composite(square, layer).convert(\"RGB\")\nresult.save(\"product_square.jpg\", quality=88)"
+    },
+    {
+     "h": {
+      "ar": "حساب المقاسات قبل التصغير",
+      "en": "Working out sizes before resizing"
+     },
+     "p": {
+      "ar": "قبل ما تصغّر صور بالجملة بـ Pillow، احسب المقاس الجديد اللي **بيحافظ على النسبة**: `scale = min(max_w / w, max_h / h, 1)` (الـ 1 عشان متكبّرش صورة صغيرة). Pillow عنده `img.thumbnail((800, 800))` بيعمل ده لوحده، بس لازم تفهمه عشان التقارير وقواعد التسمية.",
+      "en": "Before batch-resizing images with Pillow, compute the new size that **keeps the ratio**: `scale = min(max_w / w, max_h / h, 1)` (the 1 stops small images being enlarged). Pillow’s `img.thumbnail((800, 800))` does this for you, but understand it for reports and naming rules."
+     },
+     "ex": "from PIL import Image\nwith Image.open(path) as img:\n    img.thumbnail((800, 800))\n    img.save(out / f\"{path.stem}_800.jpg\", quality=85)",
+     "deep": 1
     }
    ],
    "practice": [
@@ -505,6 +643,16 @@ JOURNEY.week({
     {
      "ar": "حط اسمك كعلامة مائية شفافة على 5 صور.",
      "en": "Put your name as a see-through watermark on 5 images."
+    },
+    {
+     "ar": "احسب مقاسات صورة لـ 3 أحجام (thumbnail، موبايل، ويب).",
+     "en": "Compute an image’s sizes for 3 targets (thumbnail, mobile, web).",
+     "deep": 1
+    },
+    {
+     "ar": "لو Pillow متثبتة: صغّر فولدر صور واحفظ بلاحقة `_800`.",
+     "en": "If Pillow is installed: resize a folder of images and save them with a `_800` suffix.",
+     "deep": 1
     }
    ],
    "code": [
@@ -514,6 +662,15 @@ JOURNEY.week({
       "en": "An image size report"
      },
      "p": "from pathlib import Path\nfrom PIL import Image\n\nfor f in sorted(Path(\"photos\").glob(\"*.*\")):\n    try:\n        with Image.open(f) as img:\n            w, h = img.size\n        kb = f.stat().st_size / 1024\n        flag = \"  <- too big\" if kb > 500 or max(w, h) > 2000 else \"\"\n        print(f\"{f.name:<28}{w:>6}x{h:<6}{kb:>8.0f} KB{flag}\")\n    except OSError:\n        print(f\"{f.name:<28} not an image\")"
+    },
+    {
+     "u": {
+      "ar": "مقاسات جديدة بنفس النسبة",
+      "en": "New sizes with the same ratio"
+     },
+     "p": "def fit(w, h, max_w=800, max_h=800):\n    scale = min(max_w / w, max_h / h, 1)\n    return round(w * scale), round(h * scale)\n\nphotos = {\"shop.jpg\": (4000, 3000), \"logo.png\": (500, 200), \"banner.jpg\": (1920, 480), \"tall.jpg\": (1080, 1920)}\nfor name, (w, h) in photos.items():\n    nw, nh = fit(w, h)\n    print(f\"{name:<11} {w}x{h} -> {nw}x{nh}  ratio kept: {abs(w / h - nw / nh) < 0.01}\")",
+     "run": 1,
+     "deep": 1
     }
    ],
    "words": [
@@ -572,6 +729,22 @@ JOURNEY.week({
       "en": "colours with a transparency channel"
      },
      "ex": "PNG logos are often RGBA"
+    },
+    {
+     "t": "resize",
+     "m": {
+      "ar": "تغيّر مقاس صورة",
+      "en": "to change an image’s size"
+     },
+     "ex": "Resize the photos before uploading."
+    },
+    {
+     "t": "batch resize",
+     "m": {
+      "ar": "تصغير صور كتير مرة واحدة",
+      "en": "resizing many images at once"
+     },
+     "ex": "A batch resize saves hours."
     }
    ],
    "read": [
@@ -653,6 +826,22 @@ JOURNEY.week({
       "ar": "بيطبّق اتجاه الـ EXIF.",
       "en": "It applies the EXIF orientation."
      }
+    },
+    {
+     "q": {
+      "ar": "صورة 500×200 والحد 800×800:",
+      "en": "A 500×200 image with an 800×800 limit:"
+     },
+     "o": [
+      "stays 500×200",
+      "becomes 800×320",
+      "becomes 800×800"
+     ],
+     "a": 0,
+     "why": {
+      "ar": "الـ 1 بيمنع التكبير.",
+      "en": "The 1 prevents enlarging."
+     }
     }
    ],
    "minutes": 180
@@ -702,6 +891,18 @@ JOURNEY.week({
      },
      "ex": "import json, time\nfrom email.message import EmailMessage\nfrom pathlib import Path\n\ncustomers = [{\"name\": \"Sara\", \"email\": \"sara@example.com\", \"due\": 1200}, {\"name\": \"Omar\", \"email\": \"omar@example.com\", \"due\": 450.5}]\nsent_log = Path(\"sent.json\")\nsent = set(json.loads(sent_log.read_text(encoding=\"utf-8\"))) if sent_log.exists() else set()\nout = Path(\"outbox\"); out.mkdir(exist_ok=True)\nDRY_RUN = True\nfor c in customers:\n    if c[\"email\"] in sent:\n        continue\n    msg = EmailMessage()\n    msg[\"Subject\"] = f\"Payment reminder: {c['due']:,.2f} EGP\"\n    msg[\"To\"] = c[\"email\"]\n    msg.set_content(f\"Hello {c['name']},\\nA friendly reminder that {c['due']:,.2f} EGP is due.\")\n    if DRY_RUN:\n        (out / f\"{c['email']}.eml\").write_bytes(msg.as_bytes())\n    else:\n        pass  # smtp.send_message(msg); time.sleep(1.5)\n    sent.add(c[\"email\"])\nsent_log.write_text(json.dumps(sorted(sent)), encoding=\"utf-8\")\nprint(sorted(p.name for p in out.iterdir()))",
      "run": 1
+    },
+    {
+     "h": {
+      "ar": "بناء إيميل بمرفق (من غير إرسال)",
+      "en": "Building an email with an attachment (without sending)"
+     },
+     "p": {
+      "ar": "`email.message.EmailMessage` بيبني الرسالة: الموضوع، المرسل، المستقبل، نص عادي ونسخة HTML (`add_alternative`)، ومرفقات (`add_attachment` مع نوع **MIME** زي `application/pdf`). ابنيها واطبع الـ headers للمراجعة، وبعدين ابعتها بـ `smtplib` في السكربت الحقيقي (باسورد التطبيق من `.env`).",
+      "en": "`email.message.EmailMessage` builds the message: subject, sender, recipient, plain text and an HTML version (`add_alternative`), and attachments (`add_attachment` with a **MIME** type like `application/pdf`). Build it and print the headers to review, then send it with `smtplib` in the real script (the app password from `.env`)."
+     },
+     "ex": "msg.add_attachment(pdf_bytes, maintype=\"application\", subtype=\"pdf\", filename=\"invoice.pdf\")\nwith smtplib.SMTP_SSL(\"smtp.gmail.com\", 465) as s:\n    s.login(USER, APP_PASSWORD); s.send_message(msg)",
+     "deep": 1
     }
    ],
    "practice": [
@@ -720,6 +921,16 @@ JOURNEY.week({
     {
      "ar": "شغّل الـ dry run وافتح ملف .eml في برنامج الإيميل.",
      "en": "Run the dry run and open an .eml file in your mail program."
+    },
+    {
+     "ar": "ابني رسالة لـ 3 عملاء من قايمة، كل واحد بمرفقه، واطبع الملخص من غير إرسال.",
+     "en": "Build a message for 3 customers from a list, each with its own attachment, and print a summary without sending.",
+     "deep": 1
+    },
+    {
+     "ar": "ضيف وضع `dry_run` يطبع بدل ما يبعت.",
+     "en": "Add a `dry_run` mode that prints instead of sending.",
+     "deep": 1
     }
    ],
    "code": [
@@ -729,6 +940,15 @@ JOURNEY.week({
       "en": "A reusable send function"
      },
      "p": "import os, smtplib, ssl, mimetypes\nfrom email.message import EmailMessage\nfrom pathlib import Path\n\ndef send_email(to: str, subject: str, text: str, html: str | None = None, attachments: list[Path] = ()) -> None:\n    msg = EmailMessage()\n    msg[\"From\"], msg[\"To\"], msg[\"Subject\"] = os.environ[\"SMTP_USER\"], to, subject\n    msg.set_content(text)\n    if html:\n        msg.add_alternative(html, subtype=\"html\")\n    for path in attachments:\n        ctype = mimetypes.guess_type(path.name)[0] or \"application/octet-stream\"\n        main, sub = ctype.split(\"/\")\n        msg.add_attachment(path.read_bytes(), maintype=main, subtype=sub, filename=path.name)\n    with smtplib.SMTP_SSL(os.environ[\"SMTP_HOST\"], 465, context=ssl.create_default_context()) as s:\n        s.login(os.environ[\"SMTP_USER\"], os.environ[\"SMTP_APP_PASSWORD\"])\n        s.send_message(msg)"
+    },
+    {
+     "u": {
+      "ar": "رسالة بنسختين ومرفق",
+      "en": "A message with two versions and an attachment"
+     },
+     "p": "from email.message import EmailMessage\nmsg = EmailMessage()\nmsg[\"Subject\"] = \"Invoice INV-2026-0007\"\nmsg[\"From\"] = \"billing@example.com\"\nmsg[\"To\"] = \"sara@example.com\"\nmsg.set_content(\"Hi Sara,\\nYour invoice is attached.\\nThanks!\")\nmsg.add_alternative(\"<p>Hi Sara,<br>Your invoice is <b>attached</b>.</p>\", subtype=\"html\")\nmsg.add_attachment(b\"%PDF-1.4 demo\", maintype=\"application\", subtype=\"pdf\", filename=\"INV-2026-0007.pdf\")\nfor part in msg.walk():\n    print(part.get_content_type(), part.get_filename() or \"\")\nprint(len(msg.as_bytes()), \"bytes\")",
+     "run": 1,
+     "deep": 1
     }
    ],
    "words": [
@@ -787,6 +1007,22 @@ JOURNEY.week({
       "en": "a cap on requests or messages in a period"
      },
      "ex": "about 500 emails a day on a free mailbox"
+    },
+    {
+     "t": "mime",
+     "m": {
+      "ar": "نوع المحتوى في الإيميل والويب (text/html)",
+      "en": "the content type in email and the web (text/html)"
+     },
+     "ex": "The PDF part has the MIME type application/pdf."
+    },
+    {
+     "t": "email message",
+     "m": {
+      "ar": "كائن بايثون بيبني إيميل كامل",
+      "en": "a Python object that builds a complete email"
+     },
+     "ex": "Build the email message before sending it."
     }
    ],
    "read": [
@@ -886,6 +1122,22 @@ JOURNEY.week({
       "ar": "غلطة واحدة هتتكرر 300 مرة.",
       "en": "One mistake would repeat 300 times."
      }
+    },
+    {
+     "q": {
+      "ar": "`add_alternative(html, subtype=\"html\")` بيعمل:",
+      "en": "`add_alternative(html, subtype=\"html\")` adds:"
+     },
+     "o": [
+      "an HTML version of the same text",
+      "an attachment",
+      "a second email"
+     ],
+     "a": 0,
+     "why": {
+      "ar": "البرامج بتختار النسخة المناسبة.",
+      "en": "Mail apps pick the right version."
+     }
     }
    ],
    "minutes": 180
@@ -933,6 +1185,18 @@ JOURNEY.week({
       "en": "`pip install qrcode`, and `qrcode.make(text)` returns an image you save and place in the PDF with `pdf.image(path, x, y, w)` — for example a QR with the payment link or the invoice number. A logo works the same way. Keep the QR 25-35 mm wide so a phone can read it."
      },
      "ex": "# pip install qrcode fpdf2\nimport qrcode\nfrom fpdf import FPDF\n\nqrcode.make(\"https://pay.example.com/i/INV-2026-0091\").save(\"pay_qr.png\")\npdf = FPDF()\npdf.add_page()\npdf.set_font(\"Helvetica\", \"B\", 16)\npdf.cell(0, 10, \"Invoice INV-2026-0091\")\npdf.image(\"pay_qr.png\", x=170, y=10, w=30)\npdf.set_xy(10, 45)\npdf.set_font(\"Helvetica\", size=10)\npdf.cell(0, 6, \"Scan to pay online.\")\npdf.output(\"invoice_qr.pdf\")"
+    },
+    {
+     "h": {
+      "ar": "أرقام فواتير برقم تحقق",
+      "en": "Invoice numbers with a check digit"
+     },
+     "p": {
+      "ar": "رقم الفاتورة لازم يكون **فريد ومتسلسل** بشكل ثابت: `INV-2026-0007`. خزّن آخر رقم في ملف (بكتابة آمنة) أو قاعدة بيانات. وتقدر تضيف **رقم تحقق** (خوارزمية Luhn) عشان أي غلطة كتابة في الرقم تتكشف فورًا — نفس فكرة أرقام الكروت.",
+      "en": "An invoice number must be **unique and sequential** with a fixed format: `INV-2026-0007`. Store the last number in a file (with a safe write) or a database. You can add a **check digit** (the Luhn algorithm) so any typing mistake in the number is caught at once — the same idea as card numbers."
+     },
+     "ex": "def next_number(last, year):\n    return f\"INV-{year}-{last + 1:04d}\"",
+     "deep": 1
     }
    ],
    "practice": [
@@ -951,6 +1215,16 @@ JOURNEY.week({
     {
      "ar": "حط الدالة كلها في `make_invoice(order: dict, path: Path)` واطلّع 3 فواتير.",
      "en": "Wrap it all in `make_invoice(order: dict, path: Path)` and produce 3 invoices."
+    },
+    {
+     "ar": "احفظ آخر رقم في `state.json` بالكتابة الآمنة من أسبوع 9.",
+     "en": "Store the last number in `state.json` with the safe write from week 9.",
+     "deep": 1
+    },
+    {
+     "ar": "لو qrcode متثبتة: اعمل QR فيه رقم الفاتورة والإجمالي.",
+     "en": "If qrcode is installed: make a QR code holding the invoice number and total.",
+     "deep": 1
     }
    ],
    "code": [
@@ -960,6 +1234,15 @@ JOURNEY.week({
       "en": "The invoice function skeleton"
      },
      "p": "from pathlib import Path\nfrom fpdf import FPDF\n\nVAT = 0.14\n\ndef make_invoice(order: dict, out: Path) -> Path:\n    pdf = FPDF()\n    pdf.add_page()\n    pdf.set_font(\"Helvetica\", \"B\", 16)\n    pdf.cell(0, 10, f\"Invoice {order['id']}\", new_x=\"LMARGIN\", new_y=\"NEXT\")\n    pdf.set_font(\"Helvetica\", size=11)\n    pdf.cell(0, 7, f\"{order['customer']}  |  {order['date']}\", new_x=\"LMARGIN\", new_y=\"NEXT\")\n    with pdf.table(col_widths=(70, 20, 30, 30)) as table:\n        table.row([\"Item\", \"Qty\", \"Price\", \"Total\"])\n        for it in order[\"items\"]:\n            table.row([it[\"name\"], str(it[\"qty\"]), f\"{it['price']:,.2f}\", f\"{it['qty'] * it['price']:,.2f}\"])\n    subtotal = sum(it[\"qty\"] * it[\"price\"] for it in order[\"items\"])\n    pdf.cell(0, 9, f\"Total: {subtotal * (1 + VAT):,.2f} EGP\", align=\"R\")\n    out.parent.mkdir(parents=True, exist_ok=True)\n    pdf.output(str(out))\n    return out"
+    },
+    {
+     "u": {
+      "ar": "ترقيم فواتير مع Luhn",
+      "en": "Invoice numbering with Luhn"
+     },
+     "p": "def luhn_digit(digits):\n    total = 0\n    for i, ch in enumerate(reversed(digits)):\n        d = int(ch)\n        if i % 2 == 0:\n            d *= 2\n            if d > 9:\n                d -= 9\n        total += d\n    return str((10 - total % 10) % 10)\n\ndef invoice_number(year, seq):\n    core = f\"{year}{seq:04d}\"\n    return f\"INV-{year}-{seq:04d}-{luhn_digit(core)}\"\n\ndef is_valid(number):\n    _, year, seq, check = number.split(\"-\")\n    return luhn_digit(year + seq) == check\n\nlast = 6\nfor _ in range(3):\n    last += 1\n    n = invoice_number(2026, last)\n    print(n, is_valid(n))\nprint(\"typo:\", is_valid(\"INV-2026-0070-\" + invoice_number(2026, 7)[-1]))",
+     "run": 1,
+     "deep": 1
     }
    ],
    "words": [
@@ -1010,6 +1293,22 @@ JOURNEY.week({
       "en": "a document stating what is owed"
      },
      "ex": "INV-2026-0091"
+    },
+    {
+     "t": "invoice number",
+     "m": {
+      "ar": "رقم فريد لكل فاتورة",
+      "en": "a unique number for each invoice"
+     },
+     "ex": "Never reuse an invoice number."
+    },
+    {
+     "t": "check digit",
+     "m": {
+      "ar": "رقم إضافي بيكشف أخطاء الكتابة",
+      "en": "an extra digit that detects typing errors"
+     },
+     "ex": "The check digit caught the typo."
     }
    ],
    "read": [
@@ -1117,6 +1416,22 @@ JOURNEY.week({
       "ar": "pdf.image(...).",
       "en": "pdf.image(...)."
      }
+    },
+    {
+     "q": {
+      "ar": "فايدة رقم التحقق:",
+      "en": "The purpose of a check digit:"
+     },
+     "o": [
+      "catching typing mistakes",
+      "making the number secret",
+      "sorting invoices"
+     ],
+     "a": 0,
+     "why": {
+      "ar": "مش تشفير.",
+      "en": "It is not encryption."
+     }
     }
    ],
    "minutes": 180
@@ -1151,6 +1466,16 @@ JOURNEY.week({
     {
      "ar": "fpdf2 والجداول والخط العربي وtext shaping وQR.",
      "en": "fpdf2, tables, an Arabic font, text shaping and QR codes."
+    },
+    {
+     "ar": "⚡ مدى الصفحات، وقوالب string.Template، وحساب مقاسات الصور.",
+     "en": "⚡ Page ranges, string.Template templates, and computing image sizes.",
+     "deep": 1
+    },
+    {
+     "ar": "⚡ EmailMessage بمرفق، وأرقام الفواتير برقم تحقق: اجمعهم في مشروع الشهر التالت (فاتورة + إيميل).",
+     "en": "⚡ EmailMessage with attachments, and invoice numbers with a check digit: combine them in the month 3 project (invoice + email).",
+     "deep": 1
     }
    ],
    "project": {

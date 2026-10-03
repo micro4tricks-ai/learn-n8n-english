@@ -62,6 +62,18 @@ JOURNEY.week({
      },
      "ex": "import re\nfor code in [\"EG-123\", \"EG-12\", \"EG-1234\", \"XEG-123\"]:\n    print(code, bool(re.fullmatch(r\"EG-\\d{3}\", code)))\nprint(re.findall(r\"\\bcat\\b\", \"cat category concat cat.\"))\nprint(re.findall(r\"colou?r\", \"color colour colr\"))",
      "run": 1
+    },
+    {
+     "h": {
+      "ar": "regex مقروء: re.VERBOSE وcompile",
+      "en": "Readable regex: re.VERBOSE and compile"
+     },
+     "p": {
+      "ar": "الـ regex الطويل بيبقى لغز. `re.VERBOSE` بيسمحلك تكتبه على كذا سطر بمسافات وتعليقات `#`. و`re.compile(pattern)` بيجهّزه مرة واحدة وتستخدمه كتير (أسرع وأوضح في الكود). حط الأنماط المهمة كثوابت فوق الملف.",
+      "en": "A long regex becomes a puzzle. `re.VERBOSE` lets you write it over several lines with spaces and `#` comments. `re.compile(pattern)` prepares it once to use many times (faster and clearer in code). Keep important patterns as constants at the top of the file."
+     },
+     "ex": "PHONE = re.compile(r\"\"\"\n    (?:\\+?20|0)?   # country code or leading 0\n    (1[0125])       # operator\n    (\\d{8})         # number\n\"\"\", re.VERBOSE)",
+     "deep": 1
     }
    ],
    "practice": [
@@ -80,6 +92,16 @@ JOURNEY.week({
     {
      "ar": "اكتب Regex بيمسك كلمة «error» لوحدها بس مش جوه «errors» أو «terror».",
      "en": "Write a pattern that matches the word «error» alone, not inside «errors» or «terror»."
+    },
+    {
+     "ar": "حوّل regex طويل عندك لـ VERBOSE بتعليق لكل جزء.",
+     "en": "Rewrite one of your long regexes with VERBOSE and a comment per part.",
+     "deep": 1
+    },
+    {
+     "ar": "اعمل compile لـ 3 أنماط تستخدمها كتير وحطهم كثوابت.",
+     "en": "Compile 3 patterns you use often and keep them as constants.",
+     "deep": 1
     }
    ],
    "code": [
@@ -90,6 +112,15 @@ JOURNEY.week({
      },
      "p": "import re\nPATTERNS = {\n    \"eg_mobile\": r\"\\b01[0125]\\d{8}\\b\",\n    \"email\": r\"[\\w.+-]+@[\\w-]+\\.[\\w.-]+\",\n    \"iso_date\": r\"\\b\\d{4}-\\d{2}-\\d{2}\\b\",\n    \"price\": r\"\\d{1,3}(?:,\\d{3})*(?:\\.\\d+)?\",\n    \"url\": r\"https?://[^\\s]+\",\n}\ntext = \"Mona 01012345678 mona@shop.com paid 1,250.50 on 2026-09-30 via https://pay.example.com/r/91\"\nfor name, p in PATTERNS.items():\n    print(f\"{name:<10}\", re.findall(p, text))",
      "run": 1
+    },
+    {
+     "u": {
+      "ar": "نمط موبايل مقروء",
+      "en": "A readable mobile pattern"
+     },
+     "p": "import re\nPHONE = re.compile(r\"\"\"\n    ^(?:\\+?20|0)?   # optional country code or leading zero\n    (1[0125])        # operator prefix\n    (\\d{8})$        # the remaining eight digits\n\"\"\", re.VERBOSE)\nfor raw in [\"01012345678\", \"+201512345678\", \"0123\", \"01312345678\"]:\n    m = PHONE.match(raw)\n    print(f\"{raw:<15}\", \"+20\" + m.group(1) + m.group(2) if m else \"invalid\")",
+     "run": 1,
+     "deep": 1
     }
    ],
    "words": [
@@ -148,6 +179,22 @@ JOURNEY.week({
       "en": "requires the whole text to match; for validation"
      },
      "ex": "re.fullmatch(r\"\\d{11}\", phone)"
+    },
+    {
+     "t": "verbose regex",
+     "m": {
+      "ar": "regex مكتوب على سطور بتعليقات",
+      "en": "a regex written over lines with comments"
+     },
+     "ex": "A verbose regex is easier to review."
+    },
+    {
+     "t": "compile",
+     "m": {
+      "ar": "تجهّز نمط مرة عشان تستخدمه كتير",
+      "en": "to prepare a pattern once to reuse it"
+     },
+     "ex": "Compile the pattern at the top of the file."
     }
    ],
    "read": [
@@ -220,6 +267,22 @@ JOURNEY.week({
       "ar": "search تقبل لو جزء بس طابق.",
       "en": "search accepts a partial match."
      }
+    },
+    {
+     "q": {
+      "ar": "في re.VERBOSE المسافات العادية:",
+      "en": "In re.VERBOSE, normal spaces:"
+     },
+     "o": [
+      "are ignored",
+      "must match",
+      "cause an error"
+     ],
+     "a": 0,
+     "why": {
+      "ar": "استخدم \\s أو [ ] للمسافة الحقيقية.",
+      "en": "Use \\s or [ ] for a real space."
+     }
     }
    ],
    "minutes": 180
@@ -270,6 +333,18 @@ JOURNEY.week({
      },
      "ex": "import re\nhtml = \"<b>Sale</b> on <i>bags</i>\"\nprint(re.findall(r\"<.+>\", html))\nprint(re.findall(r\"<.+?>\", html))\nprint(re.findall(r\"<(\\w+)>(.*?)</\\1>\", html))\nprint(re.findall(r\"\\b(paid|refunded)\\b\", \"paid, unpaid, refunded\"))",
      "run": 1
+    },
+    {
+     "h": {
+      "ar": "مجموعات بأسماء وfindall",
+      "en": "Named groups and findall"
+     },
+     "p": {
+      "ar": "`(?P<amount>\\d+)` مجموعة باسم: `m[\"amount\"]` أو `m.groupdict()` بدل أرقام المجموعات اللي بتتلخبط. و`re.findall` بيرجّع كل النتايج: لو فيه مجموعة واحدة بيرجّع قايمة نصوص، ولو أكتر من واحدة بيرجّع قايمة tuples. ولو عايز التفاصيل، `re.finditer`.",
+      "en": "`(?P<amount>\\d+)` is a named group: `m[\"amount\"]` or `m.groupdict()` instead of group numbers that get mixed up. `re.findall` returns every result: with one group, a list of strings; with several, a list of tuples. For details, use `re.finditer`."
+     },
+     "ex": "re.findall(r\"(\\d+) EGP\", text)            # [\"120\", \"45\"]\nfor m in re.finditer(r\"(?P<qty>\\d+)x (?P<item>\\w+)\", text):\n    print(m.groupdict())",
+     "deep": 1
     }
    ],
    "practice": [
@@ -288,6 +363,16 @@ JOURNEY.week({
     {
      "ar": "طلّع اسم المستخدم والدومين من 5 إيميلات بـ finditer واطبع مكان كل واحد.",
      "en": "Extract the user and domain of 5 emails with finditer and print where each one starts."
+    },
+    {
+     "ar": "من رسالة واتساب فيها طلب، طلّع الكمية والصنف بمجموعات بأسماء.",
+     "en": "From a WhatsApp order message, extract quantity and item with named groups.",
+     "deep": 1
+    },
+    {
+     "ar": "قارن findall بمجموعة واحدة ومجموعتين على نفس النص.",
+     "en": "Compare findall with one group and with two groups on the same text.",
+     "deep": 1
     }
    ],
    "code": [
@@ -298,6 +383,15 @@ JOURNEY.week({
      },
      "p": "import re\ntext = \"\"\"Invoice INV-0091 | Sara Ahmed | 1,250.50 EGP | 2026-09-28\nInvoice INV-0092 | Omar Adel | 980 EGP | 2026-09-29\"\"\"\nROW = re.compile(r\"Invoice (?P<id>INV-\\d+) \\| (?P<name>[^|]+?) \\| (?P<amount>[\\d,.]+) EGP \\| (?P<date>[\\d-]+)\")\nrows = [m.groupdict() for m in ROW.finditer(text)]\nfor r in rows:\n    r[\"amount\"] = float(r[\"amount\"].replace(\",\", \"\"))\nprint(rows)",
      "run": 1
+    },
+    {
+     "u": {
+      "ar": "استخراج سطور طلب",
+      "en": "Extracting order lines"
+     },
+     "p": "import re\ntext = \"2x tea 30 EGP, 1x cake 45 EGP, 3x juice 90 EGP\"\nprint(re.findall(r\"(\\d+) EGP\", text))\nLINE = re.compile(r\"(?P<qty>\\d+)x (?P<item>\\w+) (?P<price>\\d+) EGP\")\nrows = [m.groupdict() for m in LINE.finditer(text)]\nfor r in rows:\n    print(r)\nprint(\"total:\", sum(int(r[\"price\"]) for r in rows))",
+     "run": 1,
+     "deep": 1
     }
    ],
    "words": [
@@ -348,6 +442,22 @@ JOURNEY.week({
       "en": "a quantity with ? grabbing as little as possible"
      },
      "ex": "<.+?>"
+    },
+    {
+     "t": "capture group",
+     "m": {
+      "ar": "جزء بين أقواس في الـ regex بيتحفظ",
+      "en": "a bracketed part of a regex that is saved"
+     },
+     "ex": "The capture group holds the price."
+    },
+    {
+     "t": "findall",
+     "m": {
+      "ar": "بترجّع كل المطابقات في النص",
+      "en": "returns every match in a text"
+     },
+     "ex": "findall gives all the prices at once."
     }
    ],
    "read": [
@@ -429,6 +539,22 @@ JOURNEY.week({
       "ar": "الكسولة بتقف عند أول b.",
       "en": "The lazy version stops at the first b."
      }
+    },
+    {
+     "q": {
+      "ar": "`re.findall(r\"(a)(b)\", \"abab\")` =",
+      "en": "`re.findall(r\"(a)(b)\", \"abab\")` ="
+     },
+     "o": [
+      "[(\"a\", \"b\"), (\"a\", \"b\")]",
+      "[\"ab\", \"ab\"]",
+      "[\"a\", \"b\"]"
+     ],
+     "a": 0,
+     "why": {
+      "ar": "أكتر من مجموعة → tuples.",
+      "en": "Several groups → tuples."
+     }
     }
    ],
    "minutes": 180
@@ -479,6 +605,18 @@ JOURNEY.week({
      },
      "ex": "import re\nprint(re.split(r\"\\s*[,;|]\\s*\", \"Cairo, Giza;Alex | Aswan\"))\nprint(re.findall(r\"^error.*$\", \"error one\\nINFO two\\nERROR three\", re.I | re.M))\nPHONE = re.compile(r\"\"\"\n    (?:\\+?20)?      # optional country code\n    0?1[0125]       # mobile prefix\n    \\d{8}           # the rest\n\"\"\", re.X)\nprint(PHONE.findall(\"+201012345678, 01112345678, 0221234567\"))",
      "run": 1
+    },
+    {
+     "h": {
+      "ar": "re.sub بدالة ومجموعات مش محفوظة",
+      "en": "re.sub with a function, and non-capturing groups"
+     },
+     "p": {
+      "ar": "`re.sub` ممكن ياخد **دالة** بدل نص: بتستقبل الـ match وترجّع البديل — مثلًا تخفي كل رقم موبايل أو تحوّل كل سعر. و`(?:...)` مجموعة **مش بتتحفظ**: للتجميع بس (زي `(?:EGP|LE)`) من غير ما تلخبط أرقام المجموعات.",
+      "en": "`re.sub` can take a **function** instead of text: it receives the match and returns the replacement — for example to mask every mobile number or convert every price. `(?:...)` is a **non-capturing** group: for grouping only (like `(?:EGP|LE)`) without disturbing the group numbers."
+     },
+     "ex": "re.sub(r\"\\d{11}\", lambda m: m[0][:3] + \"*****\" + m[0][-3:], text)\nre.findall(r\"(\\d+) (?:EGP|LE)\", text)",
+     "deep": 1
     }
    ],
    "practice": [
@@ -497,6 +635,16 @@ JOURNEY.week({
     {
      "ar": "اكتب Regex إيميل طويل بـ `re.X` وفيه تعليق لكل جزء.",
      "en": "Write a long email pattern with `re.X` and a comment on each part."
+    },
+    {
+     "ar": "اخفي كل الإيميلات في نص بدالة (`s***@domain.com`).",
+     "en": "Mask every email in a text with a function (`s***@domain.com`).",
+     "deep": 1
+    },
+    {
+     "ar": "حوّل كل تواريخ `dd/mm/yyyy` لـ `yyyy-mm-dd` بـ re.sub.",
+     "en": "Turn every `dd/mm/yyyy` date into `yyyy-mm-dd` with re.sub.",
+     "deep": 1
     }
    ],
    "code": [
@@ -507,6 +655,15 @@ JOURNEY.week({
      },
      "p": "import re\nRULES = [\n    (re.compile(r\"[\\w.+-]+@[\\w-]+\\.[\\w.-]+\"), lambda m: m.group()[0] + \"***@***\"),\n    (re.compile(r\"\\b01[0125]\\d{8}\\b\"), lambda m: m.group()[:3] + \"*****\" + m.group()[-3:]),\n    (re.compile(r\"\\b\\d{14}\\b\"), lambda m: \"<national-id>\"),\n]\n\ndef redact(text: str) -> str:\n    for pattern, repl in RULES:\n        text = pattern.sub(repl, text)\n    return text\n\nprint(redact(\"Mona (mona@shop.com, 01012345678, id 29801011234567) asked for a refund.\"))",
      "run": 1
+    },
+    {
+     "u": {
+      "ar": "إخفاء الأرقام وتوحيد العملة",
+      "en": "Masking numbers and unifying the currency"
+     },
+     "p": "import re\ntext = \"Call 01012345678 or 01198765432. Price 120 LE, delivery 30 EGP.\"\nmasked = re.sub(r\"\\b01\\d{9}\\b\", lambda m: m[0][:3] + \"*****\" + m[0][-3:], text)\nprint(masked)\nprices = re.findall(r\"(\\d+) (?:EGP|LE)\\b\", text)\nprint(prices)\nprint(re.sub(r\"(\\d+) (?:EGP|LE)\\b\", lambda m: f\"{int(m[1]):,} EGP\", text))",
+     "run": 1,
+     "deep": 1
     }
    ],
    "words": [
@@ -557,6 +714,22 @@ JOURNEY.week({
       "en": "hiding sensitive data in text before sharing it"
      },
      "ex": "m***@*** 010*****678"
+    },
+    {
+     "t": "re.sub",
+     "m": {
+      "ar": "استبدال كل المطابقات في نص",
+      "en": "replacing every match in a text"
+     },
+     "ex": "re.sub can call a function per match."
+    },
+    {
+     "t": "non-capturing group",
+     "m": {
+      "ar": "مجموعة (?:...) للتجميع بس من غير حفظ",
+      "en": "a (?:...) group for grouping only, not saving"
+     },
+     "ex": "Use a non-capturing group for the currency."
     }
    ],
    "read": [
@@ -638,6 +811,22 @@ JOURNEY.week({
       "ar": "بيقسّم عند كل رقم.",
       "en": "It splits at each digit."
      }
+    },
+    {
+     "q": {
+      "ar": "`(?:EGP|LE)` بتعمل إيه؟",
+      "en": "What does `(?:EGP|LE)` do?"
+     },
+     "o": [
+      "groups without saving",
+      "saves the currency",
+      "matches a question mark"
+     ],
+     "a": 0,
+     "why": {
+      "ar": "تجميع بس.",
+      "en": "Grouping only."
+     }
     }
    ],
    "minutes": 180
@@ -688,6 +877,18 @@ JOURNEY.week({
      },
      "ex": "import re\nDIACRITICS = re.compile(r\"[\\u064B-\\u0652\\u0670]\")\n\ndef normalise_ar(text: str) -> str:\n    text = DIACRITICS.sub(\"\", text)\n    text = text.replace(\"ـ\", \"\")\n    text = re.sub(\"[إأآ]\", \"ا\", text)\n    text = text.replace(\"ى\", \"ي\").replace(\"ة\", \"ه\")\n    return re.sub(r\"\\s+\", \" \", text).strip()\n\nnames = [\"مُحَمَّد  أحمد\", \"محمد احمد\", \"القاهرة\", \"القاهره\", \"مصطفــى\"]\nfor n in names:\n    print(f\"{n!r} -> {normalise_ar(n)!r}\")\nprint(normalise_ar(names[0]) == normalise_ar(names[1]))",
      "run": 1
+    },
+    {
+     "h": {
+      "ar": "unicodedata وتطبيع النص",
+      "en": "unicodedata and normalising text"
+     },
+     "p": {
+      "ar": "نفس الحرف ممكن يتكتب بأكتر من شكل في Unicode (`é` حرف واحد أو e + علامة). `unicodedata.normalize(\"NFKC\", s)` بيوحّد الأشكال — وبيحوّل كمان حروف «عرض كامل» زي `１２３` لـ `123`. و`unicodedata.category(ch)` بيقولك نوع الحرف (`Mn` = علامة تشكيل) فتشيل التشكيل من أي لغة.",
+      "en": "The same character can be written in more than one way in Unicode (`é` as one character or e + a mark). `unicodedata.normalize(\"NFKC\", s)` unifies the forms — it also turns «full-width» characters like `１２３` into `123`. And `unicodedata.category(ch)` tells you the kind of character (`Mn` = a combining mark), so you can remove diacritics in any language."
+     },
+     "ex": "unicodedata.normalize(\"NFKC\", \"１２３\")   # \"123\"\n\"\".join(c for c in s if unicodedata.category(c) != \"Mn\")",
+     "deep": 1
     }
    ],
    "practice": [
@@ -706,6 +907,16 @@ JOURNEY.week({
     {
      "ar": "زوّد نمط تاريخ رابع (`5 Oct 2026`) لدالة `to_iso` بـ dict لأسماء الشهور.",
      "en": "Add a fourth date pattern (`5 Oct 2026`) to `to_iso` with a dict of month names."
+    },
+    {
+     "ar": "استخدم الدالة دي قبل البحث في قايمة منتجات عربي وإنجليزي.",
+     "en": "Use this function before searching a list of Arabic and English products.",
+     "deep": 1
+    },
+    {
+     "ar": "اطبع الـ category لكل حرف في كلمة مشكّلة.",
+     "en": "Print the category of each character in a word with diacritics.",
+     "deep": 1
     }
    ],
    "code": [
@@ -716,6 +927,15 @@ JOURNEY.week({
      },
      "p": "import re\nDIGITS = str.maketrans(\"٠١٢٣٤٥٦٧٨٩٫٬\", \"0123456789.,\")\n\ndef parse_price(text: str) -> float | None:\n    text = text.translate(DIGITS)\n    m = re.search(r\"\\d[\\d,]*(?:\\.\\d+)?\", text)\n    return float(m.group().replace(\",\", \"\")) if m else None\n\nfor t in [\"1,250.50 EGP\", \"١٬٢٥٠٫٥٠ ج.م\", \"EGP 99\", \"free\"]:\n    print(t, \"->\", parse_price(t))",
      "run": 1
+    },
+    {
+     "u": {
+      "ar": "تطبيع أسماء ومقارنتها",
+      "en": "Normalising and comparing names"
+     },
+     "p": "import unicodedata\n\ndef normal(s):\n    s = unicodedata.normalize(\"NFKC\", s)\n    s = \"\".join(c for c in unicodedata.normalize(\"NFD\", s) if unicodedata.category(c) != \"Mn\")\n    return s.casefold().strip()\n\nnames = [\"Café\", \"CAFE\\u0301\", \"café \", \"مُحَمَّد\", \"محمد\", \"１２３\"]\nfor n in names:\n    print(repr(n), \"->\", repr(normal(n)))\nprint(normal(names[0]) == normal(names[1]))",
+     "run": 1,
+     "deep": 1
     }
    ],
    "words": [
@@ -766,6 +986,22 @@ JOURNEY.week({
       "en": "(?=...) requires something after the match without taking it"
      },
      "ex": "(?:20)(?=1)"
+    },
+    {
+     "t": "unicodedata",
+     "m": {
+      "ar": "مكتبة معلومات حروف Unicode",
+      "en": "the module with Unicode character information"
+     },
+     "ex": "unicodedata finds combining marks."
+    },
+    {
+     "t": "normalisation",
+     "m": {
+      "ar": "توحيد أشكال الحروف المختلفة",
+      "en": "unifying different forms of characters"
+     },
+     "ex": "Apply normalisation before comparing text."
     }
    ],
    "read": [
@@ -850,6 +1086,22 @@ JOURNEY.week({
       "ar": "\\D = أي حاجة مش رقم.",
       "en": "\\D is any non-digit."
      }
+    },
+    {
+     "q": {
+      "ar": "`unicodedata.normalize(\"NFKC\", \"１\")` =",
+      "en": "`unicodedata.normalize(\"NFKC\", \"１\")` ="
+     },
+     "o": [
+      "\"1\"",
+      "\"１\"",
+      "1"
+     ],
+     "a": 0,
+     "why": {
+      "ar": "الشكل العريض بيتوحّد.",
+      "en": "The full-width form is unified."
+     }
     }
    ],
    "minutes": 180
@@ -900,6 +1152,18 @@ JOURNEY.week({
      },
      "ex": "import csv, io, re\nfrom urllib.parse import urlparse, parse_qs\nline = '1042,\"Ahmed, Sara\",1250'\nprint(line.split(\",\"))                       # wrong: 4 parts\nprint(next(csv.reader(io.StringIO(line))))  # right: 3 parts\nu = urlparse(\"https://shop.example.com/search?q=bag&page=2\")\nprint(u.netloc, u.path, parse_qs(u.query))",
      "run": 1
+    },
+    {
+     "h": {
+      "ar": "تحليل نص لقطع (tokenize)",
+      "en": "Tokenising text"
+     },
+     "p": {
+      "ar": "لنص شبه منظّم (أوامر، معادلات، سطور log) أحسن من regex واحد عملاق: قسّمه لـ **tokens** بـ regex بمجموعات بأسماء لكل نوع، وامشي عليها. وlookbehind `(?<=…)` بيشترط حاجة قبل المطابقة من غير ما ياخدها.",
+      "en": "For semi-structured text (commands, formulas, log lines), better than one giant regex: split it into **tokens** with a regex of named groups per kind, then walk through them. A lookbehind `(?<=…)` requires something before the match without including it."
+     },
+     "ex": "TOKEN = re.compile(r\"(?P<num>\\d+)|(?P<word>[a-z]+)|(?P<op>[+*-])|(?P<space>\\s+)\")\nfor m in TOKEN.finditer(\"add 2 + 3\"):\n    print(m.lastgroup, m[0])",
+     "deep": 1
     }
    ],
    "practice": [
@@ -918,6 +1182,16 @@ JOURNEY.week({
     {
      "ar": "طلّع الدومين والـ query من 3 لينكات بـ `urllib.parse` بدل Regex.",
      "en": "Get the domain and query of 3 links with `urllib.parse` instead of regex."
+    },
+    {
+     "ar": "اعمل tokenizer لأوامر بوت (`/price tea 2`).",
+     "en": "Write a tokenizer for bot commands (`/price tea 2`).",
+     "deep": 1
+    },
+    {
+     "ar": "طلّع كل اللي بعد `@` في نص بـ lookbehind.",
+     "en": "Extract everything after `@` in a text with a lookbehind.",
+     "deep": 1
     }
    ],
    "code": [
@@ -928,6 +1202,15 @@ JOURNEY.week({
      },
      "p": "import re\nEMAIL = re.compile(r\"\"\"\nOrder\\s+\\#(?P<order>\\d+).*?\nName:\\s*(?P<name>[^\\n]+).*?\nPhone:\\s*(?P<phone>[+\\d\\s-]+).*?\nTotal:\\s*(?P<total>[\\d,.]+)\n\"\"\", re.S | re.X)\nbody = \"\"\"Thanks for your order!\nOrder #5521\nName: Huda Kamal\nPhone: +20 100 222 3333\nItems: 3\nTotal: 1,480.00 EGP\"\"\"\nm = EMAIL.search(body)\nrow = m.groupdict()\nrow[\"total\"] = float(row[\"total\"].replace(\",\", \"\"))\nrow[\"phone\"] = re.sub(r\"\\D\", \"\", row[\"phone\"])\nprint(row)",
      "run": 1
+    },
+    {
+     "u": {
+      "ar": "tokenizer صغير",
+      "en": "A small tokenizer"
+     },
+     "p": "import re\nTOKEN = re.compile(r\"(?P<NUM>\\d+(?:\\.\\d+)?)|(?P<WORD>[a-z_]+)|(?P<OP>[=+*/-])|(?P<SKIP>\\s+)|(?P<BAD>.)\")\nline = \"total = price * 1.14 + fee\"\nfor m in TOKEN.finditer(line):\n    if m.lastgroup != \"SKIP\":\n        print(f\"{m.lastgroup:<5} {m[0]}\")\nprint(re.findall(r\"(?<=#)\\w+\", \"tags: #sale #new #eid\"))",
+     "run": 1,
+     "deep": 1
     }
    ],
    "words": [
@@ -978,6 +1261,22 @@ JOURNEY.week({
       "en": "a flag letting the dot match newlines too (re.S)"
      },
      "ex": "re.search(p, body, re.S)"
+    },
+    {
+     "t": "tokenize",
+     "m": {
+      "ar": "تقسّم نص لقطع صغيرة ليها نوع",
+      "en": "to split text into small typed pieces"
+     },
+     "ex": "Tokenize the command before checking it."
+    },
+    {
+     "t": "lookbehind",
+     "m": {
+      "ar": "شرط إن حاجة تيجي قبل المطابقة",
+      "en": "a condition that something comes before the match"
+     },
+     "ex": "The lookbehind skips the # sign."
     }
    ],
    "read": [
@@ -1068,6 +1367,22 @@ JOURNEY.week({
       "ar": "search هتقبل \"123456\".",
       "en": "search would accept \"123456\"."
      }
+    },
+    {
+     "q": {
+      "ar": "`m.lastgroup` بيرجّع:",
+      "en": "`m.lastgroup` returns:"
+     },
+     "o": [
+      "the name of the group that matched",
+      "the last character",
+      "the group number"
+     ],
+     "a": 0,
+     "why": {
+      "ar": "نوع الـ token.",
+      "en": "The token type."
+     }
     }
    ],
    "minutes": 180
@@ -1102,6 +1417,16 @@ JOURNEY.week({
     {
      "ar": "النصوص شبه المنظمة، والتحقق، وامتى تستخدم parser بدل Regex.",
      "en": "Semi-structured text, validation, and when to use a parser instead of regex."
+    },
+    {
+     "ar": "⚡ re.VERBOSE وcompile، والمجموعات بأسماء وfindall/finditer.",
+     "en": "⚡ re.VERBOSE and compile, named groups and findall/finditer.",
+     "deep": 1
+    },
+    {
+     "ar": "⚡ re.sub بدالة و(?:)، وunicodedata والتطبيع، والـ tokenizer: نضّف ملف رسايل عملاء كامل.",
+     "en": "⚡ re.sub with a function and (?:), unicodedata and normalising, and tokenizers: clean a whole file of customer messages.",
+     "deep": 1
     }
    ],
    "project": {

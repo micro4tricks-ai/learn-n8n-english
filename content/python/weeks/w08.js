@@ -62,6 +62,18 @@ JOURNEY.week({
      },
      "ex": "prices = {\"pen\": 7.5}\n\ndef price_of(item):\n    try:\n        return prices[itme]      # typo: a real bug\n    except Exception:\n        return 0                 # hides the bug!\n\nprint(price_of(\"pen\"))   # prints 0 and you never learn why",
      "run": 1
+    },
+    {
+     "h": {
+      "ar": "raise from: احتفظ بالسبب الأصلي",
+      "en": "raise from: keep the original cause"
+     },
+     "p": {
+      "ar": "لما تمسك خطأ تقني وترمي خطأ أوضح، اكتب `raise OrderError(\"…\") from e`. كده الـ traceback بيعرض الاتنين: الخطأ بتاعك والسبب الأصلي (`__cause__`). من غير `from`، اللي بيصلّح هيضيع وقت يدوّر على السبب.",
+      "en": "When you catch a technical error and raise a clearer one, write `raise OrderError(\"…\") from e`. The traceback then shows both: your error and the original cause (`__cause__`). Without `from`, whoever fixes it wastes time looking for the cause."
+     },
+     "ex": "try:\n    total = float(row[\"total\"])\nexcept (KeyError, ValueError) as e:\n    raise OrderError(f\"bad total in row {n}\") from e",
+     "deep": 1
     }
    ],
    "practice": [
@@ -80,6 +92,16 @@ JOURNEY.week({
     {
      "ar": "صلّح مثال «متمسكش كل حاجة»: خليه يمسك KeyError بس، وشوف الـ bug بيبان.",
      "en": "Fix the «do not catch everything» example: catch only KeyError and watch the bug appear."
+    },
+    {
+     "ar": "لف دالة قراءة ملف بـ try وارمي خطأ خاص بيك `from` الخطأ الأصلي.",
+     "en": "Wrap a file-reading function in try and raise your own error `from` the original.",
+     "deep": 1
+    },
+    {
+     "ar": "شغّل من غير `from` وقارن شكل الـ traceback.",
+     "en": "Run it without `from` and compare the traceback.",
+     "deep": 1
     }
    ],
    "code": [
@@ -90,6 +112,15 @@ JOURNEY.week({
      },
      "p": "rows = [\"Sara,1200\", \"Omar,abc\", \"Mona\", \"Hany,450.5\"]\ngood, bad = [], []\nfor line in rows:\n    try:\n        name, amount = line.split(\",\")\n        good.append((name, float(amount)))\n    except ValueError as e:\n        bad.append((line, str(e)))\nprint(\"ok:\", good)\nprint(\"skipped:\", bad)",
      "run": 1
+    },
+    {
+     "u": {
+      "ar": "خطأ أوضح مع السبب",
+      "en": "A clearer error with its cause"
+     },
+     "p": "class OrderError(Exception):\n    pass\n\ndef read_total(row, n):\n    try:\n        return float(row[\"total\"])\n    except (KeyError, ValueError) as e:\n        raise OrderError(f\"row {n}: bad total\") from e\n\nfor n, row in enumerate([{\"total\": \"300\"}, {\"total\": \"abc\"}, {}], start=1):\n    try:\n        print(n, read_total(row, n))\n    except OrderError as err:\n        print(n, \"->\", err, \"| cause:\", type(err.__cause__).__name__, err.__cause__)",
+     "run": 1,
+     "deep": 1
     }
    ],
    "words": [
@@ -140,6 +171,22 @@ JOURNEY.week({
       "en": "catching an error and doing nothing, so it is lost"
      },
      "ex": "except Exception: pass"
+    },
+    {
+     "t": "raise from",
+     "m": {
+      "ar": "ترمي خطأ جديد وتربطه بالسبب الأصلي",
+      "en": "to raise a new error linked to its original cause"
+     },
+     "ex": "Use raise from to keep the cause."
+    },
+    {
+     "t": "error context",
+     "m": {
+      "ar": "المعلومات اللي حوالين الخطأ (الصف، الملف)",
+      "en": "the information around an error (the row, the file)"
+     },
+     "ex": "Add error context like the row number."
     }
    ],
    "read": [
@@ -230,6 +277,22 @@ JOURNEY.week({
       "ar": "tuple من الأنواع.",
       "en": "A tuple of types."
      }
+    },
+    {
+     "q": {
+      "ar": "`err.__cause__` بيرجّع:",
+      "en": "`err.__cause__` returns:"
+     },
+     "o": [
+      "the original exception",
+      "the line number",
+      "None always"
+     ],
+     "a": 0,
+     "why": {
+      "ar": "اللي بعد from.",
+      "en": "Whatever followed from."
+     }
     }
    ],
    "minutes": 180
@@ -280,6 +343,18 @@ JOURNEY.week({
      },
      "ex": "class ConfigError(Exception):\n    pass\n\ndef read_port(settings):\n    try:\n        return int(settings[\"PORT\"])\n    except (KeyError, ValueError) as e:\n        raise ConfigError(\"PORT must be set to a number\") from e\n\nfor s in [{\"PORT\": \"8080\"}, {\"PORT\": \"eighty\"}, {}]:\n    try:\n        print(read_port(s))\n    except ConfigError as e:\n        print(\"config problem:\", e, \"| caused by\", repr(e.__cause__))",
      "run": 1
+    },
+    {
+     "h": {
+      "ar": "افشل بدري: تحقق من المدخلات",
+      "en": "Fail fast: check inputs early"
+     },
+     "p": {
+      "ar": "تحقق من الشروط في **أول** الدالة (preconditions) وارمي `ValueError` برسالة واضحة، بدل ما الغلط يمشي لحد ما يكسر حاجة بعيدة ومش مفهومة. «Fail fast»: الخطأ يطلع قريب من سببه.",
+      "en": "Check conditions at the **start** of a function (preconditions) and raise a `ValueError` with a clear message, instead of letting a mistake travel until it breaks something far away and confusing. «Fail fast»: the error appears close to its cause."
+     },
+     "ex": "def refund(amount, order_total):\n    if amount <= 0:\n        raise ValueError(\"amount must be positive\")\n    if amount > order_total:\n        raise ValueError(\"refund is larger than the order\")",
+     "deep": 1
     }
    ],
    "practice": [
@@ -298,6 +373,16 @@ JOURNEY.week({
     {
      "ar": "استخدم `raise ... from e` واقرا الـ traceback الكامل في التيرمنال (الجزء «The above exception was the direct cause»).",
      "en": "Use `raise ... from e` and read the full traceback in the terminal (the «The above exception was the direct cause» part)."
+    },
+    {
+     "ar": "ضيف preconditions لـ 3 دوال عندك.",
+     "en": "Add preconditions to 3 of your functions.",
+     "deep": 1
+    },
+    {
+     "ar": "اكتب رسالة خطأ لكل شرط تقول المشكلة والقيمة اللي وصلت.",
+     "en": "Write an error message for each check saying the problem and the value received.",
+     "deep": 1
     }
    ],
    "code": [
@@ -308,6 +393,15 @@ JOURNEY.week({
      },
      "p": "def transfer(balance: float, amount: float) -> float:\n    if not isinstance(amount, (int, float)):\n        raise TypeError(f\"amount must be a number, got {type(amount).__name__}\")\n    if amount <= 0:\n        raise ValueError(\"amount must be positive\")\n    if amount > balance:\n        raise ValueError(f\"insufficient balance: {balance} < {amount}\")\n    return balance - amount\n\nfor amt in [200, -5, 5000, \"100\"]:\n    try:\n        print(transfer(1000, amt))\n    except (TypeError, ValueError) as e:\n        print(f\"{amt!r}: {e}\")",
      "run": 1
+    },
+    {
+     "u": {
+      "ar": "preconditions لعملية استرجاع",
+      "en": "Preconditions for a refund"
+     },
+     "p": "def refund(amount, order_total):\n    if not isinstance(amount, (int, float)):\n        raise TypeError(\"amount must be a number\")\n    if amount <= 0:\n        raise ValueError(\"amount must be positive\")\n    if amount > order_total:\n        raise ValueError(f\"refund {amount} is larger than the order {order_total}\")\n    return order_total - amount\n\nfor amount in [50, -5, 900, \"10\"]:\n    try:\n        print(amount, \"-> left:\", refund(amount, 300))\n    except (TypeError, ValueError) as e:\n        print(amount, \"->\", type(e).__name__, e)",
+     "run": 1,
+     "deep": 1
     }
    ],
    "words": [
@@ -358,6 +452,22 @@ JOURNEY.week({
       "en": "the text describing an error; it should state the problem and the value"
      },
      "ex": "\"quantity must be positive, got 0\""
+    },
+    {
+     "t": "fail fast",
+     "m": {
+      "ar": "تطلّع الخطأ أول ما تكتشفه",
+      "en": "to raise an error as soon as you detect it"
+     },
+     "ex": "Fail fast on a negative amount."
+    },
+    {
+     "t": "precondition",
+     "m": {
+      "ar": "شرط لازم يكون صح قبل ما الدالة تشتغل",
+      "en": "a condition that must be true before a function runs"
+     },
+     "ex": "The precondition checks the amount."
     }
    ],
    "read": [
@@ -442,6 +552,22 @@ JOURNEY.week({
       "ar": "جرّب واتصرف.",
       "en": "Try it and handle failure."
      }
+    },
+    {
+     "q": {
+      "ar": "ليه تتحقق في أول الدالة؟",
+      "en": "Why check at the start of the function?"
+     },
+     "o": [
+      "the error appears near its cause",
+      "it is faster to type",
+      "Python requires it"
+     ],
+     "a": 0,
+     "why": {
+      "ar": "Fail fast.",
+      "en": "Fail fast."
+     }
     }
    ],
    "minutes": 180
@@ -493,6 +619,18 @@ JOURNEY.week({
      },
      "ex": "def total(lines):\n    result = 0\n    for price, qty in lines:\n        breakpoint()        # pdb: p price, p qty, n, c\n        result += price * qty\n    return result\n\nprint(total([(10, 2), (\"5\", 3)]))",
      "show": 1
+    },
+    {
+     "h": {
+      "ar": "أصغر مثال بيعيد المشكلة",
+      "en": "The smallest example that shows the bug"
+     },
+     "p": {
+      "ar": "قبل ما تسأل أو تصلّح: قلّل الكود والبيانات لحد **أصغر مثال** لسه بيعمل نفس الغلط. شيل نص الكود — لسه الغلط موجود؟ كمّل. غالبًا هتلاقي السبب في الطريق. ولما تطبع للتشخيص استخدم `print(f\"{x=}\")` (بيطبع الاسم والقيمة).",
+      "en": "Before asking or fixing: shrink the code and data to the **smallest example** that still shows the same bug. Remove half the code — still broken? Keep going. You will often find the cause on the way. When printing to diagnose, use `print(f\"{x=}\")` (it prints the name and value)."
+     },
+     "ex": "total = 0\nfor price in [\"10\", \"20\"]:\n    total += int(price)\n    print(f\"{price=} {total=}\")",
+     "deep": 1
     }
    ],
    "practice": [
@@ -511,6 +649,16 @@ JOURNEY.week({
     {
      "ar": "خد bug حصلك الأسبوع ده واكتبه كمثال صغير من 5 سطور بيكرّره (minimal example).",
      "en": "Take a bug you hit this week and write it as a 5-line example that reproduces it (a minimal example)."
+    },
+    {
+     "ar": "خُد bug قديم عندك وقلّله لأصغر مثال (أقل من 10 سطور).",
+     "en": "Take an old bug of yours and shrink it to the smallest example (under 10 lines).",
+     "deep": 1
+    },
+    {
+     "ar": "استبدل كل print تشخيصي عندك بصيغة `f\"{x=}\"`.",
+     "en": "Replace your diagnostic prints with the `f\"{x=}\"` form.",
+     "deep": 1
     }
    ],
    "code": [
@@ -521,6 +669,15 @@ JOURNEY.week({
      },
      "p": "def apply_discount(prices, percent):\n    for i in range(1, len(prices)):          # bug 1\n        prices[i] = prices[i] * percent / 100   # bug 2\n    return prices\n\ndef count_words(text):\n    counts = {}\n    for w in text.split():\n        counts[w] = counts.get(w, 1) + 1      # bug 3\n    return counts\n\nprint(apply_discount([100, 200, 300], 10))\nprint(count_words(\"a b a\"))",
      "run": 1
+    },
+    {
+     "u": {
+      "ar": "طباعة تشخيصية بـ =",
+      "en": "Diagnostic printing with ="
+     },
+     "p": "def average(nums):\n    total = sum(nums)\n    count = len(nums)\n    print(f\"{total=} {count=}\")\n    return total / count if count else 0\n\nprint(average([10, 20, 30]))\nprint(average([]))",
+     "run": 1,
+     "deep": 1
     }
    ],
    "words": [
@@ -579,6 +736,22 @@ JOURNEY.week({
       "en": "explaining code line by line out loud until you spot the bug"
      },
      "ex": "talk it through with a duck"
+    },
+    {
+     "t": "minimal example",
+     "m": {
+      "ar": "أصغر كود بيعيد المشكلة",
+      "en": "the smallest code that shows the problem"
+     },
+     "ex": "Post a minimal example when you ask for help."
+    },
+    {
+     "t": "print debugging",
+     "m": {
+      "ar": "تطبع قيم عشان تفهم اللي بيحصل",
+      "en": "printing values to see what happens"
+     },
+     "ex": "Print debugging with f\"{x=}\" is quick."
     }
    ],
    "read": [
@@ -678,6 +851,22 @@ JOURNEY.week({
       "ar": "حوّله float الأول.",
       "en": "Convert it to float first."
      }
+    },
+    {
+     "q": {
+      "ar": "`x = 5; print(f\"{x=}\")` بيطبع:",
+      "en": "`x = 5; print(f\"{x=}\")` prints:"
+     },
+     "o": [
+      "x=5",
+      "5",
+      "{x=}"
+     ],
+     "a": 0,
+     "why": {
+      "ar": "الاسم والقيمة.",
+      "en": "The name and the value."
+     }
     }
    ],
    "minutes": 180
@@ -728,6 +917,18 @@ JOURNEY.week({
      },
      "ex": "import logging, sys\nlogging.basicConfig(level=logging.INFO, format=\"%(asctime)s %(levelname)s %(name)s: %(message)s\", stream=sys.stdout, force=True)\nlog = logging.getLogger(\"sync\")\n\ndef sync(order):\n    return 100 / order[\"qty\"]\n\nfor order in [{\"id\": 1, \"qty\": 4}, {\"id\": 2, \"qty\": 0}]:\n    try:\n        sync(order)\n        log.info(\"order %s synced\", order[\"id\"])\n    except Exception:\n        log.exception(\"order %s failed\", order[\"id\"])",
      "run": 1
+    },
+    {
+     "h": {
+      "ar": "شكل السجل وملف دوّار",
+      "en": "Log format and a rotating file"
+     },
+     "p": {
+      "ar": "`logging.basicConfig(format=\"%(asctime)s %(levelname)s %(name)s: %(message)s\")` بيخلّي كل سطر فيه الوقت والمستوى. ولملف سجل ميكبرش للأبد: `RotatingFileHandler(maxBytes=1_000_000, backupCount=3)` بيعمل ملف جديد لما يتملي ويحتفظ بآخر 3.",
+      "en": "`logging.basicConfig(format=\"%(asctime)s %(levelname)s %(name)s: %(message)s\")` puts the time and level on every line. For a log file that does not grow forever: `RotatingFileHandler(maxBytes=1_000_000, backupCount=3)` starts a new file when full and keeps the last 3."
+     },
+     "ex": "from logging.handlers import RotatingFileHandler\nhandler = RotatingFileHandler(\"bot.log\", maxBytes=1_000_000, backupCount=3)",
+     "deep": 1
     }
    ],
    "practice": [
@@ -746,6 +947,16 @@ JOURNEY.week({
     {
      "ar": "غيّر المستوى من INFO لـ DEBUG بمتغير بيئة `LOG_LEVEL` من غير ما تعدّل الكود.",
      "en": "Switch the level from INFO to DEBUG with a `LOG_LEVEL` environment variable without editing the code."
+    },
+    {
+     "ar": "ضيف logging بملف دوّار لسكربت عندك بيشتغل كل يوم.",
+     "en": "Add logging with a rotating file to a script of yours that runs daily.",
+     "deep": 1
+    },
+    {
+     "ar": "خلّي المستوى INFO للملف وWARNING للشاشة.",
+     "en": "Use INFO for the file and WARNING for the screen.",
+     "deep": 1
     }
    ],
    "code": [
@@ -755,6 +966,15 @@ JOURNEY.week({
       "en": "A logging setup for any script"
      },
      "p": "import logging, os\n\ndef setup_logging(name: str = \"app\") -> logging.Logger:\n    level = os.environ.get(\"LOG_LEVEL\", \"INFO\").upper()\n    fmt = logging.Formatter(\"%(asctime)s %(levelname)-7s %(name)s: %(message)s\")\n    log = logging.getLogger(name)\n    log.setLevel(level)\n    for handler in (logging.StreamHandler(), logging.FileHandler(f\"{name}.log\", encoding=\"utf-8\")):\n        handler.setFormatter(fmt)\n        log.addHandler(handler)\n    return log\n\nlog = setup_logging(\"invoice-bot\")\nlog.info(\"ready\")"
+    },
+    {
+     "u": {
+      "ar": "سجل منسّق وملف دوّار",
+      "en": "A formatted log and a rotating file"
+     },
+     "p": "import logging, os\nfrom logging.handlers import RotatingFileHandler\nlog = logging.getLogger(\"sync\")\nlog.setLevel(logging.INFO)\nfmt = logging.Formatter(\"%(levelname)-7s %(name)s: %(message)s\")\nfile_handler = RotatingFileHandler(\"sync.log\", maxBytes=200, backupCount=2)\nfile_handler.setFormatter(fmt)\nlog.addHandler(file_handler)\nfor i in range(12):\n    log.info(\"copied order %d\", 1000 + i)\nlog.warning(\"3 orders had no phone\")\nfor name in sorted(f for f in os.listdir(\".\") if f.startswith(\"sync.log\")):\n    with open(name) as fh:\n        lines = fh.read().splitlines()\n    print(f\"{name:<11} {len(lines)} lines, last: {lines[-1]}\")",
+     "run": 1,
+     "deep": 1
     }
    ],
    "words": [
@@ -805,6 +1025,22 @@ JOURNEY.week({
       "en": "logs an error message with the full traceback"
      },
      "ex": "except Exception: log.exception(\"failed\")"
+    },
+    {
+     "t": "rotating log",
+     "m": {
+      "ar": "ملف سجل بيتقسم لما يكبر",
+      "en": "a log file that is split when it gets big"
+     },
+     "ex": "A rotating log keeps the disk from filling up."
+    },
+    {
+     "t": "log format",
+     "m": {
+      "ar": "شكل كل سطر في السجل",
+      "en": "the layout of each log line"
+     },
+     "ex": "Add the time to the log format."
     }
    ],
    "read": [
@@ -895,6 +1131,22 @@ JOURNEY.week({
       "ar": "DEBUG أقل من INFO.",
       "en": "DEBUG is below INFO."
      }
+    },
+    {
+     "q": {
+      "ar": "`backupCount=3` معناها:",
+      "en": "`backupCount=3` means:"
+     },
+     "o": [
+      "keep the last 3 old files",
+      "log 3 lines",
+      "retry 3 times"
+     ],
+     "a": 0,
+     "why": {
+      "ar": "الأقدم بيتمسح.",
+      "en": "The oldest is deleted."
+     }
     }
    ],
    "minutes": 180
@@ -945,6 +1197,18 @@ JOURNEY.week({
      },
      "ex": "import sys, logging\n\nlog = logging.getLogger(\"job\")\n\ndef run() -> int:\n    done = 0\n    try:\n        for i in range(3):\n            done += 1\n        return 0\n    except KeyboardInterrupt:\n        log.warning(\"stopped by user after %s items\", done)\n        return 130\n    except Exception:\n        log.exception(\"job failed\")\n        return 1\n\nif __name__ == \"__main__\":\n    code = run()\n    print(\"exit code\", code)\n    sys.exit(code)",
      "run": 1
+    },
+    {
+     "h": {
+      "ar": "سكربت متين: حالة الخروج وإعادة المحاولة",
+      "en": "A robust script: exit status and retries"
+     },
+     "p": {
+      "ar": "السكربت اللي بيشتغل من n8n أو cron لازم يرجّع **exit status**: `0` نجح، أي رقم تاني فشل — `sys.exit(1)`. كده اللي شغّله يعرف. وللعمليات اللي ممكن تفشل مؤقتًا: retry loop بعدد محاولات وانتظار بيزيد.",
+      "en": "A script run from n8n or cron must return an **exit status**: `0` success, any other number failure — `sys.exit(1)`. That way whatever ran it knows. For operations that can fail temporarily: a retry loop with a number of tries and a growing wait."
+     },
+     "ex": "for attempt in range(1, 4):\n    try:\n        send(); break\n    except ConnectionError:\n        time.sleep(2 ** attempt)\nelse:\n    sys.exit(1)",
+     "deep": 1
     }
    ],
    "practice": [
@@ -963,6 +1227,16 @@ JOURNEY.week({
     {
      "ar": "اعمل لوب طويل فيه `time.sleep` ووقّفه بـ Ctrl+C، وخليه يطبع «اتحفظ X عنصر» قبل ما يخرج.",
      "en": "Write a long loop with `time.sleep`, stop it with Ctrl+C, and make it print «saved X items» before exiting."
+    },
+    {
+     "ar": "خلّي سكربت عندك يرجّع 1 لو فيه أي خطأ، وجرّبه من n8n (Execute Command).",
+     "en": "Make a script of yours return 1 on any error, and test it from n8n (Execute Command).",
+     "deep": 1
+    },
+    {
+     "ar": "اعمل retry loop بـ 3 محاولات وانتظار 1 ثم 2 ثم 4 ثواني.",
+     "en": "Build a retry loop with 3 tries and waits of 1, 2 and 4 seconds.",
+     "deep": 1
     }
    ],
    "code": [
@@ -972,6 +1246,15 @@ JOURNEY.week({
       "en": "The skeleton of a robust automation script"
      },
      "p": "\"\"\"nightly_sync.py — run by cron / Task Scheduler.\"\"\"\nimport logging, sys\n\nlog = logging.getLogger(\"nightly_sync\")\n\ndef main() -> int:\n    logging.basicConfig(level=logging.INFO, format=\"%(asctime)s %(levelname)s %(message)s\",\n                        handlers=[logging.FileHandler(\"nightly_sync.log\", encoding=\"utf-8\"), logging.StreamHandler()])\n    log.info(\"start\")\n    try:\n        # 1. fetch  2. transform  3. save  (each in its own function)\n        log.info(\"done\")\n        return 0\n    except KeyboardInterrupt:\n        log.warning(\"interrupted\")\n        return 130\n    except Exception:\n        log.exception(\"failed\")\n        return 1\n\nif __name__ == \"__main__\":\n    sys.exit(main())"
+    },
+    {
+     "u": {
+      "ar": "إعادة محاولة وحالة خروج",
+      "en": "Retry and exit status"
+     },
+     "p": "import random, sys, time\nrandom.seed(7)\n\ndef flaky_send():\n    if random.random() < 0.6:\n        raise ConnectionError(\"network hiccup\")\n    return \"sent\"\n\nfor attempt in range(1, 5):\n    try:\n        print(\"attempt\", attempt, \"->\", flaky_send())\n        break\n    except ConnectionError as e:\n        wait = 0.01 * 2 ** attempt\n        print(\"attempt\", attempt, \"failed:\", e, f\"(waiting {wait:.2f}s)\")\n        time.sleep(wait)\nelse:\n    print(\"giving up\")\n    sys.exit(1)\nprint(\"exit status 0\")",
+     "run": 1,
+     "deep": 1
     }
    ],
    "words": [
@@ -1030,6 +1313,22 @@ JOURNEY.week({
       "en": "a temporary error that goes away if you wait and retry"
      },
      "ex": "429 Too Many Requests"
+    },
+    {
+     "t": "exit status",
+     "m": {
+      "ar": "رقم السكربت بيرجّعه (0 = نجح)",
+      "en": "the number a script returns (0 = success)"
+     },
+     "ex": "n8n reads the exit status."
+    },
+    {
+     "t": "retry loop",
+     "m": {
+      "ar": "loop بتعيد العملية لما تفشل",
+      "en": "a loop that repeats an operation when it fails"
+     },
+     "ex": "Use a retry loop for network calls."
     }
    ],
    "read": [
@@ -1126,6 +1425,22 @@ JOURNEY.week({
       "ar": "عشان الجدولة تعرف إنه فشل.",
       "en": "So the scheduler knows it failed."
      }
+    },
+    {
+     "q": {
+      "ar": "السكربت فشل. المفروض يرجّع:",
+      "en": "The script failed. It should return:"
+     },
+     "o": [
+      "a non-zero exit status",
+      "0",
+      "nothing"
+     ],
+     "a": 0,
+     "why": {
+      "ar": "0 = نجاح بس.",
+      "en": "0 means success only."
+     }
     }
    ],
    "minutes": 180
@@ -1160,6 +1475,16 @@ JOURNEY.week({
     {
      "ar": "retry وbackoff وwith وكود الخروج وCtrl+C.",
      "en": "Retries, backoff, with, exit codes and Ctrl+C."
+    },
+    {
+     "ar": "⚡ raise from، وfail fast والـ preconditions، وأصغر مثال وf\"{x=}\".",
+     "en": "⚡ raise from, fail fast and preconditions, the minimal example and f\"{x=}\".",
+     "deep": 1
+    },
+    {
+     "ar": "⚡ سجل منسّق ودوّار، وحالة الخروج وإعادة المحاولة: خلّي سكربت الأسبوع جاهز للتشغيل الآلي.",
+     "en": "⚡ Formatted rotating logs, exit status and retries: make the week’s script ready for automatic runs.",
+     "deep": 1
     }
    ],
    "project": {

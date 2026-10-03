@@ -62,6 +62,18 @@ JOURNEY.week({
      },
      "ex": "msg = \"Invoice INV-2026-0042 is overdue\"\nprint(len(msg))\nprint(\"overdue\" in msg)\nprint(\"Paid\" in msg)\nprint(\"-\" * 20)\nprint(len(\"مرحبا\"))",
      "run": 1
+    },
+    {
+     "h": {
+      "ar": "علامات الهروب والنصوص متعددة السطور",
+      "en": "Escape sequences and multi-line strings"
+     },
+     "p": {
+      "ar": "جوه النص، `\\n` سطر جديد، `\\t` tab، `\\\\` شرطة مايلة، `\\\"` تنصيص. النص بين `\"\"\"` تلات تنصيصات بيكمّل على كذا سطر — مفيد لقوالب الرسايل. ولمسارات ويندوز استخدم `r\"C:\\new\"` (raw) عشان `\\n` متتفهمش سطر جديد.",
+      "en": "Inside a string, `\\n` is a new line, `\\t` a tab, `\\\\` a backslash, `\\\"` a quote. Text between `\"\"\"` triple quotes spans several lines — handy for message templates. For Windows paths use `r\"C:\\new\"` (raw) so `\\n` is not read as a new line."
+     },
+     "ex": "print(\"Name:\\tSara\\nCity:\\tGiza\")\nmsg = \"\"\"Hi Sara,\nYour order is ready.\n\"\"\"",
+     "deep": 1
     }
    ],
    "practice": [
@@ -80,6 +92,16 @@ JOURNEY.week({
     {
      "ar": "خد عنوان إيميل في متغير واطبع: طوله، وهل فيه `@`، وهل فيه `.com`.",
      "en": "Put an email address in a variable and print its length, whether it contains `@`, and whether it contains `.com`."
+    },
+    {
+     "ar": "اعمل قالب إيصال على 6 سطور فيه tab بين الاسم والقيمة.",
+     "en": "Build a 6-line receipt template with a tab between each label and value.",
+     "deep": 1
+    },
+    {
+     "ar": "اطبع مسار ويندوز فيه `\\n` مرة عادي ومرة raw وقارن.",
+     "en": "Print a Windows path containing `\\n` once normally and once raw, and compare.",
+     "deep": 1
     }
    ],
    "code": [
@@ -90,6 +112,15 @@ JOURNEY.week({
      },
      "p": "shop = \"Nile Books\"\nline = \"=\" * 28\nprint(line)\nprint(f\"{shop}\\nReceipt #0091\")\nprint(line)\nprint(\"Notebook\\t2 x 45\\nPen\\t3 x 30\")",
      "run": 1
+    },
+    {
+     "u": {
+      "ar": "قالب رسالة على كذا سطر",
+      "en": "A multi-line message template"
+     },
+     "p": "name, order_id, total = \"Sara\", 1042, 350\nmessage = f\"\"\"Hi {name},\n\nYour order #{order_id} is ready.\nTotal:\\t{total} EGP\n\nThanks!\"\"\"\nprint(message)\nprint(len(message.splitlines()), \"lines\")",
+     "run": 1,
+     "deep": 1
     }
    ],
    "words": [
@@ -140,6 +171,22 @@ JOURNEY.week({
       "en": "a test with in: is this inside that?"
      },
      "ex": "\"@\" in email"
+    },
+    {
+     "t": "escape sequence",
+     "m": {
+      "ar": "حرف خاص بيبدأ بـ \\ زي \\n",
+      "en": "a special character starting with \\ like \\n"
+     },
+     "ex": "\\t is the escape sequence for a tab."
+    },
+    {
+     "t": "multiline string",
+     "m": {
+      "ar": "نص بين تلات تنصيصات على كذا سطر",
+      "en": "text between triple quotes over several lines"
+     },
+     "ex": "Use a multiline string for the email body."
     }
    ],
    "read": [
@@ -224,6 +271,22 @@ JOURNEY.week({
       "ar": "`in` حساس للحروف الكبيرة: \"Pay\" مش \"pay\".",
       "en": "`in` is case-sensitive: \"Pay\" is not \"pay\"."
      }
+    },
+    {
+     "q": {
+      "ar": "`len(\"a\\nb\")` =",
+      "en": "`len(\"a\\nb\")` ="
+     },
+     "o": [
+      "3",
+      "4",
+      "2"
+     ],
+     "a": 0,
+     "why": {
+      "ar": "\\n حرف واحد.",
+      "en": "\\n is one character."
+     }
     }
    ],
    "minutes": 180
@@ -274,6 +337,18 @@ JOURNEY.week({
      },
      "ex": "sku = \"ab-1001\"\nsku = sku[:2].upper() + sku[2:]\nprint(sku)\ntry:\n    sku[0] = \"X\"\nexcept TypeError as e:\n    print(\"TypeError:\", e)",
      "run": 1
+    },
+    {
+     "h": {
+      "ar": "الـ slice بالخطوة والعكس",
+      "en": "Slicing with a step and in reverse"
+     },
+     "p": {
+      "ar": "`s[start:stop:step]`: `s[::2]` كل حرف التاني، `s[::-1]` النص معكوس، `s[-4:]` آخر 4. الـ slice مش بيكسر لو تعدّى الطول (`\"abc\"[0:100]` = `\"abc\"`). مفيد لآخر 4 أرقام من كارت أو رقم، أو لإخفاء جزء.",
+      "en": "`s[start:stop:step]`: `s[::2]` every second character, `s[::-1]` the string reversed, `s[-4:]` the last 4. A slice never fails when it passes the length (`\"abc\"[0:100]` = `\"abc\"`). Useful for the last 4 digits of a number, or for masking part of it."
+     },
+     "ex": "\"01012345678\"[-4:]    # \"5678\"\n\"python\"[::-1]        # \"nohtyp\"\n\"abcdef\"[::2]         # \"ace\"",
+     "deep": 1
     }
    ],
    "practice": [
@@ -292,6 +367,16 @@ JOURNEY.week({
     {
      "ar": "اخفي رقم كارت: اطبع `**** **** **** 1234` من `\"4111222233331234\"`.",
      "en": "Mask a card number: print `**** **** **** 1234` from `\"4111222233331234\"`."
+    },
+    {
+     "ar": "اكتب دالة تخفي الإيميل: `s***@gmail.com`.",
+     "en": "Write code that masks an email: `s***@gmail.com`.",
+     "deep": 1
+    },
+    {
+     "ar": "اطبع كل كلمة في جملة معكوسة (مع الحفاظ على ترتيب الكلمات).",
+     "en": "Print each word of a sentence reversed (keeping the word order).",
+     "deep": 1
     }
    ],
    "code": [
@@ -302,6 +387,15 @@ JOURNEY.week({
      },
      "p": "card = \"4111222233331234\"\nphone = \"01012345678\"\nprint(\"**** **** **** \" + card[-4:])\nprint(phone[:3] + \"*\" * 5 + phone[-3:])",
      "run": 1
+    },
+    {
+     "u": {
+      "ar": "إخفاء رقم موبايل",
+      "en": "Masking a mobile number"
+     },
+     "p": "phone = \"01012345678\"\nmasked = phone[:3] + \"*\" * (len(phone) - 7) + phone[-4:]\nprint(masked)\nword = \"level\"\nprint(word, \"is a palindrome:\", word == word[::-1])",
+     "run": 1,
+     "deep": 1
     }
    ],
    "words": [
@@ -352,6 +446,22 @@ JOURNEY.week({
       "en": "an error when you ask for an index that does not exist"
      },
      "ex": "\"abc\"[5]"
+    },
+    {
+     "t": "slice object",
+     "m": {
+      "ar": "الجزء start:stop:step جوه الأقواس",
+      "en": "the start:stop:step part inside brackets"
+     },
+     "ex": "The slice object [::-1] reverses a list."
+    },
+    {
+     "t": "reverse order",
+     "m": {
+      "ar": "الترتيب المعكوس",
+      "en": "backwards order"
+     },
+     "ex": "Print the list in reverse order."
     }
    ],
    "read": [
@@ -427,6 +537,22 @@ JOURNEY.week({
       "ar": "النصوص immutable.",
       "en": "Strings are immutable."
      }
+    },
+    {
+     "q": {
+      "ar": "`\"hello\"[1:4]` =",
+      "en": "`\"hello\"[1:4]` ="
+     },
+     "o": [
+      "\"ell\"",
+      "\"hell\"",
+      "\"ello\""
+     ],
+     "a": 0,
+     "why": {
+      "ar": "من 1 لحد قبل 4.",
+      "en": "From 1 up to before 4."
+     }
     }
    ],
    "minutes": 180
@@ -477,6 +603,18 @@ JOURNEY.week({
      },
      "ex": "name = \"invoice_0931.PDF\"\nprint(name.lower().endswith(\".pdf\"))\nprint(name.find(\"_\"), name.find(\"#\"))\nprint(\"a-b-c\".count(\"-\"))\nqty = \"12\"\nif qty.isdigit():\n    print(int(qty) * 2)",
      "run": 1
+    },
+    {
+     "h": {
+      "ar": "المقارنة من غير حساسية للحروف",
+      "en": "Case-insensitive comparison"
+     },
+     "p": {
+      "ar": "`.lower()` بيكفي غالبًا، بس `.casefold()` أقوى للمقارنة (بيتعامل مع حروف لغات تانية). قبل ما تقارن مدخلات المستخدم: `.strip()` للمسافات، وبعدين `.casefold()`. ولتنضيف حروف معيّنة من الأطراف: `.strip(\".,!\")`.",
+      "en": "`.lower()` is usually enough, but `.casefold()` is stronger for comparing (it handles letters of other languages). Before comparing user input: `.strip()` the spaces, then `.casefold()`. To remove certain characters from the ends: `.strip(\".,!\")`."
+     },
+     "ex": "\"  YES \".strip().casefold() == \"yes\"    # True\n\"Hello!!\".strip(\"!\")                     # \"Hello\"",
+     "deep": 1
     }
    ],
    "practice": [
@@ -495,6 +633,16 @@ JOURNEY.week({
     {
      "ar": "اطبع هل اسم ملف صورة (ينتهي بـ .jpg أو .png بأي حروف كبيرة/صغيرة).",
      "en": "Print whether a file name is an image (ends in .jpg or .png in any case)."
+    },
+    {
+     "ar": "اعمل قايمة أوامر بوت (`/start`، `/Help`، ` /PRICE `) ونضّفها قبل المقارنة.",
+     "en": "Make a list of bot commands (`/start`, `/Help`, ` /PRICE `) and clean them before comparing.",
+     "deep": 1
+    },
+    {
+     "ar": "شيل علامات الترقيم من أطراف 5 كلمات بـ `strip`.",
+     "en": "Remove punctuation from the ends of 5 words with `strip`.",
+     "deep": 1
     }
    ],
    "code": [
@@ -505,6 +653,15 @@ JOURNEY.week({
      },
      "p": "raw = \"  MONA  hassan ; MONA@Shop.COM ;  0100 111 2222 \"\nname, email, phone = [part.strip() for part in raw.split(\";\")]\nname = \" \".join(name.split()).title()\nemail = email.lower()\nphone = phone.replace(\" \", \"\")\nprint(name, \"|\", email, \"|\", phone)",
      "run": 1
+    },
+    {
+     "u": {
+      "ar": "تنضيف إجابات المستخدمين",
+      "en": "Cleaning user answers"
+     },
+     "p": "answers = [\"  Yes\", \"YES!\", \"yes.\", \"Nope\", \" y \"]\nfor a in answers:\n    clean = a.strip().strip(\".!\").casefold()\n    agreed = clean in (\"yes\", \"y\")\n    print(repr(a), \"->\", repr(clean), \"agreed\" if agreed else \"not agreed\")",
+     "run": 1,
+     "deep": 1
     }
    ],
    "words": [
@@ -555,6 +712,22 @@ JOURNEY.week({
       "en": "calling methods one after another on one line"
      },
      "ex": "raw.strip().lower()"
+    },
+    {
+     "t": "strip",
+     "m": {
+      "ar": "تشيل مسافات أو حروف من الأطراف",
+      "en": "to remove spaces or characters from both ends"
+     },
+     "ex": "Strip the input before checking it."
+    },
+    {
+     "t": "casefold",
+     "m": {
+      "ar": "تحويل للحروف الصغيرة بشكل أقوى للمقارنة",
+      "en": "a stronger lowercase conversion for comparing"
+     },
+     "ex": "Casefold both strings before comparing."
     }
    ],
    "read": [
@@ -636,6 +809,22 @@ JOURNEY.week({
       "ar": "\" A@x.com\" و\"a@x.com\" نفس الشخص.",
       "en": "\" A@x.com\" and \"a@x.com\" are the same person."
      }
+    },
+    {
+     "q": {
+      "ar": "`\" Hi! \".strip()` =",
+      "en": "`\" Hi! \".strip()` ="
+     },
+     "o": [
+      "\"Hi!\"",
+      "\"Hi\"",
+      "\" Hi!\""
+     ],
+     "a": 0,
+     "why": {
+      "ar": "بيشيل المسافات بس.",
+      "en": "It removes spaces only."
+     }
     }
    ],
    "minutes": 180
@@ -686,6 +875,18 @@ JOURNEY.week({
      },
      "ex": "subtotal = 600\ndiscount = 0.1\ntotal = subtotal * (1 - discount)\nprint(f\"{subtotal=} {discount=:.0%} {total=:.2f}\")\nprint(\"{} owes {:.2f}\".format(\"Omar\", total))",
      "run": 1
+    },
+    {
+     "h": {
+      "ar": "textwrap وشريط التقدم",
+      "en": "textwrap and a progress bar"
+     },
+     "p": {
+      "ar": "`textwrap.fill(text, width=40)` بيقسّم نص طويل على سطور بعرض محدد — مفيد للتقارير في الطرفية أو رسايل تليجرام. وشريط تقدم بسيط: `\"█\" * done + \"░\" * (total - done)` مع النسبة بـ f-string `{p:.0%}`.",
+      "en": "`textwrap.fill(text, width=40)` wraps long text into lines of a set width — handy for terminal reports or Telegram messages. A simple progress bar: `\"█\" * done + \"░\" * (total - done)` with the percentage via an f-string `{p:.0%}`."
+     },
+     "ex": "import textwrap\nprint(textwrap.fill(long_text, width=40))\nprint(f\"[{'█' * 3}{'░' * 7}] {0.3:.0%}\")",
+     "deep": 1
     }
    ],
    "practice": [
@@ -704,6 +905,16 @@ JOURNEY.week({
     {
      "ar": "استخدم `f\"{x=}\"` في سكربت فيه 3 حسابات عشان تشوف القيم وهي بتتغير.",
      "en": "Use `f\"{x=}\"` in a script with 3 calculations to watch the values change."
+    },
+    {
+     "ar": "اعمل تقرير ملخص لـ 5 طلبات بعرض 40 حرف.",
+     "en": "Make a summary report of 5 orders at 40 characters wide.",
+     "deep": 1
+    },
+    {
+     "ar": "اعمل شريط تقدم بـ 20 خانة لعملية من 57 عنصر.",
+     "en": "Make a 20-cell progress bar for a job of 57 items.",
+     "deep": 1
     }
    ],
    "code": [
@@ -714,6 +925,15 @@ JOURNEY.week({
      },
      "p": "sales = [(\"Cairo\", 18250.5, 0.12), (\"Giza\", 9400, -0.05), (\"Alexandria\", 13125.75, 0.31)]\nprint(f\"{'City':<12}{'Sales':>12}{'Change':>9}\")\nprint(\"-\" * 33)\nfor city, amount, change in sales:\n    print(f\"{city:<12}{amount:>12,.2f}{change:>+9.0%}\")",
      "run": 1
+    },
+    {
+     "u": {
+      "ar": "تقرير ملفوف وشريط تقدم",
+      "en": "A wrapped report and a progress bar"
+     },
+     "p": "import textwrap\nnote = \"The nightly sync copied all paid orders from the shop to the sheet and sent a summary to the team on Telegram.\"\nprint(textwrap.fill(note, width=36))\ntotal = 10\nfor done in (3, 7, 10):\n    bar = \"█\" * done + \"░\" * (total - done)\n    print(f\"[{bar}] {done / total:.0%}\")",
+     "run": 1,
+     "deep": 1
     }
    ],
    "words": [
@@ -756,6 +976,22 @@ JOURNEY.week({
       "en": "the comma between every three digits"
      },
      "ex": "{1500000:,}"
+    },
+    {
+     "t": "textwrap",
+     "m": {
+      "ar": "مكتبة بتقسّم النص على سطور بعرض محدد",
+      "en": "a module that wraps text to a set width"
+     },
+     "ex": "Use textwrap to fit the message on a phone."
+    },
+    {
+     "t": "progress bar",
+     "m": {
+      "ar": "شريط بيبيّن نسبة الشغل اللي خلص",
+      "en": "a bar showing how much of the work is done"
+     },
+     "ex": "Show a progress bar while files are copied."
     }
    ],
    "read": [
@@ -828,6 +1064,22 @@ JOURNEY.week({
       "ar": "> يمين، < شمال، ^ في النص.",
       "en": "> right, < left, ^ centre."
      }
+    },
+    {
+     "q": {
+      "ar": "`f\"{0.256:.0%}\"` =",
+      "en": "`f\"{0.256:.0%}\"` ="
+     },
+     "o": [
+      "\"26%\"",
+      "\"0.26%\"",
+      "\"25.6\""
+     ],
+     "a": 0,
+     "why": {
+      "ar": "% بيضرب في 100.",
+      "en": "% multiplies by 100."
+     }
     }
    ],
    "minutes": 180
@@ -878,6 +1130,18 @@ JOURNEY.week({
      },
      "ex": "import random, secrets\nrandom.seed(7)\nprint(random.randint(1, 100))\nprint(random.choice([\"Sara\", \"Omar\", \"Mona\"]))\nprint(random.sample(range(1, 50), 6))\nprint(secrets.token_hex(8))",
      "run": 1
+    },
+    {
+     "h": {
+      "ar": "التقريب: round والتقريب البنكي",
+      "en": "Rounding: round and banker’s rounding"
+     },
+     "p": {
+      "ar": "`round(2.5)` = `2` مش `3`! بايثون بتستخدم **التقريب البنكي**: النص بيروح للرقم الزوجي (عشان الأخطاء متتراكمش في الحسابات الكتير). للفلوس استخدم `Decimal` مع `ROUND_HALF_UP` لو محتاج التقريب المدرسي.",
+      "en": "`round(2.5)` is `2`, not `3`! Python uses **banker’s rounding**: halves go to the even number (so errors do not pile up over many sums). For money use `Decimal` with `ROUND_HALF_UP` when you need school-style rounding."
+     },
+     "ex": "round(2.5), round(3.5)   # (2, 4)\nDecimal(\"2.5\").quantize(Decimal(\"1\"), rounding=ROUND_HALF_UP)   # 3",
+     "deep": 1
     }
    ],
    "practice": [
@@ -896,6 +1160,16 @@ JOURNEY.week({
     {
      "ar": "اعمل كود خصم عشوائي آمن من 8 حروف بـ `secrets`.",
      "en": "Generate a secure random 8-character discount code with `secrets`."
+    },
+    {
+     "ar": "احسب فاتورة فيها 7 أسعار بكسور وقرّب الإجمالي بالطريقتين وقارن.",
+     "en": "Compute an invoice of 7 prices with decimals and round the total both ways; compare.",
+     "deep": 1
+    },
+    {
+     "ar": "اشرح لنفسك ليه `round(2.675, 2)` بيطلع `2.67`.",
+     "en": "Explain to yourself why `round(2.675, 2)` gives `2.67`.",
+     "deep": 1
     }
    ],
    "code": [
@@ -906,6 +1180,15 @@ JOURNEY.week({
      },
      "p": "from decimal import Decimal, ROUND_HALF_UP\ntotal = Decimal(\"10000.00\")\nmonths = 3\nper_month = (total / months).quantize(Decimal(\"0.01\"), rounding=ROUND_HALF_UP)\nlast = total - per_month * (months - 1)\nprint(f\"{months - 1} x {per_month} + last {last}\")",
      "run": 1
+    },
+    {
+     "u": {
+      "ar": "round مقابل Decimal",
+      "en": "round versus Decimal"
+     },
+     "p": "from decimal import Decimal, ROUND_HALF_UP\nfor x in [\"0.5\", \"1.5\", \"2.5\", \"2.675\"]:\n    school = Decimal(x).quantize(Decimal(\"1\"), rounding=ROUND_HALF_UP)\n    print(x, \"round():\", round(float(x)), \"half-up:\", school)\nprint(round(2.675, 2), Decimal(\"2.675\").quantize(Decimal(\"0.01\"), rounding=ROUND_HALF_UP))",
+     "run": 1,
+     "deep": 1
     }
    ],
    "words": [
@@ -956,6 +1239,22 @@ JOURNEY.week({
       "en": "a module for secure random values (passwords and tokens)"
      },
      "ex": "secrets.token_urlsafe(16)"
+    },
+    {
+     "t": "rounding mode",
+     "m": {
+      "ar": "قاعدة التقريب (لفوق، للزوجي…)",
+      "en": "the rule for rounding (up, to even…)"
+     },
+     "ex": "Set the rounding mode to half-up for invoices."
+    },
+    {
+     "t": "banker's rounding",
+     "m": {
+      "ar": "تقريب النص للرقم الزوجي",
+      "en": "rounding halves to the even number"
+     },
+     "ex": "round() uses banker's rounding."
     }
    ],
    "read": [
@@ -1028,6 +1327,22 @@ JOURNEY.week({
       "ar": "random مش آمن للأسرار.",
       "en": "random is not safe for secrets."
      }
+    },
+    {
+     "q": {
+      "ar": "`round(4.5)` في بايثون =",
+      "en": "`round(4.5)` in Python ="
+     },
+     "o": [
+      "4",
+      "5",
+      "4.5"
+     ],
+     "a": 0,
+     "why": {
+      "ar": "للزوجي.",
+      "en": "To even."
+     }
     }
    ],
    "minutes": 180
@@ -1062,6 +1377,16 @@ JOURNEY.week({
     {
      "ar": "math.ceil وDecimal للفلوس وrandom وsecrets.",
      "en": "math.ceil, Decimal for money, random and secrets."
+    },
+    {
+     "ar": "⚡ escape والنصوص متعددة السطور، والـ slice بالخطوة، وstrip وcasefold.",
+     "en": "⚡ Escapes and multi-line strings, slicing with a step, strip and casefold.",
+     "deep": 1
+    },
+    {
+     "ar": "⚡ textwrap وشريط التقدم، والتقريب البنكي وDecimal: اعمل إيصال كامل منسّق.",
+     "en": "⚡ textwrap and progress bars, banker’s rounding and Decimal: build a fully formatted receipt.",
+     "deep": 1
     }
    ],
    "project": {

@@ -62,6 +62,18 @@ JOURNEY.week({
      },
      "ex": "import csv, io\ntext = 'id;name;note\\n1;\"Ahmed, Sara\";\\n2;Omar;\"VIP; pays cash\"\\n'\ndialect = csv.Sniffer().sniff(text.splitlines()[0])\nprint(\"delimiter:\", repr(dialect.delimiter))\nfor row in csv.DictReader(io.StringIO(text), delimiter=\";\"):\n    print(row, \"| note empty:\", row[\"note\"] == \"\")",
      "run": 1
+    },
+    {
+     "h": {
+      "ar": "CSV بفاصلة منقوطة: Sniffer",
+      "en": "CSV with semicolons: the Sniffer"
+     },
+     "p": {
+      "ar": "Excel في إعدادات عربي أو أوروبي بيحفظ CSV بـ `;` بدل `,`. `csv.Sniffer().sniff(sample)` بيخمّن الفاصل (الـ **dialect**) من أول كام سطر، و`has_header` بيخمّن فيه سطر عناوين ولا لأ. اقرا بعدها بـ `csv.DictReader(f, dialect=d)`.",
+      "en": "Excel with Arabic or European settings saves CSV with `;` instead of `,`. `csv.Sniffer().sniff(sample)` guesses the separator (the **dialect**) from the first lines, and `has_header` guesses whether there is a header row. Then read with `csv.DictReader(f, dialect=d)`."
+     },
+     "ex": "sample = f.read(2048); f.seek(0)\ndialect = csv.Sniffer().sniff(sample, delimiters=\",;\\t\")\nrows = list(csv.DictReader(f, dialect=dialect))",
+     "deep": 1
     }
    ],
    "practice": [
@@ -80,6 +92,16 @@ JOURNEY.week({
     {
      "ar": "اقرا ملف فاصله `;` من غير ما تقوله الفاصل، بـ Sniffer.",
      "en": "Read a `;`-separated file without telling it the delimiter, using Sniffer."
+    },
+    {
+     "ar": "صدّر شيت بإعدادات مختلفة واقراه بالـ Sniffer.",
+     "en": "Export a sheet with different settings and read it with the Sniffer.",
+     "deep": 1
+    },
+    {
+     "ar": "اكتب CSV بـ `;` بـ `csv.writer(f, delimiter=\";\")`.",
+     "en": "Write a CSV with `;` using `csv.writer(f, delimiter=\";\")`.",
+     "deep": 1
     }
    ],
    "code": [
@@ -90,6 +112,15 @@ JOURNEY.week({
      },
      "p": "import csv\nfrom pathlib import Path\nPath(\"orders.csv\").write_text(\"id,status,total\\n1,paid,1200\\n2,new,90\\n3,paid,3100\\n4,cancelled,45\\n\", encoding=\"utf-8\")\nwith open(\"orders.csv\", newline=\"\", encoding=\"utf-8\") as src, open(\"paid.csv\", \"w\", newline=\"\", encoding=\"utf-8\") as dst:\n    reader = csv.DictReader(src)\n    writer = csv.DictWriter(dst, fieldnames=reader.fieldnames)\n    writer.writeheader()\n    kept = 0\n    for row in reader:\n        if row[\"status\"] == \"paid\":\n            writer.writerow(row)\n            kept += 1\nprint(kept, \"rows written\")\nprint(Path(\"paid.csv\").read_text(encoding=\"utf-8\"))",
      "run": 1
+    },
+    {
+     "u": {
+      "ar": "اقرا CSV مهما كان الفاصل",
+      "en": "Read a CSV whatever the separator"
+     },
+     "p": "import csv, io\nfiles = {\n    \"comma.csv\": \"name,city,total\\nSara,Giza,300\\nOmar,Cairo,150\\n\",\n    \"semicolon.csv\": \"name;city;total\\nMona;Alex;90\\nAli;Giza;400\\n\",\n}\nfor name, text in files.items():\n    dialect = csv.Sniffer().sniff(text[:1024], delimiters=\",;\\t\")\n    rows = list(csv.DictReader(io.StringIO(text), dialect=dialect))\n    print(name, repr(dialect.delimiter), rows[0])",
+     "run": 1,
+     "deep": 1
     }
    ],
    "words": [
@@ -140,6 +171,22 @@ JOURNEY.week({
       "en": "the column names, in order"
      },
      "ex": "reader.fieldnames"
+    },
+    {
+     "t": "dialect",
+     "m": {
+      "ar": "إعدادات شكل الـ CSV (الفاصل، التنصيص)",
+      "en": "the CSV format settings (separator, quoting)"
+     },
+     "ex": "The sniffer detects the dialect."
+    },
+    {
+     "t": "csv sniffer",
+     "m": {
+      "ar": "أداة بتخمّن شكل ملف CSV",
+      "en": "a tool that guesses a CSV file’s format"
+     },
+     "ex": "Use the csv sniffer for files from clients."
     }
    ],
    "read": [
@@ -224,6 +271,22 @@ JOURNEY.week({
       "ar": "الـ BOM بيعرّف Excel إنه UTF-8.",
       "en": "The BOM tells Excel it is UTF-8."
      }
+    },
+    {
+     "q": {
+      "ar": "CSV من Excel عربي فيه `;`. الأسهل:",
+      "en": "A CSV from Arabic Excel uses `;`. Easiest:"
+     },
+     "o": [
+      "csv.Sniffer or delimiter=\";\"",
+      "replace every ; by hand",
+      "open it as JSON"
+     ],
+     "a": 0,
+     "why": {
+      "ar": "حدّد الفاصل.",
+      "en": "Set the separator."
+     }
     }
    ],
    "minutes": 180
@@ -271,6 +334,18 @@ JOURNEY.week({
       "en": "`ws.iter_rows(min_row=2, values_only=True)` yields each row as a tuple of values (skipping the headers). To make dicts, take the headers from the first row and `zip`. Skip empty rows (`if not any(row)`). Numbers arrive as numbers and dates as datetime — unlike CSV."
      },
      "ex": "from openpyxl import load_workbook\n\ndef sheet_to_dicts(path, sheet=None):\n    wb = load_workbook(path, data_only=True, read_only=True)\n    ws = wb[sheet] if sheet else wb.active\n    rows = ws.iter_rows(values_only=True)\n    headers = [str(h).strip() for h in next(rows)]\n    return [dict(zip(headers, r)) for r in rows if any(v is not None for v in r)]\n\nfor row in sheet_to_dicts(\"sales.xlsx\", \"Sales\")[:3]:\n    print(row)"
+    },
+    {
+     "h": {
+      "ar": "حروف الأعمدة وأسماء الشيتات",
+      "en": "Column letters and sheet names"
+     },
+     "p": {
+      "ar": "Excel بيسمّي الأعمدة A..Z ثم AA..AZ… لما تكتب معادلة أو تحدد عرض عمود في openpyxl محتاج تحوّل الرقم لحروف: `openpyxl.utils.get_column_letter(28)` = `AB`. والفكرة نفسها نظام عدّ بـ 26 حرف. وأسماء الشيتات: أقل من 31 حرف ومن غير `/ \\ ? * [ ] :`.",
+      "en": "Excel names columns A..Z, then AA..AZ… When you write a formula or set a column width in openpyxl you need to turn a number into letters: `openpyxl.utils.get_column_letter(28)` = `AB`. The idea is a base-26 counting system. Sheet names: under 31 characters and without `/ \\ ? * [ ] :`."
+     },
+     "ex": "from openpyxl.utils import get_column_letter, column_index_from_string\nget_column_letter(28)            # \"AB\"\ncolumn_index_from_string(\"AB\")   # 28",
+     "deep": 1
     }
    ],
    "practice": [
@@ -289,6 +364,16 @@ JOURNEY.week({
     {
      "ar": "جرّب `data_only=True` و`False` على خلية فيها معادلة وشوف الفرق.",
      "en": "Try `data_only=True` and `False` on a cell with a formula and see the difference."
+    },
+    {
+     "ar": "اكتب معادلة `=SUM(B2:B50)` لكل عمود من B لـ M بالدالة.",
+     "en": "Write a `=SUM(B2:B50)` formula for every column from B to M using the function.",
+     "deep": 1
+    },
+    {
+     "ar": "نضّف 5 أسماء شيتات فيها حروف ممنوعة.",
+     "en": "Clean 5 sheet names that contain forbidden characters.",
+     "deep": 1
     }
    ],
    "code": [
@@ -298,6 +383,15 @@ JOURNEY.week({
       "en": "A summary from Excel"
      },
      "p": "from collections import defaultdict\nfrom openpyxl import load_workbook\n\nwb = load_workbook(\"sales.xlsx\", data_only=True, read_only=True)\nws = wb[\"Sales\"]\ntotals = defaultdict(float)\nfor date, city, product, qty, price in ws.iter_rows(min_row=2, values_only=True):\n    if city:\n        totals[city] += qty * price\nfor city, total in sorted(totals.items(), key=lambda kv: -kv[1]):\n    print(f\"{city:<6}{total:>12,.2f}\")"
+    },
+    {
+     "u": {
+      "ar": "رقم ↔ حرف عمود (من غير مكتبات)",
+      "en": "Number ↔ column letter (no libraries)"
+     },
+     "p": "import re\n\ndef col_letter(n):\n    s = \"\"\n    while n:\n        n, r = divmod(n - 1, 26)\n        s = chr(65 + r) + s\n    return s\n\ndef col_number(s):\n    n = 0\n    for ch in s.upper():\n        n = n * 26 + ord(ch) - 64\n    return n\n\nfor n in [1, 26, 27, 28, 52, 703]:\n    print(n, col_letter(n), col_number(col_letter(n)))\nsafe = re.sub(r\"[/\\\\?*\\[\\]:]\", \"-\", \"Sales 2026/10: Giza\")[:31]\nprint(safe)",
+     "run": 1,
+     "deep": 1
     }
    ],
    "words": [
@@ -348,6 +442,22 @@ JOURNEY.week({
       "en": "loops over a sheet’s rows"
      },
      "ex": "ws.iter_rows(min_row=2, values_only=True)"
+    },
+    {
+     "t": "column letter",
+     "m": {
+      "ar": "اسم العمود بالحروف في Excel (A، AB)",
+      "en": "an Excel column’s name in letters (A, AB)"
+     },
+     "ex": "Convert 28 to the column letter AB."
+    },
+    {
+     "t": "sheet name",
+     "m": {
+      "ar": "اسم ورقة العمل في ملف Excel",
+      "en": "the name of a worksheet in an Excel file"
+     },
+     "ex": "A sheet name cannot contain a slash."
     }
    ],
    "read": [
@@ -435,6 +545,22 @@ JOURNEY.week({
       "ar": "عكس CSV.",
       "en": "Unlike CSV."
      }
+    },
+    {
+     "q": {
+      "ar": "العمود رقم 27 =",
+      "en": "Column number 27 ="
+     },
+     "o": [
+      "AA",
+      "Z",
+      "AB"
+     ],
+     "a": 0,
+     "why": {
+      "ar": "بعد Z بيبدأ AA.",
+      "en": "After Z comes AA."
+     }
     }
    ],
    "minutes": 180
@@ -482,6 +608,18 @@ JOURNEY.week({
       "en": "Write your report to a **new** file with the date in its name; never write over the source file. If you must edit an existing file: copy it first, and remember openpyxl can lose things like charts and macros (xlsm files). A file open in Excel on Windows cannot be saved (`PermissionError`) — close it."
      },
      "ex": "from datetime import date\nfrom pathlib import Path\nimport shutil\n\nsrc = Path(\"sales.xlsx\")\nout = Path(\"reports\") / f\"sales_report_{date.today():%Y-%m-%d}.xlsx\"\nout.parent.mkdir(exist_ok=True)\nshutil.copy2(src, Path(\"reports\") / \"sales_backup.xlsx\")\ntry:\n    # build the workbook, then:\n    # wb.save(out)\n    pass\nexcept PermissionError:\n    print(f\"{out} is open in Excel — close it and run again\")"
+    },
+    {
+     "h": {
+      "ar": "تقرير فيه صف إجمالي",
+      "en": "A report with a totals row"
+     },
+     "p": {
+      "ar": "التقرير المحترف: سطر عناوين واضح، أرقام بفاصل الآلاف وخانتين عشريتين، و**صف إجمالي** في الآخر. في openpyxl: `cell.number_format = \"#,##0.00\"` والعناوين `Font(bold=True)`. وقبل Excel، اتأكد من الحسابات في CSV بسيط.",
+      "en": "A professional report: a clear header row, numbers with thousands separators and two decimals, and a **totals row** at the end. In openpyxl: `cell.number_format = \"#,##0.00\"` and headers with `Font(bold=True)`. Before Excel, check the maths in a simple CSV."
+     },
+     "ex": "ws.append([\"Total\", \"\", f\"=SUM(C2:C{ws.max_row})\"])\nfor cell in ws[1]: cell.font = Font(bold=True)\nws[\"C2\"].number_format = \"#,##0.00\"",
+     "deep": 1
     }
    ],
    "practice": [
@@ -500,6 +638,16 @@ JOURNEY.week({
     {
      "ar": "جرّب تحفظ والملف مفتوح في Excel واقرا الخطأ.",
      "en": "Try saving while the file is open in Excel and read the error."
+    },
+    {
+     "ar": "ضيف صف «متوسط» وعمود «نسبة من الإجمالي».",
+     "en": "Add an «average» row and a «share of total» column.",
+     "deep": 1
+    },
+    {
+     "ar": "اعمل نفس التقرير في Excel بـ openpyxl (لو متثبتة عندك) بعناوين bold.",
+     "en": "Build the same report in Excel with openpyxl (if installed) with bold headers.",
+     "deep": 1
     }
    ],
    "code": [
@@ -509,6 +657,15 @@ JOURNEY.week({
       "en": "A ready formatting function"
      },
      "p": "from openpyxl.styles import Font, PatternFill, Alignment\nfrom openpyxl.utils import get_column_letter\n\ndef style_table(ws, money_cols=(), pct_cols=()):\n    \"\"\"Bold coloured header, number formats, widths from content, frozen header and a filter.\"\"\"\n    for cell in ws[1]:\n        cell.font = Font(bold=True, color=\"FFFFFF\")\n        cell.fill = PatternFill(\"solid\", fgColor=\"3F8F63\")\n        cell.alignment = Alignment(horizontal=\"center\", vertical=\"center\")\n    for col in range(1, ws.max_column + 1):\n        letter = get_column_letter(col)\n        longest = max(len(str(c.value or \"\")) for c in ws[letter])\n        ws.column_dimensions[letter].width = min(max(10, longest + 2), 45)\n        fmt = \"#,##0.00\" if col in money_cols else \"0.0%\" if col in pct_cols else None\n        if fmt:\n            for c in ws[letter][1:]:\n                c.number_format = fmt\n    ws.freeze_panes = \"A2\"\n    ws.auto_filter.ref = ws.dimensions"
+    },
+    {
+     "u": {
+      "ar": "CSV تقرير بإجمالي",
+      "en": "A CSV report with a total"
+     },
+     "p": "import csv, io\norders = [(\"Sara\", \"Giza\", 1250.5), (\"Omar\", \"Cairo\", 980), (\"Mona\", \"Alex\", 15300.25)]\nout = io.StringIO()\nw = csv.writer(out, lineterminator=\"\\n\")\nw.writerow([\"Customer\", \"City\", \"Total (EGP)\"])\nfor name, city, total in orders:\n    w.writerow([name, city, f\"{total:,.2f}\"])\nw.writerow([\"Total\", \"\", f\"{sum(t for *_, t in orders):,.2f}\"])\nprint(out.getvalue())",
+     "run": 1,
+     "deep": 1
     }
    ],
    "words": [
@@ -559,6 +716,22 @@ JOURNEY.week({
       "en": "the error when a file is locked or open in another program"
      },
      "ex": "saving a workbook open in Excel"
+    },
+    {
+     "t": "header style",
+     "m": {
+      "ar": "شكل سطر العناوين (bold، لون)",
+      "en": "the look of the header row (bold, colour)"
+     },
+     "ex": "Set a header style for the first row."
+    },
+    {
+     "t": "totals row",
+     "m": {
+      "ar": "صف المجموع في آخر الجدول",
+      "en": "the row of sums at the end of a table"
+     },
+     "ex": "Add a totals row with SUM."
     }
    ],
    "read": [
@@ -649,6 +822,22 @@ JOURNEY.week({
       "ar": "الأصل يفضل سليم.",
       "en": "The source stays intact."
      }
+    },
+    {
+     "q": {
+      "ar": "`f\"{1250.5:,.2f}\"` =",
+      "en": "`f\"{1250.5:,.2f}\"` ="
+     },
+     "o": [
+      "\"1,250.50\"",
+      "\"1250.5\"",
+      "\"1.250,50\""
+     ],
+     "a": 0,
+     "why": {
+      "ar": ", للآلاف و.2 لخانتين.",
+      "en": ", for thousands and .2 for two decimals."
+     }
     }
    ],
    "minutes": 180
@@ -698,6 +887,18 @@ JOURNEY.week({
      },
      "ex": "import re\n\ndef to_number(v):\n    if v is None:\n        return None\n    if isinstance(v, (int, float)):\n        return float(v)\n    text = str(v).strip().replace(\",\", \"\")\n    if text in {\"\", \"-\", \"—\"}:\n        return 0.0\n    m = re.search(r\"-?\\d+(?:\\.\\d+)?\", text)\n    return float(m.group()) if m else None\n\nvalues = [1200, \" 450 \", \"1,250.5\", \"EGP 99\", \"-\", \"n/a\", None]\nprint([to_number(v) for v in values])",
      "run": 1
+    },
+    {
+     "h": {
+      "ar": "تواريخ Excel كأرقام",
+      "en": "Excel dates as numbers"
+     },
+     "p": {
+      "ar": "Excel بيخزّن التاريخ **رقم أيام** من 1899-12-30 (`46298` = 2026-10-03)، والكسر هو الوقت. لو قريت ملف ولقيت أرقام بدل تواريخ، حوّلها: `datetime(1899, 12, 30) + timedelta(days=n)`. وللفلوس من Excel: `Decimal(str(x)).quantize(Decimal(\"0.01\"))`.",
+      "en": "Excel stores a date as a **number of days** since 1899-12-30 (`46298` = 2026-10-03), and the fraction is the time. If you read a file and get numbers instead of dates, convert them: `datetime(1899, 12, 30) + timedelta(days=n)`. For money from Excel: `Decimal(str(x)).quantize(Decimal(\"0.01\"))`."
+     },
+     "ex": "datetime(1899, 12, 30) + timedelta(days=46298.5)   # 2026-10-03 12:00",
+     "deep": 1
     }
    ],
    "practice": [
@@ -716,6 +917,16 @@ JOURNEY.week({
     {
      "ar": "اقرا الفاتورة بـ data_only=True قبل وبعد ما تفتحها وتحفظها في Excel.",
      "en": "Read the invoice with data_only=True before and after opening and saving it in Excel."
+    },
+    {
+     "ar": "اقرا عمود تواريخ طالع أرقام وحوّله لـ ISO.",
+     "en": "Read a date column that came out as numbers and convert it to ISO.",
+     "deep": 1
+    },
+    {
+     "ar": "حوّل تاريخ ميلادك لرقم Excel وتأكد في Excel.",
+     "en": "Turn your birthday into an Excel number and check it in Excel.",
+     "deep": 1
     }
    ],
    "code": [
@@ -725,6 +936,15 @@ JOURNEY.week({
       "en": "A share-of-total formula column"
      },
      "p": "from openpyxl import Workbook\nwb = Workbook(); ws = wb.active\nws.append([\"City\", \"Revenue\", \"Share\"])\ndata = [(\"Cairo\", 128500), (\"Giza\", 40210), (\"Alex\", 77300)]\nfor city, revenue in data:\n    ws.append([city, revenue])\nlast = ws.max_row\nfor r in range(2, last + 1):\n    ws[f\"C{r}\"] = f\"=B{r}/SUM($B$2:$B${last})\"\n    ws[f\"C{r}\"].number_format = \"0.0%\"\nwb.save(\"share.xlsx\")"
+    },
+    {
+     "u": {
+      "ar": "تحويل أرقام Excel لتواريخ",
+      "en": "Converting Excel numbers to dates"
+     },
+     "p": "from datetime import datetime, timedelta\nfrom decimal import Decimal\nEPOCH = datetime(1899, 12, 30)\nfor serial in [46298, 46298.5, 46298.75]:\n    print(serial, \"->\", (EPOCH + timedelta(days=serial)).strftime(\"%Y-%m-%d %H:%M\"))\nprint(\"back:\", (datetime(2026, 10, 3) - EPOCH).days)\nprice = 19.999999\nprint(Decimal(str(price)).quantize(Decimal(\"0.01\")))",
+     "run": 1,
+     "deep": 1
     }
    ],
    "words": [
@@ -775,6 +995,22 @@ JOURNEY.week({
       "en": "fixing data before using it"
      },
      "ex": "to_number(), to_date()"
+    },
+    {
+     "t": "serial date",
+     "m": {
+      "ar": "تاريخ متخزّن كعدد أيام",
+      "en": "a date stored as a count of days"
+     },
+     "ex": "Excel keeps a serial date like 46298."
+    },
+    {
+     "t": "quantize",
+     "m": {
+      "ar": "تقرّب Decimal لعدد خانات محدد",
+      "en": "to round a Decimal to a set number of places"
+     },
+     "ex": "Quantize the price to two decimals."
     }
    ],
    "read": [
@@ -871,6 +1107,22 @@ JOURNEY.week({
       "ar": "الشكل مطابق.",
       "en": "The format matches."
      }
+    },
+    {
+     "q": {
+      "ar": "الجزء العشري في رقم تاريخ Excel:",
+      "en": "The decimal part of an Excel date number:"
+     },
+     "o": [
+      "the time of day",
+      "the year",
+      "nothing"
+     ],
+     "a": 0,
+     "why": {
+      "ar": "0.5 = الضهر.",
+      "en": "0.5 = noon."
+     }
     }
    ],
    "minutes": 180
@@ -919,6 +1171,18 @@ JOURNEY.week({
       "en": "When the calculations grow (grouping, pivot tables, merging by columns) `pandas` shrinks 30 lines to 3: `pd.read_excel`, `groupby` and `to_excel`. We learn it properly in week 19; for now just get the idea, and know that pandas uses openpyxl underneath to write xlsx."
      },
      "ex": "# pip install pandas openpyxl   (week 19)\nimport pandas as pd\n\ndf = pd.read_excel(\"sales.xlsx\", sheet_name=\"Sales\")\ndf[\"revenue\"] = df[\"qty\"] * df[\"price\"]\nsummary = df.groupby(\"city\", as_index=False)[\"revenue\"].sum().sort_values(\"revenue\", ascending=False)\nsummary.to_excel(\"summary.xlsx\", index=False)\nprint(summary)"
+    },
+    {
+     "h": {
+      "ar": "تقسيم ودمج الملفات بمفتاح",
+      "en": "Splitting and merging files by a key"
+     },
+     "p": {
+      "ar": "**تقسيم**: ملف كبير لملف لكل فرع/مندوب — جمّع الصفوف بالمفتاح واكتب كل مجموعة لوحدها. **دمج**: ملفين (طلبات وعملاء) بعمود مشترك — اعمل dict من الملف الصغير بالمفتاح، وامشي على الكبير. ده نفس فكرة VLOOKUP بس أسرع وأدق.",
+      "en": "**Split**: one big file into a file per branch/rep — group rows by the key and write each group separately. **Merge**: two files (orders and customers) by a shared column — build a dict from the small file by key, then walk the big one. Same idea as VLOOKUP, but faster and exact."
+     },
+     "ex": "customers = {r[\"id\"]: r for r in csv.DictReader(open(\"customers.csv\"))}\nfor o in csv.DictReader(open(\"orders.csv\")):\n    c = customers.get(o[\"customer_id\"])",
+     "deep": 1
     }
    ],
    "practice": [
@@ -937,6 +1201,16 @@ JOURNEY.week({
     {
      "ar": "افتح ملف Excel في Excel وشوف ملف `~$` اللي بيظهر جنبه، واتأكد إن السكربت بيتخطاه.",
      "en": "Open an Excel file in Excel, notice the `~$` file next to it, and make sure the script skips it."
+    },
+    {
+     "ar": "قسّم ملف مبيعات لملف لكل شهر.",
+     "en": "Split a sales file into one file per month.",
+     "deep": 1
+    },
+    {
+     "ar": "ادمج ملف طلبات مع ملف أسعار بالـ SKU، واطبع الطلبات اللي ملهاش سعر.",
+     "en": "Merge an orders file with a price list by SKU, and print orders with no price.",
+     "deep": 1
     }
    ],
    "code": [
@@ -946,6 +1220,15 @@ JOURNEY.week({
       "en": "Test branch files"
      },
      "p": "import random\nfrom pathlib import Path\nfrom openpyxl import Workbook\nrandom.seed(4)\nfolder = Path(\"branches\"); folder.mkdir(exist_ok=True)\nfor branch in [\"Cairo\", \"Giza\", \"Alex\", \"Mansoura\", \"Aswan\"]:\n    wb = Workbook(); ws = wb.active\n    ws.append([\"date\", \"product\", \"qty\", \"price\"])\n    for d in range(1, 21):\n        ws.append([f\"2026-09-{d:02}\", random.choice([\"Pen\", \"Bag\", \"Notebook\"]), random.randint(1, 9), random.choice([30, 45, 650])])\n    wb.save(folder / f\"{branch}.xlsx\")\nprint(sorted(p.name for p in folder.glob(\"*.xlsx\")))"
+    },
+    {
+     "u": {
+      "ar": "دمج بمفتاح وتقسيم بمدينة",
+      "en": "Merge by key and split by city"
+     },
+     "p": "import csv, io\nfrom collections import defaultdict\ncustomers = {\"c1\": {\"name\": \"Sara\", \"city\": \"Giza\"}, \"c2\": {\"name\": \"Omar\", \"city\": \"Cairo\"}}\norders_csv = \"order,customer_id,total\\n1,c1,300\\n2,c2,150\\n3,c1,90\\n4,c9,40\\n\"\nby_city = defaultdict(list)\nfor o in csv.DictReader(io.StringIO(orders_csv)):\n    c = customers.get(o[\"customer_id\"])\n    if not c:\n        print(\"no customer for order\", o[\"order\"])\n        continue\n    by_city[c[\"city\"]].append({**o, \"name\": c[\"name\"]})\nfor city, rows in by_city.items():\n    print(f\"{city}.csv:\", [(r['order'], r['name'], r['total']) for r in rows])",
+     "run": 1,
+     "deep": 1
     }
    ],
    "words": [
@@ -996,6 +1279,22 @@ JOURNEY.week({
       "en": "files meant to share a shape whose columns differ"
      },
      "ex": "an extra column in one branch"
+    },
+    {
+     "t": "split file",
+     "m": {
+      "ar": "ملف كبير اتقسم لملفات أصغر",
+      "en": "a big file divided into smaller files"
+     },
+     "ex": "Send each branch its split file."
+    },
+    {
+     "t": "merge key",
+     "m": {
+      "ar": "العمود المشترك اللي بتدمج بيه",
+      "en": "the shared column you merge on"
+     },
+     "ex": "customer_id is the merge key."
     }
    ],
    "read": [
@@ -1086,6 +1385,22 @@ JOURNEY.week({
       "ar": "engine افتراضي.",
       "en": "The default engine."
      }
+    },
+    {
+     "q": {
+      "ar": "ليه نعمل dict من الملف الصغير؟",
+      "en": "Why build a dict from the small file?"
+     },
+     "o": [
+      "fast lookups by key",
+      "to sort it",
+      "to save space"
+     ],
+     "a": 0,
+     "why": {
+      "ar": "بحث فوري بدل loop جوه loop.",
+      "en": "Instant lookup instead of a loop inside a loop."
+     }
     }
    ],
    "minutes": 180
@@ -1120,6 +1435,16 @@ JOURNEY.week({
     {
      "ar": "دمج وتقسيم الملفات بأمان وبلوج.",
      "en": "Merging and splitting files safely, with a log."
+    },
+    {
+     "ar": "⚡ Sniffer والـ dialects، وحروف الأعمدة، وتقرير بصف إجمالي.",
+     "en": "⚡ The Sniffer and dialects, column letters, and a report with a totals row.",
+     "deep": 1
+    },
+    {
+     "ar": "⚡ تواريخ Excel كأرقام وquantize، والتقسيم والدمج بمفتاح: ابني تقرير شهري لكل فرع.",
+     "en": "⚡ Excel dates as numbers and quantize, splitting and merging by key: build a monthly report per branch.",
+     "deep": 1
     }
    ],
    "project": {

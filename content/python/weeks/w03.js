@@ -63,6 +63,18 @@ JOURNEY.week({
      "ex": "stock = 0\nif stock == 0:\n    print(\"Out of stock\")\n      print(\"Notify the supplier\")   # one space too many",
      "run": 1,
      "err": 1
+    },
+    {
+     "h": {
+      "ar": "الشرط في سطر وguard clauses",
+      "en": "One-line conditions and guard clauses"
+     },
+     "p": {
+      "ar": "**ternary**: `label = \"VIP\" if total > 1000 else \"normal\"` — لما الاختيار بسيط بين قيمتين. و**guard clause**: بدل if جوه if جوه if، اطلع بدري من الحالات الغلط: `if not items: return`. الكود بيبقى مسطّح وأسهل في القراية.",
+      "en": "**Ternary**: `label = \"VIP\" if total > 1000 else \"normal\"` — for a simple choice between two values. A **guard clause**: instead of if inside if inside if, exit early on the bad cases: `if not items: return`. The code stays flat and easier to read."
+     },
+     "ex": "status = \"late\" if days > 7 else \"on time\"\n\ndef ship(order):\n    if not order[\"paid\"]:\n        return \"not paid\"     # guard\n    if not order[\"address\"]:\n        return \"no address\"   # guard\n    return \"shipped\"",
+     "deep": 1
     }
    ],
    "practice": [
@@ -81,6 +93,16 @@ JOURNEY.week({
     {
      "ar": "بدّل ترتيب شروط الدرجات (ابدأ بـ `>= 60`) وشوف ليه النتيجة بقت غلط.",
      "en": "Swap the order of the grade conditions (start with `>= 60`) and see why the result becomes wrong."
+    },
+    {
+     "ar": "حوّل دالة فيها 3 ifs متداخلة لـ guard clauses.",
+     "en": "Turn a function with 3 nested ifs into guard clauses.",
+     "deep": 1
+    },
+    {
+     "ar": "اكتب 4 ternaries لتصنيف (سعر، عمر، درجة، حالة).",
+     "en": "Write 4 ternaries for labels (price, age, grade, status).",
+     "deep": 1
     }
    ],
    "code": [
@@ -91,6 +113,15 @@ JOURNEY.week({
      },
      "p": "subject = \"URGENT: payment failed\"\nlow = subject.lower()\nif \"urgent\" in low or \"failed\" in low:\n    priority = \"high\"\nelif \"question\" in low:\n    priority = \"low\"\nelse:\n    priority = \"normal\"\nprint(f\"{subject!r} -> {priority}\")",
      "run": 1
+    },
+    {
+     "u": {
+      "ar": "guard clauses مقابل ifs متداخلة",
+      "en": "Guard clauses versus nested ifs"
+     },
+     "p": "def check(order):\n    if not order.get(\"paid\"):\n        return \"wait for payment\"\n    if not order.get(\"address\"):\n        return \"ask for address\"\n    return \"ready to ship\"\n\nfor o in [{\"paid\": True, \"address\": \"Giza\"}, {\"paid\": False}, {\"paid\": True}]:\n    label = \"VIP\" if o.get(\"paid\") and o.get(\"address\") else \"check\"\n    print(check(o), \"|\", label)",
+     "run": 1,
+     "deep": 1
     }
    ],
    "words": [
@@ -141,6 +172,22 @@ JOURNEY.week({
       "en": "an error when the leading spaces are inconsistent"
      },
      "ex": "unexpected indent"
+    },
+    {
+     "t": "ternary",
+     "m": {
+      "ar": "شرط في سطر: قيمة if شرط else قيمة",
+      "en": "a one-line condition: value if test else value"
+     },
+     "ex": "Use a ternary for a simple label."
+    },
+    {
+     "t": "guard clause",
+     "m": {
+      "ar": "شرط في أول الدالة بيخرج بدري من الحالة الغلط",
+      "en": "a check at the start of a function that exits early"
+     },
+     "ex": "A guard clause avoids deep nesting."
     }
    ],
    "read": [
@@ -231,6 +278,22 @@ JOURNEY.week({
       "ar": "الـ `:` جزء من كتابة الجملة.",
       "en": "The `:` is part of the syntax."
      }
+    },
+    {
+     "q": {
+      "ar": "`\"a\" if 0 else \"b\"` =",
+      "en": "`\"a\" if 0 else \"b\"` ="
+     },
+     "o": [
+      "\"b\"",
+      "\"a\"",
+      "0"
+     ],
+     "a": 0,
+     "why": {
+      "ar": "0 قيمة false.",
+      "en": "0 is falsy."
+     }
     }
    ],
    "minutes": 180
@@ -281,6 +344,18 @@ JOURNEY.week({
      },
      "ex": "total = 7200\nlabel = \"VIP\" if total > 5000 else \"regular\"\nname = \"\"\nshown = name or \"Guest\"\nprint(label, shown)",
      "run": 1
+    },
+    {
+     "h": {
+      "ar": "الـ walrus والخروج بدري",
+      "en": "The walrus operator and early exit"
+     },
+     "p": {
+      "ar": "`:=` بيعيّن ويرجّع القيمة في نفس الوقت: `if (n := len(items)) > 10: print(n)`. مفيد في while والـ comprehensions. ولما تلاقي اللي بتدوّر عليه في loop، `break` يخرج بدري بدل ما تكمّل على الفاضي — وفيه `for … else` اللي بيشتغل لو مفيش break.",
+      "en": "`:=` assigns and returns a value at once: `if (n := len(items)) > 10: print(n)`. Useful in while loops and comprehensions. When you find what you were looking for in a loop, `break` exits early instead of continuing for nothing — and `for … else` runs only when there was no break."
+     },
+     "ex": "if (count := len(orders)) > 100:\n    print(\"busy day:\", count)\n\nfor o in orders:\n    if o[\"id\"] == 1042:\n        print(\"found\"); break\nelse:\n    print(\"not found\")",
+     "deep": 1
     }
    ],
    "practice": [
@@ -299,6 +374,16 @@ JOURNEY.week({
     {
      "ar": "اكتب `18 <= age <= 60` بطريقتين (متسلسلة وبـ and) واتأكد إنهم بيدوا نفس النتيجة.",
      "en": "Write `18 <= age <= 60` two ways (chained and with and) and check they agree."
+    },
+    {
+     "ar": "دوّر على أول رقم سالب في قايمة، واطبع «مفيش» بـ `for … else` لو مالقيتش.",
+     "en": "Find the first negative number in a list, and print «none» with `for … else` if there is none.",
+     "deep": 1
+    },
+    {
+     "ar": "استخدم `:=` في while بيقرا عناصر من قايمة لحد ما تخلص.",
+     "en": "Use `:=` in a while loop that reads items from a list until it is empty.",
+     "deep": 1
     }
    ],
    "code": [
@@ -309,6 +394,15 @@ JOURNEY.week({
      },
      "p": "has_account = True\nbalance = 800\namount = 1200\nis_vip = True\nblocked = False\nallowed = has_account and not blocked and (amount <= balance or is_vip)\nprint(\"allowed\" if allowed else \"rejected\")",
      "run": 1
+    },
+    {
+     "u": {
+      "ar": "دوّر واخرج بدري",
+      "en": "Search and exit early"
+     },
+     "p": "orders = [{\"id\": 1040}, {\"id\": 1042}, {\"id\": 1050}]\nwanted = 1042\nfor o in orders:\n    if o[\"id\"] == wanted:\n        print(\"found\", wanted)\n        break\nelse:\n    print(\"not found\")\nif (n := len(orders)) >= 3:\n    print(\"orders today:\", n)",
+     "run": 1,
+     "deep": 1
     }
    ],
    "words": [
@@ -359,6 +453,22 @@ JOURNEY.week({
       "en": "an if/else on one line that returns a value"
      },
      "ex": "\"yes\" if ok else \"no\""
+    },
+    {
+     "t": "walrus operator",
+     "m": {
+      "ar": "العلامة := اللي بتعيّن وترجّع القيمة",
+      "en": "the := operator that assigns and returns a value"
+     },
+     "ex": "The walrus operator saves one line."
+    },
+    {
+     "t": "early exit",
+     "m": {
+      "ar": "الخروج من loop أو دالة قبل آخرها",
+      "en": "leaving a loop or function before its end"
+     },
+     "ex": "break gives an early exit."
     }
    ],
    "read": [
@@ -434,6 +544,22 @@ JOURNEY.week({
       "ar": "اللي جوه False، وnot بتعكسها.",
       "en": "The inside is False and not flips it."
      }
+    },
+    {
+     "q": {
+      "ar": "`else` بعد `for` بيشتغل لما:",
+      "en": "`else` after `for` runs when:"
+     },
+     "o": [
+      "the loop ends without break",
+      "break happens",
+      "always"
+     ],
+     "a": 0,
+     "why": {
+      "ar": "مفيش break.",
+      "en": "No break happened."
+     }
     }
    ],
    "minutes": 180
@@ -485,6 +611,18 @@ JOURNEY.week({
      },
      "ex": "n = 0\nwhile n < 10:\n    n += 1\n    if n % 3 == 0:\n        continue     # skip multiples of 3\n    if n == 8:\n        break        # stop completely\n    print(n, end=\" \")\nprint()",
      "run": 1
+    },
+    {
+     "h": {
+      "ar": "الـ sentinel والمجموع الجاري",
+      "en": "Sentinels and running sums"
+     },
+     "p": {
+      "ar": "**sentinel** قيمة خاصة بتقول «خلاص»: زي `\"done\"` أو سطر فاضي، والـ while بتقف عندها. و**running sum** متغيّر بيتجمع فيه مع كل لفة (`total += x`). مع بعض: اقرا لحد الـ sentinel واجمع.",
+      "en": "A **sentinel** is a special value meaning «stop»: like `\"done\"` or an empty line, and the while loop stops on it. A **running sum** is a variable that grows each time round (`total += x`). Together: read until the sentinel and add up."
+     },
+     "ex": "total = 0\nwhile (line := next_line()) != \"done\":\n    total += float(line)\nprint(total)",
+     "deep": 1
     }
    ],
    "practice": [
@@ -503,6 +641,16 @@ JOURNEY.week({
     {
      "ar": "اعمل infinite loop بقصد في التيرمنال ووقّفه بـ `Ctrl+C` واقرا `KeyboardInterrupt`.",
      "en": "Make an infinite loop on purpose in the terminal, stop it with `Ctrl+C` and read `KeyboardInterrupt`."
+    },
+    {
+     "ar": "اقرا درجات لحد ما تيجي `-1` واطبع المتوسط وأعلى درجة.",
+     "en": "Read scores until `-1` and print the average and the highest score.",
+     "deep": 1
+    },
+    {
+     "ar": "اطبع المجموع الجاري لمبيعات أسبوع يوم بيوم.",
+     "en": "Print the running sum of a week’s sales day by day.",
+     "deep": 1
     }
    ],
    "code": [
@@ -513,6 +661,15 @@ JOURNEY.week({
      },
      "p": "import random\nrandom.seed(3)\nattempt = 0\nwhile attempt < 3:\n    attempt += 1\n    ok = random.random() > 0.6      # pretend to call a flaky API\n    print(f\"attempt {attempt}:\", \"ok\" if ok else \"failed\")\n    if ok:\n        break\nelse:\n    print(\"Gave up after 3 attempts\")",
      "run": 1
+    },
+    {
+     "u": {
+      "ar": "اجمع لحد كلمة done",
+      "en": "Add up until the word done"
+     },
+     "p": "lines = iter([\"120\", \"80.5\", \"45\", \"done\", \"999\"])\ntotal = 0\ncount = 0\nwhile (line := next(lines)) != \"done\":\n    total += float(line)\n    count += 1\n    print(f\"after {count}: {total:.2f}\")\nprint(\"final:\", total)",
+     "run": 1,
+     "deep": 1
     }
    ],
    "words": [
@@ -563,6 +720,22 @@ JOURNEY.week({
       "en": "checking user input is valid before using it"
      },
      "ex": "while not text.isdigit(): ..."
+    },
+    {
+     "t": "sentinel",
+     "m": {
+      "ar": "قيمة خاصة بتقول للـ loop يقف",
+      "en": "a special value that tells a loop to stop"
+     },
+     "ex": "\"done\" is the sentinel here."
+    },
+    {
+     "t": "running sum",
+     "m": {
+      "ar": "مجموع بيتحدّث مع كل عنصر",
+      "en": "a total updated with each item"
+     },
+     "ex": "Print the running sum after each day."
     }
    ],
    "read": [
@@ -653,6 +826,22 @@ JOURNEY.week({
       "ar": "x = x * 3.",
       "en": "x = x * 3."
      }
+    },
+    {
+     "q": {
+      "ar": "في المثال، الرقم 999 بعد done:",
+      "en": "In the example, 999 after done:"
+     },
+     "o": [
+      "is never read",
+      "is added",
+      "causes an error"
+     ],
+     "a": 0,
+     "why": {
+      "ar": "الـ loop وقفت.",
+      "en": "The loop stopped."
+     }
     }
    ],
    "minutes": 180
@@ -703,6 +892,18 @@ JOURNEY.week({
      },
      "ex": "prices = [120, 85.5, 300, 42]\ntotal = 0\nfor p in prices:\n    total += p\nprint(\"Total:\", total)\nfor i, p in enumerate(prices, 1):\n    print(f\"{i}. {p:>7.2f}\")",
      "run": 1
+    },
+    {
+     "h": {
+      "ar": "enumerate وzip",
+      "en": "enumerate and zip"
+     },
+     "p": {
+      "ar": "`enumerate(items, start=1)` بيدّيك رقم وعنصر مع بعض (بدل `range(len(...))`). و`zip(names, prices)` بيمشي على قايمتين جنب بعض. `zip(..., strict=True)` (بايثون 3.10+) بيطلع خطأ لو الطولين مختلفين بدل ما يسكت.",
+      "en": "`enumerate(items, start=1)` gives you a number and an item together (instead of `range(len(...))`). `zip(names, prices)` walks two lists side by side. `zip(..., strict=True)` (Python 3.10+) raises an error if the lengths differ instead of staying silent."
+     },
+     "ex": "for i, name in enumerate(names, start=1):\n    print(i, name)\nfor name, price in zip(names, prices, strict=True):\n    print(name, price)",
+     "deep": 1
     }
    ],
    "practice": [
@@ -721,6 +922,16 @@ JOURNEY.week({
     {
      "ar": "اطبع قايمة مهام مترقمة من 1 بـ `enumerate`.",
      "en": "Print a numbered task list starting at 1 with `enumerate`."
+    },
+    {
+     "ar": "اطبع قايمة طلاب ودرجاتهم مرقّمة من 1 بـ enumerate وzip.",
+     "en": "Print a numbered list of students and their scores from 1 with enumerate and zip.",
+     "deep": 1
+    },
+    {
+     "ar": "حوّل loop بـ `range(len(x))` عندك لـ enumerate.",
+     "en": "Turn one of your `range(len(x))` loops into enumerate.",
+     "deep": 1
     }
    ],
    "code": [
@@ -739,6 +950,15 @@ JOURNEY.week({
      },
      "p": "sizes = [\"S\", \"M\", \"L\"]\ncolors = [\"black\", \"white\"]\nfor color in colors:\n    for size in sizes:\n        print(f\"TSHIRT-{color[:3].upper()}-{size}\")",
      "run": 1
+    },
+    {
+     "u": {
+      "ar": "قايمة مرقّمة من قايمتين",
+      "en": "A numbered list from two lists"
+     },
+     "p": "names = [\"Tea\", \"Coffee\", \"Juice\"]\nprices = [15, 25, 30]\nfor i, (name, price) in enumerate(zip(names, prices, strict=True), start=1):\n    print(f\"{i}. {name:<8}{price:>4} EGP\")\ntry:\n    list(zip(names, [1, 2], strict=True))\nexcept ValueError as e:\n    print(\"Error:\", e)",
+     "run": 1,
+     "deep": 1
     }
    ],
    "words": [
@@ -789,6 +1009,22 @@ JOURNEY.week({
       "en": "a loop inside another loop"
      },
      "ex": "for row in rows: for cell in row:"
+    },
+    {
+     "t": "enumerate",
+     "m": {
+      "ar": "بيدّي رقم مع كل عنصر في loop",
+      "en": "gives a number with each item in a loop"
+     },
+     "ex": "enumerate starts at 0 unless you set start."
+    },
+    {
+     "t": "zip",
+     "m": {
+      "ar": "بيمشي على كذا قايمة مع بعض",
+      "en": "walks several lists together"
+     },
+     "ex": "zip pairs names with prices."
     }
    ],
    "read": [
@@ -861,6 +1097,22 @@ JOURNEY.week({
       "ar": "مرة لكل حرف.",
       "en": "Once per character."
      }
+    },
+    {
+     "q": {
+      "ar": "`list(enumerate(\"ab\", 1))` =",
+      "en": "`list(enumerate(\"ab\", 1))` ="
+     },
+     "o": [
+      "[(1, \"a\"), (2, \"b\")]",
+      "[(0, \"a\"), (1, \"b\")]",
+      "[\"a\", \"b\"]"
+     ],
+     "a": 0,
+     "why": {
+      "ar": "start=1.",
+      "en": "start=1."
+     }
     }
    ],
    "minutes": 180
@@ -912,6 +1164,18 @@ JOURNEY.week({
      },
      "ex": "orders = [\"A-11\", \"B-27\", \"C-03\"]\nwanted = \"B-99\"\nfor o in orders:\n    if o == wanted:\n        print(\"found\", o)\n        break\nelse:\n    print(wanted, \"not found\")",
      "run": 1
+    },
+    {
+     "h": {
+      "ar": "match بأنماط",
+      "en": "match with patterns"
+     },
+     "p": {
+      "ar": "`match` مش بس قيم ثابتة: `case [\"add\", item]` بيطابق قايمة من كلمتين ويحط التانية في `item`. `case {\"type\": \"order\", \"id\": oid}` بيطابق dict. `case _` الحالة الافتراضية. ده مثالي لأوامر بوت أو أحداث webhook.",
+      "en": "`match` is not only for fixed values: `case [\"add\", item]` matches a two-word list and puts the second word in `item`. `case {\"type\": \"order\", \"id\": oid}` matches a dict. `case _` is the default case. Perfect for bot commands or webhook events."
+     },
+     "ex": "match command.split():\n    case [\"add\", item]: print(\"adding\", item)\n    case [\"remove\", item]: print(\"removing\", item)\n    case _: print(\"unknown\")",
+     "deep": 1
     }
    ],
    "practice": [
@@ -930,6 +1194,16 @@ JOURNEY.week({
     {
      "ar": "اكتب FizzBuzz من 1 لـ 30 (Fizz للـ 3، Buzz للـ 5، FizzBuzz للاتنين).",
      "en": "Write FizzBuzz from 1 to 30 (Fizz for 3, Buzz for 5, FizzBuzz for both)."
+    },
+    {
+     "ar": "اعمل منيو أوامر نصية (`add tea`، `remove tea`، `list`، `quit`) بـ match.",
+     "en": "Build a text command menu (`add tea`, `remove tea`, `list`, `quit`) with match.",
+     "deep": 1
+    },
+    {
+     "ar": "ضيف `case` لحدث جديد واختبره.",
+     "en": "Add a `case` for a new event and test it.",
+     "deep": 1
     }
    ],
    "code": [
@@ -940,6 +1214,15 @@ JOURNEY.week({
      },
      "p": "for n in range(1, 16):\n    if n % 15 == 0:\n        print(\"FizzBuzz\")\n    elif n % 3 == 0:\n        print(\"Fizz\")\n    elif n % 5 == 0:\n        print(\"Buzz\")\n    else:\n        print(n)",
      "run": 1
+    },
+    {
+     "u": {
+      "ar": "توزيع أحداث webhook",
+      "en": "Routing webhook events"
+     },
+     "p": "events = [\n    {\"type\": \"order\", \"id\": 7, \"total\": 300},\n    {\"type\": \"refund\", \"id\": 7},\n    {\"type\": \"ping\"},\n]\nfor e in events:\n    match e:\n        case {\"type\": \"order\", \"id\": oid, \"total\": t}:\n            print(f\"new order {oid}: {t} EGP\")\n        case {\"type\": \"refund\", \"id\": oid}:\n            print(f\"refund for {oid}\")\n        case _:\n            print(\"ignored:\", e[\"type\"])",
+     "run": 1,
+     "deep": 1
     }
    ],
    "words": [
@@ -990,6 +1273,22 @@ JOURNEY.week({
       "en": "an else after a loop that runs when there was no break"
      },
      "ex": "for ...: ... else: print(\"not found\")"
+    },
+    {
+     "t": "pattern matching",
+     "m": {
+      "ar": "مطابقة شكل البيانات وتطلّع أجزاءها",
+      "en": "matching the shape of data and pulling out its parts"
+     },
+     "ex": "Use pattern matching for webhook events."
+    },
+    {
+     "t": "fallback case",
+     "m": {
+      "ar": "الحالة اللي بتمسك أي حاجة تانية",
+      "en": "the case that catches everything else"
+     },
+     "ex": "case _ is the fallback case."
     }
    ],
    "read": [
@@ -1089,6 +1388,22 @@ JOURNEY.week({
       "ar": "`|` = أو جوه case.",
       "en": "`|` means or inside a case."
      }
+    },
+    {
+     "q": {
+      "ar": "`case _:` معناها:",
+      "en": "`case _:` means:"
+     },
+     "o": [
+      "any other value",
+      "an empty string",
+      "an error"
+     ],
+     "a": 0,
+     "why": {
+      "ar": "الحالة الافتراضية.",
+      "en": "The default case."
+     }
     }
    ],
    "minutes": 180
@@ -1123,6 +1438,16 @@ JOURNEY.week({
     {
      "ar": "match/case وبرامج القوايم وelse في اللوب.",
      "en": "match/case, menu programs and else on loops."
+    },
+    {
+     "ar": "⚡ ternary وguard clauses، والـ walrus وfor…else.",
+     "en": "⚡ Ternaries and guard clauses, the walrus and for…else.",
+     "deep": 1
+    },
+    {
+     "ar": "⚡ sentinel والمجموع الجاري، وenumerate/zip(strict)، وmatch بأنماط: اعمل منيو بوت كامل.",
+     "en": "⚡ Sentinels and running sums, enumerate/zip(strict), and match with patterns: build a full bot menu.",
+     "deep": 1
     }
    ],
    "project": {

@@ -60,6 +60,18 @@ JOURNEY.week({
      },
      "ex": "print(\"Hello, automation!\")\nprint(\"Python can do maths:\", 7 * 6)\nprint(\"This line runs after the one above it.\")",
      "run": 1
+    },
+    {
+     "h": {
+      "ar": "print من جوه",
+      "en": "print from the inside"
+     },
+     "p": {
+      "ar": "`print` بياخد أكتر من قيمة ويحط بينهم مسافة (`sep`)، وفي الآخر سطر جديد (`end`). تقدر تغيّرهم: `sep=\", \"` أو `end=\"\"`. والرسايل العادية بتروح لـ **stdout**، ورسايل الخطأ لـ **stderr** — مهم لما سكربتك يشتغل في n8n أو جدولة وتقرا الخرج.",
+      "en": "`print` takes several values and puts a space between them (`sep`), and a new line at the end (`end`). You can change them: `sep=\", \"` or `end=\"\"`. Normal output goes to **stdout**, error messages to **stderr** — this matters when your script runs from n8n or a scheduler and you read its output."
+     },
+     "ex": "print(\"a\", \"b\", \"c\")            # a b c\nprint(\"a\", \"b\", sep=\" | \")      # a | b\nprint(\"loading\", end=\"...\")      # no new line",
+     "deep": 1
     }
    ],
    "practice": [
@@ -78,6 +90,16 @@ JOURNEY.week({
     {
      "ar": "شغّل المثال اللي فوق جوه الصفحة (▶ شغّل)، وبعدين دوس «عدّل الكود» وغيّر الرسالة وشغّله تاني.",
      "en": "Run the example above on the page (▶ Run), then press «Edit the code», change the message and run it again."
+    },
+    {
+     "ar": "اطبع جدول من 3 أعمدة (اسم | سعر | كمية) لـ 4 منتجات بـ `sep`.",
+     "en": "Print a 3-column table (name | price | qty) for 4 products using `sep`.",
+     "deep": 1
+    },
+    {
+     "ar": "اطبع شريط تحميل من 10 نقط على نفس السطر بـ `end`.",
+     "en": "Print a loading bar of 10 dots on one line using `end`.",
+     "deep": 1
     }
    ],
    "code": [
@@ -88,6 +110,15 @@ JOURNEY.week({
      },
      "p": "# hello.py\nprint(\"Hello! My name is Sara.\")\nprint(\"I live in Cairo.\")\nprint(\"I am learning Python to automate my work.\")",
      "run": 1
+    },
+    {
+     "u": {
+      "ar": "خرج مرتب بـ sep وend",
+      "en": "Tidy output with sep and end"
+     },
+     "p": "import sys\nprint(\"order\", 1042, \"paid\", sep=\" | \")\nfor step in [\"read\", \"check\", \"save\"]:\n    print(step, end=\" -> \")\nprint(\"done\")\nprint(\"this goes to stderr\", file=sys.stderr)",
+     "run": 1,
+     "deep": 1
     }
    ],
    "words": [
@@ -130,6 +161,22 @@ JOURNEY.week({
       "en": "the list of folders the system searches for a program when you type its name"
      },
      "ex": "'python' is not recognized → Python is not on PATH."
+    },
+    {
+     "t": "stdout",
+     "m": {
+      "ar": "الخرج العادي للبرنامج",
+      "en": "a program’s normal output"
+     },
+     "ex": "print writes to stdout."
+    },
+    {
+     "t": "stderr",
+     "m": {
+      "ar": "خرج رسايل الخطأ",
+      "en": "the output for error messages"
+     },
+     "ex": "Write warnings to stderr."
     }
    ],
    "read": [
@@ -220,6 +267,22 @@ JOURNEY.week({
       "ar": "علّم «Add to PATH» وانت بتثبّت، أو استخدم `py`.",
       "en": "Tick «Add to PATH» when installing, or use `py`."
      }
+    },
+    {
+     "q": {
+      "ar": "`print(\"a\", \"b\", sep=\"-\")` بيطبع:",
+      "en": "`print(\"a\", \"b\", sep=\"-\")` prints:"
+     },
+     "o": [
+      "a-b",
+      "a b",
+      "a - b"
+     ],
+     "a": 0,
+     "why": {
+      "ar": "sep بين القيم.",
+      "en": "sep goes between values."
+     }
     }
    ],
    "minutes": 180
@@ -270,6 +333,18 @@ JOURNEY.week({
      },
      "ex": "qty = 5\nlabel = \"5\"\nprint(qty * 3)     # 15\nprint(label * 3)   # 555\nprint(qty + int(label))  # 10",
      "run": 1
+    },
+    {
+     "h": {
+      "ar": "تسمية المتغيرات وإعادة الإسناد",
+      "en": "Naming variables and reassigning"
+     },
+     "p": {
+      "ar": "بايثون بتستخدم **snake_case**: حروف صغيرة و`_` بين الكلمات (`total_price`). الاسم يوصف القيمة. وتقدر تعيد إسناد متغيّر لقيمة جديدة (حتى من نوع تاني)، بس ده بيلخبط: خلّي كل متغيّر لحاجة واحدة. وتبديل قيمتين في سطر: `a, b = b, a`.",
+      "en": "Python uses **snake_case**: lowercase with `_` between words (`total_price`). The name describes the value. You can reassign a variable to a new value (even of another type), but that confuses readers: keep each variable for one thing. Swap two values in one line: `a, b = b, a`."
+     },
+     "ex": "total_price = 120      # ✓ snake_case\nTotalPrice = 120       # ✗ (that style is for classes)\nx = 5; x = \"five\"      # legal, but confusing",
+     "deep": 1
     }
    ],
    "practice": [
@@ -288,6 +363,16 @@ JOURNEY.week({
     {
      "ar": "جرّب في الـ REPL `\"5\" + 5` واقرا رسالة الخطأ، وبعدين صلّحها بطريقتين.",
      "en": "Try `\"5\" + 5` in the REPL, read the error, then fix it in two ways."
+    },
+    {
+     "ar": "صلّح أسماء 8 متغيّرات سيئة (`x1`, `Data`, `tp`…) لأسماء snake_case واضحة.",
+     "en": "Fix 8 bad variable names (`x1`, `Data`, `tp`…) into clear snake_case names.",
+     "deep": 1
+    },
+    {
+     "ar": "بدّل 3 قيم بشكل دائري (`a, b, c = b, c, a`) واطبعهم.",
+     "en": "Rotate 3 values (`a, b, c = b, c, a`) and print them.",
+     "deep": 1
     }
    ],
    "code": [
@@ -298,6 +383,15 @@ JOURNEY.week({
      },
      "p": "order_id = 1042\ncustomer = \"Omar Adel\"\nitem = \"USB-C cable\"\nunit_price = 85.5\nquantity = 2\npaid = False\nnotes = None\nprint(order_id, customer, item, unit_price * quantity, paid, notes)",
      "run": 1
+    },
+    {
+     "u": {
+      "ar": "تبديل وإعادة إسناد",
+      "en": "Swapping and reassigning"
+     },
+     "p": "first_name = \"Sara\"\nlast_name = \"Adel\"\nfirst_name, last_name = last_name, first_name\nprint(first_name, last_name)\ncount = 0\ncount = count + 1\ncount += 1\nprint(\"count:\", count)",
+     "run": 1,
+     "deep": 1
     }
    ],
    "words": [
@@ -356,6 +450,22 @@ JOURNEY.week({
       "en": "a special value meaning «no value»"
      },
      "ex": "discount = None"
+    },
+    {
+     "t": "snake_case",
+     "m": {
+      "ar": "كتابة الأسماء بحروف صغيرة و_ بين الكلمات",
+      "en": "writing names in lowercase with _ between words"
+     },
+     "ex": "Python variables use snake_case."
+    },
+    {
+     "t": "reassign",
+     "m": {
+      "ar": "تدّي متغيّر قيمة جديدة",
+      "en": "to give a variable a new value"
+     },
+     "ex": "Reassign count after each order."
     }
    ],
    "read": [
@@ -447,6 +557,22 @@ JOURNEY.week({
       "ar": "0 رقم و\"\" نص فاضي، لكن None معناها مفيش قيمة خالص.",
       "en": "0 is a number and \"\" an empty text; None means no value at all."
      }
+    },
+    {
+     "q": {
+      "ar": "اسم متغيّر حسب PEP 8:",
+      "en": "A variable name following PEP 8:"
+     },
+     "o": [
+      "order_total",
+      "OrderTotal",
+      "ordertotal!"
+     ],
+     "a": 0,
+     "why": {
+      "ar": "snake_case.",
+      "en": "snake_case."
+     }
     }
    ],
    "minutes": 180
@@ -497,6 +623,18 @@ JOURNEY.week({
      },
      "ex": "total = 1250\nprint(total > 1000)     # True\nprint(total == 1000)    # False\nprint(\"cairo\" == \"Cairo\")  # False: case matters\nprint(3 != 4)",
      "run": 1
+    },
+    {
+     "h": {
+      "ar": "ترتيب العمليات والكسور العشرية",
+      "en": "Operator precedence and floating point"
+     },
+     "p": {
+      "ar": "الترتيب: `**` ثم `* / // %` ثم `+ -` ثم المقارنات ثم `not` ثم `and` ثم `or`. لو شاكك، حط أقواس. والكسور العشرية في الكمبيوتر تقريبية: `0.1 + 0.2` مش بالظبط `0.3`. للمقارنة استخدم `math.isclose`، وللفلوس `round` أو `Decimal`.",
+      "en": "The order: `**`, then `* / // %`, then `+ -`, then comparisons, then `not`, then `and`, then `or`. When unsure, add brackets. Decimals in computers are approximate: `0.1 + 0.2` is not exactly `0.3`. Compare with `math.isclose`, and use `round` or `Decimal` for money."
+     },
+     "ex": "2 + 3 * 4      # 14, not 20\n(2 + 3) * 4    # 20\n0.1 + 0.2      # 0.30000000000000004",
+     "deep": 1
     }
    ],
    "practice": [
@@ -515,6 +653,16 @@ JOURNEY.week({
     {
      "ar": "اكتب ترتيب العمليات لـ `10 - 2 * 3 ** 2` على ورقة، وبعدين اتأكد في Python.",
      "en": "Work out the order of `10 - 2 * 3 ** 2` on paper, then check it in Python."
+    },
+    {
+     "ar": "احسب 6 تعبيرات في دماغك الأول، وبعدين شغّلها وقارن.",
+     "en": "Work out 6 expressions in your head first, then run them and compare.",
+     "deep": 1
+    },
+    {
+     "ar": "احسب سعر طلب فيه ضريبة 14% وخصم 5% بأقواس واضحة.",
+     "en": "Compute an order price with 14% tax and 5% discount using clear brackets.",
+     "deep": 1
     }
    ],
    "code": [
@@ -533,6 +681,15 @@ JOURNEY.week({
      },
      "p": "subtotal = 3 * 45 + 2 * 30\ndiscount = subtotal * 0.10\ntax = (subtotal - discount) * 0.14\nprint(\"Total:\", round(subtotal - discount + tax, 2))",
      "run": 1
+    },
+    {
+     "u": {
+      "ar": "أقواس ومقارنة كسور",
+      "en": "Brackets and comparing decimals"
+     },
+     "p": "import math\nprice, qty, discount = 50, 3, 10\nprint(price * qty - discount)\nprint(price * (qty - 1))\nprint(0.1 + 0.2 == 0.3)\nprint(math.isclose(0.1 + 0.2, 0.3))\nprint(round(0.1 + 0.2, 2))",
+     "run": 1,
+     "deep": 1
     }
    ],
    "words": [
@@ -583,6 +740,22 @@ JOURNEY.week({
       "en": "a test between two values that gives True or False"
      },
      "ex": "age >= 18"
+    },
+    {
+     "t": "operator precedence",
+     "m": {
+      "ar": "ترتيب تنفيذ العمليات في التعبير",
+      "en": "the order operations run in an expression"
+     },
+     "ex": "Operator precedence puts * before +."
+    },
+    {
+     "t": "floating point",
+     "m": {
+      "ar": "طريقة تخزين الكسور العشرية (تقريبية)",
+      "en": "the way decimals are stored (approximate)"
+     },
+     "ex": "Floating point makes 0.1 + 0.2 slightly off."
     }
    ],
    "read": [
@@ -671,6 +844,22 @@ JOURNEY.week({
       "ar": "الضرب الأول: 3×4=12 وبعدين +2.",
       "en": "Multiplication first: 3×4=12, then +2."
      }
+    },
+    {
+     "q": {
+      "ar": "`2 + 3 * 4` =",
+      "en": "`2 + 3 * 4` ="
+     },
+     "o": [
+      "14",
+      "20",
+      "24"
+     ],
+     "a": 0,
+     "why": {
+      "ar": "الضرب الأول.",
+      "en": "Multiplication first."
+     }
     }
    ],
    "minutes": 180
@@ -722,6 +911,18 @@ JOURNEY.week({
      },
      "ex": "item = \"Laptop\"\nprice = 23999.5\nqty = 2\nprint(f\"{qty} x {item} = {price * qty:,.2f} EGP\")\nprint(f\"{item!r} has {len(item)} letters\")",
      "run": 1
+    },
+    {
+     "h": {
+      "ar": "التحويل الآمن بين الأنواع",
+      "en": "Safe type conversion"
+     },
+     "p": {
+      "ar": "`int(\"42\")` بيشتغل، بس `int(\"42.5\")` و`int(\" 42 \")`؟ التاني شغال (بيتجاهل المسافات)، والأول خطأ. اعمل `.strip()` للمسافات، وجرّب `float` للكسور، واستخدم `str.isdigit()` قبل التحويل، أو `try/except ValueError` (هتتعلمها بالتفصيل في أسبوع 8).",
+      "en": "`int(\"42\")` works, but `int(\"42.5\")` and `int(\" 42 \")`? The second works (it ignores spaces); the first fails. Use `.strip()` for spaces, `float` for decimals, and check with `str.isdigit()` before converting, or use `try/except ValueError` (covered in detail in week 8)."
+     },
+     "ex": "int(\" 42 \")      # 42\nint(\"42.5\")      # ValueError\nint(float(\"42.5\"))  # 42\n\"42\".isdigit()   # True",
+     "deep": 1
     }
    ],
    "practice": [
@@ -740,6 +941,16 @@ JOURNEY.week({
     {
      "ar": "اطبع رقم كبير (1234567.891) بـ 3 أشكال: عادي، وبفواصل، وبرقمين بعد العلامة.",
      "en": "Print a big number (1234567.891) in 3 ways: plain, with separators, and with two decimals."
+    },
+    {
+     "ar": "اكتب برنامج بياخد سعر كنص (فيه مسافات أو فاصلة عشرية) ويحوّله رقم ويطبع السعر بعد الضريبة.",
+     "en": "Write a program that takes a price as text (with spaces or a decimal point), converts it and prints the price after tax.",
+     "deep": 1
+    },
+    {
+     "ar": "جرّب `bool(\"False\")` واشرح النتيجة الغريبة.",
+     "en": "Try `bool(\"False\")` and explain the surprising result.",
+     "deep": 1
     }
    ],
    "code": [
@@ -751,6 +962,15 @@ JOURNEY.week({
      "p": "weight = float(input(\"Parcel weight in kg: \"))\nper_kg = 18.5\nbase = 40\ncost = base + weight * per_kg\nprint(f\"Shipping {weight} kg costs {cost:.2f} EGP\")",
      "run": 1,
      "stdin": "3.2"
+    },
+    {
+     "u": {
+      "ar": "تحويل مدخلات متنوعة",
+      "en": "Converting mixed inputs"
+     },
+     "p": "raw_values = [\"12\", \" 7 \", \"3.5\", \"abc\", \"\"]\nfor raw in raw_values:\n    text = raw.strip()\n    if text.isdigit():\n        print(repr(raw), \"-> int\", int(text))\n    elif text.replace(\".\", \"\", 1).isdigit():\n        print(repr(raw), \"-> float\", float(text))\n    else:\n        print(repr(raw), \"-> not a number\")",
+     "run": 1,
+     "deep": 1
     }
    ],
    "words": [
@@ -793,6 +1013,22 @@ JOURNEY.week({
       "en": "an error when a value has the right type but an unusable content"
      },
      "ex": "int(\"abc\")"
+    },
+    {
+     "t": "type casting",
+     "m": {
+      "ar": "تحويل قيمة من نوع لنوع",
+      "en": "turning a value from one type into another"
+     },
+     "ex": "int(\"5\") is type casting."
+    },
+    {
+     "t": "whitespace",
+     "m": {
+      "ar": "مسافات وtab وسطور جديدة",
+      "en": "spaces, tabs and new lines"
+     },
+     "ex": "strip() removes whitespace at both ends."
     }
    ],
    "read": [
@@ -868,6 +1104,22 @@ JOURNEY.week({
       "ar": "`,` للفواصل و`.2f` لرقمين بعد العلامة.",
       "en": "`,` adds separators and `.2f` two decimals."
      }
+    },
+    {
+     "q": {
+      "ar": "`int(\"3.7\")` بيطلع:",
+      "en": "`int(\"3.7\")` gives:"
+     },
+     "o": [
+      "ValueError",
+      "3",
+      "4"
+     ],
+     "a": 0,
+     "why": {
+      "ar": "int من نص مش بيقبل كسر.",
+      "en": "int from text does not accept a decimal."
+     }
     }
    ],
    "minutes": 180
@@ -919,6 +1171,18 @@ JOURNEY.week({
      "ex": "price = 120\nprint(prise * 2)",
      "run": 1,
      "err": 1
+    },
+    {
+     "h": {
+      "ar": "PEP 8 وقراءة رسالة الخطأ",
+      "en": "PEP 8 and reading the error message"
+     },
+     "p": {
+      "ar": "**PEP 8** دليل شكل الكود في بايثون: 4 مسافات للـ indent، سطر أقل من ~79–99 حرف، مسافة حوالين `=` و`+`، سطرين فاضيين قبل الدوال. VS Code بيعمله لوحده بـ Format Document (مع Ruff أو Black). ورسالة الخطأ: اقرا **آخر سطر** الأول (النوع والسبب)، وبعدين رقم السطر فوقه.",
+      "en": "**PEP 8** is Python’s style guide: 4 spaces per indent, lines under ~79–99 characters, spaces around `=` and `+`, two blank lines before functions. VS Code applies it with Format Document (using Ruff or Black). And error messages: read the **last line** first (the type and reason), then the line number above it."
+     },
+     "ex": "Traceback (most recent call last):\n  File \"shop.py\", line 3, in <module>\n    total = price + qty\nTypeError: can only concatenate str (not \"int\") to str   ← read this first",
+     "deep": 1
     }
    ],
    "practice": [
@@ -937,6 +1201,16 @@ JOURNEY.week({
     {
      "ar": "ارجع لسكربتات الأسبوع وحط تعليق «ليه» واحد على الأقل في كل ملف.",
      "en": "Go back to this week’s scripts and add at least one «why» comment to each file."
+    },
+    {
+     "ar": "اعمل Format Document لملف كتبته واشوف إيه اللي اتغيّر.",
+     "en": "Run Format Document on a file you wrote and see what changed.",
+     "deep": 1
+    },
+    {
+     "ar": "اعمل 3 أخطاء مختلفة عمدًا (TypeError، NameError، SyntaxError) واكتب آخر سطر لكل واحد ومعناه.",
+     "en": "Cause 3 different errors on purpose (TypeError, NameError, SyntaxError) and write the last line of each and what it means.",
+     "deep": 1
     }
    ],
    "code": [
@@ -947,6 +1221,15 @@ JOURNEY.week({
      },
      "p": "print(\"Total:\" 250)\nqty = int(\"3 items\")\nprint(\"Items: \" + 3)\nprint(totl)",
      "show": 1
+    },
+    {
+     "u": {
+      "ar": "خطأ نوع وإصلاحه",
+      "en": "A type error and its fix"
+     },
+     "p": "price = \"50\"\nqty = 2\ntry:\n    print(price + qty)\nexcept TypeError as e:\n    print(\"Error:\", e)\nprint(\"Fixed:\", int(price) * qty)",
+     "run": 1,
+     "deep": 1
     }
    ],
    "words": [
@@ -997,6 +1280,22 @@ JOURNEY.week({
       "en": "a program to write, run and debug code in one place"
      },
      "ex": "VS Code, PyCharm"
+    },
+    {
+     "t": "pep 8",
+     "m": {
+      "ar": "دليل الشكل الرسمي لكود بايثون",
+      "en": "the official style guide for Python code"
+     },
+     "ex": "Follow PEP 8 so others can read your code."
+    },
+    {
+     "t": "type error",
+     "m": {
+      "ar": "خطأ لما تستخدم قيمة من نوع غلط",
+      "en": "an error when a value has the wrong type"
+     },
+     "ex": "Adding text to a number causes a type error."
     }
    ],
    "read": [
@@ -1087,6 +1386,22 @@ JOURNEY.week({
       "ar": "الكود بيقول إيه؛ التعليق يقول ليه.",
       "en": "The code says what; the comment says why."
      }
+    },
+    {
+     "q": {
+      "ar": "في الـ traceback تقرا الأول:",
+      "en": "In a traceback you read first:"
+     },
+     "o": [
+      "the last line",
+      "the first line",
+      "the file name"
+     ],
+     "a": 0,
+     "why": {
+      "ar": "النوع والسبب في الآخر.",
+      "en": "The type and reason are at the end."
+     }
     }
    ],
    "minutes": 180
@@ -1121,6 +1436,16 @@ JOURNEY.week({
     {
      "ar": "بتقرا آخر سطر في الـ traceback وتعرف أشهر 4 أخطاء.",
      "en": "You read the last line of a traceback and know the four most common errors."
+    },
+    {
+     "ar": "⚡ print بـ sep وend وstdout/stderr، وsnake_case وإعادة الإسناد.",
+     "en": "⚡ print with sep and end, stdout/stderr, snake_case and reassigning.",
+     "deep": 1
+    },
+    {
+     "ar": "⚡ ترتيب العمليات والكسور، والتحويل الآمن، وPEP 8 وقراءة الخطأ: طبّقهم في مشروع الأسبوع.",
+     "en": "⚡ Precedence and decimals, safe conversion, PEP 8 and reading errors: use them in the week project.",
+     "deep": 1
     }
    ],
    "project": {

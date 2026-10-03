@@ -48,6 +48,24 @@ JOURNEY_TERMS["python"] = [
  },
  {
   "w": 1,
+  "t": "stdout",
+  "m": {
+   "ar": "الخرج العادي للبرنامج",
+   "en": "a program’s normal output"
+  },
+  "ex": "print writes to stdout."
+ },
+ {
+  "w": 1,
+  "t": "stderr",
+  "m": {
+   "ar": "خرج رسايل الخطأ",
+   "en": "the output for error messages"
+  },
+  "ex": "Write warnings to stderr."
+ },
+ {
+  "w": 1,
   "t": "variable",
   "m": {
    "ar": "اسم بيشاور على قيمة محفوظة في الذاكرة",
@@ -111,6 +129,24 @@ JOURNEY_TERMS["python"] = [
  },
  {
   "w": 1,
+  "t": "snake_case",
+  "m": {
+   "ar": "كتابة الأسماء بحروف صغيرة و_ بين الكلمات",
+   "en": "writing names in lowercase with _ between words"
+  },
+  "ex": "Python variables use snake_case."
+ },
+ {
+  "w": 1,
+  "t": "reassign",
+  "m": {
+   "ar": "تدّي متغيّر قيمة جديدة",
+   "en": "to give a variable a new value"
+  },
+  "ex": "Reassign count after each order."
+ },
+ {
+  "w": 1,
   "t": "operator",
   "m": {
    "ar": "رمز بيعمل عملية على قيم، زي + أو ==",
@@ -165,6 +201,24 @@ JOURNEY_TERMS["python"] = [
  },
  {
   "w": 1,
+  "t": "operator precedence",
+  "m": {
+   "ar": "ترتيب تنفيذ العمليات في التعبير",
+   "en": "the order operations run in an expression"
+  },
+  "ex": "Operator precedence puts * before +."
+ },
+ {
+  "w": 1,
+  "t": "floating point",
+  "m": {
+   "ar": "طريقة تخزين الكسور العشرية (تقريبية)",
+   "en": "the way decimals are stored (approximate)"
+  },
+  "ex": "Floating point makes 0.1 + 0.2 slightly off."
+ },
+ {
+  "w": 1,
   "t": "input()",
   "m": {
    "ar": "دالة بتاخد نص من المستخدم من لوحة المفاتيح",
@@ -207,6 +261,24 @@ JOURNEY_TERMS["python"] = [
    "en": "an error when a value has the right type but an unusable content"
   },
   "ex": "int(\"abc\")"
+ },
+ {
+  "w": 1,
+  "t": "type casting",
+  "m": {
+   "ar": "تحويل قيمة من نوع لنوع",
+   "en": "turning a value from one type into another"
+  },
+  "ex": "int(\"5\") is type casting."
+ },
+ {
+  "w": 1,
+  "t": "whitespace",
+  "m": {
+   "ar": "مسافات وtab وسطور جديدة",
+   "en": "spaces, tabs and new lines"
+  },
+  "ex": "strip() removes whitespace at both ends."
  },
  {
   "w": 1,
@@ -261,6 +333,24 @@ JOURNEY_TERMS["python"] = [
    "en": "a program to write, run and debug code in one place"
   },
   "ex": "VS Code, PyCharm"
+ },
+ {
+  "w": 1,
+  "t": "pep 8",
+  "m": {
+   "ar": "دليل الشكل الرسمي لكود بايثون",
+   "en": "the official style guide for Python code"
+  },
+  "ex": "Follow PEP 8 so others can read your code."
+ },
+ {
+  "w": 1,
+  "t": "type error",
+  "m": {
+   "ar": "خطأ لما تستخدم قيمة من نوع غلط",
+   "en": "an error when a value has the wrong type"
+  },
+  "ex": "Adding text to a number causes a type error."
  },
  {
   "w": 2,
@@ -318,6 +408,24 @@ JOURNEY_TERMS["python"] = [
  },
  {
   "w": 2,
+  "t": "escape sequence",
+  "m": {
+   "ar": "حرف خاص بيبدأ بـ \\ زي \\n",
+   "en": "a special character starting with \\ like \\n"
+  },
+  "ex": "\\t is the escape sequence for a tab."
+ },
+ {
+  "w": 2,
+  "t": "multiline string",
+  "m": {
+   "ar": "نص بين تلات تنصيصات على كذا سطر",
+   "en": "text between triple quotes over several lines"
+  },
+  "ex": "Use a multiline string for the email body."
+ },
+ {
+  "w": 2,
   "t": "index",
   "m": {
    "ar": "رقم مكان العنصر، وبيبدأ من صفر",
@@ -369,6 +477,24 @@ JOURNEY_TERMS["python"] = [
    "en": "an error when you ask for an index that does not exist"
   },
   "ex": "\"abc\"[5]"
+ },
+ {
+  "w": 2,
+  "t": "slice object",
+  "m": {
+   "ar": "الجزء start:stop:step جوه الأقواس",
+   "en": "the start:stop:step part inside brackets"
+  },
+  "ex": "The slice object [::-1] reverses a list."
+ },
+ {
+  "w": 2,
+  "t": "reverse order",
+  "m": {
+   "ar": "الترتيب المعكوس",
+   "en": "backwards order"
+  },
+  "ex": "Print the list in reverse order."
  },
  {
   "w": 2,
@@ -426,6 +552,24 @@ JOURNEY_TERMS["python"] = [
  },
  {
   "w": 2,
+  "t": "strip",
+  "m": {
+   "ar": "تشيل مسافات أو حروف من الأطراف",
+   "en": "to remove spaces or characters from both ends"
+  },
+  "ex": "Strip the input before checking it."
+ },
+ {
+  "w": 2,
+  "t": "casefold",
+  "m": {
+   "ar": "تحويل للحروف الصغيرة بشكل أقوى للمقارنة",
+   "en": "a stronger lowercase conversion for comparing"
+  },
+  "ex": "Casefold both strings before comparing."
+ },
+ {
+  "w": 2,
   "t": "alignment",
   "m": {
    "ar": "محاذاة النص: شمال أو يمين أو في النص",
@@ -468,6 +612,24 @@ JOURNEY_TERMS["python"] = [
    "en": "the comma between every three digits"
   },
   "ex": "{1500000:,}"
+ },
+ {
+  "w": 2,
+  "t": "textwrap",
+  "m": {
+   "ar": "مكتبة بتقسّم النص على سطور بعرض محدد",
+   "en": "a module that wraps text to a set width"
+  },
+  "ex": "Use textwrap to fit the message on a phone."
+ },
+ {
+  "w": 2,
+  "t": "progress bar",
+  "m": {
+   "ar": "شريط بيبيّن نسبة الشغل اللي خلص",
+   "en": "a bar showing how much of the work is done"
+  },
+  "ex": "Show a progress bar while files are copied."
  },
  {
   "w": 2,
@@ -522,6 +684,24 @@ JOURNEY_TERMS["python"] = [
    "en": "a module for secure random values (passwords and tokens)"
   },
   "ex": "secrets.token_urlsafe(16)"
+ },
+ {
+  "w": 2,
+  "t": "rounding mode",
+  "m": {
+   "ar": "قاعدة التقريب (لفوق، للزوجي…)",
+   "en": "the rule for rounding (up, to even…)"
+  },
+  "ex": "Set the rounding mode to half-up for invoices."
+ },
+ {
+  "w": 2,
+  "t": "banker's rounding",
+  "m": {
+   "ar": "تقريب النص للرقم الزوجي",
+   "en": "rounding halves to the even number"
+  },
+  "ex": "round() uses banker's rounding."
  },
  {
   "w": 3,
@@ -579,6 +759,24 @@ JOURNEY_TERMS["python"] = [
  },
  {
   "w": 3,
+  "t": "ternary",
+  "m": {
+   "ar": "شرط في سطر: قيمة if شرط else قيمة",
+   "en": "a one-line condition: value if test else value"
+  },
+  "ex": "Use a ternary for a simple label."
+ },
+ {
+  "w": 3,
+  "t": "guard clause",
+  "m": {
+   "ar": "شرط في أول الدالة بيخرج بدري من الحالة الغلط",
+   "en": "a check at the start of a function that exits early"
+  },
+  "ex": "A guard clause avoids deep nesting."
+ },
+ {
+  "w": 3,
   "t": "boolean operator",
   "m": {
    "ar": "and وor وnot لجمع الشروط",
@@ -630,6 +828,24 @@ JOURNEY_TERMS["python"] = [
    "en": "an if/else on one line that returns a value"
   },
   "ex": "\"yes\" if ok else \"no\""
+ },
+ {
+  "w": 3,
+  "t": "walrus operator",
+  "m": {
+   "ar": "العلامة := اللي بتعيّن وترجّع القيمة",
+   "en": "the := operator that assigns and returns a value"
+  },
+  "ex": "The walrus operator saves one line."
+ },
+ {
+  "w": 3,
+  "t": "early exit",
+  "m": {
+   "ar": "الخروج من loop أو دالة قبل آخرها",
+   "en": "leaving a loop or function before its end"
+  },
+  "ex": "break gives an early exit."
  },
  {
   "w": 3,
@@ -687,6 +903,24 @@ JOURNEY_TERMS["python"] = [
  },
  {
   "w": 3,
+  "t": "sentinel",
+  "m": {
+   "ar": "قيمة خاصة بتقول للـ loop يقف",
+   "en": "a special value that tells a loop to stop"
+  },
+  "ex": "\"done\" is the sentinel here."
+ },
+ {
+  "w": 3,
+  "t": "running sum",
+  "m": {
+   "ar": "مجموع بيتحدّث مع كل عنصر",
+   "en": "a total updated with each item"
+  },
+  "ex": "Print the running sum after each day."
+ },
+ {
+  "w": 3,
   "t": "for loop",
   "m": {
    "ar": "لوب بياخد عناصر مجموعة واحد واحد",
@@ -741,6 +975,24 @@ JOURNEY_TERMS["python"] = [
  },
  {
   "w": 3,
+  "t": "enumerate",
+  "m": {
+   "ar": "بيدّي رقم مع كل عنصر في loop",
+   "en": "gives a number with each item in a loop"
+  },
+  "ex": "enumerate starts at 0 unless you set start."
+ },
+ {
+  "w": 3,
+  "t": "zip",
+  "m": {
+   "ar": "بيمشي على كذا قايمة مع بعض",
+   "en": "walks several lists together"
+  },
+  "ex": "zip pairs names with prices."
+ },
+ {
+  "w": 3,
   "t": "match statement",
   "m": {
    "ar": "بيقارن قيمة بأكتر من شكل ويختار أول واحد مطابق",
@@ -792,6 +1044,24 @@ JOURNEY_TERMS["python"] = [
    "en": "an else after a loop that runs when there was no break"
   },
   "ex": "for ...: ... else: print(\"not found\")"
+ },
+ {
+  "w": 3,
+  "t": "pattern matching",
+  "m": {
+   "ar": "مطابقة شكل البيانات وتطلّع أجزاءها",
+   "en": "matching the shape of data and pulling out its parts"
+  },
+  "ex": "Use pattern matching for webhook events."
+ },
+ {
+  "w": 3,
+  "t": "fallback case",
+  "m": {
+   "ar": "الحالة اللي بتمسك أي حاجة تانية",
+   "en": "the case that catches everything else"
+  },
+  "ex": "case _ is the fallback case."
  },
  {
   "w": 4,
@@ -849,6 +1119,24 @@ JOURNEY_TERMS["python"] = [
  },
  {
   "w": 4,
+  "t": "append",
+  "m": {
+   "ar": "تضيف عنصر واحد في آخر القايمة",
+   "en": "to add one item to the end of a list"
+  },
+  "ex": "Append each new order to the list."
+ },
+ {
+  "w": 4,
+  "t": "bisect",
+  "m": {
+   "ar": "مكتبة بتدوّر وتضيف في قايمة مترتبة بسرعة",
+   "en": "a module for fast search and insert in a sorted list"
+  },
+  "ex": "Use bisect to keep the list sorted."
+ },
+ {
+  "w": 4,
   "t": "pop()",
   "m": {
    "ar": "بتشيل عنصر (الأخير افتراضيًا) وترجّعه",
@@ -900,6 +1188,24 @@ JOURNEY_TERMS["python"] = [
    "en": "the change happens on the same object, with no new copy"
   },
   "ex": "list.sort() works in place"
+ },
+ {
+  "w": 4,
+  "t": "sorted",
+  "m": {
+   "ar": "بترجّع نسخة مترتبة من غير ما تغيّر الأصل",
+   "en": "returns a sorted copy without changing the original"
+  },
+  "ex": "sorted keeps the original list as it was."
+ },
+ {
+  "w": 4,
+  "t": "sort stability",
+  "m": {
+   "ar": "العناصر المتساوية بتفضل بترتيبها",
+   "en": "equal items keep their order"
+  },
+  "ex": "Sort stability lets you sort in two passes."
  },
  {
   "w": 4,
@@ -957,6 +1263,24 @@ JOURNEY_TERMS["python"] = [
  },
  {
   "w": 4,
+  "t": "comprehension",
+  "m": {
+   "ar": "طريقة مختصرة تبني بيها قايمة أو dict",
+   "en": "a short way to build a list or dict"
+  },
+  "ex": "A list comprehension replaced the loop."
+ },
+ {
+  "w": 4,
+  "t": "frequency table",
+  "m": {
+   "ar": "جدول بعدد مرات ظهور كل قيمة",
+   "en": "a table of how often each value appears"
+  },
+  "ex": "Build a frequency table of cities."
+ },
+ {
+  "w": 4,
   "t": "tuple",
   "m": {
    "ar": "مجموعة مترتبة ثابتة بين ()",
@@ -1011,6 +1335,24 @@ JOURNEY_TERMS["python"] = [
  },
  {
   "w": 4,
+  "t": "deep copy",
+  "m": {
+   "ar": "نسخة كاملة لكل المستويات",
+   "en": "a full copy of every level"
+  },
+  "ex": "Make a deep copy before changing nested lists."
+ },
+ {
+  "w": 4,
+  "t": "unpacking operator",
+  "m": {
+   "ar": "العلامة * اللي بتفك قايمة",
+   "en": "the * sign that unpacks a list"
+  },
+  "ex": "print(*items) uses the unpacking operator."
+ },
+ {
+  "w": 4,
   "t": "nested list",
   "m": {
    "ar": "قايمة عناصرها قوايم",
@@ -1062,6 +1404,24 @@ JOURNEY_TERMS["python"] = [
    "en": "turning rows into columns and back"
   },
   "ex": "list(zip(*rows))"
+ },
+ {
+  "w": 4,
+  "t": "matrix",
+  "m": {
+   "ar": "جدول أرقام صفوف وأعمدة",
+   "en": "a table of numbers in rows and columns"
+  },
+  "ex": "Store the sales as a matrix."
+ },
+ {
+  "w": 4,
+  "t": "row-major",
+  "m": {
+   "ar": "تخزين الجدول صف ورا صف",
+   "en": "storing a table row after row"
+  },
+  "ex": "A list of rows is row-major."
  },
  {
   "w": 5,
@@ -1119,6 +1479,24 @@ JOURNEY_TERMS["python"] = [
  },
  {
   "w": 5,
+  "t": "get method",
+  "m": {
+   "ar": "dict.get: قراءة مفتاح بقيمة بديلة",
+   "en": "dict.get: reading a key with a fallback"
+  },
+  "ex": "Use the get method for optional fields."
+ },
+ {
+  "w": 5,
+  "t": "setdefault",
+  "m": {
+   "ar": "تحط قيمة للمفتاح لو مش موجود وترجّعها",
+   "en": "sets a key’s value if missing and returns it"
+  },
+  "ex": "setdefault creates the list on first use."
+ },
+ {
+  "w": 5,
   "t": "counter pattern",
   "m": {
    "ar": "عدّ التكرارات في dict بـ get(x, 0) + 1",
@@ -1173,6 +1551,24 @@ JOURNEY_TERMS["python"] = [
  },
  {
   "w": 5,
+  "t": "lookup",
+  "m": {
+   "ar": "البحث عن قيمة بمفتاحها",
+   "en": "finding a value by its key"
+  },
+  "ex": "A dict lookup is very fast."
+ },
+ {
+  "w": 5,
+  "t": "group key",
+  "m": {
+   "ar": "القيمة اللي بتجمّع بيها العناصر",
+   "en": "the value you group items by"
+  },
+  "ex": "Use (city, month) as the group key."
+ },
+ {
+  "w": 5,
   "t": "record",
   "m": {
    "ar": "مجموعة حقول عن حاجة واحدة (عميل أو طلب)",
@@ -1215,6 +1611,24 @@ JOURNEY_TERMS["python"] = [
    "en": "reading without crashing when something is missing"
   },
   "ex": "d.get(\"a\", {}).get(\"b\")"
+ },
+ {
+  "w": 5,
+  "t": "nested dict",
+  "m": {
+   "ar": "dict جواه dict",
+   "en": "a dict inside a dict"
+  },
+  "ex": "The address is a nested dict."
+ },
+ {
+  "w": 5,
+  "t": "flatten",
+  "m": {
+   "ar": "تحوّل بيانات متداخلة لمستوى واحد",
+   "en": "to turn nested data into one level"
+  },
+  "ex": "Flatten the response before saving it to the sheet."
  },
  {
   "w": 5,
@@ -1269,6 +1683,24 @@ JOURNEY_TERMS["python"] = [
    "en": "remove duplicates from data"
   },
   "ex": "list(dict.fromkeys(items))"
+ },
+ {
+  "w": 5,
+  "t": "set union",
+  "m": {
+   "ar": "كل العناصر في setين من غير تكرار",
+   "en": "all items in two sets without repeats"
+  },
+  "ex": "The set union gives every customer."
+ },
+ {
+  "w": 5,
+  "t": "frozenset",
+  "m": {
+   "ar": "set مش بيتغيّر ينفع يبقى مفتاح",
+   "en": "an unchangeable set that can be a key"
+  },
+  "ex": "Use a frozenset as a dict key."
  },
  {
   "w": 5,
@@ -1334,6 +1766,24 @@ JOURNEY_TERMS["python"] = [
   "ex": "json.loads(\"{'a': 1}\")"
  },
  {
+  "w": 5,
+  "t": "serialization",
+  "m": {
+   "ar": "تحويل بيانات لنص زي JSON عشان تتحفظ أو تتبعت",
+   "en": "turning data into text such as JSON to store or send"
+  },
+  "ex": "datetime needs help during serialization."
+ },
+ {
+  "w": 5,
+  "t": "indent",
+  "m": {
+   "ar": "المسافة في أول السطر عشان التنسيق",
+   "en": "the space at the start of a line for layout"
+  },
+  "ex": "Use indent=2 for readable JSON."
+ },
+ {
   "w": 6,
   "t": "function",
   "m": {
@@ -1386,6 +1836,24 @@ JOURNEY_TERMS["python"] = [
    "en": "shows the documentation of any function or module"
   },
   "ex": "help(len)"
+ },
+ {
+  "w": 6,
+  "t": "recursion",
+  "m": {
+   "ar": "دالة بتنادي نفسها",
+   "en": "a function calling itself"
+  },
+  "ex": "Recursion suits nested folders."
+ },
+ {
+  "w": 6,
+  "t": "base case",
+  "m": {
+   "ar": "الحالة اللي الـ recursion بتقف عندها",
+   "en": "the case where recursion stops"
+  },
+  "ex": "Without a base case it never stops."
  },
  {
   "w": 6,
@@ -1452,6 +1920,24 @@ JOURNEY_TERMS["python"] = [
  },
  {
   "w": 6,
+  "t": "keyword-only",
+  "m": {
+   "ar": "معامل لازم يتبعت باسمه",
+   "en": "a parameter that must be passed by name"
+  },
+  "ex": "dry_run is keyword-only."
+ },
+ {
+  "w": 6,
+  "t": "partial",
+  "m": {
+   "ar": "نسخة من دالة بقيم متثبّتة",
+   "en": "a copy of a function with some values fixed"
+  },
+  "ex": "partial(send, dry_run=True) is safe for tests."
+ },
+ {
+  "w": 6,
   "t": "scope",
   "m": {
    "ar": "المكان اللي الاسم معروف ومتاح فيه",
@@ -1503,6 +1989,24 @@ JOURNEY_TERMS["python"] = [
    "en": "a value that should not change, written in capitals"
   },
   "ex": "VAT_RATE = 0.14"
+ },
+ {
+  "w": 6,
+  "t": "global",
+  "m": {
+   "ar": "متغيّر معرّف بره كل الدوال",
+   "en": "a variable defined outside every function"
+  },
+  "ex": "Avoid changing a global inside functions."
+ },
+ {
+  "w": 6,
+  "t": "pure",
+  "m": {
+   "ar": "دالة نتيجتها بتعتمد على مدخلاتها بس ومن غير أثر",
+   "en": "a function whose result depends only on its inputs, with no side effects"
+  },
+  "ex": "Pure functions are easy to test."
  },
  {
   "w": 6,
@@ -1560,6 +2064,24 @@ JOURNEY_TERMS["python"] = [
  },
  {
   "w": 6,
+  "t": "generator",
+  "m": {
+   "ar": "دالة بترجّع قيم واحدة واحدة بـ yield",
+   "en": "a function that gives values one at a time with yield"
+  },
+  "ex": "A generator saves memory."
+ },
+ {
+  "w": 6,
+  "t": "yield",
+  "m": {
+   "ar": "ترجّع قيمة وتوقف مؤقتًا",
+   "en": "to return a value and pause"
+  },
+  "ex": "yield the next page."
+ },
+ {
+  "w": 6,
   "t": "single responsibility",
   "m": {
    "ar": "كل دالة بتعمل حاجة واحدة بس",
@@ -1611,6 +2133,24 @@ JOURNEY_TERMS["python"] = [
    "en": "a variable equal to \"__main__\" when the file is run directly"
   },
   "ex": "if __name__ == \"__main__\":"
+ },
+ {
+  "w": 6,
+  "t": "doctest",
+  "m": {
+   "ar": "مثال في التوثيق بيتشغّل كاختبار",
+   "en": "an example in docs that runs as a test"
+  },
+  "ex": "The doctest checks the format."
+ },
+ {
+  "w": 6,
+  "t": "assertion",
+  "m": {
+   "ar": "شرط لازم يكون صح وإلا البرنامج يقف",
+   "en": "a condition that must be true or the program stops"
+  },
+  "ex": "The assertion catches negative amounts."
  },
  {
   "w": 7,
@@ -1668,6 +2208,24 @@ JOURNEY_TERMS["python"] = [
  },
  {
   "w": 7,
+  "t": "entry point",
+  "m": {
+   "ar": "المكان اللي البرنامج بيبدأ منه",
+   "en": "the place where a program starts"
+  },
+  "ex": "main() is the entry point."
+ },
+ {
+  "w": 7,
+  "t": "shebang",
+  "m": {
+   "ar": "أول سطر #! بيقول النظام يشغّل الملف بإيه",
+   "en": "the first #! line telling the system what runs the file"
+  },
+  "ex": "#!/usr/bin/env python3 is a shebang."
+ },
+ {
+  "w": 7,
   "t": "standard library",
   "m": {
    "ar": "الموديولات اللي جاية مع Python من غير تثبيت",
@@ -1719,6 +2277,24 @@ JOURNEY_TERMS["python"] = [
    "en": "a group of items processed together"
   },
   "ex": "100 records per request"
+ },
+ {
+  "w": 7,
+  "t": "datetime",
+  "m": {
+   "ar": "مكتبة التواريخ والأوقات",
+   "en": "the dates and times module"
+  },
+  "ex": "Use datetime for due dates."
+ },
+ {
+  "w": 7,
+  "t": "base64 encode",
+  "m": {
+   "ar": "تحويل bytes لنص آمن (مش تشفير)",
+   "en": "turning bytes into safe text (not encryption)"
+  },
+  "ex": "Base64 encode the file before sending it as JSON."
  },
  {
   "w": 7,
@@ -1785,6 +2361,24 @@ JOURNEY_TERMS["python"] = [
  },
  {
   "w": 7,
+  "t": "requirements file",
+  "m": {
+   "ar": "ملف بقايمة المكتبات المطلوبة",
+   "en": "a file listing the libraries needed"
+  },
+  "ex": "Commit the requirements file to Git."
+ },
+ {
+  "w": 7,
+  "t": "version pin",
+  "m": {
+   "ar": "تحديد إصدار مكتبة بالظبط",
+   "en": "fixing a library to an exact version"
+  },
+  "ex": "A version pin avoids surprise updates."
+ },
+ {
+  "w": 7,
   "t": "virtual environment",
   "m": {
    "ar": "فولدر فيه Python وحزم خاصة بمشروع واحد",
@@ -1848,6 +2442,24 @@ JOURNEY_TERMS["python"] = [
  },
  {
   "w": 7,
+  "t": "isolated",
+  "m": {
+   "ar": "معزول عن الباقي",
+   "en": "kept apart from the rest"
+  },
+  "ex": "Each project has an isolated environment."
+ },
+ {
+  "w": 7,
+  "t": "reproducible install",
+  "m": {
+   "ar": "تثبيت بيطلع نفس النتيجة على أي جهاز",
+   "en": "an install that gives the same result on any machine"
+  },
+  "ex": "A lock file gives a reproducible install."
+ },
+ {
+  "w": 7,
   "t": "__init__.py",
   "m": {
    "ar": "الملف اللي بيخلي الفولدر package",
@@ -1899,6 +2511,24 @@ JOURNEY_TERMS["python"] = [
    "en": "the main explanation file of a project"
   },
   "ex": "README.md"
+ },
+ {
+  "w": 7,
+  "t": "dotenv",
+  "m": {
+   "ar": "ملف .env والمكتبة اللي بتقراه",
+   "en": "the .env file and the library that reads it"
+  },
+  "ex": "Load the keys with dotenv."
+ },
+ {
+  "w": 7,
+  "t": "gitignore",
+  "m": {
+   "ar": "ملف بيقول لـ Git يتجاهل ملفات معيّنة",
+   "en": "a file telling Git to ignore certain files"
+  },
+  "ex": "Add .env to the gitignore."
  },
  {
   "w": 8,
@@ -1956,6 +2586,24 @@ JOURNEY_TERMS["python"] = [
  },
  {
   "w": 8,
+  "t": "raise from",
+  "m": {
+   "ar": "ترمي خطأ جديد وتربطه بالسبب الأصلي",
+   "en": "to raise a new error linked to its original cause"
+  },
+  "ex": "Use raise from to keep the cause."
+ },
+ {
+  "w": 8,
+  "t": "error context",
+  "m": {
+   "ar": "المعلومات اللي حوالين الخطأ (الصف، الملف)",
+   "en": "the information around an error (the row, the file)"
+  },
+  "ex": "Add error context like the row number."
+ },
+ {
+  "w": 8,
   "t": "raise",
   "m": {
    "ar": "بتطلّع خطأ بنفسك لما حاجة غلط",
@@ -2007,6 +2655,24 @@ JOURNEY_TERMS["python"] = [
    "en": "the text describing an error; it should state the problem and the value"
   },
   "ex": "\"quantity must be positive, got 0\""
+ },
+ {
+  "w": 8,
+  "t": "fail fast",
+  "m": {
+   "ar": "تطلّع الخطأ أول ما تكتشفه",
+   "en": "to raise an error as soon as you detect it"
+  },
+  "ex": "Fail fast on a negative amount."
+ },
+ {
+  "w": 8,
+  "t": "precondition",
+  "m": {
+   "ar": "شرط لازم يكون صح قبل ما الدالة تشتغل",
+   "en": "a condition that must be true before a function runs"
+  },
+  "ex": "The precondition checks the amount."
  },
  {
   "w": 8,
@@ -2073,6 +2739,24 @@ JOURNEY_TERMS["python"] = [
  },
  {
   "w": 8,
+  "t": "minimal example",
+  "m": {
+   "ar": "أصغر كود بيعيد المشكلة",
+   "en": "the smallest code that shows the problem"
+  },
+  "ex": "Post a minimal example when you ask for help."
+ },
+ {
+  "w": 8,
+  "t": "print debugging",
+  "m": {
+   "ar": "تطبع قيم عشان تفهم اللي بيحصل",
+   "en": "printing values to see what happens"
+  },
+  "ex": "Print debugging with f\"{x=}\" is quick."
+ },
+ {
+  "w": 8,
   "t": "logging",
   "m": {
    "ar": "تسجيل أحداث البرنامج بالوقت والمستوى بدل print",
@@ -2124,6 +2808,24 @@ JOURNEY_TERMS["python"] = [
    "en": "logs an error message with the full traceback"
   },
   "ex": "except Exception: log.exception(\"failed\")"
+ },
+ {
+  "w": 8,
+  "t": "rotating log",
+  "m": {
+   "ar": "ملف سجل بيتقسم لما يكبر",
+   "en": "a log file that is split when it gets big"
+  },
+  "ex": "A rotating log keeps the disk from filling up."
+ },
+ {
+  "w": 8,
+  "t": "log format",
+  "m": {
+   "ar": "شكل كل سطر في السجل",
+   "en": "the layout of each log line"
+  },
+  "ex": "Add the time to the log format."
  },
  {
   "w": 8,
@@ -2189,6 +2891,24 @@ JOURNEY_TERMS["python"] = [
   "ex": "429 Too Many Requests"
  },
  {
+  "w": 8,
+  "t": "exit status",
+  "m": {
+   "ar": "رقم السكربت بيرجّعه (0 = نجح)",
+   "en": "the number a script returns (0 = success)"
+  },
+  "ex": "n8n reads the exit status."
+ },
+ {
+  "w": 8,
+  "t": "retry loop",
+  "m": {
+   "ar": "loop بتعيد العملية لما تفشل",
+   "en": "a loop that repeats an operation when it fails"
+  },
+  "ex": "Use a retry loop for network calls."
+ },
+ {
   "w": 9,
   "t": "file mode",
   "m": {
@@ -2241,6 +2961,24 @@ JOURNEY_TERMS["python"] = [
    "en": "the \\n at the end of each line in a file"
   },
   "ex": "line.rstrip(\"\\n\")"
+ },
+ {
+  "w": 9,
+  "t": "atomic write",
+  "m": {
+   "ar": "كتابة يا تكمل كلها يا متحصلش خالص",
+   "en": "a write that either completes fully or not at all"
+  },
+  "ex": "Use an atomic write for the state file."
+ },
+ {
+  "w": 9,
+  "t": "temp file",
+  "m": {
+   "ar": "ملف مؤقت بيتمسح بعد الاستخدام",
+   "en": "a temporary file deleted after use"
+  },
+  "ex": "Write to a temp file first."
  },
  {
   "w": 9,
@@ -2307,6 +3045,24 @@ JOURNEY_TERMS["python"] = [
  },
  {
   "w": 9,
+  "t": "glob",
+  "m": {
+   "ar": "نمط بأسماء الملفات زي *.csv",
+   "en": "a file name pattern like *.csv"
+  },
+  "ex": "glob(\"*.csv\") finds the CSV files."
+ },
+ {
+  "w": 9,
+  "t": "path join",
+  "m": {
+   "ar": "ربط أجزاء مسار مع بعض",
+   "en": "joining the parts of a path"
+  },
+  "ex": "Use / for a path join with pathlib."
+ },
+ {
+  "w": 9,
   "t": "shutil",
   "m": {
    "ar": "موديول نسخ ونقل ومسح الفولدرات والملفات",
@@ -2358,6 +3114,24 @@ JOURNEY_TERMS["python"] = [
    "en": "a spare copy to go back to if something goes wrong"
   },
   "ex": "shutil.copytree(\"project\", \"backup_2026-10-01\")"
+ },
+ {
+  "w": 9,
+  "t": "checksum",
+  "m": {
+   "ar": "رقم بيتحسب من محتوى الملف عشان تتأكد إنه متغيّرش",
+   "en": "a value computed from a file’s content to check it did not change"
+  },
+  "ex": "Compare the checksum after copying."
+ },
+ {
+  "w": 9,
+  "t": "backup copy",
+  "m": {
+   "ar": "نسخة احتياطية من ملف",
+   "en": "a spare copy of a file"
+  },
+  "ex": "Make a backup copy before renaming."
  },
  {
   "w": 9,
@@ -2421,6 +3195,24 @@ JOURNEY_TERMS["python"] = [
    "en": "a piece of a file read at a time instead of the whole file"
   },
   "ex": "f.read(65536)"
+ },
+ {
+  "w": 9,
+  "t": "sha256",
+  "m": {
+   "ar": "خوارزمية بصمة 256 بت",
+   "en": "a 256-bit fingerprint algorithm"
+  },
+  "ex": "Equal sha256 means equal content."
+ },
+ {
+  "w": 9,
+  "t": "duplicate finder",
+  "m": {
+   "ar": "برنامج بيلاقي الملفات المكررة",
+   "en": "a program that finds repeated files"
+  },
+  "ex": "The duplicate finder groups by size first."
  },
  {
   "w": 9,
@@ -2495,6 +3287,24 @@ JOURNEY_TERMS["python"] = [
   "ex": "encoding=\"utf-8-sig\""
  },
  {
+  "w": 9,
+  "t": "utf-8 bom",
+  "m": {
+   "ar": "حروف خفية في أول ملف بتقول إنه UTF-8",
+   "en": "hidden characters at the start of a file marking it as UTF-8"
+  },
+  "ex": "Use utf-8-sig to drop the UTF-8 BOM."
+ },
+ {
+  "w": 9,
+  "t": "archive",
+  "m": {
+   "ar": "ملف واحد فيه ملفات كتير مضغوطة",
+   "en": "one file holding many compressed files"
+  },
+  "ex": "Send the reports as one archive."
+ },
+ {
   "w": 10,
   "t": "regular expression",
   "m": {
@@ -2559,6 +3369,24 @@ JOURNEY_TERMS["python"] = [
  },
  {
   "w": 10,
+  "t": "verbose regex",
+  "m": {
+   "ar": "regex مكتوب على سطور بتعليقات",
+   "en": "a regex written over lines with comments"
+  },
+  "ex": "A verbose regex is easier to review."
+ },
+ {
+  "w": 10,
+  "t": "compile",
+  "m": {
+   "ar": "تجهّز نمط مرة عشان تستخدمه كتير",
+   "en": "to prepare a pattern once to reuse it"
+  },
+  "ex": "Compile the pattern at the top of the file."
+ },
+ {
+  "w": 10,
   "t": "capturing group",
   "m": {
    "ar": "جزء من النمط بين () بيتمسك لوحده",
@@ -2610,6 +3438,24 @@ JOURNEY_TERMS["python"] = [
    "en": "a quantity with ? grabbing as little as possible"
   },
   "ex": "<.+?>"
+ },
+ {
+  "w": 10,
+  "t": "capture group",
+  "m": {
+   "ar": "جزء بين أقواس في الـ regex بيتحفظ",
+   "en": "a bracketed part of a regex that is saved"
+  },
+  "ex": "The capture group holds the price."
+ },
+ {
+  "w": 10,
+  "t": "findall",
+  "m": {
+   "ar": "بترجّع كل المطابقات في النص",
+   "en": "returns every match in a text"
+  },
+  "ex": "findall gives all the prices at once."
  },
  {
   "w": 10,
@@ -2667,6 +3513,24 @@ JOURNEY_TERMS["python"] = [
  },
  {
   "w": 10,
+  "t": "re.sub",
+  "m": {
+   "ar": "استبدال كل المطابقات في نص",
+   "en": "replacing every match in a text"
+  },
+  "ex": "re.sub can call a function per match."
+ },
+ {
+  "w": 10,
+  "t": "non-capturing group",
+  "m": {
+   "ar": "مجموعة (?:...) للتجميع بس من غير حفظ",
+   "en": "a (?:...) group for grouping only, not saving"
+  },
+  "ex": "Use a non-capturing group for the currency."
+ },
+ {
+  "w": 10,
   "t": "normalization",
   "m": {
    "ar": "توحيد الأشكال المختلفة لنفس القيمة لشكل واحد",
@@ -2721,6 +3585,24 @@ JOURNEY_TERMS["python"] = [
  },
  {
   "w": 10,
+  "t": "unicodedata",
+  "m": {
+   "ar": "مكتبة معلومات حروف Unicode",
+   "en": "the module with Unicode character information"
+  },
+  "ex": "unicodedata finds combining marks."
+ },
+ {
+  "w": 10,
+  "t": "normalisation",
+  "m": {
+   "ar": "توحيد أشكال الحروف المختلفة",
+   "en": "unifying different forms of characters"
+  },
+  "ex": "Apply normalisation before comparing text."
+ },
+ {
+  "w": 10,
   "t": "semi-structured text",
   "m": {
    "ar": "نص ليه شكل ثابت تقريبًا بس مش JSON أو CSV",
@@ -2772,6 +3654,24 @@ JOURNEY_TERMS["python"] = [
    "en": "a flag letting the dot match newlines too (re.S)"
   },
   "ex": "re.search(p, body, re.S)"
+ },
+ {
+  "w": 10,
+  "t": "tokenize",
+  "m": {
+   "ar": "تقسّم نص لقطع صغيرة ليها نوع",
+   "en": "to split text into small typed pieces"
+  },
+  "ex": "Tokenize the command before checking it."
+ },
+ {
+  "w": 10,
+  "t": "lookbehind",
+  "m": {
+   "ar": "شرط إن حاجة تيجي قبل المطابقة",
+   "en": "a condition that something comes before the match"
+  },
+  "ex": "The lookbehind skips the # sign."
  },
  {
   "w": 11,
@@ -2829,6 +3729,24 @@ JOURNEY_TERMS["python"] = [
  },
  {
   "w": 11,
+  "t": "dialect",
+  "m": {
+   "ar": "إعدادات شكل الـ CSV (الفاصل، التنصيص)",
+   "en": "the CSV format settings (separator, quoting)"
+  },
+  "ex": "The sniffer detects the dialect."
+ },
+ {
+  "w": 11,
+  "t": "csv sniffer",
+  "m": {
+   "ar": "أداة بتخمّن شكل ملف CSV",
+   "en": "a tool that guesses a CSV file’s format"
+  },
+  "ex": "Use the csv sniffer for files from clients."
+ },
+ {
+  "w": 11,
   "t": "openpyxl",
   "m": {
    "ar": "مكتبة Python لقراءة وكتابة ملفات Excel (xlsx)",
@@ -2880,6 +3798,24 @@ JOURNEY_TERMS["python"] = [
    "en": "loops over a sheet’s rows"
   },
   "ex": "ws.iter_rows(min_row=2, values_only=True)"
+ },
+ {
+  "w": 11,
+  "t": "column letter",
+  "m": {
+   "ar": "اسم العمود بالحروف في Excel (A، AB)",
+   "en": "an Excel column’s name in letters (A, AB)"
+  },
+  "ex": "Convert 28 to the column letter AB."
+ },
+ {
+  "w": 11,
+  "t": "sheet name",
+  "m": {
+   "ar": "اسم ورقة العمل في ملف Excel",
+   "en": "the name of a worksheet in an Excel file"
+  },
+  "ex": "A sheet name cannot contain a slash."
  },
  {
   "w": 11,
@@ -2937,6 +3873,24 @@ JOURNEY_TERMS["python"] = [
  },
  {
   "w": 11,
+  "t": "header style",
+  "m": {
+   "ar": "شكل سطر العناوين (bold، لون)",
+   "en": "the look of the header row (bold, colour)"
+  },
+  "ex": "Set a header style for the first row."
+ },
+ {
+  "w": 11,
+  "t": "totals row",
+  "m": {
+   "ar": "صف المجموع في آخر الجدول",
+   "en": "the row of sums at the end of a table"
+  },
+  "ex": "Add a totals row with SUM."
+ },
+ {
+  "w": 11,
   "t": "formula",
   "m": {
    "ar": "حسبة في Excel بتبدأ بـ = وExcel بيحسبها",
@@ -2991,6 +3945,24 @@ JOURNEY_TERMS["python"] = [
  },
  {
   "w": 11,
+  "t": "serial date",
+  "m": {
+   "ar": "تاريخ متخزّن كعدد أيام",
+   "en": "a date stored as a count of days"
+  },
+  "ex": "Excel keeps a serial date like 46298."
+ },
+ {
+  "w": 11,
+  "t": "quantize",
+  "m": {
+   "ar": "تقرّب Decimal لعدد خانات محدد",
+   "en": "to round a Decimal to a set number of places"
+  },
+  "ex": "Quantize the price to two decimals."
+ },
+ {
+  "w": 11,
   "t": "merge files",
   "m": {
    "ar": "دمج ملفات كتير بنفس الشكل في ملف واحد",
@@ -3042,6 +4014,24 @@ JOURNEY_TERMS["python"] = [
    "en": "files meant to share a shape whose columns differ"
   },
   "ex": "an extra column in one branch"
+ },
+ {
+  "w": 11,
+  "t": "split file",
+  "m": {
+   "ar": "ملف كبير اتقسم لملفات أصغر",
+   "en": "a big file divided into smaller files"
+  },
+  "ex": "Send each branch its split file."
+ },
+ {
+  "w": 11,
+  "t": "merge key",
+  "m": {
+   "ar": "العمود المشترك اللي بتدمج بيه",
+   "en": "the shared column you merge on"
+  },
+  "ex": "customer_id is the merge key."
  },
  {
   "w": 12,
@@ -3099,6 +4089,24 @@ JOURNEY_TERMS["python"] = [
  },
  {
   "w": 12,
+  "t": "page range",
+  "m": {
+   "ar": "مجموعة صفحات زي 1-3,7",
+   "en": "a set of pages like 1-3,7"
+  },
+  "ex": "Validate the page range first."
+ },
+ {
+  "w": 12,
+  "t": "extract text",
+  "m": {
+   "ar": "تطلّع النص من ملف زي PDF",
+   "en": "to pull the text out of a file such as a PDF"
+  },
+  "ex": "Extract text from each page."
+ },
+ {
+  "w": 12,
   "t": "python-docx",
   "m": {
    "ar": "مكتبة لعمل وقراءة ملفات Word (docx)",
@@ -3150,6 +4158,24 @@ JOURNEY_TERMS["python"] = [
    "en": "a marker in a template replaced by a value"
   },
   "ex": "{{name}}"
+ },
+ {
+  "w": 12,
+  "t": "placeholder tag",
+  "m": {
+   "ar": "علامة في القالب بتتبدل بقيمة زي $name",
+   "en": "a marker in a template replaced by a value, like $name"
+  },
+  "ex": "Every placeholder tag must be filled."
+ },
+ {
+  "w": 12,
+  "t": "paragraph style",
+  "m": {
+   "ar": "شكل فقرة في Word (عنوان، نص عادي)",
+   "en": "the look of a paragraph in Word (heading, normal)"
+  },
+  "ex": "Keep the paragraph style when you replace text."
  },
  {
   "w": 12,
@@ -3216,6 +4242,24 @@ JOURNEY_TERMS["python"] = [
  },
  {
   "w": 12,
+  "t": "resize",
+  "m": {
+   "ar": "تغيّر مقاس صورة",
+   "en": "to change an image’s size"
+  },
+  "ex": "Resize the photos before uploading."
+ },
+ {
+  "w": 12,
+  "t": "batch resize",
+  "m": {
+   "ar": "تصغير صور كتير مرة واحدة",
+   "en": "resizing many images at once"
+  },
+  "ex": "A batch resize saves hours."
+ },
+ {
+  "w": 12,
   "t": "SMTP",
   "m": {
    "ar": "البروتوكول اللي بيبعت الإيميلات",
@@ -3279,6 +4323,24 @@ JOURNEY_TERMS["python"] = [
  },
  {
   "w": 12,
+  "t": "mime",
+  "m": {
+   "ar": "نوع المحتوى في الإيميل والويب (text/html)",
+   "en": "the content type in email and the web (text/html)"
+  },
+  "ex": "The PDF part has the MIME type application/pdf."
+ },
+ {
+  "w": 12,
+  "t": "email message",
+  "m": {
+   "ar": "كائن بايثون بيبني إيميل كامل",
+   "en": "a Python object that builds a complete email"
+  },
+  "ex": "Build the email message before sending it."
+ },
+ {
+  "w": 12,
   "t": "fpdf2",
   "m": {
    "ar": "مكتبة بسيطة لعمل ملفات PDF من Python",
@@ -3330,6 +4392,24 @@ JOURNEY_TERMS["python"] = [
    "en": "a document stating what is owed"
   },
   "ex": "INV-2026-0091"
+ },
+ {
+  "w": 12,
+  "t": "invoice number",
+  "m": {
+   "ar": "رقم فريد لكل فاتورة",
+   "en": "a unique number for each invoice"
+  },
+  "ex": "Never reuse an invoice number."
+ },
+ {
+  "w": 12,
+  "t": "check digit",
+  "m": {
+   "ar": "رقم إضافي بيكشف أخطاء الكتابة",
+   "en": "an extra digit that detects typing errors"
+  },
+  "ex": "The check digit caught the typo."
  },
  {
   "w": 13,

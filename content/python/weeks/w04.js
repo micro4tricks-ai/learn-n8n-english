@@ -62,6 +62,18 @@ JOURNEY.week({
      },
      "ex": "prices = [120, 85, 300]\nprices[0] = 150\nprices[-1] += 20\nprint(prices)\nword = \"cat\"\n# word[0] = \"b\" would fail: strings are immutable",
      "run": 1
+    },
+    {
+     "h": {
+      "ar": "append وextend وbisect",
+      "en": "append, extend and bisect"
+     },
+     "p": {
+      "ar": "`append(x)` بيضيف عنصر واحد (حتى لو قايمة → قايمة جوه قايمة). `extend(xs)` بيضيف كل عناصر قايمة تانية. ولو القايمة مترتبة وعايز تضيف وتفضل مترتبة: `bisect.insort(lst, x)` — أسرع من append وsort كل مرة.",
+      "en": "`append(x)` adds one item (even a list → a list inside the list). `extend(xs)` adds every item of another list. If the list is sorted and must stay sorted: `bisect.insort(lst, x)` — faster than append then sort every time."
+     },
+     "ex": "a = [1, 2]; a.append([3, 4])   # [1, 2, [3, 4]]\nb = [1, 2]; b.extend([3, 4])   # [1, 2, 3, 4]\nbisect.insort(prices, 45)       # stays sorted",
+     "deep": 1
     }
    ],
    "practice": [
@@ -80,6 +92,16 @@ JOURNEY.week({
     {
      "ar": "غيّر سعر منتج في القايمة وزوّد كل الأسعار 10% بلوب على `range(len(...))`.",
      "en": "Change one price in the list, then raise all prices by 10% with a loop over `range(len(...))`."
+    },
+    {
+     "ar": "ادمج 3 قوايم طلبات في قايمة واحدة بـ extend.",
+     "en": "Merge 3 order lists into one with extend.",
+     "deep": 1
+    },
+    {
+     "ar": "حافظ على قايمة أسعار مترتبة وانت بتضيف 6 أسعار بـ insort.",
+     "en": "Keep a price list sorted while adding 6 prices with insort.",
+     "deep": 1
     }
    ],
    "code": [
@@ -90,6 +112,15 @@ JOURNEY.week({
      },
      "p": "files = [\"a.pdf\", \"notes.txt\", \"Invoice.PDF\", \"logo.png\", \"report.pdf\"]\npdfs = []\nfor name in files:\n    if name.lower().endswith(\".pdf\"):\n        pdfs.append(name)\nprint(len(pdfs), \"PDFs:\", pdfs)",
      "run": 1
+    },
+    {
+     "u": {
+      "ar": "الفرق بين append وextend وinsort",
+      "en": "append versus extend and insort"
+     },
+     "p": "import bisect\na = [1, 2]\na.append([3, 4])\nb = [1, 2]\nb.extend([3, 4])\nprint(a, b)\nprices = [10, 20, 40, 80]\nbisect.insort(prices, 45)\nprint(prices)\nprint(\"45 is at index\", bisect.bisect_left(prices, 45))",
+     "run": 1,
+     "deep": 1
     }
    ],
    "words": [
@@ -140,6 +171,22 @@ JOURNEY.week({
       "en": "can change after it is created (like a list)"
      },
      "ex": "prices[0] = 150"
+    },
+    {
+     "t": "append",
+     "m": {
+      "ar": "تضيف عنصر واحد في آخر القايمة",
+      "en": "to add one item to the end of a list"
+     },
+     "ex": "Append each new order to the list."
+    },
+    {
+     "t": "bisect",
+     "m": {
+      "ar": "مكتبة بتدوّر وتضيف في قايمة مترتبة بسرعة",
+      "en": "a module for fast search and insert in a sorted list"
+     },
+     "ex": "Use bisect to keep the list sorted."
     }
    ],
    "read": [
@@ -212,6 +259,22 @@ JOURNEY.week({
       "ar": "extend بيضيف العناصر نفسها (append كانت هتحط القايمة كعنصر).",
       "en": "extend adds the items themselves (append would nest the list)."
      }
+    },
+    {
+     "q": {
+      "ar": "`[1].append([2])` بيخلي القايمة:",
+      "en": "`[1].append([2])` makes the list:"
+     },
+     "o": [
+      "[1, [2]]",
+      "[1, 2]",
+      "[[1, 2]]"
+     ],
+     "a": 0,
+     "why": {
+      "ar": "append بيضيف عنصر واحد زي ما هو.",
+      "en": "append adds one item as it is."
+     }
     }
    ],
    "minutes": 180
@@ -262,6 +325,18 @@ JOURNEY.week({
      },
      "ex": "prices = [120, 85.5, 300, 42]\nprint(sum(prices), min(prices), max(prices))\nprint(round(sum(prices) / len(prices), 2))\nprint(max([\"Mo\", \"Laila\", \"Hany\"], key=len))",
      "run": 1
+    },
+    {
+     "h": {
+      "ar": "الترتيب بأكتر من مفتاح",
+      "en": "Sorting by several keys"
+     },
+     "p": {
+      "ar": "`sorted(orders, key=lambda o: (o[\"city\"], -o[\"total\"]))` بيرتّب بالمدينة وبعدين بالإجمالي تنازلي (الـ `-` للأرقام). والترتيب في بايثون **stable**: العناصر المتساوية بتحافظ على ترتيبها الأصلي — فتقدر ترتّب على مرحلتين: بالمفتاح الأقل أهمية الأول.",
+      "en": "`sorted(orders, key=lambda o: (o[\"city\"], -o[\"total\"]))` sorts by city, then by total descending (the `-` works for numbers). Python’s sort is **stable**: equal items keep their original order — so you can sort in two passes: the less important key first."
+     },
+     "ex": "by_city_then_total = sorted(orders, key=lambda o: (o[\"city\"], -o[\"total\"]))\norders.sort(key=lambda o: o[\"total\"], reverse=True)\norders.sort(key=lambda o: o[\"city\"])   # stable: totals stay ordered within each city",
+     "deep": 1
     }
    ],
    "practice": [
@@ -280,6 +355,16 @@ JOURNEY.week({
     {
      "ar": "من قايمة مبيعات أسبوع، اطبع أعلى يوم وأقل يوم والمتوسط.",
      "en": "From a week of sales, print the highest day, the lowest day and the average."
+    },
+    {
+     "ar": "رتّب طلاب بالدرجة تنازلي وبعدين بالاسم أبجدي للي درجاتهم زي بعض.",
+     "en": "Sort students by score descending, then by name for equal scores.",
+     "deep": 1
+    },
+    {
+     "ar": "اعمل نفس الترتيب على مرحلتين باستغلال الـ stability.",
+     "en": "Do the same sort in two passes using stability.",
+     "deep": 1
     }
    ],
    "code": [
@@ -290,6 +375,15 @@ JOURNEY.week({
      },
      "p": "sales = [1200, 450, 3100, 980, 2750, 600, 1900]\ntop3 = sorted(sales, reverse=True)[:3]\nprint(\"Top 3:\", top3)\nprint(\"Share of total:\", f\"{sum(top3) / sum(sales):.0%}\")",
      "run": 1
+    },
+    {
+     "u": {
+      "ar": "ترتيب بالمدينة ثم الإجمالي",
+      "en": "Sort by city, then total"
+     },
+     "p": "orders = [\n    {\"id\": 1, \"city\": \"Giza\", \"total\": 300},\n    {\"id\": 2, \"city\": \"Cairo\", \"total\": 150},\n    {\"id\": 3, \"city\": \"Giza\", \"total\": 500},\n    {\"id\": 4, \"city\": \"Cairo\", \"total\": 900},\n]\nfor o in sorted(orders, key=lambda o: (o[\"city\"], -o[\"total\"])):\n    print(o[\"city\"], o[\"total\"], o[\"id\"])",
+     "run": 1,
+     "deep": 1
     }
    ],
    "words": [
@@ -340,6 +434,22 @@ JOURNEY.week({
       "en": "the change happens on the same object, with no new copy"
      },
      "ex": "list.sort() works in place"
+    },
+    {
+     "t": "sorted",
+     "m": {
+      "ar": "بترجّع نسخة مترتبة من غير ما تغيّر الأصل",
+      "en": "returns a sorted copy without changing the original"
+     },
+     "ex": "sorted keeps the original list as it was."
+    },
+    {
+     "t": "sort stability",
+     "m": {
+      "ar": "العناصر المتساوية بتفضل بترتيبها",
+      "en": "equal items keep their order"
+     },
+     "ex": "Sort stability lets you sort in two passes."
     }
    ],
    "read": [
@@ -412,6 +522,22 @@ JOURNEY.week({
       "ar": "pop من غير رقم = آخر عنصر.",
       "en": "pop with no index takes the last item."
      }
+    },
+    {
+     "q": {
+      "ar": "الفرق بين `sorted(x)` و`x.sort()`:",
+      "en": "The difference between `sorted(x)` and `x.sort()`:"
+     },
+     "o": [
+      "sorted returns a new list; sort changes x",
+      "none",
+      "sort returns a new list"
+     ],
+     "a": 0,
+     "why": {
+      "ar": "sort بيرجّع None.",
+      "en": "sort returns None."
+     }
     }
    ],
    "minutes": 180
@@ -462,6 +588,18 @@ JOURNEY.week({
      },
      "ex": "stock = [5, 0, 12]\nprint(any(s == 0 for s in stock), all(s > 0 for s in stock))\nitems = [\"pen\", \"book\", \"bag\"]\nprices = [7.5, 45, 650]\nfor item, price in zip(items, prices):\n    print(f\"{item:<6}{price:>8.2f}\")",
      "run": 1
+    },
+    {
+     "h": {
+      "ar": "comprehension بشرط وجدول تكرار",
+      "en": "Comprehensions with conditions, and frequency tables"
+     },
+     "p": {
+      "ar": "`[x for x in items if cond]` فلترة، و`[a if cond else b for x in items]` تحويل حسب شرط (لاحظ المكان). و**جدول التكرار** بـ dict comprehension: `{w: words.count(w) for w in set(words)}` — بسيط للقوايم الصغيرة (وفي أسبوع 5 هتشوف Counter الأسرع).",
+      "en": "`[x for x in items if cond]` filters, and `[a if cond else b for x in items]` transforms by a condition (note the position). A **frequency table** with a dict comprehension: `{w: words.count(w) for w in set(words)}` — fine for small lists (week 5 shows the faster Counter)."
+     },
+     "ex": "paid = [o for o in orders if o[\"paid\"]]\nlabels = [\"big\" if t > 500 else \"small\" for t in totals]\nfreq = {w: words.count(w) for w in set(words)}",
+     "deep": 1
     }
    ],
    "practice": [
@@ -480,6 +618,16 @@ JOURNEY.week({
     {
      "ar": "اطبع كشف بأسماء الطلبة ودرجاتهم من قايمتين بـ zip.",
      "en": "Print a report of student names and their scores from two lists with zip."
+    },
+    {
+     "ar": "من قايمة إيميلات طلّع اللي على gmail بس، وحوّلهم لحروف صغيرة في نفس الـ comprehension.",
+     "en": "From a list of emails keep only gmail ones, lowercased, in one comprehension.",
+     "deep": 1
+    },
+    {
+     "ar": "اعمل جدول تكرار لحروف كلمة.",
+     "en": "Make a frequency table of the letters in a word.",
+     "deep": 1
     }
    ],
    "code": [
@@ -490,6 +638,15 @@ JOURNEY.week({
      },
      "p": "raw = [\"  01012345678\", \"0109-876-5432\", \"abc\", \"01155550000 \"]\nphones = [p.strip().replace(\"-\", \"\") for p in raw]\nvalid = [p for p in phones if p.isdigit() and len(p) == 11]\nprint(valid)",
      "run": 1
+    },
+    {
+     "u": {
+      "ar": "فلترة وتصنيف وتكرار",
+      "en": "Filter, label and count"
+     },
+     "p": "totals = [120, 800, 45, 650, 300]\nbig = [t for t in totals if t > 500]\nlabels = [\"big\" if t > 500 else \"small\" for t in totals]\nprint(big)\nprint(labels)\ncities = [\"Giza\", \"Cairo\", \"Giza\", \"Alex\", \"Giza\"]\nfreq = {c: cities.count(c) for c in sorted(set(cities))}\nprint(freq)",
+     "run": 1,
+     "deep": 1
     }
    ],
    "words": [
@@ -540,6 +697,22 @@ JOURNEY.week({
       "en": "like a comprehension without [], producing values one at a time"
      },
      "ex": "sum(p * q for p, q in items)"
+    },
+    {
+     "t": "comprehension",
+     "m": {
+      "ar": "طريقة مختصرة تبني بيها قايمة أو dict",
+      "en": "a short way to build a list or dict"
+     },
+     "ex": "A list comprehension replaced the loop."
+    },
+    {
+     "t": "frequency table",
+     "m": {
+      "ar": "جدول بعدد مرات ظهور كل قيمة",
+      "en": "a table of how often each value appears"
+     },
+     "ex": "Build a frequency table of cities."
     }
    ],
    "read": [
@@ -618,6 +791,22 @@ JOURNEY.week({
       "ar": "zip بتقف عند أقصر قايمة.",
       "en": "zip stops at the shortest list."
      }
+    },
+    {
+     "q": {
+      "ar": "الصح:",
+      "en": "Correct:"
+     },
+     "o": [
+      "[x if x > 0 else 0 for x in xs]",
+      "[x for x in xs if x > 0 else 0]",
+      "[if x > 0: x for x in xs]"
+     ],
+     "a": 0,
+     "why": {
+      "ar": "if/else قبل for.",
+      "en": "if/else goes before for."
+     }
     }
    ],
    "minutes": 180
@@ -668,6 +857,18 @@ JOURNEY.week({
      },
      "ex": "a = [1, 2, 3]\nb = a\nb.append(4)\nprint(a)          # [1, 2, 3, 4]  surprise!\nc = a.copy()\nc.append(5)\nprint(a, c)\nprint(a is b, a is c)",
      "run": 1
+    },
+    {
+     "h": {
+      "ar": "النسخة العميقة وفك القوايم بـ *",
+      "en": "Deep copies and unpacking with *"
+     },
+     "p": {
+      "ar": "`copy.deepcopy(data)` بينسخ كل المستويات — لازم لما عندك قوايم جوه قوايم. و`*` في الفك: `first, *rest = items` و`*middle, last = items`. وفي الاستدعاء: `print(*items)` بيبعت كل عنصر كقيمة منفصلة.",
+      "en": "`copy.deepcopy(data)` copies every level — needed when you have lists inside lists. And `*` in unpacking: `first, *rest = items` and `*middle, last = items`. In a call: `print(*items)` passes each item as a separate value."
+     },
+     "ex": "import copy\nbackup = copy.deepcopy(table)\nfirst, *rest = [1, 2, 3, 4]   # 1, [2, 3, 4]\nprint(*[\"a\", \"b\"], sep=\", \")",
+     "deep": 1
     }
    ],
    "practice": [
@@ -686,6 +887,16 @@ JOURNEY.week({
     {
      "ar": "اعمل فخ `b = a` بإيدك، وبعدين صلّحه بـ `copy()` واتأكد بـ `is`.",
      "en": "Fall into the `b = a` trap on purpose, then fix it with `copy()` and check with `is`."
+    },
+    {
+     "ar": "خُد نسخة احتياطية من جدول قبل ما تعدّله، واتأكد إن الأصل اتغيّر والنسخة لأ.",
+     "en": "Back up a table before editing it, and check the original changed but the backup did not.",
+     "deep": 1
+    },
+    {
+     "ar": "افصل أول سطر في CSV (العناوين) عن الباقي بـ `head, *rows = lines`.",
+     "en": "Split the first CSV line (the headers) from the rest with `head, *rows = lines`.",
+     "deep": 1
     }
    ],
    "code": [
@@ -696,6 +907,15 @@ JOURNEY.week({
      },
      "p": "orders = [(\"INV-1\", \"Sara\", 1200.0), (\"INV-2\", \"Omar\", 450.5), (\"INV-3\", \"Mona\", 3100.0)]\nfor inv, customer, amount in orders:\n    flag = \"big\" if amount > 1000 else \"\"\n    print(f\"{inv:<7}{customer:<6}{amount:>9.2f} {flag}\")\ntotal = sum(amount for _, _, amount in orders)\nprint(\"total\", total)",
      "run": 1
+    },
+    {
+     "u": {
+      "ar": "نسخة سطحية مقابل عميقة",
+      "en": "Shallow versus deep copy"
+     },
+     "p": "import copy\ntable = [[\"Tea\", 15], [\"Coffee\", 25]]\nshallow = table.copy()\ndeep = copy.deepcopy(table)\ntable[0][1] = 99\nprint(\"shallow:\", shallow)\nprint(\"deep:\", deep)\nhead, *others = [\"id\", \"name\", \"phone\", \"city\"]\nprint(head, others)\nprint(*others, sep=\" | \")",
+     "run": 1,
+     "deep": 1
     }
    ],
    "words": [
@@ -746,6 +966,22 @@ JOURNEY.week({
       "en": "whether two names are the very same object (is)"
      },
      "ex": "a is b"
+    },
+    {
+     "t": "deep copy",
+     "m": {
+      "ar": "نسخة كاملة لكل المستويات",
+      "en": "a full copy of every level"
+     },
+     "ex": "Make a deep copy before changing nested lists."
+    },
+    {
+     "t": "unpacking operator",
+     "m": {
+      "ar": "العلامة * اللي بتفك قايمة",
+      "en": "the * sign that unpacks a list"
+     },
+     "ex": "print(*items) uses the unpacking operator."
     }
    ],
    "read": [
@@ -818,6 +1054,22 @@ JOURNEY.week({
       "ar": "النجمة بتاخد الباقي كقايمة.",
       "en": "The star collects the rest as a list."
      }
+    },
+    {
+     "q": {
+      "ar": "`a, *b = [1, 2, 3]` → b =",
+      "en": "`a, *b = [1, 2, 3]` → b ="
+     },
+     "o": [
+      "[2, 3]",
+      "2",
+      "(2, 3)"
+     ],
+     "a": 0,
+     "why": {
+      "ar": "* بتجمع الباقي في قايمة.",
+      "en": "* gathers the rest into a list."
+     }
     }
    ],
    "minutes": 180
@@ -868,6 +1120,18 @@ JOURNEY.week({
      },
      "ex": "rows = [[\"Sara\", \"Cairo\", 1200], [\"Omar\", \"Giza\", 450], [\"Mona\", \"Cairo\", 3100]]\nfor name, city, spent in sorted(rows, key=lambda r: r[2], reverse=True):\n    print(name, spent)\nprint(sorted(rows, key=lambda r: (r[1], -r[2])))",
      "run": 1
+    },
+    {
+     "h": {
+      "ar": "جداول: عمود، صف، ومجموع",
+      "en": "Tables: columns, rows and totals"
+     },
+     "p": {
+      "ar": "جدول = قايمة صفوف (**row-major**). عمود: `[row[1] for row in table]`. مجموع كل صف: `[sum(r) for r in table]`. ومجموع الأعمدة: `[sum(col) for col in zip(*table)]` — الـ `zip(*table)` بيقلب الجدول. ده أساس أي تقرير قبل ما تستخدم pandas.",
+      "en": "A table = a list of rows (**row-major**). A column: `[row[1] for row in table]`. Each row’s total: `[sum(r) for r in table]`. Column totals: `[sum(col) for col in zip(*table)]` — `zip(*table)` flips the table. This is the basis of any report before you use pandas."
+     },
+     "ex": "sales = [[10, 20, 30], [5, 15, 25]]\nrow_totals = [sum(r) for r in sales]          # [60, 45]\ncol_totals = [sum(c) for c in zip(*sales)]    # [15, 35, 55]",
+     "deep": 1
     }
    ],
    "practice": [
@@ -886,6 +1150,16 @@ JOURNEY.week({
     {
      "ar": "اقلب جدول 3×4 لـ 4×3 بـ `zip(*rows)` واطبعه.",
      "en": "Turn a 3×4 table into 4×3 with `zip(*rows)` and print it."
+    },
+    {
+     "ar": "ضيف عمود «متوسط» وصف «أعلى يوم» للتقرير.",
+     "en": "Add an «average» column and a «best day» row to the report.",
+     "deep": 1
+    },
+    {
+     "ar": "اقلب جدول 3×4 بـ `zip(*table)` واطبعه.",
+     "en": "Flip a 3×4 table with `zip(*table)` and print it.",
+     "deep": 1
     }
    ],
    "code": [
@@ -896,6 +1170,15 @@ JOURNEY.week({
      },
      "p": "rows = [\n    [\"2026-09-01\", \"Cairo\", 1200.0],\n    [\"2026-09-01\", \"Giza\", 450.0],\n    [\"2026-09-02\", \"Cairo\", 3100.0],\n    [\"2026-09-02\", \"Alex\", 980.0],\n]\ncities = sorted(set(r[1] for r in rows))\nfor city in cities:\n    total = sum(r[2] for r in rows if r[1] == city)\n    print(f\"{city:<6}{total:>9,.2f}\")",
      "run": 1
+    },
+    {
+     "u": {
+      "ar": "تقرير مبيعات أسبوع",
+      "en": "A week’s sales report"
+     },
+     "p": "days = [\"Sat\", \"Sun\", \"Mon\"]\nsales = [\n    [\"Tea\", 10, 12, 8],\n    [\"Coffee\", 20, 18, 25],\n    [\"Juice\", 5, 9, 4],\n]\nprint(f\"{'item':<8}\" + \"\".join(f\"{d:>6}\" for d in days) + f\"{'total':>7}\")\nfor name, *nums in sales:\n    print(f\"{name:<8}\" + \"\".join(f\"{n:>6}\" for n in nums) + f\"{sum(nums):>7}\")\ncols = [sum(c) for c in zip(*[r[1:] for r in sales])]\nprint(f\"{'total':<8}\" + \"\".join(f\"{n:>6}\" for n in cols) + f\"{sum(cols):>7}\")",
+     "run": 1,
+     "deep": 1
     }
    ],
    "words": [
@@ -946,6 +1229,22 @@ JOURNEY.week({
       "en": "turning rows into columns and back"
      },
      "ex": "list(zip(*rows))"
+    },
+    {
+     "t": "matrix",
+     "m": {
+      "ar": "جدول أرقام صفوف وأعمدة",
+      "en": "a table of numbers in rows and columns"
+     },
+     "ex": "Store the sales as a matrix."
+    },
+    {
+     "t": "row-major",
+     "m": {
+      "ar": "تخزين الجدول صف ورا صف",
+      "en": "storing a table row after row"
+     },
+     "ex": "A list of rows is row-major."
     }
    ],
    "read": [
@@ -1027,6 +1326,22 @@ JOURNEY.week({
       "ar": "zip(*rows) = أعمدة.",
       "en": "zip(*rows) gives the columns."
      }
+    },
+    {
+     "q": {
+      "ar": "`list(zip(*[[1, 2], [3, 4]]))` =",
+      "en": "`list(zip(*[[1, 2], [3, 4]]))` ="
+     },
+     "o": [
+      "[(1, 3), (2, 4)]",
+      "[(1, 2), (3, 4)]",
+      "[1, 2, 3, 4]"
+     ],
+     "a": 0,
+     "why": {
+      "ar": "الأعمدة بقت صفوف.",
+      "en": "Columns became rows."
+     }
     }
    ],
    "minutes": 180
@@ -1061,6 +1376,16 @@ JOURNEY.week({
     {
      "ar": "الجداول كقوايم صفوف، والأعمدة، والترتيب بـ lambda.",
      "en": "Tables as lists of rows, columns, and sorting with lambda."
+    },
+    {
+     "ar": "⚡ append/extend/insort، والترتيب بأكتر من مفتاح والـ stability.",
+     "en": "⚡ append/extend/insort, sorting by several keys and stability.",
+     "deep": 1
+    },
+    {
+     "ar": "⚡ comprehensions بشرط، وdeepcopy و*، والجداول بـ zip(*): استخدمهم في مشروع الشهر.",
+     "en": "⚡ Comprehensions with conditions, deepcopy and *, and tables with zip(*): use them in the month project.",
+     "deep": 1
     }
    ],
    "project": {

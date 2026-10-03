@@ -62,6 +62,18 @@ JOURNEY.week({
      },
      "ex": "prices = {\"pen\": 7.5, \"notebook\": 45, \"bag\": 650}\nfor item, price in prices.items():\n    print(f\"{item:<9}{price:>7.2f}\")\nprint(list(prices.keys()), sum(prices.values()))\nprices.update({\"pen\": 8, \"ruler\": 12})\nprint(prices)",
      "run": 1
+    },
+    {
+     "h": {
+      "ar": "get وsetdefault ودمج الـ dicts",
+      "en": "get, setdefault and merging dicts"
+     },
+     "p": {
+      "ar": "`d.get(\"phone\", \"-\")` بيرجّع قيمة بديلة لو المفتاح مش موجود بدل KeyError. `d.setdefault(\"tags\", [])` بيحط قيمة لو مش موجودة ويرجّعها. ودمج dict بـ `|`: `settings = defaults | user_settings` (اللي على اليمين بيكسب).",
+      "en": "`d.get(\"phone\", \"-\")` returns a fallback when the key is missing instead of a KeyError. `d.setdefault(\"tags\", [])` sets a value if missing and returns it. Merge dicts with `|`: `settings = defaults | user_settings` (the right side wins)."
+     },
+     "ex": "phone = customer.get(\"phone\", \"-\")\ncustomer.setdefault(\"tags\", []).append(\"vip\")\nsettings = {\"lang\": \"ar\", \"tz\": \"Africa/Cairo\"} | {\"lang\": \"en\"}",
+     "deep": 1
     }
    ],
    "practice": [
@@ -80,6 +92,16 @@ JOURNEY.week({
     {
      "ar": "استخدم `update` تضيف منتجين وتغيّر سعر واحد في سطر.",
      "en": "Use `update` to add two products and change one price in one line."
+    },
+    {
+     "ar": "ادمج 3 مستويات إعدادات (افتراضي، شركة، مستخدم) بـ `|`.",
+     "en": "Merge 3 levels of settings (default, company, user) with `|`.",
+     "deep": 1
+    },
+    {
+     "ar": "اعمل فهرس أسماء حسب أول حرف بـ setdefault.",
+     "en": "Build an index of names by first letter with setdefault.",
+     "deep": 1
     }
    ],
    "code": [
@@ -90,6 +112,15 @@ JOURNEY.week({
      },
      "p": "prices = {\"pen\": 7.5, \"notebook\": 45, \"bag\": 650}\ncart = [(\"pen\", 4), (\"bag\", 1), (\"eraser\", 2)]\ntotal = 0\nfor item, qty in cart:\n    price = prices.get(item)\n    if price is None:\n        print(\"unknown item:\", item)\n        continue\n    total += price * qty\nprint(\"total:\", total)",
      "run": 1
+    },
+    {
+     "u": {
+      "ar": "إعدادات افتراضية وdict ناقص",
+      "en": "Default settings and a partial dict"
+     },
+     "p": "defaults = {\"lang\": \"ar\", \"currency\": \"EGP\", \"tz\": \"Africa/Cairo\"}\nuser = {\"lang\": \"en\"}\nsettings = defaults | user\nprint(settings)\ncustomer = {\"name\": \"Sara\"}\nprint(customer.get(\"phone\", \"no phone\"))\ncustomer.setdefault(\"tags\", []).append(\"vip\")\ncustomer.setdefault(\"tags\", []).append(\"new\")\nprint(customer)",
+     "run": 1,
+     "deep": 1
     }
    ],
    "words": [
@@ -140,6 +171,22 @@ JOURNEY.week({
       "en": "returns (key, value) pairs to loop over"
      },
      "ex": "for k, v in d.items():"
+    },
+    {
+     "t": "get method",
+     "m": {
+      "ar": "dict.get: قراءة مفتاح بقيمة بديلة",
+      "en": "dict.get: reading a key with a fallback"
+     },
+     "ex": "Use the get method for optional fields."
+    },
+    {
+     "t": "setdefault",
+     "m": {
+      "ar": "تحط قيمة للمفتاح لو مش موجود وترجّعها",
+      "en": "sets a key’s value if missing and returns it"
+     },
+     "ex": "setdefault creates the list on first use."
     }
    ],
    "read": [
@@ -215,6 +262,22 @@ JOURNEY.week({
       "ar": "items بترجّع أزواج.",
       "en": "items returns pairs."
      }
+    },
+    {
+     "q": {
+      "ar": "`{\"a\": 1} | {\"a\": 2}` =",
+      "en": "`{\"a\": 1} | {\"a\": 2}` ="
+     },
+     "o": [
+      "{\"a\": 2}",
+      "{\"a\": 1}",
+      "{\"a\": [1, 2]}"
+     ],
+     "a": 0,
+     "why": {
+      "ar": "اليمين بيكسب.",
+      "en": "The right side wins."
+     }
     }
    ],
    "minutes": 180
@@ -265,6 +328,18 @@ JOURNEY.week({
      },
      "ex": "sales = {\"Cairo\": 4300, \"Giza\": 520, \"Alex\": 980}\nwith_vat = {city: round(v * 1.14) for city, v in sales.items()}\nranked = dict(sorted(sales.items(), key=lambda kv: kv[1], reverse=True))\nbig = {c: v for c, v in sales.items() if v > 900}\nprint(with_vat, ranked, big, sep=\"\\n\")",
      "run": 1
+    },
+    {
+     "h": {
+      "ar": "التجميع بمفتاح",
+      "en": "Grouping by a key"
+     },
+     "p": {
+      "ar": "عايز الطلبات متجمعة حسب المدينة؟ `groups.setdefault(o[\"city\"], []).append(o)`، أو `defaultdict(list)`. المفتاح ممكن يكون **tuple** لو التجميع بأكتر من حاجة: `(city, month)`. وبعدين احسب لكل مجموعة: العدد والمجموع.",
+      "en": "Want orders grouped by city? `groups.setdefault(o[\"city\"], []).append(o)`, or `defaultdict(list)`. The key can be a **tuple** to group by more than one thing: `(city, month)`. Then compute per group: the count and the sum."
+     },
+     "ex": "groups = {}\nfor o in orders:\n    key = (o[\"city\"], o[\"date\"][:7])\n    groups.setdefault(key, []).append(o[\"total\"])",
+     "deep": 1
     }
    ],
    "practice": [
@@ -283,6 +358,16 @@ JOURNEY.week({
     {
      "ar": "رتّب dict مبيعات من الأكبر واطبع الترتيب بأرقام.",
      "en": "Sort a sales dict from the largest and print the ranking with numbers."
+    },
+    {
+     "ar": "جمّع رسايل دعم حسب (القناة، الأولوية) واطبع العدد.",
+     "en": "Group support messages by (channel, priority) and print the counts.",
+     "deep": 1
+    },
+    {
+     "ar": "لكل مجموعة اطبع أكبر وأصغر قيمة.",
+     "en": "For each group print the largest and smallest value.",
+     "deep": 1
     }
    ],
    "code": [
@@ -293,6 +378,15 @@ JOURNEY.week({
      },
      "p": "from collections import Counter\nlines = [\"pen\", \"bag\", \"pen\", \"notebook\", \"pen\", \"bag\", \"ruler\"]\nfor product, n in Counter(lines).most_common(3):\n    print(f\"{product:<9}{n}\")",
      "run": 1
+    },
+    {
+     "u": {
+      "ar": "مبيعات حسب المدينة والشهر",
+      "en": "Sales by city and month"
+     },
+     "p": "orders = [\n    {\"city\": \"Giza\", \"date\": \"2026-09-03\", \"total\": 300},\n    {\"city\": \"Giza\", \"date\": \"2026-09-20\", \"total\": 200},\n    {\"city\": \"Cairo\", \"date\": \"2026-09-11\", \"total\": 450},\n    {\"city\": \"Giza\", \"date\": \"2026-10-01\", \"total\": 120},\n]\ngroups = {}\nfor o in orders:\n    key = (o[\"city\"], o[\"date\"][:7])\n    groups.setdefault(key, []).append(o[\"total\"])\nfor (city, month), totals in sorted(groups.items()):\n    print(f\"{city:<6} {month}  orders: {len(totals)}  sum: {sum(totals)}\")",
+     "run": 1,
+     "deep": 1
     }
    ],
    "words": [
@@ -343,6 +437,22 @@ JOURNEY.week({
       "en": "splitting items into groups by a shared value"
      },
      "ex": "orders by city"
+    },
+    {
+     "t": "lookup",
+     "m": {
+      "ar": "البحث عن قيمة بمفتاحها",
+      "en": "finding a value by its key"
+     },
+     "ex": "A dict lookup is very fast."
+    },
+    {
+     "t": "group key",
+     "m": {
+      "ar": "القيمة اللي بتجمّع بيها العناصر",
+      "en": "the value you group items by"
+     },
+     "ex": "Use (city, month) as the group key."
     }
    ],
    "read": [
@@ -424,6 +534,22 @@ JOURNEY.week({
       "ar": "dict comprehension.",
       "en": "A dict comprehension."
      }
+    },
+    {
+     "q": {
+      "ar": "مفتاح dict ممكن يكون:",
+      "en": "A dict key can be:"
+     },
+     "o": [
+      "a tuple",
+      "a list",
+      "a dict"
+     ],
+     "a": 0,
+     "why": {
+      "ar": "لازم يكون immutable.",
+      "en": "It must be immutable."
+     }
     }
    ],
    "minutes": 180
@@ -474,6 +600,18 @@ JOURNEY.week({
      },
      "ex": "from pprint import pprint\nuser = {\"id\": 9, \"name\": \"Hany\", \"roles\": [\"admin\", \"sales\"], \"address\": {\"city\": \"Giza\", \"zip\": \"12511\"}, \"active\": True}\nprint(user)\npprint(user, width=40)",
      "run": 1
+    },
+    {
+     "h": {
+      "ar": "تسطيح البيانات المتداخلة",
+      "en": "Flattening nested data"
+     },
+     "p": {
+      "ar": "ردود الـ APIs متداخلة: `{\"customer\": {\"name\": ..., \"address\": {\"city\": ...}}}`. للشيت محتاج صف مسطّح: `customer.name`، `customer.address.city`. دالة صغيرة recursive بتمشي على كل مستوى وتجمع الأسماء بالنقط.",
+      "en": "API responses are nested: `{\"customer\": {\"name\": ..., \"address\": {\"city\": ...}}}`. A sheet needs a flat row: `customer.name`, `customer.address.city`. A small recursive function walks each level and joins the names with dots."
+     },
+     "ex": "flatten({\"a\": {\"b\": 1, \"c\": {\"d\": 2}}})\n# {\"a.b\": 1, \"a.c.d\": 2}",
+     "deep": 1
     }
    ],
    "practice": [
@@ -492,6 +630,16 @@ JOURNEY.week({
     {
      "ar": "حوّل قايمة tuples من أسبوع 4 لقايمة dicts بـ comprehension.",
      "en": "Turn a list of tuples from week 4 into a list of dicts with a comprehension."
+    },
+    {
+     "ar": "جرّب flatten على رد API حقيقي (من jsonplaceholder) واطبع الأعمدة.",
+     "en": "Try flatten on a real API response (from jsonplaceholder) and print the columns.",
+     "deep": 1
+    },
+    {
+     "ar": "عدّلها عشان القوايم تتحوّل لنص مفصول بفاصلة.",
+     "en": "Change it so lists become comma-joined text.",
+     "deep": 1
     }
    ],
    "code": [
@@ -502,6 +650,15 @@ JOURNEY.week({
      },
      "p": "items = [\n    {\"json\": {\"name\": \"Sara\", \"email\": \"SARA@MAIL.COM \"}},\n    {\"json\": {\"name\": \"Omar\", \"email\": None}},\n]\nout = []\nfor item in items:\n    data = item[\"json\"]\n    email = (data.get(\"email\") or \"\").strip().lower()\n    out.append({\"json\": {**data, \"email\": email, \"has_email\": bool(email)}})\nprint(out)",
      "run": 1
+    },
+    {
+     "u": {
+      "ar": "دالة flatten",
+      "en": "A flatten function"
+     },
+     "p": "def flatten(d, prefix=\"\"):\n    row = {}\n    for key, value in d.items():\n        name = f\"{prefix}.{key}\" if prefix else key\n        if isinstance(value, dict):\n            row |= flatten(value, name)\n        else:\n            row[name] = value\n    return row\n\norder = {\"id\": 7, \"customer\": {\"name\": \"Sara\", \"address\": {\"city\": \"Giza\", \"zip\": \"12511\"}}, \"total\": 300}\nfor k, v in flatten(order).items():\n    print(f\"{k:<24} {v}\")",
+     "run": 1,
+     "deep": 1
     }
    ],
    "words": [
@@ -544,6 +701,22 @@ JOURNEY.week({
       "en": "reading without crashing when something is missing"
      },
      "ex": "d.get(\"a\", {}).get(\"b\")"
+    },
+    {
+     "t": "nested dict",
+     "m": {
+      "ar": "dict جواه dict",
+      "en": "a dict inside a dict"
+     },
+     "ex": "The address is a nested dict."
+    },
+    {
+     "t": "flatten",
+     "m": {
+      "ar": "تحوّل بيانات متداخلة لمستوى واحد",
+      "en": "to turn nested data into one level"
+     },
+     "ex": "Flatten the response before saving it to the sheet."
     }
    ],
    "read": [
@@ -616,6 +789,22 @@ JOURNEY.week({
       "ar": "اللي بعده بيكتب فوق اللي قبله.",
       "en": "The later value overrides the earlier."
      }
+    },
+    {
+     "q": {
+      "ar": "`flatten({\"a\": {\"b\": 1}})` =",
+      "en": "`flatten({\"a\": {\"b\": 1}})` ="
+     },
+     "o": [
+      "{\"a.b\": 1}",
+      "{\"a\": 1}",
+      "{\"b\": 1}"
+     ],
+     "a": 0,
+     "why": {
+      "ar": "الأسماء بتتجمع بالنقط.",
+      "en": "Names are joined with dots."
+     }
     }
    ],
    "minutes": 180
@@ -666,6 +855,18 @@ JOURNEY.week({
      },
      "ex": "import time\nbig_list = list(range(2_000_000))\nbig_set = set(big_list)\nt = time.perf_counter(); 1_999_999 in big_list; a = time.perf_counter() - t\nt = time.perf_counter(); 1_999_999 in big_set; b = time.perf_counter() - t\nprint(f\"list {a*1000:.2f} ms, set {b*1000:.4f} ms\")\nseen = {(\"Sara\", \"Cairo\")}\nprint((\"Sara\", \"Cairo\") in seen)",
      "run": 1
+    },
+    {
+     "h": {
+      "ar": "عمليات الـ sets وfrozenset",
+      "en": "Set operations and frozenset"
+     },
+     "p": {
+      "ar": "`a | b` الاتحاد (الكل)، `a & b` التقاطع (المشترك)، `a - b` الفرق (في a بس)، `a ^ b` في واحد بس منهم. مثال: عملاء الشهر ده `-` عملاء الشهر اللي فات = العملاء الجداد. و**frozenset** set مش بيتغيّر، فينفع يبقى مفتاح في dict.",
+      "en": "`a | b` union (all), `a & b` intersection (shared), `a - b` difference (only in a), `a ^ b` in exactly one. Example: this month’s customers `-` last month’s = new customers. A **frozenset** is a set that cannot change, so it can be a dict key."
+     },
+     "ex": "new_customers = this_month - last_month\nreturning = this_month & last_month\nlost = last_month - this_month",
+     "deep": 1
     }
    ],
    "practice": [
@@ -684,6 +885,16 @@ JOURNEY.week({
     {
      "ar": "جرّب تحط قايمة جوه set واقرا الخطأ، وبعدين حوّلها tuple.",
      "en": "Try putting a list inside a set, read the error, then turn it into a tuple."
+    },
+    {
+     "ar": "قارن قايمتين إيميلات (المشتركين، اللي فتحوا الرسالة) واطلع اللي مفتحوش.",
+     "en": "Compare two email lists (subscribers, openers) and find who did not open.",
+     "deep": 1
+    },
+    {
+     "ar": "اعمل dict مفتاحه frozenset لعدد مرات شراء منتجين مع بعض.",
+     "en": "Make a dict keyed by frozenset counting how often two products are bought together.",
+     "deep": 1
     }
    ],
    "code": [
@@ -694,6 +905,15 @@ JOURNEY.week({
      },
      "p": "invoiced = {\"INV-1\", \"INV-2\", \"INV-3\", \"INV-4\", \"INV-5\"}\npaid = {\"INV-2\", \"INV-5\", \"INV-9\"}\nprint(\"unpaid:\", sorted(invoiced - paid))\nprint(\"paid but unknown:\", paid - invoiced)",
      "run": 1
+    },
+    {
+     "u": {
+      "ar": "عملاء جداد ورجعوا وضاعوا",
+      "en": "New, returning and lost customers"
+     },
+     "p": "last_month = {\"sara\", \"omar\", \"mona\", \"ali\"}\nthis_month = {\"sara\", \"mona\", \"hany\", \"nour\"}\nprint(\"new:\", sorted(this_month - last_month))\nprint(\"returning:\", sorted(this_month & last_month))\nprint(\"lost:\", sorted(last_month - this_month))\nprint(\"all:\", len(this_month | last_month))\npairs = {frozenset({\"tea\", \"cake\"}): 12}\nprint(pairs[frozenset({\"cake\", \"tea\"})])",
+     "run": 1,
+     "deep": 1
     }
    ],
    "words": [
@@ -744,6 +964,22 @@ JOURNEY.week({
       "en": "remove duplicates from data"
      },
      "ex": "list(dict.fromkeys(items))"
+    },
+    {
+     "t": "set union",
+     "m": {
+      "ar": "كل العناصر في setين من غير تكرار",
+      "en": "all items in two sets without repeats"
+     },
+     "ex": "The set union gives every customer."
+    },
+    {
+     "t": "frozenset",
+     "m": {
+      "ar": "set مش بيتغيّر ينفع يبقى مفتاح",
+      "en": "an unchangeable set that can be a key"
+     },
+     "ex": "Use a frozenset as a dict key."
     }
    ],
    "read": [
@@ -816,6 +1052,22 @@ JOURNEY.week({
       "ar": "الـ tuple hashable.",
       "en": "A tuple is hashable."
      }
+    },
+    {
+     "q": {
+      "ar": "العملاء الجداد =",
+      "en": "New customers ="
+     },
+     "o": [
+      "this_month - last_month",
+      "this_month & last_month",
+      "last_month - this_month"
+     ],
+     "a": 0,
+     "why": {
+      "ar": "موجودين دلوقتي بس.",
+      "en": "Only in the current month."
+     }
     }
    ],
    "minutes": 180
@@ -866,6 +1118,18 @@ JOURNEY.week({
      },
      "ex": "import json\ncity = {\"city\": \"القاهرة\"}\nprint(json.dumps(city))\nprint(json.dumps(city, ensure_ascii=False))\ntry:\n    json.loads(\"{'name': 'Ali',}\")\nexcept json.JSONDecodeError as e:\n    print(\"bad JSON:\", e)",
      "run": 1
+    },
+    {
+     "h": {
+      "ar": "JSON: أنواع مش مدعومة وindent",
+      "en": "JSON: unsupported types and indent"
+     },
+     "p": {
+      "ar": "`json.dumps` مش بيعرف `datetime` ولا `Decimal` ولا `set`. الحل: `default=str` (يحوّلهم نص) أو تحوّلهم بنفسك. و`indent=2` للقراية، و`ensure_ascii=False` عشان العربي يظهر حروف مش `\\u0633`. و`sort_keys=True` يخلّي الملفات ثابتة في Git.",
+      "en": "`json.dumps` does not know `datetime`, `Decimal` or `set`. Fix: `default=str` (turns them into text) or convert them yourself. Use `indent=2` for reading, and `ensure_ascii=False` so Arabic shows as letters, not `\\u0633`. `sort_keys=True` keeps files stable in Git."
+     },
+     "ex": "json.dumps(data, default=str, ensure_ascii=False, indent=2, sort_keys=True)",
+     "deep": 1
     }
    ],
    "practice": [
@@ -884,6 +1148,16 @@ JOURNEY.week({
     {
      "ar": "صلّح 3 نصوص JSON غلط واتأكد إن loads بتقبلهم.",
      "en": "Fix 3 broken JSON texts and confirm that loads accepts them."
+    },
+    {
+     "ar": "احفظ قايمة عملاء عربي في JSON مقروء، وافتحه في VS Code.",
+     "en": "Save a list of Arabic customer names as readable JSON and open it in VS Code.",
+     "deep": 1
+    },
+    {
+     "ar": "اكتب دالة `to_json_safe` بتحوّل Decimal لـ float وdate لـ ISO.",
+     "en": "Write a `to_json_safe` function that turns Decimal into float and date into ISO.",
+     "deep": 1
     }
    ],
    "code": [
@@ -894,6 +1168,15 @@ JOURNEY.week({
      },
      "p": "import json\npayload = '{\"event\": \"order.created\", \"data\": {\"id\": 991, \"total\": \"1250.50\", \"customer\": {\"email\": \"Mona@Shop.com\"}}}'\nevent = json.loads(payload)\ndata = event[\"data\"]\nsummary = {\"id\": data[\"id\"], \"total\": float(data[\"total\"]), \"email\": data[\"customer\"][\"email\"].lower()}\nprint(json.dumps(summary, indent=2))",
      "run": 1
+    },
+    {
+     "u": {
+      "ar": "JSON فيه تاريخ وعربي",
+      "en": "JSON with a date and Arabic"
+     },
+     "p": "import json\nfrom datetime import date\nfrom decimal import Decimal\norder = {\"name\": \"سارة\", \"total\": Decimal(\"350.50\"), \"day\": date(2026, 10, 3), \"tags\": {\"vip\"}}\ntry:\n    json.dumps(order)\nexcept TypeError as e:\n    print(\"Error:\", e)\norder[\"tags\"] = sorted(order[\"tags\"])\nprint(json.dumps(order, default=str, ensure_ascii=False, indent=2, sort_keys=True))",
+     "run": 1,
+     "deep": 1
     }
    ],
    "words": [
@@ -952,6 +1235,22 @@ JOURNEY.week({
       "en": "an error when the text is not valid JSON"
      },
      "ex": "json.loads(\"{'a': 1}\")"
+    },
+    {
+     "t": "serialization",
+     "m": {
+      "ar": "تحويل بيانات لنص زي JSON عشان تتحفظ أو تتبعت",
+      "en": "turning data into text such as JSON to store or send"
+     },
+     "ex": "datetime needs help during serialization."
+    },
+    {
+     "t": "indent",
+     "m": {
+      "ar": "المسافة في أول السطر عشان التنسيق",
+      "en": "the space at the start of a line for layout"
+     },
+     "ex": "Use indent=2 for readable JSON."
     }
    ],
    "read": [
@@ -1033,6 +1332,22 @@ JOURNEY.week({
       "ar": "بتحوّل النص لبيانات.",
       "en": "It turns text into data."
      }
+    },
+    {
+     "q": {
+      "ar": "عشان العربي يظهر حروف في JSON:",
+      "en": "To show Arabic as letters in JSON:"
+     },
+     "o": [
+      "ensure_ascii=False",
+      "indent=2",
+      "sort_keys=True"
+     ],
+     "a": 0,
+     "why": {
+      "ar": "من غيرها بيبقى \\u….",
+      "en": "Without it you get \\u…."
+     }
     }
    ],
    "minutes": 180
@@ -1067,6 +1382,16 @@ JOURNEY.week({
     {
      "ar": "JSON: dumps وloads وindent وensure_ascii والأنواع.",
      "en": "JSON: dumps, loads, indent, ensure_ascii and types."
+    },
+    {
+     "ar": "⚡ get/setdefault و|، والتجميع بمفتاح tuple، وflatten.",
+     "en": "⚡ get/setdefault and |, grouping by a tuple key, and flatten.",
+     "deep": 1
+    },
+    {
+     "ar": "⚡ عمليات الـ sets وfrozenset، وJSON مع التواريخ والعربي: حلّل بيانات طلبات شهرين.",
+     "en": "⚡ Set operations and frozenset, and JSON with dates and Arabic: analyse two months of orders.",
+     "deep": 1
     }
    ],
    "project": {

@@ -62,6 +62,18 @@ JOURNEY.week({
      },
      "ex": "def mask_phone(phone):\n    \"\"\"Hide the middle of a phone number: 01012345678 -> 010*****678.\"\"\"\n    digits = \"\".join(ch for ch in phone if ch.isdigit())\n    return digits[:3] + \"*\" * (len(digits) - 6) + digits[-3:]\n\nprint(mask_phone(\"010-1234 5678\"))\nprint(mask_phone.__doc__)",
      "run": 1
+    },
+    {
+     "h": {
+      "ar": "الـ recursion",
+      "en": "Recursion"
+     },
+     "p": {
+      "ar": "دالة بتنادي نفسها على جزء أصغر من المشكلة. لازم **base case** (حالة بتقف فيها) وإلا هتلف لحد `RecursionError`. مثالي للبيانات المتداخلة (فولدرات جوه فولدرات، JSON جوه JSON). لو المشكلة مسطّحة، loop عادي أوضح.",
+      "en": "A function that calls itself on a smaller part of the problem. It needs a **base case** (where it stops) or it runs until `RecursionError`. Ideal for nested data (folders in folders, JSON in JSON). If the problem is flat, a plain loop is clearer."
+     },
+     "ex": "def count_items(node):\n    if not isinstance(node, list):   # base case\n        return 1\n    return sum(count_items(x) for x in node)",
+     "deep": 1
     }
    ],
    "practice": [
@@ -80,6 +92,16 @@ JOURNEY.week({
     {
      "ar": "اكتب docstring لكل دالة واطبعه بـ `help()`.",
      "en": "Write a docstring for each function and print it with `help()`."
+    },
+    {
+     "ar": "اكتب دالة recursive تطلع كل المفاتيح في JSON متداخل.",
+     "en": "Write a recursive function that lists every key in nested JSON.",
+     "deep": 1
+    },
+    {
+     "ar": "شيل الـ base case وشوف الخطأ اللي بيطلع.",
+     "en": "Remove the base case and see the error you get.",
+     "deep": 1
     }
    ],
    "code": [
@@ -90,6 +112,15 @@ JOURNEY.week({
      },
      "p": "def clean_name(name):\n    \"\"\"Trim, collapse spaces and use Title Case.\"\"\"\n    return \" \".join(name.split()).title()\n\ndef clean_email(email):\n    \"\"\"Trim and lowercase an email.\"\"\"\n    return email.strip().lower()\n\nprint(clean_name(\"  mona   HASSAN \"), clean_email(\" Mona@Shop.COM \"))",
      "run": 1
+    },
+    {
+     "u": {
+      "ar": "عدّ العناصر في قوايم متداخلة",
+      "en": "Counting items in nested lists"
+     },
+     "p": "def depth(node):\n    if not isinstance(node, (list, dict)):\n        return 0\n    children = node.values() if isinstance(node, dict) else node\n    return 1 + max((depth(c) for c in children), default=0)\n\ndata = {\"orders\": [{\"lines\": [{\"sku\": \"A\"}, {\"sku\": \"B\"}]}]}\nprint(\"depth:\", depth(data))\n\ndef total(node):\n    if isinstance(node, (int, float)):\n        return node\n    return sum(total(x) for x in node)\nprint(total([1, [2, 3], [4, [5]]]))",
+     "run": 1,
+     "deep": 1
     }
    ],
    "words": [
@@ -140,6 +171,22 @@ JOURNEY.week({
       "en": "shows the documentation of any function or module"
      },
      "ex": "help(len)"
+    },
+    {
+     "t": "recursion",
+     "m": {
+      "ar": "دالة بتنادي نفسها",
+      "en": "a function calling itself"
+     },
+     "ex": "Recursion suits nested folders."
+    },
+    {
+     "t": "base case",
+     "m": {
+      "ar": "الحالة اللي الـ recursion بتقف عندها",
+      "en": "the case where recursion stops"
+     },
+     "ex": "Without a base case it never stops."
     }
    ],
    "read": [
@@ -227,6 +274,22 @@ JOURNEY.week({
       "ar": "الأقواس هي اللي بتشغّلها.",
       "en": "Brackets are what call it."
      }
+    },
+    {
+     "q": {
+      "ar": "من غير base case:",
+      "en": "Without a base case:"
+     },
+     "o": [
+      "RecursionError",
+      "it returns 0",
+      "it runs once"
+     ],
+     "a": 0,
+     "why": {
+      "ar": "بتلف لحد ما المكدس يتملي.",
+      "en": "It loops until the stack is full."
+     }
     }
    ],
    "minutes": 180
@@ -277,6 +340,18 @@ JOURNEY.week({
      },
      "ex": "def bad_add(item, items=[]):\n    items.append(item)\n    return items\n\ndef good_add(item, items=None):\n    if items is None:\n        items = []\n    items.append(item)\n    return items\n\nprint(bad_add(\"a\"), bad_add(\"b\"))\nprint(good_add(\"a\"), good_add(\"b\"))",
      "run": 1
+    },
+    {
+     "h": {
+      "ar": "معاملات keyword-only وpartial",
+      "en": "Keyword-only parameters and partial"
+     },
+     "p": {
+      "ar": "أي parameter بعد `*` لازم يتبعت بالاسم: `def send(to, *, dry_run=False)` — فمحدش يكتب `send(\"x\", True)` ويبقى مش فاهم True دي إيه. و`functools.partial(send, dry_run=True)` بيعمل نسخة من الدالة بقيمة متثبّتة.",
+      "en": "Any parameter after `*` must be passed by name: `def send(to, *, dry_run=False)` — so nobody writes `send(\"x\", True)` without knowing what True means. And `functools.partial(send, dry_run=True)` makes a copy of the function with that value fixed."
+     },
+     "ex": "def send(to, *, dry_run=False): ...\nsend(\"sara@x.com\", dry_run=True)   # ✓\nsend(\"sara@x.com\", True)           # TypeError\ntest_send = partial(send, dry_run=True)",
+     "deep": 1
     }
    ],
    "practice": [
@@ -295,6 +370,16 @@ JOURNEY.week({
     {
      "ar": "جرّب فخ القايمة الافتراضية واطبع النتيجة بعد 3 نداءات، وبعدين صلّحه.",
      "en": "Try the mutable default trap, print the result after 3 calls, then fix it."
+    },
+    {
+     "ar": "خلّي flag مهم في دالة عندك keyword-only.",
+     "en": "Make an important flag in one of your functions keyword-only.",
+     "deep": 1
+    },
+    {
+     "ar": "اعمل بـ partial دالة `to_cairo` من دالة تحويل توقيت عامة.",
+     "en": "Use partial to make a `to_cairo` function from a general time zone converter.",
+     "deep": 1
     }
    ],
    "code": [
@@ -305,6 +390,15 @@ JOURNEY.week({
      },
      "p": "def message(name, amount, due=\"end of month\", *, currency=\"EGP\"):\n    return f\"Hi {name}, your invoice of {amount:,.2f} {currency} is due {due}.\"\n\nprint(message(\"Sara\", 1250))\nprint(message(\"Omar\", 980.5, \"Friday\", currency=\"USD\"))",
      "run": 1
+    },
+    {
+     "u": {
+      "ar": "keyword-only وpartial",
+      "en": "Keyword-only and partial"
+     },
+     "p": "from functools import partial\n\ndef send(to, subject, *, dry_run=False):\n    action = \"WOULD SEND\" if dry_run else \"SENT\"\n    return f\"{action} to {to}: {subject}\"\n\nprint(send(\"sara@example.com\", \"Hi\", dry_run=True))\ntry:\n    send(\"sara@example.com\", \"Hi\", True)\nexcept TypeError as e:\n    print(\"Error:\", e)\ntest_send = partial(send, dry_run=True)\nprint(test_send(\"omar@example.com\", \"Report\"))",
+     "run": 1,
+     "deep": 1
     }
    ],
    "words": [
@@ -363,6 +457,22 @@ JOURNEY.week({
       "en": "a changeable default (like []) that persists between calls"
      },
      "ex": "def f(x=[]):  # trap"
+    },
+    {
+     "t": "keyword-only",
+     "m": {
+      "ar": "معامل لازم يتبعت باسمه",
+      "en": "a parameter that must be passed by name"
+     },
+     "ex": "dry_run is keyword-only."
+    },
+    {
+     "t": "partial",
+     "m": {
+      "ar": "نسخة من دالة بقيم متثبّتة",
+      "en": "a copy of a function with some values fixed"
+     },
+     "ex": "partial(send, dry_run=True) is safe for tests."
     }
    ],
    "read": [
@@ -435,6 +545,22 @@ JOURNEY.week({
       "ar": "None وجوه الدالة تعمل قايمة جديدة.",
       "en": "None, then build a new list inside."
      }
+    },
+    {
+     "q": {
+      "ar": "`def f(a, *, b)` → `f(1, 2)`:",
+      "en": "`def f(a, *, b)` → `f(1, 2)`:"
+     },
+     "o": [
+      "TypeError",
+      "works",
+      "b = None"
+     ],
+     "a": 0,
+     "why": {
+      "ar": "b لازم بالاسم.",
+      "en": "b must be named."
+     }
     }
    ],
    "minutes": 180
@@ -485,6 +611,18 @@ JOURNEY.week({
      },
      "ex": "def add_discount_bad(prices):\n    for i in range(len(prices)):\n        prices[i] *= 0.9          # changes the caller's list!\n\ndef add_discount(prices):\n    return [round(p * 0.9, 2) for p in prices]   # returns a new list\n\noriginal = [100, 200]\nnew = add_discount(original)\nprint(original, new)\nadd_discount_bad(original)\nprint(original)",
      "run": 1
+    },
+    {
+     "h": {
+      "ar": "global ودوال نضيفة",
+      "en": "global and clean functions"
+     },
+     "p": {
+      "ar": "`global x` بيخلّي الدالة تغيّر متغيّر بره — ده بيصعّب التتبع والاختبار. الأحسن: الدالة تاخد اللي محتاجاه كمعاملات وترجّع النتيجة (**pure**: نفس المدخلات = نفس المخرجات، ومن غير أثر جانبي). خلّي الطباعة والملفات في طرف البرنامج، والحساب في دوال pure.",
+      "en": "`global x` lets a function change an outside variable — this makes tracing and testing hard. Better: the function takes what it needs as parameters and returns the result (**pure**: same inputs = same outputs, no side effects). Keep printing and files at the edges of the program, and calculations in pure functions."
+     },
+     "ex": "# ✗\ntotal = 0\ndef add(x):\n    global total\n    total += x\n# ✓\ndef add(total, x):\n    return total + x",
+     "deep": 1
     }
    ],
    "practice": [
@@ -503,6 +641,16 @@ JOURNEY.week({
     {
      "ar": "اكتب `summary(orders)` ترجّع dict فيه count وtotal وavg.",
      "en": "Write `summary(orders)` returning a dict with count, total and avg."
+    },
+    {
+     "ar": "دوّر على أي `global` في كودك وشيله بإنك ترجّع القيمة.",
+     "en": "Find any `global` in your code and remove it by returning the value.",
+     "deep": 1
+    },
+    {
+     "ar": "قسّم سكربت لـ: قراءة (طرف)، حساب (pure)، كتابة (طرف).",
+     "en": "Split a script into: reading (edge), calculating (pure), writing (edge).",
+     "deep": 1
     }
    ],
    "code": [
@@ -513,6 +661,15 @@ JOURNEY.week({
      },
      "p": "def summary(amounts):\n    count = len(amounts)\n    total = sum(amounts)\n    return {\"count\": count, \"total\": total, \"avg\": round(total / count, 2) if count else 0}\n\nprint(summary([1200, 450, 3100]))\nprint(summary([]))",
      "run": 1
+    },
+    {
+     "u": {
+      "ar": "من global لدالة pure",
+      "en": "From global to a pure function"
+     },
+     "p": "def apply_discount(prices, percent):\n    return [round(p * (1 - percent / 100), 2) for p in prices]\n\nprices = [100, 250, 80]\nprint(apply_discount(prices, 10))\nprint(apply_discount(prices, 10))  # same inputs, same result\nprint(prices)  # the original is unchanged",
+     "run": 1,
+     "deep": 1
     }
    ],
    "words": [
@@ -563,6 +720,22 @@ JOURNEY.week({
       "en": "a value that should not change, written in capitals"
      },
      "ex": "VAT_RATE = 0.14"
+    },
+    {
+     "t": "global",
+     "m": {
+      "ar": "متغيّر معرّف بره كل الدوال",
+      "en": "a variable defined outside every function"
+     },
+     "ex": "Avoid changing a global inside functions."
+    },
+    {
+     "t": "pure",
+     "m": {
+      "ar": "دالة نتيجتها بتعتمد على مدخلاتها بس ومن غير أثر",
+      "en": "a function whose result depends only on its inputs, with no side effects"
+     },
+     "ex": "Pure functions are easy to test."
     }
    ],
    "read": [
@@ -644,6 +817,22 @@ JOURNEY.week({
       "ar": "مفيش أثر برّه الدالة.",
       "en": "No effect outside the function."
      }
+    },
+    {
+     "q": {
+      "ar": "دالة pure:",
+      "en": "A pure function:"
+     },
+     "o": [
+      "returns the same result for the same inputs",
+      "prints to the screen",
+      "changes a global"
+     ],
+     "a": 0,
+     "why": {
+      "ar": "ومن غير أثر جانبي.",
+      "en": "And has no side effects."
+     }
     }
    ],
    "minutes": 180
@@ -694,6 +883,18 @@ JOURNEY.week({
      },
      "ex": "import time\n\ndef make_tax(rate):\n    def apply(price):\n        return round(price * (1 + rate), 2)\n    return apply\n\nvat = make_tax(0.14)\nprint(vat(100))\n\ndef timed(func):\n    def wrapper(*args, **kwargs):\n        start = time.perf_counter()\n        result = func(*args, **kwargs)\n        print(f\"{func.__name__} took {(time.perf_counter() - start) * 1000:.1f} ms\")\n        return result\n    return wrapper\n\n@timed\ndef slow_sum(n):\n    return sum(range(n))\n\nprint(slow_sum(1_000_000))",
      "run": 1
+    },
+    {
+     "h": {
+      "ar": "الـ generators وyield",
+      "en": "Generators and yield"
+     },
+     "p": {
+      "ar": "`yield` بيرجّع قيمة ويوقف الدالة لحد ما تطلب اللي بعدها. الـ generator مش بيحمّل كل البيانات في الذاكرة — مثالي لملفات كبيرة أو صفحات API. و`(x * 2 for x in items)` generator expression (أقواس عادية بدل []).",
+      "en": "`yield` returns a value and pauses the function until you ask for the next. A generator does not load all the data into memory — ideal for big files or API pages. And `(x * 2 for x in items)` is a generator expression (round brackets instead of [])."
+     },
+     "ex": "def pages():\n    page = 1\n    while page <= 3:\n        yield fetch(page)\n        page += 1\nfor batch in pages(): ...",
+     "deep": 1
     }
    ],
    "practice": [
@@ -712,6 +913,16 @@ JOURNEY.week({
     {
      "ar": "حط `@timed` على دالتين من الأسبوع وشوف مين أبطأ.",
      "en": "Put `@timed` on two functions from this week and see which is slower."
+    },
+    {
+     "ar": "اكتب generator بيرجّع سطور ملف نضيفة (من غير فاضي ولا تعليقات).",
+     "en": "Write a generator that yields clean file lines (no blanks, no comments).",
+     "deep": 1
+    },
+    {
+     "ar": "قارن `sum([x for x in range(10**6)])` و`sum(x for x in range(10**6))`.",
+     "en": "Compare `sum([x for x in range(10**6)])` and `sum(x for x in range(10**6))`.",
+     "deep": 1
     }
    ],
    "code": [
@@ -722,6 +933,15 @@ JOURNEY.week({
      },
      "p": "import random\n\ndef retry(times):\n    def deco(func):\n        def wrapper(*args, **kwargs):\n            for attempt in range(1, times + 1):\n                try:\n                    return func(*args, **kwargs)\n                except ConnectionError as e:\n                    print(f\"attempt {attempt} failed: {e}\")\n            raise ConnectionError(f\"gave up after {times} attempts\")\n        return wrapper\n    return deco\n\nrandom.seed(2)\n\n@retry(4)\ndef fetch():\n    if random.random() < 0.6:\n        raise ConnectionError(\"timeout\")\n    return \"data\"\n\nprint(fetch())",
      "run": 1
+    },
+    {
+     "u": {
+      "ar": "generator لصفحات",
+      "en": "A generator for pages"
+     },
+     "p": "def fake_pages(total_items, page_size):\n    for start in range(0, total_items, page_size):\n        print(f\"  (fetching items {start}..{min(start + page_size, total_items) - 1})\")\n        yield list(range(start, min(start + page_size, total_items)))\n\nfor page in fake_pages(7, 3):\n    print(\"got\", page)\nsquares = (n * n for n in range(5))\nprint(sum(squares))",
+     "run": 1,
+     "deep": 1
     }
    ],
    "words": [
@@ -772,6 +992,22 @@ JOURNEY.week({
       "en": "the function inside a decorator that calls the original"
      },
      "ex": "def wrapper(*args, **kwargs):"
+    },
+    {
+     "t": "generator",
+     "m": {
+      "ar": "دالة بترجّع قيم واحدة واحدة بـ yield",
+      "en": "a function that gives values one at a time with yield"
+     },
+     "ex": "A generator saves memory."
+    },
+    {
+     "t": "yield",
+     "m": {
+      "ar": "ترجّع قيمة وتوقف مؤقتًا",
+      "en": "to return a value and pause"
+     },
+     "ex": "yield the next page."
     }
    ],
    "read": [
@@ -856,6 +1092,22 @@ JOURNEY.week({
       "ar": "ده تعريف الـ decorator.",
       "en": "That is what a decorator is."
      }
+    },
+    {
+     "q": {
+      "ar": "الـ generator ميزته الأساسية:",
+      "en": "A generator’s main advantage:"
+     },
+     "o": [
+      "low memory use",
+      "faster typing",
+      "no loops"
+     ],
+     "a": 0,
+     "why": {
+      "ar": "مش بيحمّل كله مرة واحدة.",
+      "en": "It does not load everything at once."
+     }
     }
    ],
    "minutes": 180
@@ -906,6 +1158,18 @@ JOURNEY.week({
      },
      "ex": "def clean_phone(phone: str) -> str:\n    return \"\".join(ch for ch in phone if ch.isdigit())\n\ndef test_clean_phone():\n    assert clean_phone(\"010-1234 5678\") == \"01012345678\"\n    assert clean_phone(\"\") == \"\"\n    print(\"tests passed\")\n\ndef main():\n    test_clean_phone()\n    print(clean_phone(\"+20 100 222 3333\"))\n\nif __name__ == \"__main__\":\n    main()",
      "run": 1
+    },
+    {
+     "h": {
+      "ar": "doctest: أمثلة بتختبر نفسها",
+      "en": "doctest: examples that test themselves"
+     },
+     "p": {
+      "ar": "اكتب مثال في الـ docstring بالشكل اللي بيظهر في الطرفية (`>>>`)، و`doctest.testmod()` بيشغّله ويقارن الناتج. كده التوثيق والاختبار حاجة واحدة، ولو حد غيّر الدالة غلط، المثال هيفشل. والـ `assert` جوه الكود للشروط اللي «مستحيل» تتكسر.",
+      "en": "Write an example in the docstring as it appears in the terminal (`>>>`), and `doctest.testmod()` runs it and compares the output. Docs and tests become one thing, and if someone breaks the function, the example fails. Use `assert` in code for conditions that «can never» break."
+     },
+     "ex": "def vat(x):\n    \"\"\"\n    >>> vat(100)\n    114.0\n    \"\"\"\n    return x * 1.14",
+     "deep": 1
     }
    ],
    "practice": [
@@ -924,6 +1188,16 @@ JOURNEY.week({
     {
      "ar": "اعمل assert غلط بقصد واقرا `AssertionError`.",
      "en": "Write a failing assert on purpose and read the `AssertionError`."
+    },
+    {
+     "ar": "ضيف doctest لـ 3 دوال عندك وشغّلهم.",
+     "en": "Add doctests to 3 of your functions and run them.",
+     "deep": 1
+    },
+    {
+     "ar": "غيّر دالة عمدًا وشوف الـ doctest بيفشل إزاي.",
+     "en": "Break a function on purpose and see how the doctest fails.",
+     "deep": 1
     }
    ],
    "code": [
@@ -934,6 +1208,15 @@ JOURNEY.week({
      },
      "p": "\"\"\"report.py: print a sales summary.\"\"\"\n\nVAT = 0.14\n\ndef parse(line: str) -> tuple[str, float]:\n    city, amount = line.split(\",\")\n    return city.strip(), float(amount)\n\ndef summarise(rows: list[tuple[str, float]]) -> dict[str, float]:\n    out: dict[str, float] = {}\n    for city, amount in rows:\n        out[city] = out.get(city, 0) + amount\n    return out\n\ndef main() -> None:\n    lines = [\"Cairo, 1200\", \"Giza, 450\", \"Cairo, 3100\"]\n    for city, total in summarise([parse(l) for l in lines]).items():\n        print(f\"{city:<6}{total * (1 + VAT):>10,.2f}\")\n\nif __name__ == \"__main__\":\n    main()",
      "run": 1
+    },
+    {
+     "u": {
+      "ar": "doctest يشتغل",
+      "en": "A doctest running"
+     },
+     "p": "import doctest\n\ndef egp(amount):\n    \"\"\"Format an amount in Egyptian pounds.\n\n    >>> egp(1500)\n    '1,500.00 EGP'\n    >>> egp(0.5)\n    '0.50 EGP'\n    \"\"\"\n    assert amount >= 0, \"amount must not be negative\"\n    return f\"{amount:,.2f} EGP\"\n\nresult = doctest.testmod()\nprint(result)",
+     "run": 1,
+     "deep": 1
     }
    ],
    "words": [
@@ -984,6 +1267,22 @@ JOURNEY.week({
       "en": "a variable equal to \"__main__\" when the file is run directly"
      },
      "ex": "if __name__ == \"__main__\":"
+    },
+    {
+     "t": "doctest",
+     "m": {
+      "ar": "مثال في التوثيق بيتشغّل كاختبار",
+      "en": "an example in docs that runs as a test"
+     },
+     "ex": "The doctest checks the format."
+    },
+    {
+     "t": "assertion",
+     "m": {
+      "ar": "شرط لازم يكون صح وإلا البرنامج يقف",
+      "en": "a condition that must be true or the program stops"
+     },
+     "ex": "The assertion catches negative amounts."
     }
    ],
    "read": [
@@ -1074,6 +1373,22 @@ JOURNEY.week({
       "ar": "فعل واضح بيقول بتعمل إيه.",
       "en": "A clear verb that says what it does."
      }
+    },
+    {
+     "q": {
+      "ar": "`doctest` بيقارن:",
+      "en": "`doctest` compares:"
+     },
+     "o": [
+      "the printed result with the example",
+      "two files",
+      "two functions"
+     ],
+     "a": 0,
+     "why": {
+      "ar": "اللي بعد >>> بالناتج.",
+      "en": "What follows >>> with the output."
+     }
     }
    ],
    "minutes": 180
@@ -1108,6 +1423,16 @@ JOURNEY.week({
     {
      "ar": "التصميم: مهمة واحدة، type hints، assert، main، __name__.",
      "en": "Design: one job, type hints, assert, main and __name__."
+    },
+    {
+     "ar": "⚡ الـ recursion والـ base case، وkeyword-only وpartial.",
+     "en": "⚡ Recursion and the base case, keyword-only and partial.",
+     "deep": 1
+    },
+    {
+     "ar": "⚡ دوال pure بدل global، والـ generators، وdoctest: اكتب مكتبة دوال صغيرة باختباراتها.",
+     "en": "⚡ Pure functions instead of global, generators, and doctest: write a small library of functions with their tests.",
+     "deep": 1
     }
    ],
    "project": {
