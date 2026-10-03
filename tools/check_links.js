@@ -21,7 +21,7 @@ for(const [track, file, key] of [['n8n', 'n8n-data.js', 'N8N_DATA'], ['english',
     vm.runInNewContext(fs.readFileSync(path.join(dir, f), 'utf8'), { JOURNEY: { week: wk => wk.days.forEach(d => (d.read || []).forEach(r => add(r.url, track + ' week ' + wk.n))) } }));
 }
 {
-  const secs = [], ctx = { SECTIONS: { add: s => secs.push(s) } }; ctx.window = ctx;
+  const secs = [], ctx = { SECTIONS: { add: s => secs.push(s), extend: (page, id, m) => secs.push({ page, items: m.items || [] }) } }; ctx.window = ctx;
   fs.readdirSync(path.join(ROOT, 'content/sections')).filter(f => f.endsWith('.js')).forEach(f => vm.runInNewContext(read('content/sections/' + f), ctx));
   secs.forEach(s => (s.items || []).forEach(it => (it.links || []).forEach(l => add(l.url, s.page + ' page'))));
 }

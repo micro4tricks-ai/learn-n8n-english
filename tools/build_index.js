@@ -123,9 +123,11 @@ const push = (k, t, s, u) => index.push([k, t, short(s), u]);
 // ---------------- pages built from content/sections ----------------
 {
   const secs = [];
-  const ctx = { SECTIONS: { add: s => secs.push(s), type() {} } }; ctx.window = ctx;
+  const more = [];
+  const ctx = { SECTIONS: { add: s => secs.push(s), extend: (page, id, m) => more.push({ page, id, m }), type() {} } }; ctx.window = ctx;
   const dir = path.join(ROOT, 'content', 'sections');
   if(fs.existsSync(dir)) fs.readdirSync(dir).filter(f => f.endsWith('.js')).sort().forEach(f => vm.runInNewContext(fs.readFileSync(path.join(dir, f), 'utf8'), ctx));
+  for (const e of more) { const s = secs.find(x => x.page === e.page && x.id === e.id); if (s && e.m.items) s.items = (s.items || []).concat(e.m.items); }
   secs.forEach(s => {
     if(!s.kind || !s.items) return;
     s.items.forEach(it => {

@@ -175,11 +175,11 @@ SECTIONS.add({
 
 SECTIONS.add({
   page: 'prompts', id: 'course', order: 2, type: 'lessons', kind: 'ls',
-  title: { ar: 'كورس قصير: إزاي تكتب برومبت كويس', en: 'A short course: writing good prompts' },
+  title: { ar: 'كورس البرومبت: من الأساسيات للوكلاء', en: 'The prompt course: from the basics to agents' },
   nav: { ar: 'الكورس', en: 'Course' },
   desc: {
-    ar: 'عشر دروس قصيرة (حوالي ساعتين كلهم). كل درس فيه الفكرة ومثال قبل وبعد وتمرين. ولما تخلّص، كمّل بالمصادر الرسمية المجانية اللي في آخر كل درس.',
-    en: 'Ten short lessons (about two hours in all). Each has the idea, a before-and-after example and an exercise. When you finish, continue with the free official resources at the end of each lesson.'
+    ar: '20 درس: أول 10 أساسيات كتابة البرومبت (حوالي ساعتين)، والـ 10 اللي بعدهم «متقدم» للأتمتة: سلاسل البرومبت، والـ system prompt، والخرج المنظم، والأمثلة، والأدوات والوكلاء، والمستندات الطويلة، والاختبار بالأرقام، والتكلفة، والحماية من الحقن، والعربي (حوالي ساعتين ونص). كل درس فيه الفكرة ومثال وتمرين، ومصادر رسمية مجانية في الآخر.',
+    en: '20 lessons: the first 10 are prompt-writing basics (about two hours), and the next 10 are «advanced» lessons for automation: prompt chains, system prompts, structured output, examples, tools and agents, long documents, testing with numbers, cost, injection protection and Arabic (about two and a half hours). Each has the idea, an example and an exercise, with free official resources at the end.'
   },
   items: [
     { id: 'anatomy', min: 10, t: { ar: 'تشريح البرومبت الكويس', en: 'The anatomy of a good prompt' },

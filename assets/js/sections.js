@@ -10,11 +10,22 @@
  * Texts are {ar, en}; a plain string is used as is (code, English examples). See docs/ARCHITECTURE.md. */
 (function(){
   var S = window.SITE;
-  var list = [], types = {};
+  var list = [], types = {}, pending = [];
+  // more items or categories for a section defined in another file (any load order): SECTIONS.extend(page, id, { cats, items })
+  function applyPending(){
+    pending = pending.filter(function(e){
+      var sec = list.filter(function(s){ return s.page === e.page && s.id === e.id; })[0];
+      if(!sec) return true;
+      if(e.more.cats) sec.cats = (sec.cats || []).concat(e.more.cats);
+      if(e.more.items) sec.items = (sec.items || []).concat(e.more.items);
+      return false;
+    });
+  }
   var X = window.SECTIONS = {
     add: function(sec){ list.push(sec); return sec; },
+    extend: function(page, id, more){ pending.push({ page: page, id: id, more: more || {} }); },
     type: function(name, fn){ types[name] = fn; },
-    all: function(page){ return list.filter(function(s){ return !page || s.page === page; }).sort(function(a, b){ return (a.order || 0) - (b.order || 0); }); }
+    all: function(page){ applyPending(); return list.filter(function(s){ return !page || s.page === page; }).sort(function(a, b){ return (a.order || 0) - (b.order || 0); }); }
   };
   var B = S.B, L = S.L, esc = S.esc;
 
