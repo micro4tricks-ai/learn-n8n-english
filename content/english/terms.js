@@ -4860,5 +4860,446 @@ JOURNEY_TERMS["english"] = [
    "en": "welcoming and setting up a new client"
   },
   "ex": "Client onboarding states your boundaries."
+ },
+ {
+  "w": 41,
+  "t": "phrasal verb",
+  "m": {
+   "ar": "فعل مركب",
+   "en": "a verb plus a particle with a new meaning"
+  },
+  "ex": "«Roll out» is a common phrasal verb."
+ },
+ {
+  "w": 41,
+  "t": "particle",
+  "m": {
+   "ar": "الحرف اللي بعد الفعل",
+   "en": "the small word after the verb"
+  },
+  "ex": "In «phase out», «out» is the particle."
+ },
+ {
+  "w": 41,
+  "t": "separable",
+  "m": {
+   "ar": "ينفصل (المفعول في النص)",
+   "en": "can take the object in the middle"
+  },
+  "ex": "«Kick off» is separable: kick it off."
+ },
+ {
+  "w": 41,
+  "t": "kick off",
+  "m": {
+   "ar": "تبدأ",
+   "en": "to start"
+  },
+  "ex": "Let’s kick off the meeting."
+ },
+ {
+  "w": 41,
+  "t": "ramp up",
+  "m": {
+   "ar": "تزوّد تدريجيًا",
+   "en": "to increase gradually"
+  },
+  "ex": "We ramped up testing before launch."
+ },
+ {
+  "w": 41,
+  "t": "sign off",
+  "m": {
+   "ar": "توافق رسميًا",
+   "en": "to approve formally"
+  },
+  "ex": "The manager signed off on the budget."
+ },
+ {
+  "w": 41,
+  "t": "roll out",
+  "m": {
+   "ar": "تطلق تدريجيًا",
+   "en": "to release gradually"
+  },
+  "ex": "The feature rolls out next week."
+ },
+ {
+  "w": 41,
+  "t": "scale back",
+  "m": {
+   "ar": "تقلّل الحجم",
+   "en": "to reduce in size"
+  },
+  "ex": "We scaled back the first release."
+ },
+ {
+  "w": 41,
+  "t": "hand off",
+  "m": {
+   "ar": "تسلّم الشغل لحد",
+   "en": "to pass work to someone"
+  },
+  "ex": "I’ll hand off the project on Friday."
+ },
+ {
+  "w": 41,
+  "t": "carry over",
+  "m": {
+   "ar": "تنقل للفترة الجاية",
+   "en": "to move into the next period"
+  },
+  "ex": "Unfinished tasks carry over."
+ },
+ {
+  "w": 41,
+  "t": "phase out",
+  "m": {
+   "ar": "توقف تدريجيًا",
+   "en": "to stop gradually"
+  },
+  "ex": "We’re phasing out the old server."
+ },
+ {
+  "w": 41,
+  "t": "tear down",
+  "m": {
+   "ar": "تهد البيئة خالص",
+   "en": "to destroy completely"
+  },
+  "ex": "Tear down the staging stack tonight."
+ },
+ {
+  "w": 41,
+  "t": "drill down",
+  "m": {
+   "ar": "تنزل في التفاصيل",
+   "en": "to go deeper into details"
+  },
+  "ex": "Drill down into the failed runs."
+ },
+ {
+  "w": 41,
+  "t": "zero in on",
+  "m": {
+   "ar": "تركّز على",
+   "en": "to focus closely on"
+  },
+  "ex": "We zeroed in on the parser."
+ },
+ {
+  "w": 41,
+  "t": "rule out",
+  "m": {
+   "ar": "تستبعد",
+   "en": "to exclude a possibility"
+  },
+  "ex": "We ruled out a network issue."
+ },
+ {
+  "w": 41,
+  "t": "boil down to",
+  "m": {
+   "ar": "يرجع في الآخر لـ",
+   "en": "to come down to"
+  },
+  "ex": "It boils down to bad data."
+ },
+ {
+  "w": 41,
+  "t": "flesh out",
+  "m": {
+   "ar": "تكمّل بالتفاصيل",
+   "en": "to add detail to"
+  },
+  "ex": "Flesh out the plan before Monday."
+ },
+ {
+  "w": 41,
+  "t": "iron out",
+  "m": {
+   "ar": "تحل المشاكل الصغيرة",
+   "en": "to resolve small problems"
+  },
+  "ex": "We ironed out the last bugs."
+ },
+ {
+  "w": 41,
+  "t": "get back to",
+  "m": {
+   "ar": "ترجع بالرد",
+   "en": "to reply later"
+  },
+  "ex": "I’ll get back to you tomorrow."
+ },
+ {
+  "w": 41,
+  "t": "low-hanging fruit",
+  "m": {
+   "ar": "المكاسب السهلة",
+   "en": "easy tasks with good results"
+  },
+  "ex": "Fix the low-hanging fruit first."
+ },
+ {
+  "w": 41,
+  "t": "quick win",
+  "m": {
+   "ar": "إنجاز سريع",
+   "en": "a fast, visible success"
+  },
+  "ex": "The alert was a quick win."
+ },
+ {
+  "w": 41,
+  "t": "move the needle",
+  "m": {
+   "ar": "يعمل فرق ملحوظ",
+   "en": "to make a noticeable difference"
+  },
+  "ex": "Will this move the needle?"
+ },
+ {
+  "w": 41,
+  "t": "the big picture",
+  "m": {
+   "ar": "الصورة الكاملة",
+   "en": "the overall view"
+  },
+  "ex": "Start with the big picture."
+ },
+ {
+  "w": 41,
+  "t": "on the same page",
+  "m": {
+   "ar": "متفقين في الفهم",
+   "en": "sharing the same understanding"
+  },
+  "ex": "Let’s make sure we’re on the same page."
+ },
+ {
+  "w": 41,
+  "t": "in the loop",
+  "m": {
+   "ar": "على اطلاع",
+   "en": "informed"
+  },
+  "ex": "Keep me in the loop."
+ },
+ {
+  "w": 41,
+  "t": "out of the loop",
+  "m": {
+   "ar": "مش متابع اللي بيحصل",
+   "en": "not informed"
+  },
+  "ex": "I was out of the loop last week."
+ },
+ {
+  "w": 41,
+  "t": "loop in",
+  "m": {
+   "ar": "تضيف حد للمحادثة",
+   "en": "to include someone"
+  },
+  "ex": "I’ll loop in the designer."
+ },
+ {
+  "w": 41,
+  "t": "circle back",
+  "m": {
+   "ar": "نرجع للموضوع بعدين",
+   "en": "to return to a topic later"
+  },
+  "ex": "Let’s circle back on pricing."
+ },
+ {
+  "w": 41,
+  "t": "park it",
+  "m": {
+   "ar": "نأجّل الموضوع",
+   "en": "to postpone a topic"
+  },
+  "ex": "Good idea — let’s park it for now."
+ },
+ {
+  "w": 41,
+  "t": "bandwidth",
+  "m": {
+   "ar": "وقت وطاقة متاحة",
+   "en": "available capacity"
+  },
+  "ex": "I don’t have the bandwidth today."
+ },
+ {
+  "w": 41,
+  "t": "deep dive",
+  "m": {
+   "ar": "دراسة متعمقة",
+   "en": "an in-depth study"
+  },
+  "ex": "We did a deep dive into churn."
+ },
+ {
+  "w": 41,
+  "t": "under the hood",
+  "m": {
+   "ar": "من جوّه / طريقة الشغل",
+   "en": "inside, how it works"
+  },
+  "ex": "Under the hood it uses SQLite."
+ },
+ {
+  "w": 41,
+  "t": "out of the box",
+  "m": {
+   "ar": "يشتغل من غير إعداد",
+   "en": "working without setup"
+  },
+  "ex": "Dark mode works out of the box."
+ },
+ {
+  "w": 41,
+  "t": "off the shelf",
+  "m": {
+   "ar": "جاهز مش مخصوص",
+   "en": "ready-made, not custom"
+  },
+  "ex": "We chose an off-the-shelf solution."
+ },
+ {
+  "w": 41,
+  "t": "up and running",
+  "m": {
+   "ar": "شغّال فعلًا",
+   "en": "working and operational"
+  },
+  "ex": "The bot is up and running."
+ },
+ {
+  "w": 41,
+  "t": "bake in",
+  "m": {
+   "ar": "تبنيه من الأساس",
+   "en": "to build in from the start"
+  },
+  "ex": "Bake in logging from day one."
+ },
+ {
+  "w": 41,
+  "t": "rabbit hole",
+  "m": {
+   "ar": "موضوع بيسحبك ويضيّع وقتك",
+   "en": "a distracting, deep topic"
+  },
+  "ex": "Don’t go down that rabbit hole now."
+ },
+ {
+  "w": 41,
+  "t": "yak shaving",
+  "m": {
+   "ar": "مهام جانبية متسلسلة",
+   "en": "a chain of side tasks"
+  },
+  "ex": "Updating the toolchain was pure yak shaving."
+ },
+ {
+  "w": 41,
+  "t": "dogfooding",
+  "m": {
+   "ar": "استخدام منتجك بنفسك",
+   "en": "using your own product"
+  },
+  "ex": "Dogfooding found three bugs."
+ },
+ {
+  "w": 41,
+  "t": "sweet spot",
+  "m": {
+   "ar": "التوازن المثالي",
+   "en": "the ideal balance"
+  },
+  "ex": "Fifty items is the sweet spot."
+ },
+ {
+  "w": 41,
+  "t": "go the extra mile",
+  "m": {
+   "ar": "تعمل أكتر من المطلوب",
+   "en": "to do more than expected"
+  },
+  "ex": "He went the extra mile for the client."
+ },
+ {
+  "w": 41,
+  "t": "hit the ground running",
+  "m": {
+   "ar": "تبدأ بقوة من أول يوم",
+   "en": "to start strongly at once"
+  },
+  "ex": "New hires hit the ground running."
+ },
+ {
+  "w": 41,
+  "t": "ahead of schedule",
+  "m": {
+   "ar": "قبل الميعاد",
+   "en": "earlier than planned"
+  },
+  "ex": "We’re ahead of schedule."
+ },
+ {
+  "w": 41,
+  "t": "double down",
+  "m": {
+   "ar": "تزوّد الالتزام",
+   "en": "to increase commitment"
+  },
+  "ex": "We’re doubling down on automation."
+ },
+ {
+  "w": 41,
+  "t": "drop the ball",
+  "m": {
+   "ar": "تقصّر في مسؤولية",
+   "en": "to fail at a task"
+  },
+  "ex": "I dropped the ball on that email."
+ },
+ {
+  "w": 41,
+  "t": "cut corners",
+  "m": {
+   "ar": "تختصر على حساب الجودة",
+   "en": "to skip steps and lower quality"
+  },
+  "ex": "Never cut corners on backups."
+ },
+ {
+  "w": 41,
+  "t": "deal-breaker",
+  "m": {
+   "ar": "شرط لا تنازل عنه",
+   "en": "a condition that ends a deal"
+  },
+  "ex": "Missing SSO was a deal-breaker."
+ },
+ {
+  "w": 41,
+  "t": "game changer",
+  "m": {
+   "ar": "حاجة بتغيّر الوضع",
+   "en": "something that changes everything"
+  },
+  "ex": "The API was a game changer."
+ },
+ {
+  "w": 41,
+  "t": "pivot",
+  "m": {
+   "ar": "تغيّر الاتجاه",
+   "en": "to change direction"
+  },
+  "ex": "The company pivoted to B2B."
  }
 ];
