@@ -5634,5 +5634,275 @@ JOURNEY_TERMS["english"] = [
    "en": "to give an impression of"
   },
   "ex": "Your email comes across as nervous."
+ },
+ {
+  "w": 43,
+  "t": "third conditional",
+  "m": {
+   "ar": "الشرط التالت (ماضي غير حقيقي)",
+   "en": "an unreal past condition"
+  },
+  "ex": "Postmortems often use the third conditional."
+ },
+ {
+  "w": 43,
+  "t": "mixed conditional",
+  "m": {
+   "ar": "الشرط المختلط",
+   "en": "a past condition with a present result"
+  },
+  "ex": "Use a mixed conditional for lasting effects."
+ },
+ {
+  "w": 43,
+  "t": "inverted conditional",
+  "m": {
+   "ar": "شرط مقلوب من غير if",
+   "en": "a condition without «if» using inversion"
+  },
+  "ex": "«Should you need help» is an inverted conditional."
+ },
+ {
+  "w": 43,
+  "t": "should you need",
+  "m": {
+   "ar": "لو احتجت (رسمي)",
+   "en": "if you need (formal)"
+  },
+  "ex": "Should you need anything, let me know."
+ },
+ {
+  "w": 43,
+  "t": "had we known",
+  "m": {
+   "ar": "لو كنا عرفنا",
+   "en": "if we had known"
+  },
+  "ex": "Had we known, we would have waited."
+ },
+ {
+  "w": 43,
+  "t": "were it not for",
+  "m": {
+   "ar": "لولا",
+   "en": "if it weren’t for"
+  },
+  "ex": "Were it not for backups, we’d have lost data."
+ },
+ {
+  "w": 43,
+  "t": "cleft sentence",
+  "m": {
+   "ar": "جملة توكيد مقسومة",
+   "en": "a sentence split to focus one part"
+  },
+  "ex": "«It was X that…» is a cleft sentence."
+ },
+ {
+  "w": 43,
+  "t": "inversion",
+  "m": {
+   "ar": "قلب ترتيب الفاعل والفعل",
+   "en": "putting the verb before the subject"
+  },
+  "ex": "Inversion makes the warning stronger."
+ },
+ {
+  "w": 43,
+  "t": "not only",
+  "m": {
+   "ar": "مش بس",
+   "en": "not just"
+  },
+  "ex": "Not only is it faster, it’s cheaper."
+ },
+ {
+  "w": 43,
+  "t": "under no circumstances",
+  "m": {
+   "ar": "تحت أي ظرف لأ",
+   "en": "never, in any situation"
+  },
+  "ex": "Under no circumstances share the key."
+ },
+ {
+  "w": 43,
+  "t": "no sooner",
+  "m": {
+   "ar": "ما إن",
+   "en": "immediately after"
+  },
+  "ex": "No sooner had we launched than it broke."
+ },
+ {
+  "w": 43,
+  "t": "seldom",
+  "m": {
+   "ar": "نادرًا",
+   "en": "rarely"
+  },
+  "ex": "Seldom do clients read the terms."
+ },
+ {
+  "w": 43,
+  "t": "emphatic do",
+  "m": {
+   "ar": "do للتوكيد",
+   "en": "do used to stress a verb"
+  },
+  "ex": "«I did send it» uses the emphatic do."
+ },
+ {
+  "w": 43,
+  "t": "participle clause",
+  "m": {
+   "ar": "جملة بالـ participle",
+   "en": "a clause built on -ing or -ed forms"
+  },
+  "ex": "Start with a participle clause: Having tested it, …"
+ },
+ {
+  "w": 43,
+  "t": "reduced relative clause",
+  "m": {
+   "ar": "جملة وصل مختصرة",
+   "en": "a relative clause without who/which + be"
+  },
+  "ex": "«The files stored in Drive» is a reduced relative clause."
+ },
+ {
+  "w": 43,
+  "t": "restrictive clause",
+  "m": {
+   "ar": "جملة وصل بتحدد",
+   "en": "a clause identifying which one"
+  },
+  "ex": "A restrictive clause takes no commas."
+ },
+ {
+  "w": 43,
+  "t": "non-restrictive clause",
+  "m": {
+   "ar": "جملة وصل لمعلومة زيادة",
+   "en": "a clause adding extra information"
+  },
+  "ex": "Use commas around a non-restrictive clause."
+ },
+ {
+  "w": 43,
+  "t": "ellipsis",
+  "m": {
+   "ar": "حذف كلام مفهوم",
+   "en": "leaving out understood words"
+  },
+  "ex": "Ellipsis makes lists shorter."
+ },
+ {
+  "w": 43,
+  "t": "ambiguity",
+  "m": {
+   "ar": "غموض / أكتر من معنى",
+   "en": "having more than one meaning"
+  },
+  "ex": "Remove ambiguity from requirements."
+ },
+ {
+  "w": 43,
+  "t": "antecedent",
+  "m": {
+   "ar": "الاسم اللي الضمير بيرجعله",
+   "en": "the noun a pronoun refers to"
+  },
+  "ex": "«It» has an unclear antecedent here."
+ },
+ {
+  "w": 43,
+  "t": "misplaced modifier",
+  "m": {
+   "ar": "وصف في مكان غلط",
+   "en": "a description in the wrong place"
+  },
+  "ex": "«Only» is often a misplaced modifier."
+ },
+ {
+  "w": 43,
+  "t": "dangling modifier",
+  "m": {
+   "ar": "وصف مالوش صاحب",
+   "en": "a modifier with no clear subject"
+  },
+  "ex": "Fix the dangling modifier in line 3."
+ },
+ {
+  "w": 43,
+  "t": "parallelism",
+  "m": {
+   "ar": "التوازي النحوي",
+   "en": "using the same grammatical form"
+  },
+  "ex": "Bullet lists need parallelism."
+ },
+ {
+  "w": 43,
+  "t": "albeit",
+  "m": {
+   "ar": "وإن كان",
+   "en": "although"
+  },
+  "ex": "A faster, albeit costlier, option."
+ },
+ {
+  "w": 43,
+  "t": "insofar as",
+  "m": {
+   "ar": "بقدر ما",
+   "en": "to the extent that"
+  },
+  "ex": "Insofar as the data allows, we will report weekly."
+ },
+ {
+  "w": 43,
+  "t": "in that",
+  "m": {
+   "ar": "من حيث إن",
+   "en": "because, in the sense that"
+  },
+  "ex": "It is risky in that it has one supplier."
+ },
+ {
+  "w": 43,
+  "t": "subjunctive",
+  "m": {
+   "ar": "صيغة الطلب الرسمي",
+   "en": "the base verb after «recommend that» etc."
+  },
+  "ex": "Use the subjunctive: we recommend that he be told."
+ },
+ {
+  "w": 43,
+  "t": "concision",
+  "m": {
+   "ar": "الإيجاز",
+   "en": "saying things in few words"
+  },
+  "ex": "Concision respects the reader’s time."
+ },
+ {
+  "w": 43,
+  "t": "redundancy",
+  "m": {
+   "ar": "تكرار زيادة",
+   "en": "unnecessary repetition"
+  },
+  "ex": "«End result» is a redundancy."
+ },
+ {
+  "w": 43,
+  "t": "wordiness",
+  "m": {
+   "ar": "حشو",
+   "en": "using too many words"
+  },
+  "ex": "Cut the wordiness from the introduction."
  }
 ];
