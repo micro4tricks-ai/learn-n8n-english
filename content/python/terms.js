@@ -14166,5 +14166,284 @@ JOURNEY_TERMS["python"] = [
    "en": "a periodic summary of system health"
   },
   "ex": "Clients get a monthly health report."
+ },
+ {
+  "w": 48,
+  "t": "problem statement",
+  "m": {
+   "ar": "بيان المشكلة",
+   "en": "a short description of the problem and its cost"
+  },
+  "ex": "Start the README with the problem statement."
+ },
+ {
+  "w": 48,
+  "t": "success metric",
+  "m": {
+   "ar": "مقياس النجاح",
+   "en": "a number defining success"
+  },
+  "ex": "Our success metric is 30 seconds per invoice."
+ },
+ {
+  "w": 48,
+  "t": "non-goal",
+  "m": {
+   "ar": "حاجة مش هنعملها",
+   "en": "something explicitly out of scope"
+  },
+  "ex": "Payments are a non-goal for phase 1."
+ },
+ {
+  "w": 48,
+  "t": "c4 model",
+  "m": {
+   "ar": "طريقة رسم المعمارية بمستويات",
+   "en": "a layered way to draw architecture"
+  },
+  "ex": "Draw the C4 model context diagram first."
+ },
+ {
+  "w": 48,
+  "t": "architecture decision record",
+  "m": {
+   "ar": "سجل قرار معماري",
+   "en": "a short document recording one design decision"
+  },
+  "ex": "Write an architecture decision record for the queue."
+ },
+ {
+  "w": 48,
+  "t": "adr",
+  "m": {
+   "ar": "اختصار سجل القرار المعماري",
+   "en": "an architecture decision record"
+  },
+  "ex": "ADR 3 explains why we chose SQS."
+ },
+ {
+  "w": 48,
+  "t": "walking skeleton",
+  "m": {
+   "ar": "أرفع نسخة شغالة من أول لآخر",
+   "en": "the thinnest end-to-end working version"
+  },
+  "ex": "The walking skeleton was deployed on day two."
+ },
+ {
+  "w": 48,
+  "t": "vertical slice",
+  "m": {
+   "ar": "شريحة كاملة من الواجهة للقاعدة",
+   "en": "a thin feature across all layers"
+  },
+  "ex": "Each vertical slice delivers user value."
+ },
+ {
+  "w": 48,
+  "t": "definition of done",
+  "m": {
+   "ar": "تعريف «خلص»",
+   "en": "the checklist a task must pass to be done"
+  },
+  "ex": "Docs are part of our definition of done."
+ },
+ {
+  "w": 48,
+  "t": "milestone",
+  "m": {
+   "ar": "محطة زمنية",
+   "en": "a dated checkpoint"
+  },
+  "ex": "Milestone 2 is human review by Thursday."
+ },
+ {
+  "w": 48,
+  "t": "mvp",
+  "m": {
+   "ar": "أقل منتج مفيد",
+   "en": "minimum viable product"
+  },
+  "ex": "The MVP posts invoices to Odoo."
+ },
+ {
+  "w": 48,
+  "t": "quality gate",
+  "m": {
+   "ar": "بوابة جودة رقمية",
+   "en": "a numeric condition before release"
+  },
+  "ex": "The accuracy quality gate blocked the release."
+ },
+ {
+  "w": 48,
+  "t": "acceptance test",
+  "m": {
+   "ar": "اختبار القبول",
+   "en": "a test proving requirements are met"
+  },
+  "ex": "The acceptance test used 100 real invoices."
+ },
+ {
+  "w": 48,
+  "t": "release readiness",
+  "m": {
+   "ar": "جاهزية الإطلاق",
+   "en": "the state when every gate passes"
+  },
+  "ex": "Release readiness is reviewed on Friday."
+ },
+ {
+  "w": 48,
+  "t": "launch checklist",
+  "m": {
+   "ar": "قايمة مراجعة الإطلاق",
+   "en": "items to verify before going live"
+  },
+  "ex": "The launch checklist includes a restore test."
+ },
+ {
+  "w": 48,
+  "t": "risk log",
+  "m": {
+   "ar": "سجل المخاطر",
+   "en": "a list of risks with owners and responses"
+  },
+  "ex": "Update the risk log weekly."
+ },
+ {
+  "w": 48,
+  "t": "operations manual",
+  "m": {
+   "ar": "دليل التشغيل",
+   "en": "how to run and fix the system"
+  },
+  "ex": "The operations manual covers Odoo outages."
+ },
+ {
+  "w": 48,
+  "t": "hypercare",
+  "m": {
+   "ar": "متابعة مكثفة بعد الإطلاق",
+   "en": "intensive support right after launch"
+  },
+  "ex": "Hypercare lasts two weeks."
+ },
+ {
+  "w": 48,
+  "t": "open source release",
+  "m": {
+   "ar": "نشر المشروع كمصدر مفتوح",
+   "en": "publishing a project as open source"
+  },
+  "ex": "The open source release got 40 stars."
+ },
+ {
+  "w": 48,
+  "t": "developer docs",
+  "m": {
+   "ar": "توثيق المطوّرين",
+   "en": "documentation for people changing the code"
+  },
+  "ex": "Developer docs explain how to add a rule."
+ },
+ {
+  "w": 48,
+  "t": "walkthrough",
+  "m": {
+   "ar": "شرح عملي خطوة بخطوة",
+   "en": "a step-by-step guided explanation"
+  },
+  "ex": "Record a 60-minute walkthrough."
+ },
+ {
+  "w": 48,
+  "t": "impact",
+  "m": {
+   "ar": "الأثر",
+   "en": "the measurable effect of the work"
+  },
+  "ex": "Show the impact in dollars."
+ },
+ {
+  "w": 48,
+  "t": "care plan",
+  "m": {
+   "ar": "خطة الرعاية بعد التسليم",
+   "en": "an ongoing support agreement"
+  },
+  "ex": "The care plan covers monthly updates."
+ },
+ {
+  "w": 48,
+  "t": "demo day",
+  "m": {
+   "ar": "يوم عرض المشاريع",
+   "en": "a day for presenting projects"
+  },
+  "ex": "Demo day is a 10-minute slot."
+ },
+ {
+  "w": 48,
+  "t": "demo script",
+  "m": {
+   "ar": "سيناريو الديمو",
+   "en": "the planned steps of a demo"
+  },
+  "ex": "Follow the demo script, keep a backup video."
+ },
+ {
+  "w": 48,
+  "t": "elevator pitch",
+  "m": {
+   "ar": "تعريف سريع في 30 ثانية",
+   "en": "a 30-second summary"
+  },
+  "ex": "Practise the elevator pitch aloud."
+ },
+ {
+  "w": 48,
+  "t": "retrospective",
+  "m": {
+   "ar": "مراجعة بعد المشروع",
+   "en": "a review of what went well and badly"
+  },
+  "ex": "The retrospective found two process fixes."
+ },
+ {
+  "w": 48,
+  "t": "t-shaped",
+  "m": {
+   "ar": "عرض في كل حاجة وعمق في حاجة",
+   "en": "broad skills with one deep specialty"
+  },
+  "ex": "Aim to be T-shaped."
+ },
+ {
+  "w": 48,
+  "t": "learning plan",
+  "m": {
+   "ar": "خطة تعلّم",
+   "en": "a plan of what to learn and when"
+  },
+  "ex": "My learning plan has four quarterly goals."
+ },
+ {
+  "w": 48,
+  "t": "roadmap",
+  "m": {
+   "ar": "خريطة طريق",
+   "en": "a plan of future versions or steps"
+  },
+  "ex": "The roadmap lists v1.1 and v1.2."
+ },
+ {
+  "w": 48,
+  "t": "mentoring",
+  "m": {
+   "ar": "الإرشاد",
+   "en": "guiding someone’s growth"
+  },
+  "ex": "Mentoring juniors deepened my own skills."
  }
 ];
