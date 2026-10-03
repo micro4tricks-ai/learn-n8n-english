@@ -8253,5 +8253,257 @@ JOURNEY_TERMS["js"] = [
    "en": "organising files by domain"
   },
   "ex": "Folder by feature keeps orders together."
+ },
+ {
+  "w": 29,
+  "t": "css variable",
+  "m": {
+   "ar": "قيمة بتتعرّف مرة وتتستخدم في CSS",
+   "en": "a value defined once and reused in CSS"
+  },
+  "ex": "Store the brand colour in a CSS variable."
+ },
+ {
+  "w": 29,
+  "t": "design token",
+  "m": {
+   "ar": "قرار تصميم باسم ثابت",
+   "en": "a named design decision"
+  },
+  "ex": "--radius is a design token."
+ },
+ {
+  "w": 29,
+  "t": "light-dark()",
+  "m": {
+   "ar": "دالة لون حسب الثيم",
+   "en": "a colour function based on the theme"
+  },
+  "ex": "light-dark() picks the background."
+ },
+ {
+  "w": 29,
+  "t": "oklch",
+  "m": {
+   "ar": "نظام ألوان بإضاءة منتظمة",
+   "en": "a colour space with even lightness"
+  },
+  "ex": "Define the brand in oklch."
+ },
+ {
+  "w": 29,
+  "t": "color-mix()",
+  "m": {
+   "ar": "خلط لونين في CSS",
+   "en": "mixing two colours in CSS"
+  },
+  "ex": "color-mix() makes a soft badge."
+ },
+ {
+  "w": 29,
+  "t": "setproperty",
+  "m": {
+   "ar": "تغيير خاصية أو متغير CSS من JS",
+   "en": "changing a CSS property or variable from JS"
+  },
+  "ex": "setProperty updates --progress."
+ },
+ {
+  "w": 29,
+  "t": ":has()",
+  "m": {
+   "ar": "محدد بيختار عنصر حسب اللي جواه",
+   "en": "a selector choosing an element by what it contains"
+  },
+  "ex": ".card:has(.urgent) turns red."
+ },
+ {
+  "w": 29,
+  "t": ":where()",
+  "m": {
+   "ar": "تجميع محددات بـ specificity صفر",
+   "en": "grouping selectors with zero specificity"
+  },
+  "ex": ":where() keeps base styles weak."
+ },
+ {
+  "w": 29,
+  "t": ":is()",
+  "m": {
+   "ar": "تجميع محددات بأقوى specificity",
+   "en": "grouping selectors with the strongest specificity"
+  },
+  "ex": ":is(h1, h2) saves repetition."
+ },
+ {
+  "w": 29,
+  "t": "nesting",
+  "m": {
+   "ar": "كتابة قواعد جوه قواعد",
+   "en": "writing rules inside rules"
+  },
+  "ex": "Native nesting needs no Sass."
+ },
+ {
+  "w": 29,
+  "t": "cascade layers",
+  "m": {
+   "ar": "طبقات بتحدد مين يكسب",
+   "en": "layers deciding which rules win"
+  },
+  "ex": "Cascade layers ended the !important war."
+ },
+ {
+  "w": 29,
+  "t": "@layer",
+  "m": {
+   "ar": "تعريف طبقة CSS",
+   "en": "declaring a CSS layer"
+  },
+  "ex": "@layer utilities comes last."
+ },
+ {
+  "w": 29,
+  "t": "clamp()",
+  "m": {
+   "ar": "قيمة بين حد أدنى وأقصى",
+   "en": "a value between a minimum and a maximum"
+  },
+  "ex": "clamp() sizes the heading."
+ },
+ {
+  "w": 29,
+  "t": "fluid typography",
+  "m": {
+   "ar": "خطوط بتكبر بسلاسة مع الشاشة",
+   "en": "type that scales smoothly with the screen"
+  },
+  "ex": "Fluid typography needs no breakpoints."
+ },
+ {
+  "w": 29,
+  "t": "container query",
+  "m": {
+   "ar": "شرط على مقاس الحاوية",
+   "en": "a condition on the container’s size"
+  },
+  "ex": "The card uses a container query."
+ },
+ {
+  "w": 29,
+  "t": "aspect-ratio",
+  "m": {
+   "ar": "نسبة العرض للارتفاع",
+   "en": "the width-to-height ratio"
+  },
+  "ex": "aspect-ratio reserves the image space."
+ },
+ {
+  "w": 29,
+  "t": "subgrid",
+  "m": {
+   "ar": "grid داخلي بيتبع أعمدة الأب",
+   "en": "an inner grid following the parent’s tracks"
+  },
+  "ex": "subgrid aligns the prices."
+ },
+ {
+  "w": 29,
+  "t": "transition",
+  "m": {
+   "ar": "تغيير سلس بين حالتين",
+   "en": "a smooth change between two states"
+  },
+  "ex": "Add a transition to the toast."
+ },
+ {
+  "w": 29,
+  "t": "easing",
+  "m": {
+   "ar": "منحنى سرعة الحركة",
+   "en": "the speed curve of motion"
+  },
+  "ex": "Use ease-out easing for entering."
+ },
+ {
+  "w": 29,
+  "t": "keyframes",
+  "m": {
+   "ar": "خطوات حركة متعرفة بالاسم",
+   "en": "named steps of an animation"
+  },
+  "ex": "@keyframes spin rotates the icon."
+ },
+ {
+  "w": 29,
+  "t": "animation",
+  "m": {
+   "ar": "تشغيل keyframes على عنصر",
+   "en": "running keyframes on an element"
+  },
+  "ex": "The animation loops forever."
+ },
+ {
+  "w": 29,
+  "t": "prefers-reduced-motion",
+  "m": {
+   "ar": "تفضيل المستخدم لحركة أقل",
+   "en": "the user’s preference for less motion"
+  },
+  "ex": "Honour prefers-reduced-motion."
+ },
+ {
+  "w": 29,
+  "t": "view transition",
+  "m": {
+   "ar": "انتقال سلس بين حالتين للصفحة",
+   "en": "a smooth change between two page states"
+  },
+  "ex": "A view transition animates the sort."
+ },
+ {
+  "w": 29,
+  "t": "@media print",
+  "m": {
+   "ar": "قواعد CSS للطباعة",
+   "en": "CSS rules for printing"
+  },
+  "ex": "@media print hides the menu."
+ },
+ {
+  "w": 29,
+  "t": "@page",
+  "m": {
+   "ar": "إعدادات صفحة الطباعة",
+   "en": "print page settings"
+  },
+  "ex": "@page sets A4 margins."
+ },
+ {
+  "w": 29,
+  "t": "break-inside",
+  "m": {
+   "ar": "منع تقسيم عنصر بين صفحتين",
+   "en": "preventing an element splitting across pages"
+  },
+  "ex": "break-inside: avoid keeps rows whole."
+ },
+ {
+  "w": 29,
+  "t": ":dir()",
+  "m": {
+   "ar": "محدد حسب اتجاه النص",
+   "en": "a selector by text direction"
+  },
+  "ex": ":dir(rtl) flips the icon."
+ },
+ {
+  "w": 29,
+  "t": "utility class",
+  "m": {
+   "ar": "class صغير بوظيفة واحدة",
+   "en": "a small single-purpose class"
+  },
+  "ex": ".visually-hidden is a utility class."
  }
 ];
