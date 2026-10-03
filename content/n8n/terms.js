@@ -10665,5 +10665,248 @@ JOURNEY_TERMS["n8n"] = [
    "en": "a talk submission to an event"
   },
   "ex": "Send the talk proposal to the meetup."
+ },
+ {
+  "w": 48,
+  "t": "capstone brief",
+  "m": {
+   "ar": "وصف مشروع التخرج في صفحة",
+   "en": "a one-page description of the capstone"
+  },
+  "ex": "The capstone brief fits on one page."
+ },
+ {
+  "w": 48,
+  "t": "success metric",
+  "m": {
+   "ar": "رقم بيثبت نجاح المشروع",
+   "en": "a number proving project success"
+  },
+  "ex": "Our success metric is zero lost orders."
+ },
+ {
+  "w": 48,
+  "t": "non-functional requirement",
+  "m": {
+   "ar": "متطلب جودة زي الأداء والأمان",
+   "en": "a quality requirement such as performance or security"
+  },
+  "ex": "Availability is a non-functional requirement."
+ },
+ {
+  "w": 48,
+  "t": "architecture decision",
+  "m": {
+   "ar": "قرار معماري موثّق بأسبابه",
+   "en": "a documented design decision with its reasons"
+  },
+  "ex": "Record each architecture decision as an ADR."
+ },
+ {
+  "w": 48,
+  "t": "walking skeleton",
+  "m": {
+   "ar": "أنحف نسخة كاملة شغالة من النظام",
+   "en": "the thinnest complete working version of a system"
+  },
+  "ex": "The walking skeleton replied to one message."
+ },
+ {
+  "w": 48,
+  "t": "vertical slice",
+  "m": {
+   "ar": "ميزة كاملة من أولها لآخرها",
+   "en": "a complete feature from end to end"
+  },
+  "ex": "Ship one vertical slice per week."
+ },
+ {
+  "w": 48,
+  "t": "reuse map",
+  "m": {
+   "ar": "خريطة المكونات الجاهزة المستخدمة",
+   "en": "a map of ready components reused"
+  },
+  "ex": "The reuse map saved a week."
+ },
+ {
+  "w": 48,
+  "t": "ai contract",
+  "m": {
+   "ar": "وصف مدخل ومخرج وقواعد جزء AI",
+   "en": "the input, output and rules of an AI part"
+  },
+  "ex": "The AI contract sets confidence rules."
+ },
+ {
+  "w": 48,
+  "t": "eval set",
+  "m": {
+   "ar": "مجموعة اختبار لقياس دقة AI",
+   "en": "a test set measuring AI accuracy"
+  },
+  "ex": "Run the eval set on every prompt change."
+ },
+ {
+  "w": 48,
+  "t": "human approval",
+  "m": {
+   "ar": "موافقة إنسان قبل الأثر",
+   "en": "a person’s approval before any effect"
+  },
+  "ex": "Human approval is required for medicines."
+ },
+ {
+  "w": 48,
+  "t": "acceptance test",
+  "m": {
+   "ar": "اختبار بيثبت إن متطلب اتحقق",
+   "en": "a test proving a requirement is met"
+  },
+  "ex": "Each requirement has an acceptance test."
+ },
+ {
+  "w": 48,
+  "t": "acceptance matrix",
+  "m": {
+   "ar": "جدول المتطلبات والاختبارات والنتايج",
+   "en": "a table of requirements, tests and results"
+  },
+  "ex": "The acceptance matrix is all green."
+ },
+ {
+  "w": 48,
+  "t": "go-live gate",
+  "m": {
+   "ar": "شروط لازم تكمل قبل التشغيل",
+   "en": "conditions to meet before go-live"
+  },
+  "ex": "The go-live gate blocked the launch."
+ },
+ {
+  "w": 48,
+  "t": "launch checklist",
+  "m": {
+   "ar": "قايمة التشغيل النهائية",
+   "en": "the final launch list"
+  },
+  "ex": "Sign off the launch checklist."
+ },
+ {
+  "w": 48,
+  "t": "re-drill",
+  "m": {
+   "ar": "إعادة تمرين بعد تصليح",
+   "en": "repeating a drill after a fix"
+  },
+  "ex": "The re-drill met the RTO."
+ },
+ {
+  "w": 48,
+  "t": "canary",
+  "m": {
+   "ar": "تشغيل على جزء صغير الأول",
+   "en": "launching on a small part first"
+  },
+  "ex": "Branch 1 was the canary."
+ },
+ {
+  "w": 48,
+  "t": "go/no-go",
+  "m": {
+   "ar": "قرار الاستمرار أو التوقف",
+   "en": "the decision to proceed or stop"
+  },
+  "ex": "The 10:00 go/no-go said go."
+ },
+ {
+  "w": 48,
+  "t": "post-launch review",
+  "m": {
+   "ar": "مراجعة بعد التشغيل بالأرقام",
+   "en": "a review after launch in numbers"
+  },
+  "ex": "The post-launch review met every target."
+ },
+ {
+  "w": 48,
+  "t": "documentation set",
+  "m": {
+   "ar": "كل الوثايق المسلّمة",
+   "en": "all delivered documents"
+  },
+  "ex": "The documentation set includes five runbooks."
+ },
+ {
+  "w": 48,
+  "t": "quarterly review",
+  "m": {
+   "ar": "اجتماع ربع سنوي بالنتايج والأفكار",
+   "en": "a quarterly meeting on results and ideas"
+  },
+  "ex": "The quarterly review led to a new project."
+ },
+ {
+  "w": 48,
+  "t": "demo script",
+  "m": {
+   "ar": "سيناريو العرض بالدقايق",
+   "en": "the presentation plan by minutes"
+  },
+  "ex": "Rehearse the demo script twice."
+ },
+ {
+  "w": 48,
+  "t": "portfolio piece",
+  "m": {
+   "ar": "مشروع بيمثّلك في المحفظة",
+   "en": "a project representing you in the portfolio"
+  },
+  "ex": "The capstone is my main portfolio piece."
+ },
+ {
+  "w": 48,
+  "t": "expert review",
+  "m": {
+   "ar": "مراجعة من حد أخبر",
+   "en": "a review by someone more experienced"
+  },
+  "ex": "The expert review found a DR gap."
+ },
+ {
+  "w": 48,
+  "t": "peer feedback",
+  "m": {
+   "ar": "ملاحظات من زميل",
+   "en": "comments from a colleague"
+  },
+  "ex": "Peer feedback improved the demo."
+ },
+ {
+  "w": 48,
+  "t": "specialisation",
+  "m": {
+   "ar": "التخصص في مجال",
+   "en": "focusing on one field"
+  },
+  "ex": "My specialisation is regulated health data."
+ },
+ {
+  "w": 48,
+  "t": "career path",
+  "m": {
+   "ar": "المسار المهني",
+   "en": "the professional route"
+  },
+  "ex": "Choose a career path for next year."
+ },
+ {
+  "w": 48,
+  "t": "lifelong learning",
+  "m": {
+   "ar": "التعلم المستمر طول الحياة",
+   "en": "learning continuously throughout life"
+  },
+  "ex": "Lifelong learning keeps experts current."
  }
 ];
