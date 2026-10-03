@@ -10872,5 +10872,356 @@ JOURNEY_TERMS["js"] = [
    "en": "proof of where a package was built"
   },
   "ex": "Publish with provenance from CI."
+ },
+ {
+  "w": 39,
+  "t": "custom node",
+  "m": {
+   "ar": "نود n8n بتعمله بنفسك",
+   "en": "an n8n node you build yourself"
+  },
+  "ex": "We wrote a custom node for the ERP."
+ },
+ {
+  "w": 39,
+  "t": "community node",
+  "m": {
+   "ar": "نود منشور للمجتمع على npm",
+   "en": "a node published for anyone to install"
+  },
+  "ex": "Install the community node from Settings."
+ },
+ {
+  "w": 39,
+  "t": "n8n-nodes-starter",
+  "m": {
+   "ar": "قالب البداية الرسمي للنودز",
+   "en": "the official starter template for nodes"
+  },
+  "ex": "Clone n8n-nodes-starter to begin."
+ },
+ {
+  "w": 39,
+  "t": "inodetype",
+  "m": {
+   "ar": "واجهة كلاس النود",
+   "en": "the interface a node class implements"
+  },
+  "ex": "The class implements INodeType."
+ },
+ {
+  "w": 39,
+  "t": "node description",
+  "m": {
+   "ar": "وصف النود وحقوله",
+   "en": "the metadata and fields of a node"
+  },
+  "ex": "The node description lists its properties."
+ },
+ {
+  "w": 39,
+  "t": "usableastool",
+  "m": {
+   "ar": "النود ينفع كأداة لـ AI Agent",
+   "en": "a flag letting AI Agents use the node"
+  },
+  "ex": "Set usableAsTool to true."
+ },
+ {
+  "w": 39,
+  "t": "resource and operation",
+  "m": {
+   "ar": "نمط المورد والعملية",
+   "en": "the n8n field pattern for actions"
+  },
+  "ex": "Order + Get follows resource and operation."
+ },
+ {
+  "w": 39,
+  "t": "displayoptions",
+  "m": {
+   "ar": "إظهار الحقل حسب اختيار تاني",
+   "en": "rules for when a field is shown"
+  },
+  "ex": "displayOptions hides Order ID for Get Many."
+ },
+ {
+  "w": 39,
+  "t": "options property",
+  "m": {
+   "ar": "حقل قايمة اختيارات",
+   "en": "a field with a fixed list of choices"
+  },
+  "ex": "Operation is an options property."
+ },
+ {
+  "w": 39,
+  "t": "collection",
+  "m": {
+   "ar": "مجموعة حقول اختيارية",
+   "en": "a group of optional fields"
+  },
+  "ex": "Filters live in a collection."
+ },
+ {
+  "w": 39,
+  "t": "fixedcollection",
+  "m": {
+   "ar": "مجموعات حقول متكررة",
+   "en": "repeatable groups of fields"
+  },
+  "ex": "Line items use a fixedCollection."
+ },
+ {
+  "w": 39,
+  "t": "declarative style",
+  "m": {
+   "ar": "نود بوصف الطلبات من غير كود",
+   "en": "a node defined by request descriptions"
+  },
+  "ex": "Declarative style suits plain REST APIs."
+ },
+ {
+  "w": 39,
+  "t": "programmatic style",
+  "m": {
+   "ar": "نود بدالة execute",
+   "en": "a node with its own execute method"
+  },
+  "ex": "Use programmatic style for loops and logic."
+ },
+ {
+  "w": 39,
+  "t": "requestdefaults",
+  "m": {
+   "ar": "الإعدادات المشتركة للطلبات",
+   "en": "shared request settings for a node"
+  },
+  "ex": "requestDefaults sets the baseURL."
+ },
+ {
+  "w": 39,
+  "t": "routing",
+  "m": {
+   "ar": "وصف الطلب لكل حقل",
+   "en": "how a field maps to the HTTP request"
+  },
+  "ex": "The routing adds status to the query."
+ },
+ {
+  "w": 39,
+  "t": "credential type",
+  "m": {
+   "ar": "نوع بيانات الدخول",
+   "en": "a definition of how to authenticate"
+  },
+  "ex": "Create a credential type for the API key."
+ },
+ {
+  "w": 39,
+  "t": "icredentialtype",
+  "m": {
+   "ar": "واجهة كلاس الـ credentials",
+   "en": "the interface a credential class implements"
+  },
+  "ex": "ShopApi implements ICredentialType."
+ },
+ {
+  "w": 39,
+  "t": "authenticate",
+  "m": {
+   "ar": "إزاي الـ credential يتحط في الطلب",
+   "en": "how credentials are added to requests"
+  },
+  "ex": "authenticate puts the key in a header."
+ },
+ {
+  "w": 39,
+  "t": "credential test",
+  "m": {
+   "ar": "تجربة الاتصال عند الحفظ",
+   "en": "a request checking credentials on save"
+  },
+  "ex": "The credential test calls /me."
+ },
+ {
+  "w": 39,
+  "t": "execute method",
+  "m": {
+   "ar": "الدالة اللي بتشغّل النود",
+   "en": "the method running a programmatic node"
+  },
+  "ex": "The execute method loops over items."
+ },
+ {
+  "w": 39,
+  "t": "iexecutefunctions",
+  "m": {
+   "ar": "نوع this جوه execute",
+   "en": "the type of this inside execute"
+  },
+  "ex": "IExecuteFunctions gives getInputData."
+ },
+ {
+  "w": 39,
+  "t": "getinputdata",
+  "m": {
+   "ar": "جيب الـ items الداخلة",
+   "en": "returns the incoming items"
+  },
+  "ex": "Start with this.getInputData()."
+ },
+ {
+  "w": 39,
+  "t": "getnodeparameter",
+  "m": {
+   "ar": "قيمة الحقل لـ item معين",
+   "en": "a field’s value for one item"
+  },
+  "ex": "Call getNodeParameter with the item index."
+ },
+ {
+  "w": 39,
+  "t": "inodeexecutiondata",
+  "m": {
+   "ar": "شكل الـ item الخارج",
+   "en": "the shape of an output item"
+  },
+  "ex": "Return INodeExecutionData with json."
+ },
+ {
+  "w": 39,
+  "t": "continueonfail",
+  "m": {
+   "ar": "كمّل لو item فشل",
+   "en": "the setting to keep going after an item fails"
+  },
+  "ex": "With continueOnFail the error becomes an item."
+ },
+ {
+  "w": 39,
+  "t": "nodeoperationerror",
+  "m": {
+   "ar": "خطأ في منطق النود",
+   "en": "an error raised by node logic"
+  },
+  "ex": "Throw NodeOperationError with itemIndex."
+ },
+ {
+  "w": 39,
+  "t": "nodeapierror",
+  "m": {
+   "ar": "خطأ جاي من API",
+   "en": "an error wrapping an API failure"
+  },
+  "ex": "NodeApiError shows the HTTP status."
+ },
+ {
+  "w": 39,
+  "t": "node version",
+  "m": {
+   "ar": "رقم إصدار النود",
+   "en": "the version number of a node"
+  },
+  "ex": "Bump the node version for breaking changes."
+ },
+ {
+  "w": 39,
+  "t": "versioned node",
+  "m": {
+   "ar": "نود بأكتر من إصدار",
+   "en": "a node supporting several versions"
+  },
+  "ex": "A versioned node keeps old workflows working."
+ },
+ {
+  "w": 39,
+  "t": "dev mode",
+  "m": {
+   "ar": "تشغيل تطوير بإعادة بناء تلقائية",
+   "en": "a development run rebuilding on save"
+  },
+  "ex": "npm run dev starts dev mode."
+ },
+ {
+  "w": 39,
+  "t": "npm link",
+  "m": {
+   "ar": "ربط حزمة محلية",
+   "en": "linking a local package for testing"
+  },
+  "ex": "npm link loads the node into n8n."
+ },
+ {
+  "w": 39,
+  "t": "node linter",
+  "m": {
+   "ar": "فاحص قواعد نودز n8n",
+   "en": "ESLint rules for n8n nodes"
+  },
+  "ex": "The node linter flagged a missing description."
+ },
+ {
+  "w": 39,
+  "t": "smoke workflow",
+  "m": {
+   "ar": "workflow اختبار سريع",
+   "en": "a quick end-to-end test workflow"
+  },
+  "ex": "Run the smoke workflow after each n8n upgrade."
+ },
+ {
+  "w": 39,
+  "t": "sandbox api",
+  "m": {
+   "ar": "API تجربة",
+   "en": "a test environment of an API"
+  },
+  "ex": "Point the credential at the sandbox API."
+ },
+ {
+  "w": 39,
+  "t": "community node package",
+  "m": {
+   "ar": "حزمة نود مجتمعي",
+   "en": "an npm package of n8n nodes"
+  },
+  "ex": "Our community node package has two nodes."
+ },
+ {
+  "w": 39,
+  "t": "n8n-community-node-package",
+  "m": {
+   "ar": "الكلمة المفتاحية لحزم النودز",
+   "en": "the keyword marking n8n node packages"
+  },
+  "ex": "Add the n8n-community-node-package keyword."
+ },
+ {
+  "w": 39,
+  "t": "verified node",
+  "m": {
+   "ar": "نود متراجع من n8n",
+   "en": "a community node reviewed by n8n"
+  },
+  "ex": "A verified node appears in n8n Cloud."
+ },
+ {
+  "w": 39,
+  "t": "runtime dependency",
+  "m": {
+   "ar": "مكتبة مطلوبة وقت التشغيل",
+   "en": "a package needed at run time"
+  },
+  "ex": "Avoid any runtime dependency for verification."
+ },
+ {
+  "w": 39,
+  "t": "issue template",
+  "m": {
+   "ar": "قالب الإبلاغ عن مشكلة",
+   "en": "a form for bug reports"
+  },
+  "ex": "The issue template asks for the n8n version."
  }
 ];
