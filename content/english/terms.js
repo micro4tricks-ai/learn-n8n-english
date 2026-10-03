@@ -5301,5 +5301,338 @@ JOURNEY_TERMS["english"] = [
    "en": "to change direction"
   },
   "ex": "The company pivoted to B2B."
+ },
+ {
+  "w": 42,
+  "t": "likelihood",
+  "m": {
+   "ar": "الاحتمال",
+   "en": "how probable something is"
+  },
+  "ex": "The likelihood of another outage is low."
+ },
+ {
+  "w": 42,
+  "t": "assertive",
+  "m": {
+   "ar": "حاسم وواثق",
+   "en": "confident and direct"
+  },
+  "ex": "Be assertive about security risks."
+ },
+ {
+  "w": 42,
+  "t": "tentative",
+  "m": {
+   "ar": "متردد / مبدئي",
+   "en": "not certain or final"
+  },
+  "ex": "This is a tentative estimate."
+ },
+ {
+  "w": 42,
+  "t": "qualifier",
+  "m": {
+   "ar": "كلمة بتحدد مدى الكلام",
+   "en": "a word that limits a claim"
+  },
+  "ex": "«In most cases» is a useful qualifier."
+ },
+ {
+  "w": 42,
+  "t": "to some extent",
+  "m": {
+   "ar": "لحد ما",
+   "en": "partly"
+  },
+  "ex": "Caching helps to some extent."
+ },
+ {
+  "w": 42,
+  "t": "tend to",
+  "m": {
+   "ar": "عادة بيحصل",
+   "en": "to usually happen"
+  },
+  "ex": "Big files tend to time out."
+ },
+ {
+  "w": 42,
+  "t": "it appears",
+  "m": {
+   "ar": "يبدو إن",
+   "en": "it seems"
+  },
+  "ex": "It appears that the token expired."
+ },
+ {
+  "w": 42,
+  "t": "arguably",
+  "m": {
+   "ar": "ممكن نقول",
+   "en": "it could be argued"
+  },
+  "ex": "This is arguably the simplest option."
+ },
+ {
+  "w": 42,
+  "t": "intensifier",
+  "m": {
+   "ar": "كلمة بتقوّي",
+   "en": "a word that strengthens meaning"
+  },
+  "ex": "«Extremely» is an intensifier."
+ },
+ {
+  "w": 42,
+  "t": "downtoner",
+  "m": {
+   "ar": "كلمة بتخفف",
+   "en": "a word that softens meaning"
+  },
+  "ex": "«Slightly» is a downtoner."
+ },
+ {
+  "w": 42,
+  "t": "understatement",
+  "m": {
+   "ar": "تهوين / قول أقل من الحقيقة",
+   "en": "saying less than the truth"
+  },
+  "ex": "«Not ideal» was an understatement."
+ },
+ {
+  "w": 42,
+  "t": "overstatement",
+  "m": {
+   "ar": "تهويل",
+   "en": "exaggeration"
+  },
+  "ex": "Calling it a disaster is an overstatement."
+ },
+ {
+  "w": 42,
+  "t": "vague",
+  "m": {
+   "ar": "غامض",
+   "en": "not clear or exact"
+  },
+  "ex": "Vague reports waste time."
+ },
+ {
+  "w": 42,
+  "t": "precise",
+  "m": {
+   "ar": "دقيق",
+   "en": "exact"
+  },
+  "ex": "Give a precise number."
+ },
+ {
+  "w": 42,
+  "t": "low-context",
+  "m": {
+   "ar": "ثقافة المعنى فيها في الكلام الصريح",
+   "en": "meaning stated explicitly"
+  },
+  "ex": "Dutch business culture is low-context."
+ },
+ {
+  "w": 42,
+  "t": "high-context",
+  "m": {
+   "ar": "ثقافة المعنى فيها في السياق",
+   "en": "meaning carried by context"
+  },
+  "ex": "In high-context cultures, «maybe» can mean no."
+ },
+ {
+  "w": 42,
+  "t": "directness",
+  "m": {
+   "ar": "الصراحة والمباشرة",
+   "en": "saying things plainly"
+  },
+  "ex": "Their directness surprised me at first."
+ },
+ {
+  "w": 42,
+  "t": "indirectness",
+  "m": {
+   "ar": "عدم المباشرة",
+   "en": "saying things implicitly"
+  },
+  "ex": "Indirectness can protect relationships."
+ },
+ {
+  "w": 42,
+  "t": "face-saving",
+  "m": {
+   "ar": "حفظ ماء الوجه",
+   "en": "protecting someone’s dignity"
+  },
+  "ex": "Give feedback in private for face-saving."
+ },
+ {
+  "w": 42,
+  "t": "power distance",
+  "m": {
+   "ar": "مسافة السلطة (احترام المناصب)",
+   "en": "how much people defer to rank"
+  },
+  "ex": "High power distance affects meetings."
+ },
+ {
+  "w": 42,
+  "t": "blunt",
+  "m": {
+   "ar": "صريح بشكل جارح",
+   "en": "direct to the point of rudeness"
+  },
+  "ex": "His blunt email upset the team."
+ },
+ {
+  "w": 42,
+  "t": "tactful",
+  "m": {
+   "ar": "لبق / حساس في الكلام",
+   "en": "careful not to offend"
+  },
+  "ex": "She gave tactful feedback."
+ },
+ {
+  "w": 42,
+  "t": "diplomatic",
+  "m": {
+   "ar": "دبلوماسي",
+   "en": "handling people without offending"
+  },
+  "ex": "Give a diplomatic answer."
+ },
+ {
+  "w": 42,
+  "t": "connotation",
+  "m": {
+   "ar": "الإيحاء / الإحساس اللي في الكلمة",
+   "en": "the feeling a word carries"
+  },
+  "ex": "«Cheap» has a negative connotation."
+ },
+ {
+  "w": 42,
+  "t": "nuance",
+  "m": {
+   "ar": "فرق دقيق",
+   "en": "a subtle difference"
+  },
+  "ex": "Translation loses some nuance."
+ },
+ {
+  "w": 42,
+  "t": "passive-aggressive",
+  "m": {
+   "ar": "عدوانية مستخبية في أدب",
+   "en": "hostile in an indirect way"
+  },
+  "ex": "That reply sounded passive-aggressive."
+ },
+ {
+  "w": 42,
+  "t": "per my last email",
+  "m": {
+   "ar": "زي ما قلت في إيميلي اللي فات (بضيق)",
+   "en": "as I already wrote (annoyed)"
+  },
+  "ex": "Avoid writing «per my last email»."
+ },
+ {
+  "w": 42,
+  "t": "sarcasm",
+  "m": {
+   "ar": "سخرية",
+   "en": "mocking by saying the opposite"
+  },
+  "ex": "Sarcasm rarely works in email."
+ },
+ {
+  "w": 42,
+  "t": "irony",
+  "m": {
+   "ar": "مفارقة",
+   "en": "a contrast between expected and real"
+  },
+  "ex": "The irony is that the test failed the tests."
+ },
+ {
+  "w": 42,
+  "t": "subtext",
+  "m": {
+   "ar": "المعنى الضمني",
+   "en": "the unstated message"
+  },
+  "ex": "The subtext was a polite no."
+ },
+ {
+  "w": 42,
+  "t": "read between the lines",
+  "m": {
+   "ar": "تفهم اللي مش مكتوب",
+   "en": "to understand the hidden meaning"
+  },
+  "ex": "Read between the lines of their reply."
+ },
+ {
+  "w": 42,
+  "t": "register",
+  "m": {
+   "ar": "مستوى الرسمية",
+   "en": "the level of formality"
+  },
+  "ex": "Match the client’s register."
+ },
+ {
+  "w": 42,
+  "t": "warmth",
+  "m": {
+   "ar": "دفء في الأسلوب",
+   "en": "friendliness in tone"
+  },
+  "ex": "Add some warmth to the opening."
+ },
+ {
+  "w": 42,
+  "t": "exclamation mark",
+  "m": {
+   "ar": "علامة تعجب",
+   "en": "the punctuation mark «!»"
+  },
+  "ex": "Use one exclamation mark at most."
+ },
+ {
+  "w": 42,
+  "t": "emoji",
+  "m": {
+   "ar": "إيموجي",
+   "en": "a small picture in a message"
+  },
+  "ex": "Skip the emoji in a first email."
+ },
+ {
+  "w": 42,
+  "t": "humour",
+  "m": {
+   "ar": "هزار / روح الدعابة",
+   "en": "the quality of being funny"
+  },
+  "ex": "Humour doesn’t always translate."
+ },
+ {
+  "w": 42,
+  "t": "come across as",
+  "m": {
+   "ar": "يبان كأنه",
+   "en": "to give an impression of"
+  },
+  "ex": "Your email comes across as nervous."
  }
 ];
