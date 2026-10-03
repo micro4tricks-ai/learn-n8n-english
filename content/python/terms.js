@@ -11214,5 +11214,329 @@ JOURNEY_TERMS["python"] = [
    "en": "summarising a long conversation to save context"
   },
   "ex": "Compaction keeps long sessions within the limit."
+ },
+ {
+  "w": 39,
+  "t": "evals",
+  "m": {
+   "ar": "اختبارات تقييم لتطبيقات الـ AI",
+   "en": "tests that measure an AI app"
+  },
+  "ex": "Run the evals before every release."
+ },
+ {
+  "w": 39,
+  "t": "eval case",
+  "m": {
+   "ar": "حالة تقييم: مدخل ونتيجة متوقعة",
+   "en": "one input with its expected output"
+  },
+  "ex": "Each eval case has tags."
+ },
+ {
+  "w": 39,
+  "t": "test set",
+  "m": {
+   "ar": "مجموعة الاختبار",
+   "en": "the collection of eval cases"
+  },
+  "ex": "Never tune the prompt on the test set alone."
+ },
+ {
+  "w": 39,
+  "t": "baseline",
+  "m": {
+   "ar": "الرقم المرجعي للمقارنة",
+   "en": "the reference result to compare with"
+  },
+  "ex": "The baseline accuracy was 81%."
+ },
+ {
+  "w": 39,
+  "t": "exact match",
+  "m": {
+   "ar": "تطابق تام",
+   "en": "output equal to the expected value"
+  },
+  "ex": "Exact match works for labels."
+ },
+ {
+  "w": 39,
+  "t": "offline evaluation",
+  "m": {
+   "ar": "تقييم قبل الإنتاج",
+   "en": "evaluation on a fixed test set"
+  },
+  "ex": "Offline evaluation runs in CI."
+ },
+ {
+  "w": 39,
+  "t": "precision",
+  "m": {
+   "ar": "الدقة: من اللي قلت عليه صح، كام صح فعلًا",
+   "en": "of the predicted positives, the share that are right"
+  },
+  "ex": "Auto-replies need high precision."
+ },
+ {
+  "w": 39,
+  "t": "recall",
+  "m": {
+   "ar": "الاستدعاء: من الصح الحقيقي، لقيت كام",
+   "en": "of the real positives, the share found"
+  },
+  "ex": "Legal complaints need high recall."
+ },
+ {
+  "w": 39,
+  "t": "f1 score",
+  "m": {
+   "ar": "متوسط توافقي للـ precision والـ recall",
+   "en": "the harmonic mean of precision and recall"
+  },
+  "ex": "Macro F1 averages over classes."
+ },
+ {
+  "w": 39,
+  "t": "confusion matrix",
+  "m": {
+   "ar": "مصفوفة اللخبطة بين الفئات",
+   "en": "a table of expected versus predicted classes"
+  },
+  "ex": "The confusion matrix shows billing vs refund mix-ups."
+ },
+ {
+  "w": 39,
+  "t": "tolerance",
+  "m": {
+   "ar": "هامش سماح",
+   "en": "an allowed small difference"
+  },
+  "ex": "Totals match within a tolerance of 0.01."
+ },
+ {
+  "w": 39,
+  "t": "json validity",
+  "m": {
+   "ar": "إن الرد JSON سليم",
+   "en": "whether a reply parses as JSON"
+  },
+  "ex": "Track JSON validity separately."
+ },
+ {
+  "w": 39,
+  "t": "schema validation",
+  "m": {
+   "ar": "التحقق من شكل البيانات",
+   "en": "checking data against a schema"
+  },
+  "ex": "Schema validation caught a missing field."
+ },
+ {
+  "w": 39,
+  "t": "llm-as-judge",
+  "m": {
+   "ar": "نموذج بيقيّم ردود نموذج",
+   "en": "a model grading model outputs"
+  },
+  "ex": "LLM-as-judge scores tone and completeness."
+ },
+ {
+  "w": 39,
+  "t": "rubric",
+  "m": {
+   "ar": "معايير ودرجات واضحة للتقييم",
+   "en": "clear grading criteria and scores"
+  },
+  "ex": "A vague rubric gives random scores."
+ },
+ {
+  "w": 39,
+  "t": "pairwise comparison",
+  "m": {
+   "ar": "مقارنة ردين ببعض",
+   "en": "choosing the better of two outputs"
+  },
+  "ex": "Pairwise comparison picked prompt B."
+ },
+ {
+  "w": 39,
+  "t": "position bias",
+  "m": {
+   "ar": "تحيز للترتيب",
+   "en": "favouring an option because of its position"
+  },
+  "ex": "Swap the order to cancel position bias."
+ },
+ {
+  "w": 39,
+  "t": "judge calibration",
+  "m": {
+   "ar": "معايرة الحَكَم بتقييم بشري",
+   "en": "checking a judge against human grades"
+  },
+  "ex": "Judge calibration showed 88% agreement."
+ },
+ {
+  "w": 39,
+  "t": "inter-rater agreement",
+  "m": {
+   "ar": "اتفاق المقيّمين",
+   "en": "how much graders agree"
+  },
+  "ex": "Low inter-rater agreement means an unclear rubric."
+ },
+ {
+  "w": 39,
+  "t": "sample size",
+  "m": {
+   "ar": "حجم العينة",
+   "en": "the number of cases measured"
+  },
+  "ex": "A larger sample size steadies the number."
+ },
+ {
+  "w": 39,
+  "t": "bootstrap",
+  "m": {
+   "ar": "إعادة سحب عينات عشوائية",
+   "en": "resampling with replacement to estimate uncertainty"
+  },
+  "ex": "Bootstrap the difference between prompts."
+ },
+ {
+  "w": 39,
+  "t": "confidence interval",
+  "m": {
+   "ar": "فترة الثقة",
+   "en": "the range the true value likely falls in"
+  },
+  "ex": "The 95% confidence interval includes zero."
+ },
+ {
+  "w": 39,
+  "t": "statistical significance",
+  "m": {
+   "ar": "دلالة إحصائية",
+   "en": "evidence that a difference is not chance"
+  },
+  "ex": "Two cases are not statistical significance."
+ },
+ {
+  "w": 39,
+  "t": "latency",
+  "m": {
+   "ar": "زمن الاستجابة",
+   "en": "the time to respond"
+  },
+  "ex": "Latency doubled with the bigger prompt."
+ },
+ {
+  "w": 39,
+  "t": "p95",
+  "m": {
+   "ar": "الشريحة 95%: أبطأ 5% بيبدأوا هنا",
+   "en": "the value 95% of requests are under"
+  },
+  "ex": "Report p95, not only the mean."
+ },
+ {
+  "w": 39,
+  "t": "cost per task",
+  "m": {
+   "ar": "التكلفة لكل مهمة",
+   "en": "money spent per completed task"
+  },
+  "ex": "Cost per task fell to half a cent."
+ },
+ {
+  "w": 39,
+  "t": "regression test",
+  "m": {
+   "ar": "اختبار بيمنع الرجوع للخلف",
+   "en": "a test that catches things getting worse"
+  },
+  "ex": "The regression test failed the PR."
+ },
+ {
+  "w": 39,
+  "t": "prompt version",
+  "m": {
+   "ar": "رقم نسخة البرومبت",
+   "en": "a named version of a prompt"
+  },
+  "ex": "Log the prompt version with every reply."
+ },
+ {
+  "w": 39,
+  "t": "error analysis",
+  "m": {
+   "ar": "تحليل الأخطاء",
+   "en": "studying mistakes to find patterns"
+  },
+  "ex": "Error analysis found a colloquial-Arabic gap."
+ },
+ {
+  "w": 39,
+  "t": "failure mode",
+  "m": {
+   "ar": "نمط فشل",
+   "en": "a recurring kind of mistake"
+  },
+  "ex": "Two-topic messages are a failure mode."
+ },
+ {
+  "w": 39,
+  "t": "slice",
+  "m": {
+   "ar": "شريحة من البيانات",
+   "en": "a subset of cases sharing a tag"
+  },
+  "ex": "Accuracy on the Arabic slice is lower."
+ },
+ {
+  "w": 39,
+  "t": "online evaluation",
+  "m": {
+   "ar": "تقييم على الطلبات الحقيقية",
+   "en": "measuring quality in production"
+  },
+  "ex": "Online evaluation uses user feedback."
+ },
+ {
+  "w": 39,
+  "t": "user feedback",
+  "m": {
+   "ar": "رأي المستخدم",
+   "en": "signals from users about quality"
+  },
+  "ex": "User feedback flagged three bad replies."
+ },
+ {
+  "w": 39,
+  "t": "shadow mode",
+  "m": {
+   "ar": "تشغيل في الخلفية من غير تأثير",
+   "en": "running a new version without using its output"
+  },
+  "ex": "Run the new model in shadow mode first."
+ },
+ {
+  "w": 39,
+  "t": "canary",
+  "m": {
+   "ar": "إطلاق على نسبة صغيرة",
+   "en": "a release to a small share of traffic"
+  },
+  "ex": "The canary got 5% of requests."
+ },
+ {
+  "w": 39,
+  "t": "drift",
+  "m": {
+   "ar": "تغيّر تدريجي في الأداء",
+   "en": "gradual change in behaviour or data"
+  },
+  "ex": "Watch for drift after the holiday season."
  }
 ];
