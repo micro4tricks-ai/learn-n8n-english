@@ -9279,5 +9279,293 @@ JOURNEY_TERMS["js"] = [
    "en": "activating server-rendered HTML in the browser"
   },
   "ex": "Hydration attaches the event handlers."
+ },
+ {
+  "w": 33,
+  "t": "sql",
+  "m": {
+   "ar": "لغة التعامل مع قواعد البيانات",
+   "en": "the language for working with databases"
+  },
+  "ex": "Write the report in SQL."
+ },
+ {
+  "w": 33,
+  "t": "table",
+  "m": {
+   "ar": "جدول صفوف وأعمدة في القاعدة",
+   "en": "a table of rows and columns in a database"
+  },
+  "ex": "The orders table has 5 columns."
+ },
+ {
+  "w": 33,
+  "t": "primary key",
+  "m": {
+   "ar": "معرّف فريد لكل صف",
+   "en": "a unique identifier for each row"
+  },
+  "ex": "id is the primary key."
+ },
+ {
+  "w": 33,
+  "t": "sqlite",
+  "m": {
+   "ar": "قاعدة بيانات في ملف واحد",
+   "en": "a database in a single file"
+  },
+  "ex": "node:sqlite needs no server."
+ },
+ {
+  "w": 33,
+  "t": "select",
+  "m": {
+   "ar": "أمر قراءة البيانات",
+   "en": "the command for reading data"
+  },
+  "ex": "SELECT only the columns you need."
+ },
+ {
+  "w": 33,
+  "t": "sql injection",
+  "m": {
+   "ar": "حقن أوامر SQL عبر مدخلات",
+   "en": "injecting SQL commands through input"
+  },
+  "ex": "String-built queries invite SQL injection."
+ },
+ {
+  "w": 33,
+  "t": "parameterized query",
+  "m": {
+   "ar": "استعلام بقيم منفصلة ? أو $1",
+   "en": "a query with separate values, ? or $1"
+  },
+  "ex": "Always use a parameterized query."
+ },
+ {
+  "w": 33,
+  "t": "foreign key",
+  "m": {
+   "ar": "عمود بيشاور على صف في جدول تاني",
+   "en": "a column pointing to a row in another table"
+  },
+  "ex": "customer_id is a foreign key."
+ },
+ {
+  "w": 33,
+  "t": "left join",
+  "m": {
+   "ar": "ربط بيرجّع كل صفوف الجدول الشمال",
+   "en": "a join keeping every row of the left table"
+  },
+  "ex": "LEFT JOIN shows customers with no orders."
+ },
+ {
+  "w": 33,
+  "t": "having",
+  "m": {
+   "ar": "فلترة بعد التجميع",
+   "en": "filtering after grouping"
+  },
+  "ex": "HAVING SUM(total) > 1000."
+ },
+ {
+  "w": 33,
+  "t": "db index",
+  "m": {
+   "ar": "فهرس بيسرّع البحث في عمود",
+   "en": "an index speeding up searches on a column"
+  },
+  "ex": "Add a db index on phone."
+ },
+ {
+  "w": 33,
+  "t": "explain",
+  "m": {
+   "ar": "عرض خطة تنفيذ الاستعلام",
+   "en": "showing how a query will run"
+  },
+  "ex": "EXPLAIN shows a full scan."
+ },
+ {
+  "w": 33,
+  "t": "aggregate function",
+  "m": {
+   "ar": "دالة بتجمع صفوف لقيمة",
+   "en": "a function combining rows into one value"
+  },
+  "ex": "SUM is an aggregate function."
+ },
+ {
+  "w": 33,
+  "t": "constraint",
+  "m": {
+   "ar": "قاعدة بتفرضها القاعدة على البيانات",
+   "en": "a rule the database enforces on data"
+  },
+  "ex": "A constraint rejected the negative total."
+ },
+ {
+  "w": 33,
+  "t": "unique constraint",
+  "m": {
+   "ar": "منع تكرار قيمة في عمود",
+   "en": "preventing repeated values in a column"
+  },
+  "ex": "Add a unique constraint on phone."
+ },
+ {
+  "w": 33,
+  "t": "check constraint",
+  "m": {
+   "ar": "شرط على قيمة العمود",
+   "en": "a condition on a column’s value"
+  },
+  "ex": "CHECK (total >= 0) is a check constraint."
+ },
+ {
+  "w": 33,
+  "t": "transaction",
+  "m": {
+   "ar": "عمليات يا كلها يا ولا واحدة",
+   "en": "operations that all happen or none do"
+  },
+  "ex": "Wrap the order in a transaction."
+ },
+ {
+  "w": 33,
+  "t": "rollback",
+  "m": {
+   "ar": "إلغاء كل عمليات الـ transaction",
+   "en": "undoing every operation in a transaction"
+  },
+  "ex": "The stock error caused a rollback."
+ },
+ {
+  "w": 33,
+  "t": "upsert",
+  "m": {
+   "ar": "أضف أو حدّث في أمر واحد",
+   "en": "insert or update in one statement"
+  },
+  "ex": "An upsert absorbs duplicate webhooks."
+ },
+ {
+  "w": 33,
+  "t": "on conflict",
+  "m": {
+   "ar": "جزء SQL بيحدد التصرف عند التكرار",
+   "en": "the SQL clause deciding what to do on a clash"
+  },
+  "ex": "ON CONFLICT DO UPDATE refreshes the row."
+ },
+ {
+  "w": 33,
+  "t": "postgres",
+  "m": {
+   "ar": "قاعدة بيانات سيرفر قوية ومفتوحة المصدر",
+   "en": "a powerful open-source server database"
+  },
+  "ex": "n8n stores its data in Postgres."
+ },
+ {
+  "w": 33,
+  "t": "node-postgres",
+  "m": {
+   "ar": "مكتبة pg للاتصال بـ Postgres من Node",
+   "en": "the pg library for Postgres from Node"
+  },
+  "ex": "node-postgres uses $1 parameters."
+ },
+ {
+  "w": 33,
+  "t": "connection pool",
+  "m": {
+   "ar": "اتصالات جاهزة بيعاد استخدامها",
+   "en": "ready connections that are reused"
+  },
+  "ex": "The connection pool holds 10 clients."
+ },
+ {
+  "w": 33,
+  "t": "database_url",
+  "m": {
+   "ar": "رابط الاتصال بالقاعدة في متغير بيئة",
+   "en": "the database connection string in an env var"
+  },
+  "ex": "Never log DATABASE_URL."
+ },
+ {
+  "w": 33,
+  "t": "jsonb",
+  "m": {
+   "ar": "نوع Postgres لتخزين JSON والاستعلام فيه",
+   "en": "a Postgres type storing queryable JSON"
+  },
+  "ex": "Keep the raw webhook in jsonb."
+ },
+ {
+  "w": 33,
+  "t": "n+1 query",
+  "m": {
+   "ar": "استعلام لكل عنصر بدل استعلام واحد",
+   "en": "one query per item instead of one query"
+  },
+  "ex": "The N+1 query made the page slow."
+ },
+ {
+  "w": 33,
+  "t": "migration",
+  "m": {
+   "ar": "ملف مرقّم بيغيّر شكل القاعدة",
+   "en": "a numbered file changing the database shape"
+  },
+  "ex": "Add the column in a migration."
+ },
+ {
+  "w": 33,
+  "t": "orm",
+  "m": {
+   "ar": "أداة بتربط جداول القاعدة بكائنات الكود",
+   "en": "a tool mapping tables to code objects"
+  },
+  "ex": "An ORM gives typed queries."
+ },
+ {
+  "w": 33,
+  "t": "query builder",
+  "m": {
+   "ar": "أداة لبناء SQL بدوال وأنواع",
+   "en": "a tool building SQL with functions and types"
+  },
+  "ex": "Kysely is a query builder."
+ },
+ {
+  "w": 33,
+  "t": "drizzle",
+  "m": {
+   "ar": "ORM خفيف قريب من SQL لـ TypeScript",
+   "en": "a light SQL-like ORM for TypeScript"
+  },
+  "ex": "Drizzle infers the row type."
+ },
+ {
+  "w": 33,
+  "t": "backup",
+  "m": {
+   "ar": "نسخة احتياطية من البيانات",
+   "en": "a safety copy of the data"
+  },
+  "ex": "Test restoring the backup."
+ },
+ {
+  "w": 33,
+  "t": "schema_migrations",
+  "m": {
+   "ar": "جدول بيسجّل الـ migrations اللي اتطبقت",
+   "en": "a table recording applied migrations"
+  },
+  "ex": "schema_migrations lists 003."
  }
 ];
