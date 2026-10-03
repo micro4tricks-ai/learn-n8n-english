@@ -141,7 +141,7 @@ module.exports = {
       challenge: B('اعمل «حارس n8n»: backup ليلي بتجربة استرجاع شهرية، audit شهري بتقرير، تنبيهات مجمّعة (فشل متكرر، مفيش تشغيل، بطء)، وpruning للـ executions — كله موثّق في runbook.', 'Build an «n8n guardian»: a nightly backup with a monthly restore drill, a monthly audit report, aggregated alerts (repeated failures, no run, slowness) and execution pruning — all documented in a runbook.'),
       quiz: [
         Q(B('backup من غير N8N_ENCRYPTION_KEY:', 'A backup without N8N_ENCRYPTION_KEY:'), [['الـ credentials مش هتتفك', 'credentials cannot be decrypted'], ['تمام', 'fine'], ['أصغر', 'smaller']], 0, B('احفظه منفصل.', 'Keep it separately.')),
-        Q(B('workflow مشغّل ومتنفذش من 6 شهور:', 'Active but not run for 6 months:'), ['stale workflow', 'hotfix', 'smoke test'], 0, B('audit.', 'Audit.')),
+        Q(B('workflow مشغّل ومتنفذش من 6 شهور:', 'Active but not run for 6 months:'), [['stale workflow', 'stale workflow'], ['hotfix', 'hotfix'], ['smoke test', 'smoke test']], 0, B('audit.', 'Audit.')),
         Q(B('تنبيه لكل فشل لوحده:', 'An alert for every single failure:'), [['ممكن يبقى إزعاج؛ جمّع', 'can be noise; aggregate'], ['الأحسن', 'the best'], ['إجباري', 'required']], 0, B('ذكي.', 'Smart.'))
       ] },
 

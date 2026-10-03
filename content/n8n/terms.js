@@ -9234,5 +9234,230 @@ JOURNEY_TERMS["n8n"] = [
    "en": "an agreed hacking attempt to find weaknesses"
   },
   "ex": "The bank asked for a penetration test."
+ },
+ {
+  "w": 42,
+  "t": "personal data",
+  "m": {
+   "ar": "معلومة عن شخص ممكن يتعرف",
+   "en": "information about an identifiable person"
+  },
+  "ex": "A phone number is personal data."
+ },
+ {
+  "w": 42,
+  "t": "sensitive data",
+  "m": {
+   "ar": "بيانات بحماية أعلى زي الصحة",
+   "en": "specially protected data such as health"
+  },
+  "ex": "Prescriptions are sensitive data."
+ },
+ {
+  "w": 42,
+  "t": "pdpl",
+  "m": {
+   "ar": "نظام حماية البيانات الشخصية السعودي",
+   "en": "the Saudi personal data protection law"
+  },
+  "ex": "The PDPL applies to the Riyadh clinic."
+ },
+ {
+  "w": 42,
+  "t": "lawful basis",
+  "m": {
+   "ar": "السبب القانوني لاستخدام البيانات",
+   "en": "the legal reason for using data"
+  },
+  "ex": "Each use needs a lawful basis."
+ },
+ {
+  "w": 42,
+  "t": "data processing agreement",
+  "m": {
+   "ar": "عقد بين المتحكم والمُعالج",
+   "en": "a contract between controller and processor"
+  },
+  "ex": "Sign a data processing agreement first."
+ },
+ {
+  "w": 42,
+  "t": "data minimisation",
+  "m": {
+   "ar": "جمع أقل بيانات لازمة",
+   "en": "collecting the least data needed"
+  },
+  "ex": "Data minimisation removed 40 fields."
+ },
+ {
+  "w": 42,
+  "t": "privacy by design",
+  "m": {
+   "ar": "الخصوصية جزء من التصميم",
+   "en": "privacy built into the design"
+  },
+  "ex": "Privacy by design starts at the form."
+ },
+ {
+  "w": 42,
+  "t": "consent",
+  "m": {
+   "ar": "موافقة واضحة ومسجّلة",
+   "en": "clear and recorded agreement"
+  },
+  "ex": "Marketing needs separate consent."
+ },
+ {
+  "w": 42,
+  "t": "purpose limitation",
+  "m": {
+   "ar": "استخدام البيانات للغرض المعلن بس",
+   "en": "using data only for the stated purpose"
+  },
+  "ex": "Purpose limitation forbids reusing leads for ads."
+ },
+ {
+  "w": 42,
+  "t": "retention schedule",
+  "m": {
+   "ar": "جدول مدد الاحتفاظ",
+   "en": "a table of retention periods"
+  },
+  "ex": "The retention schedule deletes leads after 180 days."
+ },
+ {
+  "w": 42,
+  "t": "data subject request",
+  "m": {
+   "ar": "طلب شخص بخصوص بياناته",
+   "en": "a person’s request about their data"
+  },
+  "ex": "Log every data subject request."
+ },
+ {
+  "w": 42,
+  "t": "right to erasure",
+  "m": {
+   "ar": "حق الشخص في مسح بياناته",
+   "en": "a person’s right to have data deleted"
+  },
+  "ex": "The right to erasure has legal exceptions."
+ },
+ {
+  "w": 42,
+  "t": "anonymisation",
+  "m": {
+   "ar": "إزالة أي ربط بالشخص نهائيًا",
+   "en": "removing any link to the person for good"
+  },
+  "ex": "Anonymisation keeps the order totals."
+ },
+ {
+  "w": 42,
+  "t": "pseudonymisation",
+  "m": {
+   "ar": "تبديل الهوية بمعرّف",
+   "en": "replacing identity with an identifier"
+  },
+  "ex": "Analytics use pseudonymisation."
+ },
+ {
+  "w": 42,
+  "t": "identity verification",
+  "m": {
+   "ar": "التأكد إن الطالب هو صاحب البيانات",
+   "en": "confirming the requester owns the data"
+  },
+  "ex": "Identity verification uses a code."
+ },
+ {
+  "w": 42,
+  "t": "masking",
+  "m": {
+   "ar": "إخفاء جزء من القيمة",
+   "en": "hiding part of a value"
+  },
+  "ex": "Masking shows 0100****567."
+ },
+ {
+  "w": 42,
+  "t": "sub-processor",
+  "m": {
+   "ar": "خدمة بتعالج البيانات لحساب المُعالج",
+   "en": "a service processing data for the processor"
+  },
+  "ex": "The AI provider is a sub-processor."
+ },
+ {
+  "w": 42,
+  "t": "cross-border transfer",
+  "m": {
+   "ar": "نقل البيانات لبلد تاني",
+   "en": "sending data to another country"
+  },
+  "ex": "A US AI API is a cross-border transfer."
+ },
+ {
+  "w": 42,
+  "t": "data residency",
+  "m": {
+   "ar": "مكان تخزين البيانات جغرافيًا",
+   "en": "where data is stored geographically"
+  },
+  "ex": "The client requires Saudi data residency."
+ },
+ {
+  "w": 42,
+  "t": "hidden copy",
+  "m": {
+   "ar": "نسخة بيانات في مكان منسي",
+   "en": "a copy of data in a forgotten place"
+  },
+  "ex": "Pinned data was a hidden copy."
+ },
+ {
+  "w": 42,
+  "t": "dpia",
+  "m": {
+   "ar": "تقييم أثر حماية البيانات",
+   "en": "a data protection impact assessment"
+  },
+  "ex": "Run a DPIA before the clinic bot."
+ },
+ {
+  "w": 42,
+  "t": "breach notification",
+  "m": {
+   "ar": "إبلاغ الجهة الرقابية والأشخاص بالتسريب",
+   "en": "telling the regulator and people about a breach"
+  },
+  "ex": "Breach notification has a deadline."
+ },
+ {
+  "w": 42,
+  "t": "data breach",
+  "m": {
+   "ar": "وصول غير مصرح لبيانات شخصية",
+   "en": "unauthorised access to personal data"
+  },
+  "ex": "A leaked token is a data breach."
+ },
+ {
+  "w": 42,
+  "t": "controller",
+  "m": {
+   "ar": "الجهة اللي بتقرر استخدام البيانات",
+   "en": "the party deciding how data is used"
+  },
+  "ex": "The clinic is the controller."
+ },
+ {
+  "w": 42,
+  "t": "processor",
+  "m": {
+   "ar": "الجهة اللي بتعالج البيانات لحساب غيرها",
+   "en": "the party processing data on another’s behalf"
+  },
+  "ex": "Our agency is the processor."
  }
 ];

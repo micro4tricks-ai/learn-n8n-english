@@ -770,16 +770,16 @@ JOURNEY.week({
      },
      "o": [
       {
-       "ar": "s",
-       "en": "t"
+       "ar": "stale workflow",
+       "en": "stale workflow"
       },
       {
-       "ar": "h",
-       "en": "o"
+       "ar": "hotfix",
+       "en": "hotfix"
       },
       {
-       "ar": "s",
-       "en": "m"
+       "ar": "smoke test",
+       "en": "smoke test"
       }
      ],
      "a": 0,
