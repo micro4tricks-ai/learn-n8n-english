@@ -9567,5 +9567,311 @@ JOURNEY_TERMS["js"] = [
    "en": "a table recording applied migrations"
   },
   "ex": "schema_migrations lists 003."
+ },
+ {
+  "w": 34,
+  "t": "authentication",
+  "m": {
+   "ar": "التحقق من هوية المستخدم",
+   "en": "checking who the user is"
+  },
+  "ex": "Authentication failed: 401."
+ },
+ {
+  "w": 34,
+  "t": "authorization",
+  "m": {
+   "ar": "التحقق من المسموح للمستخدم",
+   "en": "checking what the user may do"
+  },
+  "ex": "Authorization failed: 403."
+ },
+ {
+  "w": 34,
+  "t": "password hashing",
+  "m": {
+   "ar": "تحويل كلمة السر لبصمة بطيئة",
+   "en": "turning a password into a slow fingerprint"
+  },
+  "ex": "Password hashing protects leaked data."
+ },
+ {
+  "w": 34,
+  "t": "scrypt",
+  "m": {
+   "ar": "خوارزمية تشفير كلمات سر مدمجة في Node",
+   "en": "a password-hashing algorithm built into Node"
+  },
+  "ex": "scrypt is in node:crypto."
+ },
+ {
+  "w": 34,
+  "t": "argon2",
+  "m": {
+   "ar": "خوارزمية حديثة لكلمات السر",
+   "en": "a modern password-hashing algorithm"
+  },
+  "ex": "OWASP recommends Argon2id."
+ },
+ {
+  "w": 34,
+  "t": "brute force",
+  "m": {
+   "ar": "تجربة كلمات سر كتير",
+   "en": "trying many passwords"
+  },
+  "ex": "Rate limits stop brute force."
+ },
+ {
+  "w": 34,
+  "t": "rate limit",
+  "m": {
+   "ar": "حد عدد المحاولات في مدة",
+   "en": "a cap on attempts per time"
+  },
+  "ex": "Login has a rate limit of 5."
+ },
+ {
+  "w": 34,
+  "t": "mfa",
+  "m": {
+   "ar": "تحقق بعامل إضافي",
+   "en": "multi-factor authentication"
+  },
+  "ex": "MFA stops stolen passwords."
+ },
+ {
+  "w": 34,
+  "t": "session",
+  "m": {
+   "ar": "حالة تسجيل الدخول على السيرفر",
+   "en": "the signed-in state kept on the server"
+  },
+  "ex": "The session lasts 8 hours."
+ },
+ {
+  "w": 34,
+  "t": "session cookie",
+  "m": {
+   "ar": "كوكي فيه id الجلسة",
+   "en": "a cookie carrying the session id"
+  },
+  "ex": "The session cookie is HttpOnly."
+ },
+ {
+  "w": 34,
+  "t": "httponly",
+  "m": {
+   "ar": "كوكي JS مش شايفه",
+   "en": "a cookie hidden from JS"
+  },
+  "ex": "HttpOnly stops XSS theft."
+ },
+ {
+  "w": 34,
+  "t": "secure cookie",
+  "m": {
+   "ar": "كوكي بيتبعت على HTTPS بس",
+   "en": "a cookie sent over HTTPS only"
+  },
+  "ex": "Mark it as a secure cookie."
+ },
+ {
+  "w": 34,
+  "t": "samesite",
+  "m": {
+   "ar": "خاصية بتتحكم في إرسال الكوكي بين المواقع",
+   "en": "an attribute controlling cross-site cookie sending"
+  },
+  "ex": "SameSite=Lax blocks most CSRF."
+ },
+ {
+  "w": 34,
+  "t": "csrf",
+  "m": {
+   "ar": "هجوم بيبعت طلبات باسمك من موقع تاني",
+   "en": "an attack sending requests as you from another site"
+  },
+  "ex": "Check Origin against CSRF."
+ },
+ {
+  "w": 34,
+  "t": "csrf token",
+  "m": {
+   "ar": "قيمة عشوائية بتثبت إن الفورم منك",
+   "en": "a random value proving the form is yours"
+  },
+  "ex": "Every form carries a CSRF token."
+ },
+ {
+  "w": 34,
+  "t": "jwt",
+  "m": {
+   "ar": "توكن موقّع فيه بيانات مقروءة",
+   "en": "a signed token with readable data"
+  },
+  "ex": "The JWT carries the user id."
+ },
+ {
+  "w": 34,
+  "t": "access token",
+  "m": {
+   "ar": "توكن قصير العمر للطلبات",
+   "en": "a short-lived token for requests"
+  },
+  "ex": "The access token expires in 15 minutes."
+ },
+ {
+  "w": 34,
+  "t": "refresh token",
+  "m": {
+   "ar": "توكن طويل لتجديد الـ access",
+   "en": "a long-lived token for renewing access"
+  },
+  "ex": "Store the refresh token in an HttpOnly cookie."
+ },
+ {
+  "w": 34,
+  "t": "token expiry",
+  "m": {
+   "ar": "وقت انتهاء التوكن",
+   "en": "when a token stops being valid"
+  },
+  "ex": "Short token expiry limits damage."
+ },
+ {
+  "w": 34,
+  "t": "claims",
+  "m": {
+   "ar": "البيانات جوه الـ JWT",
+   "en": "the data inside a JWT"
+  },
+  "ex": "Check the exp and aud claims."
+ },
+ {
+  "w": 34,
+  "t": "token rotation",
+  "m": {
+   "ar": "استبدال التوكن مع كل استخدام",
+   "en": "replacing a token on each use"
+  },
+  "ex": "Token rotation exposes stolen refresh tokens."
+ },
+ {
+  "w": 34,
+  "t": "oauth 2.0",
+  "m": {
+   "ar": "إطار لمنح صلاحية محدودة من غير كلمة السر",
+   "en": "a framework granting limited access without the password"
+  },
+  "ex": "n8n uses OAuth 2.0 for Google."
+ },
+ {
+  "w": 34,
+  "t": "authorization code",
+  "m": {
+   "ar": "كود مؤقت بيتبدّل بتوكن",
+   "en": "a temporary code exchanged for a token"
+  },
+  "ex": "Exchange the authorization code on the server."
+ },
+ {
+  "w": 34,
+  "t": "pkce",
+  "m": {
+   "ar": "حماية الـ code بـ verifier وchallenge",
+   "en": "protecting the code with a verifier and challenge"
+  },
+  "ex": "PKCE makes a stolen code useless."
+ },
+ {
+  "w": 34,
+  "t": "openid connect",
+  "m": {
+   "ar": "طبقة تسجيل دخول فوق OAuth",
+   "en": "a sign-in layer on top of OAuth"
+  },
+  "ex": "OpenID Connect returns an id_token."
+ },
+ {
+  "w": 34,
+  "t": "client secret",
+  "m": {
+   "ar": "سر التطبيق عند المزوّد",
+   "en": "the app’s secret with the provider"
+  },
+  "ex": "Keep the client secret on the server."
+ },
+ {
+  "w": 34,
+  "t": "redirect uri",
+  "m": {
+   "ar": "الرابط اللي المزوّد بيرجع عليه",
+   "en": "the URL the provider sends users back to"
+  },
+  "ex": "Register the redirect URI exactly."
+ },
+ {
+  "w": 34,
+  "t": "id token",
+  "m": {
+   "ar": "توكن فيه هوية المستخدم من OIDC",
+   "en": "a token with the user’s identity from OIDC"
+  },
+  "ex": "Verify the id token’s audience."
+ },
+ {
+  "w": 34,
+  "t": "rbac",
+  "m": {
+   "ar": "صلاحيات حسب الدور",
+   "en": "role-based access control"
+  },
+  "ex": "RBAC maps roles to permissions."
+ },
+ {
+  "w": 34,
+  "t": "role",
+  "m": {
+   "ar": "مجموعة صلاحيات باسم",
+   "en": "a named set of permissions"
+  },
+  "ex": "Sara has the manager role."
+ },
+ {
+  "w": 34,
+  "t": "permission",
+  "m": {
+   "ar": "إذن بفعل محدد",
+   "en": "leave to do one specific thing"
+  },
+  "ex": "orders:refund is a permission."
+ },
+ {
+  "w": 34,
+  "t": "deny by default",
+  "m": {
+   "ar": "الممنوع هو الأصل",
+   "en": "forbidden unless allowed"
+  },
+  "ex": "Deny by default for new routes."
+ },
+ {
+  "w": 34,
+  "t": "idor",
+  "m": {
+   "ar": "وصول لبيانات غيرك بتغيير id",
+   "en": "reaching others’ data by changing an id"
+  },
+  "ex": "Scope every query to stop IDOR."
+ },
+ {
+  "w": 34,
+  "t": "api key rotation",
+  "m": {
+   "ar": "استبدال مفاتيح API دوريًا",
+   "en": "replacing API keys regularly"
+  },
+  "ex": "API key rotation every 90 days."
  }
 ];
