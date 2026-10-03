@@ -8505,5 +8505,293 @@ JOURNEY_TERMS["js"] = [
    "en": "a small single-purpose class"
   },
   "ex": ".visually-hidden is a utility class."
+ },
+ {
+  "w": 30,
+  "t": "wcag",
+  "m": {
+   "ar": "معايير إمكانية الوصول للويب",
+   "en": "the web accessibility guidelines"
+  },
+  "ex": "Aim for WCAG AA."
+ },
+ {
+  "w": 30,
+  "t": "accessible name",
+  "m": {
+   "ar": "الاسم اللي قارئ الشاشة بيقوله",
+   "en": "the name a screen reader announces"
+  },
+  "ex": "The icon button needs an accessible name."
+ },
+ {
+  "w": 30,
+  "t": "landmark",
+  "m": {
+   "ar": "منطقة رئيسية في الصفحة",
+   "en": "a main region of the page"
+  },
+  "ex": "nav is a landmark."
+ },
+ {
+  "w": 30,
+  "t": "heading outline",
+  "m": {
+   "ar": "ترتيب العناوين في الصفحة",
+   "en": "the order of headings on a page"
+  },
+  "ex": "Fix the heading outline: h1 then h2."
+ },
+ {
+  "w": 30,
+  "t": "perceivable",
+  "m": {
+   "ar": "ممكن يتدرك بالحواس",
+   "en": "able to be perceived"
+  },
+  "ex": "Alt text makes images perceivable."
+ },
+ {
+  "w": 30,
+  "t": "keyboard navigation",
+  "m": {
+   "ar": "استخدام الموقع بالكيبورد",
+   "en": "using a site with the keyboard"
+  },
+  "ex": "Test keyboard navigation with Tab."
+ },
+ {
+  "w": 30,
+  "t": "skip link",
+  "m": {
+   "ar": "رابط «انتقل للمحتوى»",
+   "en": "a «skip to content» link"
+  },
+  "ex": "The skip link is the first focus stop."
+ },
+ {
+  "w": 30,
+  "t": "focus management",
+  "m": {
+   "ar": "التحكم في مكان التركيز",
+   "en": "controlling where focus goes"
+  },
+  "ex": "Focus management returns focus to the opener."
+ },
+ {
+  "w": 30,
+  "t": "focus trap",
+  "m": {
+   "ar": "حصر التركيز جوه modal",
+   "en": "keeping focus inside a modal"
+  },
+  "ex": "showModal creates a focus trap."
+ },
+ {
+  "w": 30,
+  "t": "live region",
+  "m": {
+   "ar": "منطقة بيتقال تغييرها",
+   "en": "a region whose changes are announced"
+  },
+  "ex": "Results go in a live region."
+ },
+ {
+  "w": 30,
+  "t": "aria-live",
+  "m": {
+   "ar": "خاصية بتعلن التغييرات",
+   "en": "an attribute announcing changes"
+  },
+  "ex": "aria-live=\"polite\" waits for a pause."
+ },
+ {
+  "w": 30,
+  "t": "core web vitals",
+  "m": {
+   "ar": "مقاييس جوجل لتجربة المستخدم",
+   "en": "Google’s user-experience metrics"
+  },
+  "ex": "Core Web Vitals affect ranking."
+ },
+ {
+  "w": 30,
+  "t": "lcp",
+  "m": {
+   "ar": "إمتى أكبر عنصر ظهر",
+   "en": "when the largest element appeared"
+  },
+  "ex": "The hero image drives LCP."
+ },
+ {
+  "w": 30,
+  "t": "inp",
+  "m": {
+   "ar": "سرعة الرد على التفاعل",
+   "en": "how fast the page responds to input"
+  },
+  "ex": "Long tasks hurt INP."
+ },
+ {
+  "w": 30,
+  "t": "cls",
+  "m": {
+   "ar": "مقدار تنطيط العناصر",
+   "en": "how much the layout shifts"
+  },
+  "ex": "Images without sizes raise CLS."
+ },
+ {
+  "w": 30,
+  "t": "long task",
+  "m": {
+   "ar": "كود بياخد أكتر من 50ms متواصل",
+   "en": "code running over 50 ms without a break"
+  },
+  "ex": "Split the long task into batches."
+ },
+ {
+  "w": 30,
+  "t": "real user monitoring",
+  "m": {
+   "ar": "قياس الأداء من مستخدمين حقيقيين",
+   "en": "measuring performance from real users"
+  },
+  "ex": "Real user monitoring shows slow phones."
+ },
+ {
+  "w": 30,
+  "t": "image optimization",
+  "m": {
+   "ar": "تصغير الصور من غير ما تبوظ",
+   "en": "shrinking images without spoiling them"
+  },
+  "ex": "Image optimization halved the page."
+ },
+ {
+  "w": 30,
+  "t": "srcset",
+  "m": {
+   "ar": "قايمة مقاسات صورة للمتصفح يختار",
+   "en": "a list of image sizes for the browser to pick"
+  },
+  "ex": "srcset serves small images to phones."
+ },
+ {
+  "w": 30,
+  "t": "webp",
+  "m": {
+   "ar": "صيغة صور حديثة أصغر",
+   "en": "a modern, smaller image format"
+  },
+  "ex": "Convert the photos to WebP."
+ },
+ {
+  "w": 30,
+  "t": "avif",
+  "m": {
+   "ar": "صيغة صور أحدث وأصغر",
+   "en": "a newer, even smaller image format"
+  },
+  "ex": "AVIF beats JPEG by half."
+ },
+ {
+  "w": 30,
+  "t": "font-display",
+  "m": {
+   "ar": "سلوك النص لحد ما الخط يتحمّل",
+   "en": "text behaviour until the font loads"
+  },
+  "ex": "font-display: swap shows text at once."
+ },
+ {
+  "w": 30,
+  "t": "render-blocking",
+  "m": {
+   "ar": "مورد بيوقف ظهور الصفحة",
+   "en": "a resource stopping the page from showing"
+  },
+  "ex": "A plain script in head is render-blocking."
+ },
+ {
+  "w": 30,
+  "t": "defer",
+  "m": {
+   "ar": "تأجيل تشغيل السكربت لبعد قراءة الصفحة",
+   "en": "running a script after the page is parsed"
+  },
+  "ex": "Add defer to every script."
+ },
+ {
+  "w": 30,
+  "t": "preload",
+  "m": {
+   "ar": "طلب مورد حرج بدري",
+   "en": "requesting a critical resource early"
+  },
+  "ex": "Preload the main font."
+ },
+ {
+  "w": 30,
+  "t": "code splitting",
+  "m": {
+   "ar": "تقسيم الـ JS لأجزاء بتتحمّل وقت الحاجة",
+   "en": "splitting JS into parts loaded when needed"
+  },
+  "ex": "Code splitting moved PDF export out."
+ },
+ {
+  "w": 30,
+  "t": "bundle size",
+  "m": {
+   "ar": "حجم ملفات JS",
+   "en": "the size of the JS files"
+  },
+  "ex": "Keep the bundle size under 150 KB."
+ },
+ {
+  "w": 30,
+  "t": "performance budget",
+  "m": {
+   "ar": "حدود أداء متفق عليها",
+   "en": "agreed performance limits"
+  },
+  "ex": "The PR broke the performance budget."
+ },
+ {
+  "w": 30,
+  "t": "axe",
+  "m": {
+   "ar": "أداة فحص إمكانية الوصول آليًا",
+   "en": "an automated accessibility checker"
+  },
+  "ex": "axe found low contrast."
+ },
+ {
+  "w": 30,
+  "t": "throttling",
+  "m": {
+   "ar": "تبطيء الشبكة أو المعالج للاختبار",
+   "en": "slowing network or CPU for testing"
+  },
+  "ex": "Test with network throttling."
+ },
+ {
+  "w": 30,
+  "t": "zoom 200%",
+  "m": {
+   "ar": "تكبير الصفحة للضعف",
+   "en": "enlarging the page to double size"
+  },
+  "ex": "Text must work at zoom 200%."
+ },
+ {
+  "w": 30,
+  "t": "lighthouse ci",
+  "m": {
+   "ar": "تشغيل Lighthouse آليًا في CI",
+   "en": "running Lighthouse automatically in CI"
+  },
+  "ex": "Lighthouse CI checks every PR."
  }
 ];
