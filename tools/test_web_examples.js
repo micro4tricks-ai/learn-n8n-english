@@ -2,7 +2,7 @@
 //   run: 'js'    runs in jsdom (with its `html` page) and must log no error (fetch goes to the real network; skip with --offline)
 //   run: 'html'  every inline <script> must parse
 //   node: 1      a Node.js script: runs with this Node in a fresh temp folder (as an ES module) and must exit 0;
-//                `files: {name: text}` are written there first; `net: 1` examples are skipped with --offline; `err: 1` must fail
+//                `files: {name: text}` are written there first; with `ts: 1` it is main.ts (TypeScript, types stripped by Node); `net: 1` examples are skipped with --offline; `err: 1` must fail
 //   lang: 'js'   must parse (a snippet shown, not run)
 //   lang: 'ts'   TypeScript, shown only (not checked here)
 // usage: node tools/test_web_examples.js [--offline]
@@ -38,8 +38,9 @@ function runNode(code, x, where){
   const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'jsex-'));
   try{
     Object.entries(x.files || {}).forEach(([name, text]) => { fs.mkdirSync(path.dirname(path.join(dir, name)), { recursive: true }); fs.writeFileSync(path.join(dir, name), text); });
-    fs.writeFileSync(path.join(dir, 'main.mjs'), code);
-    const r = spawnSync(process.execPath, ['main.mjs'].concat(x.args || []), { cwd: dir, encoding: 'utf8', timeout: 20000, input: x.stdin || '' });
+    const main = x.ts ? 'main.ts' : 'main.mjs';   // ts: 1 → Node strips the types itself (23.6+)
+    fs.writeFileSync(path.join(dir, main), code);
+    const r = spawnSync(process.execPath, [main].concat(x.args || []), { cwd: dir, encoding: 'utf8', timeout: 20000, input: x.stdin || '' });
     noded++;
     const failed = r.status !== 0 || r.error;
     if(failed && !x.err) problems.push(where + ' (node): ' + ((r.stderr || String(r.error || '')).trim().split('\n').slice(-3).join(' | ')));

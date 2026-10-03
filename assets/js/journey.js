@@ -391,7 +391,7 @@
   // content of the intensive hour (months 1–3, content/<track>/intensive)
   function deepTag(x){ return x && x.deep ? '<span class="deep-tag">⚡ ' + T('ساعة التكثيف') + '</span> ' : ''; }
   // a Node.js example can't run in the page: say how to run it on your computer
-  function nodeNote(x){ return x && x.node && !x.run ? '<p class="sub-note node-note">⬢ ' + T('مثال Node.js: احفظه في ملف main.mjs على جهازك وشغّله بـ node main.mjs') + '</p>' : ''; }
+  function nodeNote(x){ return x && x.node && !x.run ? '<p class="sub-note node-note">⬢ ' + T(x.ts ? 'مثال TypeScript: احفظه في ملف main.ts على جهازك وشغّله بـ node main.ts (Node 23.6 أو أحدث)' : 'مثال Node.js: احفظه في ملف main.mjs على جهازك وشغّله بـ node main.mjs') + '</p>' : ''; }
   function block(step, title, body){
     return '<div class="sp-block"><h4><span class="step">' + step + '</span> ' + title + '</h4>' + body + '</div>';
   }

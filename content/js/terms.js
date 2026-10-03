@@ -7191,5 +7191,275 @@ JOURNEY_TERMS["js"] = [
    "en": "every old version by date"
   },
   "ex": "Keep 90 days of history."
+ },
+ {
+  "w": 25,
+  "t": "typescript",
+  "m": {
+   "ar": "جافاسكريبت بأنواع",
+   "en": "JavaScript with types"
+  },
+  "ex": "The API client is written in TypeScript."
+ },
+ {
+  "w": 25,
+  "t": "type annotation",
+  "m": {
+   "ar": "كتابة نوع القيمة صراحة",
+   "en": "writing a value’s type explicitly"
+  },
+  "ex": "Add a type annotation to the parameter."
+ },
+ {
+  "w": 25,
+  "t": "type inference",
+  "m": {
+   "ar": "استنتاج النوع من القيمة",
+   "en": "working out a type from the value"
+  },
+  "ex": "Type inference knows it is a number."
+ },
+ {
+  "w": 25,
+  "t": "tsc",
+  "m": {
+   "ar": "مترجم وفاحص TypeScript",
+   "en": "the TypeScript compiler and checker"
+  },
+  "ex": "Run tsc --noEmit in CI."
+ },
+ {
+  "w": 25,
+  "t": "type stripping",
+  "m": {
+   "ar": "شيل الأنواع وتشغيل الكود",
+   "en": "removing types and running the code"
+  },
+  "ex": "Node uses type stripping for .ts files."
+ },
+ {
+  "w": 25,
+  "t": "erasable syntax",
+  "m": {
+   "ar": "صيغة TS تتشال من غير ما تغيّر الكود",
+   "en": "TS syntax removable without changing the code"
+  },
+  "ex": "Enums are not erasable syntax."
+ },
+ {
+  "w": 25,
+  "t": "type alias",
+  "m": {
+   "ar": "اسم لنوع بـ type",
+   "en": "a name for a type using type"
+  },
+  "ex": "type Order = {...} is a type alias."
+ },
+ {
+  "w": 25,
+  "t": "interface",
+  "m": {
+   "ar": "وصف لشكل كائن ممكن يتمد",
+   "en": "a description of an object shape that can be extended"
+  },
+  "ex": "The Customer interface has a name."
+ },
+ {
+  "w": 25,
+  "t": "optional property",
+  "m": {
+   "ar": "خاصية ممكن متكونش موجودة",
+   "en": "a property that may be missing"
+  },
+  "ex": "phone? is an optional property."
+ },
+ {
+  "w": 25,
+  "t": "readonly",
+  "m": {
+   "ar": "ميتغيرش بعد الإنشاء",
+   "en": "cannot change after creation"
+  },
+  "ex": "The id is readonly."
+ },
+ {
+  "w": 25,
+  "t": "tuple",
+  "m": {
+   "ar": "مصفوفة بطول وأنواع ثابتة",
+   "en": "an array with fixed length and types"
+  },
+  "ex": "Object.entries returns tuples."
+ },
+ {
+  "w": 25,
+  "t": "function type",
+  "m": {
+   "ar": "نوع بيوصف دالة",
+   "en": "a type describing a function"
+  },
+  "ex": "The callback has a function type."
+ },
+ {
+  "w": 25,
+  "t": "union type",
+  "m": {
+   "ar": "نوع يا ده يا ده",
+   "en": "a type that is one or another"
+  },
+  "ex": "string | number is a union type."
+ },
+ {
+  "w": 25,
+  "t": "literal type",
+  "m": {
+   "ar": "نوع بقيمة محددة بالظبط",
+   "en": "a type with one exact value"
+  },
+  "ex": "\"paid\" is a literal type."
+ },
+ {
+  "w": 25,
+  "t": "narrowing",
+  "m": {
+   "ar": "تضييق النوع بعد فحص",
+   "en": "reducing a type after a check"
+  },
+  "ex": "typeof checks enable narrowing."
+ },
+ {
+  "w": 25,
+  "t": "type guard",
+  "m": {
+   "ar": "دالة بتثبت نوع قيمة",
+   "en": "a function proving a value’s type"
+  },
+  "ex": "isCard is a type guard."
+ },
+ {
+  "w": 25,
+  "t": "discriminated union",
+  "m": {
+   "ar": "union بحقل ثابت بيفرّق الأنواع",
+   "en": "a union with a fixed field telling types apart"
+  },
+  "ex": "Webhook events fit a discriminated union."
+ },
+ {
+  "w": 25,
+  "t": "exhaustive check",
+  "m": {
+   "ar": "التأكد إن كل الحالات اتغطت",
+   "en": "making sure every case is handled"
+  },
+  "ex": "never gives an exhaustive check."
+ },
+ {
+  "w": 25,
+  "t": "never",
+  "m": {
+   "ar": "نوع مفيش قيمة ليه",
+   "en": "the type with no values"
+  },
+  "ex": "Assign to never in the default case."
+ },
+ {
+  "w": 25,
+  "t": "any",
+  "m": {
+   "ar": "نوع بيطفي الفحص",
+   "en": "a type that switches checking off"
+  },
+  "ex": "Avoid any in new code."
+ },
+ {
+  "w": 25,
+  "t": "unknown",
+  "m": {
+   "ar": "نوع لازم تفحصه قبل الاستخدام",
+   "en": "a type you must check before use"
+  },
+  "ex": "Treat webhook bodies as unknown."
+ },
+ {
+  "w": 25,
+  "t": "type assertion",
+  "m": {
+   "ar": "إجبار tsc على نوع من غير فحص",
+   "en": "forcing a type on tsc without a check"
+  },
+  "ex": "A type assertion is not validation."
+ },
+ {
+  "w": 25,
+  "t": "as const",
+  "m": {
+   "ar": "تثبيت القيم كـ literal وreadonly",
+   "en": "freezing values as literal and readonly"
+  },
+  "ex": "Use as const instead of an enum."
+ },
+ {
+  "w": 25,
+  "t": "satisfies",
+  "m": {
+   "ar": "فحص المطابقة مع الاحتفاظ بالنوع الدقيق",
+   "en": "checking a match while keeping the precise type"
+  },
+  "ex": "The config satisfies Record<Status, string>."
+ },
+ {
+  "w": 25,
+  "t": "noimplicitany",
+  "m": {
+   "ar": "إعداد بيمنع any الضمني",
+   "en": "a setting forbidding implicit any"
+  },
+  "ex": "strict turns on noImplicitAny."
+ },
+ {
+  "w": 25,
+  "t": "tsconfig",
+  "m": {
+   "ar": "ملف إعدادات TypeScript",
+   "en": "the TypeScript settings file"
+  },
+  "ex": "Enable strict in tsconfig."
+ },
+ {
+  "w": 25,
+  "t": "@types",
+  "m": {
+   "ar": "حزم أنواع المكتبات",
+   "en": "packages with libraries’ types"
+  },
+  "ex": "Install @types/express."
+ },
+ {
+  "w": 25,
+  "t": "declaration file",
+  "m": {
+   "ar": "ملف .d.ts فيه أنواع بس",
+   "en": "a .d.ts file with types only"
+  },
+  "ex": "Write a declaration file for the old library."
+ },
+ {
+  "w": 25,
+  "t": "jsdoc types",
+  "m": {
+   "ar": "أنواع مكتوبة في تعليقات JS",
+   "en": "types written in JS comments"
+  },
+  "ex": "JSDoc types work in .js files."
+ },
+ {
+  "w": 25,
+  "t": "ts-check",
+  "m": {
+   "ar": "تعليق بيفعّل الفحص في ملف JS",
+   "en": "a comment enabling checks in a JS file"
+  },
+  "ex": "Add // @ts-check at the top."
  }
 ];
