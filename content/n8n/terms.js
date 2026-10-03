@@ -8532,5 +8532,230 @@ JOURNEY_TERMS["n8n"] = [
    "en": "a header switching a workflow to test mode"
   },
   "ex": "X-Test is the test header."
+ },
+ {
+  "w": 39,
+  "t": "main process",
+  "m": {
+   "ar": "نسخة n8n الرئيسية بالواجهة والـ triggers",
+   "en": "the main n8n instance with the UI and triggers"
+  },
+  "ex": "Keep the main process light."
+ },
+ {
+  "w": 39,
+  "t": "webhook processor",
+  "m": {
+   "ar": "نسخة n8n بتستقبل webhooks بس",
+   "en": "an n8n instance that only receives webhooks"
+  },
+  "ex": "Add a second webhook processor."
+ },
+ {
+  "w": 39,
+  "t": "bull queue",
+  "m": {
+   "ar": "طابور Redis اللي n8n بيستخدمه",
+   "en": "the Redis queue n8n uses"
+  },
+  "ex": "Jobs wait in the Bull queue."
+ },
+ {
+  "w": 39,
+  "t": "worker concurrency",
+  "m": {
+   "ar": "عدد التشغيلات المتوازية لكل worker",
+   "en": "parallel executions per worker"
+  },
+  "ex": "Set worker concurrency to 10."
+ },
+ {
+  "w": 39,
+  "t": "offload",
+  "m": {
+   "ar": "نقل شغل لجزء تاني",
+   "en": "moving work to another part"
+  },
+  "ex": "Offload manual runs to workers."
+ },
+ {
+  "w": 39,
+  "t": "postgres tuning",
+  "m": {
+   "ar": "ضبط Postgres للأداء",
+   "en": "adjusting Postgres for performance"
+  },
+  "ex": "Postgres tuning halved the run time."
+ },
+ {
+  "w": 39,
+  "t": "connection limit",
+  "m": {
+   "ar": "أقصى عدد اتصالات بالقاعدة",
+   "en": "the maximum number of database connections"
+  },
+  "ex": "Stay under the connection limit."
+ },
+ {
+  "w": 39,
+  "t": "redis memory",
+  "m": {
+   "ar": "ذاكرة Redis المستخدمة",
+   "en": "the memory Redis uses"
+  },
+  "ex": "Alert when Redis memory passes 80%."
+ },
+ {
+  "w": 39,
+  "t": "persistence",
+  "m": {
+   "ar": "حفظ البيانات على الـ disk",
+   "en": "keeping data on disk"
+  },
+  "ex": "AOF persistence keeps queued jobs."
+ },
+ {
+  "w": 39,
+  "t": "s3 storage",
+  "m": {
+   "ar": "تخزين الملفات في S3",
+   "en": "storing files in S3"
+  },
+  "ex": "Binary files go to S3 storage."
+ },
+ {
+  "w": 39,
+  "t": "load test",
+  "m": {
+   "ar": "اختبار بحمل متزايد",
+   "en": "a test under increasing load"
+  },
+  "ex": "The load test found the limit at 70 req/s."
+ },
+ {
+  "w": 39,
+  "t": "k6",
+  "m": {
+   "ar": "أداة load test بسكربت JS",
+   "en": "a load-testing tool scripted in JS"
+  },
+  "ex": "k6 failed the p95 threshold."
+ },
+ {
+  "w": 39,
+  "t": "throughput",
+  "m": {
+   "ar": "كمية الشغل في وقت",
+   "en": "the amount of work per time"
+  },
+  "ex": "Throughput reached 3,000 runs a minute."
+ },
+ {
+  "w": 39,
+  "t": "p95",
+  "m": {
+   "ar": "الزمن اللي 95% أسرع منه",
+   "en": "the time 95% of requests beat"
+  },
+  "ex": "Report p95, not the average."
+ },
+ {
+  "w": 39,
+  "t": "ramp up",
+  "m": {
+   "ar": "زيادة الحمل تدريجيًا",
+   "en": "raising the load gradually"
+  },
+  "ex": "Ramp up to 50 users in a minute."
+ },
+ {
+  "w": 39,
+  "t": "bottleneck analysis",
+  "m": {
+   "ar": "تحديد أبطأ جزء",
+   "en": "finding the slowest part"
+  },
+  "ex": "Bottleneck analysis pointed at the CRM node."
+ },
+ {
+  "w": 39,
+  "t": "per-item request",
+  "m": {
+   "ar": "طلب منفصل لكل item",
+   "en": "a separate request for each item"
+  },
+  "ex": "Replace each per-item request with a bulk call."
+ },
+ {
+  "w": 39,
+  "t": "capacity planning",
+  "m": {
+   "ar": "تقدير الموارد المطلوبة للحمل",
+   "en": "estimating resources for the load"
+  },
+  "ex": "Capacity planning says 3 workers."
+ },
+ {
+  "w": 39,
+  "t": "headroom",
+  "m": {
+   "ar": "هامش زيادة فوق المتوقع",
+   "en": "spare margin above the expected"
+  },
+  "ex": "Keep 50% headroom for peaks."
+ },
+ {
+  "w": 39,
+  "t": "fan-out batch",
+  "m": {
+   "ar": "تقسيم شغل كبير على دفعات متوازية",
+   "en": "splitting a big job into parallel batches"
+  },
+  "ex": "Each fan-out batch has 50 orders."
+ },
+ {
+  "w": 39,
+  "t": "vertical scaling",
+  "m": {
+   "ar": "سيرفر أكبر",
+   "en": "a bigger server"
+  },
+  "ex": "Vertical scaling hit its ceiling."
+ },
+ {
+  "w": 39,
+  "t": "autoscaling",
+  "m": {
+   "ar": "زيادة وتقليل النسخ آليًا",
+   "en": "adding and removing instances automatically"
+  },
+  "ex": "Autoscaling follows the queue length."
+ },
+ {
+  "w": 39,
+  "t": "queue depth",
+  "m": {
+   "ar": "عدد المهام المستنية",
+   "en": "how many jobs are waiting"
+  },
+  "ex": "Queue depth triggers a new worker."
+ },
+ {
+  "w": 39,
+  "t": "single point of failure",
+  "m": {
+   "ar": "جزء لو وقع كل حاجة تقع",
+   "en": "a part whose failure stops everything"
+  },
+  "ex": "One Postgres is a single point of failure."
+ },
+ {
+  "w": 39,
+  "t": "chaos drill",
+  "m": {
+   "ar": "تجربة إيقاف أجزاء عمدًا",
+   "en": "a deliberate test of killing parts"
+  },
+  "ex": "The chaos drill found a missing alert."
  }
 ];
