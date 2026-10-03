@@ -10188,5 +10188,239 @@ JOURNEY_TERMS["n8n"] = [
    "en": "when and how payment is made"
   },
   "ex": "Their payment terms are net 45."
+ },
+ {
+  "w": 46,
+  "t": "maintenance plan",
+  "m": {
+   "ar": "خدمة صيانة شهرية",
+   "en": "a monthly maintenance service"
+  },
+  "ex": "Every project ends with a maintenance plan offer."
+ },
+ {
+  "w": 46,
+  "t": "care plan",
+  "m": {
+   "ar": "اسم تاني لباقة الصيانة",
+   "en": "another name for a maintenance plan"
+  },
+  "ex": "The care plan includes monitoring."
+ },
+ {
+  "w": 46,
+  "t": "monthly report",
+  "m": {
+   "ar": "تقرير شهري بالأرقام والإنجازات",
+   "en": "a monthly report of numbers and work done"
+  },
+  "ex": "The monthly report drives renewals."
+ },
+ {
+  "w": 46,
+  "t": "recurring revenue",
+  "m": {
+   "ar": "دخل متكرر كل شهر",
+   "en": "income that repeats monthly"
+  },
+  "ex": "Care plans give recurring revenue."
+ },
+ {
+  "w": 46,
+  "t": "upsell path",
+  "m": {
+   "ar": "المسار الطبيعي لخدمات أكبر",
+   "en": "the natural route to bigger services"
+  },
+  "ex": "The report’s ideas are our upsell path."
+ },
+ {
+  "w": 46,
+  "t": "response window",
+  "m": {
+   "ar": "المدة القصوى لأول رد",
+   "en": "the longest time to a first reply"
+  },
+  "ex": "The SEV1 response window is 4 hours."
+ },
+ {
+  "w": 46,
+  "t": "resolution time",
+  "m": {
+   "ar": "المدة لحل المشكلة",
+   "en": "the time to solve the problem"
+  },
+  "ex": "Resolution time depends on the vendor."
+ },
+ {
+  "w": 46,
+  "t": "severity matrix",
+  "m": {
+   "ar": "جدول درجات المشاكل ومواعيدها",
+   "en": "a table of problem levels and targets"
+  },
+  "ex": "The severity matrix defines SEV1."
+ },
+ {
+  "w": 46,
+  "t": "service credit",
+  "m": {
+   "ar": "خصم لو الوعد متحققش",
+   "en": "a discount when a promise is missed"
+  },
+  "ex": "We owe a 10% service credit."
+ },
+ {
+  "w": 46,
+  "t": "support hours",
+  "m": {
+   "ar": "ساعات الدعم المتفق عليها",
+   "en": "the agreed support hours"
+  },
+  "ex": "Support hours are Sunday to Thursday."
+ },
+ {
+  "w": 46,
+  "t": "client wiki",
+  "m": {
+   "ar": "مرجع كل معلومات العميل",
+   "en": "the reference for everything about a client"
+  },
+  "ex": "Check the client wiki first."
+ },
+ {
+  "w": 46,
+  "t": "workflow catalogue",
+  "m": {
+   "ar": "قايمة كل الـ workflows بتفاصيلها",
+   "en": "a list of every workflow with details"
+  },
+  "ex": "The workflow catalogue lists owners."
+ },
+ {
+  "w": 46,
+  "t": "workflow description",
+  "m": {
+   "ar": "وصف الـ workflow في إعداداته",
+   "en": "the description in a workflow’s settings"
+  },
+  "ex": "The workflow description links the Loom."
+ },
+ {
+  "w": 46,
+  "t": "loom",
+  "m": {
+   "ar": "فيديو شرح قصير بتسجيل الشاشة",
+   "en": "a short screen-recorded explainer"
+  },
+  "ex": "Each workflow has a Loom."
+ },
+ {
+  "w": 46,
+  "t": "offboarding",
+  "m": {
+   "ar": "إنهاء العلاقة مع عميل بنظام",
+   "en": "ending a client relationship in order"
+  },
+  "ex": "Offboarding includes deleting their data."
+ },
+ {
+  "w": 46,
+  "t": "definition of done",
+  "m": {
+   "ar": "شروط اعتبار الشغل خلصان",
+   "en": "the conditions for calling work finished"
+  },
+  "ex": "The definition of done includes a Loom."
+ },
+ {
+  "w": 46,
+  "t": "delivery checklist",
+  "m": {
+   "ar": "قايمة ثابتة لكل تسليم",
+   "en": "a fixed list for every delivery"
+  },
+  "ex": "Follow the delivery checklist."
+ },
+ {
+  "w": 46,
+  "t": "uat",
+  "m": {
+   "ar": "تجربة العميل وقبوله قبل التشغيل",
+   "en": "the client’s testing and acceptance before go-live"
+  },
+  "ex": "UAT uses 20 real cases."
+ },
+ {
+  "w": 46,
+  "t": "hypercare",
+  "m": {
+   "ar": "فترة مراقبة مكثفة بعد التشغيل",
+   "en": "a period of close monitoring after go-live"
+  },
+  "ex": "Hypercare lasts two weeks."
+ },
+ {
+  "w": 46,
+  "t": "estimate accuracy",
+  "m": {
+   "ar": "دقة التقدير مقابل الفعلي",
+   "en": "how close estimates are to actuals"
+  },
+  "ex": "Track estimate accuracy per project type."
+ },
+ {
+  "w": 46,
+  "t": "retrospective",
+  "m": {
+   "ar": "مراجعة بعد المشروع للتحسين",
+   "en": "a review after a project to improve"
+  },
+  "ex": "The retrospective changed our template."
+ },
+ {
+  "w": 46,
+  "t": "gross margin",
+  "m": {
+   "ar": "نسبة الربح بعد تكلفة التنفيذ",
+   "en": "the profit share after delivery cost"
+  },
+  "ex": "Gross margin was 62%."
+ },
+ {
+  "w": 46,
+  "t": "utilization",
+  "m": {
+   "ar": "نسبة الساعات المدفوعة",
+   "en": "the share of billable hours"
+  },
+  "ex": "Omar’s utilization is too high."
+ },
+ {
+  "w": 46,
+  "t": "cash flow",
+  "m": {
+   "ar": "حركة الفلوس الداخلة والخارجة",
+   "en": "the movement of money in and out"
+  },
+  "ex": "Late invoices hurt cash flow."
+ },
+ {
+  "w": 46,
+  "t": "master services agreement",
+  "m": {
+   "ar": "عقد إطاري واحد مع العميل",
+   "en": "one framework contract with a client"
+  },
+  "ex": "Each SOW sits under the master services agreement."
+ },
+ {
+  "w": 46,
+  "t": "liability cap",
+  "m": {
+   "ar": "الحد الأقصى للمسؤولية",
+   "en": "the maximum liability"
+  },
+  "ex": "The liability cap is 12 months of fees."
  }
 ];
