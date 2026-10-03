@@ -70,3 +70,39 @@ create policy "own store" on public.user_store
   with check ((select auth.uid()) = user_id);
 alter table public.user_store drop constraint if exists user_store_size;
 alter table public.user_store add constraint user_store_size check (pg_column_size(data) < 2000000);
+
+-- hardening (2026-10-03): least privilege and per-user limits.
+-- Visitors who are not signed in (anon) get nothing; signed-in users keep only what the site uses
+-- (row-level security still decides which rows). TRUNCATE, TRIGGER and REFERENCES are never needed from the browser.
+revoke all on public.progress, public.test_attempts, public.user_store from anon;
+revoke truncate, trigger, references on public.progress, public.test_attempts, public.user_store from authenticated;
+revoke update, delete on public.test_attempts from authenticated;   -- the attempts log is append-only
+alter table public.test_attempts drop constraint if exists test_attempts_answers_size;
+alter table public.test_attempts add constraint test_attempts_answers_size check (pg_column_size(answers) < 20000);
+-- one account can't fill the database: at most 40 store keys and 5000 test attempts.
+-- Only a NEW row counts: an upsert of a row that already exists (every sync) is never blocked.
+create or replace function public.limit_store_rows() returns trigger
+  language plpgsql security definer set search_path = '' as $$
+begin
+  if not exists (select 1 from public.user_store where user_id = new.user_id and key = new.key)
+     and (select count(*) from public.user_store where user_id = new.user_id) >= 40 then
+    raise exception 'too many stores for this user';
+  end if;
+  return new;
+end $$;
+create or replace function public.limit_attempt_rows() returns trigger
+  language plpgsql security definer set search_path = '' as $$
+begin
+  if not exists (select 1 from public.test_attempts where user_id = new.user_id and track = new.track and test_id = new.test_id and taken_at = new.taken_at)
+     and (select count(*) from public.test_attempts where user_id = new.user_id) >= 5000 then
+    raise exception 'too many test attempts for this user';
+  end if;
+  return new;
+end $$;
+drop trigger if exists user_store_limit on public.user_store;
+drop trigger if exists test_attempts_limit on public.test_attempts;
+drop function if exists public.limit_rows();
+revoke all on function public.limit_store_rows() from public, anon, authenticated;
+revoke all on function public.limit_attempt_rows() from public, anon, authenticated;
+create trigger user_store_limit before insert on public.user_store for each row execute function public.limit_store_rows();
+create trigger test_attempts_limit before insert on public.test_attempts for each row execute function public.limit_attempt_rows();
