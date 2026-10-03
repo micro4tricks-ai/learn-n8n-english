@@ -11817,5 +11817,311 @@ JOURNEY_TERMS["python"] = [
    "en": "a trusted package turning malicious in an update"
   },
   "ex": "Pin versions to avoid a rug pull."
+ },
+ {
+  "w": 41,
+  "t": "premature optimisation",
+  "m": {
+   "ar": "تحسين قبل ما تعرف المشكلة",
+   "en": "optimising before knowing what is slow"
+  },
+  "ex": "Premature optimisation made the code unreadable."
+ },
+ {
+  "w": 41,
+  "t": "hot path",
+  "m": {
+   "ar": "الجزء اللي بياخد أغلب الوقت",
+   "en": "the code where most time is spent"
+  },
+  "ex": "The API calls are the hot path."
+ },
+ {
+  "w": 41,
+  "t": "perf_counter",
+  "m": {
+   "ar": "ساعة دقيقة لقياس الزمن",
+   "en": "a high-resolution timer"
+  },
+  "ex": "Wrap the step with perf_counter."
+ },
+ {
+  "w": 41,
+  "t": "timeit",
+  "m": {
+   "ar": "أداة لقياس كود صغير بتكرار",
+   "en": "a module timing small snippets repeatedly"
+  },
+  "ex": "Use timeit to compare join and +=."
+ },
+ {
+  "w": 41,
+  "t": "benchmark",
+  "m": {
+   "ar": "اختبار أداء مقارن",
+   "en": "a repeatable performance measurement"
+  },
+  "ex": "Add the benchmark numbers to the PR."
+ },
+ {
+  "w": 41,
+  "t": "profiling",
+  "m": {
+   "ar": "قياس الوقت لكل دالة",
+   "en": "measuring where a program spends time"
+  },
+  "ex": "Profiling showed the parser was fine."
+ },
+ {
+  "w": 41,
+  "t": "profiler",
+  "m": {
+   "ar": "أداة الـ profiling",
+   "en": "a tool that profiles code"
+  },
+  "ex": "Run the profiler on real data."
+ },
+ {
+  "w": 41,
+  "t": "cprofile",
+  "m": {
+   "ar": "الـ profiler المدمج في Python",
+   "en": "Python’s built-in deterministic profiler"
+  },
+  "ex": "cProfile counts every call."
+ },
+ {
+  "w": 41,
+  "t": "pstats",
+  "m": {
+   "ar": "ترتيب وعرض نتايج الـ profiler",
+   "en": "a module to sort and print profiler stats"
+  },
+  "ex": "Sort pstats by cumulative time."
+ },
+ {
+  "w": 41,
+  "t": "bottleneck",
+  "m": {
+   "ar": "عنق الزجاجة: الجزء اللي بيبطّأ الكل",
+   "en": "the part limiting overall speed"
+  },
+  "ex": "The list lookup was the bottleneck."
+ },
+ {
+  "w": 41,
+  "t": "sampling profiler",
+  "m": {
+   "ar": "profiler بيبص كل شوية من برّه",
+   "en": "a profiler that samples a running program"
+  },
+  "ex": "A sampling profiler is safe in production."
+ },
+ {
+  "w": 41,
+  "t": "py-spy",
+  "m": {
+   "ar": "sampling profiler لـ Python",
+   "en": "a sampling profiler for Python"
+  },
+  "ex": "py-spy attached to the stuck worker."
+ },
+ {
+  "w": 41,
+  "t": "flame graph",
+  "m": {
+   "ar": "رسم بيوضح الوقت لكل دالة",
+   "en": "a chart showing time per call stack"
+  },
+  "ex": "The flame graph showed wide JSON bars."
+ },
+ {
+  "w": 41,
+  "t": "big o",
+  "m": {
+   "ar": "ترميز بيوصف نمو الوقت مع الحجم",
+   "en": "notation for how cost grows with size"
+  },
+  "ex": "Two nested loops are O(n²) in big O."
+ },
+ {
+  "w": 41,
+  "t": "time complexity",
+  "m": {
+   "ar": "التعقيد الزمني",
+   "en": "how running time grows with input size"
+  },
+  "ex": "The time complexity dropped to O(n)."
+ },
+ {
+  "w": 41,
+  "t": "space complexity",
+  "m": {
+   "ar": "التعقيد في الذاكرة",
+   "en": "how memory use grows with input size"
+  },
+  "ex": "Streaming keeps space complexity constant."
+ },
+ {
+  "w": 41,
+  "t": "set lookup",
+  "m": {
+   "ar": "البحث في set (سريع)",
+   "en": "checking membership in a set"
+  },
+  "ex": "A set lookup is O(1)."
+ },
+ {
+  "w": 41,
+  "t": "dict lookup",
+  "m": {
+   "ar": "البحث في قاموس بالمفتاح",
+   "en": "finding a value by key in a dict"
+  },
+  "ex": "Replace the inner loop with a dict lookup."
+ },
+ {
+  "w": 41,
+  "t": "heapq",
+  "m": {
+   "ar": "مكتبة الـ heap لأكبر/أصغر k",
+   "en": "a module for heaps and top-k"
+  },
+  "ex": "heapq.nlargest finds the top 5."
+ },
+ {
+  "w": 41,
+  "t": "deque",
+  "m": {
+   "ar": "طابور سريع من الطرفين",
+   "en": "a double-ended queue"
+  },
+  "ex": "Use a deque for the job queue."
+ },
+ {
+  "w": 41,
+  "t": "functools.cache",
+  "m": {
+   "ar": "كاش غير محدود لنتايج دالة",
+   "en": "an unbounded cache for a function’s results"
+  },
+  "ex": "functools.cache made zone lookups instant."
+ },
+ {
+  "w": 41,
+  "t": "tracemalloc",
+  "m": {
+   "ar": "أداة قياس ذاكرة Python",
+   "en": "a module tracing Python memory allocations"
+  },
+  "ex": "tracemalloc showed a 900 MB peak."
+ },
+ {
+  "w": 41,
+  "t": "sys.getsizeof",
+  "m": {
+   "ar": "حجم كائن واحد بالبايت",
+   "en": "the size of one object in bytes"
+  },
+  "ex": "sys.getsizeof ignores the contents."
+ },
+ {
+  "w": 41,
+  "t": "streaming",
+  "m": {
+   "ar": "معالجة البيانات حتة حتة",
+   "en": "processing data piece by piece"
+  },
+  "ex": "Streaming keeps memory flat."
+ },
+ {
+  "w": 41,
+  "t": "__slots__",
+  "m": {
+   "ar": "تعريف ثابت للخصائص بيوفّر ذاكرة",
+   "en": "a fixed attribute list that saves memory"
+  },
+  "ex": "Add __slots__ to the million small objects."
+ },
+ {
+  "w": 41,
+  "t": "memory leak",
+  "m": {
+   "ar": "تسرب ذاكرة: حاجة بتكبر من غير حد",
+   "en": "memory that grows and is never released"
+  },
+  "ex": "The unbounded cache was a memory leak."
+ },
+ {
+  "w": 41,
+  "t": "n+1 query",
+  "m": {
+   "ar": "استعلام لكل عنصر بدل استعلام واحد",
+   "en": "one query per item instead of one in total"
+  },
+  "ex": "The report had an N+1 query per customer."
+ },
+ {
+  "w": 41,
+  "t": "batching",
+  "m": {
+   "ar": "تجميع العمليات في دفعات",
+   "en": "grouping operations into batches"
+  },
+  "ex": "Batching cut API calls from 1000 to 10."
+ },
+ {
+  "w": 41,
+  "t": "caching",
+  "m": {
+   "ar": "تخزين نتيجة لإعادة استخدامها",
+   "en": "storing results to reuse them"
+  },
+  "ex": "Caching exchange rates saved 2 seconds."
+ },
+ {
+  "w": 41,
+  "t": "ttl",
+  "m": {
+   "ar": "مدة صلاحية الكاش",
+   "en": "time to live for a cached value"
+  },
+  "ex": "Set a TTL of ten minutes."
+ },
+ {
+  "w": 41,
+  "t": "cache invalidation",
+  "m": {
+   "ar": "مسح الكاش لما الأصل يتغير",
+   "en": "removing cached data when the source changes"
+  },
+  "ex": "Cache invalidation is the hard part."
+ },
+ {
+  "w": 41,
+  "t": "multiprocessing",
+  "m": {
+   "ar": "تشغيل عمليات منفصلة بالتوازي",
+   "en": "running separate processes in parallel"
+  },
+  "ex": "Use multiprocessing for CPU-bound work."
+ },
+ {
+  "w": 41,
+  "t": "free-threaded",
+  "m": {
+   "ar": "Python من غير GIL (تجريبي)",
+   "en": "a Python build without the GIL"
+  },
+  "ex": "The free-threaded build is still experimental."
+ },
+ {
+  "w": 41,
+  "t": "amdahl",
+  "m": {
+   "ar": "قانون حد التسريع بالتوازي",
+   "en": "the law limiting parallel speed-up"
+  },
+  "ex": "Amdahl says 20% serial caps us at 5×."
  }
 ];
