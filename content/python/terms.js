@@ -8829,5 +8829,905 @@ JOURNEY_TERMS["python"] = [
    "en": "makes a warning point at the caller’s line"
   },
   "ex": "Use stacklevel=2 in deprecation warnings."
+ },
+ {
+  "w": 29,
+  "t": "merge validate",
+  "m": {
+   "ar": "تحقق من نوع العلاقة وقت الدمج",
+   "en": "checking the relationship type while merging"
+  },
+  "ex": "merge validate caught a duplicated customer."
+ },
+ {
+  "w": 29,
+  "t": "indicator",
+  "m": {
+   "ar": "عمود بيقول كل صف جه من أنهي جدول",
+   "en": "a column saying which table each row came from"
+  },
+  "ex": "indicator=True adds _merge."
+ },
+ {
+  "w": 29,
+  "t": "many_to_one",
+  "m": {
+   "ar": "كتير لواحد: كل مفتاح يمين ليه صف واحد",
+   "en": "many to one: each right-hand key has one row"
+  },
+  "ex": "Orders to customers is many_to_one."
+ },
+ {
+  "w": 29,
+  "t": "row explosion",
+  "m": {
+   "ar": "الصفوف بتتضاعف بسبب مفتاح متكرر",
+   "en": "rows multiplying because of a duplicated key"
+  },
+  "ex": "A duplicated key caused row explosion."
+ },
+ {
+  "w": 29,
+  "t": "outer join",
+  "m": {
+   "ar": "دمج بيحتفظ بكل الصفوف من الجهتين",
+   "en": "a join keeping all rows from both sides"
+  },
+  "ex": "Use an outer join to see both gaps."
+ },
+ {
+  "w": 29,
+  "t": "long format",
+  "m": {
+   "ar": "صف لكل قيمة مع أعمدة وصف",
+   "en": "one row per value with describing columns"
+  },
+  "ex": "Store data in long format."
+ },
+ {
+  "w": 29,
+  "t": "wide format",
+  "m": {
+   "ar": "عمود لكل فئة (زي الشهور)",
+   "en": "one column per category (like months)"
+  },
+  "ex": "Excel users prefer wide format."
+ },
+ {
+  "w": 29,
+  "t": "melt",
+  "m": {
+   "ar": "تحويل جدول عريض لطويل",
+   "en": "turning a wide table into a long one"
+  },
+  "ex": "melt the month columns."
+ },
+ {
+  "w": 29,
+  "t": "pivot_table",
+  "m": {
+   "ar": "جدول تقاطع بتجميع",
+   "en": "a cross-table with aggregation"
+  },
+  "ex": "pivot_table shows sales by city and product."
+ },
+ {
+  "w": 29,
+  "t": "named aggregation",
+  "m": {
+   "ar": "تجميع بأسماء أعمدة واضحة",
+   "en": "aggregation with clear output column names"
+  },
+  "ex": "Named aggregation gives a tidy summary."
+ },
+ {
+  "w": 29,
+  "t": "vectorization",
+  "m": {
+   "ar": "عمليات على عمود كامل مرة واحدة",
+   "en": "operating on a whole column at once"
+  },
+  "ex": "Vectorization made the report 100× faster."
+ },
+ {
+  "w": 29,
+  "t": "categorical",
+  "m": {
+   "ar": "نوع للنصوص المتكررة بيوفّر ذاكرة",
+   "en": "a type for repeated text that saves memory"
+  },
+  "ex": "Make city a categorical column."
+ },
+ {
+  "w": 29,
+  "t": "memory_usage",
+  "m": {
+   "ar": "قياس ذاكرة كل عمود",
+   "en": "measuring each column’s memory"
+  },
+  "ex": "Check memory_usage(deep=True) first."
+ },
+ {
+  "w": 29,
+  "t": "downcast",
+  "m": {
+   "ar": "تحويل لنوع رقمي أصغر",
+   "en": "converting to a smaller numeric type"
+  },
+  "ex": "Downcast qty to int16."
+ },
+ {
+  "w": 29,
+  "t": "np.where",
+  "m": {
+   "ar": "شرط متجه بيختار قيمة لكل صف",
+   "en": "a vectorised condition choosing a value per row"
+  },
+  "ex": "np.where labels big orders."
+ },
+ {
+  "w": 29,
+  "t": "time series",
+  "m": {
+   "ar": "بيانات مرتبة بالوقت",
+   "en": "data ordered by time"
+  },
+  "ex": "Daily orders form a time series."
+ },
+ {
+  "w": 29,
+  "t": "rolling window",
+  "m": {
+   "ar": "نافذة متحركة لحساب متوسط أو مجموع",
+   "en": "a moving window for an average or sum"
+  },
+  "ex": "Use a 7-day rolling window."
+ },
+ {
+  "w": 29,
+  "t": "week-over-week",
+  "m": {
+   "ar": "مقارنة بنفس الوقت الأسبوع اللي فات",
+   "en": "compared with the same time last week"
+  },
+  "ex": "Orders fell 5% week-over-week."
+ },
+ {
+  "w": 29,
+  "t": "asfreq",
+  "m": {
+   "ar": "إعادة ضبط تكرار السلسلة (وإضافة الناقص)",
+   "en": "setting a series to a regular frequency (filling gaps)"
+  },
+  "ex": "asfreq(\"D\") adds the missing days."
+ },
+ {
+  "w": 29,
+  "t": "tz_convert",
+  "m": {
+   "ar": "تحويل التوقيت لمنطقة تانية",
+   "en": "converting times to another time zone"
+  },
+  "ex": "tz_convert to Africa/Cairo for display."
+ },
+ {
+  "w": 29,
+  "t": "polars",
+  "m": {
+   "ar": "مكتبة DataFrames سريعة مكتوبة بـ Rust",
+   "en": "a fast DataFrame library written in Rust"
+  },
+  "ex": "Polars used all eight cores."
+ },
+ {
+  "w": 29,
+  "t": "lazyframe",
+  "m": {
+   "ar": "إطار بيانات بيبني خطة وينفّذ بعدين",
+   "en": "a frame that builds a plan and runs later"
+  },
+  "ex": "scan_csv returns a LazyFrame."
+ },
+ {
+  "w": 29,
+  "t": "polars expression",
+  "m": {
+   "ar": "تعبير بيوصف عملية على عمود في Polars",
+   "en": "an expression describing a column operation in Polars"
+  },
+  "ex": "pl.col(\"total\").sum() is a Polars expression."
+ },
+ {
+  "w": 29,
+  "t": "duckdb",
+  "m": {
+   "ar": "قاعدة بيانات تحليلية من غير سيرفر",
+   "en": "an analytical database with no server"
+  },
+  "ex": "DuckDB queries the CSV files directly."
+ },
+ {
+  "w": 29,
+  "t": "parquet",
+  "m": {
+   "ar": "صيغة ملفات أعمدة مضغوطة للبيانات الكبيرة",
+   "en": "a compressed columnar file format for big data"
+  },
+  "ex": "Parquet is ten times smaller than the CSV."
+ },
+ {
+  "w": 30,
+  "t": "psycopg",
+  "m": {
+   "ar": "driver بايثون لـ PostgreSQL",
+   "en": "the Python driver for PostgreSQL"
+  },
+  "ex": "Install psycopg[binary] for quick starts."
+ },
+ {
+  "w": 30,
+  "t": "parameterized query",
+  "m": {
+   "ar": "استعلام القيم فيه بتتبعت منفصلة",
+   "en": "a query whose values are sent separately"
+  },
+  "ex": "Always use a parameterized query."
+ },
+ {
+  "w": 30,
+  "t": "bind parameter",
+  "m": {
+   "ar": "قيمة بتتربط بمكانها في الاستعلام",
+   "en": "a value bound to its slot in a query"
+  },
+  "ex": "Each %s receives a bind parameter."
+ },
+ {
+  "w": 30,
+  "t": "connection pool",
+  "m": {
+   "ar": "مجموعة اتصالات جاهزة بتتعاد",
+   "en": "a set of ready connections that are reused"
+  },
+  "ex": "The connection pool holds ten connections."
+ },
+ {
+  "w": 30,
+  "t": "dsn",
+  "m": {
+   "ar": "نص بيانات الاتصال بقاعدة البيانات",
+   "en": "the text holding database connection details"
+  },
+  "ex": "Read the DSN from the environment."
+ },
+ {
+  "w": 30,
+  "t": "timestamptz",
+  "m": {
+   "ar": "نوع وقت بتوقيت في PostgreSQL",
+   "en": "a time type with a time zone in PostgreSQL"
+  },
+  "ex": "Use timestamptz for created_at."
+ },
+ {
+  "w": 30,
+  "t": "jsonb",
+  "m": {
+   "ar": "نوع JSON ثنائي قابل للبحث في PostgreSQL",
+   "en": "a searchable binary JSON type in PostgreSQL"
+  },
+  "ex": "Store the raw payload in jsonb."
+ },
+ {
+  "w": 30,
+  "t": "numeric",
+  "m": {
+   "ar": "نوع رقم عشري دقيق للفلوس",
+   "en": "an exact decimal type for money"
+  },
+  "ex": "Totals are numeric(12,2)."
+ },
+ {
+  "w": 30,
+  "t": "check constraint",
+  "m": {
+   "ar": "شرط قاعدة البيانات بترفض بيه القيم الغلط",
+   "en": "a database rule that rejects wrong values"
+  },
+  "ex": "A check constraint blocks negative totals."
+ },
+ {
+  "w": 30,
+  "t": "not null",
+  "m": {
+   "ar": "قيد بيمنع القيمة الفاضية",
+   "en": "a constraint forbidding empty values"
+  },
+  "ex": "total is NOT NULL."
+ },
+ {
+  "w": 30,
+  "t": "mapped",
+  "m": {
+   "ar": "نوع SQLAlchemy لعمود في نموذج",
+   "en": "SQLAlchemy’s type for a model column"
+  },
+  "ex": "id: Mapped[int] is the primary key."
+ },
+ {
+  "w": 30,
+  "t": "mapped_column",
+  "m": {
+   "ar": "تعريف إعدادات عمود في النموذج",
+   "en": "defining a column’s settings in a model"
+  },
+  "ex": "mapped_column(unique=True) on phone."
+ },
+ {
+  "w": 30,
+  "t": "relationship",
+  "m": {
+   "ar": "ربط نموذجين ببعض",
+   "en": "linking two models"
+  },
+  "ex": "Order has a relationship to Customer."
+ },
+ {
+  "w": 30,
+  "t": "n+1 problem",
+  "m": {
+   "ar": "استعلام لكل عنصر بدل استعلام واحد",
+   "en": "one query per item instead of a single query"
+  },
+  "ex": "selectinload solved the N+1 problem."
+ },
+ {
+  "w": 30,
+  "t": "selectinload",
+  "m": {
+   "ar": "تحميل العلاقات في استعلام إضافي واحد",
+   "en": "loading relationships in one extra query"
+  },
+  "ex": "Use selectinload for the customers."
+ },
+ {
+  "w": 30,
+  "t": "alembic",
+  "m": {
+   "ar": "أداة migrations لـ SQLAlchemy",
+   "en": "the migration tool for SQLAlchemy"
+  },
+  "ex": "Run alembic upgrade head on deploy."
+ },
+ {
+  "w": 30,
+  "t": "autogenerate",
+  "m": {
+   "ar": "توليد migration من الفرق بين النماذج والقاعدة",
+   "en": "generating a migration from the model–database difference"
+  },
+  "ex": "Always review autogenerate output."
+ },
+ {
+  "w": 30,
+  "t": "upgrade",
+  "m": {
+   "ar": "تطبيق migration للأمام",
+   "en": "applying a migration forwards"
+  },
+  "ex": "upgrade adds the column."
+ },
+ {
+  "w": 30,
+  "t": "downgrade",
+  "m": {
+   "ar": "التراجع عن migration",
+   "en": "undoing a migration"
+  },
+  "ex": "downgrade drops the column again."
+ },
+ {
+  "w": 30,
+  "t": "backfill",
+  "m": {
+   "ar": "ملء القيم القديمة لعمود جديد",
+   "en": "filling old rows of a new column"
+  },
+  "ex": "Backfill in batches of 10,000."
+ },
+ {
+  "w": 30,
+  "t": "explain analyze",
+  "m": {
+   "ar": "أمر بيوري خطة الاستعلام ووقته الحقيقي",
+   "en": "a command showing a query’s plan and real timing"
+  },
+  "ex": "EXPLAIN ANALYZE showed a Seq Scan."
+ },
+ {
+  "w": 30,
+  "t": "seq scan",
+  "m": {
+   "ar": "قراءة الجدول كله",
+   "en": "reading the whole table"
+  },
+  "ex": "A seq scan on a million rows is slow."
+ },
+ {
+  "w": 30,
+  "t": "index scan",
+  "m": {
+   "ar": "قراءة باستخدام index",
+   "en": "reading through an index"
+  },
+  "ex": "After the index it became an index scan."
+ },
+ {
+  "w": 30,
+  "t": "composite index",
+  "m": {
+   "ar": "index على أكتر من عمود",
+   "en": "an index on more than one column"
+  },
+  "ex": "Add a composite index on (customer_id, created_at)."
+ },
+ {
+  "w": 30,
+  "t": "bulk insert",
+  "m": {
+   "ar": "إدخال صفوف كتير مرة واحدة",
+   "en": "inserting many rows at once"
+  },
+  "ex": "A bulk insert took two seconds."
+ },
+ {
+  "w": 31,
+  "t": "etl",
+  "m": {
+   "ar": "استخراج ثم تحويل ثم تحميل",
+   "en": "extract, then transform, then load"
+  },
+  "ex": "The nightly ETL fills the orders table."
+ },
+ {
+  "w": 31,
+  "t": "elt",
+  "m": {
+   "ar": "استخراج ثم تحميل الخام ثم تحويل في القاعدة",
+   "en": "extract, load raw, then transform in the database"
+  },
+  "ex": "With DuckDB we prefer ELT."
+ },
+ {
+  "w": 31,
+  "t": "staging area",
+  "m": {
+   "ar": "مكان حفظ البيانات الخام قبل التحويل",
+   "en": "where raw data is kept before transformation"
+  },
+  "ex": "Keep every API page in the staging area."
+ },
+ {
+  "w": 31,
+  "t": "data pipeline",
+  "m": {
+   "ar": "سلسلة خطوات بتنقل وتجهّز البيانات",
+   "en": "a chain of steps moving and preparing data"
+  },
+  "ex": "The data pipeline runs at 2 a.m."
+ },
+ {
+  "w": 31,
+  "t": "rejected rows",
+  "m": {
+   "ar": "صفوف اترفضت في التحويل",
+   "en": "rows refused during transformation"
+  },
+  "ex": "Save rejected rows for review."
+ },
+ {
+  "w": 31,
+  "t": "full refresh",
+  "m": {
+   "ar": "تحميل كل البيانات من الأول كل مرة",
+   "en": "reloading all the data from scratch each time"
+  },
+  "ex": "A full refresh takes 40 minutes."
+ },
+ {
+  "w": 31,
+  "t": "incremental load",
+  "m": {
+   "ar": "تحميل الجديد بس من آخر مرة",
+   "en": "loading only what is new since last time"
+  },
+  "ex": "The incremental load takes 30 seconds."
+ },
+ {
+  "w": 31,
+  "t": "last success",
+  "m": {
+   "ar": "آخر وقت التحميل نجح فيه",
+   "en": "the time of the last successful load"
+  },
+  "ex": "Update last success after loading."
+ },
+ {
+  "w": 31,
+  "t": "overlap",
+  "m": {
+   "ar": "تداخل بسيط عشان متفوّتش حاجة",
+   "en": "a small overlap so nothing is missed"
+  },
+  "ex": "A 10-minute overlap catches late events."
+ },
+ {
+  "w": 31,
+  "t": "resume",
+  "m": {
+   "ar": "تكمّل من مكان ما وقفت",
+   "en": "to continue from where you stopped"
+  },
+  "ex": "The pipeline can resume from page 40."
+ },
+ {
+  "w": 31,
+  "t": "pure transform",
+  "m": {
+   "ar": "تحويل نتيجته بتعتمد على مدخله بس",
+   "en": "a transformation whose result depends only on its input"
+  },
+  "ex": "A pure transform is easy to test."
+ },
+ {
+  "w": 31,
+  "t": "cleaning rule",
+  "m": {
+   "ar": "قاعدة تنضيف لقيمة معيّنة",
+   "en": "a rule for cleaning a particular value"
+  },
+  "ex": "Each cleaning rule has its own tests."
+ },
+ {
+  "w": 31,
+  "t": "table-driven test",
+  "m": {
+   "ar": "اختبار بيشتغل على جدول أمثلة",
+   "en": "a test that runs over a table of examples"
+  },
+  "ex": "A table-driven test covers ten spellings."
+ },
+ {
+  "w": 31,
+  "t": "lineage",
+  "m": {
+   "ar": "تتبّع مصدر البيانات ومسارها",
+   "en": "tracing where data came from and its path"
+  },
+  "ex": "Lineage shows the source file of each row."
+ },
+ {
+  "w": 31,
+  "t": "run id",
+  "m": {
+   "ar": "معرّف لكل تشغيل للخط",
+   "en": "an identifier for each pipeline run"
+  },
+  "ex": "Rows carry the run id."
+ },
+ {
+  "w": 31,
+  "t": "idempotent load",
+  "m": {
+   "ar": "تحميل تكراره مالوش أثر زيادة",
+   "en": "a load whose repetition has no extra effect"
+  },
+  "ex": "An idempotent load makes reruns safe."
+ },
+ {
+  "w": 31,
+  "t": "apscheduler",
+  "m": {
+   "ar": "مكتبة جدولة جوه برنامج بايثون",
+   "en": "a scheduling library inside a Python program"
+  },
+  "ex": "APScheduler runs the job every hour."
+ },
+ {
+  "w": 31,
+  "t": "dag",
+  "m": {
+   "ar": "رسم مهام موجّه من غير دوائر",
+   "en": "a directed graph of tasks with no cycles"
+  },
+  "ex": "The DAG has four tasks."
+ },
+ {
+  "w": 31,
+  "t": "task dependency",
+  "m": {
+   "ar": "مهمة لازم تستنى مهمة تانية",
+   "en": "a task that must wait for another"
+  },
+  "ex": "The report has a task dependency on the load."
+ },
+ {
+  "w": 31,
+  "t": "prefect",
+  "m": {
+   "ar": "أداة orchestration لخطوط بايثون",
+   "en": "an orchestration tool for Python pipelines"
+  },
+  "ex": "Prefect retries failed tasks."
+ },
+ {
+  "w": 31,
+  "t": "run history",
+  "m": {
+   "ar": "سجل كل مرات تشغيل الخط",
+   "en": "a record of every pipeline run"
+  },
+  "ex": "Check the run history each morning."
+ },
+ {
+  "w": 31,
+  "t": "rows in",
+  "m": {
+   "ar": "عدد الصفوف الداخلة",
+   "en": "the number of incoming rows"
+  },
+  "ex": "Rows in were 4,812."
+ },
+ {
+  "w": 31,
+  "t": "rows out",
+  "m": {
+   "ar": "عدد الصفوف اللي اتحمّلت",
+   "en": "the number of rows loaded"
+  },
+  "ex": "Rows out dropped to zero."
+ },
+ {
+  "w": 31,
+  "t": "backfill date",
+  "m": {
+   "ar": "إعادة الخط لتاريخ قديم",
+   "en": "rerunning the pipeline for a past date"
+  },
+  "ex": "Run a backfill date after the fix."
+ },
+ {
+  "w": 31,
+  "t": "volume alert",
+  "m": {
+   "ar": "تنبيه لو كمية البيانات غريبة",
+   "en": "an alert when the data volume looks odd"
+  },
+  "ex": "The volume alert fired at 6 a.m."
+ },
+ {
+  "w": 32,
+  "t": "data quality",
+  "m": {
+   "ar": "مدى صلاحية البيانات للاستخدام",
+   "en": "how fit data is for its use"
+  },
+  "ex": "Data quality dropped after the import."
+ },
+ {
+  "w": 32,
+  "t": "completeness",
+  "m": {
+   "ar": "نسبة القيم الموجودة مش الناقصة",
+   "en": "the share of values present, not missing"
+  },
+  "ex": "Phone completeness is 92%."
+ },
+ {
+  "w": 32,
+  "t": "validity",
+  "m": {
+   "ar": "إن القيم في الشكل والمدى الصح",
+   "en": "values being in the right form and range"
+  },
+  "ex": "Validity checks catch negative totals."
+ },
+ {
+  "w": 32,
+  "t": "freshness",
+  "m": {
+   "ar": "حداثة البيانات",
+   "en": "how recent the data is"
+  },
+  "ex": "Freshness: the newest row is 2 hours old."
+ },
+ {
+  "w": 32,
+  "t": "threshold check",
+  "m": {
+   "ar": "فحص قيمة مقابل حد مقبول",
+   "en": "checking a value against an acceptable limit"
+  },
+  "ex": "The threshold check failed for phones."
+ },
+ {
+  "w": 32,
+  "t": "expectation",
+  "m": {
+   "ar": "قاعدة مكتوبة لازم البيانات تحققها",
+   "en": "a written rule the data must satisfy"
+  },
+  "ex": "The uniqueness expectation failed."
+ },
+ {
+  "w": 32,
+  "t": "pandera",
+  "m": {
+   "ar": "مكتبة للتحقق من DataFrames بـ schema",
+   "en": "a library for validating DataFrames with a schema"
+  },
+  "ex": "pandera reports every failing row."
+ },
+ {
+  "w": 32,
+  "t": "schema check",
+  "m": {
+   "ar": "فحص الأعمدة والأنواع",
+   "en": "checking the columns and types"
+  },
+  "ex": "The schema check rejected the file."
+ },
+ {
+  "w": 32,
+  "t": "lazy validation",
+  "m": {
+   "ar": "تحقق بيجمع كل الأخطاء مش بس أولها",
+   "en": "validation collecting every error, not just the first"
+  },
+  "ex": "Use lazy validation for a full report."
+ },
+ {
+  "w": 32,
+  "t": "plausibility check",
+  "m": {
+   "ar": "فحص إن الأرقام معقولة",
+   "en": "a check that numbers are believable"
+  },
+  "ex": "The plausibility check compares with yesterday."
+ },
+ {
+  "w": 32,
+  "t": "data contract",
+  "m": {
+   "ar": "اتفاق مكتوب على شكل ومعنى البيانات",
+   "en": "a written agreement on data shape and meaning"
+  },
+  "ex": "The data contract lists every column."
+ },
+ {
+  "w": 32,
+  "t": "producer",
+  "m": {
+   "ar": "الطرف اللي بيبعت البيانات",
+   "en": "the party sending the data"
+  },
+  "ex": "The producer changed the file format."
+ },
+ {
+  "w": 32,
+  "t": "consumer",
+  "m": {
+   "ar": "الطرف اللي بيستخدم البيانات",
+   "en": "the party using the data"
+  },
+  "ex": "We are the consumer of the shop export."
+ },
+ {
+  "w": 32,
+  "t": "contract version",
+  "m": {
+   "ar": "رقم إصدار العقد",
+   "en": "the version number of a contract"
+  },
+  "ex": "Breaking changes need a new contract version."
+ },
+ {
+  "w": 32,
+  "t": "schema drift",
+  "m": {
+   "ar": "تغيّر شكل البيانات من غير إعلان",
+   "en": "data shape changing without notice"
+  },
+  "ex": "The contract check caught schema drift."
+ },
+ {
+  "w": 32,
+  "t": "anomaly",
+  "m": {
+   "ar": "حاجة غريبة عن النمط المعتاد",
+   "en": "something unusual compared with the normal pattern"
+  },
+  "ex": "Today’s order count is an anomaly."
+ },
+ {
+  "w": 32,
+  "t": "iqr",
+  "m": {
+   "ar": "المدى بين الربع الأول والتالت",
+   "en": "the range between the first and third quartiles"
+  },
+  "ex": "Use the IQR to find unusual prices."
+ },
+ {
+  "w": 32,
+  "t": "z-score",
+  "m": {
+   "ar": "بُعد القيمة عن المتوسط بوحدات الانحراف",
+   "en": "how far a value is from the mean in standard deviations"
+  },
+  "ex": "A z-score of 6 is very unusual."
+ },
+ {
+  "w": 32,
+  "t": "quartile",
+  "m": {
+   "ar": "نقطة بتقسم البيانات المرتبة لأرباع",
+   "en": "a point dividing sorted data into quarters"
+  },
+  "ex": "The first quartile is 150."
+ },
+ {
+  "w": 32,
+  "t": "review flag",
+  "m": {
+   "ar": "علامة على صف محتاج مراجعة",
+   "en": "a marker on a row that needs review"
+  },
+  "ex": "Set a review flag instead of deleting it."
+ },
+ {
+  "w": 32,
+  "t": "quarantine",
+  "m": {
+   "ar": "عزل الصفوف البايظة بعيد عن الباقي",
+   "en": "isolating bad rows away from the rest"
+  },
+  "ex": "Rows with negative totals go to quarantine."
+ },
+ {
+  "w": 32,
+  "t": "quality report",
+  "m": {
+   "ar": "تقرير بأرقام جودة البيانات",
+   "en": "a report of data quality numbers"
+  },
+  "ex": "Send the quality report every morning."
+ },
+ {
+  "w": 32,
+  "t": "data owner",
+  "m": {
+   "ar": "المسؤول من البيزنس عن البيانات",
+   "en": "the business person responsible for the data"
+  },
+  "ex": "The data owner fixed the source."
+ },
+ {
+  "w": 32,
+  "t": "critical rule",
+  "m": {
+   "ar": "قاعدة فشلها بيوقف الخط",
+   "en": "a rule whose failure stops the pipeline"
+  },
+  "ex": "A missing id column is a critical rule."
+ },
+ {
+  "w": 32,
+  "t": "replay rows",
+  "m": {
+   "ar": "إعادة معالجة صفوف بعد إصلاحها",
+   "en": "reprocessing rows after fixing them"
+  },
+  "ex": "Replay rows from quarantine after the fix."
  }
 ];
