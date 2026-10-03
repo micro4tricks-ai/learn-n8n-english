@@ -13392,5 +13392,392 @@ JOURNEY_TERMS["python"] = [
    "en": "a manual trigger with inputs"
   },
   "ex": "Roll back with workflow_dispatch."
+ },
+ {
+  "w": 46,
+  "t": "serverless",
+  "m": {
+   "ar": "تشغيل من غير إدارة سيرفرات",
+   "en": "running code without managing servers"
+  },
+  "ex": "The webhook runs serverless."
+ },
+ {
+  "w": 46,
+  "t": "function as a service",
+  "m": {
+   "ar": "دوال كخدمة",
+   "en": "running single functions on demand"
+  },
+  "ex": "Lambda is function as a service."
+ },
+ {
+  "w": 46,
+  "t": "aws lambda",
+  "m": {
+   "ar": "خدمة الدوال في AWS",
+   "en": "Amazon’s function-as-a-service"
+  },
+  "ex": "AWS Lambda handles the uploads."
+ },
+ {
+  "w": 46,
+  "t": "lambda handler",
+  "m": {
+   "ar": "الدالة اللي Lambda بتناديها",
+   "en": "the function Lambda invokes"
+  },
+  "ex": "The lambda handler returns statusCode 202."
+ },
+ {
+  "w": 46,
+  "t": "event source",
+  "m": {
+   "ar": "مصدر الحدث",
+   "en": "what triggers a function"
+  },
+  "ex": "S3 is the event source."
+ },
+ {
+  "w": 46,
+  "t": "event payload",
+  "m": {
+   "ar": "بيانات الحدث",
+   "en": "the data passed to the function"
+  },
+  "ex": "Log the event payload size."
+ },
+ {
+  "w": 46,
+  "t": "cold start",
+  "m": {
+   "ar": "تأخير أول تشغيل بعد سكون",
+   "en": "the delay of the first run after idle"
+  },
+  "ex": "Heavy imports lengthen the cold start."
+ },
+ {
+  "w": 46,
+  "t": "warm start",
+  "m": {
+   "ar": "تشغيل سريع لبيئة جاهزة",
+   "en": "a fast run on a ready environment"
+  },
+  "ex": "Warm starts reuse the database client."
+ },
+ {
+  "w": 46,
+  "t": "timeout limit",
+  "m": {
+   "ar": "أقصى مدة تشغيل",
+   "en": "the maximum run time"
+  },
+  "ex": "The timeout limit is 15 minutes."
+ },
+ {
+  "w": 46,
+  "t": "memory setting",
+  "m": {
+   "ar": "إعداد الذاكرة (والـ CPU)",
+   "en": "the memory size, which also sets CPU"
+  },
+  "ex": "Raise the memory setting to get more CPU."
+ },
+ {
+  "w": 46,
+  "t": "pay per request",
+  "m": {
+   "ar": "دفع لكل طلب",
+   "en": "billing for each invocation"
+  },
+  "ex": "Pay per request suits bursty traffic."
+ },
+ {
+  "w": 46,
+  "t": "cost model",
+  "m": {
+   "ar": "طريقة حساب التكلفة",
+   "en": "how a service is priced"
+  },
+  "ex": "Compare the cost model before choosing."
+ },
+ {
+  "w": 46,
+  "t": "free tier",
+  "m": {
+   "ar": "استخدام مجاني محدود",
+   "en": "a limited free allowance"
+  },
+  "ex": "The free tier covers our test traffic."
+ },
+ {
+  "w": 46,
+  "t": "container service",
+  "m": {
+   "ar": "خدمة بتشغّل صور Docker",
+   "en": "a managed service running container images"
+  },
+  "ex": "We moved to a container service."
+ },
+ {
+  "w": 46,
+  "t": "cloud run",
+  "m": {
+   "ar": "خدمة containers من Google",
+   "en": "Google’s serverless container service"
+  },
+  "ex": "Cloud Run scales the API to zero at night."
+ },
+ {
+  "w": 46,
+  "t": "scale to zero",
+  "m": {
+   "ar": "ينزل لصفر instances لما مفيش طلبات",
+   "en": "running no instances when idle"
+  },
+  "ex": "Scale to zero keeps staging almost free."
+ },
+ {
+  "w": 46,
+  "t": "mangum",
+  "m": {
+   "ar": "مكتبة بتشغّل FastAPI على Lambda",
+   "en": "an adapter running ASGI apps on Lambda"
+  },
+  "ex": "Mangum wraps the FastAPI app."
+ },
+ {
+  "w": 46,
+  "t": "portability",
+  "m": {
+   "ar": "سهولة النقل بين المزودين",
+   "en": "ease of moving between providers"
+  },
+  "ex": "Containers give us portability."
+ },
+ {
+  "w": 46,
+  "t": "object storage",
+  "m": {
+   "ar": "تخزين ملفات بمفاتيح",
+   "en": "storing files as objects under keys"
+  },
+  "ex": "Invoices live in object storage."
+ },
+ {
+  "w": 46,
+  "t": "s3",
+  "m": {
+   "ar": "خدمة تخزين الملفات في AWS",
+   "en": "Amazon’s object storage service"
+  },
+  "ex": "Upload the PDF to S3."
+ },
+ {
+  "w": 46,
+  "t": "presigned url",
+  "m": {
+   "ar": "رابط موقّع مؤقت لملف",
+   "en": "a temporary signed link to a file"
+  },
+  "ex": "Email a presigned URL valid for 5 minutes."
+ },
+ {
+  "w": 46,
+  "t": "event-driven",
+  "m": {
+   "ar": "مبني على الأحداث",
+   "en": "triggered by events"
+  },
+  "ex": "The invoice pipeline is event-driven."
+ },
+ {
+  "w": 46,
+  "t": "scheduled job",
+  "m": {
+   "ar": "مهمة مجدولة",
+   "en": "a task run on a schedule"
+  },
+  "ex": "A scheduled job sends the daily report."
+ },
+ {
+  "w": 46,
+  "t": "cloud scheduler",
+  "m": {
+   "ar": "cron سحابي",
+   "en": "a cloud service running jobs on a schedule"
+  },
+  "ex": "Cloud Scheduler calls /reports/daily."
+ },
+ {
+  "w": 46,
+  "t": "eventbridge",
+  "m": {
+   "ar": "خدمة أحداث وجداول في AWS",
+   "en": "AWS’s event bus and scheduler"
+  },
+  "ex": "EventBridge triggers the job at 04:00 UTC."
+ },
+ {
+  "w": 46,
+  "t": "queue",
+  "m": {
+   "ar": "طابور رسايل",
+   "en": "a list of messages waiting to be processed"
+  },
+  "ex": "Put slow work on a queue."
+ },
+ {
+  "w": 46,
+  "t": "sqs",
+  "m": {
+   "ar": "خدمة الطوابير في AWS",
+   "en": "Amazon’s managed queue service"
+  },
+  "ex": "The invoices queue runs on SQS."
+ },
+ {
+  "w": 46,
+  "t": "visibility timeout",
+  "m": {
+   "ar": "مدة اختفاء الرسالة أثناء المعالجة",
+   "en": "how long a received message stays hidden"
+  },
+  "ex": "Set the visibility timeout above the max processing time."
+ },
+ {
+  "w": 46,
+  "t": "at-least-once delivery",
+  "m": {
+   "ar": "الرسالة توصل مرة أو أكتر",
+   "en": "delivery that may repeat messages"
+  },
+  "ex": "At-least-once delivery means duplicates happen."
+ },
+ {
+  "w": 46,
+  "t": "idempotent handler",
+  "m": {
+   "ar": "معالج تكراره ميعملش أثر زيادة",
+   "en": "a handler safe to run twice"
+  },
+  "ex": "An idempotent handler checks the invoice number."
+ },
+ {
+  "w": 46,
+  "t": "dead-letter queue",
+  "m": {
+   "ar": "طابور الرسايل اللي فشلت",
+   "en": "a queue for messages that keep failing"
+  },
+  "ex": "Alert when the dead-letter queue is not empty."
+ },
+ {
+  "w": 46,
+  "t": "iam role",
+  "m": {
+   "ar": "هوية بصلاحيات لخدمة",
+   "en": "an identity with permissions for a service"
+  },
+  "ex": "Each Lambda has its own IAM role."
+ },
+ {
+  "w": 46,
+  "t": "secrets manager",
+  "m": {
+   "ar": "خدمة خزن الأسرار السحابية",
+   "en": "a cloud service storing secrets"
+  },
+  "ex": "Read the DB URL from Secrets Manager."
+ },
+ {
+  "w": 46,
+  "t": "managed database",
+  "m": {
+   "ar": "قاعدة بيانات مُدارة",
+   "en": "a database run by the provider"
+  },
+  "ex": "A managed database handles backups."
+ },
+ {
+  "w": 46,
+  "t": "connection limit",
+  "m": {
+   "ar": "أقصى عدد اتصالات",
+   "en": "the maximum number of connections"
+  },
+  "ex": "We hit the connection limit at peak."
+ },
+ {
+  "w": 46,
+  "t": "rds proxy",
+  "m": {
+   "ar": "وسيط اتصالات لقواعد AWS",
+   "en": "a connection pooler for AWS databases"
+  },
+  "ex": "RDS Proxy shares connections between Lambdas."
+ },
+ {
+  "w": 46,
+  "t": "region",
+  "m": {
+   "ar": "منطقة سحابية",
+   "en": "a geographic cloud location"
+  },
+  "ex": "Deploy in a Gulf region."
+ },
+ {
+  "w": 46,
+  "t": "data residency",
+  "m": {
+   "ar": "بقاء البيانات في بلد معين",
+   "en": "keeping data in a specific country"
+  },
+  "ex": "Data residency decided the region."
+ },
+ {
+  "w": 46,
+  "t": "budget alert",
+  "m": {
+   "ar": "تنبيه الميزانية",
+   "en": "a warning when spending passes a threshold"
+  },
+  "ex": "The budget alert fired at 80%."
+ },
+ {
+  "w": 46,
+  "t": "infrastructure as code",
+  "m": {
+   "ar": "البنية مكتوبة ككود",
+   "en": "infrastructure defined in code"
+  },
+  "ex": "Infrastructure as code lives in the repo."
+ },
+ {
+  "w": 46,
+  "t": "terraform",
+  "m": {
+   "ar": "أداة البنية ككود",
+   "en": "a tool for infrastructure as code"
+  },
+  "ex": "terraform plan shows the changes."
+ },
+ {
+  "w": 46,
+  "t": "aws cdk",
+  "m": {
+   "ar": "البنية ككود بلغات برمجة في AWS",
+   "en": "AWS infrastructure in programming languages"
+  },
+  "ex": "We use the AWS CDK in Python."
+ },
+ {
+  "w": 46,
+  "t": "vendor lock-in",
+  "m": {
+   "ar": "الارتباط بمزود واحد",
+   "en": "dependence on one provider"
+  },
+  "ex": "Containers reduce vendor lock-in."
  }
 ];
