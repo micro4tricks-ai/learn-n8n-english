@@ -10107,5 +10107,248 @@ JOURNEY_TERMS["js"] = [
    "en": "an endpoint for internal systems only"
   },
   "ex": "n8n posts to the internal endpoint."
+ },
+ {
+  "w": 36,
+  "t": "job queue",
+  "m": {
+   "ar": "طابور مهام بيتعالج بعدين",
+   "en": "a queue of tasks processed later"
+  },
+  "ex": "Put invoices on the job queue."
+ },
+ {
+  "w": 36,
+  "t": "background job",
+  "m": {
+   "ar": "مهمة بتشتغل برة الطلب",
+   "en": "a task running outside the request"
+  },
+  "ex": "Email sending is a background job."
+ },
+ {
+  "w": 36,
+  "t": "producer",
+  "m": {
+   "ar": "اللي بيحط المهام في الطابور",
+   "en": "what puts jobs into the queue"
+  },
+  "ex": "The API is the producer."
+ },
+ {
+  "w": 36,
+  "t": "consumer",
+  "m": {
+   "ar": "اللي بياخد المهام من الطابور",
+   "en": "what takes jobs from the queue"
+  },
+  "ex": "The worker is the consumer."
+ },
+ {
+  "w": 36,
+  "t": "worker",
+  "m": {
+   "ar": "عملية بتعالج المهام",
+   "en": "a process handling jobs"
+  },
+  "ex": "Run three workers."
+ },
+ {
+  "w": 36,
+  "t": "claim",
+  "m": {
+   "ar": "أخذ مهمة وتعليمها مشغولة في خطوة واحدة",
+   "en": "taking a job and marking it busy in one step"
+  },
+  "ex": "The worker claims the next job."
+ },
+ {
+  "w": 36,
+  "t": "skip locked",
+  "m": {
+   "ar": "تخطّي الصفوف اللي حد تاني ماسكها",
+   "en": "skipping rows someone else holds"
+  },
+  "ex": "FOR UPDATE SKIP LOCKED avoids waiting."
+ },
+ {
+  "w": 36,
+  "t": "worker loop",
+  "m": {
+   "ar": "حلقة claim ومعالجة وتكرار",
+   "en": "a loop of claim, process and repeat"
+  },
+  "ex": "The worker loop sleeps when idle."
+ },
+ {
+  "w": 36,
+  "t": "run_at",
+  "m": {
+   "ar": "وقت تشغيل المهمة",
+   "en": "when a job may run"
+  },
+  "ex": "Set run_at for delayed jobs."
+ },
+ {
+  "w": 36,
+  "t": "job status",
+  "m": {
+   "ar": "حالة المهمة: queued/running/done/failed",
+   "en": "a job’s state: queued/running/done/failed"
+  },
+  "ex": "Group jobs by job status."
+ },
+ {
+  "w": 36,
+  "t": "job retry",
+  "m": {
+   "ar": "إعادة تشغيل مهمة فشلت",
+   "en": "running a failed job again"
+  },
+  "ex": "The job retry waits two minutes."
+ },
+ {
+  "w": 36,
+  "t": "dead letter queue",
+  "m": {
+   "ar": "مكان المهام اللي فشلت نهائيًا",
+   "en": "where finally-failed jobs go"
+  },
+  "ex": "Check the dead letter queue daily."
+ },
+ {
+  "w": 36,
+  "t": "poison message",
+  "m": {
+   "ar": "مهمة بتفشل دايمًا",
+   "en": "a job that always fails"
+  },
+  "ex": "Cap retries to stop a poison message."
+ },
+ {
+  "w": 36,
+  "t": "at-least-once",
+  "m": {
+   "ar": "المهمة بتتعمل مرة أو أكتر",
+   "en": "a job runs once or more"
+  },
+  "ex": "Queues give at-least-once delivery."
+ },
+ {
+  "w": 36,
+  "t": "exactly-once",
+  "m": {
+   "ar": "مرة واحدة بالظبط (صعب جدًا)",
+   "en": "exactly one time (very hard)"
+  },
+  "ex": "Exactly-once comes from idempotent jobs."
+ },
+ {
+  "w": 36,
+  "t": "idempotency key",
+  "m": {
+   "ar": "مفتاح بيمنع تكرار نفس الفعل",
+   "en": "a key preventing the same action twice"
+  },
+  "ex": "invoice:1042 is the idempotency key."
+ },
+ {
+  "w": 36,
+  "t": "bullmq",
+  "m": {
+   "ar": "مكتبة طوابير Node فوق Redis",
+   "en": "a Node queue library on Redis"
+  },
+  "ex": "BullMQ retries failed jobs."
+ },
+ {
+  "w": 36,
+  "t": "redis",
+  "m": {
+   "ar": "مخزن بيانات سريع في الذاكرة",
+   "en": "a fast in-memory data store"
+  },
+  "ex": "Redis backs the queue."
+ },
+ {
+  "w": 36,
+  "t": "delayed job",
+  "m": {
+   "ar": "مهمة بتشتغل بعد مدة",
+   "en": "a job that runs after a delay"
+  },
+  "ex": "The reminder is a delayed job."
+ },
+ {
+  "w": 36,
+  "t": "repeatable job",
+  "m": {
+   "ar": "مهمة بتتكرر بجدول",
+   "en": "a job repeating on a schedule"
+  },
+  "ex": "The daily report is a repeatable job."
+ },
+ {
+  "w": 36,
+  "t": "job priority",
+  "m": {
+   "ar": "أولوية المهمة في الطابور",
+   "en": "a job’s precedence in the queue"
+  },
+  "ex": "VIP orders get job priority 1."
+ },
+ {
+  "w": 36,
+  "t": "queue depth",
+  "m": {
+   "ar": "عدد المهام المستنية",
+   "en": "how many jobs are waiting"
+  },
+  "ex": "Alert when queue depth exceeds 500."
+ },
+ {
+  "w": 36,
+  "t": "outbox pattern",
+  "m": {
+   "ar": "تسجيل الحدث مع البيانات في نفس الـ transaction",
+   "en": "recording the event with the data in one transaction"
+  },
+  "ex": "The outbox pattern stops lost events."
+ },
+ {
+  "w": 36,
+  "t": "fan-out",
+  "m": {
+   "ar": "حدث واحد بيولّد مهام كتير",
+   "en": "one event creating many jobs"
+  },
+  "ex": "order.paid fans out to four queues."
+ },
+ {
+  "w": 36,
+  "t": "graceful shutdown worker",
+  "m": {
+   "ar": "إيقاف الـ worker بعد إنهاء شغله",
+   "en": "stopping a worker after finishing its work"
+  },
+  "ex": "A graceful shutdown worker loses no jobs."
+ },
+ {
+  "w": 36,
+  "t": "stalled job",
+  "m": {
+   "ar": "مهمة اتقطعت ومحدش كمّلها",
+   "en": "a job interrupted and left unfinished"
+  },
+  "ex": "Stalled jobs return to the queue."
+ },
+ {
+  "w": 36,
+  "t": "relay",
+  "m": {
+   "ar": "عملية بتنقل الأحداث من الـ outbox للطابور",
+   "en": "a process moving events from the outbox to the queue"
+  },
+  "ex": "The relay runs every second."
  }
 ];
