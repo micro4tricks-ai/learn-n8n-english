@@ -10629,5 +10629,302 @@ JOURNEY_TERMS["python"] = [
    "en": "a final project combining everything learned"
   },
   "ex": "The capstone joins scraping and alerts."
+ },
+ {
+  "w": 37,
+  "t": "embedding",
+  "m": {
+   "ar": "تمثيل النص كأرقام بتعبّر عن معناه",
+   "en": "a numeric representation of meaning"
+  },
+  "ex": "Store one embedding per chunk."
+ },
+ {
+  "w": 37,
+  "t": "vector",
+  "m": {
+   "ar": "متجه: قايمة أرقام",
+   "en": "a list of numbers"
+  },
+  "ex": "Each vector has 384 dimensions."
+ },
+ {
+  "w": 37,
+  "t": "cosine similarity",
+  "m": {
+   "ar": "تشابه جيب التمام بين متجهين",
+   "en": "the cosine of the angle between vectors"
+  },
+  "ex": "Cosine similarity ranks the closest chunks."
+ },
+ {
+  "w": 37,
+  "t": "dot product",
+  "m": {
+   "ar": "حاصل الضرب النقطي",
+   "en": "the sum of element-wise products"
+  },
+  "ex": "For normalised vectors, the dot product is the cosine."
+ },
+ {
+  "w": 37,
+  "t": "normalise",
+  "m": {
+   "ar": "تخلّي طول المتجه 1",
+   "en": "to scale a vector to length 1"
+  },
+  "ex": "Normalise vectors before storing them."
+ },
+ {
+  "w": 37,
+  "t": "dimension",
+  "m": {
+   "ar": "بُعد: عدد أرقام المتجه",
+   "en": "the number of values in a vector"
+  },
+  "ex": "The model outputs 384 dimensions."
+ },
+ {
+  "w": 37,
+  "t": "sentence-transformers",
+  "m": {
+   "ar": "مكتبة لموديلات embeddings مفتوحة",
+   "en": "a library for open embedding models"
+  },
+  "ex": "sentence-transformers runs locally."
+ },
+ {
+  "w": 37,
+  "t": "chunking",
+  "m": {
+   "ar": "تقطيع المستند لقطع",
+   "en": "splitting a document into pieces"
+  },
+  "ex": "Good chunking improves answers."
+ },
+ {
+  "w": 37,
+  "t": "chunk overlap",
+  "m": {
+   "ar": "تداخل بين القطع",
+   "en": "words shared by neighbouring chunks"
+  },
+  "ex": "Use a small chunk overlap."
+ },
+ {
+  "w": 37,
+  "t": "context window",
+  "m": {
+   "ar": "أقصى نص الموديل يقدر ياخده",
+   "en": "the maximum text a model can read at once"
+  },
+  "ex": "The whole manual won’t fit the context window."
+ },
+ {
+  "w": 37,
+  "t": "metadata",
+  "m": {
+   "ar": "بيانات عن البيانات",
+   "en": "data describing other data"
+  },
+  "ex": "Filter chunks by metadata first."
+ },
+ {
+  "w": 37,
+  "t": "source document",
+  "m": {
+   "ar": "المستند الأصلي",
+   "en": "the original document a chunk comes from"
+  },
+  "ex": "Link every answer to its source document."
+ },
+ {
+  "w": 37,
+  "t": "semantic search",
+  "m": {
+   "ar": "بحث بالمعنى",
+   "en": "search by meaning rather than exact words"
+  },
+  "ex": "Semantic search finds synonyms."
+ },
+ {
+  "w": 37,
+  "t": "keyword search",
+  "m": {
+   "ar": "بحث بالكلمات",
+   "en": "search by matching words"
+  },
+  "ex": "Keyword search finds invoice numbers."
+ },
+ {
+  "w": 37,
+  "t": "bm25",
+  "m": {
+   "ar": "خوارزمية ترتيب بالكلمات",
+   "en": "a keyword ranking algorithm"
+  },
+  "ex": "BM25 favours rare words."
+ },
+ {
+  "w": 37,
+  "t": "hybrid search",
+  "m": {
+   "ar": "بحث هجين",
+   "en": "combining semantic and keyword search"
+  },
+  "ex": "Hybrid search fixed the code lookups."
+ },
+ {
+  "w": 37,
+  "t": "reciprocal rank fusion",
+  "m": {
+   "ar": "دمج القوايم بالترتيب",
+   "en": "merging rankings by 1/(k + rank)"
+  },
+  "ex": "Reciprocal rank fusion needs no score tuning."
+ },
+ {
+  "w": 37,
+  "t": "vector database",
+  "m": {
+   "ar": "قاعدة بيانات للمتجهات",
+   "en": "a store for searching vectors"
+  },
+  "ex": "You may not need a separate vector database."
+ },
+ {
+  "w": 37,
+  "t": "pgvector",
+  "m": {
+   "ar": "إضافة متجهات لـ Postgres",
+   "en": "a Postgres extension for vectors"
+  },
+  "ex": "pgvector keeps vectors next to your data."
+ },
+ {
+  "w": 37,
+  "t": "top-k",
+  "m": {
+   "ar": "أقرب k نتيجة",
+   "en": "the k best results"
+  },
+  "ex": "Retrieve the top-k chunks, k = 5."
+ },
+ {
+  "w": 37,
+  "t": "hnsw",
+  "m": {
+   "ar": "فهرس بحث تقريبي سريع",
+   "en": "a fast approximate nearest-neighbour index"
+  },
+  "ex": "An hnsw index speeds up search."
+ },
+ {
+  "w": 37,
+  "t": "rag",
+  "m": {
+   "ar": "توليد مدعوم بالاسترجاع",
+   "en": "retrieval-augmented generation"
+  },
+  "ex": "RAG answers from your own documents."
+ },
+ {
+  "w": 37,
+  "t": "retrieval",
+  "m": {
+   "ar": "استرجاع القطع المناسبة",
+   "en": "fetching the relevant pieces"
+  },
+  "ex": "Bad retrieval means bad answers."
+ },
+ {
+  "w": 37,
+  "t": "grounding",
+  "m": {
+   "ar": "ربط الإجابة بالمصادر",
+   "en": "basing an answer on given sources"
+  },
+  "ex": "Grounding reduces made-up answers."
+ },
+ {
+  "w": 37,
+  "t": "citation",
+  "m": {
+   "ar": "استشهاد بمصدر",
+   "en": "a reference to a source"
+  },
+  "ex": "Every answer needs a citation."
+ },
+ {
+  "w": 37,
+  "t": "prompt",
+  "m": {
+   "ar": "التعليمات والبيانات اللي بتتبعت للنموذج",
+   "en": "the instructions and data sent to a model"
+  },
+  "ex": "Keep the RAG prompt in a constant."
+ },
+ {
+  "w": 37,
+  "t": "document block",
+  "m": {
+   "ar": "جزء مستند في رسالة Claude",
+   "en": "a document part in a Claude message"
+  },
+  "ex": "Enable citations on each document block."
+ },
+ {
+  "w": 37,
+  "t": "golden set",
+  "m": {
+   "ar": "مجموعة أسئلة بإجاباتها الصح",
+   "en": "questions with known correct answers"
+  },
+  "ex": "Run the golden set after every change."
+ },
+ {
+  "w": 37,
+  "t": "recall at k",
+  "m": {
+   "ar": "الإجابة الصح ظهرت في أول k؟",
+   "en": "whether the right item is in the top k"
+  },
+  "ex": "Recall at 5 rose to 0.92."
+ },
+ {
+  "w": 37,
+  "t": "mrr",
+  "m": {
+   "ar": "متوسط مقلوب ترتيب أول إجابة صح",
+   "en": "mean reciprocal rank"
+  },
+  "ex": "MRR rewards the right chunk ranking first."
+ },
+ {
+  "w": 37,
+  "t": "arabic normalisation",
+  "m": {
+   "ar": "توحيد أشكال الحروف العربية",
+   "en": "unifying Arabic letter forms"
+  },
+  "ex": "Arabic normalisation unified the two forms of taa marbuta."
+ },
+ {
+  "w": 37,
+  "t": "stale index",
+  "m": {
+   "ar": "فهرس قديم مش متحدّث",
+   "en": "an index that no longer matches the documents"
+  },
+  "ex": "A stale index gives confident wrong answers."
+ },
+ {
+  "w": 37,
+  "t": "re-index",
+  "m": {
+   "ar": "تعيد بناء الفهرس",
+   "en": "to rebuild the search index"
+  },
+  "ex": "Re-index a file when its hash changes."
  }
 ];
