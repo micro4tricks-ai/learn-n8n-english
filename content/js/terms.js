@@ -3771,5 +3771,1229 @@ JOURNEY_TERMS["js"] = [
    "en": "a server returning what you sent, for testing"
   },
   "ex": "httpbin.org/post"
+ },
+ {
+  "w": 13,
+  "t": "asynchronous",
+  "m": {
+   "ar": "غير متزامن: بيكمّل من غير ما يستنى",
+   "en": "not waiting: the code carries on and handles the result later"
+  },
+  "ex": "fetch is asynchronous."
+ },
+ {
+  "w": 13,
+  "t": "synchronous",
+  "m": {
+   "ar": "متزامن: بيستنى كل سطر يخلص",
+   "en": "waiting for each line to finish"
+  },
+  "ex": "A synchronous loop blocks the page."
+ },
+ {
+  "w": 13,
+  "t": "non-blocking",
+  "m": {
+   "ar": "مش بيوقّف باقي الشغل",
+   "en": "not stopping other work"
+  },
+  "ex": "Node handles many requests because I/O is non-blocking."
+ },
+ {
+  "w": 13,
+  "t": "event loop",
+  "m": {
+   "ar": "الحلقة اللي بتختار الكود اللي يشتغل بعد كده",
+   "en": "the loop that picks the next code to run"
+  },
+  "ex": "The event loop runs microtasks before timers."
+ },
+ {
+  "w": 13,
+  "t": "call stack",
+  "m": {
+   "ar": "كومة الدوال اللي شغالة دلوقتي",
+   "en": "the stack of functions running now"
+  },
+  "ex": "The error shows the call stack."
+ },
+ {
+  "w": 13,
+  "t": "microtask",
+  "m": {
+   "ar": "مهمة صغيرة زي رد Promise بتشتغل قبل الـ timers",
+   "en": "a small job such as a promise reaction, run before timers"
+  },
+  "ex": "Promise callbacks are microtasks."
+ },
+ {
+  "w": 13,
+  "t": "callback hell",
+  "m": {
+   "ar": "تداخل callbacks كتير جوه بعض",
+   "en": "many nested callbacks"
+  },
+  "ex": "async/await removes callback hell."
+ },
+ {
+  "w": 13,
+  "t": "promise",
+  "m": {
+   "ar": "كائن بيمثّل نتيجة جاية بعدين",
+   "en": "an object standing for a result that comes later"
+  },
+  "ex": "fetch returns a promise."
+ },
+ {
+  "w": 13,
+  "t": "pending",
+  "m": {
+   "ar": "لسه مستني",
+   "en": "still waiting"
+  },
+  "ex": "The promise is pending until the reply arrives."
+ },
+ {
+  "w": 13,
+  "t": "fulfilled",
+  "m": {
+   "ar": "اتحسم بنجاح بقيمة",
+   "en": "settled successfully with a value"
+  },
+  "ex": "A fulfilled promise calls then."
+ },
+ {
+  "w": 13,
+  "t": "rejected",
+  "m": {
+   "ar": "اتحسم بفشل بخطأ",
+   "en": "settled with a failure"
+  },
+  "ex": "A rejected promise calls catch."
+ },
+ {
+  "w": 13,
+  "t": "settled",
+  "m": {
+   "ar": "اتحسم: نجح أو فشل",
+   "en": "finished: fulfilled or rejected"
+  },
+  "ex": "finally runs once the promise is settled."
+ },
+ {
+  "w": 13,
+  "t": "chaining",
+  "m": {
+   "ar": "ربط خطوات ورا بعض",
+   "en": "linking steps one after another"
+  },
+  "ex": "Promise chaining keeps the code flat."
+ },
+ {
+  "w": 13,
+  "t": "sleep",
+  "m": {
+   "ar": "دالة بتستنى مدة",
+   "en": "a function that waits for a time"
+  },
+  "ex": "await sleep(1000) between retries."
+ },
+ {
+  "w": 13,
+  "t": "async",
+  "m": {
+   "ar": "كلمة بتخلّي الدالة ترجع Promise",
+   "en": "the keyword making a function return a promise"
+  },
+  "ex": "Mark the handler async."
+ },
+ {
+  "w": 13,
+  "t": "await",
+  "m": {
+   "ar": "استنى Promise جوه دالة async",
+   "en": "wait for a promise inside an async function"
+  },
+  "ex": "await the fetch before reading JSON."
+ },
+ {
+  "w": 13,
+  "t": "sequential",
+  "m": {
+   "ar": "ورا بعض واحدة واحدة",
+   "en": "one after another"
+  },
+  "ex": "Sequential requests add up their times."
+ },
+ {
+  "w": 13,
+  "t": "parallel",
+  "m": {
+   "ar": "مع بعض في نفس الوقت",
+   "en": "at the same time"
+  },
+  "ex": "Run independent requests in parallel."
+ },
+ {
+  "w": 13,
+  "t": "top-level await",
+  "m": {
+   "ar": "await برة أي دالة في module",
+   "en": "await outside any function in a module"
+  },
+  "ex": "Top-level await keeps scripts short."
+ },
+ {
+  "w": 13,
+  "t": "async iterator",
+  "m": {
+   "ar": "مصدر بيجيب قيم على دفعات بـ for await",
+   "en": "a source giving values in batches with for await"
+  },
+  "ex": "Read API pages with an async iterator."
+ },
+ {
+  "w": 13,
+  "t": "for await",
+  "m": {
+   "ar": "لفّة على async iterator",
+   "en": "a loop over an async iterator"
+  },
+  "ex": "for await reads each page in turn."
+ },
+ {
+  "w": 13,
+  "t": "promise.all",
+  "m": {
+   "ar": "استنى الكل ينجح",
+   "en": "wait for all to succeed"
+  },
+  "ex": "Promise.all fails fast on the first error."
+ },
+ {
+  "w": 13,
+  "t": "promise.allsettled",
+  "m": {
+   "ar": "استنى الكل وهات نتيجة كل واحد",
+   "en": "wait for all and get each result"
+  },
+  "ex": "Use Promise.allSettled for batch reports."
+ },
+ {
+  "w": 13,
+  "t": "promise.race",
+  "m": {
+   "ar": "أول واحد يتحسم يكسب",
+   "en": "the first to settle wins"
+  },
+  "ex": "Promise.race builds a timeout."
+ },
+ {
+  "w": 13,
+  "t": "promise.any",
+  "m": {
+   "ar": "أول واحد ينجح يكسب",
+   "en": "the first to succeed wins"
+  },
+  "ex": "Promise.any tries backup mirrors."
+ },
+ {
+  "w": 13,
+  "t": "timeout",
+  "m": {
+   "ar": "مهلة قصوى للانتظار",
+   "en": "the longest time to wait"
+  },
+  "ex": "Every API call needs a timeout."
+ },
+ {
+  "w": 13,
+  "t": "abortcontroller",
+  "m": {
+   "ar": "أداة لإلغاء شغل غير متزامن",
+   "en": "a tool for cancelling async work"
+  },
+  "ex": "AbortController cancels the old search."
+ },
+ {
+  "w": 13,
+  "t": "cancellation",
+  "m": {
+   "ar": "إلغاء شغل بدأ",
+   "en": "stopping work that has started"
+  },
+  "ex": "Cancellation avoids stale results."
+ },
+ {
+  "w": 13,
+  "t": "concurrency",
+  "m": {
+   "ar": "عدد المهام الشغالة في نفس الوقت",
+   "en": "how many jobs run at the same time"
+  },
+  "ex": "Keep concurrency at 3 for this API."
+ },
+ {
+  "w": 13,
+  "t": "worker pool",
+  "m": {
+   "ar": "مجموعة عمّال بتاخد المهام بالدور",
+   "en": "a group of workers taking jobs in turn"
+  },
+  "ex": "A worker pool of 5 handles the list."
+ },
+ {
+  "w": 13,
+  "t": "rate limiting",
+  "m": {
+   "ar": "تحديد عدد الطلبات في مدة",
+   "en": "limiting how many requests are made in a time"
+  },
+  "ex": "Rate limiting avoids 429 errors."
+ },
+ {
+  "w": 13,
+  "t": "throttle",
+  "m": {
+   "ar": "تبطيء معدل التنفيذ لحد معين",
+   "en": "to slow the rate of calls to a limit"
+  },
+  "ex": "Throttle the sync to 2 calls per second."
+ },
+ {
+  "w": 13,
+  "t": "jitter",
+  "m": {
+   "ar": "شوية عشوائية في وقت الانتظار",
+   "en": "a little randomness in the wait time"
+  },
+  "ex": "Add jitter so clients do not retry together."
+ },
+ {
+  "w": 13,
+  "t": "unhandled rejection",
+  "m": {
+   "ar": "Promise فشل من غير catch",
+   "en": "a failed promise with no catch"
+  },
+  "ex": "An unhandled rejection crashed the script."
+ },
+ {
+  "w": 13,
+  "t": "transient error",
+  "m": {
+   "ar": "خطأ مؤقت بيروح لوحده",
+   "en": "a temporary error that goes away"
+  },
+  "ex": "Retry transient errors only."
+ },
+ {
+  "w": 14,
+  "t": "rest api",
+  "m": {
+   "ar": "API بروابط لكل مورد وأفعال HTTP",
+   "en": "an API with a URL per resource and HTTP verbs"
+  },
+  "ex": "The shop exposes a REST API."
+ },
+ {
+  "w": 14,
+  "t": "endpoint",
+  "m": {
+   "ar": "رابط محدد في الـ API",
+   "en": "a specific URL in an API"
+  },
+  "ex": "The /orders endpoint lists orders."
+ },
+ {
+  "w": 14,
+  "t": "res.ok",
+  "m": {
+   "ar": "true لو الـ status من 200 لـ 299",
+   "en": "true when the status is 200–299"
+  },
+  "ex": "Always check res.ok after fetch."
+ },
+ {
+  "w": 14,
+  "t": "response.json",
+  "m": {
+   "ar": "قراءة جسم الرد كـ JSON",
+   "en": "reading the reply body as JSON"
+  },
+  "ex": "await response.json() returns an object."
+ },
+ {
+  "w": 14,
+  "t": "network error",
+  "m": {
+   "ar": "مفيش رد خالص من السيرفر",
+   "en": "no reply from the server at all"
+  },
+  "ex": "fetch rejects only on a network error."
+ },
+ {
+  "w": 14,
+  "t": "http status",
+  "m": {
+   "ar": "رقم بيوصف نتيجة الطلب",
+   "en": "a number describing the request result"
+  },
+  "ex": "Log the HTTP status with every failure."
+ },
+ {
+  "w": 14,
+  "t": "post request",
+  "m": {
+   "ar": "طلب بيبعت بيانات جديدة",
+   "en": "a request sending new data"
+  },
+  "ex": "The form makes a POST request."
+ },
+ {
+  "w": 14,
+  "t": "content-type",
+  "m": {
+   "ar": "header بيقول نوع الجسم",
+   "en": "a header saying the body’s type"
+  },
+  "ex": "Set Content-Type to application/json."
+ },
+ {
+  "w": 14,
+  "t": "query string",
+  "m": {
+   "ar": "الجزء بعد ? في الرابط",
+   "en": "the part after ? in a URL"
+  },
+  "ex": "Put the filters in the query string."
+ },
+ {
+  "w": 14,
+  "t": "urlsearchparams",
+  "m": {
+   "ar": "أداة لبناء وقراءة الـ query string",
+   "en": "a tool to build and read query strings"
+  },
+  "ex": "URLSearchParams encodes Arabic safely."
+ },
+ {
+  "w": 14,
+  "t": "put",
+  "m": {
+   "ar": "استبدال كائن كامل",
+   "en": "replacing a whole object"
+  },
+  "ex": "PUT sends the full record."
+ },
+ {
+  "w": 14,
+  "t": "patch",
+  "m": {
+   "ar": "تعديل حقول محددة",
+   "en": "changing some fields"
+  },
+  "ex": "PATCH only the status field."
+ },
+ {
+  "w": 14,
+  "t": "idempotent",
+  "m": {
+   "ar": "تكراره بيدّي نفس النتيجة",
+   "en": "repeating it gives the same result"
+  },
+  "ex": "DELETE is idempotent; POST is not."
+ },
+ {
+  "w": 14,
+  "t": "request header",
+  "m": {
+   "ar": "معلومة مبعوتة مع الطلب",
+   "en": "information sent with a request"
+  },
+  "ex": "Add the token as a request header."
+ },
+ {
+  "w": 14,
+  "t": "response header",
+  "m": {
+   "ar": "معلومة راجعة مع الرد",
+   "en": "information returned with a reply"
+  },
+  "ex": "Read the Retry-After response header."
+ },
+ {
+  "w": 14,
+  "t": "bearer token",
+  "m": {
+   "ar": "توكن بيتبعت في Authorization",
+   "en": "a token sent in Authorization"
+  },
+  "ex": "Send the bearer token on each call."
+ },
+ {
+  "w": 14,
+  "t": "api key",
+  "m": {
+   "ar": "مفتاح سري للدخول على API",
+   "en": "a secret key for an API"
+  },
+  "ex": "Never ship an API key to the browser."
+ },
+ {
+  "w": 14,
+  "t": "proxy",
+  "m": {
+   "ar": "وسيط بيبعت الطلب بالنيابة عنك",
+   "en": "a middleman sending the request for you"
+  },
+  "ex": "n8n acts as a proxy for the AI API."
+ },
+ {
+  "w": 14,
+  "t": "cors",
+  "m": {
+   "ar": "قواعد المتصفح للطلبات بين المواقع",
+   "en": "browser rules for cross-site requests"
+  },
+  "ex": "The API must allow CORS for our site."
+ },
+ {
+  "w": 14,
+  "t": "preflight",
+  "m": {
+   "ar": "طلب OPTIONS قبل الطلب الحقيقي",
+   "en": "an OPTIONS request before the real one"
+  },
+  "ex": "JSON requests trigger a preflight."
+ },
+ {
+  "w": 14,
+  "t": "api client",
+  "m": {
+   "ar": "كود موحّد لكل طلبات API",
+   "en": "shared code for all API requests"
+  },
+  "ex": "The API client adds the token."
+ },
+ {
+  "w": 14,
+  "t": "base url",
+  "m": {
+   "ar": "أول الرابط المشترك لكل الطلبات",
+   "en": "the common start of every request URL"
+  },
+  "ex": "Change the base URL for staging."
+ },
+ {
+  "w": 14,
+  "t": "httperror",
+  "m": {
+   "ar": "خطأ مخصوص فيه الـ status",
+   "en": "a custom error holding the status"
+  },
+  "ex": "Catch HttpError and check status."
+ },
+ {
+  "w": 14,
+  "t": "retry-after",
+  "m": {
+   "ar": "header بيقول تستنى قد إيه",
+   "en": "a header saying how long to wait"
+  },
+  "ex": "Wait for Retry-After seconds."
+ },
+ {
+  "w": 14,
+  "t": "cache",
+  "m": {
+   "ar": "تخزين مؤقت لنتايج متكررة",
+   "en": "temporary storage of repeated results"
+  },
+  "ex": "The cache cut requests by 90%."
+ },
+ {
+  "w": 14,
+  "t": "ttl",
+  "m": {
+   "ar": "مدة صلاحية الكاش",
+   "en": "how long a cached value stays valid"
+  },
+  "ex": "Use a TTL of one minute for rates."
+ },
+ {
+  "w": 14,
+  "t": "limit",
+  "m": {
+   "ar": "عدد العناصر في الصفحة",
+   "en": "how many items per page"
+  },
+  "ex": "Ask for limit=50."
+ },
+ {
+  "w": 14,
+  "t": "offset",
+  "m": {
+   "ar": "تبدأ من عنصر رقم كام",
+   "en": "which item to start from"
+  },
+  "ex": "Increase the offset by the page size."
+ },
+ {
+  "w": 14,
+  "t": "mapper",
+  "m": {
+   "ar": "دالة بتحوّل شكل بيانات لشكل تاني",
+   "en": "a function turning one data shape into another"
+  },
+  "ex": "The mapper renames the API fields."
+ },
+ {
+  "w": 14,
+  "t": "object.groupby",
+  "m": {
+   "ar": "تقسيم عناصر لمجموعات بمفتاح",
+   "en": "splitting items into groups by a key"
+  },
+  "ex": "Object.groupBy splits orders by city."
+ },
+ {
+  "w": 14,
+  "t": "intl.numberformat",
+  "m": {
+   "ar": "تنسيق الأرقام والعملات حسب اللغة",
+   "en": "formatting numbers and currencies by locale"
+  },
+  "ex": "Intl.NumberFormat shows EGP correctly."
+ },
+ {
+  "w": 15,
+  "t": "es module",
+  "m": {
+   "ar": "ملف JS بـ import/export",
+   "en": "a JS file using import/export"
+  },
+  "ex": "Every file is an ES module."
+ },
+ {
+  "w": 15,
+  "t": "module scope",
+  "m": {
+   "ar": "نطاق خاص بكل ملف",
+   "en": "the private scope of each file"
+  },
+  "ex": "Variables stay in module scope."
+ },
+ {
+  "w": 15,
+  "t": "named export",
+  "m": {
+   "ar": "تصدير باسم محدد",
+   "en": "an export with a fixed name"
+  },
+  "ex": "Import the named export in braces."
+ },
+ {
+  "w": 15,
+  "t": "default export",
+  "m": {
+   "ar": "التصدير الأساسي للملف",
+   "en": "the main export of a file"
+  },
+  "ex": "A file has at most one default export."
+ },
+ {
+  "w": 15,
+  "t": "commonjs",
+  "m": {
+   "ar": "نظام الموديولات القديم في Node",
+   "en": "Node’s old module system"
+  },
+  "ex": "CommonJS uses require."
+ },
+ {
+  "w": 15,
+  "t": "dynamic import",
+  "m": {
+   "ar": "تحميل موديول وقت التشغيل",
+   "en": "loading a module at run time"
+  },
+  "ex": "Use a dynamic import for the PDF library."
+ },
+ {
+  "w": 15,
+  "t": "npm",
+  "m": {
+   "ar": "مدير حزم Node",
+   "en": "Node’s package manager"
+  },
+  "ex": "Install it with npm."
+ },
+ {
+  "w": 15,
+  "t": "dependency",
+  "m": {
+   "ar": "مكتبة البرنامج محتاجها",
+   "en": "a package the program needs"
+  },
+  "ex": "luxon is a dependency."
+ },
+ {
+  "w": 15,
+  "t": "devdependency",
+  "m": {
+   "ar": "مكتبة للتطوير بس",
+   "en": "a package needed only for development"
+  },
+  "ex": "vitest is a devDependency."
+ },
+ {
+  "w": 15,
+  "t": "node_modules",
+  "m": {
+   "ar": "فولدر المكتبات المتثبتة",
+   "en": "the folder of installed packages"
+  },
+  "ex": "Never commit node_modules."
+ },
+ {
+  "w": 15,
+  "t": "semver",
+  "m": {
+   "ar": "نظام أرقام الإصدارات",
+   "en": "the version numbering scheme"
+  },
+  "ex": "A semver major bump may break you."
+ },
+ {
+  "w": 15,
+  "t": "caret range",
+  "m": {
+   "ar": "نطاق ^ بيسمح بالـ minor والـ patch",
+   "en": "a ^ range allowing minor and patch updates"
+  },
+  "ex": "A caret range accepts 3.9.0."
+ },
+ {
+  "w": 15,
+  "t": "tilde range",
+  "m": {
+   "ar": "نطاق ~ بيسمح بالـ patch بس",
+   "en": "a ~ range allowing patch updates only"
+  },
+  "ex": "Use a tilde range for risky packages."
+ },
+ {
+  "w": 15,
+  "t": "package-lock.json",
+  "m": {
+   "ar": "ملف بيثبّت الإصدارات بالظبط",
+   "en": "a file pinning exact versions"
+  },
+  "ex": "Commit package-lock.json."
+ },
+ {
+  "w": 15,
+  "t": "transitive dependency",
+  "m": {
+   "ar": "مكتبة جاية مع مكتبة تانية",
+   "en": "a package pulled in by another package"
+  },
+  "ex": "The bug was in a transitive dependency."
+ },
+ {
+  "w": 15,
+  "t": "npm ci",
+  "m": {
+   "ar": "تثبيت مطابق للـ lockfile",
+   "en": "an install matching the lockfile exactly"
+  },
+  "ex": "CI runs npm ci."
+ },
+ {
+  "w": 15,
+  "t": "npm script",
+  "m": {
+   "ar": "أمر باسم في package.json",
+   "en": "a named command in package.json"
+  },
+  "ex": "Run the npm script with npm run dev."
+ },
+ {
+  "w": 15,
+  "t": "npx",
+  "m": {
+   "ar": "تشغيل أداة npm من غير تثبيت عام",
+   "en": "running an npm tool without a global install"
+  },
+  "ex": "npx eslint checks the code."
+ },
+ {
+  "w": 15,
+  "t": "environment variable",
+  "m": {
+   "ar": "إعداد بييجي من البيئة مش الكود",
+   "en": "a setting coming from the environment, not the code"
+  },
+  "ex": "Read the token from an environment variable."
+ },
+ {
+  "w": 15,
+  "t": ".env file",
+  "m": {
+   "ar": "ملف متغيرات البيئة المحلي",
+   "en": "the local file of environment variables"
+  },
+  "ex": "Keep the .env file out of Git."
+ },
+ {
+  "w": 15,
+  "t": "loadenvfile",
+  "m": {
+   "ar": "دالة Node لقراءة ملف .env",
+   "en": "Node’s function for reading a .env file"
+  },
+  "ex": "process.loadEnvFile() needs no package."
+ },
+ {
+  "w": 15,
+  "t": "watch mode",
+  "m": {
+   "ar": "إعادة التشغيل تلقائي عند الحفظ",
+   "en": "restarting automatically on save"
+  },
+  "ex": "node --watch is watch mode."
+ },
+ {
+  "w": 15,
+  "t": "module script",
+  "m": {
+   "ar": "سكربت بـ type=\"module\"",
+   "en": "a script with type=\"module\""
+  },
+  "ex": "A module script is deferred."
+ },
+ {
+  "w": 15,
+  "t": "import map",
+  "m": {
+   "ar": "خريطة أسماء مكتبات لروابط",
+   "en": "a map from package names to URLs"
+  },
+  "ex": "The import map points luxon to a CDN."
+ },
+ {
+  "w": 15,
+  "t": "vite",
+  "m": {
+   "ar": "أداة تطوير وبناء للواجهات",
+   "en": "a dev and build tool for front-ends"
+  },
+  "ex": "Vite starts in under a second."
+ },
+ {
+  "w": 15,
+  "t": "dev server",
+  "m": {
+   "ar": "سيرفر محلي للتطوير",
+   "en": "a local server for development"
+  },
+  "ex": "The dev server reloads on save."
+ },
+ {
+  "w": 15,
+  "t": "hot reload",
+  "m": {
+   "ar": "تحديث الصفحة فورًا عند الحفظ",
+   "en": "updating the page instantly on save"
+  },
+  "ex": "Hot reload keeps the form state."
+ },
+ {
+  "w": 15,
+  "t": "build step",
+  "m": {
+   "ar": "تجهيز الكود للنشر",
+   "en": "preparing code for deployment"
+  },
+  "ex": "The build step outputs dist/."
+ },
+ {
+  "w": 15,
+  "t": "bundler",
+  "m": {
+   "ar": "أداة بتجمع الملفات في ملفات قليلة",
+   "en": "a tool combining files into a few"
+  },
+  "ex": "The bundler resolves every import."
+ },
+ {
+  "w": 15,
+  "t": "tree shaking",
+  "m": {
+   "ar": "شيل الكود اللي مش مستخدم",
+   "en": "removing unused code"
+  },
+  "ex": "Tree shaking dropped 40 KB."
+ },
+ {
+  "w": 15,
+  "t": "minify",
+  "m": {
+   "ar": "تصغير الكود بشيل المسافات والأسماء الطويلة",
+   "en": "shrinking code by removing spaces and long names"
+  },
+  "ex": "Minify the bundle for production."
+ },
+ {
+  "w": 15,
+  "t": "source map",
+  "m": {
+   "ar": "ملف بيربط الكود المصغّر بالأصلي",
+   "en": "a file linking minified code to the original"
+  },
+  "ex": "The source map shows the real line."
+ },
+ {
+  "w": 15,
+  "t": "built-in module",
+  "m": {
+   "ar": "موديول جاي مع Node",
+   "en": "a module that ships with Node"
+  },
+  "ex": "node:crypto is a built-in module."
+ },
+ {
+  "w": 15,
+  "t": "supply chain",
+  "m": {
+   "ar": "كل الكود اللي بتعتمد عليه من برة",
+   "en": "all the outside code you depend on"
+  },
+  "ex": "Lockfiles protect the supply chain."
+ },
+ {
+  "w": 15,
+  "t": "lockfile",
+  "m": {
+   "ar": "ملف تثبيت الإصدارات",
+   "en": "the file that pins versions"
+  },
+  "ex": "Commit the lockfile."
+ },
+ {
+  "w": 15,
+  "t": "npm audit",
+  "m": {
+   "ar": "فحص الثغرات المعروفة في المكتبات",
+   "en": "checking packages for known vulnerabilities"
+  },
+  "ex": "npm audit found 2 high issues."
+ },
+ {
+  "w": 15,
+  "t": "license",
+  "m": {
+   "ar": "رخصة استخدام الكود",
+   "en": "the terms for using the code"
+  },
+  "ex": "Check the license before adding."
+ },
+ {
+  "w": 15,
+  "t": "deprecated",
+  "m": {
+   "ar": "متوقف ومش موصى بيه",
+   "en": "retired and no longer recommended"
+  },
+  "ex": "That package is deprecated."
+ },
+ {
+  "w": 15,
+  "t": "registry",
+  "m": {
+   "ar": "المخزن اللي npm بينزّل منه",
+   "en": "the store npm downloads from"
+  },
+  "ex": "The npm registry hosts the package."
+ },
+ {
+  "w": 16,
+  "t": "fs/promises",
+  "m": {
+   "ar": "نسخة fs اللي بترجع Promises",
+   "en": "the version of fs returning promises"
+  },
+  "ex": "Import readFile from node:fs/promises."
+ },
+ {
+  "w": 16,
+  "t": "readfile",
+  "m": {
+   "ar": "قراءة ملف كامل",
+   "en": "reading a whole file"
+  },
+  "ex": "readFile with \"utf8\" returns text."
+ },
+ {
+  "w": 16,
+  "t": "writefile",
+  "m": {
+   "ar": "كتابة ملف كامل (بيستبدل)",
+   "en": "writing a whole file (replacing it)"
+  },
+  "ex": "writeFile overwrites the old report."
+ },
+ {
+  "w": 16,
+  "t": "encoding",
+  "m": {
+   "ar": "طريقة تحويل النص لـ bytes",
+   "en": "how text is turned into bytes"
+  },
+  "ex": "Use utf8 encoding for Arabic."
+ },
+ {
+  "w": 16,
+  "t": "enoent",
+  "m": {
+   "ar": "كود خطأ «الملف مش موجود»",
+   "en": "the «no such file» error code"
+  },
+  "ex": "ENOENT means the file is missing."
+ },
+ {
+  "w": 16,
+  "t": "state file",
+  "m": {
+   "ar": "ملف بيحفظ آخر نقطة وصلها السكربت",
+   "en": "a file saving where the script got to"
+  },
+  "ex": "The state file holds the last id."
+ },
+ {
+  "w": 16,
+  "t": "path.join",
+  "m": {
+   "ar": "جمع أجزاء مسار بالفاصل الصح",
+   "en": "joining path parts with the right separator"
+  },
+  "ex": "path.join works on Windows and Linux."
+ },
+ {
+  "w": 16,
+  "t": "path.resolve",
+  "m": {
+   "ar": "تحويل مسار لمسار كامل",
+   "en": "turning a path into an absolute one"
+  },
+  "ex": "path.resolve starts from cwd."
+ },
+ {
+  "w": 16,
+  "t": "absolute path",
+  "m": {
+   "ar": "مسار كامل من الجذر",
+   "en": "a full path from the root"
+  },
+  "ex": "Log the absolute path of the report."
+ },
+ {
+  "w": 16,
+  "t": "working directory",
+  "m": {
+   "ar": "الفولدر اللي شغّلت منه الأمر",
+   "en": "the folder you ran the command from"
+  },
+  "ex": "Relative paths use the working directory."
+ },
+ {
+  "w": 16,
+  "t": "import.meta.dirname",
+  "m": {
+   "ar": "فولدر ملف الموديول الحالي",
+   "en": "the folder of the current module file"
+  },
+  "ex": "Read the template via import.meta.dirname."
+ },
+ {
+  "w": 16,
+  "t": "path traversal",
+  "m": {
+   "ar": "الخروج من الفولدر بـ ../",
+   "en": "escaping a folder with ../"
+  },
+  "ex": "Clean names to stop path traversal."
+ },
+ {
+  "w": 16,
+  "t": "process.argv",
+  "m": {
+   "ar": "الأمر والـ arguments اللي اتشغّل بيها السكربت",
+   "en": "the command and arguments the script ran with"
+  },
+  "ex": "Read the month from process.argv."
+ },
+ {
+  "w": 16,
+  "t": "process.exit",
+  "m": {
+   "ar": "إنهاء البرنامج بكود",
+   "en": "ending the program with a code"
+  },
+  "ex": "Prefer process.exitCode to process.exit."
+ },
+ {
+  "w": 16,
+  "t": "stdout",
+  "m": {
+   "ar": "مخرج النتيجة",
+   "en": "the output stream for results"
+  },
+  "ex": "Pipe stdout into a file."
+ },
+ {
+  "w": 16,
+  "t": "stderr",
+  "m": {
+   "ar": "مخرج الرسايل والأخطاء",
+   "en": "the output stream for messages and errors"
+  },
+  "ex": "Warnings go to stderr."
+ },
+ {
+  "w": 16,
+  "t": "stdin",
+  "m": {
+   "ar": "مدخل البيانات للبرنامج",
+   "en": "the input stream of a program"
+  },
+  "ex": "Read CSV lines from stdin."
+ },
+ {
+  "w": 16,
+  "t": "signal",
+  "m": {
+   "ar": "إشارة من النظام للبرنامج",
+   "en": "a notice from the system to a program"
+  },
+  "ex": "SIGTERM is the stop signal."
+ },
+ {
+  "w": 16,
+  "t": "graceful shutdown",
+  "m": {
+   "ar": "إيقاف بعد إنهاء الشغل الحالي",
+   "en": "stopping after finishing current work"
+  },
+  "ex": "Graceful shutdown saves the state."
+ },
+ {
+  "w": 16,
+  "t": "child process",
+  "m": {
+   "ar": "برنامج بتشغّله من برنامجك",
+   "en": "a program started by your program"
+  },
+  "ex": "ffmpeg runs as a child process."
+ },
+ {
+  "w": 16,
+  "t": "execfile",
+  "m": {
+   "ar": "تشغيل برنامج بـ arguments من غير shell",
+   "en": "running a program with arguments and no shell"
+  },
+  "ex": "execFile avoids command injection."
+ },
+ {
+  "w": 16,
+  "t": "spawn",
+  "m": {
+   "ar": "تشغيل برنامج ومتابعة مخرجه أول بأول",
+   "en": "starting a program and streaming its output"
+  },
+  "ex": "spawn shows the backup progress."
+ },
+ {
+  "w": 16,
+  "t": "command injection",
+  "m": {
+   "ar": "حقن أوامر عبر مدخلات",
+   "en": "injecting commands through input"
+  },
+  "ex": "exec with user input risks command injection."
+ },
+ {
+  "w": 16,
+  "t": "os module",
+  "m": {
+   "ar": "موديول معلومات النظام",
+   "en": "the module for system information"
+  },
+  "ex": "The os module gives the temp folder."
+ },
+ {
+  "w": 16,
+  "t": "temp folder",
+  "m": {
+   "ar": "فولدر الملفات المؤقتة",
+   "en": "the folder for temporary files"
+  },
+  "ex": "Delete the temp folder in finally."
+ },
+ {
+  "w": 16,
+  "t": "atomic write",
+  "m": {
+   "ar": "كتابة يا كاملة يا مفيش",
+   "en": "a write that is all or nothing"
+  },
+  "ex": "Use an atomic write for the report."
+ },
+ {
+  "w": 16,
+  "t": "rename",
+  "m": {
+   "ar": "تغيير اسم ملف أو نقله",
+   "en": "changing a file’s name or moving it"
+  },
+  "ex": "rename swaps in the finished file."
+ },
+ {
+  "w": 16,
+  "t": "glob",
+  "m": {
+   "ar": "نمط لاختيار ملفات",
+   "en": "a pattern for picking files"
+  },
+  "ex": "The glob **/*.csv finds every CSV."
+ },
+ {
+  "w": 16,
+  "t": "cli",
+  "m": {
+   "ar": "برنامج بيشتغل من سطر الأوامر",
+   "en": "a program run from the command line"
+  },
+  "ex": "The CLI has a --help flag."
+ },
+ {
+  "w": 16,
+  "t": "dry run",
+  "m": {
+   "ar": "تجربة بتوريك الخطة من غير تنفيذ",
+   "en": "a trial showing the plan without doing it"
+  },
+  "ex": "Run with --dry-run first."
+ },
+ {
+  "w": 16,
+  "t": "shebang",
+  "m": {
+   "ar": "السطر #! اللي بيحدد مشغّل السكربت",
+   "en": "the #! line naming the script’s interpreter"
+  },
+  "ex": "The shebang makes it executable on Linux."
  }
 ];
