@@ -8757,5 +8757,248 @@ JOURNEY_TERMS["n8n"] = [
    "en": "a deliberate test of killing parts"
   },
   "ex": "The chaos drill found a missing alert."
+ },
+ {
+  "w": 40,
+  "t": "observability",
+  "m": {
+   "ar": "القدرة تفهم اللي بيحصل جوه النظام",
+   "en": "being able to understand what happens inside a system"
+  },
+  "ex": "Observability starts with good logs."
+ },
+ {
+  "w": 40,
+  "t": "log level",
+  "m": {
+   "ar": "مستوى تفصيل اللوج",
+   "en": "how detailed the logs are"
+  },
+  "ex": "Use log level info in production."
+ },
+ {
+  "w": 40,
+  "t": "json logs",
+  "m": {
+   "ar": "لوج بصيغة JSON منظمة",
+   "en": "logs in structured JSON"
+  },
+  "ex": "JSON logs are easy to filter."
+ },
+ {
+  "w": 40,
+  "t": "log shipping",
+  "m": {
+   "ar": "نقل اللوج لمكان مركزي",
+   "en": "moving logs to a central place"
+  },
+  "ex": "Log shipping sends worker logs to Loki."
+ },
+ {
+  "w": 40,
+  "t": "loki",
+  "m": {
+   "ar": "نظام تخزين وبحث لوج مع Grafana",
+   "en": "a log store and search system with Grafana"
+  },
+  "ex": "Search errors in Loki."
+ },
+ {
+  "w": 40,
+  "t": "log streaming",
+  "m": {
+   "ar": "بث أحداث n8n المنظمة لأنظمة تانية",
+   "en": "sending n8n’s structured events elsewhere"
+  },
+  "ex": "Log streaming feeds the SIEM."
+ },
+ {
+  "w": 40,
+  "t": "metrics endpoint",
+  "m": {
+   "ar": "رابط بيطلّع المقاييس",
+   "en": "a URL exposing metrics"
+  },
+  "ex": "Keep the metrics endpoint internal."
+ },
+ {
+  "w": 40,
+  "t": "prometheus",
+  "m": {
+   "ar": "نظام جمع مقاييس بالوقت",
+   "en": "a time-series metrics system"
+  },
+  "ex": "Prometheus scrapes n8n every 15 s."
+ },
+ {
+  "w": 40,
+  "t": "grafana",
+  "m": {
+   "ar": "أداة لوحات ومراقبة",
+   "en": "a dashboard and monitoring tool"
+  },
+  "ex": "Grafana shows the failure rate."
+ },
+ {
+  "w": 40,
+  "t": "dashboard panel",
+  "m": {
+   "ar": "رسم واحد في لوحة",
+   "en": "one chart on a board"
+  },
+  "ex": "Each dashboard panel answers one question."
+ },
+ {
+  "w": 40,
+  "t": "business metric",
+  "m": {
+   "ar": "رقم بيقيس نتيجة للعميل",
+   "en": "a number measuring a result for the client"
+  },
+  "ex": "Invoices sent is a business metric."
+ },
+ {
+  "w": 40,
+  "t": "slo",
+  "m": {
+   "ar": "هدف خدمة بنسبة",
+   "en": "a service objective as a percentage"
+  },
+  "ex": "The SLO is 99% within 10 minutes."
+ },
+ {
+  "w": 40,
+  "t": "error budget",
+  "m": {
+   "ar": "المسموح يفشل في الفترة",
+   "en": "what may fail in the period"
+  },
+  "ex": "We spent 83% of the error budget."
+ },
+ {
+  "w": 40,
+  "t": "alert rule",
+  "m": {
+   "ar": "شرط بيطلق تنبيه",
+   "en": "a condition firing an alert"
+  },
+  "ex": "The alert rule waits 10 minutes."
+ },
+ {
+  "w": 40,
+  "t": "alertmanager",
+  "m": {
+   "ar": "أداة توجيه تنبيهات Prometheus",
+   "en": "the tool routing Prometheus alerts"
+  },
+  "ex": "Alertmanager sends critical alerts to Telegram."
+ },
+ {
+  "w": 40,
+  "t": "on-call",
+  "m": {
+   "ar": "الشخص المسؤول يرد على التنبيهات",
+   "en": "the person responsible for answering alerts"
+  },
+  "ex": "Sara is on-call this week."
+ },
+ {
+  "w": 40,
+  "t": "uptime",
+  "m": {
+   "ar": "نسبة الوقت والخدمة شغالة",
+   "en": "the share of time the service works"
+  },
+  "ex": "Uptime was 99.95% in September."
+ },
+ {
+  "w": 40,
+  "t": "business id",
+  "m": {
+   "ar": "رقم البيزنس زي رقم الطلب",
+   "en": "the business number such as the order id"
+  },
+  "ex": "Search runs by business id."
+ },
+ {
+  "w": 40,
+  "t": "custom execution data",
+  "m": {
+   "ar": "بيانات مخصصة بتتحفظ مع التشغيل",
+   "en": "custom data saved with a run"
+  },
+  "ex": "Set custom execution data for the order."
+ },
+ {
+  "w": 40,
+  "t": "correlation header",
+  "m": {
+   "ar": "header بيربط الطلب بالتشغيل",
+   "en": "a header linking a request to a run"
+  },
+  "ex": "Send a correlation header to the CRM."
+ },
+ {
+  "w": 40,
+  "t": "mttr",
+  "m": {
+   "ar": "متوسط وقت حل المشكلة",
+   "en": "mean time to resolve"
+  },
+  "ex": "Custom data cut our MTTR to 15 minutes."
+ },
+ {
+  "w": 40,
+  "t": "cardinality",
+  "m": {
+   "ar": "عدد القيم المختلفة لـ label",
+   "en": "how many different values a label has"
+  },
+  "ex": "Customer ids explode cardinality."
+ },
+ {
+  "w": 40,
+  "t": "incident",
+  "m": {
+   "ar": "مشكلة بتأثر على العميل دلوقتي",
+   "en": "a problem affecting the client now"
+  },
+  "ex": "Declare an incident when orders stop."
+ },
+ {
+  "w": 40,
+  "t": "severity",
+  "m": {
+   "ar": "درجة خطورة الحادثة",
+   "en": "how serious an incident is"
+  },
+  "ex": "Severity 1 means all orders stopped."
+ },
+ {
+  "w": 40,
+  "t": "status page",
+  "m": {
+   "ar": "صفحة حالة الخدمة للعملاء",
+   "en": "a service status page for clients"
+  },
+  "ex": "Post updates on the status page."
+ },
+ {
+  "w": 40,
+  "t": "postmortem",
+  "m": {
+   "ar": "تقرير بعد الحادثة من غير لوم",
+   "en": "a blameless report after an incident"
+  },
+  "ex": "The postmortem lists three actions."
+ },
+ {
+  "w": 40,
+  "t": "root cause",
+  "m": {
+   "ar": "السبب الأساسي للمشكلة",
+   "en": "the underlying cause of a problem"
+  },
+  "ex": "The root cause was Redis memory."
  }
 ];
