@@ -1980,5 +1980,905 @@ JOURNEY_TERMS["english"] = [
    "en": "a record of what you read and its takeaway"
   },
   "ex": "Add the article to the reading log."
+ },
+ {
+  "w": 29,
+  "t": "design doc",
+  "m": {
+   "ar": "مستند بيشرح حل تقني قبل تنفيذه",
+   "en": "a document explaining a technical solution before building it"
+  },
+  "ex": "Write a design doc before the big refactor."
+ },
+ {
+  "w": 29,
+  "t": "context",
+  "m": {
+   "ar": "الخلفية والسبب",
+   "en": "the background and the reason"
+  },
+  "ex": "The context explains the lost orders."
+ },
+ {
+  "w": 29,
+  "t": "alternatives considered",
+  "m": {
+   "ar": "الحلول التانية اللي فكرنا فيها",
+   "en": "other solutions that were weighed"
+  },
+  "ex": "List Redis under alternatives considered."
+ },
+ {
+  "w": 29,
+  "t": "rollout plan",
+  "m": {
+   "ar": "خطة نشر التغيير على مراحل",
+   "en": "the plan for releasing a change in stages"
+  },
+  "ex": "The rollout plan starts with one client."
+ },
+ {
+  "w": 29,
+  "t": "open question",
+  "m": {
+   "ar": "سؤال لسه محتاج قرار",
+   "en": "a question still waiting for a decision"
+  },
+  "ex": "Who pays for the server is an open question."
+ },
+ {
+  "w": 29,
+  "t": "goal",
+  "m": {
+   "ar": "اللي عايز توصله",
+   "en": "what you aim to achieve"
+  },
+  "ex": "Each goal needs a number."
+ },
+ {
+  "w": 29,
+  "t": "non-goal",
+  "m": {
+   "ar": "حاجة قررت متعملهاش دلوقتي",
+   "en": "something you decided not to do now"
+  },
+  "ex": "A redesign is a non-goal."
+ },
+ {
+  "w": 29,
+  "t": "success metric",
+  "m": {
+   "ar": "الرقم اللي بيقول إنك نجحت",
+   "en": "the number showing you succeeded"
+  },
+  "ex": "The success metric is lost orders below 0.1%."
+ },
+ {
+  "w": 29,
+  "t": "out of scope",
+  "m": {
+   "ar": "بره النطاق المتفق عليه",
+   "en": "outside the agreed area"
+  },
+  "ex": "Phone orders are out of scope."
+ },
+ {
+  "w": 29,
+  "t": "deferred",
+  "m": {
+   "ar": "متأجل لبعدين",
+   "en": "postponed to later"
+  },
+  "ex": "SMS support is deferred to phase 2."
+ },
+ {
+  "w": 29,
+  "t": "whereas",
+  "m": {
+   "ar": "في حين إن",
+   "en": "while on the other hand"
+  },
+  "ex": "Option A is cheap, whereas B is fast."
+ },
+ {
+  "w": 29,
+  "t": "at the cost of",
+  "m": {
+   "ar": "على حساب",
+   "en": "with the loss of"
+  },
+  "ex": "It is simpler at the cost of speed."
+ },
+ {
+  "w": 29,
+  "t": "outweigh",
+  "m": {
+   "ar": "أهم من / يتفوق على",
+   "en": "to be more important than"
+  },
+  "ex": "Simplicity outweighs speed for us."
+ },
+ {
+  "w": 29,
+  "t": "decision matrix",
+  "m": {
+   "ar": "جدول بيقارن البدائل بمعايير",
+   "en": "a table comparing options by criteria"
+  },
+  "ex": "The decision matrix favours Postgres."
+ },
+ {
+  "w": 29,
+  "t": "mitigation",
+  "m": {
+   "ar": "إجراء بيقلل خطر أو عيب",
+   "en": "a step that reduces a risk or downside"
+  },
+  "ex": "Our mitigation is a load test before launch."
+ },
+ {
+  "w": 29,
+  "t": "framing",
+  "m": {
+   "ar": "طريقة عرض المشكلة للقارئ",
+   "en": "the way you present a problem to the reader"
+  },
+  "ex": "Use business framing for managers."
+ },
+ {
+  "w": 29,
+  "t": "the ask",
+  "m": {
+   "ar": "المطلوب بالظبط من القارئ",
+   "en": "exactly what you want from the reader"
+  },
+  "ex": "Put the ask in the first paragraph."
+ },
+ {
+  "w": 29,
+  "t": "pre-empt",
+  "m": {
+   "ar": "ترد على حاجة قبل ما تتقال",
+   "en": "to answer something before it is raised"
+  },
+  "ex": "Pre-empt the cost question in the FAQ."
+ },
+ {
+  "w": 29,
+  "t": "objection",
+  "m": {
+   "ar": "اعتراض",
+   "en": "a reason someone disagrees"
+  },
+  "ex": "The main objection was the cost."
+ },
+ {
+  "w": 29,
+  "t": "impact",
+  "m": {
+   "ar": "الأثر",
+   "en": "the effect"
+  },
+  "ex": "The impact is 18,000 EGP per campaign."
+ },
+ {
+  "w": 29,
+  "t": "reviewer comment",
+  "m": {
+   "ar": "تعليق من مراجع على المستند",
+   "en": "a comment from a reviewer on the document"
+  },
+  "ex": "Reply to every reviewer comment."
+ },
+ {
+  "w": 29,
+  "t": "addressed",
+  "m": {
+   "ar": "اتعامل معاه / اتحل",
+   "en": "dealt with"
+  },
+  "ex": "Addressed in v2, section 4."
+ },
+ {
+  "w": 29,
+  "t": "resolve",
+  "m": {
+   "ar": "تقفل نقاش بعد ما يتحل",
+   "en": "to close a discussion once it is settled"
+  },
+  "ex": "Resolve the thread after replying."
+ },
+ {
+  "w": 29,
+  "t": "revision",
+  "m": {
+   "ar": "نسخة معدّلة",
+   "en": "an edited version"
+  },
+  "ex": "Revision 3 includes the cost estimate."
+ },
+ {
+  "w": 29,
+  "t": "draft",
+  "m": {
+   "ar": "مسودة",
+   "en": "an early, unfinished version"
+  },
+  "ex": "This is only a draft."
+ },
+ {
+  "w": 30,
+  "t": "style guide",
+  "m": {
+   "ar": "دليل قواعد الكتابة الموحّدة",
+   "en": "a guide of shared writing rules"
+  },
+  "ex": "Follow the style guide in every page."
+ },
+ {
+  "w": 30,
+  "t": "voice",
+  "m": {
+   "ar": "الشخصية الثابتة للكتابة",
+   "en": "the constant personality of the writing"
+  },
+  "ex": "Our voice is friendly and clear."
+ },
+ {
+  "w": 30,
+  "t": "tone",
+  "m": {
+   "ar": "النبرة حسب الموقف",
+   "en": "the attitude that changes with the situation"
+  },
+  "ex": "Use a calm tone in error messages."
+ },
+ {
+  "w": 30,
+  "t": "second person",
+  "m": {
+   "ar": "الكتابة للمخاطب (you)",
+   "en": "writing to the reader as «you»"
+  },
+  "ex": "Docs are written in the second person."
+ },
+ {
+  "w": 30,
+  "t": "present tense",
+  "m": {
+   "ar": "زمن المضارع",
+   "en": "the tense for now"
+  },
+  "ex": "Describe behaviour in the present tense."
+ },
+ {
+  "w": 30,
+  "t": "inclusive language",
+  "m": {
+   "ar": "كلام محترم ودقيق لكل الناس",
+   "en": "wording that is respectful and accurate for everyone"
+  },
+  "ex": "Our docs use inclusive language."
+ },
+ {
+  "w": 30,
+  "t": "allowlist",
+  "m": {
+   "ar": "قايمة المسموح",
+   "en": "a list of what is allowed"
+  },
+  "ex": "Add the IP to the allowlist."
+ },
+ {
+  "w": 30,
+  "t": "denylist",
+  "m": {
+   "ar": "قايمة الممنوع",
+   "en": "a list of what is blocked"
+  },
+  "ex": "The domain is on the denylist."
+ },
+ {
+  "w": 30,
+  "t": "condescending",
+  "m": {
+   "ar": "متعالي وبيستصغر القارئ",
+   "en": "talking down to the reader"
+  },
+  "ex": "«Obviously» can sound condescending."
+ },
+ {
+  "w": 30,
+  "t": "jargon",
+  "m": {
+   "ar": "مصطلحات خاصة صعبة على الغريب",
+   "en": "insider terms hard for outsiders"
+  },
+  "ex": "Define jargon the first time."
+ },
+ {
+  "w": 30,
+  "t": "sentence case",
+  "m": {
+   "ar": "أول حرف بس كبير في العنوان",
+   "en": "only the first letter capitalised in a heading"
+  },
+  "ex": "Use sentence case for headings."
+ },
+ {
+  "w": 30,
+  "t": "title case",
+  "m": {
+   "ar": "كل كلمة مهمة تبدأ بحرف كبير",
+   "en": "every main word capitalised"
+  },
+  "ex": "Our old docs used title case."
+ },
+ {
+  "w": 30,
+  "t": "ui element",
+  "m": {
+   "ar": "زر أو قايمة أو خانة في الواجهة",
+   "en": "a button, menu or field in the interface"
+  },
+  "ex": "Write UI element names in bold."
+ },
+ {
+  "w": 30,
+  "t": "code font",
+  "m": {
+   "ar": "خط الكود الثابت العرض",
+   "en": "the fixed-width font for code"
+  },
+  "ex": "Put file names in code font."
+ },
+ {
+  "w": 30,
+  "t": "parallel structure",
+  "m": {
+   "ar": "نفس الشكل النحوي لكل عناصر القايمة",
+   "en": "the same grammatical form for every list item"
+  },
+  "ex": "Fix the list’s parallel structure."
+ },
+ {
+  "w": 30,
+  "t": "diataxis",
+  "m": {
+   "ar": "إطار بيقسم التوثيق لأربع أنواع",
+   "en": "a framework dividing docs into four kinds"
+  },
+  "ex": "We organised the docs with Diátaxis."
+ },
+ {
+  "w": 30,
+  "t": "tutorial",
+  "m": {
+   "ar": "درس بيعلّم بالتجربة خطوة بخطوة",
+   "en": "a lesson that teaches by doing, step by step"
+  },
+  "ex": "Write a tutorial for beginners."
+ },
+ {
+  "w": 30,
+  "t": "how-to guide",
+  "m": {
+   "ar": "خطوات لهدف محدد",
+   "en": "steps for one specific goal"
+  },
+  "ex": "The how-to guide adds WhatsApp."
+ },
+ {
+  "w": 30,
+  "t": "reference",
+  "m": {
+   "ar": "وصف دقيق شامل للتفاصيل",
+   "en": "an exact, complete description of details"
+  },
+  "ex": "Check the reference for every parameter."
+ },
+ {
+  "w": 30,
+  "t": "explanation",
+  "m": {
+   "ar": "شرح ليه وإزاي",
+   "en": "a discussion of why and how"
+  },
+  "ex": "The explanation page covers the design."
+ },
+ {
+  "w": 30,
+  "t": "docs as code",
+  "m": {
+   "ar": "التوثيق بيتعامل زي الكود (Git، PR، CI)",
+   "en": "treating docs like code (Git, PRs, CI)"
+  },
+  "ex": "We adopted docs as code last year."
+ },
+ {
+  "w": 30,
+  "t": "linter",
+  "m": {
+   "ar": "أداة بتفحص النص أو الكود بقواعد",
+   "en": "a tool that checks text or code against rules"
+  },
+  "ex": "The linter flagged three long sentences."
+ },
+ {
+  "w": 30,
+  "t": "vale",
+  "m": {
+   "ar": "linter للكتابة بقواعد style guide",
+   "en": "a prose linter using style-guide rules"
+  },
+  "ex": "Vale runs on every docs PR."
+ },
+ {
+  "w": 30,
+  "t": "stale docs",
+  "m": {
+   "ar": "توثيق قديم مش مطابق للواقع",
+   "en": "out-of-date documentation"
+  },
+  "ex": "Stale docs caused the wrong config."
+ },
+ {
+  "w": 30,
+  "t": "doc owner",
+  "m": {
+   "ar": "المسؤول عن صفحة توثيق",
+   "en": "the person responsible for a docs page"
+  },
+  "ex": "Each page has a doc owner."
+ },
+ {
+  "w": 31,
+  "t": "learning objective",
+  "m": {
+   "ar": "اللي القارئ هيعرف يعمله في الآخر",
+   "en": "what the reader will be able to do at the end"
+  },
+  "ex": "State the learning objective in one sentence."
+ },
+ {
+  "w": 31,
+  "t": "end result",
+  "m": {
+   "ar": "النتيجة النهائية الشغالة",
+   "en": "the final working result"
+  },
+  "ex": "Show the end result at the top."
+ },
+ {
+  "w": 31,
+  "t": "prerequisites",
+  "m": {
+   "ar": "المتطلبات قبل البداية",
+   "en": "what you need before starting"
+  },
+  "ex": "List the prerequisites with versions."
+ },
+ {
+  "w": 31,
+  "t": "outline",
+  "m": {
+   "ar": "هيكل الأقسام قبل الكتابة",
+   "en": "the plan of sections before writing"
+  },
+  "ex": "Write the outline first."
+ },
+ {
+  "w": 31,
+  "t": "next steps",
+  "m": {
+   "ar": "اللي القارئ ممكن يعمله بعد كده",
+   "en": "what the reader can do afterwards"
+  },
+  "ex": "End with three next steps."
+ },
+ {
+  "w": 31,
+  "t": "copy-paste",
+  "m": {
+   "ar": "تنسخ وتلصق وتشتغل على طول",
+   "en": "copy and paste and it works at once"
+  },
+  "ex": "Every snippet must be copy-paste ready."
+ },
+ {
+  "w": 31,
+  "t": "checkpoint",
+  "m": {
+   "ar": "نقطة تتأكد فيها إنك ماشي صح",
+   "en": "a point to check you are on track"
+  },
+  "ex": "Add a checkpoint after step 4."
+ },
+ {
+  "w": 31,
+  "t": "troubleshooting tip",
+  "m": {
+   "ar": "نصيحة لحل مشكلة متوقعة",
+   "en": "advice for solving a likely problem"
+  },
+  "ex": "A troubleshooting tip saved me an hour."
+ },
+ {
+  "w": 31,
+  "t": "snippet",
+  "m": {
+   "ar": "جزء صغير من الكود",
+   "en": "a small piece of code"
+  },
+  "ex": "Test the snippet before publishing."
+ },
+ {
+  "w": 31,
+  "t": "you should see",
+  "m": {
+   "ar": "عبارة بتوصف النتيجة المتوقعة",
+   "en": "a phrase describing the expected outcome"
+  },
+  "ex": "You should see three items."
+ },
+ {
+  "w": 31,
+  "t": "blog post",
+  "m": {
+   "ar": "مقال على مدونة",
+   "en": "an article on a blog"
+  },
+  "ex": "Publish the blog post on Tuesday."
+ },
+ {
+  "w": 31,
+  "t": "narrative",
+  "m": {
+   "ar": "حكاية بترتيب أحداث",
+   "en": "a story told as a sequence of events"
+  },
+  "ex": "The narrative keeps readers going."
+ },
+ {
+  "w": 31,
+  "t": "scannable",
+  "m": {
+   "ar": "سهل تمسحه بعينك بسرعة",
+   "en": "easy to skim quickly"
+  },
+  "ex": "Short paragraphs make it scannable."
+ },
+ {
+  "w": 31,
+  "t": "call to action",
+  "m": {
+   "ar": "دعوة القارئ لفعل محدد",
+   "en": "an invitation to a specific action"
+  },
+  "ex": "End with a clear call to action."
+ },
+ {
+  "w": 31,
+  "t": "intro",
+  "m": {
+   "ar": "المقدمة",
+   "en": "the opening section"
+  },
+  "ex": "Keep the intro under 80 words."
+ },
+ {
+  "w": 31,
+  "t": "headline",
+  "m": {
+   "ar": "عنوان المقال",
+   "en": "the title of an article"
+  },
+  "ex": "The headline promises zero lost orders."
+ },
+ {
+  "w": 31,
+  "t": "teaser",
+  "m": {
+   "ar": "جملة قصيرة بتشوّق للمقال",
+   "en": "a short line that makes people curious"
+  },
+  "ex": "Use the result as the teaser."
+ },
+ {
+  "w": 31,
+  "t": "meta description",
+  "m": {
+   "ar": "وصف مختصر بيظهر في البحث",
+   "en": "a short description shown in search results"
+  },
+  "ex": "Keep the meta description under 155 characters."
+ },
+ {
+  "w": 31,
+  "t": "clickbait",
+  "m": {
+   "ar": "عنوان مبالغ فيه عشان الضغط",
+   "en": "an exaggerated title made for clicks"
+  },
+  "ex": "Avoid clickbait; keep your promise."
+ },
+ {
+  "w": 31,
+  "t": "audience",
+  "m": {
+   "ar": "الجمهور المستهدف",
+   "en": "the people you write for"
+  },
+  "ex": "The audience is n8n beginners."
+ },
+ {
+  "w": 31,
+  "t": "self-edit",
+  "m": {
+   "ar": "تراجع وتعدّل نصك بنفسك",
+   "en": "to review and improve your own text"
+  },
+  "ex": "Self-edit after a day away."
+ },
+ {
+  "w": 31,
+  "t": "read aloud",
+  "m": {
+   "ar": "تقرا بصوت عالي",
+   "en": "to read out loud"
+  },
+  "ex": "Read aloud to find clumsy sentences."
+ },
+ {
+  "w": 31,
+  "t": "publish",
+  "m": {
+   "ar": "تنشر",
+   "en": "to make public"
+  },
+  "ex": "Publish on dev.to first."
+ },
+ {
+  "w": 31,
+  "t": "cross-post",
+  "m": {
+   "ar": "تنشر نفس المحتوى في أكتر من مكان",
+   "en": "to publish the same content in several places"
+  },
+  "ex": "Cross-post to Hashnode with a canonical URL."
+ },
+ {
+  "w": 31,
+  "t": "canonical url",
+  "m": {
+   "ar": "رابط النسخة الأصلية للمحتوى",
+   "en": "the link to the original version of content"
+  },
+  "ex": "Set the canonical URL to your blog."
+ },
+ {
+  "w": 32,
+  "t": "outage",
+  "m": {
+   "ar": "توقف الخدمة",
+   "en": "a period when a service is down"
+  },
+  "ex": "The outage lasted 52 minutes."
+ },
+ {
+  "w": 32,
+  "t": "status update",
+  "m": {
+   "ar": "تحديث عن حالة العطل",
+   "en": "a message about the state of an incident"
+  },
+  "ex": "Post a status update every 30 minutes."
+ },
+ {
+  "w": 32,
+  "t": "identified",
+  "m": {
+   "ar": "السبب اتعرف",
+   "en": "the cause has been found"
+  },
+  "ex": "Status: Identified — expired key."
+ },
+ {
+  "w": 32,
+  "t": "resolved",
+  "m": {
+   "ar": "اتحل ورجع طبيعي",
+   "en": "fixed and back to normal"
+  },
+  "ex": "The incident is resolved."
+ },
+ {
+  "w": 32,
+  "t": "incident commander",
+  "m": {
+   "ar": "الشخص اللي بيقود التعامل مع العطل",
+   "en": "the person leading the incident response"
+  },
+  "ex": "The incident commander assigns tasks."
+ },
+ {
+  "w": 32,
+  "t": "postmortem",
+  "m": {
+   "ar": "تقرير تحليل بعد العطل",
+   "en": "an analysis report after an incident"
+  },
+  "ex": "Publish the postmortem within a week."
+ },
+ {
+  "w": 32,
+  "t": "blameless",
+  "m": {
+   "ar": "من غير لوم أشخاص",
+   "en": "without blaming individuals"
+  },
+  "ex": "Our postmortems are blameless."
+ },
+ {
+  "w": 32,
+  "t": "contributing factor",
+  "m": {
+   "ar": "عامل ساعد إن العطل يحصل أو يكبر",
+   "en": "a factor that helped the incident happen or grow"
+  },
+  "ex": "Missing alerts were a contributing factor."
+ },
+ {
+  "w": 32,
+  "t": "near miss",
+  "m": {
+   "ar": "حاجة كانت هتبقى عطل ونجينا منها",
+   "en": "something that almost became an incident"
+  },
+  "ex": "Log near misses too."
+ },
+ {
+  "w": 32,
+  "t": "lessons learned",
+  "m": {
+   "ar": "الدروس المستفادة",
+   "en": "what we learnt from it"
+  },
+  "ex": "Share the lessons learned with all teams."
+ },
+ {
+  "w": 32,
+  "t": "detected",
+  "m": {
+   "ar": "اكتشفنا المشكلة",
+   "en": "the problem was noticed"
+  },
+  "ex": "The error was detected at 14:05."
+ },
+ {
+  "w": 32,
+  "t": "escalated",
+  "m": {
+   "ar": "اتصعّد لمستوى أعلى",
+   "en": "raised to a higher level"
+  },
+  "ex": "The issue was escalated to the payments team."
+ },
+ {
+  "w": 32,
+  "t": "mitigated",
+  "m": {
+   "ar": "الضرر اتقلل",
+   "en": "the harm was reduced"
+  },
+  "ex": "We mitigated by enabling cash on delivery."
+ },
+ {
+  "w": 32,
+  "t": "rolled back",
+  "m": {
+   "ar": "رجعنا للنسخة القديمة",
+   "en": "returned to the previous version"
+  },
+  "ex": "We rolled back the deploy at 14:20."
+ },
+ {
+  "w": 32,
+  "t": "time to detect",
+  "m": {
+   "ar": "الوقت لحد ما اكتشفنا المشكلة",
+   "en": "the time until a problem is noticed"
+  },
+  "ex": "Time to detect was seven minutes."
+ },
+ {
+  "w": 32,
+  "t": "triggered by",
+  "m": {
+   "ar": "اتبدأ بسبب",
+   "en": "started by"
+  },
+  "ex": "The outage was triggered by a key expiring."
+ },
+ {
+  "w": 32,
+  "t": "exacerbated",
+  "m": {
+   "ar": "اتسوّأ / زاد",
+   "en": "made worse"
+  },
+  "ex": "Slow alerts exacerbated the impact."
+ },
+ {
+  "w": 32,
+  "t": "due to",
+  "m": {
+   "ar": "بسبب",
+   "en": "because of"
+  },
+  "ex": "Checkouts failed due to an expired key."
+ },
+ {
+  "w": 32,
+  "t": "partially",
+  "m": {
+   "ar": "جزئيًا",
+   "en": "in part, not completely"
+  },
+  "ex": "The service was partially available."
+ },
+ {
+  "w": 32,
+  "t": "intermittently",
+  "m": {
+   "ar": "بشكل متقطع",
+   "en": "on and off"
+  },
+  "ex": "Requests failed intermittently."
+ },
+ {
+  "w": 32,
+  "t": "actionable",
+  "m": {
+   "ar": "ينفع يتنفّذ بخطوة واضحة",
+   "en": "able to be done as a clear step"
+  },
+  "ex": "Make every item actionable."
+ },
+ {
+  "w": 32,
+  "t": "owner",
+  "m": {
+   "ar": "المسؤول",
+   "en": "the person responsible"
+  },
+  "ex": "Each action has one owner."
+ },
+ {
+  "w": 32,
+  "t": "due date",
+  "m": {
+   "ar": "الميعاد النهائي",
+   "en": "the deadline"
+  },
+  "ex": "The due date is 20 October."
+ },
+ {
+  "w": 32,
+  "t": "prevent",
+  "m": {
+   "ar": "يمنع",
+   "en": "to stop something from happening"
+  },
+  "ex": "Auto-renewal prevents expiry outages."
+ },
+ {
+  "w": 32,
+  "t": "runbook",
+  "m": {
+   "ar": "خطوات جاهزة للتعامل مع موقف",
+   "en": "ready steps for handling a situation"
+  },
+  "ex": "Follow the payments runbook."
  }
 ];
