@@ -6282,5 +6282,905 @@ JOURNEY_TERMS["n8n"] = [
    "en": "a quick, urgent fix in production"
   },
   "ex": "Ship the hotfix after a staging check."
+ },
+ {
+  "w": 29,
+  "t": "crm",
+  "m": {
+   "ar": "نظام إدارة علاقات العملاء",
+   "en": "a customer relationship management system"
+  },
+  "ex": "Every lead goes into the CRM."
+ },
+ {
+  "w": 29,
+  "t": "contact record",
+  "m": {
+   "ar": "سجل شخص في الـ CRM",
+   "en": "a person’s record in the CRM"
+  },
+  "ex": "Update the contact record with the phone."
+ },
+ {
+  "w": 29,
+  "t": "deal stage",
+  "m": {
+   "ar": "المرحلة اللي الصفقة واقفة فيها",
+   "en": "the step a deal is currently at"
+  },
+  "ex": "Move the deal stage to Proposal sent."
+ },
+ {
+  "w": 29,
+  "t": "sales pipeline",
+  "m": {
+   "ar": "سلسلة مراحل الصفقات من أول تواصل للبيع",
+   "en": "the chain of deal stages from first contact to sale"
+  },
+  "ex": "The sales pipeline has six stages."
+ },
+ {
+  "w": 29,
+  "t": "custom property",
+  "m": {
+   "ar": "خانة إضافية بتعملها في الـ CRM",
+   "en": "an extra field you create in the CRM"
+  },
+  "ex": "Add a custom property for the lead source."
+ },
+ {
+  "w": 29,
+  "t": "lead",
+  "m": {
+   "ar": "شخص مهتم ممكن يبقى عميل",
+   "en": "a person interested who might become a customer"
+  },
+  "ex": "A new lead came from the website."
+ },
+ {
+  "w": 29,
+  "t": "lead source",
+  "m": {
+   "ar": "المكان اللي العميل المحتمل جه منه",
+   "en": "where a lead came from"
+  },
+  "ex": "Save the lead source as facebook."
+ },
+ {
+  "w": 29,
+  "t": "lead enrichment",
+  "m": {
+   "ar": "تكميل بيانات العميل المحتمل من مصادر تانية",
+   "en": "completing a lead’s data from other sources"
+  },
+  "ex": "Lead enrichment added the company size."
+ },
+ {
+  "w": 29,
+  "t": "utm parameters",
+  "m": {
+   "ar": "خانات في الرابط بتقول الزيارة جت منين",
+   "en": "link fields that say where a visit came from"
+  },
+  "ex": "Keep the UTM parameters in hidden fields."
+ },
+ {
+  "w": 29,
+  "t": "duplicate contact",
+  "m": {
+   "ar": "نفس الشخص متسجّل أكتر من مرة",
+   "en": "the same person recorded more than once"
+  },
+  "ex": "Search by email to avoid a duplicate contact."
+ },
+ {
+  "w": 29,
+  "t": "lead scoring",
+  "m": {
+   "ar": "تقييم العملاء المحتملين بنقط حسب أهميتهم",
+   "en": "rating leads with points by how promising they are"
+  },
+  "ex": "Lead scoring puts hot leads first."
+ },
+ {
+  "w": 29,
+  "t": "round-robin",
+  "m": {
+   "ar": "توزيع بالدور على أشخاص",
+   "en": "sharing out in turn among people"
+  },
+  "ex": "Assign leads round-robin."
+ },
+ {
+  "w": 29,
+  "t": "speed to lead",
+  "m": {
+   "ar": "سرعة الرد على العميل المحتمل",
+   "en": "how fast a lead gets a reply"
+  },
+  "ex": "Speed to lead under 5 minutes doubles bookings."
+ },
+ {
+  "w": 29,
+  "t": "hot lead",
+  "m": {
+   "ar": "عميل محتمل جاهز يشتري قريب",
+   "en": "a lead ready to buy soon"
+  },
+  "ex": "Call every hot lead within minutes."
+ },
+ {
+  "w": 29,
+  "t": "reassign",
+  "m": {
+   "ar": "تنقل المسؤولية لشخص تاني",
+   "en": "to move the responsibility to another person"
+  },
+  "ex": "Reassign the lead after 15 minutes of silence."
+ },
+ {
+  "w": 29,
+  "t": "deal",
+  "m": {
+   "ar": "صفقة بيع محتملة بمبلغ",
+   "en": "a potential sale with an amount"
+  },
+  "ex": "The deal moved to Negotiation."
+ },
+ {
+  "w": 29,
+  "t": "stale deal",
+  "m": {
+   "ar": "صفقة واقفة من غير حركة فترة طويلة",
+   "en": "a deal with no movement for a long time"
+  },
+  "ex": "Send each rep their stale deal list."
+ },
+ {
+  "w": 29,
+  "t": "follow-up task",
+  "m": {
+   "ar": "مهمة متابعة بميعاد",
+   "en": "a reminder task with a due date"
+  },
+  "ex": "Create a follow-up task for Thursday."
+ },
+ {
+  "w": 29,
+  "t": "win rate",
+  "m": {
+   "ar": "نسبة الصفقات اللي اتقفلت بيع",
+   "en": "the share of deals that were won"
+  },
+  "ex": "Our win rate rose to 30%."
+ },
+ {
+  "w": 29,
+  "t": "onboarding",
+  "m": {
+   "ar": "خطوات استقبال عميل جديد بعد البيع",
+   "en": "the steps of welcoming a new customer after the sale"
+  },
+  "ex": "Onboarding starts the moment a deal is won."
+ },
+ {
+  "w": 29,
+  "t": "two-way sync",
+  "m": {
+   "ar": "مزامنة التغييرات في الاتجاهين بين نظامين",
+   "en": "syncing changes in both directions between two systems"
+  },
+  "ex": "A two-way sync needs conflict rules."
+ },
+ {
+  "w": 29,
+  "t": "last write wins",
+  "m": {
+   "ar": "قاعدة إن آخر تعديل هو اللي يتحفظ",
+   "en": "a rule that the latest change is kept"
+  },
+  "ex": "Notes use last write wins."
+ },
+ {
+  "w": 29,
+  "t": "conflict resolution",
+  "m": {
+   "ar": "إزاي تقرر لما نظامين غيّروا نفس الحقل",
+   "en": "how to decide when two systems changed the same field"
+  },
+  "ex": "Write the conflict resolution rules first."
+ },
+ {
+  "w": 29,
+  "t": "sync loop",
+  "m": {
+   "ar": "حلقة تحديثات بين نظامين ملهاش نهاية",
+   "en": "an endless cycle of updates between two systems"
+  },
+  "ex": "updated_by stops the sync loop."
+ },
+ {
+  "w": 29,
+  "t": "pipeline velocity",
+  "m": {
+   "ar": "سرعة حركة الصفقات للبيع",
+   "en": "how fast deals move to a sale"
+  },
+  "ex": "Pipeline velocity improved after the reminders."
+ },
+ {
+  "w": 30,
+  "t": "order lifecycle",
+  "m": {
+   "ar": "المراحل اللي الطلب بيعدّي بيها",
+   "en": "the stages an order goes through"
+  },
+  "ex": "Map the order lifecycle before automating."
+ },
+ {
+  "w": 30,
+  "t": "line item",
+  "m": {
+   "ar": "سطر في الطلب: منتج وكمية وسعر",
+   "en": "one line of an order: product, quantity and price"
+  },
+  "ex": "Each line item has a SKU."
+ },
+ {
+  "w": 30,
+  "t": "sku",
+  "m": {
+   "ar": "كود مميز لكل منتج",
+   "en": "a unique code for each product"
+  },
+  "ex": "TEA-250 is the SKU of the small tea pack."
+ },
+ {
+  "w": 30,
+  "t": "fulfilment",
+  "m": {
+   "ar": "تجهيز الطلب وشحنه",
+   "en": "preparing and shipping an order"
+  },
+  "ex": "Fulfilment starts only after payment."
+ },
+ {
+  "w": 30,
+  "t": "order status",
+  "m": {
+   "ar": "الحالة الحالية للطلب",
+   "en": "the current state of an order"
+  },
+  "ex": "Keep the order status in your own table."
+ },
+ {
+  "w": 30,
+  "t": "checkout session",
+  "m": {
+   "ar": "جلسة دفع بيعملها المزوّد للعميل",
+   "en": "a payment session the provider creates for the customer"
+  },
+  "ex": "Create a checkout session with the order id."
+ },
+ {
+  "w": 30,
+  "t": "payment intent",
+  "m": {
+   "ar": "نية دفع بمبلغ معيّن بتتابع حالتها",
+   "en": "an intention to pay a set amount whose status you follow"
+  },
+  "ex": "The payment intent succeeded."
+ },
+ {
+  "w": 30,
+  "t": "smallest currency unit",
+  "m": {
+   "ar": "أصغر وحدة عملة زي القرش أو السنت",
+   "en": "the smallest unit of a currency, like a piaster or cent"
+  },
+  "ex": "Send 125000 in the smallest currency unit."
+ },
+ {
+  "w": 30,
+  "t": "server-side confirmation",
+  "m": {
+   "ar": "التأكد من النتيجة من السيرفر مش من المتصفح",
+   "en": "checking the result on the server, not the browser"
+  },
+  "ex": "Ship only after server-side confirmation."
+ },
+ {
+  "w": 30,
+  "t": "client-side",
+  "m": {
+   "ar": "اللي بيحصل في متصفح المستخدم (مش موثوق)",
+   "en": "what happens in the user’s browser (not trusted)"
+  },
+  "ex": "A client-side success page proves nothing."
+ },
+ {
+  "w": 30,
+  "t": "endpoint secret",
+  "m": {
+   "ar": "السر الخاص بعنوان الـ webhook عند المزوّد",
+   "en": "the secret tied to your webhook address at the provider"
+  },
+  "ex": "Each webhook URL has its own endpoint secret."
+ },
+ {
+  "w": 30,
+  "t": "signature header",
+  "m": {
+   "ar": "الـ header اللي فيه التوقيع",
+   "en": "the header that carries the signature"
+  },
+  "ex": "Read the Stripe-Signature header."
+ },
+ {
+  "w": 30,
+  "t": "tolerance window",
+  "m": {
+   "ar": "أقصى عمر مقبول لطلب موقّع",
+   "en": "the maximum accepted age of a signed request"
+  },
+  "ex": "Use a 5-minute tolerance window."
+ },
+ {
+  "w": 30,
+  "t": "timing-safe compare",
+  "m": {
+   "ar": "مقارنة مش بتكشف معلومات من وقتها",
+   "en": "a comparison that leaks nothing through its timing"
+  },
+  "ex": "Use a timing-safe compare for signatures."
+ },
+ {
+  "w": 30,
+  "t": "signed payload",
+  "m": {
+   "ar": "المحتوى اللي اتحسب عليه التوقيع",
+   "en": "the content the signature was computed over"
+  },
+  "ex": "The signed payload is t, a dot, and the body."
+ },
+ {
+  "w": 30,
+  "t": "inventory sync",
+  "m": {
+   "ar": "تحديث المخزون في كل قنوات البيع",
+   "en": "updating stock across every sales channel"
+  },
+  "ex": "Inventory sync runs after each paid order."
+ },
+ {
+  "w": 30,
+  "t": "stock level",
+  "m": {
+   "ar": "الكمية الموجودة من منتج",
+   "en": "the quantity of a product on hand"
+  },
+  "ex": "The stock level of TEA-250 is 48."
+ },
+ {
+  "w": 30,
+  "t": "reorder point",
+  "m": {
+   "ar": "الحد اللي لما المخزون يوصله تطلب تاني",
+   "en": "the level at which you order more"
+  },
+  "ex": "The reorder point is 60 units."
+ },
+ {
+  "w": 30,
+  "t": "tracking number",
+  "m": {
+   "ar": "رقم تتابع بيه الشحنة",
+   "en": "a number to follow a shipment"
+  },
+  "ex": "Send the tracking number by WhatsApp."
+ },
+ {
+  "w": 30,
+  "t": "cash on delivery",
+  "m": {
+   "ar": "الدفع عند الاستلام",
+   "en": "paying when the order is delivered"
+  },
+  "ex": "Most orders here are cash on delivery."
+ },
+ {
+  "w": 30,
+  "t": "refund",
+  "m": {
+   "ar": "رجوع فلوس العميل",
+   "en": "returning a customer’s money"
+  },
+  "ex": "Issue the refund with an idempotency key."
+ },
+ {
+  "w": 30,
+  "t": "reconciliation",
+  "m": {
+   "ar": "مطابقة سجلين عشان تتأكد إنهم متفقين",
+   "en": "matching two records to make sure they agree"
+  },
+  "ex": "Daily reconciliation found two mismatches."
+ },
+ {
+  "w": 30,
+  "t": "chargeback",
+  "m": {
+   "ar": "العميل بيسحب الفلوس عن طريق البنك",
+   "en": "a customer reversing a payment through the bank"
+  },
+  "ex": "A chargeback needs proof of delivery."
+ },
+ {
+  "w": 30,
+  "t": "dispute",
+  "m": {
+   "ar": "اعتراض رسمي على عملية دفع",
+   "en": "a formal objection to a payment"
+  },
+  "ex": "Answer the dispute before the deadline."
+ },
+ {
+  "w": 30,
+  "t": "payout",
+  "m": {
+   "ar": "الفلوس اللي المزوّد بيحوّلها لحسابك",
+   "en": "the money a provider transfers to your account"
+  },
+  "ex": "The payout equals payments minus fees."
+ },
+ {
+  "w": 31,
+  "t": "message template",
+  "m": {
+   "ar": "رسالة متعمدة مسبقًا من Meta بخانات",
+   "en": "a message pre-approved by Meta, with slots"
+  },
+  "ex": "Use the booking_reminder message template."
+ },
+ {
+  "w": 31,
+  "t": "customer service window",
+  "m": {
+   "ar": "الـ 24 ساعة بعد رسالة العميل اللي تقدر ترد فيها بحرية",
+   "en": "the 24 hours after a customer’s message when you may reply freely"
+  },
+  "ex": "Reply inside the customer service window."
+ },
+ {
+  "w": 31,
+  "t": "phone number id",
+  "m": {
+   "ar": "رقم تعريف رقم الواتساب في API",
+   "en": "the API identifier of a WhatsApp number"
+  },
+  "ex": "Send from this phone number id."
+ },
+ {
+  "w": 31,
+  "t": "quality rating",
+  "m": {
+   "ar": "تقييم Meta لجودة رسايل رقمك",
+   "en": "Meta’s rating of your number’s message quality"
+  },
+  "ex": "Our quality rating dropped after the campaign."
+ },
+ {
+  "w": 31,
+  "t": "messaging limit",
+  "m": {
+   "ar": "حد عدد العملاء اللي تقدر تراسلهم في اليوم",
+   "en": "the cap on customers you may message per day"
+  },
+  "ex": "The messaging limit grows with good quality."
+ },
+ {
+  "w": 31,
+  "t": "broadcast",
+  "m": {
+   "ar": "رسالة واحدة لناس كتير",
+   "en": "one message to many people"
+  },
+  "ex": "Queue the broadcast instead of a loop."
+ },
+ {
+  "w": 31,
+  "t": "outbox",
+  "m": {
+   "ar": "جدول الرسايل اللي مستنية تتبعت",
+   "en": "the table of messages waiting to be sent"
+  },
+  "ex": "The outbox holds 3,000 pending messages."
+ },
+ {
+  "w": 31,
+  "t": "template variable",
+  "m": {
+   "ar": "خانة في القالب بتتملي لكل عميل",
+   "en": "a slot in a template filled for each customer"
+  },
+  "ex": "The first template variable is the name."
+ },
+ {
+  "w": 31,
+  "t": "quiet hours",
+  "m": {
+   "ar": "ساعات ممنوع فيها الإرسال",
+   "en": "hours when sending is not allowed"
+  },
+  "ex": "Respect quiet hours after 9 p.m."
+ },
+ {
+  "w": 31,
+  "t": "media message",
+  "m": {
+   "ar": "رسالة فيها صورة أو ملف أو فيديو",
+   "en": "a message with an image, file or video"
+  },
+  "ex": "Send the invoice as a media message."
+ },
+ {
+  "w": 31,
+  "t": "spf",
+  "m": {
+   "ar": "سجل DNS بيحدد مين مسموحله يبعت باسم الدومين",
+   "en": "a DNS record listing who may send for a domain"
+  },
+  "ex": "Add the provider to your SPF record."
+ },
+ {
+  "w": 31,
+  "t": "dkim",
+  "m": {
+   "ar": "توقيع رقمي على كل إيميل بيثبت مصدره",
+   "en": "a digital signature on each email proving its source"
+  },
+  "ex": "DKIM passed for every message."
+ },
+ {
+  "w": 31,
+  "t": "dmarc",
+  "m": {
+   "ar": "سياسة بتقول تعمل إيه لو SPF/DKIM فشلوا",
+   "en": "a policy saying what to do if SPF/DKIM fail"
+  },
+  "ex": "Start DMARC with p=none and reports."
+ },
+ {
+  "w": 31,
+  "t": "hard bounce",
+  "m": {
+   "ar": "إيميل رجع لأن العنوان مش موجود",
+   "en": "an email returned because the address does not exist"
+  },
+  "ex": "Remove an address after a hard bounce."
+ },
+ {
+  "w": 31,
+  "t": "one-click unsubscribe",
+  "m": {
+   "ar": "إلغاء الاشتراك بضغطة واحدة",
+   "en": "unsubscribing with a single click"
+  },
+  "ex": "Bulk senders must offer one-click unsubscribe."
+ },
+ {
+  "w": 31,
+  "t": "delivery status",
+  "m": {
+   "ar": "حالة الرسالة: اتبعتت، وصلت، اتقرت، فشلت",
+   "en": "a message’s state: sent, delivered, read, failed"
+  },
+  "ex": "Store each delivery status by message id."
+ },
+ {
+  "w": 31,
+  "t": "read receipt",
+  "m": {
+   "ar": "إشعار إن الرسالة اتقرت",
+   "en": "a notice that a message was read"
+  },
+  "ex": "Read receipts give the read rate."
+ },
+ {
+  "w": 31,
+  "t": "conversation state",
+  "m": {
+   "ar": "الخطوة اللي المحادثة الآلية واقفة فيها",
+   "en": "the step an automated conversation is at"
+  },
+  "ex": "Save the conversation state per phone."
+ },
+ {
+  "w": 31,
+  "t": "human handoff",
+  "m": {
+   "ar": "تحويل المحادثة من الآلي لإنسان",
+   "en": "passing a conversation from the bot to a person"
+  },
+  "ex": "Trigger a human handoff when the customer is angry."
+ },
+ {
+  "w": 31,
+  "t": "bot pause",
+  "m": {
+   "ar": "إيقاف الرد الآلي لرقم معيّن مؤقتًا",
+   "en": "temporarily stopping auto-replies for one number"
+  },
+  "ex": "Set a bot pause while the agent replies."
+ },
+ {
+  "w": 31,
+  "t": "opt-in",
+  "m": {
+   "ar": "موافقة صريحة على استلام الرسايل",
+   "en": "explicit agreement to receive messages"
+  },
+  "ex": "Store every opt-in with its date."
+ },
+ {
+  "w": 31,
+  "t": "opt-out",
+  "m": {
+   "ar": "طلب إيقاف الرسايل",
+   "en": "a request to stop messages"
+  },
+  "ex": "Honour an opt-out immediately."
+ },
+ {
+  "w": 31,
+  "t": "suppression list",
+  "m": {
+   "ar": "قايمة ممنوع الإرسال ليها",
+   "en": "a list of people you must not message"
+  },
+  "ex": "Check the suppression list before sending."
+ },
+ {
+  "w": 31,
+  "t": "consent record",
+  "m": {
+   "ar": "سجل بيثبت مين وافق على إيه وإمتى",
+   "en": "a record proving who agreed to what and when"
+  },
+  "ex": "Keep the consent record for each customer."
+ },
+ {
+  "w": 31,
+  "t": "frequency cap",
+  "m": {
+   "ar": "حد أقصى لعدد الرسايل لنفس الشخص",
+   "en": "a maximum number of messages to the same person"
+  },
+  "ex": "The frequency cap is two per week."
+ },
+ {
+  "w": 32,
+  "t": "document pipeline",
+  "m": {
+   "ar": "المسار الثابت لمعالجة المستندات",
+   "en": "the fixed path for processing documents"
+  },
+  "ex": "Every invoice goes through the document pipeline."
+ },
+ {
+  "w": 32,
+  "t": "document classification",
+  "m": {
+   "ar": "تحديد نوع المستند",
+   "en": "deciding a document’s type"
+  },
+  "ex": "Document classification comes before extraction."
+ },
+ {
+  "w": 32,
+  "t": "field extraction",
+  "m": {
+   "ar": "استخراج قيم محددة من مستند",
+   "en": "pulling specific values out of a document"
+  },
+  "ex": "Field extraction found the total and date."
+ },
+ {
+  "w": 32,
+  "t": "archive naming",
+  "m": {
+   "ar": "طريقة تسمية الملفات في الأرشيف",
+   "en": "the way files are named in the archive"
+  },
+  "ex": "Archive naming starts with year and month."
+ },
+ {
+  "w": 32,
+  "t": "original file",
+  "m": {
+   "ar": "الملف زي ما وصل من غير تعديل",
+   "en": "the file exactly as received"
+  },
+  "ex": "Keep the original file next to the data."
+ },
+ {
+  "w": 32,
+  "t": "scanned pdf",
+  "m": {
+   "ar": "PDF عبارة عن صور لورق من غير نص",
+   "en": "a PDF made of images of paper, with no text"
+  },
+  "ex": "A scanned PDF needs OCR."
+ },
+ {
+  "w": 32,
+  "t": "tesseract",
+  "m": {
+   "ar": "محرك OCR مفتوح المصدر",
+   "en": "an open-source OCR engine"
+  },
+  "ex": "Tesseract supports Arabic with -l ara."
+ },
+ {
+  "w": 32,
+  "t": "deskew",
+  "m": {
+   "ar": "تعدّل ميل الصورة عشان تبقى مستقيمة",
+   "en": "to straighten a tilted image"
+  },
+  "ex": "Deskew the scan before OCR."
+ },
+ {
+  "w": 32,
+  "t": "dpi",
+  "m": {
+   "ar": "نقط في البوصة: دقة الصورة",
+   "en": "dots per inch: an image’s resolution"
+  },
+  "ex": "Scan at 300 DPI."
+ },
+ {
+  "w": 32,
+  "t": "vision model",
+  "m": {
+   "ar": "موديل AI بيفهم الصور",
+   "en": "an AI model that understands images"
+  },
+  "ex": "The vision model read the receipt."
+ },
+ {
+  "w": 32,
+  "t": "multimodal",
+  "m": {
+   "ar": "موديل بيفهم أكتر من نوع (نص وصور)",
+   "en": "a model that understands more than one kind of input (text and images)"
+  },
+  "ex": "A multimodal model can read invoices."
+ },
+ {
+  "w": 32,
+  "t": "extraction schema",
+  "m": {
+   "ar": "شكل الحقول المطلوب استخراجها",
+   "en": "the shape of the fields to extract"
+  },
+  "ex": "The extraction schema requires a total."
+ },
+ {
+  "w": 32,
+  "t": "validation rule",
+  "m": {
+   "ar": "قاعدة بتتأكد إن البيانات منطقية",
+   "en": "a rule checking the data makes sense"
+  },
+  "ex": "A validation rule caught the wrong total."
+ },
+ {
+  "w": 32,
+  "t": "confidence score",
+  "m": {
+   "ar": "رقم بيقول قد إيه النتيجة موثوقة",
+   "en": "a number saying how trustworthy a result is"
+  },
+  "ex": "Below 0.9 confidence score → review."
+ },
+ {
+  "w": 32,
+  "t": "invoice parsing",
+  "m": {
+   "ar": "قراءة الفاتورة وتحويلها لبيانات",
+   "en": "reading an invoice and turning it into data"
+  },
+  "ex": "Invoice parsing saves the accountant hours."
+ },
+ {
+  "w": 32,
+  "t": "review queue",
+  "m": {
+   "ar": "قايمة المستندات المستنية مراجعة إنسان",
+   "en": "the list of documents waiting for a person to review"
+  },
+  "ex": "Low-confidence invoices go to the review queue."
+ },
+ {
+  "w": 32,
+  "t": "human-in-the-loop",
+  "m": {
+   "ar": "إنسان بيراجع جزء من الشغل الآلي",
+   "en": "a person reviewing part of the automated work"
+  },
+  "ex": "Human-in-the-loop keeps accuracy high."
+ },
+ {
+  "w": 32,
+  "t": "correction loop",
+  "m": {
+   "ar": "استخدام التصحيحات لتحسين النظام",
+   "en": "using corrections to improve the system"
+  },
+  "ex": "The correction loop cut reviews by half."
+ },
+ {
+  "w": 32,
+  "t": "audit trail",
+  "m": {
+   "ar": "سجل مين عمل إيه وإمتى",
+   "en": "a record of who did what and when"
+  },
+  "ex": "The audit trail shows who changed the total."
+ },
+ {
+  "w": 32,
+  "t": "ground truth",
+  "m": {
+   "ar": "القيمة الصح المؤكدة للمقارنة",
+   "en": "the confirmed correct value for comparison"
+  },
+  "ex": "Reviewed invoices become ground truth."
+ },
+ {
+  "w": 32,
+  "t": "document template",
+  "m": {
+   "ar": "قالب مستند بخانات بتتملي",
+   "en": "a document layout with slots to fill"
+  },
+  "ex": "Fill the document template with the client’s data."
+ },
+ {
+  "w": 32,
+  "t": "e-signature",
+  "m": {
+   "ar": "توقيع إلكتروني على مستند",
+   "en": "an electronic signature on a document"
+  },
+  "ex": "The client added an e-signature in minutes."
+ },
+ {
+  "w": 32,
+  "t": "signed copy",
+  "m": {
+   "ar": "النسخة النهائية بعد التوقيع",
+   "en": "the final version after signing"
+  },
+  "ex": "Archive the signed copy, not the draft."
+ },
+ {
+  "w": 32,
+  "t": "retention period",
+  "m": {
+   "ar": "المدة اللي المستند لازم يتحفظ فيها",
+   "en": "how long a document must be kept"
+  },
+  "ex": "The retention period for ID images is 30 days."
+ },
+ {
+  "w": 32,
+  "t": "pdf rendering",
+  "m": {
+   "ar": "تحويل صفحة HTML لملف PDF",
+   "en": "turning an HTML page into a PDF file"
+  },
+  "ex": "PDF rendering runs in a small Docker service."
  }
 ];
