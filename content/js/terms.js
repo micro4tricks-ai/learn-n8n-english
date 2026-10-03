@@ -11493,5 +11493,311 @@ JOURNEY_TERMS["js"] = [
    "en": "the cross-browser extension API"
   },
   "ex": "Firefox supports the WebExtensions API."
+ },
+ {
+  "w": 41,
+  "t": "macrotask",
+  "m": {
+   "ar": "مهمة في مرحلة من مراحل الـ loop",
+   "en": "a task run in one event-loop phase"
+  },
+  "ex": "setTimeout schedules a macrotask."
+ },
+ {
+  "w": 41,
+  "t": "queuemicrotask",
+  "m": {
+   "ar": "إضافة microtask مباشرة",
+   "en": "scheduling a microtask directly"
+  },
+  "ex": "queueMicrotask runs before the next timer."
+ },
+ {
+  "w": 41,
+  "t": "process.nexttick",
+  "m": {
+   "ar": "دالة بتتنفذ قبل الـ microtasks",
+   "en": "a callback run before microtasks"
+  },
+  "ex": "process.nextTick runs first."
+ },
+ {
+  "w": 41,
+  "t": "setimmediate",
+  "m": {
+   "ar": "مهمة في مرحلة check",
+   "en": "a callback in the check phase"
+  },
+  "ex": "Inside I/O, setImmediate beats setTimeout."
+ },
+ {
+  "w": 41,
+  "t": "event loop lag",
+  "m": {
+   "ar": "تأخر الـ event loop",
+   "en": "how late the event loop runs"
+  },
+  "ex": "Event loop lag hit 400 ms during the export."
+ },
+ {
+  "w": 41,
+  "t": "monitoreventloopdelay",
+  "m": {
+   "ar": "أداة قياس تأخر الـ loop",
+   "en": "a perf_hooks tool measuring loop delay"
+  },
+  "ex": "monitorEventLoopDelay reports p99."
+ },
+ {
+  "w": 41,
+  "t": "libuv",
+  "m": {
+   "ar": "المكتبة اللي تحت Node",
+   "en": "the C library under Node’s I/O"
+  },
+  "ex": "libuv runs file work in its thread pool."
+ },
+ {
+  "w": 41,
+  "t": "thread pool",
+  "m": {
+   "ar": "مجموعة threads للعمليات التقيلة",
+   "en": "a set of background threads"
+  },
+  "ex": "The thread pool has 4 threads by default."
+ },
+ {
+  "w": 41,
+  "t": "readable",
+  "m": {
+   "ar": "stream مصدر",
+   "en": "a stream you read from"
+  },
+  "ex": "The HTTP request is a Readable."
+ },
+ {
+  "w": 41,
+  "t": "writable",
+  "m": {
+   "ar": "stream وجهة",
+   "en": "a stream you write to"
+  },
+  "ex": "The response is a Writable."
+ },
+ {
+  "w": 41,
+  "t": "duplex",
+  "m": {
+   "ar": "stream للقراية والكتابة",
+   "en": "a stream both readable and writable"
+  },
+  "ex": "A TCP socket is a Duplex."
+ },
+ {
+  "w": 41,
+  "t": "readable.from",
+  "m": {
+   "ar": "تحويل iterable لـ stream",
+   "en": "creating a stream from an iterable"
+  },
+  "ex": "Readable.from wraps the async generator."
+ },
+ {
+  "w": 41,
+  "t": "highwatermark",
+  "m": {
+   "ar": "حجم الـ buffer في الـ stream",
+   "en": "the buffer threshold of a stream"
+  },
+  "ex": "A small highWaterMark limits memory."
+ },
+ {
+  "w": 41,
+  "t": "async iteration",
+  "m": {
+   "ar": "المرور بـ for await",
+   "en": "looping with for await"
+  },
+  "ex": "Async iteration handles flow control."
+ },
+ {
+  "w": 41,
+  "t": "objectmode",
+  "m": {
+   "ar": "stream بيمرر كائنات",
+   "en": "a stream passing objects, not bytes"
+  },
+  "ex": "Use objectMode for order objects."
+ },
+ {
+  "w": 41,
+  "t": "web streams",
+  "m": {
+   "ar": "streams المعيار في الويب",
+   "en": "the standard streams API of the web"
+  },
+  "ex": "Web Streams work in Workers and Node."
+ },
+ {
+  "w": 41,
+  "t": "transformstream",
+  "m": {
+   "ar": "stream بيحوّل البيانات",
+   "en": "a web stream that transforms chunks"
+  },
+  "ex": "A TransformStream adds a prefix to each chunk."
+ },
+ {
+  "w": 41,
+  "t": "pipethrough",
+  "m": {
+   "ar": "تمرير عبر transform",
+   "en": "passing a stream through a transform"
+  },
+  "ex": "pipeThrough chains transforms."
+ },
+ {
+  "w": 41,
+  "t": "textdecoderstream",
+  "m": {
+   "ar": "تحويل bytes لنص كـ stream",
+   "en": "decoding bytes to text as a stream"
+  },
+  "ex": "TextDecoderStream keeps Arabic intact."
+ },
+ {
+  "w": 41,
+  "t": "compressionstream",
+  "m": {
+   "ar": "ضغط بالـ stream",
+   "en": "compressing data as a stream"
+  },
+  "ex": "CompressionStream gzips the export."
+ },
+ {
+  "w": 41,
+  "t": "zlib",
+  "m": {
+   "ar": "مكتبة الضغط في Node",
+   "en": "Node’s compression module"
+  },
+  "ex": "zlib gzips the log file."
+ },
+ {
+  "w": 41,
+  "t": "cpu-bound",
+  "m": {
+   "ar": "شغل تقيل على المعالج",
+   "en": "work limited by CPU speed"
+  },
+  "ex": "PDF rendering is CPU-bound."
+ },
+ {
+  "w": 41,
+  "t": "i/o-bound",
+  "m": {
+   "ar": "شغل بيستنى شبكة أو قرص",
+   "en": "work limited by waiting for I/O"
+  },
+  "ex": "Calling APIs is I/O-bound."
+ },
+ {
+  "w": 41,
+  "t": "worker threads",
+  "m": {
+   "ar": "threads منفصلة لـ JavaScript",
+   "en": "separate JavaScript threads in Node"
+  },
+  "ex": "Worker threads keep the API responsive."
+ },
+ {
+  "w": 41,
+  "t": "workerdata",
+  "m": {
+   "ar": "البيانات الأولى للـ worker",
+   "en": "the initial data passed to a worker"
+  },
+  "ex": "Pass the range in workerData."
+ },
+ {
+  "w": 41,
+  "t": "postmessage",
+  "m": {
+   "ar": "إرسال رسالة بين threads",
+   "en": "sending a message between threads"
+  },
+  "ex": "The worker calls postMessage with the result."
+ },
+ {
+  "w": 41,
+  "t": "sharedarraybuffer",
+  "m": {
+   "ar": "ذاكرة مشتركة بين threads",
+   "en": "memory shared between threads"
+  },
+  "ex": "SharedArrayBuffer avoids copying."
+ },
+ {
+  "w": 41,
+  "t": "atomics",
+  "m": {
+   "ar": "عمليات آمنة على الذاكرة المشتركة",
+   "en": "safe operations on shared memory"
+  },
+  "ex": "Use Atomics to update shared counters."
+ },
+ {
+  "w": 41,
+  "t": "web worker",
+  "m": {
+   "ar": "worker في المتصفح",
+   "en": "a background thread in the browser"
+  },
+  "ex": "A web worker filters 100,000 rows."
+ },
+ {
+  "w": 41,
+  "t": "cluster",
+  "m": {
+   "ar": "نسخ من السيرفر على نفس الـ port",
+   "en": "server copies sharing one port"
+  },
+  "ex": "cluster forks one process per core."
+ },
+ {
+  "w": 41,
+  "t": "fork",
+  "m": {
+   "ar": "تشغيل سكربت Node كعملية فرعية بقناة رسايل",
+   "en": "starting a Node child with a message channel"
+  },
+  "ex": "fork the PDF converter."
+ },
+ {
+  "w": 41,
+  "t": "events.once",
+  "m": {
+   "ar": "استنى حدث مرة واحدة كـ promise",
+   "en": "awaiting one event as a promise"
+  },
+  "ex": "await events.once(child, \"exit\")."
+ },
+ {
+  "w": 41,
+  "t": "abortsignal.timeout",
+  "m": {
+   "ar": "signal بيلغي بعد مدة",
+   "en": "a signal that aborts after a delay"
+  },
+  "ex": "AbortSignal.timeout(15000) caps the export."
+ },
+ {
+  "w": 41,
+  "t": "abortsignal.any",
+  "m": {
+   "ar": "دمج كذا signal",
+   "en": "combining several abort signals"
+  },
+  "ex": "AbortSignal.any joins the user and the timeout."
  }
 ];
