@@ -9684,5 +9684,266 @@ JOURNEY_TERMS["n8n"] = [
    "en": "an agreed time for maintenance"
   },
   "ex": "The maintenance window is Sunday 01:00."
+ },
+ {
+  "w": 44,
+  "t": "kubernetes",
+  "m": {
+   "ar": "نظام تشغيل containers على سيرفرات كتير",
+   "en": "a system running containers across many servers"
+  },
+  "ex": "The agency runs n8n on Kubernetes."
+ },
+ {
+  "w": 44,
+  "t": "pod",
+  "m": {
+   "ar": "أصغر وحدة تشغيل في Kubernetes",
+   "en": "the smallest runnable unit in Kubernetes"
+  },
+  "ex": "Each worker is a pod."
+ },
+ {
+  "w": 44,
+  "t": "ingress",
+  "m": {
+   "ar": "بوابة الدخول من النت للخدمات",
+   "en": "the entry point from the internet to services"
+  },
+  "ex": "The ingress routes /webhook/*."
+ },
+ {
+  "w": 44,
+  "t": "namespace",
+  "m": {
+   "ar": "مساحة منفصلة جوه الـ cluster",
+   "en": "an isolated space inside the cluster"
+  },
+  "ex": "One namespace per client."
+ },
+ {
+  "w": 44,
+  "t": "managed kubernetes",
+  "m": {
+   "ar": "Kubernetes بيديره مزوّد",
+   "en": "Kubernetes run by a provider"
+  },
+  "ex": "Use managed Kubernetes, not your own control plane."
+ },
+ {
+  "w": 44,
+  "t": "node pool",
+  "m": {
+   "ar": "مجموعة سيرفرات بنفس المقاس في الـ cluster",
+   "en": "a group of same-size servers in a cluster"
+  },
+  "ex": "Workers run in their own node pool."
+ },
+ {
+  "w": 44,
+  "t": "configmap",
+  "m": {
+   "ar": "إعدادات عادية لـ pods",
+   "en": "ordinary settings for pods"
+  },
+  "ex": "The ConfigMap sets queue mode."
+ },
+ {
+  "w": 44,
+  "t": "secret object",
+  "m": {
+   "ar": "كائن Kubernetes للأسرار",
+   "en": "a Kubernetes object for secrets"
+  },
+  "ex": "The encryption key is in a secret object."
+ },
+ {
+  "w": 44,
+  "t": "resource requests",
+  "m": {
+   "ar": "الموارد المضمونة للـ pod",
+   "en": "the resources guaranteed to a pod"
+  },
+  "ex": "Resource requests place pods on nodes."
+ },
+ {
+  "w": 44,
+  "t": "resource limits",
+  "m": {
+   "ar": "أقصى موارد للـ pod",
+   "en": "the maximum resources for a pod"
+  },
+  "ex": "Memory limits stop runaway workers."
+ },
+ {
+  "w": 44,
+  "t": "liveness probe",
+  "m": {
+   "ar": "فحص لو الـ pod لسه عايش",
+   "en": "a check that a pod is still alive"
+  },
+  "ex": "A failing liveness probe restarts it."
+ },
+ {
+  "w": 44,
+  "t": "readiness probe",
+  "m": {
+   "ar": "فحص لو الـ pod جاهز يستقبل",
+   "en": "a check that a pod is ready for traffic"
+  },
+  "ex": "The readiness probe waits for migrations."
+ },
+ {
+  "w": 44,
+  "t": "helm chart",
+  "m": {
+   "ar": "قالب Kubernetes بقيم",
+   "en": "a templated Kubernetes package"
+  },
+  "ex": "One Helm chart serves every client."
+ },
+ {
+  "w": 44,
+  "t": "cert-manager",
+  "m": {
+   "ar": "أداة شهادات TLS تلقائية في Kubernetes",
+   "en": "a tool for automatic TLS certificates in Kubernetes"
+  },
+  "ex": "cert-manager renews the certificate."
+ },
+ {
+  "w": 44,
+  "t": "horizontal pod autoscaler",
+  "m": {
+   "ar": "أداة Kubernetes لزيادة pods على CPU/memory",
+   "en": "Kubernetes’ tool adding pods on CPU/memory"
+  },
+  "ex": "The horizontal pod autoscaler ignored the queue."
+ },
+ {
+  "w": 44,
+  "t": "keda",
+  "m": {
+   "ar": "توسّع آلي على مقاييس خارجية",
+   "en": "autoscaling on outside metrics"
+  },
+  "ex": "KEDA scales on the Redis list."
+ },
+ {
+  "w": 44,
+  "t": "cluster autoscaler",
+  "m": {
+   "ar": "زيادة وتقليل سيرفرات الـ cluster",
+   "en": "adding and removing cluster servers"
+  },
+  "ex": "The cluster autoscaler added a node."
+ },
+ {
+  "w": 44,
+  "t": "cooldown period",
+  "m": {
+   "ar": "مدة انتظار قبل التصغير",
+   "en": "a wait before scaling down"
+  },
+  "ex": "A cooldown period avoids flapping."
+ },
+ {
+  "w": 44,
+  "t": "cost cap",
+  "m": {
+   "ar": "حد أقصى للتكلفة",
+   "en": "a maximum cost"
+  },
+  "ex": "Max nodes is our cost cap."
+ },
+ {
+  "w": 44,
+  "t": "gitops",
+  "m": {
+   "ar": "Git هو مصدر حالة البنية",
+   "en": "Git as the source of infrastructure state"
+  },
+  "ex": "With GitOps, updates are PRs."
+ },
+ {
+  "w": 44,
+  "t": "argo cd",
+  "m": {
+   "ar": "أداة GitOps بتطبّق Git على Kubernetes",
+   "en": "a GitOps tool applying Git to Kubernetes"
+  },
+  "ex": "Argo CD synced the new tag."
+ },
+ {
+  "w": 44,
+  "t": "rolling update",
+  "m": {
+   "ar": "تبديل الـ pods واحد واحد",
+   "en": "replacing pods one by one"
+  },
+  "ex": "A rolling update keeps webhooks up."
+ },
+ {
+  "w": 44,
+  "t": "resource quota",
+  "m": {
+   "ar": "حد موارد لـ namespace",
+   "en": "a resource limit per namespace"
+  },
+  "ex": "Each client has a resource quota."
+ },
+ {
+  "w": 44,
+  "t": "network policy",
+  "m": {
+   "ar": "قواعد مين يكلّم مين في الـ cluster",
+   "en": "rules for who may talk to whom in a cluster"
+  },
+  "ex": "A network policy isolates clients."
+ },
+ {
+  "w": 44,
+  "t": "oomkilled",
+  "m": {
+   "ar": "الـ pod اتقفل لأنه عدّى حد الذاكرة",
+   "en": "a pod killed for exceeding its memory limit"
+  },
+  "ex": "The worker was OOMKilled on a 200 MB item."
+ },
+ {
+  "w": 44,
+  "t": "crashloopbackoff",
+  "m": {
+   "ar": "الـ pod بيقع ويعيد باستمرار",
+   "en": "a pod crashing and restarting repeatedly"
+  },
+  "ex": "A wrong key caused CrashLoopBackOff."
+ },
+ {
+  "w": 44,
+  "t": "pending pod",
+  "m": {
+   "ar": "pod مستني مكان يشتغل فيه",
+   "en": "a pod waiting for room to run"
+  },
+  "ex": "A pending pod means no free memory."
+ },
+ {
+  "w": 44,
+  "t": "kubectl",
+  "m": {
+   "ar": "أداة سطر أوامر Kubernetes",
+   "en": "the Kubernetes command-line tool"
+  },
+  "ex": "kubectl logs shows the worker output."
+ },
+ {
+  "w": 44,
+  "t": "kube-prometheus-stack",
+  "m": {
+   "ar": "حزمة مراقبة كاملة لـ Kubernetes",
+   "en": "a complete monitoring bundle for Kubernetes"
+  },
+  "ex": "kube-prometheus-stack ships Grafana."
  }
 ];
