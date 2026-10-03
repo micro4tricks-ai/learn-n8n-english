@@ -67,6 +67,18 @@ JOURNEY.week({
       "en": "string is text, integer is a whole number, float is a decimal number, boolean is true or false. We say: this variable is a string / holds an integer."
      },
      "ex": "age = 30          # an integer\nprice = 9.99      # a float\nname = \"Sara\"     # a string\nis_admin = False  # a boolean"
+    },
+    {
+     "h": {
+      "ar": "العمليات الحسابية بصوت عالي",
+      "en": "Operators aloud"
+     },
+     "p": {
+      "ar": "`a + b` a plus b، `a - b` a minus b، `a * b` a times b، `a / b` a divided by b، `a % b` a modulo b (أو a mod b)، `a ** 2` a squared، `a > b` a is greater than b، `a <= b` a is less than or equal to b، `!=` is not equal to. و`x = 5` بتتقال x equals five أو set x to five.",
+      "en": "`a + b` a plus b, `a - b` a minus b, `a * b` a times b, `a / b` a divided by b, `a % b` a modulo b (or a mod b), `a ** 2` a squared, `a > b` a is greater than b, `a <= b` a is less than or equal to b, `!=` is not equal to. And `x = 5` is said x equals five or set x to five."
+     },
+     "ex": "total = price * qty * 1.14\n→ \"total equals price times quantity times one point one four\"\nif n % 2 == 0\n→ \"if n mod two is equal to zero\"",
+     "deep": 1
     }
    ],
    "practice": [
@@ -85,6 +97,16 @@ JOURNEY.week({
     {
      "ar": "صلّح: `This query is more fast.` و`It is the most easiest way.` و`Go is more faster than Python.`",
      "en": "Fix: `This query is more fast.`, `It is the most easiest way.` and `Go is more faster than Python.`"
+    },
+    {
+     "ar": "اقرا 6 سطور حساب أو شروط من كودك بصوت عالي.",
+     "en": "Read 6 lines of maths or conditions from your code aloud.",
+     "deep": 1
+    },
+    {
+     "ar": "اكتب بالكلام (من غير رموز) معادلة حساب الضريبة والخصم في مشروعك.",
+     "en": "Write in words (no symbols) the tax and discount formula in your project.",
+     "deep": 1
     }
    ],
    "words": [
@@ -143,6 +165,22 @@ JOURNEY.week({
       "en": "A math or logic symbol (like + or ==)"
      },
      "ex": "Use the == operator to compare two values."
+    },
+    {
+     "t": "equals sign",
+     "m": {
+      "ar": "علامة =",
+      "en": "the = symbol"
+     },
+     "ex": "Put spaces around the equals sign."
+    },
+    {
+     "t": "modulo",
+     "m": {
+      "ar": "باقي القسمة (%)",
+      "en": "the remainder after division (%)"
+     },
+     "ex": "10 modulo 3 is 1."
     }
    ],
    "read": [
@@ -210,6 +248,22 @@ JOURNEY.week({
       "ar": "boolean = قيمة صح أو غلط.",
       "en": "boolean = a true-or-false value."
      }
+    },
+    {
+     "q": {
+      "ar": "`a <= b` بتتقال:",
+      "en": "`a <= b` is said:"
+     },
+     "o": [
+      "a is less than or equal to b",
+      "a is smaller b",
+      "a arrow b"
+     ],
+     "a": 0,
+     "why": {
+      "ar": "less than or equal to.",
+      "en": "less than or equal to."
+     }
     }
    ],
    "minutes": 180
@@ -268,6 +322,18 @@ JOURNEY.week({
       "en": "a few with countable (a few files), a little with uncountable (a little memory). Without a, the meaning is \"not enough\"."
      },
      "ex": "✗ I need a little minutes.\n✓ I need a few minutes."
+    },
+    {
+     "h": {
+      "ar": "وصف الـ data structures في الكلام",
+      "en": "Describing data structures in speech"
+     },
+     "p": {
+      "ar": "`{\"name\": \"Sara\"}` an object with a key `name` and the value `Sara` (key-value pair). `[1, 2, 3]` a list (array) of three numbers. `users[0]` the first user (index zero). `user[\"address\"][\"city\"]` the city inside the user’s address. استخدم inside وnested وfirst/last بدل ما تقرا الرموز.",
+      "en": "`{\"name\": \"Sara\"}` an object with a key `name` and the value `Sara` (a key-value pair). `[1, 2, 3]` a list (array) of three numbers. `users[0]` the first user (index zero). `user[\"address\"][\"city\"]` the city inside the user’s address. Use inside, nested and first/last instead of reading the symbols."
+     },
+     "ex": "\"The response is a list of orders. Each order is an object\n with an id, a total, and a nested customer object\n that holds the name and phone.\"",
+     "deep": 1
     }
    ],
    "practice": [
@@ -286,6 +352,16 @@ JOURNEY.week({
     {
      "ar": "اكتب 4 جمل بـ much/many و4 بـ a few/a little عن بيانات مشروعك.",
      "en": "Write 4 sentences with much/many and 4 with a few/a little about your project's data."
+    },
+    {
+     "ar": "خُد رد API حقيقي ووصفه بالكلام في 4 جمل كأنك بتشرحه لزميل في مكالمة.",
+     "en": "Take a real API response and describe it in 4 sentences as if explaining it to a colleague on a call.",
+     "deep": 1
+    },
+    {
+     "ar": "اكتب كلمات مركّبة بالـ hyphen صح: `read-only`، `well-known`، `built-in`، `real-time`.",
+     "en": "Write hyphenated words correctly: `read-only`, `well-known`, `built-in`, `real-time`.",
+     "deep": 1
     }
    ],
    "words": [
@@ -344,6 +420,22 @@ JOURNEY.week({
       "en": "Cutting out part of a list or string"
      },
      "ex": "name[:3] is a slice of the first three characters."
+    },
+    {
+     "t": "key-value pair",
+     "m": {
+      "ar": "مفتاح وقيمته في object",
+      "en": "a key and its value in an object"
+     },
+     "ex": "\"name\": \"Sara\" is a key-value pair."
+    },
+    {
+     "t": "hyphen",
+     "m": {
+      "ar": "الشرطة القصيرة اللي بتربط كلمتين",
+      "en": "the short dash that joins two words"
+     },
+     "ex": "Write read-only with a hyphen."
     }
    ],
    "read": [
@@ -411,6 +503,22 @@ JOURNEY.week({
       "ar": "add something to a list.",
       "en": "add something to a list."
      }
+    },
+    {
+     "q": {
+      "ar": "`users[0]` بتتقال:",
+      "en": "`users[0]` is said:"
+     },
+     "o": [
+      "the first user",
+      "the zero users",
+      "users zero bracket"
+     ],
+     "a": 0,
+     "why": {
+      "ar": "index 0 = الأول.",
+      "en": "Index 0 = the first."
+     }
     }
    ],
    "minutes": 180
@@ -469,6 +577,18 @@ JOURNEY.week({
       "en": "too + adjective = more than needed. adjective + enough = sufficient. enough comes after the adjective."
      },
      "ex": "✗ The file is enough big.\n✓ The file is big enough."
+    },
+    {
+     "h": {
+      "ar": "الاستماع بالقطع (chunks)",
+      "en": "Listening in chunks"
+     },
+     "p": {
+      "ar": "متحاولش تفهم كل كلمة في فيديو شرح. اسمع **قطع**: `for each item in the list` قطعة واحدة، `if it's not empty` قطعة. وقّف الفيديو بعد كل جملة، وقول القطع اللي فهمتها. ولو كلمة صعبة، اطلب منهم يتهجّوها: `Could you spell that out?`",
+      "en": "Do not try to catch every word in a tutorial. Listen for **chunks**: `for each item in the list` is one chunk, `if it's not empty` another. Pause after each sentence and say the chunks you caught. If a word is hard, ask them to spell it: `Could you spell that out?`"
+     },
+     "ex": "chunks: [for each order] [in the list] [we check] [if the total] [is above a hundred]\n\"Sorry, could you spell that out? Is it c-a-c-h-e?\"",
+     "deep": 1
     }
    ],
    "practice": [
@@ -487,6 +607,16 @@ JOURNEY.week({
     {
      "ar": "اكتب pseudocode بالإنجليزي لبرنامج بيفلتر قايمة أسماء (5 سطور).",
      "en": "Write English pseudocode for a program that filters a list of names (5 lines)."
+    },
+    {
+     "ar": "اسمع 3 دقايق من فيديو عن loops، وقّف كل جملة واكتب القطع.",
+     "en": "Listen to 3 minutes of a video about loops, pause each sentence and write the chunks.",
+     "deep": 1
+    },
+    {
+     "ar": "اتهجّى بصوت عالي: `queue`، `cache`، `schema`، `async`.",
+     "en": "Spell aloud: `queue`, `cache`, `schema`, `async`.",
+     "deep": 1
     }
    ],
    "code": [
@@ -554,6 +684,22 @@ JOURNEY.week({
       "en": "A loop that never ends (a common bug)"
      },
      "ex": "Forgetting to update the counter causes an infinite loop."
+    },
+    {
+     "t": "chunking",
+     "m": {
+      "ar": "تقسيم الكلام لقطع بتتفهم مرة واحدة",
+      "en": "splitting speech into pieces you understand at once"
+     },
+     "ex": "Chunking makes fast speech easier."
+    },
+    {
+     "t": "spell out",
+     "m": {
+      "ar": "تقول حروف الكلمة حرف حرف",
+      "en": "to say the letters of a word one by one"
+     },
+     "ex": "Could you spell out the password policy name?"
     }
    ],
    "read": [
@@ -639,6 +785,22 @@ JOURNEY.week({
       "ar": "infinite = ملوش نهاية.",
       "en": "infinite = without end."
      }
+    },
+    {
+     "q": {
+      "ar": "مفهمتش اسم أداة في مكالمة. تقول:",
+      "en": "You missed a tool’s name on a call. You say:"
+     },
+     "o": [
+      "Could you spell that out?",
+      "Repeat.",
+      "What?"
+     ],
+     "a": 0,
+     "why": {
+      "ar": "مهذب وواضح.",
+      "en": "Polite and clear."
+     }
     }
    ],
    "minutes": 180
@@ -694,6 +856,18 @@ JOURNEY.week({
       "en": "After one of the, the noun is plural, but the verb is singular because the subject is one."
      },
      "ex": "✗ One of the test are failing.\n✓ One of the tests is failing."
+    },
+    {
+     "h": {
+      "ar": "الكلمات اللي بتيجي مع بعض (collocations)",
+      "en": "Words that go together (collocations)"
+     },
+     "p": {
+      "ar": "في الإنجليزي فيه أفعال معيّنة مع أسماء معيّنة: `create an instance` (مش make)، `call a method`، `raise an exception`، `pass an argument`، `run a test`، `make a request`، `do research`. الترجمة الحرفية من العربي بتطلّع حاجة مفهومة بس غريبة. واحذر الـ false friends زي `actual` (= حقيقي، مش «حالي»).",
+      "en": "English pairs certain verbs with certain nouns: `create an instance` (not make), `call a method`, `raise an exception`, `pass an argument`, `run a test`, `make a request`, `do research`. Translating word by word from Arabic gives something understandable but odd. And beware of false friends like `actual` (= real, not «current»)."
+     },
+     "ex": "✓ raise an exception   ✗ throw up an exception\n✓ run the tests        ✗ play the tests\n✓ make a request       ✗ do a request\nactual = real (the actual result) · current = now",
+     "deep": 1
     }
    ],
    "practice": [
@@ -712,6 +886,16 @@ JOURNEY.week({
     {
      "ar": "ارسم (على ورق) 3 classes ليهم علاقة ببعض واكتب تحت كل واحد جملة بالإنجليزي.",
      "en": "Draw 3 related classes on paper and write one English sentence under each."
+    },
+    {
+     "ar": "اعمل جدول بـ 15 collocation من التوثيق اللي بتقراه.",
+     "en": "Make a table of 15 collocations from the docs you read.",
+     "deep": 1
+    },
+    {
+     "ar": "اكتب 5 جمل عن كود OOP بالـ collocations الصح.",
+     "en": "Write 5 sentences about OOP code with the right collocations.",
+     "deep": 1
     }
    ],
    "words": [
@@ -770,6 +954,22 @@ JOURNEY.week({
       "en": "A reference to the object itself inside a method"
      },
      "ex": "self refers to the current object."
+    },
+    {
+     "t": "collocation",
+     "m": {
+      "ar": "كلمتين بيجوا مع بعض عادةً",
+      "en": "two words that usually go together"
+     },
+     "ex": "raise an exception is a collocation."
+    },
+    {
+     "t": "false friend",
+     "m": {
+      "ar": "كلمة شبه كلمة في لغتك بس معناها مختلف",
+      "en": "a word that looks like one in your language but means something else"
+     },
+     "ex": "actual is a false friend for many learners."
     }
    ],
    "read": [
@@ -846,6 +1046,22 @@ JOURNEY.week({
       "ar": "للحاجات that أو which، وwho للناس.",
       "en": "that or which for things, who for people."
      }
+    },
+    {
+     "q": {
+      "ar": "الصح:",
+      "en": "Correct:"
+     },
+     "o": [
+      "raise an exception",
+      "make an exception error",
+      "do an exception"
+     ],
+     "a": 0,
+     "why": {
+      "ar": "raise/throw an exception.",
+      "en": "raise/throw an exception."
+     }
     }
    ],
    "minutes": 180
@@ -893,6 +1109,18 @@ JOURNEY.week({
       "en": "since + a starting point (since 2023, since Monday). for + a length of time (for two years). Both usually go with the present perfect."
      },
      "ex": "✗ I work with n8n since two years.\n✓ I have worked with n8n for two years."
+    },
+    {
+     "h": {
+      "ar": "تلخيص خطأ في اجتماع",
+      "en": "Summarising an error in a meeting"
+     },
+     "p": {
+      "ar": "في اجتماع حد بيسألك «إيه اللي حصل؟». اتكلم بصوت واضح (speak up) وبترتيب: **What** (`The sync failed at 3 a.m.`)، **Why** (`because the API token expired`)، **Impact** (`40 orders weren't copied`)، **Fix** (`I renewed it and re-ran the job`)، **Next** (`I've added an alert for expiring tokens`).",
+      "en": "In a meeting someone asks «what happened?». Speak up clearly and in order: **What** (`The sync failed at 3 a.m.`), **Why** (`because the API token expired`), **Impact** (`40 orders weren't copied`), **Fix** (`I renewed it and re-ran the job`), **Next** (`I've added an alert for expiring tokens`)."
+     },
+     "ex": "What → Why → Impact → Fix → Next\n\"The sync failed at 3 a.m. because the token expired. Forty orders weren't copied.\n I renewed the token and re-ran the job, and I've added an alert.\"",
+     "deep": 1
     }
    ],
    "practice": [
@@ -911,6 +1139,16 @@ JOURNEY.week({
     {
      "ar": "اكتب 4 جمل بـ since و4 بـ for عن مشاكل: The job has been failing since Monday.",
      "en": "Write 4 sentences with since and 4 with for about problems: The job has been failing since Monday."
+    },
+    {
+     "ar": "اختار 3 أخطاء حصلت معاك ولخّص كل واحد بالترتيب ده في 30 ثانية.",
+     "en": "Pick 3 errors you had and summarise each in this order in 30 seconds.",
+     "deep": 1
+    },
+    {
+     "ar": "اكتب نفس الملخص كرسالة لعميل، أقل من 60 كلمة.",
+     "en": "Write the same summary as a message to a client, under 60 words.",
+     "deep": 1
     }
    ],
    "words": [
@@ -969,6 +1207,22 @@ JOURNEY.week({
       "en": "A condition"
      },
      "ex": "The loop stops when the condition becomes false."
+    },
+    {
+     "t": "speak up",
+     "m": {
+      "ar": "تتكلم بصوت أعلى وأوضح",
+      "en": "to talk louder and more clearly"
+     },
+     "ex": "Please speak up, the call is noisy."
+    },
+    {
+     "t": "summarise",
+     "m": {
+      "ar": "تقول الأهم في كلام قليل",
+      "en": "to give the main points in a few words"
+     },
+     "ex": "Summarise the incident in three sentences."
     }
    ],
    "read": [
@@ -1051,6 +1305,22 @@ JOURNEY.week({
       "ar": "بتوقف التشغيل عشان تفحص القيم.",
       "en": "It pauses execution so you can inspect values."
      }
+    },
+    {
+     "q": {
+      "ar": "الترتيب الأوضح لشرح عطل:",
+      "en": "The clearest order to explain a failure:"
+     },
+     "o": [
+      "what, why, impact, fix, next",
+      "fix, why, what",
+      "next, impact, what"
+     ],
+     "a": 0,
+     "why": {
+      "ar": "من الحدث للخطوة الجاية.",
+      "en": "From the event to the next step."
+     }
     }
    ],
    "minutes": 180
@@ -1089,6 +1359,16 @@ JOURNEY.week({
     {
      "ar": "قالب الأخطاء: this happens when… I fixed it by…",
      "en": "The error template: this happens when… I fixed it by…"
+    },
+    {
+     "ar": "⚡ العمليات والـ data structures بالكلام، والاستماع بالقطع.",
+     "en": "⚡ Operators and data structures in speech, and listening in chunks.",
+     "deep": 1
+    },
+    {
+     "ar": "⚡ الـ collocations والـ false friends، وتلخيص عطل بالترتيب: سجّل شرح لعطل من مشروع الشهر.",
+     "en": "⚡ Collocations, false friends, and summarising a failure in order: record an explanation of a failure in your month project.",
+     "deep": 1
     }
    ],
    "project": {

@@ -59,6 +59,18 @@ JOURNEY.week({
       "en": "Give every response the same shape: `{ \"ok\": true, \"data\": … }` or `{ \"ok\": false, \"error\": { \"code\", \"message\" } }`. It makes the API easy to use."
      },
      "ex": "{ \"ok\": true, \"data\": { \"id\": 42, \"total\": 350 } }"
+    },
+    {
+     "h": {
+      "ar": "مسارات بمتغيّرات",
+      "en": "Paths with parameters"
+     },
+     "p": {
+      "ar": "نود Webhook بيقبل مسار فيه متغيّر: `orders/:id` يخلّي `/orders/1042` يوصل و`id = 1042` في `$json.params.id`. كده API واحد يخدم كل الطلبات بدل webhook لكل طلب. واستخدم الـ method (GET يقرا، POST يضيف، PATCH يعدّل جزء، DELETE يمسح) عشان المعنى يبقى واضح.",
+      "en": "The Webhook node accepts a path with a parameter: `orders/:id` lets `/orders/1042` arrive with `id = 1042` in `$json.params.id`. One API then serves every order instead of a webhook per order. Use the method (GET reads, POST adds, PATCH changes part, DELETE removes) so the meaning is clear."
+     },
+     "ex": "GET    /webhook/orders/:id   → read one order\nPOST   /webhook/orders       → create an order\nPATCH  /webhook/orders/:id   → change the status\n{{ $json.params.id }}  →  \"1042\"",
+     "deep": 1
     }
    ],
    "practice": [
@@ -77,6 +89,16 @@ JOURNEY.week({
     {
      "ar": "اختبر الـ 3 بـ curl واكتب الأوامر في README.",
      "en": "Test all 3 with curl and write the commands in the README."
+    },
+    {
+     "ar": "اعمل `GET orders/:id` يدوّر على الطلب في شيت ويرجّعه، ويرجّع 404 لو مش موجود.",
+     "en": "Build `GET orders/:id` that finds the order in a sheet and returns it, or 404 if it does not exist.",
+     "deep": 1
+    },
+    {
+     "ar": "جرّبه بـ curl على 3 أرقام: موجود، مش موجود، وحروف بدل رقم.",
+     "en": "Test it with curl on 3 ids: one that exists, one that does not, and letters instead of a number.",
+     "deep": 1
     }
    ],
    "words": [
@@ -119,6 +141,22 @@ JOURNEY.week({
       "en": "where a webhook exposes path parameters"
      },
      "ex": "$json.params.id"
+    },
+    {
+     "t": "route parameter",
+     "m": {
+      "ar": "جزء متغيّر في المسار زي :id",
+      "en": "a variable part of the route, like :id"
+     },
+     "ex": "The order id is a route parameter."
+    },
+    {
+     "t": "rest api",
+     "m": {
+      "ar": "API بيستخدم روابط للحاجات وmethods للأفعال",
+      "en": "an API that uses URLs for things and methods for actions"
+     },
+     "ex": "GET /orders/1042 is typical of a REST API."
     }
    ],
    "read": [
@@ -200,6 +238,31 @@ JOURNEY.week({
       "ar": "query string.",
       "en": "the query string."
      }
+    },
+    {
+     "q": {
+      "ar": "عشان تعدّل حالة طلب بس، الـ method المناسب:",
+      "en": "To change only an order’s status, the right method is:"
+     },
+     "o": [
+      {
+       "ar": "PATCH",
+       "en": "PATCH"
+      },
+      {
+       "ar": "GET",
+       "en": "GET"
+      },
+      {
+       "ar": "DELETE",
+       "en": "DELETE"
+      }
+     ],
+     "a": 0,
+     "why": {
+      "ar": "تعديل جزئي.",
+      "en": "A partial update."
+     }
     }
    ],
    "minutes": 180
@@ -247,6 +310,18 @@ JOURNEY.week({
       "en": "Instead of rejecting on the first problem, collect every invalid field in a Code node and return them together. Your API's users will thank you."
      },
      "ex": "errors: [\"email is required\", \"qty must be > 0\"]"
+    },
+    {
+     "h": {
+      "ar": "شكل ثابت للأخطاء",
+      "en": "A consistent error format"
+     },
+     "p": {
+      "ar": "اتفق على شكل واحد لكل الأخطاء، عشان اللي بيستخدم الـ API يتعامل معاها بكود واحد: status مناسب (400، 404، 422) و body زي `{\"error\": {\"code\": \"...\", \"message\": \"...\", \"field\": \"...\"}}`. الرسالة تقول المشكلة وإزاي تتصلّح، من غير تفاصيل داخلية زي اسم الشيت أو الـ stack.",
+      "en": "Agree on one shape for every error, so API users can handle them with one piece of code: a fitting status (400, 404, 422) and a body like `{\"error\": {\"code\": \"...\", \"message\": \"...\", \"field\": \"...\"}}`. The message says what is wrong and how to fix it, without internal details such as the sheet name or the stack."
+     },
+     "ex": "422 {\"error\": {\"code\": \"invalid_phone\", \"field\": \"phone\",\n      \"message\": \"phone must look like 01xxxxxxxxx\"}}\n404 {\"error\": {\"code\": \"not_found\", \"message\": \"order 1042 does not exist\"}}",
+     "deep": 1
     }
    ],
    "practice": [
@@ -265,6 +340,16 @@ JOURNEY.week({
     {
      "ar": "اختبر بـ 5 طلبات غلط مختلفة وطلب صح.",
      "en": "Test with 5 different bad requests and one good one."
+    },
+    {
+     "ar": "اعمل sub-workflow اسمه `API error` بياخد code وmessage وstatus ويرد بالشكل الموحد، واستخدمه في كل أخطاء الـ API.",
+     "en": "Build an `API error` sub-workflow that takes code, message and status and replies in the shared shape, and use it for every API error.",
+     "deep": 1
+    },
+    {
+     "ar": "راجع رسايل الخطأ: فيها أي تفاصيل داخلية مالهاش لازمة؟",
+     "en": "Review your error messages: do any reveal internal details they should not?",
+     "deep": 1
     }
    ],
    "words": [
@@ -307,6 +392,22 @@ JOURNEY.week({
       "en": "an early check that stops when the input is wrong"
      },
      "ex": "if (!email) return error"
+    },
+    {
+     "t": "machine-readable",
+     "m": {
+      "ar": "مكتوب بشكل البرامج تفهمه بسهولة",
+      "en": "written so programs can read it easily"
+     },
+     "ex": "Add a machine-readable code to each error."
+    },
+    {
+     "t": "consistent",
+     "m": {
+      "ar": "ماشي على نفس الشكل كل مرة",
+      "en": "following the same pattern every time"
+     },
+     "ex": "Keep the error format consistent."
     }
    ],
    "read": [
@@ -380,6 +481,31 @@ JOURNEY.week({
       "ar": "بتسمّي الحقل والمشكلة.",
       "en": "It names the field and the problem."
      }
+    },
+    {
+     "q": {
+      "ar": "رسالة الخطأ للمستخدم لازم:",
+      "en": "An error message for the user should:"
+     },
+     "o": [
+      {
+       "ar": "تقول المشكلة وإزاي تتصلّح",
+       "en": "say what is wrong and how to fix it"
+      },
+      {
+       "ar": "تعرض الـ stack كله",
+       "en": "show the whole stack"
+      },
+      {
+       "ar": "تكون فاضية",
+       "en": "be empty"
+      }
+     ],
+     "a": 0,
+     "why": {
+      "ar": "مفيدة ومن غير أسرار داخلية.",
+      "en": "Helpful, without internal secrets."
+     }
     }
    ],
    "minutes": 180
@@ -427,6 +553,18 @@ JOURNEY.week({
       "en": "Webhook options: IP(s) Whitelist (accept only certain addresses) and Allowed Origins (CORS) for browsers. Never leave an endpoint that changes data without authentication."
      },
      "ex": "IP(s) Whitelist: 203.0.113.10"
+    },
+    {
+     "h": {
+      "ar": "توقيع HMAC للـ webhooks",
+      "en": "HMAC signatures for webhooks"
+     },
+     "p": {
+      "ar": "خدمات كتير (Stripe، GitHub، Shopify) بتوقّع كل webhook: بتحسب HMAC للـ body بسر مشترك وتبعته في header. انت تحسب نفس الحساب وتقارن: لو مختلف، الطلب مزيّف أو اتعدّل. لازم تحسب على الـ **body الخام** بالظبط زي ما وصل، وتقارن بمقارنة آمنة.",
+      "en": "Many services (Stripe, GitHub, Shopify) sign every webhook: they compute an HMAC of the body with a shared secret and send it in a header. You compute the same and compare: if it differs, the request is fake or was changed. You must compute over the **raw body** exactly as received, and compare safely."
+     },
+     "ex": "// Code node (Webhook with Raw Body on)\nconst crypto = require('crypto');\nconst sig = crypto.createHmac('sha256', $env.WEBHOOK_SECRET)\n  .update($binary.data ? Buffer.from($binary.data.data, 'base64') : '')\n  .digest('hex');\nreturn [{ json: { valid: sig === $json.headers['x-signature'] } }];",
+     "deep": 1
     }
    ],
    "practice": [
@@ -445,6 +583,16 @@ JOURNEY.week({
     {
      "ar": "جرّب IP(s) Whitelist بعنوانك.",
      "en": "Try the IP(s) Whitelist with your own address."
+    },
+    {
+     "ar": "اقرا صفحة «verify webhook signatures» في توثيق خدمة زي GitHub، واكتب الخطوات بكلامك.",
+     "en": "Read the «verify webhook signatures» page of a service such as GitHub, and write the steps in your own words.",
+     "deep": 1
+    },
+    {
+     "ar": "احسب HMAC لنص بسيط في Code node بسر تجريبي، وغيّر حرف واحد في النص وشوف التوقيع اتغيّر خالص.",
+     "en": "Compute an HMAC of a short text in a Code node with a test secret, change one letter and see the signature change completely.",
+     "deep": 1
     }
    ],
    "words": [
@@ -487,6 +635,22 @@ JOURNEY.week({
       "en": "a list of the only addresses allowed to call the endpoint"
      },
      "ex": "IP(s) Whitelist: 203.0.113.10"
+    },
+    {
+     "t": "hmac",
+     "m": {
+      "ar": "توقيع بيتحسب من الرسالة وسر مشترك",
+      "en": "a signature computed from a message and a shared secret"
+     },
+     "ex": "Check the HMAC before trusting the webhook."
+    },
+    {
+     "t": "shared secret",
+     "m": {
+      "ar": "سر متفق عليه بينك وبين الخدمة",
+      "en": "a secret known to you and the service"
+     },
+     "ex": "The HMAC uses a shared secret."
     }
    ],
    "read": [
@@ -583,6 +747,31 @@ JOURNEY.week({
       "ar": "أي حد يقدر يمسح.",
       "en": "Anyone could delete."
      }
+    },
+    {
+     "q": {
+      "ar": "التوقيع مختلف عن اللي حسبته. يعني:",
+      "en": "The signature differs from yours. It means:"
+     },
+     "o": [
+      {
+       "ar": "الطلب مزيّف أو اتعدّل؛ ارفضه",
+       "en": "the request is fake or changed; reject it"
+      },
+      {
+       "ar": "عادي، كمّل",
+       "en": "fine, continue"
+      },
+      {
+       "ar": "الإنترنت بطيء",
+       "en": "the internet is slow"
+      }
+     ],
+     "a": 0,
+     "why": {
+      "ar": "رد 401 ومتعالجش.",
+      "en": "Reply 401 and do not process it."
+     }
     }
    ],
    "minutes": 180
@@ -630,6 +819,18 @@ JOURNEY.week({
       "en": "The service dashboard has a log of every webhook sent and your reply. It's the first place to look when something didn't arrive, and you can resend from it for testing."
      },
      "ex": "Stripe → Developers → Webhooks → Events → Resend"
+    },
+    {
+     "h": {
+      "ar": "الـ idempotency: نفس الحدث مرتين",
+      "en": "Idempotency: the same event twice"
+     },
+     "p": {
+      "ar": "الخدمات بتعيد إرسال الـ webhook لو مردّتش بسرعة أو حصل خطأ شبكة، فممكن يوصلك نفس الدفع مرتين. خلّي معالجتك **idempotent**: احفظ `event_id` اللي اتعالج، ولو وصل تاني رد 200 من غير ما تعمل حاجة. كده العميل مش هيستلم إيميلين ولا الطلب يتسجل مرتين.",
+      "en": "Services resend a webhook if you did not answer quickly or the network failed, so the same payment can reach you twice. Make your handling **idempotent**: store the handled `event_id`, and if it arrives again reply 200 and do nothing. The customer then never gets two emails and the order is never saved twice."
+     },
+     "ex": "Webhook → Remove Duplicates (value: {{ $json.body.event_id }},\n           previous executions) → handle the event\nsecond delivery of evt_77 → removed → reply 200, nothing else",
+     "deep": 1
     }
    ],
    "practice": [
@@ -648,6 +849,16 @@ JOURNEY.week({
     {
      "ar": "افتح delivery log لخدمة (GitHub مثلًا) وشوف ردودك.",
      "en": "Open a service's delivery log (GitHub, for example) and see your replies."
+    },
+    {
+     "ar": "ابعت نفس الـ webhook بنفس `event_id` 3 مرات بـ curl، واتأكد إن الصف اتسجّل مرة واحدة.",
+     "en": "Send the same webhook with the same `event_id` 3 times with curl, and check the row was saved once.",
+     "deep": 1
+    },
+    {
+     "ar": "اكتب: إيه اللي ممكن يحصل في بيزنس حقيقي لو الـ webhook مش idempotent؟ (3 أمثلة)",
+     "en": "Write: what could happen in a real business if the webhook is not idempotent? (3 examples)",
+     "deep": 1
     }
    ],
    "words": [
@@ -690,6 +901,22 @@ JOURNEY.week({
       "en": "the secret a service uses to sign webhooks"
      },
      "ex": "whsec_•••"
+    },
+    {
+     "t": "replay attack",
+     "m": {
+      "ar": "حد بيعيد إرسال طلب قديم صحيح عشان يكرر أثره",
+      "en": "someone resending an old valid request to repeat its effect"
+     },
+     "ex": "Store event ids to stop a replay attack."
+    },
+    {
+     "t": "redelivery",
+     "m": {
+      "ar": "إعادة إرسال نفس الحدث من الخدمة",
+      "en": "the service sending the same event again"
+     },
+     "ex": "Expect redelivery after a timeout."
     }
    ],
    "read": [
@@ -780,6 +1007,31 @@ JOURNEY.week({
       "ar": "فرع لكل نوع.",
       "en": "One branch per type."
      }
+    },
+    {
+     "q": {
+      "ar": "وصلك `evt_77` للمرة التانية:",
+      "en": "`evt_77` arrived a second time:"
+     },
+     "o": [
+      {
+       "ar": "رد 200 ومتعملش حاجة",
+       "en": "reply 200 and do nothing"
+      },
+      {
+       "ar": "عالجه تاني",
+       "en": "handle it again"
+      },
+      {
+       "ar": "رد 500",
+       "en": "reply 500"
+      }
+     ],
+     "a": 0,
+     "why": {
+      "ar": "لو رديت بخطأ الخدمة هتعيد تاني.",
+      "en": "An error reply makes the service retry again."
+     }
     }
    ],
    "minutes": 180
@@ -827,6 +1079,18 @@ JOURNEY.week({
       "en": "If a web page (browser JavaScript) calls your API, the browser requires CORS. In the Webhook options: Allowed Origins = your site's domain only, not *."
      },
      "ex": "Allowed Origins (CORS): https://mysite.com"
+    },
+    {
+     "h": {
+      "ar": "توثيق الـ API بمثال",
+      "en": "Documenting the API with examples"
+     },
+     "p": {
+      "ar": "أبسط توثيق مفيد: لكل endpoint — الـ method والمسار، المدخلات (اسم، نوع، إجباري؟)، مثال طلب بـ curl، مثال رد ناجح، والأخطاء الممكنة. حطه في ملف `API.md` جنب الـ workflow في Git. ولما المشروع يكبر، ده بيتحوّل لـ OpenAPI.",
+      "en": "The simplest useful docs: for each endpoint — the method and path, the inputs (name, type, required?), a curl request example, a success response example, and the possible errors. Keep it in an `API.md` file next to the workflow in Git. When the project grows, this becomes OpenAPI."
+     },
+     "ex": "## POST /webhook/orders\nBody: name (string, required), phone (string, required), items (array)\ncurl -X POST $URL/webhook/orders -H \"Content-Type: application/json\" -d '{\"name\":\"Sara\",\"phone\":\"01012345678\",\"items\":[]}'\n201 {\"id\": \"1043\"}   ·   422 invalid_phone",
+     "deep": 1
     }
    ],
    "practice": [
@@ -845,6 +1109,16 @@ JOURNEY.week({
     {
      "ar": "نادي الـ API من صفحة HTML بسيطة وظبّط CORS.",
      "en": "Call the API from a simple HTML page and set up CORS."
+    },
+    {
+     "ar": "اكتب `API.md` للـ API بتاعك (3 endpoints على الأقل) بالشكل ده.",
+     "en": "Write `API.md` for your API (at least 3 endpoints) in this format.",
+     "deep": 1
+    },
+    {
+     "ar": "ادّي التوثيق لحد (أو AI) واطلب منه يستخدم الـ API من غير ما يسألك. سجّل الأسئلة اللي سألها.",
+     "en": "Give the docs to someone (or an AI) and ask them to use the API without asking you. Note the questions they asked.",
+     "deep": 1
     }
    ],
    "words": [
@@ -887,6 +1161,22 @@ JOURNEY.week({
       "en": "a periodic check that the endpoint is up"
      },
      "ex": "Ping /v1/health every 5 minutes."
+    },
+    {
+     "t": "request example",
+     "m": {
+      "ar": "مثال طلب كامل في التوثيق",
+      "en": "a complete sample request in the docs"
+     },
+     "ex": "Every endpoint needs a request example."
+    },
+    {
+     "t": "openapi",
+     "m": {
+      "ar": "معيار لوصف الـ APIs في ملف",
+      "en": "a standard for describing APIs in a file"
+     },
+     "ex": "Export an OpenAPI file for the client."
     }
    ],
    "read": [
@@ -983,6 +1273,31 @@ JOURNEY.week({
       "ar": "عشان حد يستخدمه لوحده.",
       "en": "So someone can use it alone."
      }
+    },
+    {
+     "q": {
+      "ar": "أهم حاجة في توثيق endpoint:",
+      "en": "The most useful part of endpoint docs:"
+     },
+     "o": [
+      {
+       "ar": "مثال طلب ورد حقيقي",
+       "en": "a real request and response example"
+      },
+      {
+       "ar": "تاريخ الكتابة",
+       "en": "the date written"
+      },
+      {
+       "ar": "اسم المبرمج",
+       "en": "the developer’s name"
+      }
+     ],
+     "a": 0,
+     "why": {
+      "ar": "الأمثلة بتجاوب أغلب الأسئلة.",
+      "en": "Examples answer most questions."
+     }
     }
    ],
    "minutes": 180
@@ -1017,6 +1332,16 @@ JOURNEY.week({
     {
      "ar": "اختبارات وتوثيق وCORS وhealth check.",
      "en": "Tests, docs, CORS and a health check."
+    },
+    {
+     "ar": "⚡ مسارات :id والـ methods، وشكل موحّد للأخطاء.",
+     "en": "⚡ :id paths and methods, and one shared error format.",
+     "deep": 1
+    },
+    {
+     "ar": "⚡ توقيع HMAC، والـ idempotency، والتوثيق بأمثلة: طبّقهم على API الطلبات.",
+     "en": "⚡ HMAC signatures, idempotency, and docs with examples: apply them to the orders API.",
+     "deep": 1
     }
    ],
    "project": {

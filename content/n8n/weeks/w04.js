@@ -59,6 +59,18 @@ JOURNEY.week({
       "en": "Open the full expression editor and watch the result below as you type. Green means fine, red means an error, and [undefined] means the field doesn't exist."
      },
      "ex": "Result: \"Order #1042 — 3 items\""
+    },
+    {
+     "h": {
+      "ar": "قيم افتراضية بـ ?? و?.",
+      "en": "Defaults with ?? and ?."
+     },
+     "p": {
+      "ar": "البيانات الحقيقية ناقصة دايمًا. `$json.phone ?? 'no phone'` بيدّي قيمة بديلة لو الحقل `null` أو مش موجود. و`$json.customer?.email` مش هيكسر لو `customer` مش موجود. اتنين مع بعض بيمنعوا نص أخطاء الـ expressions.",
+      "en": "Real data is always incomplete. `$json.phone ?? 'no phone'` gives a fallback when the field is `null` or missing. `$json.customer?.email` does not break when `customer` is missing. Together they prevent half of expression errors."
+     },
+     "ex": "{{ $json.customer?.email ?? \"unknown@example.com\" }}\n{{ ($json.tags ?? []).join(\", \") }}\n{{ $json.qty ?? 1 }}",
+     "deep": 1
     }
    ],
    "practice": [
@@ -77,6 +89,16 @@ JOURNEY.week({
     {
      "ar": "اكتب expression بيحسب الضريبة والإجمالي ويقرّب لرقمين عشريين.",
      "en": "Write an expression that calculates tax and total and rounds to two decimals."
+    },
+    {
+     "ar": "اعمل 3 عناصر: واحد كامل، وواحد من غير `phone`، وواحد من غير `customer` خالص؛ واكتب expressions متكسرش على أي واحد فيهم.",
+     "en": "Make 3 items: one complete, one without `phone`, one without `customer` at all; write expressions that do not break on any of them.",
+     "deep": 1
+    },
+    {
+     "ar": "قارن `??` و`||` مع القيمة `0`: إيه اللي بيطلع وليه؟",
+     "en": "Compare `??` and `||` with the value `0`: what comes out and why?",
+     "deep": 1
     }
    ],
    "words": [
@@ -119,6 +141,22 @@ JOURNEY.week({
       "en": "rounds a number to a number of decimals and returns text"
      },
      "ex": "{{ ($json.total * 1.14).toFixed(2) }}"
+    },
+    {
+     "t": "fallback",
+     "m": {
+      "ar": "قيمة بديلة لما الأصلية مش موجودة",
+      "en": "a replacement value when the original is missing"
+     },
+     "ex": "Use \"unknown\" as a fallback."
+    },
+    {
+     "t": "nullish",
+     "m": {
+      "ar": "قيمته null أو undefined",
+      "en": "being null or undefined"
+     },
+     "ex": "?? only replaces nullish values."
     }
    ],
    "read": [
@@ -209,6 +247,31 @@ JOURNEY.week({
       "ar": "راجع اسم الحقل.",
       "en": "Check the field name."
      }
+    },
+    {
+     "q": {
+      "ar": "`0 ?? 5` بتطلع:",
+      "en": "`0 ?? 5` gives:"
+     },
+     "o": [
+      {
+       "ar": "0",
+       "en": "0"
+      },
+      {
+       "ar": "5",
+       "en": "5"
+      },
+      {
+       "ar": "خطأ",
+       "en": "an error"
+      }
+     ],
+     "a": 0,
+     "why": {
+      "ar": "?? بيستبدل null وundefined بس.",
+      "en": "?? only replaces null and undefined."
+     }
     }
    ],
    "minutes": 180
@@ -256,6 +319,18 @@ JOURNEY.week({
       "en": "`$execution.id` the run ID, `$workflow.name` the workflow name, `$prevNode.name` the previous node, and `$now` the time. Useful in logs and alerts."
      },
      "ex": "{{ `${$workflow.name} failed in execution ${$execution.id}` }}"
+    },
+    {
+     "h": {
+      "ar": "`$(\"Node\").first()` و`.all()` و`.item`",
+      "en": "`$(\"Node\").first()`, `.all()` and `.item`"
+     },
+     "p": {
+      "ar": "`$(\"Get customer\").first().json` أول عنصر من النود ده. `.all()` كل العناصر (array). و`.item` العنصر **المرتبط** بالعنصر الحالي (n8n بيتتبع مين جه من مين). استخدم `.item` جوه التدفق العادي، و`.first()` لما النود ده بيطلّع عنصر واحد بس (زي إعدادات).",
+      "en": "`$(\"Get customer\").first().json` is the first item of that node. `.all()` is every item (an array). `.item` is the item **linked** to the current one (n8n tracks which came from which). Use `.item` in a normal flow, and `.first()` when that node outputs a single item (like settings)."
+     },
+     "ex": "{{ $(\"Settings\").first().json.currency }}\n{{ $(\"Get customer\").item.json.name }}\n{{ $(\"Get orders\").all().length }} orders",
+     "deep": 1
     }
    ],
    "practice": [
@@ -274,6 +349,16 @@ JOURNEY.week({
     {
      "ar": "ضيف سطر log فيه $workflow.name و$execution.id و$now.",
      "en": "Add a log line with $workflow.name, $execution.id and $now."
+    },
+    {
+     "ar": "اعمل workflow: Settings (عنصر واحد) ← Get users (10) ← Edit Fields يستخدم `.first()` من Settings و`.item` من Get users.",
+     "en": "Build a workflow: Settings (one item) → Get users (10) → Edit Fields using `.first()` from Settings and `.item` from Get users.",
+     "deep": 1
+    },
+    {
+     "ar": "ضيف نود Code في النص يغيّر ترتيب العناصر وشوف `.item` لسه بيجيب الصح ولا لأ.",
+     "en": "Add a Code node in the middle that reorders items and see whether `.item` still finds the right one.",
+     "deep": 1
     }
    ],
    "words": [
@@ -316,6 +401,22 @@ JOURNEY.week({
       "en": "the name of the current workflow"
      },
      "ex": "{{ $workflow.name }} failed"
+    },
+    {
+     "t": "linked item",
+     "m": {
+      "ar": "العنصر المرتبط بالعنصر الحالي في نود قبله",
+      "en": "the item connected to the current one in an earlier node"
+     },
+     "ex": ".item returns the linked item."
+    },
+    {
+     "t": "reference",
+     "m": {
+      "ar": "إشارة لقيمة في مكان تاني",
+      "en": "a pointer to a value somewhere else"
+     },
+     "ex": "The expression has a reference to the Settings node."
     }
    ],
    "read": [
@@ -406,6 +507,31 @@ JOURNEY.week({
       "ar": "paired item.",
       "en": "paired items."
      }
+    },
+    {
+     "q": {
+      "ar": "نود Settings بيطلّع عنصر واحد. تقرا منه بـ:",
+      "en": "A Settings node outputs one item. Read it with:"
+     },
+     "o": [
+      {
+       "ar": "`.first()`",
+       "en": "`.first()`"
+      },
+      {
+       "ar": "`.all()[5]`",
+       "en": "`.all()[5]`"
+      },
+      {
+       "ar": "`$json`",
+       "en": "`$json`"
+      }
+     ],
+     "a": 0,
+     "why": {
+      "ar": "عنصر واحد ثابت لكل العناصر.",
+      "en": "One fixed item for every item."
+     }
     }
    ],
    "minutes": 180
@@ -453,6 +579,18 @@ JOURNEY.week({
       "en": "`$now.diff($json.due.toDateTime(), \"days\").days` gives the number of days. Use `Math.floor` for a whole number. Useful for overdue invoices and reminders."
      },
      "ex": "{{ Math.floor($now.diff($json.due_date.toDateTime(), \"days\").days) }} days late"
+    },
+    {
+     "h": {
+      "ar": "Luxon: المدد والمقارنة",
+      "en": "Luxon: durations and comparing"
+     },
+     "p": {
+      "ar": "`$now.diff(DateTime.fromISO($json.due), 'days').days` عدد الأيام بين تاريخين. `.startOf('day')` بداية اليوم عشان المقارنة متتلخبطش بالساعات. و`.setZone('Africa/Cairo')` قبل العرض. وللقراءة من نص مش ISO: `DateTime.fromFormat($json.date, 'dd/MM/yyyy')`.",
+      "en": "`$now.diff(DateTime.fromISO($json.due), 'days').days` is the number of days between two dates. `.startOf('day')` gives the start of the day so hours do not confuse the comparison. Use `.setZone('Africa/Cairo')` before display. To read a non-ISO text: `DateTime.fromFormat($json.date, 'dd/MM/yyyy')`."
+     },
+     "ex": "{{ DateTime.fromFormat($json.date, \"dd/MM/yyyy\").toISODate() }}\n{{ Math.floor($now.diff(DateTime.fromISO($json.due), \"days\").days) }} days late\n{{ $now.startOf(\"day\") > DateTime.fromISO($json.due) ? \"late\" : \"on time\" }}",
+     "deep": 1
     }
    ],
    "practice": [
@@ -471,6 +609,16 @@ JOURNEY.week({
     {
      "ar": "فلتر الـ items اللي تاريخها في آخر 7 أيام بس.",
      "en": "Filter the items whose date is within the last 7 days."
+    },
+    {
+     "ar": "من قايمة فواتير فيها `due`، احسب كام يوم متأخرة كل واحدة، وعلّم المتأخر أكتر من 7 أيام.",
+     "en": "From a list of invoices with `due`, compute how many days each is late, and flag those more than 7 days late.",
+     "deep": 1
+    },
+    {
+     "ar": "حوّل `25/12/2026` و`2026-12-25T10:00:00Z` لنفس الشكل `2026-12-25`.",
+     "en": "Turn `25/12/2026` and `2026-12-25T10:00:00Z` into the same form `2026-12-25`.",
+     "deep": 1
     }
    ],
    "words": [
@@ -513,6 +661,22 @@ JOURNEY.week({
       "en": "converts a date to a specific timezone"
      },
      "ex": "setZone(\"Asia/Riyadh\")"
+    },
+    {
+     "t": "duration",
+     "m": {
+      "ar": "مدة زمنية (أيام، ساعات)",
+      "en": "a length of time (days, hours)"
+     },
+     "ex": "Compute the duration between the two dates."
+    },
+    {
+     "t": "overdue",
+     "m": {
+      "ar": "متأخر عن ميعاده",
+      "en": "late, past its due date"
+     },
+     "ex": "Send a reminder for overdue invoices."
     }
    ],
    "read": [
@@ -597,6 +761,31 @@ JOURNEY.week({
       "ar": "دالة n8n الجاهزة.",
       "en": "n8n's built-in helper."
      }
+    },
+    {
+     "q": {
+      "ar": "عشان تقرا `25/12/2026` تستخدم:",
+      "en": "To read `25/12/2026` you use:"
+     },
+     "o": [
+      {
+       "ar": "`DateTime.fromFormat`",
+       "en": "`DateTime.fromFormat`"
+      },
+      {
+       "ar": "`DateTime.fromISO`",
+       "en": "`DateTime.fromISO`"
+      },
+      {
+       "ar": "`JSON.parse`",
+       "en": "`JSON.parse`"
+      }
+     ],
+     "a": 0,
+     "why": {
+      "ar": "مش صيغة ISO.",
+      "en": "It is not ISO format."
+     }
     }
    ],
    "minutes": 180
@@ -644,6 +833,18 @@ JOURNEY.week({
       "en": "For more: `.map(x => x.name)`, `.filter(x => x.paid)`, `.join(\", \")`, `.length`. An arrow function writes a function in one line."
      },
      "ex": "{{ $json.items.filter(i => i.qty > 0).map(i => i.name).join(\", \") }}"
+    },
+    {
+     "h": {
+      "ar": "دوال n8n للـ arrays",
+      "en": "n8n array helpers"
+     },
+     "p": {
+      "ar": "n8n بيضيف دوال جاهزة على الـ arrays جوه الـ expressions: `.pluck('name')` يطلّع حقل من كل object، `.sum()` و`.average()`، `.removeDuplicates()`، `.chunk(10)` يقسّم لمجموعات، و`.isEmpty()`. بتختصر سطور كتير من الكود.",
+      "en": "n8n adds ready helpers on arrays inside expressions: `.pluck('name')` takes one field from each object, `.sum()` and `.average()`, `.removeDuplicates()`, `.chunk(10)` splits into groups, and `.isEmpty()`. They save many lines of code."
+     },
+     "ex": "{{ $json.items.pluck(\"price\").sum() }}\n{{ $json.tags.removeDuplicates().join(\", \") }}\n{{ $json.emails.chunk(50).length }} batches",
+     "deep": 1
     }
    ],
    "practice": [
@@ -662,6 +863,16 @@ JOURNEY.week({
     {
      "ar": "اتأكد إن حقل الإيميل صح بـ isEmail وحط النتيجة في حقل.",
      "en": "Check an email field with isEmail and store the result in a field."
+    },
+    {
+     "ar": "بعنصر فيه `items` (array من 6 منتجات): اطلع مجموع الأسعار، ومتوسطها، والأسماء من غير تكرار.",
+     "en": "With an item holding `items` (an array of 6 products): get the sum of prices, the average, and the names without duplicates.",
+     "deep": 1
+    },
+    {
+     "ar": "اعمل نفس الحساب في Code node بـ `reduce` وقارن الطول.",
+     "en": "Do the same in a Code node with `reduce` and compare the length.",
+     "deep": 1
     }
    ],
    "words": [
@@ -704,6 +915,22 @@ JOURNEY.week({
       "en": "pulls one field from each object in a list"
      },
      "ex": "items.pluck(\"price\")"
+    },
+    {
+     "t": "pluck",
+     "m": {
+      "ar": "تطلّع حقل واحد من كل عنصر",
+      "en": "to take one field out of every item"
+     },
+     "ex": "Pluck the emails from the users."
+    },
+    {
+     "t": "chunk",
+     "m": {
+      "ar": "تقسّم قايمة لمجموعات صغيرة",
+      "en": "to split a list into small groups"
+     },
+     "ex": "Chunk the list into groups of 50."
     }
    ],
    "read": [
@@ -785,6 +1012,31 @@ JOURNEY.week({
       "ar": "filter بيسيب اللي الشرط صح.",
       "en": "filter keeps items where the condition is true."
      }
+    },
+    {
+     "q": {
+      "ar": "`[{\"a\":1},{\"a\":2}].pluck(\"a\")` بتطلع:",
+      "en": "`[{\"a\":1},{\"a\":2}].pluck(\"a\")` gives:"
+     },
+     "o": [
+      {
+       "ar": "`[1, 2]`",
+       "en": "`[1, 2]`"
+      },
+      {
+       "ar": "`3`",
+       "en": "`3`"
+      },
+      {
+       "ar": "`\"a\"`",
+       "en": "`\"a\"`"
+      }
+     ],
+     "a": 0,
+     "why": {
+      "ar": "الحقل من كل عنصر.",
+      "en": "The field from each item."
+     }
     }
    ],
    "minutes": 180
@@ -832,6 +1084,18 @@ JOURNEY.week({
       "en": "A number arriving as text? `Number($json.qty)`. Need text? `String(x)`. Want to see a whole object? `JSON.stringify($json)`. And \"5\" + 1 = \"51\", not 6!"
      },
      "ex": "{{ Number($json.qty) * Number($json.price) }}\n{{ JSON.stringify($json.address) }}"
+    },
+    {
+     "h": {
+      "ar": "اقرا رسالة خطأ الـ expression",
+      "en": "Reading an expression error"
+     },
+     "p": {
+      "ar": "الأخطاء المتكررة: `Cannot read properties of undefined` (حقل قبله مش موجود → `?.`)، `… is not a function` (بتنادي دالة على نوع غلط، زي `.toUpperCase()` على رقم)، `Referenced node is unexecuted` (النود اللي بتقرا منه مااشتغلش في الفرع ده)، و`Invalid syntax` (قوس أو تنصيص ناقص). المعاينة تحت الخانة بتوريك النتيجة قبل التشغيل.",
+      "en": "Common errors: `Cannot read properties of undefined` (a field before it is missing → `?.`), `… is not a function` (calling a method on the wrong type, like `.toUpperCase()` on a number), `Referenced node is unexecuted` (the node you read from did not run on this branch), and `Invalid syntax` (a missing bracket or quote). The preview under the field shows the result before you run."
+     },
+     "ex": "✗ {{ $json.price.toUpperCase() }}   → is not a function (price is a number)\n✓ {{ String($json.price) }}\n✗ {{ $json.user.name }}            → Cannot read properties of undefined\n✓ {{ $json.user?.name ?? \"-\" }}",
+     "deep": 1
     }
    ],
    "practice": [
@@ -850,6 +1114,16 @@ JOURNEY.week({
     {
      "ar": "استخدم JSON.stringify عشان تشوف object كامل في رسالة debug.",
      "en": "Use JSON.stringify to see a whole object in a debug message."
+    },
+    {
+     "ar": "اعمل كل خطأ من الأربعة عمدًا، واكتب رسالته وحلّه في ملف `expression-errors.md`.",
+     "en": "Cause each of the four errors on purpose, and write its message and fix in an `expression-errors.md` file.",
+     "deep": 1
+    },
+    {
+     "ar": "اسأل AI بالبرومبت «Explain this n8n expression error» من صفحة البرومبتات وقارن شرحه بشرحك.",
+     "en": "Ask an AI with the «explain this error» prompt from the prompts page and compare its explanation with yours.",
+     "deep": 1
     }
    ],
    "words": [
@@ -892,6 +1166,22 @@ JOURNEY.week({
       "en": "a node that hasn't run in this execution, so you can't read from it"
      },
      "ex": "Referenced node is unexecuted"
+    },
+    {
+     "t": "preview",
+     "m": {
+      "ar": "معاينة النتيجة قبل التشغيل",
+      "en": "a look at the result before running"
+     },
+     "ex": "The preview shows undefined, so check the field."
+    },
+    {
+     "t": "syntax error",
+     "m": {
+      "ar": "خطأ في كتابة الكود نفسه (قوس، تنصيص)",
+      "en": "a mistake in how the code is written (a bracket, a quote)"
+     },
+     "ex": "A missing bracket causes a syntax error."
     }
    ],
    "read": [
@@ -973,6 +1263,31 @@ JOURNEY.week({
       "ar": "غالبًا في فرع تاني.",
       "en": "Often it's in another branch."
      }
+    },
+    {
+     "q": {
+      "ar": "`Cannot read properties of undefined` غالبًا معناها:",
+      "en": "`Cannot read properties of undefined` usually means:"
+     },
+     "o": [
+      {
+       "ar": "حقل قبل النقطة مش موجود",
+       "en": "a field before the dot is missing"
+      },
+      {
+       "ar": "الإنترنت قطع",
+       "en": "the internet is down"
+      },
+      {
+       "ar": "الـ credential غلط",
+       "en": "the credential is wrong"
+      }
+     ],
+     "a": 0,
+     "why": {
+      "ar": "استخدم ?. و??.",
+      "en": "Use ?. and ??."
+     }
     }
    ],
    "minutes": 180
@@ -1003,6 +1318,16 @@ JOURNEY.week({
     {
      "ar": "النصوص والشروط، و$(\"Node\")، وLuxon، والدوال الجاهزة، والحماية من الأخطاء (الأسبوع 4).",
      "en": "Strings and conditions, $(\"Node\"), Luxon, built-in functions, and error protection (week 4)."
+    },
+    {
+     "ar": "⚡ ?? و?. والقيم الافتراضية، و.first()/.all()/.item.",
+     "en": "⚡ ?? and ?. defaults, and .first()/.all()/.item.",
+     "deep": 1
+    },
+    {
+     "ar": "⚡ Luxon للمدد والصيغ، ودوال الـ arrays، وقراءة أخطاء الـ expressions: طبّقهم في مشروع الشهر.",
+     "en": "⚡ Luxon for durations and formats, array helpers, and reading expression errors: use them in the month project.",
+     "deep": 1
     }
    ],
    "project": {

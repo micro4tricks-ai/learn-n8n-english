@@ -53,6 +53,18 @@ JOURNEY.week({
       "en": "can = able to. should = advice. must = a requirement. The verb after them has no to and no s."
      },
      "ex": "✗ The name must to be unique.\n✓ The name must be unique."
+    },
+    {
+     "h": {
+      "ar": "علامات الطريق في التوثيق",
+      "en": "Signposts in docs"
+     },
+     "p": {
+      "ar": "الكتّاب بيحطوا كلمات بتقولك الجزء الجاي إيه: `Note:` معلومة جانبية، `Warning:`/`Caution:` خطر، `Tip:` نصيحة، `For example`، `In other words` (هيعيد الشرح أبسط)، `However` (عكس اللي قبله — اقرا كويس)، `Prerequisites` (لازم يكون عندك قبل ما تبدأ). لو بتعمل skim، وقّف عند Warning وHowever دايمًا.",
+      "en": "Writers use words that tell you what is coming: `Note:` side information, `Warning:`/`Caution:` danger, `Tip:` advice, `For example`, `In other words` (a simpler restatement), `However` (the opposite of what came before — read carefully), `Prerequisites` (what you need before you start). When skimming, always stop at Warning and However."
+     },
+     "ex": "Note: the token is valid for one hour.\nWarning: deleting a workspace cannot be undone.\nThe API is free. However, it is limited to 100 calls a day.",
+     "deep": 1
     }
    ],
    "practice": [
@@ -71,6 +83,16 @@ JOURNEY.week({
     {
      "ar": "اكتب 5 جمل «Before you start, you must…» لمشروعك.",
      "en": "Write 5 \"Before you start, you must…\" sentences for your project."
+    },
+    {
+     "ar": "في صفحة توثيق، لوّن كل الـ signposts وصنّفها (معلومة، خطر، نصيحة، عكس).",
+     "en": "In a docs page, highlight every signpost and classify it (info, danger, advice, contrast).",
+     "deep": 1
+    },
+    {
+     "ar": "اكتب فقرة توثيق قصيرة لـ workflow عندك فيها Note وWarning وHowever.",
+     "en": "Write a short docs paragraph for one of your workflows using Note, Warning and However.",
+     "deep": 1
     }
    ],
    "words": [
@@ -129,6 +151,22 @@ JOURNEY.week({
       "en": "Installing"
      },
      "ex": "Install the package with pip install requests."
+    },
+    {
+     "t": "signpost",
+     "m": {
+      "ar": "كلمة بتقول للقارئ الجزء الجاي نوعه إيه",
+      "en": "a word that tells the reader what kind of part comes next"
+     },
+     "ex": "However is a signpost for contrast."
+    },
+    {
+     "t": "overview",
+     "m": {
+      "ar": "نظرة عامة سريعة على موضوع",
+      "en": "a short general description of a topic"
+     },
+     "ex": "Start with the overview page."
     }
    ],
    "read": [
@@ -211,6 +249,22 @@ JOURNEY.week({
       "ar": "must = لازم.",
       "en": "must = it is required."
      }
+    },
+    {
+     "q": {
+      "ar": "«However» في التوثيق معناها:",
+      "en": "«However» in docs signals:"
+     },
+     "o": [
+      "a contrast — read carefully",
+      "an example",
+      "the end of the page"
+     ],
+     "a": 0,
+     "why": {
+      "ar": "اللي جاي عكس اللي فات.",
+      "en": "What follows contrasts with what came before."
+     }
     }
    ],
    "minutes": 180
@@ -258,6 +312,18 @@ JOURNEY.week({
       "en": "Put a space between the number and the unit (5 MB, 30 seconds), and use a plural noun with any number except 1."
      },
      "ex": "✗ The file is 5MB and has 3 row.\n✓ The file is 5 MB and has 3 rows."
+    },
+    {
+     "h": {
+      "ar": "اشرح request وresponse بالكلام",
+      "en": "Explaining a request and response in words"
+     },
+     "p": {
+      "ar": "لما تشرح API لحد: `You send a POST request to /orders with a JSON body. The body must include the name and phone.` و`If it works, you get back a 201 with the new order id. If the phone is wrong, you get a 422.` الأفعال المهمة: send، include، return، get back، respond with.",
+      "en": "When explaining an API to someone: `You send a POST request to /orders with a JSON body. The body must include the name and phone.` and `If it works, you get back a 201 with the new order id. If the phone is wrong, you get a 422.` Key verbs: send, include, return, get back, respond with."
+     },
+     "ex": "\"First you send a GET request to /users with your key in the header.\n The API returns a list of users, twenty per page.\n To get the next page, you add page=2.\"",
+     "deep": 1
     }
    ],
    "practice": [
@@ -276,6 +342,16 @@ JOURNEY.week({
     {
      "ar": "اكتب الأرقام والوحدات صح: 5 MB, 30 s, 100 ms, 2 GB (بمسافة ومن غير s).",
      "en": "Write numbers and units correctly: 5 MB, 30 s, 100 ms, 2 GB (with a space, no s)."
+    },
+    {
+     "ar": "اعمل walkthrough صوتي لـ endpoint في 60 ثانية: الطلب، المدخلات، الرد، والأخطاء.",
+     "en": "Record a 60-second spoken walkthrough of one endpoint: request, inputs, response and errors.",
+     "deep": 1
+    },
+    {
+     "ar": "اكتب نفس الشرح في 5 جمل مكتوبة.",
+     "en": "Write the same explanation in 5 sentences.",
+     "deep": 1
     }
    ],
    "code": [
@@ -343,6 +419,22 @@ JOURNEY.week({
       "en": "Download / upload"
      },
      "ex": "Upload the file, then download the report."
+    },
+    {
+     "t": "walkthrough",
+     "m": {
+      "ar": "شرح خطوة بخطوة وانت بتعمل الحاجة",
+      "en": "a step-by-step explanation while doing something"
+     },
+     "ex": "I’ll give you a quick walkthrough of the API."
+    },
+    {
+     "t": "sample request",
+     "m": {
+      "ar": "مثال جاهز لطلب تقدر تجرّبه",
+      "en": "a ready example of a request you can try"
+     },
+     "ex": "Copy the sample request into Postman."
     }
    ],
    "read": [
@@ -416,6 +508,22 @@ JOURNEY.week({
       "ar": "رقم + مسافة + الوحدة من غير s.",
       "en": "number + space + unit, no s."
      }
+    },
+    {
+     "q": {
+      "ar": "«you get back a 201» معناها:",
+      "en": "«you get back a 201» means:"
+     },
+     "o": [
+      "the API returns status 201",
+      "you return to page 201",
+      "you send 201 requests"
+     ],
+     "a": 0,
+     "why": {
+      "ar": "get back = يرجعلك.",
+      "en": "get back = receive in reply."
+     }
     }
    ],
    "minutes": 180
@@ -463,6 +571,18 @@ JOURNEY.week({
       "en": "must when you think it is necessary; have to for an outside rule. Negatives differ: don't have to = not necessary, mustn't = not allowed."
      },
      "ex": "✗ You mustn't come today, it's optional.\n✓ You don't have to come today, it's optional."
+    },
+    {
+     "h": {
+      "ar": "أفعال الصلاحيات",
+      "en": "Permission verbs"
+     },
+     "p": {
+      "ar": "في صفحات المصادقة: `grant` (يدّي صلاحية)، `revoke` (يسحبها)، `expire` (تنتهي)، `rotate` (تغيّر المفتاح بانتظام)، `authorize` (يسمح لتطبيق)، `scope` (حدود الصلاحية). جملة شائعة: `Tokens expire after 60 minutes; you can revoke a token at any time.`",
+      "en": "On auth pages: `grant` (give access), `revoke` (take it back), `expire` (end), `rotate` (change a key regularly), `authorize` (allow an app), `scope` (the limits of access). A common sentence: `Tokens expire after 60 minutes; you can revoke a token at any time.`"
+     },
+     "ex": "The admin can grant read access to the sheet.\nIf a key leaks, revoke it and create a new one.\nWe rotate the keys every 90 days.",
+     "deep": 1
     }
    ],
    "practice": [
@@ -481,6 +601,16 @@ JOURNEY.week({
     {
      "ar": "ترجم للعربي في دماغك بس (من غير ما تكتب) 3 رسايل خطأ auth حقيقية، وبعدين اكتب سببها بالإنجليزي.",
      "en": "Understand 3 real auth error messages without writing a translation, then write their cause in English."
+    },
+    {
+     "ar": "اقرا صفحة authentication لخدمة واحدة وطلّع كل أفعال الصلاحيات فيها.",
+     "en": "Read one service’s authentication page and list every permission verb in it.",
+     "deep": 1
+    },
+    {
+     "ar": "اكتب سياسة مفاتيح لمشروعك في 4 جمل بالأفعال دي.",
+     "en": "Write a key policy for your project in 4 sentences using these verbs.",
+     "deep": 1
     }
    ],
    "words": [
@@ -539,6 +669,22 @@ JOURNEY.week({
       "en": "an encrypted connection / the security certificate"
      },
      "ex": "The site needs an SSL certificate for HTTPS."
+    },
+    {
+     "t": "grant",
+     "m": {
+      "ar": "تدّي صلاحية رسميًا",
+      "en": "to give access officially"
+     },
+     "ex": "Grant the bot read access only."
+    },
+    {
+     "t": "revoke",
+     "m": {
+      "ar": "تسحب صلاحية أو مفتاح",
+      "en": "to take back access or a key"
+     },
+     "ex": "Revoke the old token today."
     }
    ],
    "read": [
@@ -621,6 +767,22 @@ JOURNEY.week({
       "ar": "must not + الفعل في أصله.",
       "en": "must not + the base verb."
      }
+    },
+    {
+     "q": {
+      "ar": "المفتاح اتسرّب. أول حاجة:",
+      "en": "A key leaked. First:"
+     },
+     "o": [
+      "revoke it",
+      "grant it",
+      "rotate the docs"
+     ],
+     "a": 0,
+     "why": {
+      "ar": "اسحبه فورًا.",
+      "en": "Take it back at once."
+     }
     }
    ],
    "minutes": 180
@@ -668,6 +830,18 @@ JOURNEY.week({
       "en": "Before a list, an explanation or an example, after a complete sentence."
      },
      "ex": "✗ You need: to install Node.\n✓ You need two things: Node and Git."
+    },
+    {
+     "h": {
+      "ar": "لغة الحدود والأرقام",
+      "en": "The language of limits and numbers"
+     },
+     "p": {
+      "ar": "`up to 100 items per request` (لحد 100)، `at most`/`no more than` (أقصى)، `at least` (أقل حاجة)، `a cap of 1,000 calls a day` (سقف)، `quota` (الحصة)، `exceed the limit` (تعدّي الحد)، `throttled` (اتبطّأت). والأرقام: `1,000` one thousand، `1.5` one point five، `10%` ten percent.",
+      "en": "`up to 100 items per request`, `at most`/`no more than` (maximum), `at least` (minimum), `a cap of 1,000 calls a day`, `quota` (your allowance), `exceed the limit`, `throttled` (slowed down). Numbers: `1,000` one thousand, `1.5` one point five, `10%` ten percent."
+     },
+     "ex": "Each request returns up to 100 records.\nThe free plan has a quota of 1,000 calls a day.\nIf you exceed the limit, you get a 429 and must wait.",
+     "deep": 1
     }
    ],
    "practice": [
@@ -686,6 +860,16 @@ JOURNEY.week({
     {
      "ar": "اكتب 3 query strings بإيدك: `?q=python&limit=5&page=2` واشرح كل جزء.",
      "en": "Write 3 query strings by hand: `?q=python&limit=5&page=2` and explain each part."
+    },
+    {
+     "ar": "اقرا صفحة rate limits لـ API واكتبها بكلامك في 3 جمل.",
+     "en": "Read an API’s rate limits page and rewrite it in your own words in 3 sentences.",
+     "deep": 1
+    },
+    {
+     "ar": "قول بصوت عالي 10 أرقام من التوثيق (فيها كسور ونسب وآلاف).",
+     "en": "Say aloud 10 numbers from docs (with decimals, percentages and thousands).",
+     "deep": 1
     }
    ],
    "words": [
@@ -744,6 +928,22 @@ JOURNEY.week({
       "en": "trying again"
      },
      "ex": "Retry the request three times before failing."
+    },
+    {
+     "t": "cap",
+     "m": {
+      "ar": "حد أقصى ثابت",
+      "en": "a fixed upper limit"
+     },
+     "ex": "There is a cap of 50 emails per hour."
+    },
+    {
+     "t": "quota",
+     "m": {
+      "ar": "الحصة المسموحة ليك في فترة",
+      "en": "the amount you are allowed in a period"
+     },
+     "ex": "You used 80% of your monthly quota."
     }
    ],
    "read": [
@@ -817,6 +1017,22 @@ JOURNEY.week({
       "ar": "? بتبدأ الـ query string، و& بتفصل بين الباراميترز.",
       "en": "? starts the query string, and & separates the parameters."
      }
+    },
+    {
+     "q": {
+      "ar": "«up to 100» معناها:",
+      "en": "«up to 100» means:"
+     },
+     "o": [
+      "100 or fewer",
+      "exactly 100",
+      "more than 100"
+     ],
+     "a": 0,
+     "why": {
+      "ar": "لحد 100.",
+      "en": "At most 100."
+     }
     }
    ],
    "minutes": 180
@@ -864,6 +1080,18 @@ JOURNEY.week({
       "en": "in = inside (in the folder), on = on a surface or page (on the page, on GitHub), at = a point or address (at the office)."
      },
      "ex": "✗ The file is on the folder in GitHub.\n✓ The file is in the folder on GitHub."
+    },
+    {
+     "h": {
+      "ar": "اتبع دليل تثبيت",
+      "en": "Following a setup guide"
+     },
+     "p": {
+      "ar": "أدلة التثبيت ليها نمط: `Prerequisites` (اللي لازم يكون عندك)، خطوات بصيغة الأمر، `Make sure…`/`Ensure…` (اتأكد)، `Optionally…` (اختياري)، `Replace X with your…` (حط قيمتك)، و`Troubleshooting` في الآخر للمشاكل الشائعة. اقرا الـ prerequisites قبل أي حاجة — أغلب المشاكل من هناك.",
+      "en": "Setup guides follow a pattern: `Prerequisites` (what you need), imperative steps, `Make sure…`/`Ensure…`, `Optionally…`, `Replace X with your…` (put your own value), and `Troubleshooting` at the end for common problems. Read the prerequisites before anything — most problems start there."
+     },
+     "ex": "Prerequisites: Node.js 20 or later.\n1. Clone the repo.  2. Replace YOUR_KEY with your API key.\n3. Make sure port 5678 is free.\nTroubleshooting: \"EADDRINUSE\" means the port is taken.",
+     "deep": 1
     }
    ],
    "practice": [
@@ -882,6 +1110,16 @@ JOURNEY.week({
     {
      "ar": "اقرا خطأ «Permission denied» أو «No such file or directory» واكتب 3 أسباب محتملة.",
      "en": "Read a \"Permission denied\" or \"No such file or directory\" error and write 3 possible causes."
+    },
+    {
+     "ar": "اتبع دليل تثبيت أداة جديدة بالإنجليزي، واكتب أي جملة وقفتك ومعناها.",
+     "en": "Follow an English setup guide for a new tool, and write down any sentence that stopped you and its meaning.",
+     "deep": 1
+    },
+    {
+     "ar": "اكتب قسم Troubleshooting لمشروعك فيه 3 مشاكل وحلولها.",
+     "en": "Write a Troubleshooting section for your project with 3 problems and fixes.",
+     "deep": 1
     }
    ],
    "words": [
@@ -940,6 +1178,22 @@ JOURNEY.week({
       "en": "A folder"
      },
      "ex": "Save the reports in the \"output\" folder."
+    },
+    {
+     "t": "prerequisite",
+     "m": {
+      "ar": "حاجة لازم تكون موجودة قبل ما تبدأ",
+      "en": "something you need before you start"
+     },
+     "ex": "Docker is a prerequisite for this guide."
+    },
+    {
+     "t": "troubleshoot",
+     "m": {
+      "ar": "تدوّر على سبب مشكلة وتحلها خطوة بخطوة",
+      "en": "to find and fix the cause of a problem step by step"
+     },
+     "ex": "Troubleshoot the install with the logs."
     }
    ],
    "read": [
@@ -1022,6 +1276,22 @@ JOURNEY.week({
       "ar": "الأدلة بتستخدم الأمر المباشر.",
       "en": "Guides use the direct imperative."
      }
+    },
+    {
+     "q": {
+      "ar": "«Replace YOUR_KEY with your key» معناها:",
+      "en": "«Replace YOUR_KEY with your key» means:"
+     },
+     "o": [
+      "put your own key there",
+      "delete your key",
+      "keep YOUR_KEY"
+     ],
+     "a": 0,
+     "why": {
+      "ar": "بدّل الكلمة بقيمتك.",
+      "en": "Swap the word for your value."
+     }
     }
    ],
    "minutes": 180
@@ -1056,6 +1326,16 @@ JOURNEY.week({
     {
      "ar": "أدلة الإعداد بالأمر، وحروف جر المكان.",
      "en": "Setup guides in the imperative, and place prepositions."
+    },
+    {
+     "ar": "⚡ الـ signposts، وشرح request/response بالكلام، وأفعال الصلاحيات.",
+     "en": "⚡ Signposts, explaining request/response in words, and permission verbs.",
+     "deep": 1
+    },
+    {
+     "ar": "⚡ لغة الحدود والأرقام، وأدلة التثبيت: اكتب README قصير لـ API من مشروعك.",
+     "en": "⚡ The language of limits and numbers, and setup guides: write a short README for an API in your project.",
+     "deep": 1
     }
    ],
    "project": {

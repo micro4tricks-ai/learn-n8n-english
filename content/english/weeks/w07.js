@@ -56,6 +56,18 @@ JOURNEY.week({
       "en": "Because people want to know the state now: \"I've fixed it\" = it is fixed now. You don't say exactly when."
      },
      "ex": "Status: We have released version 2.1.\nThe pipeline has passed."
+    },
+    {
+     "h": {
+      "ar": "أشهر 20 past participle في الشغل",
+      "en": "The 20 most used past participles at work"
+     },
+     "p": {
+      "ar": "محتاجهم للـ present perfect والـ passive: done، made، written، sent، built، run، set، found، given، taken، seen، broken، chosen، shown، known، begun، forgotten، hidden، thrown، understood. وفي الكلام بنختصر: `I've`، `she's`، `we haven't`.",
+      "en": "You need them for the present perfect and the passive: done, made, written, sent, built, run, set, found, given, taken, seen, broken, chosen, shown, known, begun, forgotten, hidden, thrown, understood. In speech we contract: `I've`, `she's`, `we haven't`."
+     },
+     "ex": "I've sent the invoice.  She's written the docs.\nWe haven't found the bug yet.  The build is broken.",
+     "deep": 1
     }
    ],
    "practice": [
@@ -74,6 +86,16 @@ JOURNEY.week({
     {
      "ar": "اكتب «release note» صغير من 4 سطور بالـ present perfect.",
      "en": "Write a small 4-line release note in the present perfect."
+    },
+    {
+     "ar": "اعمل بطاقات للـ 20 (فعل ← ماضي ← past participle) وراجعها بالمراجعة المتباعدة.",
+     "en": "Make cards for the 20 (verb → past → past participle) and review them with spaced repetition.",
+     "deep": 1
+    },
+    {
+     "ar": "قول 10 جمل I've … عن شغلك الأسبوع ده بالاختصار.",
+     "en": "Say 10 I've … sentences about your work this week, contracted.",
+     "deep": 1
     }
    ],
    "words": [
@@ -132,6 +154,22 @@ JOURNEY.week({
       "en": "test environment / live environment"
      },
      "ex": "Test it on staging before production."
+    },
+    {
+     "t": "past participle",
+     "m": {
+      "ar": "التصريف التالت للفعل (done، written)",
+      "en": "the third form of a verb (done, written)"
+     },
+     "ex": "written is the past participle of write."
+    },
+    {
+     "t": "contracted form",
+     "m": {
+      "ar": "الشكل المختصر زي I've وhasn't",
+      "en": "the short form like I've and hasn't"
+     },
+     "ex": "Use the contracted form in speech."
     }
    ],
    "read": [
@@ -205,6 +243,22 @@ JOURNEY.week({
       "ar": "النتيجة موجودة دلوقتي.",
       "en": "The result exists now."
      }
+    },
+    {
+     "q": {
+      "ar": "الصح:",
+      "en": "Correct:"
+     },
+     "o": [
+      "I've written the tests.",
+      "I've wrote the tests.",
+      "I've write the tests."
+     ],
+     "a": 0,
+     "why": {
+      "ar": "have + past participle.",
+      "en": "have + past participle."
+     }
     }
    ],
    "minutes": 180
@@ -252,6 +306,18 @@ JOURNEY.week({
       "en": "Start with the state (present perfect), then tell what happened (past simple)."
      },
      "ex": "We have restored the service.\nAt 14:05 the database ran out of memory, and the API returned 500 errors for 12 minutes."
+    },
+    {
+     "h": {
+      "ar": "كلمات الوقت مع كل زمن",
+      "en": "Time words with each tense"
+     },
+     "p": {
+      "ar": "كلمات بتختار الزمن عنك: **ماضي بسيط** مع وقت خلص: `yesterday`، `last week`، `in May`، `two days ago`. **present perfect** مع وقت لسه مفتوح: `so far`، `lately`، `recently`، `this week`، `since Monday`، `ever`، `yet`. `I fixed it yesterday` بس `I've fixed three bugs so far`.",
+      "en": "Some words choose the tense for you: **past simple** with finished time: `yesterday`, `last week`, `in May`, `two days ago`. **Present perfect** with time still open: `so far`, `lately`, `recently`, `this week`, `since Monday`, `ever`, `yet`. `I fixed it yesterday` but `I've fixed three bugs so far`."
+     },
+     "ex": "I deployed it two days ago.        (finished time → past)\nWe've had three outages this month. (open time → present perfect)\nHave you used n8n lately?",
+     "deep": 1
     }
    ],
    "practice": [
@@ -270,6 +336,16 @@ JOURNEY.week({
     {
      "ar": "اقرا postmortem حقيقي منشور واستخرج 5 جمل present perfect و5 past simple.",
      "en": "Read a real published postmortem and pick out 5 present-perfect and 5 past-simple sentences."
+    },
+    {
+     "ar": "اكتب 6 جمل نصهم بكلمات وقت مقفول ونصهم مفتوح.",
+     "en": "Write 6 sentences, half with finished time words and half with open ones.",
+     "deep": 1
+    },
+    {
+     "ar": "اسمع اجتماع أو بودكاست تقني ولاحظ 5 جمل present perfect.",
+     "en": "Listen to a tech meeting or podcast and notice 5 present perfect sentences.",
+     "deep": 1
     }
    ],
    "words": [
@@ -328,6 +404,22 @@ JOURNEY.week({
       "en": "a secure connection to a remote server"
      },
      "ex": "Connect to the server over SSH."
+    },
+    {
+     "t": "so far",
+     "m": {
+      "ar": "لحد دلوقتي",
+      "en": "up to now"
+     },
+     "ex": "So far we've migrated 40 workflows."
+    },
+    {
+     "t": "lately",
+     "m": {
+      "ar": "الفترة الأخيرة",
+      "en": "in the recent period"
+     },
+     "ex": "Have you had any errors lately?"
     }
    ],
    "read": [
@@ -392,6 +484,22 @@ JOURNEY.week({
       "ar": "ابدأ بالحالة دلوقتي.",
       "en": "Start with the state now."
      }
+    },
+    {
+     "q": {
+      "ar": "الصح:",
+      "en": "Correct:"
+     },
+     "o": [
+      "I've finished two tasks so far.",
+      "I finished two tasks so far.",
+      "I've finished two tasks yesterday."
+     ],
+     "a": 0,
+     "why": {
+      "ar": "so far = وقت مفتوح.",
+      "en": "so far = open time."
+     }
     }
    ],
    "minutes": 180
@@ -436,6 +544,18 @@ JOURNEY.week({
       "en": "Arabic says \"I work here from two years\". English: I have worked here for two years."
      },
      "ex": "✗ I work here from two years.\n✓ I have worked here for two years."
+    },
+    {
+     "h": {
+      "ar": "for وsince",
+      "en": "for and since"
+     },
+     "p": {
+      "ar": "مع الـ present perfect (continuous): `for` + **مدة** (`for two hours`، `for three weeks`). `since` + **نقطة بداية** (`since 9 a.m.`، `since Monday`، `since we moved to Docker`). غلطة عربي شائعة: `I am working here since 2024` ← الصح `I have been working here since 2024`.",
+      "en": "With the present perfect (continuous): `for` + **a length of time** (`for two hours`, `for three weeks`). `since` + **a starting point** (`since 9 a.m.`, `since Monday`, `since we moved to Docker`). A common mistake for Arabic speakers: `I am working here since 2024` → correct: `I have been working here since 2024`."
+     },
+     "ex": "The server has been down for twenty minutes.\nI've been working on this bug since lunch.\n✗ I am learning n8n since March. ✓ I have been learning n8n since March.",
+     "deep": 1
     }
    ],
    "practice": [
@@ -454,6 +574,16 @@ JOURNEY.week({
     {
      "ar": "اكتب رسالة لزميل تقول إنك بقالك وقت بتحاول تحل مشكلة ومحتاج مساعدة.",
      "en": "Write a message to a teammate saying you have been trying to solve a problem for a while and need help."
+    },
+    {
+     "ar": "اكتب 8 جمل عن حاجات شغالة دلوقتي بـ for وsince.",
+     "en": "Write 8 sentences about ongoing things with for and since.",
+     "deep": 1
+    },
+    {
+     "ar": "عرّف نفسك في مقابلة: من إمتى بتتعلم/بتشتغل في كل حاجة.",
+     "en": "Introduce yourself as in an interview: how long you have been learning/working on each thing.",
+     "deep": 1
     }
    ],
    "words": [
@@ -512,6 +642,22 @@ JOURNEY.week({
       "en": "a scheduled task that repeats automatically"
      },
      "ex": "A cron job runs the backup every night."
+    },
+    {
+     "t": "ongoing",
+     "m": {
+      "ar": "لسه شغال ومخلصش",
+      "en": "still happening, not finished"
+     },
+     "ex": "The migration is ongoing."
+    },
+    {
+     "t": "starting point",
+     "m": {
+      "ar": "الوقت اللي حاجة بدأت فيه",
+      "en": "the time something began"
+     },
+     "ex": "since needs a starting point."
     }
    ],
    "read": [
@@ -585,6 +731,22 @@ JOURNEY.week({
       "ar": "localhost = الجهاز اللي شغال عليه.",
       "en": "localhost = the machine you are on."
      }
+    },
+    {
+     "q": {
+      "ar": "«… since three hours» غلط لأن:",
+      "en": "«… since three hours» is wrong because:"
+     },
+     "o": [
+      "three hours is a length → use for",
+      "since needs -ing",
+      "hours is uncountable"
+     ],
+     "a": 0,
+     "why": {
+      "ar": "مدة = for.",
+      "en": "A length = for."
+     }
     }
    ],
    "minutes": 180
@@ -632,6 +794,18 @@ JOURNEY.week({
       "en": "Answer with the same auxiliary: Does it work? Yes, it does. / Is it ready? No, it isn't."
      },
      "ex": "✗ \"Does it work?\" \"Yes, it works it.\"\n✓ \"Does it work?\" \"Yes, it does.\""
+    },
+    {
+     "h": {
+      "ar": "just وrecently وby now",
+      "en": "just, recently and by now"
+     },
+     "p": {
+      "ar": "`just` = حالًا، من شوية صغيرة: `I've just pushed the fix.` `recently` = في الفترة القريبة: `We've recently moved to n8n Cloud.` `by now` = المفروض يكون حصل: `The email should have arrived by now.` ومكان just وalready بين have والفعل.",
+      "en": "`just` = a moment ago: `I've just pushed the fix.` `recently` = in the near past: `We've recently moved to n8n Cloud.` `by now` = it should have happened: `The email should have arrived by now.` just and already go between have and the verb."
+     },
+     "ex": "I've just restarted the server — try again now.\nWe've recently added Telegram alerts.\nThe backup should have finished by now. Let me check.",
+     "deep": 1
     }
    ],
    "practice": [
@@ -650,6 +824,16 @@ JOURNEY.week({
     {
      "ar": "ثبّت بيئة Python جديدة (venv) واكتب الخطوات والنتيجة بالـ present perfect.",
      "en": "Set up a new Python environment (venv) and write the steps and the result in the present perfect."
+    },
+    {
+     "ar": "اكتب 5 رسايل Slack قصيرة فيها just وrecently وby now.",
+     "en": "Write 5 short Slack messages using just, recently and by now.",
+     "deep": 1
+    },
+    {
+     "ar": "قولها بصوت عالي بالاختصار (I've just…).",
+     "en": "Say them aloud contracted (I've just…).",
+     "deep": 1
     }
    ],
    "words": [
@@ -708,6 +892,22 @@ JOURNEY.week({
       "en": "not defined / empty on purpose"
      },
      "ex": "The value is undefined because the key is missing."
+    },
+    {
+     "t": "recently",
+     "m": {
+      "ar": "من فترة قريبة",
+      "en": "not long ago"
+     },
+     "ex": "We've recently updated the API."
+    },
+    {
+     "t": "by now",
+     "m": {
+      "ar": "لحد اللحظة دي (المفروض)",
+      "en": "before this moment (as expected)"
+     },
+     "ex": "It should be done by now."
     }
    ],
    "read": [
@@ -775,6 +975,22 @@ JOURNEY.week({
       "ar": "Not yet + خطة.",
       "en": "Not yet + a plan."
      }
+    },
+    {
+     "q": {
+      "ar": "مكان just الصح:",
+      "en": "Where just goes:"
+     },
+     "o": [
+      "I've just sent it.",
+      "I've sent just it.",
+      "Just I've sent it."
+     ],
+     "a": 0,
+     "why": {
+      "ar": "بين have والفعل.",
+      "en": "Between have and the verb."
+     }
     }
    ],
    "minutes": 180
@@ -822,6 +1038,18 @@ JOURNEY.week({
       "en": "so far = up to now; recently = lately. Both go with the present perfect: So far we've migrated 60% of the data."
      },
      "ex": "So far, everything has worked well.\nWe've recently moved to GitHub Actions."
+    },
+    {
+     "h": {
+      "ar": "تقرير التقدم الأسبوعي",
+      "en": "The weekly progress report"
+     },
+     "p": {
+      "ar": "هيكل بسيط: **Status** (`on track` / `at risk` / `behind schedule`)، **Done** (present perfect: `We've finished…`)، **In progress** (`We're working on…`)، **Next** (`Next week we'll…`)، **Risks/needs** (`We need … by Thursday`). جمل قصيرة، أرقام، ومن غير مبالغة.",
+      "en": "A simple structure: **Status** (`on track` / `at risk` / `behind schedule`), **Done** (present perfect: `We've finished…`), **In progress** (`We're working on…`), **Next** (`Next week we'll…`), **Risks/needs** (`We need … by Thursday`). Short sentences, numbers, no exaggeration."
+     },
+     "ex": "Status: on track.\nDone: We've connected the shop to the sheet and tested 50 orders.\nIn progress: We're building the invoice emails.\nNext: We'll add WhatsApp alerts.  Needs: the WhatsApp API access by Thursday.",
+     "deep": 1
     }
    ],
    "practice": [
@@ -840,6 +1068,16 @@ JOURNEY.week({
     {
      "ar": "اكتب «milestone update» لعميل: وصلنا لإيه، وفاضل إيه، والموعد الجاي.",
      "en": "Write a milestone update for a client: what we have reached, what is left, and the next date."
+    },
+    {
+     "ar": "اكتب تقرير تقدم لمشروع الشهر بالهيكل ده.",
+     "en": "Write a progress report for the month project with this structure.",
+     "deep": 1
+    },
+    {
+     "ar": "قوله في دقيقة كأنك في مكالمة مع عميل.",
+     "en": "Say it in one minute as if on a call with a client.",
+     "deep": 1
     }
    ],
    "words": [
@@ -898,6 +1136,22 @@ JOURNEY.week({
       "en": "opinions / comments"
      },
      "ex": "Thanks for the feedback!"
+    },
+    {
+     "t": "on track",
+     "m": {
+      "ar": "ماشي حسب الخطة",
+      "en": "going according to plan"
+     },
+     "ex": "The project is on track for May."
+    },
+    {
+     "t": "behind schedule",
+     "m": {
+      "ar": "متأخر عن الخطة",
+      "en": "later than planned"
+     },
+     "ex": "We're two days behind schedule."
     }
    ],
    "read": [
@@ -971,6 +1225,22 @@ JOURNEY.week({
       "ar": "backlog = المهام المستنية.",
       "en": "backlog = the waiting tasks."
      }
+    },
+    {
+     "q": {
+      "ar": "في الجزء «Done» تستخدم:",
+      "en": "In the «Done» part you use:"
+     },
+     "o": [
+      "We've finished…",
+      "We will finish…",
+      "We finishing…"
+     ],
+     "a": 0,
+     "why": {
+      "ar": "present perfect للنتيجة.",
+      "en": "present perfect for results."
+     }
     }
    ],
    "minutes": 180
@@ -1005,6 +1275,16 @@ JOURNEY.week({
     {
      "ar": "تقرير التقدم: Done / In progress / Blockers / Next.",
      "en": "The progress report: Done / In progress / Blockers / Next."
+    },
+    {
+     "ar": "⚡ الـ past participles، وكلمات الوقت مع كل زمن، وfor وsince.",
+     "en": "⚡ Past participles, time words with each tense, and for and since.",
+     "deep": 1
+    },
+    {
+     "ar": "⚡ just وrecently وby now، وتقرير التقدم: ابعت تقرير حقيقي عن أسبوعك.",
+     "en": "⚡ just, recently and by now, and the progress report: send a real report about your week.",
+     "deep": 1
     }
    ],
    "project": {

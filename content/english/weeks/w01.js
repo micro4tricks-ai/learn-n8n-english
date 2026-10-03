@@ -92,6 +92,18 @@ JOURNEY.week({
       "en": "When looking for a fix: copy the error type and message, without the parts specific to your machine (paths and names)."
      },
      "ex": "Search:  TypeError can only concatenate str (not \"int\") to str\nNot:     error line 12 app.py C:\\Users\\me\\…"
+    },
+    {
+     "h": {
+      "ar": "نطق كلمات الأخطاء",
+      "en": "Saying error words"
+     },
+     "p": {
+      "ar": "هتقول الكلمات دي في كل مكالمة دعم. النبر (الجزء الأعلى صوتًا) بالحروف الكبيرة: ex**CEP**tion، **TRACE**back، **SYN**tax، at**TRIB**ute، inden**TA**tion، **VAL**ue. والـ e في آخر كلمات زي **value** و**type** مش بتتنطق. قول كل كلمة 3 مرات بصوت عالي.",
+      "en": "You will say these words in every support call. The stress (the loudest part) is in capitals: ex**CEP**tion, **TRACE**back, **SYN**tax, at**TRIB**ute, inden**TA**tion, **VAL**ue. The final e in words like **value** and **type** is silent. Say each word 3 times aloud."
+     },
+     "ex": "exCEPtion · TRACEback · SYNtax · atTRIButeError · indenTAtion\n\"I got a KEY error on LINE twelve.\"",
+     "deep": 1
     }
    ],
    "practice": [
@@ -118,6 +130,16 @@ JOURNEY.week({
     {
      "ar": "اكتب بالإنجليزي جملة تشرح كل خطأ: `This error happens when …`",
      "en": "Write one English sentence explaining each error: `This error happens when …`"
+    },
+    {
+     "ar": "سجّل صوتك وانت بتقرا 3 رسايل خطأ كاملة، واسمعها وقارنها بنطق قاموس Cambridge.",
+     "en": "Record yourself reading 3 full error messages, then compare with the pronunciation in the Cambridge dictionary.",
+     "deep": 1
+    },
+    {
+     "ar": "اشرح خطأ واحد بصوت عالي في 3 جمل: إيه الخطأ، في أنهي سطر، وإيه السبب.",
+     "en": "Explain one error aloud in 3 sentences: what the error is, on which line, and what caused it.",
+     "deep": 1
     }
    ],
    "code": [
@@ -303,6 +325,22 @@ JOURNEY.week({
       "en": "Gets stuck and stops responding"
      },
      "ex": "The app hangs when I click Save."
+    },
+    {
+     "t": "word stress",
+     "m": {
+      "ar": "الجزء من الكلمة اللي بيتقال أعلى وأطول",
+      "en": "the part of a word said louder and longer"
+     },
+     "ex": "The word stress in exception is on CEP."
+    },
+    {
+     "t": "silent letter",
+     "m": {
+      "ar": "حرف مكتوب ومش بيتنطق",
+      "en": "a letter that is written but not pronounced"
+     },
+     "ex": "The e in type is a silent letter."
     }
    ],
    "read": [
@@ -409,6 +447,22 @@ JOURNEY.week({
       "ar": "Deprecated = لسه شغال، بس مش مستحسن تستخدمه لأنه هيتشال في إصدار جاي.",
       "en": "Deprecated = it still works, but you shouldn't use it because it'll be removed in a future version."
      }
+    },
+    {
+     "q": {
+      "ar": "النبر في كلمة exception على:",
+      "en": "The stress in exception is on:"
+     },
+     "o": [
+      "ex",
+      "cep",
+      "tion"
+     ],
+     "a": 1,
+     "why": {
+      "ar": "ex-CEP-tion.",
+      "en": "ex-CEP-tion."
+     }
     }
    ],
    "minutes": 180
@@ -489,6 +543,18 @@ JOURNEY.week({
       "en": "Don't read the whole docs page. Read the first sentence, then Parameters and Returns, then the example. If it's still unclear, go back to the description."
      },
      "ex": "1) First sentence  2) Parameters  3) Returns  4) Example"
+    },
+    {
+     "h": {
+      "ar": "Skimming وscanning في التوثيق",
+      "en": "Skimming and scanning docs"
+     },
+     "p": {
+      "ar": "مش لازم تقرا صفحة التوثيق كلها. **Skimming**: تمر بسرعة على العناوين وأول سطر في كل فقرة عشان تعرف الصفحة عن إيه (دقيقة). **Scanning**: تدوّر على حاجة محددة (اسم parameter، رقم) بعينك أو بـ Ctrl+F. اعمل skim الأول، وبعدين scan للي محتاجه، وبعدين اقرا الجزء ده بس بالتفصيل.",
+      "en": "You do not need to read a whole docs page. **Skimming**: quickly go over the headings and the first line of each paragraph to know what the page is about (one minute). **Scanning**: look for one specific thing (a parameter name, a number) with your eyes or Ctrl+F. Skim first, then scan for what you need, then read only that part closely."
+     },
+     "ex": "1. Skim (60 s): headings → \"Authentication\", \"Rate limits\", \"Errors\"\n2. Scan: Ctrl+F \"limit\" → \"100 requests per minute\"\n3. Read closely: just the Rate limits section",
+     "deep": 1
     }
    ],
    "practice": [
@@ -515,6 +581,16 @@ JOURNEY.week({
     {
      "ar": "افتح أي صفحة وخلي DeepL في تاب تاني، ومتفتحوش غير للكلمة اللي فهمتهاش من السياق",
      "en": "Open any page with DeepL in another tab, and only use it for words you couldn't work out from context"
+    },
+    {
+     "ar": "افتح صفحة توثيق جديدة عليك، اعمل skim دقيقة واحدة، واكتب في 2 جمل الصفحة عن إيه.",
+     "en": "Open a docs page new to you, skim it for one minute, and write in 2 sentences what it is about.",
+     "deep": 1
+    },
+    {
+     "ar": "اعمل scan لـ 3 معلومات محددة (حد الطلبات، نوع المصادقة، مثال طلب) وقيس وقتك.",
+     "en": "Scan for 3 specific facts (the rate limit, the auth type, a request example) and time yourself.",
+     "deep": 1
     }
    ],
    "code": [
@@ -676,6 +752,22 @@ JOURNEY.week({
       "en": "Works with older versions"
      },
      "ex": "The new version is backward compatible."
+    },
+    {
+     "t": "skim",
+     "m": {
+      "ar": "تقرا بسرعة عشان تعرف الفكرة العامة",
+      "en": "to read quickly to get the general idea"
+     },
+     "ex": "Skim the page before you read it closely."
+    },
+    {
+     "t": "scan",
+     "m": {
+      "ar": "تدوّر بعينك على معلومة محددة",
+      "en": "to look quickly for one specific piece of information"
+     },
+     "ex": "Scan the table for the error code."
     }
    ],
    "read": [
@@ -782,6 +874,22 @@ JOURNEY.week({
       "ar": "مضارع بسيط مع he/she/it فبناخد s: returns.",
       "en": "Present simple with he/she/it takes an s: returns."
      }
+    },
+    {
+     "q": {
+      "ar": "عايز تعرف رقم حد الطلبات بس. تعمل:",
+      "en": "You only need the rate limit number. You:"
+     },
+     "o": [
+      "scan",
+      "skim",
+      "read every word"
+     ],
+     "a": 0,
+     "why": {
+      "ar": "بتدوّر على معلومة محددة.",
+      "en": "You look for one specific fact."
+     }
     }
    ],
    "minutes": 180
@@ -862,6 +970,18 @@ JOURNEY.week({
       "en": "snake_case in Python, camelCase in JavaScript, PascalCase for classes, and UPPER_CASE for constants."
      },
      "ex": "max_retries (Python)  maxRetries (JS)\nclass UserAccount    API_BASE_URL = \"…\""
+    },
+    {
+     "h": {
+      "ar": "قراءة الرموز بصوت عالي",
+      "en": "Reading symbols aloud"
+     },
+     "p": {
+      "ar": "في مكالمة أو pair programming هتحتاج تقول الكود: `_` underscore، `-` hyphen أو dash، `()` parentheses، `[]` square brackets، `{}` curly braces، `.` dot، `/` slash، `\\` backslash، `=` equals، `==` double equals، `!` exclamation mark (أو bang)، `#` hash.",
+      "en": "In a call or pair programming you will need to say code aloud: `_` underscore, `-` hyphen or dash, `()` parentheses, `[]` square brackets, `{}` curly braces, `.` dot, `/` slash, `\\` backslash, `=` equals, `==` double equals, `!` exclamation mark (or bang), `#` hash."
+     },
+     "ex": "user_id      → \"user underscore id\"\ndata[\"name\"] → \"data, square bracket, quote, name, quote, close bracket\"\napi/v2/users → \"api slash v two slash users\"",
+     "deep": 1
     }
    ],
    "practice": [
@@ -888,6 +1008,16 @@ JOURNEY.week({
     {
      "ar": "افتح «من كتابك مباشرة» في بنك المفردات واقرا أمثلتها بصوت عالي",
      "en": "Open “From your book” in the vocabulary bank and read its examples out loud"
+    },
+    {
+     "ar": "اقرا بصوت عالي 5 أسطر كود من مشروعك، كل رمز باسمه.",
+     "en": "Read 5 lines of code from your project aloud, naming every symbol.",
+     "deep": 1
+    },
+    {
+     "ar": "املي على صاحبك (أو سجّل لنفسك) رابط API طويل، وخلّيه يكتبه من صوتك بس.",
+     "en": "Dictate a long API URL to a friend (or record it), and have them write it from your voice only.",
+     "deep": 1
     }
    ],
    "code": [
@@ -1036,6 +1166,22 @@ JOURNEY.week({
       "en": "Settings (configuration)"
      },
      "ex": "Load the config from settings.json."
+    },
+    {
+     "t": "underscore",
+     "m": {
+      "ar": "الشرطة السفلية _",
+      "en": "the low line character _"
+     },
+     "ex": "Snake case uses an underscore between words."
+    },
+    {
+     "t": "curly braces",
+     "m": {
+      "ar": "الأقواس { }",
+      "en": "the { } characters"
+     },
+     "ex": "A JSON object is inside curly braces."
     }
    ],
    "read": [
@@ -1118,6 +1264,22 @@ JOURNEY.week({
       "ar": "FIXME = فيه مشكلة لازم تتصلح. TODO = حاجة لسه هتتعمل.",
       "en": "FIXME = there's a problem to fix. TODO = something still to be done."
      }
+    },
+    {
+     "q": {
+      "ar": "`[]` اسمها:",
+      "en": "`[]` are called:"
+     },
+     "o": [
+      "square brackets",
+      "curly braces",
+      "parentheses"
+     ],
+     "a": 0,
+     "why": {
+      "ar": "الـ {} curly، والـ () parentheses.",
+      "en": "{} are curly braces; () are parentheses."
+     }
     }
    ],
    "minutes": 180
@@ -1195,6 +1357,18 @@ JOURNEY.week({
       "en": "One sentence = one idea. Cut very, really and kind of. Use the simple word instead of the fancy one (use instead of utilize)."
      },
      "ex": "Before: In order to be able to utilize the tool…\nAfter:  To use the tool…"
+    },
+    {
+     "h": {
+      "ar": "صيغة الأمر في الكتابة التقنية",
+      "en": "The imperative in technical writing"
+     },
+     "p": {
+      "ar": "الـ commit messages والخطوات في الـ README بتتكتب بصيغة **الأمر**: فعل في الأول من غير to ومن غير فاعل: `Add login form`، `Fix date bug`، `Run npm install`. مش `Added` ولا `Adding` ولا `I added`. اختبار سهل: الجملة لازم تكمّل «If applied, this commit will …».",
+      "en": "Commit messages and README steps use the **imperative**: a verb first, with no to and no subject: `Add login form`, `Fix date bug`, `Run npm install`. Not `Added`, `Adding` or `I added`. An easy test: the sentence must complete «If applied, this commit will …»."
+     },
+     "ex": "✗ Added validation to the form\n✗ Adding validation\n✓ Add validation to the signup form\n\"If applied, this commit will add validation to the signup form.\" ✓",
+     "deep": 1
     }
    ],
    "practice": [
@@ -1221,6 +1395,16 @@ JOURNEY.week({
     {
      "ar": "حط الـ README بتاعك في LanguageTool أو Hemingway من المكتبة وصلّح اللي يقولك عليه",
      "en": "Run your README through LanguageTool or Hemingway from the library and fix what it flags"
+    },
+    {
+     "ar": "حوّل آخر 10 commits ليك لصيغة الأمر.",
+     "en": "Rewrite your last 10 commit messages in the imperative.",
+     "deep": 1
+    },
+    {
+     "ar": "اكتب 6 خطوات تثبيت لمشروع بصيغة الأمر (Install، Copy، Set، Run…).",
+     "en": "Write 6 install steps for a project in the imperative (Install, Copy, Set, Run…).",
+     "deep": 1
     }
    ],
    "code": [
@@ -1350,6 +1534,22 @@ JOURNEY.week({
       "en": "A review"
      },
      "ex": "Could you review my PR?"
+    },
+    {
+     "t": "imperative mood",
+     "m": {
+      "ar": "صيغة الأمر: فعل في الأول من غير فاعل",
+      "en": "the command form: a verb first with no subject"
+     },
+     "ex": "Write commit messages in the imperative mood."
+    },
+    {
+     "t": "paraphrase",
+     "m": {
+      "ar": "تقول نفس المعنى بكلام تاني",
+      "en": "to say the same meaning in other words"
+     },
+     "ex": "Paraphrase the error for the client."
     }
    ],
    "read": [
@@ -1498,6 +1698,22 @@ JOURNEY.week({
       "ar": "Expected = المتوقع، وActual = اللي حصل فعلاً.",
       "en": "Expected = what should happen; Actual = what really happened."
      }
+    },
+    {
+     "q": {
+      "ar": "أحسن commit message:",
+      "en": "The best commit message:"
+     },
+     "o": [
+      "Fix timezone bug in reminders",
+      "Fixed the bug",
+      "Fixing stuff"
+     ],
+     "a": 0,
+     "why": {
+      "ar": "أمر + تفاصيل.",
+      "en": "Imperative + detail."
+     }
     }
    ],
    "minutes": 180
@@ -1578,6 +1794,18 @@ JOURNEY.week({
       "en": "Yesterday I… Today I will… Blockers: …, or No blockers."
      },
      "ex": "Yesterday I finished the login page.\nToday I will write tests for it.\nNo blockers."
+    },
+    {
+     "h": {
+      "ar": "طلبات مهذبة بدرجات",
+      "en": "Polite requests by degree"
+     },
+     "p": {
+      "ar": "الطلب كل ما يبقى أكبر أو الشخص أبعد، الصيغة بتبقى أطول وألطف: `Can you send the file?` (زميل) ← `Could you send the file?` ← `Would you mind sending the file?` (بعدها -ing) ← `I was wondering if you could send the file.` (عميل جديد أو طلب كبير). وزوّد `please` و`when you get a chance`.",
+      "en": "The bigger the request or the more distant the person, the longer and softer the form: `Can you send the file?` (a colleague) → `Could you send the file?` → `Would you mind sending the file?` (-ing after it) → `I was wondering if you could send the file.` (a new client or a big ask). Add `please` and `when you get a chance`."
+     },
+     "ex": "Can you check this?                       (teammate)\nCould you check this when you get a chance? (manager)\nWould you mind checking the access rights?  (client)\nI was wondering if you could extend the deadline. (big ask)",
+     "deep": 1
     }
    ],
    "practice": [
@@ -1604,6 +1832,16 @@ JOURNEY.week({
     {
      "ar": "اكتب standup لـ 3 أيام متتالية",
      "en": "Write a standup for 3 days in a row"
+    },
+    {
+     "ar": "اكتب نفس الطلب (تمديد الميعاد) بالـ 4 درجات.",
+     "en": "Write the same request (extending a deadline) at the 4 levels.",
+     "deep": 1
+    },
+    {
+     "ar": "قول كل واحدة بصوت عالي بنبرة نازلة في الآخر (مش سؤال حاد).",
+     "en": "Say each aloud with a falling tone at the end (not a sharp question).",
+     "deep": 1
     }
    ],
    "code": [
@@ -1717,6 +1955,22 @@ JOURNEY.week({
       "en": "The expected time of completion"
      },
      "ex": "What is the ETA for the fix?"
+    },
+    {
+     "t": "polite request",
+     "m": {
+      "ar": "طلب بصيغة مهذبة",
+      "en": "a request made in a courteous way"
+     },
+     "ex": "Would you mind… is a polite request."
+    },
+    {
+     "t": "touch base",
+     "m": {
+      "ar": "تتواصل بسرعة عشان تطمن على حاجة",
+      "en": "to make brief contact to check on something"
+     },
+     "ex": "Let’s touch base on Thursday."
     }
    ],
    "read": [
@@ -1824,6 +2078,22 @@ JOURNEY.week({
       "ar": "look into = يبحث ويحقق في مشكلة.",
       "en": "look into = research and investigate a problem."
      }
+    },
+    {
+     "q": {
+      "ar": "بعد `Would you mind` الفعل:",
+      "en": "After `Would you mind` the verb is:"
+     },
+     "o": [
+      "sending",
+      "send",
+      "to send"
+     ],
+     "a": 0,
+     "why": {
+      "ar": "mind + -ing.",
+      "en": "mind + -ing."
+     }
     }
    ],
    "minutes": 180
@@ -1858,6 +2128,16 @@ JOURNEY.week({
     {
      "ar": "راجع اليوم 5: التواصل: تسأل وتطلب وترد على عميل",
      "en": "Review day 5: Communication: asking, requesting and replying to clients"
+    },
+    {
+     "ar": "⚡ نطق كلمات الأخطاء، وskimming وscanning، وأسماء الرموز.",
+     "en": "⚡ Saying error words, skimming and scanning, and the names of symbols.",
+     "deep": 1
+    },
+    {
+     "ar": "⚡ صيغة الأمر في الـ commits، والطلبات المهذبة بدرجاتها: سجّل نفسك وانت بتشرح خطأ وتطلب مساعدة.",
+     "en": "⚡ The imperative in commits, and polite requests by degree: record yourself explaining an error and asking for help.",
+     "deep": 1
     }
    ],
    "project": {

@@ -59,6 +59,18 @@ JOURNEY.week({
       "en": "`^` the start of the text, `$` the end. Flags: `i` ignore case, `g` all matches not just the first, `m` each line separately."
      },
      "ex": "/^INV-\\d+$/i   → the whole text must be an invoice code"
+    },
+    {
+     "h": {
+      "ar": "الطمع والكسل في الـ regex",
+      "en": "Greedy and lazy in regex"
+     },
+     "p": {
+      "ar": "`.*` **طمّاع**: بياخد أكبر جزء ممكن. في `<b>1</b><b>2</b>` الـ regex `<b>.*</b>` بياخد السطر كله. `.*?` **كسلان**: بياخد أقل جزء، فيطلع `<b>1</b>` بس. لما تستخرج حاجة بين علامتين، غالبًا عايز الكسلان.",
+      "en": "`.*` is **greedy**: it takes the longest possible match. In `<b>1</b><b>2</b>` the regex `<b>.*</b>` takes the whole line. `.*?` is **lazy**: it takes the shortest, giving just `<b>1</b>`. When extracting something between two markers, you usually want lazy."
+     },
+     "ex": "'<b>1</b><b>2</b>'.match(/<b>.*<\\/b>/)[0]   // '<b>1</b><b>2</b>'\n'<b>1</b><b>2</b>'.match(/<b>.*?<\\/b>/)[0]  // '<b>1</b>'",
+     "deep": 1
     }
    ],
    "practice": [
@@ -77,6 +89,16 @@ JOURNEY.week({
     {
      "ar": "حل أول 5 دروس في RegexOne.",
      "en": "Complete the first 5 lessons of RegexOne."
+    },
+    {
+     "ar": "استخرج كل الكلام اللي بين `[` و`]` في نص فيه 3 أقواس، بالطمّاع وبالكسلان، وقارن.",
+     "en": "Extract everything between `[` and `]` in a text with 3 brackets, with greedy and lazy, and compare.",
+     "deep": 1
+    },
+    {
+     "ar": "جرّب على regex101 وشوف خطوات المطابقة.",
+     "en": "Try it on regex101 and watch the matching steps.",
+     "deep": 1
     }
    ],
    "words": [
@@ -119,6 +141,22 @@ JOURNEY.week({
       "en": "a backslash that makes a special character literal"
      },
      "ex": "\\. matches a real dot"
+    },
+    {
+     "t": "greedy",
+     "m": {
+      "ar": "بياخد أطول مطابقة ممكنة",
+      "en": "taking the longest possible match"
+     },
+     "ex": ".* is greedy by default."
+    },
+    {
+     "t": "lazy quantifier",
+     "m": {
+      "ar": "علامة ? بعد * أو + عشان ياخد أقصر مطابقة",
+      "en": "a ? after * or + to take the shortest match"
+     },
+     "ex": "Use a lazy quantifier between tags."
     }
    ],
    "read": [
@@ -209,6 +247,31 @@ JOURNEY.week({
       "ar": "case-insensitive.",
       "en": "case-insensitive."
      }
+    },
+    {
+     "q": {
+      "ar": "عشان تاخد أول `<b>…</b>` بس:",
+      "en": "To take only the first `<b>…</b>`:"
+     },
+     "o": [
+      {
+       "ar": "`<b>.*?</b>`",
+       "en": "`<b>.*?</b>`"
+      },
+      {
+       "ar": "`<b>.*</b>`",
+       "en": "`<b>.*</b>`"
+      },
+      {
+       "ar": "`<b>+</b>`",
+       "en": "`<b>+</b>`"
+      }
+     ],
+     "a": 0,
+     "why": {
+      "ar": "الكسلان بيقف عند أول </b>.",
+      "en": "Lazy stops at the first </b>."
+     }
     }
    ],
    "minutes": 180
@@ -256,6 +319,18 @@ JOURNEY.week({
       "en": "`text.match(/\\d+/g)` returns every number in an array. If you need the groups for each match: `[...text.matchAll(re)]`."
      },
      "ex": "\"Order 12 and 15\".match(/\\d+/g)  → [\"12\", \"15\"]"
+    },
+    {
+     "h": {
+      "ar": "Lookahead وlookbehind",
+      "en": "Lookahead and lookbehind"
+     },
+     "p": {
+      "ar": "بيشترطوا حاجة **جنب** المطابقة من غير ما ياخدوها. `\\d+(?= EGP)` رقم وراه « EGP». `(?<=#)\\w+` كلمة قبلها #. مفيدين لما الرقم اللي عايزه متعرّف بالكلمة اللي جنبه.",
+      "en": "They require something **next to** the match without including it. `\\d+(?= EGP)` is a number followed by « EGP». `(?<=#)\\w+` is a word preceded by #. Useful when the number you want is identified by the word beside it."
+     },
+     "ex": "'Total: 450 EGP, tax 63 EGP'.match(/\\d+(?= EGP)/g)   // ['450', '63']\n'tags: #sale #new'.match(/(?<=#)\\w+/g)              // ['sale', 'new']",
+     "deep": 1
     }
    ],
    "practice": [
@@ -274,6 +349,16 @@ JOURNEY.week({
     {
      "ar": "احمي الاستخراج بـ ?. عشان لو مفيش match.",
      "en": "Guard the extraction with ?. in case there's no match."
+    },
+    {
+     "ar": "من رسالة فيها أسعار بالجنيه والدولار، طلّع الأرقام اللي بالجنيه بس.",
+     "en": "From a message with prices in pounds and dollars, extract only the pound amounts.",
+     "deep": 1
+    },
+    {
+     "ar": "طلّع الـ hashtags من غير علامة #.",
+     "en": "Extract hashtags without the # sign.",
+     "deep": 1
     }
    ],
    "words": [
@@ -316,6 +401,22 @@ JOURNEY.week({
       "en": "a flag that returns all matches"
      },
      "ex": "/\\d+/g"
+    },
+    {
+     "t": "lookahead",
+     "m": {
+      "ar": "شرط إن حاجة تيجي بعد المطابقة",
+      "en": "a condition that something follows the match"
+     },
+     "ex": "A lookahead checks for \" EGP\" after the number."
+    },
+    {
+     "t": "lookbehind",
+     "m": {
+      "ar": "شرط إن حاجة تيجي قبل المطابقة",
+      "en": "a condition that something comes before the match"
+     },
+     "ex": "Use a lookbehind for the # sign."
     }
    ],
    "read": [
@@ -380,6 +481,31 @@ JOURNEY.week({
       "ar": "فلازم ?.",
       "en": "So use ?."
      }
+    },
+    {
+     "q": {
+      "ar": "`\\d+(?=%)` في `50% off` بتطلع:",
+      "en": "`\\d+(?=%)` on `50% off` gives:"
+     },
+     "o": [
+      {
+       "ar": "`50`",
+       "en": "`50`"
+      },
+      {
+       "ar": "`50%`",
+       "en": "`50%`"
+      },
+      {
+       "ar": "`%`",
+       "en": "`%`"
+      }
+     ],
+     "a": 0,
+     "why": {
+      "ar": "الـ % شرط ومش جزء من النتيجة.",
+      "en": "The % is a condition, not part of the result."
+     }
     }
    ],
    "minutes": 180
@@ -427,6 +553,18 @@ JOURNEY.week({
       "en": "A slug = text that is safe for a URL or file name: lowercase, hyphens instead of spaces, no symbols."
      },
      "ex": "{{ $json.title.toLowerCase().replace(/[^a-z0-9]+/g, \"-\").replace(/^-|-$/g, \"\") }}\n\"Hello World!\" → \"hello-world\""
+    },
+    {
+     "h": {
+      "ar": "تنضيف النص العربي",
+      "en": "Cleaning Arabic text"
+     },
+     "p": {
+      "ar": "عشان البحث والمقارنة يشتغلوا: شيل التشكيل `[\\u064B-\\u0652]`، وحّد الألف `[إأآ]` → `ا`، والتاء المربوطة `ة` → `ه` لو محتاج، والـ `ى` → `ي`، وحوّل الأرقام العربية `٠-٩` لإنجليزي. خلّي النسخة الأصلية للعرض، والنسخة المنضّفة للمقارنة بس.",
+      "en": "So search and comparison work: remove diacritics `[\\u064B-\\u0652]`, unify alef `[إأآ]` → `ا`, taa marbuta `ة` → `ه` if needed, `ى` → `ي`, and turn Arabic digits `٠-٩` into Western ones. Keep the original for display and the cleaned copy for comparing only."
+     },
+     "ex": "const clean = s => s\n  .replace(/[\\u064B-\\u0652]/g, '')\n  .replace(/[إأآ]/g, 'ا').replace(/ى/g, 'ي')\n  .replace(/[٠-٩]/g, d => '٠١٢٣٤٥٦٧٨٩'.indexOf(d));\nclean('أحمد ٠١٠')  // 'احمد 010'",
+     "deep": 1
     }
    ],
    "practice": [
@@ -445,6 +583,16 @@ JOURNEY.week({
     {
      "ar": "اعمل slug لـ 5 عناوين.",
      "en": "Make slugs for 5 titles."
+    },
+    {
+     "ar": "اعمل دالة `clean` وجرّبها على 5 كتابات مختلفة لنفس الاسم واتأكد إنهم بقوا زي بعض.",
+     "en": "Write a `clean` function and test it on 5 spellings of the same name; check they become identical.",
+     "deep": 1
+    },
+    {
+     "ar": "استخدمها قبل Remove Duplicates على قايمة عملاء عربي.",
+     "en": "Use it before Remove Duplicates on an Arabic customer list.",
+     "deep": 1
     }
    ],
    "words": [
@@ -487,6 +635,22 @@ JOURNEY.week({
       "en": "URL-safe text: lowercase with hyphens"
      },
      "ex": "hello-world"
+    },
+    {
+     "t": "diacritics",
+     "m": {
+      "ar": "علامات التشكيل فوق وتحت الحروف",
+      "en": "marks above or below letters"
+     },
+     "ex": "Remove diacritics before comparing names."
+    },
+    {
+     "t": "arabic block",
+     "m": {
+      "ar": "مدى أكواد الحروف العربية في Unicode",
+      "en": "the range of Arabic letter codes in Unicode"
+     },
+     "ex": "The Arabic block starts at U+0600."
     }
    ],
    "read": [
@@ -571,6 +735,31 @@ JOURNEY.week({
       "ar": "normalization.",
       "en": "normalisation."
      }
+    },
+    {
+     "q": {
+      "ar": "ليه تحتفظ بالنص الأصلي؟",
+      "en": "Why keep the original text?"
+     },
+     "o": [
+      {
+       "ar": "للعرض؛ المنضّف للمقارنة بس",
+       "en": "for display; the clean copy is for comparing"
+      },
+      {
+       "ar": "مش محتاجه",
+       "en": "you do not need it"
+      },
+      {
+       "ar": "عشان الحجم",
+       "en": "for size"
+      }
+     ],
+     "a": 0,
+     "why": {
+      "ar": "التنضيف بيغيّر شكل الاسم.",
+      "en": "Cleaning changes how the name looks."
+     }
     }
    ],
    "minutes": 180
@@ -618,6 +807,18 @@ JOURNEY.week({
       "en": "For email, n8n has `.isEmail()`. For HTML use the HTML node, not regex. For JSON use JSON.parse. Regex is for simple, specific patterns."
      },
      "ex": "HTML → HTML node (CSS selectors), not regex"
+    },
+    {
+     "h": {
+      "ar": "أرقام الموبايل المصرية",
+      "en": "Egyptian mobile numbers"
+     },
+     "p": {
+      "ar": "الرقم ممكن ييجي `01012345678` أو `+201012345678` أو `00201012345678` أو بمسافات وشرط. نضّف الأول (شيل أي حاجة مش رقم)، وبعدين اتحقق: `^(?:\\+?20|0)?(1[0125]\\d{8})$`، وارجعه بصيغة موحدة `+20…` عشان واتساب والـ APIs.",
+      "en": "A number may arrive as `01012345678`, `+201012345678`, `00201012345678` or with spaces and dashes. Clean first (remove anything that is not a digit or +), then check: `^(?:\\+?20|0)?(1[0125]\\d{8})$`, and return one format `+20…` for WhatsApp and APIs."
+     },
+     "ex": "const toE164 = raw => {\n  const s = String(raw).replace(/[^\\d+]/g, '').replace(/^00/, '+');\n  const m = s.match(/^(?:\\+?20|0)?(1[0125]\\d{8})$/);\n  return m ? '+20' + m[1] : null;\n};\ntoE164('010-1234 5678')  // '+201012345678'",
+     "deep": 1
     }
    ],
    "practice": [
@@ -636,6 +837,16 @@ JOURNEY.week({
     {
      "ar": "قارن greedy وlazy على نص HTML صغير.",
      "en": "Compare greedy and lazy on a small HTML string."
+    },
+    {
+     "ar": "جرّب الدالة على 8 أشكال (منهم 2 غلط) واتأكد إن الغلط بيرجع `null`.",
+     "en": "Test the function on 8 forms (2 of them wrong) and check the wrong ones return `null`.",
+     "deep": 1
+    },
+    {
+     "ar": "حطها في workflow: العناصر اللي رقمها `null` تروح لفرع «راجع الرقم».",
+     "en": "Put it in a workflow: items whose number is `null` go to a «check the number» branch.",
+     "deep": 1
     }
    ],
    "words": [
@@ -678,6 +889,22 @@ JOURNEY.week({
       "en": "n8n's email validation function"
      },
      "ex": "{{ $json.email.isEmail() }}"
+    },
+    {
+     "t": "e.164",
+     "m": {
+      "ar": "الصيغة الدولية للأرقام زي +201012345678",
+      "en": "the international number format like +201012345678"
+     },
+     "ex": "Store phone numbers in E.164."
+    },
+    {
+     "t": "country code",
+     "m": {
+      "ar": "كود الدولة في أول الرقم (مصر 20)",
+      "en": "the country prefix of a number (Egypt is 20)"
+     },
+     "ex": "Add the country code before sending."
     }
    ],
    "read": [
@@ -759,6 +986,31 @@ JOURNEY.week({
       "ar": "CSS selectors.",
       "en": "CSS selectors."
      }
+    },
+    {
+     "q": {
+      "ar": "ليه تحفظ كل الأرقام بصيغة واحدة؟",
+      "en": "Why store every number in one format?"
+     },
+     "o": [
+      {
+       "ar": "عشان المقارنة والإرسال يشتغلوا",
+       "en": "so comparing and sending work"
+      },
+      {
+       "ar": "عشان تبقى أطول",
+       "en": "to make them longer"
+      },
+      {
+       "ar": "مش مهم",
+       "en": "it does not matter"
+      }
+     ],
+     "a": 0,
+     "why": {
+      "ar": "`010…` و`+2010…` نفس الرقم.",
+      "en": "`010…` and `+2010…` are the same number."
+     }
     }
    ],
    "minutes": 180
@@ -806,6 +1058,18 @@ JOURNEY.week({
       "en": "Keep templates in one place (a sheet or a Settings node) with placeholders such as {name}, and fill them with replace. The client edits the message without touching the workflow."
      },
      "ex": "template.replace(\"{name}\", $json.name).replace(\"{amount}\", $json.amount)"
+    },
+    {
+     "h": {
+      "ar": "الأدوات الجاهزة قبل الـ regex",
+      "en": "Ready tools before regex"
+     },
+     "p": {
+      "ar": "مش كل حاجة محتاجة regex. n8n فيه نود **Extract From File** و**HTML** (يستخرج من صفحة بـ CSS selector)، ودوال زي `.extractEmail()` و`.extractUrl()` و`.extractDomain()`. ولو النص عشوائي جدًا (إيميلات عملاء)، نود AI مع Structured Output Parser أدق من regex.",
+      "en": "Not everything needs regex. n8n has **Extract From File** and **HTML** nodes (extract from a page with a CSS selector), and helpers like `.extractEmail()`, `.extractUrl()` and `.extractDomain()`. If the text is very free-form (customer emails), an AI node with a Structured Output Parser is more accurate than regex."
+     },
+     "ex": "{{ $json.text.extractEmail() }}\n{{ $json.text.extractUrl() }}\nHTML node → Extract HTML Content → CSS selector: .price",
+     "deep": 1
     }
    ],
    "practice": [
@@ -824,6 +1088,16 @@ JOURNEY.week({
     {
      "ar": "نضّف نصوص الرسايل قبل التصنيف (مسافات، تشكيل).",
      "en": "Clean message text before classifying (spaces, diacritics)."
+    },
+    {
+     "ar": "من صفحة منتج، طلّع الاسم والسعر بنود HTML وCSS selector.",
+     "en": "From a product page, extract the name and price with the HTML node and a CSS selector.",
+     "deep": 1
+    },
+    {
+     "ar": "اكتب جدول: نوع النص ← الأداة الأنسب (regex، دالة جاهزة، HTML، AI).",
+     "en": "Write a table: kind of text → the best tool (regex, a ready helper, HTML, AI).",
+     "deep": 1
     }
    ],
    "words": [
@@ -866,6 +1140,22 @@ JOURNEY.week({
       "en": "turning free text into structured data"
      },
      "ex": "\"2 x Pizza\" → { qty: 2, item: \"Pizza\" }"
+    },
+    {
+     "t": "scrape",
+     "m": {
+      "ar": "تطلّع بيانات من صفحة ويب آليًا",
+      "en": "to pull data out of a web page automatically"
+     },
+     "ex": "Scrape only pages you are allowed to."
+    },
+    {
+     "t": "free-form",
+     "m": {
+      "ar": "نص من غير شكل ثابت",
+      "en": "text with no fixed format"
+     },
+     "ex": "Free-form emails are hard for regex."
     }
    ],
    "read": [
@@ -956,6 +1246,31 @@ JOURNEY.week({
       "ar": "فصل المحتوى عن المنطق.",
       "en": "Separates content from logic."
      }
+    },
+    {
+     "q": {
+      "ar": "عايز السعر من صفحة HTML:",
+      "en": "You need the price from an HTML page:"
+     },
+     "o": [
+      {
+       "ar": "نود HTML بـ CSS selector",
+       "en": "the HTML node with a CSS selector"
+      },
+      {
+       "ar": "regex على الصفحة كلها",
+       "en": "regex on the whole page"
+      },
+      {
+       "ar": "AI دايمًا",
+       "en": "always AI"
+      }
+     ],
+     "a": 0,
+     "why": {
+      "ar": "الصفحة ليها بنية، استخدمها.",
+      "en": "The page has structure; use it."
+     }
     }
    ],
    "minutes": 180
@@ -990,6 +1305,16 @@ JOURNEY.week({
     {
      "ar": "نص ← items، والتصنيف بالكلمات، والقوالب.",
      "en": "Text → items, keyword classification and templates."
+    },
+    {
+     "ar": "⚡ الطمّاع والكسلان، وlookahead/lookbehind، وتنضيف العربي.",
+     "en": "⚡ Greedy and lazy, lookahead/lookbehind, and cleaning Arabic.",
+     "deep": 1
+    },
+    {
+     "ar": "⚡ أرقام الموبايل بصيغة +20، والأدوات الجاهزة قبل الـ regex: اعمل workflow ينضّف قايمة عملاء.",
+     "en": "⚡ Mobile numbers in +20 form, and ready tools before regex: build a workflow that cleans a customer list.",
+     "deep": 1
     }
    ],
    "project": {

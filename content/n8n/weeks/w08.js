@@ -59,6 +59,18 @@ JOURNEY.week({
       "en": "Each field has a type: String, Number, Boolean, Array, Object. Pick the right type so \"5\" becomes 5 and \"true\" becomes true."
      },
      "ex": "qty (Number) = {{ $json.qty }}\nactive (Boolean) = {{ $json.status === \"active\" }}"
+    },
+    {
+     "h": {
+      "ar": "Dot notation وحقول متداخلة",
+      "en": "Dot notation and nested fields"
+     },
+     "p": {
+      "ar": "في Edit Fields لو كتبت اسم الحقل `customer.address.city` مع خيار **Support Dot Notation**، n8n بيعمل object متداخل بدل حقل اسمه فيه نقط. ده مهم لما الـ API اللي بعدك مستني شكل محدد. ومن غير الخيار ده، الاسم بيفضل نص واحد.",
+      "en": "In Edit Fields, if you name a field `customer.address.city` with **Support Dot Notation** on, n8n builds a nested object instead of a field whose name contains dots. This matters when the next API expects an exact shape. Without the option, the name stays one flat text."
+     },
+     "ex": "Edit Fields (Support Dot Notation: on)\n  customer.name = {{ $json.name }}\n  customer.address.city = {{ $json.city }}\n→ { \"customer\": { \"name\": \"Sara\", \"address\": { \"city\": \"Giza\" } } }",
+     "deep": 1
     }
    ],
    "practice": [
@@ -77,6 +89,16 @@ JOURNEY.week({
     {
      "ar": "استخدم Rename Keys أو Edit Fields عشان تغيّر أسماء حقول لشكل API.",
      "en": "Use Rename Keys or Edit Fields to rename fields into an API's format."
+    },
+    {
+     "ar": "ابني الـ body اللي API بيطلبه (3 مستويات) من بيانات مسطّحة باستخدام dot notation.",
+     "en": "Build the body an API expects (3 levels) from flat data using dot notation.",
+     "deep": 1
+    },
+    {
+     "ar": "قفّل الخيار وشوف الفرق في الخرج.",
+     "en": "Turn the option off and see the difference in the output.",
+     "deep": 1
     }
    ],
    "words": [
@@ -119,6 +141,22 @@ JOURNEY.week({
       "en": "the shape of the data leaving a node"
      },
      "ex": "Match the output shape to the API docs."
+    },
+    {
+     "t": "nested object",
+     "m": {
+      "ar": "object جواه object",
+      "en": "an object inside another object"
+     },
+     "ex": "The API expects a nested object for the address."
+    },
+    {
+     "t": "flat",
+     "m": {
+      "ar": "من غير مستويات متداخلة",
+      "en": "with no nested levels"
+     },
+     "ex": "The sheet rows are flat."
     }
    ],
    "read": [
@@ -218,6 +256,31 @@ JOURNEY.week({
       "ar": "APIs كتير بترفض نص مكان رقم.",
       "en": "Many APIs reject text where a number is expected."
      }
+    },
+    {
+     "q": {
+      "ar": "Support Dot Notation بيحوّل `a.b = 1` لـ:",
+      "en": "Support Dot Notation turns `a.b = 1` into:"
+     },
+     "o": [
+      {
+       "ar": "`{\"a\": {\"b\": 1}}`",
+       "en": "`{\"a\": {\"b\": 1}}`"
+      },
+      {
+       "ar": "`{\"a.b\": 1}`",
+       "en": "`{\"a.b\": 1}`"
+      },
+      {
+       "ar": "`[1]`",
+       "en": "`[1]`"
+      }
+     ],
+     "a": 0,
+     "why": {
+      "ar": "object متداخل.",
+      "en": "A nested object."
+     }
     }
    ],
    "minutes": 180
@@ -265,6 +328,18 @@ JOURNEY.week({
       "en": "If two branches run and you want to continue only after both finish, Merge in Choose Branch mode waits for both and outputs one branch's data."
      },
      "ex": "Send email ─┐\n            ├─ Merge (Choose Branch: input 1) → Log done\nUpdate CRM ─┘"
+    },
+    {
+     "h": {
+      "ar": "Merge بالـ SQL",
+      "en": "Merge with SQL"
+     },
+     "p": {
+      "ar": "نود Merge فيه وضع **SQL Query**: المدخل الأول اسمه `input1` والتاني `input2`، وتكتب استعلام عادي: `SELECT … FROM input1 LEFT JOIN input2 ON …`. مفيد لما الدمج محتاج شروط أكتر من حقل واحد، أو تجميع (`GROUP BY`) في نفس الخطوة.",
+      "en": "The Merge node has an **SQL Query** mode: the first input is `input1` and the second `input2`, and you write a normal query: `SELECT … FROM input1 LEFT JOIN input2 ON …`. Useful when the join needs more than one field, or totals (`GROUP BY`) in the same step."
+     },
+     "ex": "SELECT input1.id, input1.name, SUM(input2.total) AS spent\nFROM input1 LEFT JOIN input2 ON input1.id = input2.customer_id\nGROUP BY input1.id, input1.name",
+     "deep": 1
     }
    ],
    "practice": [
@@ -283,6 +358,16 @@ JOURNEY.week({
     {
      "ar": "جرّب SQL Query mode: `SELECT * FROM input1 JOIN input2 ON …`.",
      "en": "Try the SQL Query mode: `SELECT * FROM input1 JOIN input2 ON …`."
+    },
+    {
+     "ar": "ادمج عملاء وطلبات بالـ SQL واطلع لكل عميل عدد طلباته ومجموعها.",
+     "en": "Merge customers and orders with SQL and get each customer’s order count and total.",
+     "deep": 1
+    },
+    {
+     "ar": "اعمل نفس النتيجة بـ Merge العادي + Summarize وقارن الطريقتين.",
+     "en": "Get the same result with the normal Merge + Summarize and compare the two ways.",
+     "deep": 1
     }
    ],
    "words": [
@@ -325,6 +410,22 @@ JOURNEY.week({
       "en": "outputs items with no partner in the other input"
      },
      "ex": "Customers without orders"
+    },
+    {
+     "t": "left join",
+     "m": {
+      "ar": "دمج بيحتفظ بكل صفوف الجدول الأول",
+      "en": "a join that keeps every row of the first table"
+     },
+     "ex": "A left join keeps customers with no orders."
+    },
+    {
+     "t": "aggregate query",
+     "m": {
+      "ar": "استعلام بيحسب مجاميع ومتوسطات",
+      "en": "a query that computes totals and averages"
+     },
+     "ex": "An aggregate query gives the total per customer."
     }
    ],
    "read": [
@@ -389,6 +490,31 @@ JOURNEY.week({
       "ar": "بيستنى الاتنين.",
       "en": "It waits for both."
      }
+    },
+    {
+     "q": {
+      "ar": "عميل ملوش طلبات. أنهي دمج يحتفظ بيه؟",
+      "en": "A customer has no orders. Which join keeps them?"
+     },
+     "o": [
+      {
+       "ar": "LEFT JOIN",
+       "en": "LEFT JOIN"
+      },
+      {
+       "ar": "INNER JOIN",
+       "en": "INNER JOIN"
+      },
+      {
+       "ar": "ولا واحد",
+       "en": "neither"
+      }
+     ],
+     "a": 0,
+     "why": {
+      "ar": "INNER بيشيل اللي ملوش مقابل.",
+      "en": "INNER drops rows with no match."
+     }
     }
    ],
    "minutes": 180
@@ -436,6 +562,18 @@ JOURNEY.week({
       "en": "`if (…) { } else { }`, `===` to compare (not ==), `typeof x === \"string\"`. A function: `function net(p) { return p * 0.86; }` or `const net = p => p * 0.86;`."
      },
      "ex": "if (typeof $json.qty !== \"number\") { throw new Error(\"qty must be a number\"); }"
+    },
+    {
+     "h": {
+      "ar": "Destructuring وspread",
+      "en": "Destructuring and spread"
+     },
+     "p": {
+      "ar": "`const { name, phone = '-' } = $json` بيطلّع حقول في متغيّرات مع قيمة افتراضية. و`{ ...$json, status: 'paid' }` نسخة من العنصر مع تعديل حقل، من غير ما تغيّر الأصل. و`[...a, ...b]` بيدمج arrays. التلاتة دول هتشوفهم في كل Code node تقريبًا.",
+      "en": "`const { name, phone = '-' } = $json` pulls fields into variables with a default. `{ ...$json, status: 'paid' }` is a copy of the item with one field changed, without changing the original. `[...a, ...b]` joins arrays. You will see these three in almost every Code node."
+     },
+     "ex": "const { name, phone = '-', ...rest } = $json;\nreturn { json: { ...rest, contact: `${name} (${phone})`, status: 'paid' } };",
+     "deep": 1
     }
    ],
    "practice": [
@@ -454,6 +592,16 @@ JOURNEY.week({
     {
      "ar": "اكتب if/else بيصنّف العملاء لـ 3 شرايح حسب المبلغ.",
      "en": "Write if/else that sorts customers into 3 tiers by amount."
+    },
+    {
+     "ar": "في Code node (Each Item): طلّع 3 حقول بـ destructuring وارجع object جديد بـ spread فيه حقل محسوب.",
+     "en": "In a Code node (Each Item): take 3 fields with destructuring and return a new object with spread plus a computed field.",
+     "deep": 1
+    },
+    {
+     "ar": "اشرح لنفسك: ليه `{ ...$json }` أحسن من تعديل `$json` مباشرة؟",
+     "en": "Explain to yourself: why is `{ ...$json }` better than changing `$json` directly?",
+     "deep": 1
     }
    ],
    "words": [
@@ -496,6 +644,22 @@ JOURNEY.week({
       "en": "tells you the type of a value"
      },
      "ex": "typeof 42 → \"number\""
+    },
+    {
+     "t": "unpack",
+     "m": {
+      "ar": "تفك قيم من object في متغيّرات",
+      "en": "to take values out of an object into variables"
+     },
+     "ex": "Unpack name and phone from $json."
+    },
+    {
+     "t": "object spread",
+     "m": {
+      "ar": "نسخ حقول object لـ object جديد بـ ...",
+      "en": "copying an object’s fields into a new object with ..."
+     },
+     "ex": "Object spread keeps the original item unchanged."
     }
    ],
    "read": [
@@ -577,6 +741,31 @@ JOURNEY.week({
       "ar": "destructuring.",
       "en": "destructuring."
      }
+    },
+    {
+     "q": {
+      "ar": "`{ ...$json, a: 1 }` بيعمل إيه؟",
+      "en": "What does `{ ...$json, a: 1 }` do?"
+     },
+     "o": [
+      {
+       "ar": "نسخة من العنصر و a = 1",
+       "en": "a copy of the item with a = 1"
+      },
+      {
+       "ar": "بيمسح العنصر",
+       "en": "deletes the item"
+      },
+      {
+       "ar": "خطأ",
+       "en": "an error"
+      }
+     ],
+     "a": 0,
+     "why": {
+      "ar": "الأصل مش بيتغيّر.",
+      "en": "The original is unchanged."
+     }
     }
    ],
    "minutes": 180
@@ -624,6 +813,18 @@ JOURNEY.week({
       "en": "Sort for order (newest first), Limit to take the first N (top 10), and Remove Duplicates on a field after cleaning."
      },
      "ex": "Sort by total desc → Limit 10 → top customers"
+    },
+    {
+     "h": {
+      "ar": "Compare Datasets: إيه اللي اتغيّر؟",
+      "en": "Compare Datasets: what changed?"
+     },
+     "p": {
+      "ar": "نود **Compare Datasets** بياخد قايمتين (مثلًا الشيت امبارح والـ API النهارده) ومفتاح (`id`)، ويطلّع 4 مخارج: موجود في A بس (اتمسح)، في B بس (جديد)، نفس الحاجة، ومختلف (اتعدّل). ده أساس أي مزامنة بين نظامين.",
+      "en": "The **Compare Datasets** node takes two lists (e.g. yesterday’s sheet and today’s API) and a key (`id`), and gives 4 outputs: in A only (deleted), in B only (new), same, and different (changed). This is the basis of any sync between two systems."
+     },
+     "ex": "Compare Datasets (key: id)\n  In A only   → mark as deleted\n  In B only   → add new row\n  Same        → nothing\n  Different   → update the row",
+     "deep": 1
     }
    ],
    "practice": [
@@ -642,6 +843,16 @@ JOURNEY.week({
     {
      "ar": "شيل التكرار بالإيميل بعد التنضيف.",
      "en": "Remove duplicates by email after cleaning."
+    },
+    {
+     "ar": "اعمل قايمتين بـ 6 عناصر فيهم: 2 جداد، 1 اتمسح، 1 اتعدّل، و2 زي ما هم، وشوف كل مخرج.",
+     "en": "Make two lists of 6 items with 2 new, 1 deleted, 1 changed and 2 unchanged, and look at each output.",
+     "deep": 1
+    },
+    {
+     "ar": "استخدم `Fields to Skip Comparing` عشان تتجاهل `updated_at`.",
+     "en": "Use `Fields to Skip Comparing` to ignore `updated_at`.",
+     "deep": 1
     }
    ],
    "words": [
@@ -684,6 +895,22 @@ JOURNEY.week({
       "en": "the top N items after sorting"
      },
      "ex": "Sort desc → Limit 10"
+    },
+    {
+     "t": "dataset",
+     "m": {
+      "ar": "مجموعة بيانات (قايمة سجلات)",
+      "en": "a set of data (a list of records)"
+     },
+     "ex": "Compare the two datasets by id."
+    },
+    {
+     "t": "sync",
+     "m": {
+      "ar": "تخلّي نظامين فيهم نفس البيانات",
+      "en": "to make two systems hold the same data"
+     },
+     "ex": "Sync the shop orders to the sheet every hour."
     }
    ],
    "read": [
@@ -757,6 +984,31 @@ JOURNEY.week({
       "ar": "رتّب الأول.",
       "en": "Sort first."
      }
+    },
+    {
+     "q": {
+      "ar": "عنصر موجود في B بس (الجديد) معناه:",
+      "en": "An item only in B (the new list) means:"
+     },
+     "o": [
+      {
+       "ar": "عنصر جديد يتضاف",
+       "en": "a new item to add"
+      },
+      {
+       "ar": "اتمسح",
+       "en": "it was deleted"
+      },
+      {
+       "ar": "مفيش تغيير",
+       "en": "nothing changed"
+      }
+     ],
+     "a": 0,
+     "why": {
+      "ar": "B هي النسخة الأحدث.",
+      "en": "B is the newer copy."
+     }
     }
    ],
    "minutes": 180
@@ -804,6 +1056,18 @@ JOURNEY.week({
       "en": "`Number(x).toLocaleString(\"en-US\", { style: \"currency\", currency: \"USD\" })` gives $1,234.50. For units: convert once and standardise (grams, cents)."
      },
      "ex": "price_cents = {{ Math.round($json.price * 100) }}"
+    },
+    {
+     "h": {
+      "ar": "جدول ربط القيم (lookup table)",
+      "en": "A lookup table for values"
+     },
+     "p": {
+      "ar": "النظامين بيسمّوا نفس الحاجة بأسامي مختلفة: `paid` هنا و`PAID_OK` هناك، `Cairo` و`CAI`. متكتبش IF لكل قيمة؛ اعمل object للربط في Code node أو شيت صغير اسمه `mappings`، ولو القيمة مش موجودة طلّعها في تنبيه بدل ما تعدّي غلط.",
+      "en": "Two systems name the same thing differently: `paid` here and `PAID_OK` there, `Cairo` and `CAI`. Do not write an IF per value; build a mapping object in a Code node or a small `mappings` sheet, and if a value is missing, raise an alert instead of passing something wrong."
+     },
+     "ex": "const STATUS = { paid: 'PAID_OK', pending: 'WAITING', refunded: 'RETURNED' };\nconst mapped = STATUS[$json.status];\nif (!mapped) throw new Error(`No mapping for status \"${$json.status}\"`);\nreturn { json: { ...$json, status: mapped } };",
+     "deep": 1
     }
    ],
    "practice": [
@@ -822,6 +1086,16 @@ JOURNEY.week({
     {
      "ar": "حوّل أسعار لـ cents وارجعها بدقة.",
      "en": "Convert prices to cents and back without losing precision."
+    },
+    {
+     "ar": "اعمل شيت `mappings` (عمودين: from، to) واقراه مرة في أول الـ workflow واستخدمه لكل العناصر.",
+     "en": "Make a `mappings` sheet (two columns: from, to), read it once at the start of the workflow and use it for every item.",
+     "deep": 1
+    },
+    {
+     "ar": "ابعت قيمة مش موجودة في الجدول واتأكد إن التنبيه وصل.",
+     "en": "Send a value missing from the table and check the alert arrives.",
+     "deep": 1
     }
    ],
    "words": [
@@ -864,6 +1138,22 @@ JOURNEY.week({
       "en": "the one place whose data is the reference"
      },
      "ex": "The ERP is the source of truth for stock."
+    },
+    {
+     "t": "lookup table",
+     "m": {
+      "ar": "جدول بيربط قيمة بقيمة تانية",
+      "en": "a table that links one value to another"
+     },
+     "ex": "Use a lookup table for city codes."
+    },
+    {
+     "t": "unmapped",
+     "m": {
+      "ar": "قيمة ملهاش مقابل في جدول الربط",
+      "en": "a value with no match in the mapping table"
+     },
+     "ex": "Alert on any unmapped status."
     }
    ],
    "read": [
@@ -946,6 +1236,31 @@ JOURNEY.week({
       "ar": "العميل يعدّله بنفسه.",
       "en": "The client can edit it."
      }
+    },
+    {
+     "q": {
+      "ar": "قيمة ملهاش مقابل في جدول الربط. أحسن تصرف:",
+      "en": "A value has no match in the mapping. Best action:"
+     },
+     "o": [
+      {
+       "ar": "تنبيه ووقف العنصر ده",
+       "en": "alert and stop that item"
+      },
+      {
+       "ar": "تعدّيها زي ما هي",
+       "en": "pass it as it is"
+      },
+      {
+       "ar": "تحط أي قيمة",
+       "en": "put any value"
+      }
+     ],
+     "a": 0,
+     "why": {
+      "ar": "الغلط الصامت أخطر.",
+      "en": "Silent mistakes are worse."
+     }
     }
    ],
    "minutes": 180
@@ -976,6 +1291,16 @@ JOURNEY.week({
     {
      "ar": "Edit Fields وMerge وCompare Datasets وجداول التحويل وJavaScript (الأسبوع 8).",
      "en": "Edit Fields, Merge, Compare Datasets, mapping tables and JavaScript (week 8)."
+    },
+    {
+     "ar": "⚡ dot notation، وMerge بالـ SQL، وdestructuring وspread.",
+     "en": "⚡ Dot notation, Merge with SQL, and destructuring and spread.",
+     "deep": 1
+    },
+    {
+     "ar": "⚡ Compare Datasets للمزامنة، وجداول الربط مع تنبيه للقيم الناقصة: استخدمهم في مشروع الشهر.",
+     "en": "⚡ Compare Datasets for syncing, and mapping tables with alerts for missing values: use them in the month project.",
+     "deep": 1
     }
    ],
    "project": {

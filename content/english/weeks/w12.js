@@ -56,6 +56,18 @@ JOURNEY.week({
       "en": "Use them rarely in formal emails, and only one at a time."
      },
      "ex": "✗ The server is down!!!\n✓ The server is down. We are working on it."
+    },
+    {
+     "h": {
+      "ar": "التحية والختام حسب العلاقة",
+      "en": "Greetings and closings by relationship"
+     },
+     "p": {
+      "ar": "**رسمي/أول مرة**: `Dear Ms Hassan,` … `Kind regards,` **شغل عادي**: `Hi Sara,` … `Best,` أو `Thanks,` **ودّي جدًا**: `Hey Omar,` … `Cheers,` ولو مش عارف الاسم: `Hello,` أو `Hi there,` (مش `Dear Sir/Madam` إلا في الرسمي جدًا). والـ CC للي محتاج يعرف، والـ BCC للقوايم عشان العناوين متظهرش لبعض.",
+      "en": "**Formal/first contact**: `Dear Ms Hassan,` … `Kind regards,` **Normal work**: `Hi Sara,` … `Best,` or `Thanks,` **Very friendly**: `Hey Omar,` … `Cheers,` If you do not know the name: `Hello,` or `Hi there,` (`Dear Sir/Madam` only when very formal). CC people who need to know, and BCC mailing lists so addresses stay hidden from each other."
+     },
+     "ex": "Dear Mr Adel,            → Kind regards,\nHi Sara,                 → Best, / Thanks,\nHey team,                → Cheers,\nBCC: the 40 customers (so they don't see each other's emails)",
+     "deep": 1
     }
    ],
    "practice": [
@@ -74,6 +86,16 @@ JOURNEY.week({
     {
      "ar": "شيل كل علامات التعجب الزيادة من إيميل قديم كتبته.",
      "en": "Remove every extra exclamation mark from an old email of yours."
+    },
+    {
+     "ar": "اكتب أول وآخر سطر لـ 5 إيميلات لأشخاص مختلفين (عميل جديد، مدير، زميل، فريق، شركة).",
+     "en": "Write the first and last line of 5 emails to different people (new client, manager, colleague, team, company).",
+     "deep": 1
+    },
+    {
+     "ar": "قرر لـ 3 مواقف: To ولا CC ولا BCC؟",
+     "en": "Decide for 3 situations: To, CC or BCC?",
+     "deep": 1
     }
    ],
    "words": [
@@ -132,6 +154,22 @@ JOURNEY.week({
       "en": "the closing words of an email"
      },
      "ex": "Use \"Best regards\" as a sign-off."
+    },
+    {
+     "t": "greeting",
+     "m": {
+      "ar": "جملة التحية في أول الرسالة",
+      "en": "the hello line at the start of a message"
+     },
+     "ex": "Use the person’s name in the greeting."
+    },
+    {
+     "t": "bcc",
+     "m": {
+      "ar": "نسخة مخفية: المستلمين مش بيشوفوا بعض",
+      "en": "blind copy: recipients cannot see each other"
+     },
+     "ex": "Put the customer list in BCC."
     }
    ],
    "read": [
@@ -205,6 +243,22 @@ JOURNEY.week({
       "ar": "مهذبة ومحايدة.",
       "en": "Polite and neutral."
      }
+    },
+    {
+     "q": {
+      "ar": "إيميل لـ 50 عميل مع بعض:",
+      "en": "An email to 50 customers at once:"
+     },
+     "o": [
+      "put them in BCC",
+      "put them in CC",
+      "put them in To"
+     ],
+     "a": 0,
+     "why": {
+      "ar": "عشان الخصوصية.",
+      "en": "For privacy."
+     }
     }
    ],
    "minutes": 180
@@ -249,6 +303,18 @@ JOURNEY.week({
       "en": "Just a quick reminder about… / I wanted to follow up on… / Could you let me know by Thursday? Never \"Why didn't you reply?\"."
      },
      "ex": "Hi Omar,\nJust a quick reminder about the contract. Could you send it back by Thursday?\nThanks,\nMahmoud"
+    },
+    {
+     "h": {
+      "ar": "المتابعة ورد الغياب",
+      "en": "Follow-ups and out-of-office replies"
+     },
+     "p": {
+      "ar": "متابعة لطيفة: `Just following up on my email from Monday about…` أو `I wanted to check if you had a chance to look at…` (مش `Did you see my email??`). ولو هتغيب، رد آلي: `I'm out of office until 12 May with limited access to email. For urgent issues, please contact…`",
+      "en": "A kind follow-up: `Just following up on my email from Monday about…` or `I wanted to check if you had a chance to look at…` (not `Did you see my email??`). If you will be away, an automatic reply: `I'm out of office until 12 May with limited access to email. For urgent issues, please contact…`"
+     },
+     "ex": "Hi Sara,\nJust following up on the proposal I sent on Monday.\nWould Thursday work for a short call?\nBest,\nAhmed",
+     "deep": 1
     }
    ],
    "practice": [
@@ -267,6 +333,16 @@ JOURNEY.week({
     {
      "ar": "رد على إيميل (حقيقي أو متخيّل) بـ «Thank you for… I'll get back to you by…».",
      "en": "Reply to an email (real or imagined) with \"Thank you for… I'll get back to you by…\"."
+    },
+    {
+     "ar": "اكتب متابعتين: واحدة بعد 3 أيام وواحدة بعد أسبوع (أخف وأقصر).",
+     "en": "Write two follow-ups: one after 3 days and one after a week (lighter and shorter).",
+     "deep": 1
+    },
+    {
+     "ar": "اكتب رد out-of-office ليك وحطه في أداة إيميلك (من غير ما تفعّله).",
+     "en": "Write your out-of-office reply and save it in your email tool (without turning it on).",
+     "deep": 1
     }
    ],
    "words": [
@@ -325,6 +401,22 @@ JOURNEY.week({
       "en": "The inbox"
      },
      "ex": "The script checks the inbox every five minutes."
+    },
+    {
+     "t": "out of office",
+     "m": {
+      "ar": "بعيد عن الشغل لفترة (رد آلي)",
+      "en": "away from work for a while (an auto-reply)"
+     },
+     "ex": "I'll set an out of office reply."
+    },
+    {
+     "t": "following up",
+     "m": {
+      "ar": "بتتابع على حاجة قلتها قبل كده",
+      "en": "checking on something you raised before"
+     },
+     "ex": "Just following up on the invoice."
     }
    ],
    "read": [
@@ -398,6 +490,22 @@ JOURNEY.week({
       "ar": "وعد بالرد.",
       "en": "A promise to reply."
      }
+    },
+    {
+     "q": {
+      "ar": "أهذب متابعة:",
+      "en": "The politest follow-up:"
+     },
+     "o": [
+      "Just following up on my email about the invoice.",
+      "Why didn't you answer?",
+      "Answer me please!!"
+     ],
+     "a": 0,
+     "why": {
+      "ar": "هادية ومحددة.",
+      "en": "Calm and specific."
+     }
     }
    ],
    "minutes": 180
@@ -453,6 +561,18 @@ JOURNEY.week({
       "en": "I apologise for the delay. / I'm afraid we can't… / Unfortunately,… / I see your point, but… Don't over-apologise."
      },
      "ex": "I'm afraid we can't add this feature before the release.\nHowever, we can include it in the next version."
+    },
+    {
+     "h": {
+      "ar": "الاعتذار والاختلاف بأدب",
+      "en": "Apologising and disagreeing politely"
+     },
+     "p": {
+      "ar": "**اعتذار مهني**: اعترف، صلّح، امنع التكرار — `I'm sorry for the delay. The report is attached, and I've set a reminder so it doesn't happen again.` (مش اعتذار مبالغ فيه). **اختلاف**: `I see your point, but…`، `I'm not sure that will work because…`، `Could we consider…?` ولو حاجة خارج صلاحيتك: `I'll escalate this to…`",
+      "en": "**A professional apology**: admit, fix, prevent — `I'm sorry for the delay. The report is attached, and I've set a reminder so it doesn't happen again.` (not an over-the-top apology). **Disagreeing**: `I see your point, but…`, `I'm not sure that will work because…`, `Could we consider…?` And when something is above your authority: `I'll escalate this to…`"
+     },
+     "ex": "I see your point about adding more fields, but it would slow the form down.\nCould we consider adding them on a second page instead?\nIf we can't agree, I'll escalate it to the project manager.",
+     "deep": 1
     }
    ],
    "practice": [
@@ -471,6 +591,16 @@ JOURNEY.week({
     {
      "ar": "حوّل 4 أسئلة مباشرة لغير مباشرة: `Where is the file?` ← `Could you tell me where the file is?`",
      "en": "Turn 4 direct questions into indirect ones: `Where is the file?` → `Could you tell me where the file is?`"
+    },
+    {
+     "ar": "اكتب اعتذار عن تأخير تسليم بالتلات خطوات.",
+     "en": "Write an apology for a late delivery using the three steps.",
+     "deep": 1
+    },
+    {
+     "ar": "اكتب رد بتختلف فيه مع عميل على طلب، وتقترح بديل.",
+     "en": "Write a reply disagreeing with a client’s request and suggesting an alternative.",
+     "deep": 1
     }
    ],
    "words": [
@@ -529,6 +659,22 @@ JOURNEY.week({
       "en": "a polite way to break into a talk"
      },
      "ex": "Sorry to interrupt, but the client is on the phone."
+    },
+    {
+     "t": "apology",
+     "m": {
+      "ar": "اعتذار",
+      "en": "a statement saying you are sorry"
+     },
+     "ex": "Keep the apology short and sincere."
+    },
+    {
+     "t": "escalate",
+     "m": {
+      "ar": "ترفع الموضوع لحد صلاحيته أعلى",
+      "en": "to pass an issue to someone with more authority"
+     },
+     "ex": "Escalate it if the client is still unhappy."
     }
    ],
    "read": [
@@ -593,6 +739,22 @@ JOURNEY.week({
       "ar": "في السؤال غير المباشر الترتيب عادي.",
       "en": "An indirect question keeps normal word order."
      }
+    },
+    {
+     "q": {
+      "ar": "أحسن اعتذار مهني:",
+      "en": "The best professional apology:"
+     },
+     "o": [
+      "Sorry for the delay — here it is, and I've added a reminder.",
+      "I am extremely terribly sorry, forgive me.",
+      "Not my fault."
+     ],
+     "a": 0,
+     "why": {
+      "ar": "اعتراف + حل + منع تكرار.",
+      "en": "Admit + fix + prevent."
+     }
     }
    ],
    "minutes": 180
@@ -637,6 +799,18 @@ JOURNEY.week({
       "en": "Hi + first name for most work. Dear + title for formal emails. Hey only for friends. \"Hope you're well\" is fine but optional."
      },
      "ex": "Formal: I would appreciate it if you could…\nNeutral: Could you…?\nInformal: Can you…?"
+    },
+    {
+     "h": {
+      "ar": "الـ small talk في أول الاجتماع",
+      "en": "Small talk at the start of a meeting"
+     },
+     "p": {
+      "ar": "أول دقيقة في مكالمة شغل فيها كلام خفيف: `How's your week going?`، `Did you have a good weekend?`، `Busy week?`. ردود قصيرة وترجع السؤال: `Pretty busy, but good, thanks. How about you?` وبعدين انتقل للشغل: `Shall we get started?`",
+      "en": "The first minute of a work call has light chat: `How's your week going?`, `Did you have a good weekend?`, `Busy week?`. Give short answers and return the question: `Pretty busy, but good, thanks. How about you?` Then move to work: `Shall we get started?`"
+     },
+     "ex": "A: How's your week going?\nB: Pretty busy, but good, thanks. How about yours?\nA: Same here! Shall we get started?",
+     "deep": 1
     }
    ],
    "practice": [
@@ -655,6 +829,16 @@ JOURNEY.week({
     {
      "ar": "اكتب إشعار (notification) للفريق عن صيانة مخططة مع الميعاد والتأثير.",
      "en": "Write a team notice about planned maintenance with the time and the impact."
+    },
+    {
+     "ar": "اتدرّب على 5 بدايات مكالمات مع ردود، وسجّلهم بنغمة طبيعية.",
+     "en": "Practise 5 call openings with replies, and record them in a natural tone.",
+     "deep": 1
+    },
+    {
+     "ar": "اكتب 3 جمل انتقال من الكلام الخفيف للشغل.",
+     "en": "Write 3 phrases that move from small talk to work.",
+     "deep": 1
     }
    ],
    "words": [
@@ -713,6 +897,22 @@ JOURNEY.week({
       "en": "to contact"
      },
      "ex": "Feel free to reach out if you have questions."
+    },
+    {
+     "t": "small talk",
+     "m": {
+      "ar": "كلام خفيف قبل الشغل",
+      "en": "light chat before the real topic"
+     },
+     "ex": "A little small talk makes calls friendlier."
+    },
+    {
+     "t": "pleasantries",
+     "m": {
+      "ar": "عبارات المجاملة العادية",
+      "en": "polite everyday remarks"
+     },
+     "ex": "After the pleasantries, we discussed the budget."
     }
    ],
    "read": [
@@ -786,6 +986,22 @@ JOURNEY.week({
       "ar": "متتشاركش برّه.",
       "en": "Not to be shared outside."
      }
+    },
+    {
+     "q": {
+      "ar": "«How's your week going?» أنسب رد:",
+      "en": "The best reply to «How's your week going?»:"
+     },
+     "o": [
+      "Pretty good, thanks. How about you?",
+      "My week is a period of seven days.",
+      "No."
+     ],
+     "a": 0,
+     "why": {
+      "ar": "قصير وترجّع السؤال.",
+      "en": "Short, and return the question."
+     }
     }
    ],
    "minutes": 180
@@ -833,6 +1049,18 @@ JOURNEY.week({
       "en": "Sorry, could you repeat that? / Could you speak a bit more slowly? / Could you spell that for me? / So, just to confirm, you mean…?"
      },
      "ex": "Could you spell your email address? M-A-H…"
+    },
+    {
+     "h": {
+      "ar": "لغة المكالمات",
+      "en": "Call language"
+     },
+     "p": {
+      "ar": "`Can you hear me okay?`، `You're breaking up.` (صوتك بيقطع)، `Sorry, could you say that again?`، `You're on mute.`، `Hold on a second, let me check.`، `Let me share my screen.`، `I'll send a summary after the call.` ولو مفهمتش: `Just to confirm, you mean…?`",
+      "en": "`Can you hear me okay?`, `You're breaking up.` (your sound keeps cutting), `Sorry, could you say that again?`, `You're on mute.`, `Hold on a second, let me check.`, `Let me share my screen.`, `I'll send a summary after the call.` If you did not understand: `Just to confirm, you mean…?`"
+     },
+     "ex": "\"Sorry, you're breaking up — could you say that again?\"\n\"Hold on a second, let me check the logs.\"\n\"Just to confirm: you need the report every Monday at nine?\"",
+     "deep": 1
     }
    ],
    "practice": [
@@ -851,6 +1079,16 @@ JOURNEY.week({
     {
      "ar": "اكتب 5 جمل تستخدمها لما الخط وحش أو متفهمش.",
      "en": "Write 5 sentences to use when the line is bad or you don't understand."
+    },
+    {
+     "ar": "اعمل role-play لمكالمة دعم 5 دقايق (مع صاحبك أو AI) واستخدم 6 جمل من دول.",
+     "en": "Role-play a 5-minute support call (with a friend or an AI) using 6 of these phrases.",
+     "deep": 1
+    },
+    {
+     "ar": "اكتب إيميل ملخص بعد المكالمة: اللي اتفقنا عليه والخطوات الجاية.",
+     "en": "Write a summary email after the call: what we agreed and the next steps.",
+     "deep": 1
     }
    ],
    "words": [
@@ -909,6 +1147,22 @@ JOURNEY.week({
       "en": "poor sound quality on a call"
      },
      "ex": "Sorry, you're breaking up. Can you repeat that?"
+    },
+    {
+     "t": "hold on",
+     "m": {
+      "ar": "استنى لحظة",
+      "en": "wait a moment"
+     },
+     "ex": "Hold on, I'm opening the file."
+    },
+    {
+     "t": "breaking up",
+     "m": {
+      "ar": "الصوت بيقطع في المكالمة",
+      "en": "the sound keeps cutting out on a call"
+     },
+     "ex": "Sorry, you're breaking up."
     }
    ],
    "read": [
@@ -982,6 +1236,22 @@ JOURNEY.week({
       "ar": "could + الفعل في أصله.",
       "en": "could + the base verb."
      }
+    },
+    {
+     "q": {
+      "ar": "عشان تتأكد إنك فهمت صح:",
+      "en": "To check you understood correctly:"
+     },
+     "o": [
+      "Just to confirm, you mean…?",
+      "What?",
+      "OK whatever."
+     ],
+     "a": 0,
+     "why": {
+      "ar": "بتعيد بكلامك.",
+      "en": "Repeat it in your words."
+     }
     }
    ],
    "minutes": 180
@@ -1020,6 +1290,16 @@ JOURNEY.week({
     {
      "ar": "المكالمات: speaking، hold on، breaking up، could you repeat that?",
      "en": "Calls: speaking, hold on, breaking up, could you repeat that?"
+    },
+    {
+     "ar": "⚡ التحية والختام وCC/BCC، والمتابعة ورد الغياب.",
+     "en": "⚡ Greetings, closings and CC/BCC, follow-ups and out-of-office replies.",
+     "deep": 1
+    },
+    {
+     "ar": "⚡ الاعتذار والاختلاف والتصعيد، والـ small talk ولغة المكالمات: اعمل مكالمة تجريبية كاملة وابعت إيميل ملخص.",
+     "en": "⚡ Apologising, disagreeing and escalating, small talk and call language: do a full practice call and send a summary email.",
+     "deep": 1
     }
    ],
    "project": {

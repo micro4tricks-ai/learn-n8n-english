@@ -61,6 +61,18 @@ JOURNEY.week({
       "en": "discuss, contact, enter, reach, answer and ask take the object directly."
      },
      "ex": "✗ Let's discuss about the design.\n✓ Let's discuss the design."
+    },
+    {
+     "h": {
+      "ar": "أسماء الـ boolean",
+      "en": "Naming booleans"
+     },
+     "p": {
+      "ar": "المتغيّر اللي قيمته true/false اسمه لازم يبان كسؤال إجابته أيوه أو لأ: `isActive`، `hasAccess`، `canEdit`، `shouldRetry`، `wasSent`. مش `active` (صفة ولا أمر؟) ولا `flag`. والدالة اللي بتجيب قيمة تبدأ بـ get (getter): `getUser()`.",
+      "en": "A variable holding true/false should read like a yes/no question: `isActive`, `hasAccess`, `canEdit`, `shouldRetry`, `wasSent`. Not `active` (an adjective or a command?) or `flag`. And a function that fetches a value starts with get (a getter): `getUser()`."
+     },
+     "ex": "✗ active, flag, check, paid\n✓ isActive, hasPaid, canRefund, shouldNotify\nif (user.isActive && order.hasPaid) { … }   // reads like English",
+     "deep": 1
     }
    ],
    "practice": [
@@ -79,6 +91,16 @@ JOURNEY.week({
     {
      "ar": "صلّح: `discuss about the plan` و`contact with the client` و`explain me the error`.",
      "en": "Fix: `discuss about the plan`, `contact with the client` and `explain me the error`."
+    },
+    {
+     "ar": "غيّر أسماء كل الـ booleans في كود عندك للنمط ده.",
+     "en": "Rename every boolean in some code of yours to this pattern.",
+     "deep": 1
+    },
+    {
+     "ar": "اقرا شرط if عندك بصوت عالي كجملة إنجليزي: لو مبتتقراش، الاسم محتاج تحسين.",
+     "en": "Read an if condition of yours aloud as an English sentence: if it does not read well, the name needs work.",
+     "deep": 1
     }
    ],
    "words": [
@@ -137,6 +159,22 @@ JOURNEY.week({
       "en": "to state exactly"
      },
      "ex": "Specify the date format in the settings."
+    },
+    {
+     "t": "getter",
+     "m": {
+      "ar": "دالة بترجّع قيمة",
+      "en": "a function that returns a value"
+     },
+     "ex": "getUser is a getter."
+    },
+    {
+     "t": "boolean name",
+     "m": {
+      "ar": "اسم متغيّر true/false بيبدأ بـ is/has/can",
+      "en": "a true/false variable name starting with is/has/can"
+     },
+     "ex": "hasAccess is a clear boolean name."
     }
    ],
    "read": [
@@ -201,6 +239,22 @@ JOURNEY.week({
       "ar": "discuss من غير حرف جر.",
       "en": "discuss takes no preposition."
      }
+    },
+    {
+     "q": {
+      "ar": "أحسن اسم:",
+      "en": "The best name:"
+     },
+     "o": [
+      "isExpired",
+      "expire",
+      "flag2"
+     ],
+     "a": 0,
+     "why": {
+      "ar": "سؤال إجابته yes/no.",
+      "en": "A yes/no question."
+     }
     }
    ],
    "minutes": 180
@@ -248,6 +302,18 @@ JOURNEY.week({
       "en": "convert X to Y, turn X into Y, change X to Y, replace X with Y. Note the with after replace."
      },
      "ex": "Convert the date to ISO format.\nReplace empty values with \"N/A\"."
+    },
+    {
+     "h": {
+      "ar": "نصوص للمستخدم: placeholder ورسائل",
+      "en": "Text for users: placeholders and messages"
+     },
+     "p": {
+      "ar": "النصوص اللي المستخدم بيشوفها لازم تكون بسيطة ومهذبة: `Enter your email` (placeholder text)، `Something went wrong. Please try again.`، `Saved!`. وفي الكود، الحروف الخاصة جوه النص محتاجة **escape**: `\"She said \\\"hi\\\"\"` أو `'It\\'s'` أو `\\n` لسطر جديد.",
+      "en": "Text users see should be simple and polite: `Enter your email` (placeholder text), `Something went wrong. Please try again.`, `Saved!`. In code, special characters inside a string need **escaping**: `\"She said \\\"hi\\\"\"` or `'It\\'s'` or `\\n` for a new line."
+     },
+     "ex": "placeholder: \"e.g. sara@example.com\"\nerror: \"We couldn't save your booking. Please try again.\"\ncode:  msg = \"Line one\\nLine two\"",
+     "deep": 1
     }
    ],
    "practice": [
@@ -266,6 +332,16 @@ JOURNEY.week({
     {
      "ar": "اكتب 4 جمل بـ replace… with و convert… to.",
      "en": "Write 4 sentences with replace… with and convert… to."
+    },
+    {
+     "ar": "اكتب 8 رسايل للمستخدم لبوت أو فورم (نجاح، خطأ، تحميل، فاضي).",
+     "en": "Write 8 user messages for a bot or form (success, error, loading, empty).",
+     "deep": 1
+    },
+    {
+     "ar": "اكتب 3 نصوص فيها تنصيص جوه تنصيص وطلّعهم في Code node من غير أخطاء.",
+     "en": "Write 3 strings with quotes inside quotes and output them from a Code node without errors.",
+     "deep": 1
     }
    ],
    "code": [
@@ -333,6 +409,22 @@ JOURNEY.week({
       "en": "Blank characters (space, tab, new line)"
      },
      "ex": "Remove extra whitespace from user input."
+    },
+    {
+     "t": "placeholder text",
+     "m": {
+      "ar": "نص رمادي جوه الخانة بيوضح تكتب إيه",
+      "en": "grey hint text inside a field showing what to type"
+     },
+     "ex": "The placeholder text says \"e.g. 010…\"."
+    },
+    {
+     "t": "escape",
+     "m": {
+      "ar": "تحط \\ قبل حرف خاص عشان يتكتب زي ما هو",
+      "en": "to put \\ before a special character so it is taken literally"
+     },
+     "ex": "Escape the quote inside the string."
     }
    ],
    "read": [
@@ -409,6 +501,22 @@ JOURNEY.week({
       "ar": "الظرف اللي بيوصف الفعل بياخد ly.",
       "en": "An adverb describing the verb takes -ly."
      }
+    },
+    {
+     "q": {
+      "ar": "رسالة خطأ مناسبة للمستخدم:",
+      "en": "A good error message for users:"
+     },
+     "o": [
+      "We couldn't send the code. Please try again.",
+      "Error 0x8004 null ref",
+      "You failed."
+     ],
+     "a": 0,
+     "why": {
+      "ar": "بسيطة ومهذبة وفيها الخطوة الجاية.",
+      "en": "Simple, polite, with the next step."
+     }
     }
    ],
    "minutes": 180
@@ -456,6 +564,18 @@ JOURNEY.week({
       "en": "`int(\"42\")` = convert the string to an integer. `str(3.5)` = turn the number into a string. If it fails: ValueError: invalid literal for int()."
      },
      "ex": "age = int(input(\"Age: \"))   # converts the input to an integer\nmsg = f\"You are {age} years old.\""
+    },
+    {
+     "h": {
+      "ar": "شرح خوارزمية بالكلام",
+      "en": "Explaining an algorithm aloud"
+     },
+     "p": {
+      "ar": "استخدم كلمات ترتيب: `First…`، `Then…`، `For each…`، `If…, otherwise…`، `Finally…`. وابدأ بالخلاصة في جملة: `In a nutshell, it finds duplicate customers by phone.` وبعدين التفاصيل step by step. ده بيفرق جدًا في المقابلات التقنية.",
+      "en": "Use sequence words: `First…`, `Then…`, `For each…`, `If…, otherwise…`, `Finally…`. Start with the gist in one sentence: `In a nutshell, it finds duplicate customers by phone.` Then the details step by step. This matters a lot in technical interviews."
+     },
+     "ex": "\"In a nutshell, it removes duplicate customers.\n First, it cleans every phone number. Then, for each customer,\n it checks if we have seen that number. If so, it skips it; otherwise it keeps it.\n Finally, it returns the unique list.\"",
+     "deep": 1
     }
    ],
    "practice": [
@@ -474,6 +594,16 @@ JOURNEY.week({
     {
      "ar": "اكتب دالة recursive صغيرة (factorial) واشرحها في 4 جمل.",
      "en": "Write a small recursive function (factorial) and explain it in 4 sentences."
+    },
+    {
+     "ar": "اشرح بصوت عالي 3 دوال من كودك بالترتيب ده (دقيقة لكل واحدة).",
+     "en": "Explain 3 functions from your code aloud in this order (one minute each).",
+     "deep": 1
+    },
+    {
+     "ar": "اكتب شرح خوارزمية ترتيب بسيطة في 5 جمل.",
+     "en": "Write an explanation of a simple sorting algorithm in 5 sentences.",
+     "deep": 1
     }
    ],
    "words": [
@@ -532,6 +662,22 @@ JOURNEY.week({
       "en": "Converting data from one type to another"
      },
      "ex": "int(\"5\") is an example of type casting."
+    },
+    {
+     "t": "step by step",
+     "m": {
+      "ar": "خطوة خطوة بالترتيب",
+      "en": "one step at a time, in order"
+     },
+     "ex": "Walk me through it step by step."
+    },
+    {
+     "t": "in a nutshell",
+     "m": {
+      "ar": "باختصار شديد",
+      "en": "in very few words"
+     },
+     "ex": "In a nutshell, it syncs orders to a sheet."
     }
    ],
    "read": [
@@ -614,6 +760,22 @@ JOURNEY.week({
       "ar": "type casting من string لـ integer.",
       "en": "type casting from string to integer."
      }
+    },
+    {
+     "q": {
+      "ar": "أحسن بداية لشرح خوارزمية:",
+      "en": "The best start when explaining an algorithm:"
+     },
+     "o": [
+      "the gist in one sentence",
+      "the first line of code",
+      "the variable names"
+     ],
+     "a": 0,
+     "why": {
+      "ar": "الخلاصة الأول وبعدين التفاصيل.",
+      "en": "The gist first, then details."
+     }
     }
    ],
    "minutes": 180
@@ -661,6 +823,18 @@ JOURNEY.week({
       "en": "explain something to someone. There is no \"explain me\"."
      },
      "ex": "✗ Can you explain me the error?\n✓ Can you explain the error to me?"
+    },
+    {
+     "h": {
+      "ar": "تعليق بيقول «ليه»",
+      "en": "Comments that say «why»"
+     },
+     "p": {
+      "ar": "التعليق الكويس بيشرح **السبب** (rationale) أو **تحذير** (caveat)، مش بيعيد الكود. كلمات مفيدة: `because`، `so that`، `otherwise`، `Note that…`، `This is a workaround for…`، `TODO:`. والـ docstring بيقول: الدالة بتعمل إيه، المدخلات، اللي بترجّعه، والأخطاء.",
+      "en": "A good comment explains the **rationale** or a **caveat**; it does not repeat the code. Useful words: `because`, `so that`, `otherwise`, `Note that…`, `This is a workaround for…`, `TODO:`. A docstring says what the function does, its inputs, what it returns, and its errors."
+     },
+     "ex": "✗ # add 1 to i\n✓ # Sheets rows start at 2 because row 1 holds the headers.\n✓ # Caveat: the API returns dates in UTC, so convert before comparing.",
+     "deep": 1
     }
    ],
    "practice": [
@@ -679,6 +853,16 @@ JOURNEY.week({
     {
      "ar": "اكتب 3 تعليقات TODO/FIXME واضحة فيها السبب والمطلوب.",
      "en": "Write 3 clear TODO/FIXME comments with the reason and what is needed."
+    },
+    {
+     "ar": "راجع 10 تعليقات في كودك: امسح اللي بيعيد الكود، واكتب «ليه» بدلها.",
+     "en": "Review 10 comments in your code: delete those that repeat the code and write the «why» instead.",
+     "deep": 1
+    },
+    {
+     "ar": "اكتب docstring كامل لدالة واحدة.",
+     "en": "Write a full docstring for one function.",
+     "deep": 1
     }
    ],
    "words": [
@@ -737,6 +921,22 @@ JOURNEY.week({
       "en": "to show the difference"
      },
      "ex": "Differentiate between a class and an object."
+    },
+    {
+     "t": "rationale",
+     "m": {
+      "ar": "السبب ورا قرار",
+      "en": "the reason behind a decision"
+     },
+     "ex": "The comment explains the rationale."
+    },
+    {
+     "t": "caveat",
+     "m": {
+      "ar": "تحذير أو استثناء لازم تاخد بالك منه",
+      "en": "a warning or exception to keep in mind"
+     },
+     "ex": "One caveat: it only works for Egyptian numbers."
     }
    ],
    "read": [
@@ -810,6 +1010,22 @@ JOURNEY.week({
       "ar": "explain something to someone.",
       "en": "explain something to someone."
      }
+    },
+    {
+     "q": {
+      "ar": "أفيد تعليق:",
+      "en": "The most useful comment:"
+     },
+     "o": [
+      "# UTC dates, so convert before comparing",
+      "# loop over items",
+      "# set x"
+     ],
+     "a": 0,
+     "why": {
+      "ar": "بيقول ليه.",
+      "en": "It says why."
+     }
     }
    ],
    "minutes": 180
@@ -857,6 +1073,18 @@ JOURNEY.week({
       "en": "Write languages and tools the official way: Python, JavaScript, GitHub, n8n, macOS. A sentence and the word I always start with a capital."
      },
      "ex": "✗ i use javascript and github.\n✓ I use JavaScript and GitHub."
+    },
+    {
+     "h": {
+      "ar": "وصف ملفات البيانات",
+      "en": "Describing data files"
+     },
+     "p": {
+      "ar": "`a comma-separated file (CSV) with a header row`، `tab-separated`، `UTF-8 encoded`، `one record per line`، `the first column holds the id`، `dates are in ISO format`، `empty cells mean \"unknown\"`. لما تبعت ملف لحد، اكتب الوصف ده في رسالة أو README جنبه.",
+      "en": "`a comma-separated file (CSV) with a header row`, `tab-separated`, `UTF-8 encoded`, `one record per line`, `the first column holds the id`, `dates are in ISO format`, `empty cells mean \"unknown\"`. When you send someone a file, write this description in a message or a README next to it."
+     },
+     "ex": "\"orders.csv is a comma-separated, UTF-8 file with a header row.\n Each line is one order. Dates are ISO (YYYY-MM-DD) and totals are in EGP.\n An empty phone cell means the customer didn't give one.\"",
+     "deep": 1
     }
    ],
    "practice": [
@@ -875,6 +1103,16 @@ JOURNEY.week({
     {
      "ar": "اكتب أسماء 8 أدوات بالحروف الكبيرة الصح: GitHub، JavaScript، PostgreSQL، macOS، npm…",
      "en": "Write the names of 8 tools with the correct capitals: GitHub, JavaScript, PostgreSQL, macOS, npm…"
+    },
+    {
+     "ar": "اكتب وصف 4 جمل لملف بيانات بتستخدمه.",
+     "en": "Write a 4-sentence description of a data file you use.",
+     "deep": 1
+    },
+    {
+     "ar": "اشرح بصوت عالي الفرق بين CSV وJSON لعميل مش تقني.",
+     "en": "Explain aloud the difference between CSV and JSON to a non-technical client.",
+     "deep": 1
     }
    ],
    "words": [
@@ -933,6 +1171,22 @@ JOURNEY.week({
       "en": "Encryption"
      },
      "ex": "Passwords are protected with encryption."
+    },
+    {
+     "t": "comma-separated",
+     "m": {
+      "ar": "القيم مفصولة بفواصل",
+      "en": "with values divided by commas"
+     },
+     "ex": "Export a comma-separated file."
+    },
+    {
+     "t": "tab-separated",
+     "m": {
+      "ar": "القيم مفصولة بـ tab",
+      "en": "with values divided by tabs"
+     },
+     "ex": "Tab-separated files open well in Excel."
     }
    ],
    "read": [
@@ -1006,6 +1260,22 @@ JOURNEY.week({
       "ar": "اكتب اسم الأداة زي ما أصحابها بيكتبوه.",
       "en": "Write a tool's name the way its makers write it."
      }
+    },
+    {
+     "q": {
+      "ar": "«one record per line» معناها:",
+      "en": "«one record per line» means:"
+     },
+     "o": [
+      "each line is one item",
+      "one line in the file",
+      "one column"
+     ],
+     "a": 0,
+     "why": {
+      "ar": "سطر = سجل.",
+      "en": "Line = record."
+     }
     }
    ],
    "minutes": 180
@@ -1040,6 +1310,16 @@ JOURNEY.week({
     {
      "ar": "وصف ملفات CSV/JSON، والأفعال بحروف جرها، وأسماء الأدوات صح.",
      "en": "Describing CSV/JSON files, verbs with their prepositions, and tool names spelled right."
+    },
+    {
+     "ar": "⚡ أسماء الـ boolean، ونصوص المستخدم والـ escape، وشرح خوارزمية.",
+     "en": "⚡ Boolean names, user text and escaping, and explaining an algorithm.",
+     "deep": 1
+    },
+    {
+     "ar": "⚡ تعليقات «ليه»، ووصف ملفات البيانات: راجع مشروعك ونضّف الأسماء والتعليقات.",
+     "en": "⚡ «Why» comments, and describing data files: review your project and clean up names and comments.",
+     "deep": 1
     }
    ],
    "project": {

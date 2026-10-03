@@ -59,6 +59,18 @@ JOURNEY.week({
       "en": "n8n is configured with environment variables. In PowerShell: `$env:GENERIC_TIMEZONE=\"Africa/Cairo\"`; in Bash: `export GENERIC_TIMEZONE=Africa/Cairo`; then start n8n in the same terminal."
      },
      "ex": "$env:GENERIC_TIMEZONE = \"Africa/Cairo\"   # PowerShell\nexport GENERIC_TIMEZONE=Africa/Cairo     # Bash\nnpx n8n"
+    },
+    {
+     "h": {
+      "ar": "n8n في Docker",
+      "en": "n8n in Docker"
+     },
+     "p": {
+      "ar": "Docker بيشغّل n8n في «حاوية» معزولة فيها كل اللي محتاجه. أهم حاجة الـ **volume**: من غيره بياناتك (الـ workflows والـ credentials) بتضيع لما الحاوية تتمسح. ومفتاح التشفير `N8N_ENCRYPTION_KEY` احفظه في مكان آمن؛ من غيره الـ credentials مش هتتفك على جهاز تاني.",
+      "en": "Docker runs n8n in an isolated «container» that has everything it needs. The key part is the **volume**: without it your data (workflows and credentials) is lost when the container is removed. Keep the encryption key `N8N_ENCRYPTION_KEY` somewhere safe; without it credentials cannot be decrypted on another machine."
+     },
+     "ex": "docker volume create n8n_data\ndocker run -it --rm -p 5678:5678 \\\n  -e GENERIC_TIMEZONE=Africa/Cairo \\\n  -v n8n_data:/home/node/.n8n \\\n  docker.n8n.io/n8nio/n8n",
+     "deep": 1
     }
    ],
    "practice": [
@@ -77,6 +89,16 @@ JOURNEY.week({
     {
      "ar": "اكتب ملف `commands.md` فيه 10 أوامر وجنب كل واحد بيعمل إيه.",
      "en": "Write a `commands.md` file with 10 commands and what each one does."
+    },
+    {
+     "ar": "لو Docker متاح عندك: شغّل n8n بالأمر ده، اعمل workflow، اقفل الحاوية وشغّلها تاني واتأكد إن الـ workflow لسه موجود.",
+     "en": "If Docker is available: start n8n with this command, create a workflow, stop the container, start it again and check the workflow is still there.",
+     "deep": 1
+    },
+    {
+     "ar": "اكتب في `commands.md` الفرق بين `npx n8n` وDocker في 3 نقط (التثبيت، مكان البيانات، التحديث).",
+     "en": "Write in `commands.md` the difference between `npx n8n` and Docker in 3 points (install, where data lives, updating).",
+     "deep": 1
     }
    ],
    "code": [
@@ -128,6 +150,22 @@ JOURNEY.week({
       "en": "the folder the terminal is currently in"
      },
      "ex": "pwd shows the working directory."
+    },
+    {
+     "t": "docker image",
+     "m": {
+      "ar": "القالب الجاهز اللي الحاوية بتتعمل منه",
+      "en": "the ready template a container is created from"
+     },
+     "ex": "Pull the latest n8n docker image."
+    },
+    {
+     "t": "persistent",
+     "m": {
+      "ar": "بيفضل موجود بعد إعادة التشغيل",
+      "en": "kept after a restart"
+     },
+     "ex": "Use persistent storage for the n8n data."
     }
    ],
    "read": [
@@ -212,6 +250,31 @@ JOURNEY.week({
       "ar": "`$env:` ده PowerShell.",
       "en": "`$env:` is PowerShell."
      }
+    },
+    {
+     "q": {
+      "ar": "من غير volume في Docker:",
+      "en": "Without a volume in Docker:"
+     },
+     "o": [
+      {
+       "ar": "البيانات بتضيع لما الحاوية تتمسح",
+       "en": "data is lost when the container is removed"
+      },
+      {
+       "ar": "n8n مش هيشتغل",
+       "en": "n8n will not start"
+      },
+      {
+       "ar": "الـ API هيرفض",
+       "en": "the API refuses"
+      }
+     ],
+     "a": 0,
+     "why": {
+      "ar": "الـ volume هو المخزن الدايم.",
+      "en": "The volume is the lasting storage."
+     }
     }
    ],
    "minutes": 180
@@ -259,6 +322,18 @@ JOURNEY.week({
       "en": "Every n8n item is an object, and the data is an array of items. You can paste JSON into a Code node, Edit Fields (JSON mode) or Pin Data."
      },
      "ex": "[\n  { \"json\": { \"name\": \"Ali\" } },\n  { \"json\": { \"name\": \"Sara\" } }\n]"
+    },
+    {
+     "h": {
+      "ar": "أخطاء JSON الشائعة",
+      "en": "Common JSON mistakes"
+     },
+     "p": {
+      "ar": "أشهر 5: علامات تنصيص مفردة `'`، فاصلة بعد آخر عنصر، مفاتيح من غير تنصيص، تعليقات `//` (JSON مفيهوش تعليقات)، و`undefined` (مش موجود في JSON؛ استخدم `null`). ولما JSON يطلع جوه نص (string) لازم تعمله `JSON.parse` الأول.",
+      "en": "The top 5: single quotes `'`, a comma after the last item, unquoted keys, `//` comments (JSON has no comments), and `undefined` (it does not exist in JSON; use `null`). And when JSON arrives inside a string you must `JSON.parse` it first."
+     },
+     "ex": "✗ {name: 'Sara', tags: ['a',],}   // comment\n✓ {\"name\": \"Sara\", \"tags\": [\"a\"], \"phone\": null}",
+     "deep": 1
     }
    ],
    "practice": [
@@ -277,6 +352,16 @@ JOURNEY.week({
     {
      "ar": "اقرا بـ Expression قيمة جوه nested object: `{{ $json.address.city }}` وقيمة من array: `{{ $json.tags[0] }}`.",
      "en": "Read a nested value with an expression: `{{ $json.address.city }}`, and one from an array: `{{ $json.tags[0] }}`."
+    },
+    {
+     "ar": "اكتب JSON فيه الـ 5 أخطاء دول عمدًا، وحطه في jsonlint أو في نود Edit Fields (JSON) وصلّح غلطة غلطة.",
+     "en": "Write JSON with these 5 mistakes on purpose, paste it into a JSON validator or an Edit Fields (JSON) node, and fix one mistake at a time.",
+     "deep": 1
+    },
+    {
+     "ar": "في Code node: `JSON.parse('{\"a\":1}')` و`JSON.stringify({a:1}, null, 2)` واشرح الفرق بكلامك.",
+     "en": "In a Code node: `JSON.parse('{\"a\":1}')` and `JSON.stringify({a:1}, null, 2)`, and explain the difference in your own words.",
+     "deep": 1
     }
    ],
    "code": [
@@ -328,6 +413,22 @@ JOURNEY.week({
       "en": "the shape of the data: the keys and their types"
      },
      "ex": "The Schema view shows the shape of each item."
+    },
+    {
+     "t": "parse error",
+     "m": {
+      "ar": "خطأ لما البرنامج مش قادر يقرا النص كـ JSON",
+      "en": "an error when a program cannot read the text as JSON"
+     },
+     "ex": "A single quote causes a parse error."
+    },
+    {
+     "t": "serialize",
+     "m": {
+      "ar": "تحوّل object لنص عشان تبعته أو تحفظه",
+      "en": "to turn an object into text to send or store it"
+     },
+     "ex": "JSON.stringify serializes an object."
     }
    ],
    "read": [
@@ -409,6 +510,31 @@ JOURNEY.week({
       "ar": "JSON مفيهوش تعليقات خالص.",
       "en": "JSON has no comments at all."
      }
+    },
+    {
+     "q": {
+      "ar": "أنهي واحد JSON صحيح؟",
+      "en": "Which one is valid JSON?"
+     },
+     "o": [
+      {
+       "ar": "`{\"a\": null}`",
+       "en": "`{\"a\": null}`"
+      },
+      {
+       "ar": "`{a: 1}`",
+       "en": "`{a: 1}`"
+      },
+      {
+       "ar": "`{\"a\": undefined}`",
+       "en": "`{\"a\": undefined}`"
+      }
+     ],
+     "a": 0,
+     "why": {
+      "ar": "المفاتيح بين تنصيص مزدوج، وundefined مش موجود.",
+      "en": "Keys need double quotes, and undefined does not exist."
+     }
     }
    ],
    "minutes": 180
@@ -456,6 +582,18 @@ JOURNEY.week({
       "en": "An exported workflow doesn't contain the credentials themselves (it points to them by name), but it may hold sensitive URLs or IDs. Files like `.env` must go into `.gitignore`."
      },
      "ex": "# .gitignore\n.env\n*.sqlite\nnode_modules/"
+    },
+    {
+     "h": {
+      "ar": "n8n CLI: تصدير واستيراد",
+      "en": "The n8n CLI: export and import"
+     },
+     "p": {
+      "ar": "n8n فيه أوامر للطرفية تصدّر كل الـ workflows لملفات JSON تحطها في Git، وتستوردها على جهاز تاني. ده أساس النسخ الاحتياطي والنقل بين بيئة تجربة وبيئة شغل.",
+      "en": "n8n has terminal commands that export every workflow to JSON files you can keep in Git, and import them on another machine. This is the basis of backups and of moving between a test and a live environment."
+     },
+     "ex": "n8n export:workflow --all --separate --output=workflows/\ngit add workflows && git commit -m \"backup workflows\"\nn8n import:workflow --separate --input=workflows/",
+     "deep": 1
     }
    ],
    "practice": [
@@ -474,6 +612,16 @@ JOURNEY.week({
     {
      "ar": "اعمل `.gitignore` فيه `.env` واتأكد بـ `git status` إن الملف مش ظاهر.",
      "en": "Create a `.gitignore` with `.env` and check with `git status` that the file is not listed."
+    },
+    {
+     "ar": "صدّر الـ workflows بتاعتك لفولدر `workflows/` واعمل commit.",
+     "en": "Export your workflows to a `workflows/` folder and commit them.",
+     "deep": 1
+    },
+    {
+     "ar": "عدّل workflow واحد في n8n، صدّر تاني، واعمل `git diff` وشوف التغيير بالظبط.",
+     "en": "Change one workflow in n8n, export again, run `git diff` and see exactly what changed.",
+     "deep": 1
     }
    ],
    "words": [
@@ -516,6 +664,22 @@ JOURNEY.week({
       "en": "shows the difference between two versions of files"
      },
      "ex": "git diff workflows/lead-alert.json"
+    },
+    {
+     "t": "backup",
+     "m": {
+      "ar": "نسخة احتياطية ترجع لها لو حاجة ضاعت",
+      "en": "a spare copy to restore if something is lost"
+     },
+     "ex": "Export a backup every week."
+    },
+    {
+     "t": "restore",
+     "m": {
+      "ar": "ترجّع البيانات من نسخة احتياطية",
+      "en": "to bring data back from a backup"
+     },
+     "ex": "Restore the workflows on the new server."
     }
    ],
    "read": [
@@ -606,6 +770,31 @@ JOURNEY.week({
       "ar": "زي .env وnode_modules.",
       "en": "Like .env and node_modules."
      }
+    },
+    {
+     "q": {
+      "ar": "ليه نصدّر الـ workflows لـ Git؟",
+      "en": "Why export workflows to Git?"
+     },
+     "o": [
+      {
+       "ar": "نسخ احتياطي وتتبّع التغييرات",
+       "en": "backups and tracking changes"
+      },
+      {
+       "ar": "عشان تشتغل أسرع",
+       "en": "to make them run faster"
+      },
+      {
+       "ar": "عشان نشارك الـ credentials",
+       "en": "to share the credentials"
+      }
+     ],
+     "a": 0,
+     "why": {
+      "ar": "والـ credentials مش بتتصدّر معاها.",
+      "en": "And credentials are not exported with them."
+     }
     }
    ],
    "minutes": 180
@@ -653,6 +842,18 @@ JOURNEY.week({
       "en": "`curl -i` shows the status code and headers. The status is the first thing to check: 2xx is fine, 4xx is your mistake, 5xx is the server's."
      },
      "ex": "HTTP/1.1 200 OK\nContent-Type: application/json"
+    },
+    {
+     "h": {
+      "ar": "قراءة رد curl بالتفصيل",
+      "en": "Reading a curl response in detail"
+     },
+     "p": {
+      "ar": "`curl -i` بيعرض الـ **headers** مع الرد: الـ status، و`Content-Type` (JSON ولا HTML؟)، وحدود الطلبات زي `X-RateLimit-Remaining`. و`-v` بيعرض كل اللي حصل في الاتصال. لما طلب يفشل في n8n، جرّبه بـ curl الأول: لو فشل هناك كمان، المشكلة مش في n8n.",
+      "en": "`curl -i` shows the **headers** with the response: the status, `Content-Type` (JSON or HTML?), and rate limits such as `X-RateLimit-Remaining`. `-v` shows everything that happened in the connection. When a request fails in n8n, try it with curl first: if it fails there too, the problem is not n8n."
+     },
+     "ex": "curl -i https://api.github.com/repos/n8n-io/n8n\nHTTP/2 200\ncontent-type: application/json; charset=utf-8\nx-ratelimit-limit: 60\nx-ratelimit-remaining: 59",
+     "deep": 1
     }
    ],
    "practice": [
@@ -671,6 +872,16 @@ JOURNEY.week({
     {
      "ar": "اعمل Webhook (Test URL) في n8n وابعتله طلب بـ curl.",
      "en": "Create a Webhook (test URL) in n8n and send it a request with curl."
+    },
+    {
+     "ar": "نفّذ `curl -i` على 3 APIs عامة واكتب لكل واحد: الـ status والـ Content-Type وفيه rate limit ولا لأ.",
+     "en": "Run `curl -i` on 3 public APIs and note for each: the status, the Content-Type and whether there is a rate limit.",
+     "deep": 1
+    },
+    {
+     "ar": "حوّل أمر curl فيه header وbody لنود HTTP Request بـ Import cURL وقارن.",
+     "en": "Turn a curl command with a header and a body into an HTTP Request node with Import cURL and compare.",
+     "deep": 1
     }
    ],
    "words": [
@@ -713,6 +924,22 @@ JOURNEY.week({
       "en": "the first line of a response, with the status code"
      },
      "ex": "HTTP/1.1 404 Not Found"
+    },
+    {
+     "t": "response header",
+     "m": {
+      "ar": "معلومة إضافية راجعة مع الرد",
+      "en": "extra information that comes back with the response"
+     },
+     "ex": "Check the rate limit in the response header."
+    },
+    {
+     "t": "verbose",
+     "m": {
+      "ar": "بيعرض تفاصيل كتير عشان تفهم اللي حصل",
+      "en": "showing lots of detail so you can see what happened"
+     },
+     "ex": "Run curl in verbose mode with -v."
     }
    ],
    "read": [
@@ -794,6 +1021,31 @@ JOURNEY.week({
       "ar": "بيوفر وقت ويقلل الأخطاء.",
       "en": "It saves time and avoids mistakes."
      }
+    },
+    {
+     "q": {
+      "ar": "`curl -i` بيضيف إيه؟",
+      "en": "What does `curl -i` add?"
+     },
+     "o": [
+      {
+       "ar": "الـ headers",
+       "en": "the headers"
+      },
+      {
+       "ar": "تثبيت",
+       "en": "an install"
+      },
+      {
+       "ar": "إعادة محاولة",
+       "en": "a retry"
+      }
+     ],
+     "a": 0,
+     "why": {
+      "ar": "i = include headers.",
+      "en": "i = include headers."
+     }
     }
    ],
    "minutes": 180
@@ -841,6 +1093,18 @@ JOURNEY.week({
       "en": "n8n's library has thousands of templates. Take one close to what you need, understand it node by node, then adapt it. Don't run it on real data before you understand it."
      },
      "ex": "n8n.io/workflows → search \"telegram google sheets\""
+    },
+    {
+     "h": {
+      "ar": "نظام تسمية للمشاريع",
+      "en": "A naming system for projects"
+     },
+     "p": {
+      "ar": "بعد شهر هيبقى عندك 30 workflow. اتفق مع نفسك من الأول: `[عميل] فعل – موضوع` زي `[Clinic] Send – booking reminders`، والنودز بفعل واضح (`Get new orders` مش `HTTP Request3`)، و tag للحالة (`live`, `draft`) وللعميل. التسمية الكويسة توثيق ببلاش.",
+      "en": "In a month you will have 30 workflows. Agree with yourself from the start: `[Client] Verb – topic` like `[Clinic] Send – booking reminders`, nodes with a clear verb (`Get new orders`, not `HTTP Request3`), and tags for status (`live`, `draft`) and client. Good names are free documentation."
+     },
+     "ex": "[Clinic] Send – booking reminders      tags: live, clinic\n[Shop] Sync – orders to Sheets          tags: draft, shop\nnodes: Get new orders → Keep paid only → Add row to Sheet",
+     "deep": 1
     }
    ],
    "practice": [
@@ -859,6 +1123,16 @@ JOURNEY.week({
     {
      "ar": "استورد template من مكتبة n8n واكتب شرح كل node في جملة.",
      "en": "Import a template from the n8n library and explain each node in one sentence."
+    },
+    {
+     "ar": "غيّر أسماء كل الـ workflows والنودز اللي عندك بالنظام ده.",
+     "en": "Rename all your workflows and nodes using this system.",
+     "deep": 1
+    },
+    {
+     "ar": "اكتب ملف `CONVENTIONS.md` قصير فيه قواعد التسمية والـ tags بتاعتك.",
+     "en": "Write a short `CONVENTIONS.md` file with your naming and tag rules.",
+     "deep": 1
     }
    ],
    "words": [
@@ -907,6 +1181,22 @@ JOURNEY.week({
       "ar": "Get Rows ──▶ Filter (سهم بين نودين)",
       "en": "Get Rows ──▶ Filter (an arrow between two nodes)"
      }
+    },
+    {
+     "t": "convention",
+     "m": {
+      "ar": "قاعدة متفق عليها عشان الكل يمشي عليها",
+      "en": "an agreed rule everyone follows"
+     },
+     "ex": "Our naming convention starts with the client."
+    },
+    {
+     "t": "rename",
+     "m": {
+      "ar": "تغيّر اسم حاجة",
+      "en": "to change the name of something"
+     },
+     "ex": "Rename HTTP Request3 to Get new orders."
     }
    ],
    "read": [
@@ -997,6 +1287,31 @@ JOURNEY.week({
       "ar": "عشان متبوّظش بيانات.",
       "en": "So you don't damage data."
      }
+    },
+    {
+     "q": {
+      "ar": "أحسن اسم لنود:",
+      "en": "The best node name:"
+     },
+     "o": [
+      {
+       "ar": "Get new orders",
+       "en": "Get new orders"
+      },
+      {
+       "ar": "HTTP Request3",
+       "en": "HTTP Request3"
+      },
+      {
+       "ar": "node",
+       "en": "node"
+      }
+     ],
+     "a": 0,
+     "why": {
+      "ar": "فعل + موضوع.",
+      "en": "A verb + a topic."
+     }
     }
    ],
    "minutes": 180
@@ -1031,6 +1346,16 @@ JOURNEY.week({
     {
      "ar": "التسمية والـ tags والـ sticky notes والـ templates.",
      "en": "Naming, tags, sticky notes and templates."
+    },
+    {
+     "ar": "⚡ Docker والـ volume ومفتاح التشفير، وأخطاء JSON الخمسة.",
+     "en": "⚡ Docker, the volume and the encryption key, and the five JSON mistakes.",
+     "deep": 1
+    },
+    {
+     "ar": "⚡ صدّر workflows لـ Git، اقرا headers بـ curl -i، وطبّق نظام التسمية على مشروعك.",
+     "en": "⚡ Export workflows to Git, read headers with curl -i, and apply the naming system to your project.",
+     "deep": 1
     }
    ],
    "project": {

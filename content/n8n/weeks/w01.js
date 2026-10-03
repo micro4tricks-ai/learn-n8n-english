@@ -98,6 +98,18 @@ JOURNEY.week({
       "ar": "Output ← أيقونة الدبوس 📌 ← Pinned",
       "en": "Output → the pin icon 📌 → Pinned"
      }
+    },
+    {
+     "h": {
+      "ar": "تثبيت البيانات (Pin data)",
+      "en": "Pinning data"
+     },
+     "p": {
+      "ar": "لما نود بيجيب بيانات من API، تقدر **تثبّت** خرجه (📌 Pin). بعد كده كل تشغيل تجريبي بيستخدم البيانات المثبّتة من غير ما ينادي الـ API تاني: أسرع، ومن غير ما تستهلك حدود الخدمة، ونفس البيانات كل مرة فتقارن صح. التثبيت بيشتغل في التجربة بس، مش في التشغيل الحقيقي.",
+      "en": "When a node fetches data from an API you can **pin** its output (📌 Pin). From then on every test run uses the pinned data without calling the API again: faster, no use of the service’s limits, and the same data every time so you compare fairly. Pinning only affects test runs, not production runs."
+     },
+     "ex": "HTTP Request  →  📌 Pin data\nnext test run: uses the pinned items (no API call)\nproduction run: calls the API as usual",
+     "deep": 1
     }
    ],
    "practice": [
@@ -132,6 +144,16 @@ JOURNEY.week({
     {
      "ar": "صدّر الـ Workflow كملف JSON (Download) وافتحه واقرا `nodes` و`connections`",
      "en": "Export the workflow as a JSON file (Download), open it and read `nodes` and `connections`"
+    },
+    {
+     "ar": "شغّل نود HTTP Request على `https://jsonplaceholder.typicode.com/users` وثبّت الخرج، وبعدين عدّل البيانات المثبّتة بإيدك (غيّر اسم) وشوف النودز اللي بعده.",
+     "en": "Run an HTTP Request node on `https://jsonplaceholder.typicode.com/users`, pin the output, then edit the pinned data by hand (change a name) and watch the next nodes.",
+     "deep": 1
+    },
+    {
+     "ar": "افتح Executions وقارن تشغيل بالبيانات المثبّتة وتشغيل من غيرها: إيه الفرق في الوقت؟",
+     "en": "Open Executions and compare a run with pinned data and one without: what is the difference in time?",
+     "deep": 1
     }
    ],
    "code": [
@@ -346,6 +368,22 @@ JOURNEY.week({
       "en": "Shows field names and types, and you can drag from it into any expression"
      },
      "ex": "drag \"email\" → {{ $json.email }}"
+    },
+    {
+     "t": "pin",
+     "m": {
+      "ar": "تثبيت خرج نود عشان التجارب تستخدمه",
+      "en": "to fix a node’s output so test runs reuse it"
+     },
+     "ex": "Pin the API response while you build."
+    },
+    {
+     "t": "test run",
+     "m": {
+      "ar": "تشغيل تجريبي من المحرر",
+      "en": "a trial run started from the editor"
+     },
+     "ex": "A test run uses pinned data."
     }
    ],
    "read": [
@@ -513,6 +551,31 @@ JOURNEY.week({
       "ar": "$json = بيانات الـ item الحالي من النود السابقة مباشرة.",
       "en": "$json = the current item's data from the node directly before."
      }
+    },
+    {
+     "q": {
+      "ar": "البيانات المثبّتة بتأثر على إيه؟",
+      "en": "What does pinned data affect?"
+     },
+     "o": [
+      {
+       "ar": "التشغيل التجريبي بس",
+       "en": "test runs only"
+      },
+      {
+       "ar": "كل التشغيلات",
+       "en": "every run"
+      },
+      {
+       "ar": "الـ API نفسه",
+       "en": "the API itself"
+      }
+     ],
+     "a": 0,
+     "why": {
+      "ar": "في الإنتاج النود بينادي الـ API عادي.",
+      "en": "In production the node calls the API as usual."
+     }
     }
    ],
    "minutes": 180
@@ -602,6 +665,18 @@ JOURNEY.week({
       "ar": "users.id  ⟷  posts.userId\n→ كل post معاه اسم صاحبه",
       "en": "users.id  ⟷  posts.userId\n→ every post carries its author's name"
      }
+    },
+    {
+     "h": {
+      "ar": "عائلات أكواد الحالة (status codes)",
+      "en": "Families of status codes"
+     },
+     "p": {
+      "ar": "الرقم الأول بيقولك الحكاية: **2xx** نجح (200 تمام، 201 اتعمل)، **3xx** اتنقل لمكان تاني، **4xx** الغلط عندك (400 طلب غلط، 401 مش مسجّل، 403 ممنوع، 404 مش موجود، 429 كتير)، **5xx** الغلط عند السيرفر. 4xx صلّح طلبك؛ 429 و5xx ممكن تعيد بعد شوية.",
+      "en": "The first digit tells the story: **2xx** success (200 OK, 201 created), **3xx** moved elsewhere, **4xx** your mistake (400 bad request, 401 not authenticated, 403 forbidden, 404 not found, 429 too many), **5xx** the server’s mistake. For 4xx fix your request; for 429 and 5xx you can retry later."
+     },
+     "ex": "200 OK            → use the data\n401 Unauthorized  → check the credential\n404 Not Found     → check the URL / id\n429 Too Many      → wait, then retry\n503 Unavailable   → retry with a delay",
+     "deep": 1
     }
    ],
    "practice": [
@@ -632,6 +707,16 @@ JOURNEY.week({
     {
      "ar": "فعّل من Options: Include Response Headers and Status، وجرّب رابط غلط وشوف 404",
      "en": "Under Options enable Include Response Headers and Status, try a wrong URL and see the 404"
+    },
+    {
+     "ar": "جرّب في HTTP Request: `https://httpbin.org/status/404` و`/status/429` و`/status/503` وشوف رسالة الخطأ في كل مرة.",
+     "en": "Try in HTTP Request: `https://httpbin.org/status/404`, `/status/429` and `/status/503` and read the error each time.",
+     "deep": 1
+    },
+    {
+     "ar": "اعمل جدول صغير: الكود ← معناه ← تعمل إيه، لـ 8 أكواد.",
+     "en": "Make a small table: code → meaning → what to do, for 8 codes.",
+     "deep": 1
     }
    ],
    "code": [
@@ -843,6 +928,22 @@ JOURNEY.week({
       "en": "A Merge mode that joins on a shared field"
      },
      "ex": "Input1.id = Input2.userId"
+    },
+    {
+     "t": "client error",
+     "m": {
+      "ar": "خطأ من ناحية الطلب نفسه (أكواد 4xx)",
+      "en": "an error caused by the request itself (4xx codes)"
+     },
+     "ex": "A 404 is a client error: fix the URL."
+    },
+    {
+     "t": "retry",
+     "m": {
+      "ar": "تعيد المحاولة بعد فشل",
+      "en": "to try again after a failure"
+     },
+     "ex": "Retry after a 503, not after a 400."
     }
    ],
    "read": [
@@ -1027,6 +1128,31 @@ JOURNEY.week({
       "ar": "Filter بيرمي اللي مبيطابقش، وIF بيوديه على مسار false.",
       "en": "Filter drops what doesn't match; IF sends it down the false path."
      }
+    },
+    {
+     "q": {
+      "ar": "الكود 429 معناه:",
+      "en": "Status 429 means:"
+     },
+     "o": [
+      {
+       "ar": "طلبات كتير؛ استنى وأعد",
+       "en": "too many requests; wait and retry"
+      },
+      {
+       "ar": "الصفحة مش موجودة",
+       "en": "page not found"
+      },
+      {
+       "ar": "نجح",
+       "en": "success"
+      }
+     ],
+     "a": 0,
+     "why": {
+      "ar": "Too Many Requests.",
+      "en": "Too Many Requests."
+     }
     }
    ],
    "minutes": 180
@@ -1116,6 +1242,18 @@ JOURNEY.week({
       "ar": "<b>عميل جديد</b>\nالاسم: {{ $json.name }}\nالمصدر: {{ $json.source }}",
       "en": "<b>New customer</b>\nName: {{ $json.name }}\nSource: {{ $json.source }}"
      }
+    },
+    {
+     "h": {
+      "ar": "الـ Credentials: مكان الأسرار",
+      "en": "Credentials: where secrets live"
+     },
+     "p": {
+      "ar": "أي مفتاح أو توكن بيتحط في **Credentials** مش في خانات النود ولا في Code node. n8n بيشفّرها، ومش بتطلع لما تصدّر أو تشارك الـ workflow. ولو المفتاح اتغيّر، بتغيّره في مكان واحد وكل الـ workflows تاخده.",
+      "en": "Any key or token goes into **Credentials**, not into node fields or a Code node. n8n encrypts them, and they are not included when you export or share a workflow. When a key changes, you update it in one place and every workflow picks it up."
+     },
+     "ex": "✗ HTTP Request → Header: Authorization: Bearer abc123…\n✓ HTTP Request → Authentication: Generic → Header Auth → (credential \"My API\")",
+     "deep": 1
     }
    ],
    "practice": [
@@ -1146,6 +1284,16 @@ JOURNEY.week({
     {
      "ar": "Schedule Trigger بـ Cron `0 9 * * 0-4` واضبط Timezone على Africa/Cairo من Settings",
      "en": "Schedule Trigger with Cron `0 9 * * 0-4`, and set the timezone to Africa/Cairo in Settings"
+    },
+    {
+     "ar": "صدّر workflow فيه credential لملف JSON وافتحه: اتأكد إن السر نفسه مش موجود.",
+     "en": "Export a workflow that uses a credential to a JSON file and open it: check the secret itself is not there.",
+     "deep": 1
+    },
+    {
+     "ar": "سمّي الـ credentials بنظام: `خدمة – حساب – بيئة` (مثلًا `Telegram – support bot – test`).",
+     "en": "Name credentials with a pattern: `service – account – environment` (e.g. `Telegram – support bot – test`).",
+     "deep": 1
     }
    ],
    "code": [
@@ -1318,6 +1466,22 @@ JOURNEY.week({
       "en": "The time zone of the workflow or instance"
      },
      "ex": "Settings → Timezone: Africa/Cairo"
+    },
+    {
+     "t": "encrypt",
+     "m": {
+      "ar": "تحوّل بيانات لشكل محدش يقراه من غير مفتاح",
+      "en": "to turn data into a form nobody can read without a key"
+     },
+     "ex": "n8n encrypts stored credentials."
+    },
+    {
+     "t": "secret",
+     "m": {
+      "ar": "معلومة سرية زي مفتاح أو توكن",
+      "en": "a confidential value such as a key or token"
+     },
+     "ex": "Never paste a secret into a node field."
     }
    ],
    "read": [
@@ -1474,6 +1638,31 @@ JOURNEY.week({
       "ar": "الخانة الأولى هي الدقائق، و*/15 يعني كل 15 دقيقة.",
       "en": "The first field is minutes, and */15 means every 15 minutes."
      }
+    },
+    {
+     "q": {
+      "ar": "تحط الـ API key فين؟",
+      "en": "Where do you put an API key?"
+     },
+     "o": [
+      {
+       "ar": "في Credentials",
+       "en": "in Credentials"
+      },
+      {
+       "ar": "في Code node",
+       "en": "in a Code node"
+      },
+      {
+       "ar": "في اسم النود",
+       "en": "in the node name"
+      }
+     ],
+     "a": 0,
+     "why": {
+      "ar": "مشفّرة ومش بتتصدّر.",
+      "en": "Encrypted and not exported."
+     }
     }
    ],
    "minutes": 180
@@ -1554,6 +1743,18 @@ JOURNEY.week({
       "en": "Use it when data is written in different formats. `replace(/\\D/g, \"\")` removes anything that isn't a digit."
      },
      "ex": "{{ $json.phone.replace(/\\D/g, \"\").replace(/^20/, \"0\") }}\n\"+20 100-123-4567\"  →  \"01001234567\""
+    },
+    {
+     "h": {
+      "ar": "وضعين للـ Code node",
+      "en": "The two Code node modes"
+     },
+     "p": {
+      "ar": "**Run Once for All Items**: الكود بيشتغل مرة واحدة، تاخد كل العناصر بـ `$input.all()` وترجع array. **Run Once for Each Item**: الكود بيشتغل لكل عنصر، تقرا `$json` وترجع object واحد. الأول للتجميع والفرز، والتاني للتعديل البسيط على كل عنصر.",
+      "en": "**Run Once for All Items**: the code runs once; get every item with `$input.all()` and return an array. **Run Once for Each Item**: the code runs per item; read `$json` and return one object. The first is for totals and sorting, the second for simple per-item changes."
+     },
+     "ex": "// All Items\nconst total = $input.all().reduce((s, i) => s + i.json.price, 0);\nreturn [{ json: { total } }];\n\n// Each Item\nreturn { json: { ...$json, price_egp: $json.price * 50 } };",
+     "deep": 1
     }
    ],
    "practice": [
@@ -1580,6 +1781,16 @@ JOURNEY.week({
     {
      "ar": "Code بيرمي Error واضح لو في item من غير email: `throw new Error(\"...\")`",
      "en": "Code throws a clear error if an item has no email: `throw new Error(\"...\")`"
+    },
+    {
+     "ar": "بنفس 5 عناصر: احسب المجموع في وضع All Items، وزوّد حقل جديد لكل عنصر في وضع Each Item.",
+     "en": "With the same 5 items: compute the total in All Items mode, and add a new field to each item in Each Item mode.",
+     "deep": 1
+    },
+    {
+     "ar": "غلّط عمدًا: ارجع object في وضع All Items وشوف رسالة الخطأ.",
+     "en": "Make a deliberate mistake: return an object in All Items mode and read the error.",
+     "deep": 1
     }
    ],
    "code": [
@@ -1756,6 +1967,22 @@ JOURNEY.week({
       "en": "No value / the field doesn't exist at all"
      },
      "ex": "$json.phone ?? \"N/A\""
+    },
+    {
+     "t": "mode",
+     "m": {
+      "ar": "طريقة تشغيل محددة لنود",
+      "en": "a particular way a node runs"
+     },
+     "ex": "Switch the Code node mode to Run Once for Each Item."
+    },
+    {
+     "t": "running total",
+     "m": {
+      "ar": "مجموع بيزيد مع كل عنصر",
+      "en": "a sum that grows with each item"
+     },
+     "ex": "reduce keeps a running total."
     }
    ],
    "read": [
@@ -1953,6 +2180,31 @@ JOURNEY.week({
       "ar": "reduce بتجمّع العناصر لقيمة واحدة، والقيمة الابتدائية هنا 0.",
       "en": "reduce combines the elements into one value, and the starting value here is 0."
      }
+    },
+    {
+     "q": {
+      "ar": "في وضع Each Item تقرا العنصر بـ:",
+      "en": "In Each Item mode you read the item with:"
+     },
+     "o": [
+      {
+       "ar": "`$json`",
+       "en": "`$json`"
+      },
+      {
+       "ar": "`$input.all()`",
+       "en": "`$input.all()`"
+      },
+      {
+       "ar": "`items[99]`",
+       "en": "`items[99]`"
+      }
+     ],
+     "a": 0,
+     "why": {
+      "ar": "كل تشغيل = عنصر واحد.",
+      "en": "Each run = one item."
+     }
     }
    ],
    "minutes": 180
@@ -2036,6 +2288,18 @@ JOURNEY.week({
       "ar": "Executions → فاشلة → Debug in editor → صلّح → شغّل تاني",
       "en": "Executions → failed → Debug in editor → fix → run again"
      }
+    },
+    {
+     "h": {
+      "ar": "Retry on Fail وOn Error",
+      "en": "Retry on Fail and On Error"
+     },
+     "p": {
+      "ar": "في **Settings** بتاعة أي نود: **Retry On Fail** يعيد المحاولة (مثلًا 3 مرات كل 5 ثواني) — مفيد لأخطاء الشبكة و429 و5xx. و**On Error** يحدد يحصل إيه لو فشل في الآخر: يوقف الـ workflow، أو يكمّل، أو يكمّل ويطلّع الخطأ في مخرج منفصل تتعامل معاه.",
+      "en": "In any node’s **Settings**: **Retry On Fail** tries again (e.g. 3 times, 5 seconds apart) — useful for network errors, 429 and 5xx. **On Error** decides what happens if it still fails: stop the workflow, continue, or continue and send the error to a separate output you can handle."
+     },
+     "ex": "HTTP Request → Settings\n  Retry On Fail: on   Max Tries: 3   Wait Between Tries: 5000 ms\n  On Error: Continue (using error output)\n      ├─ success → Google Sheets\n      └─ error   → Telegram alert",
+     "deep": 1
     }
    ],
    "practice": [
@@ -2066,6 +2330,16 @@ JOURNEY.week({
     {
      "ar": "افتح تشغيلة فاشلة واستخدم Debug in editor",
      "en": "Open a failed run and use Debug in editor"
+    },
+    {
+     "ar": "على `https://httpbin.org/status/503` فعّل Retry 3 مرات وشوف في Executions إنه حاول 3 مرات.",
+     "en": "On `https://httpbin.org/status/503` enable 3 retries and check in Executions that it tried 3 times.",
+     "deep": 1
+    },
+    {
+     "ar": "خلّي On Error = error output، ووصّل مخرج الخطأ بنود Edit Fields يكتب رسالة مفهومة.",
+     "en": "Set On Error to the error output, and connect it to an Edit Fields node that writes a clear message.",
+     "deep": 1
     }
    ],
    "code": [
@@ -2262,6 +2536,22 @@ JOURNEY.week({
       "en": "The node runs on the first item only"
      },
      "ex": "Settings → Execute Once ✓"
+    },
+    {
+     "t": "error branch",
+     "m": {
+      "ar": "الفرع اللي بتمشي فيه العناصر اللي فشلت",
+      "en": "the branch the failed items follow"
+     },
+     "ex": "The error branch sends a Telegram alert."
+    },
+    {
+     "t": "flaky",
+     "m": {
+      "ar": "بيفشل أحيانًا وينجح أحيانًا من غير سبب واضح",
+      "en": "failing sometimes and working other times for no clear reason"
+     },
+     "ex": "A flaky API needs Retry On Fail."
     }
    ],
    "read": [
@@ -2397,6 +2687,31 @@ JOURNEY.week({
       "ar": "Continue using error output بيديلك مسار منفصل للـ items اللي فشلت.",
       "en": "Continue using error output gives you a separate path for the items that failed."
      }
+    },
+    {
+     "q": {
+      "ar": "Retry مفيد مع أنهي خطأ؟",
+      "en": "Retry helps with which error?"
+     },
+     "o": [
+      {
+       "ar": "503 من السيرفر",
+       "en": "a 503 from the server"
+      },
+      {
+       "ar": "400 طلب غلط",
+       "en": "a 400 bad request"
+      },
+      {
+       "ar": "401 مفتاح غلط",
+       "en": "a 401 wrong key"
+      }
+     ],
+     "a": 0,
+     "why": {
+      "ar": "الأخطاء المؤقتة بس.",
+      "en": "Only temporary errors."
+     }
     }
    ],
    "minutes": 180
@@ -2431,6 +2746,16 @@ JOURNEY.week({
     {
      "ar": "راجع اليوم 5: التحكم والموثوقية: Loops وSub-workflows والأخطاء",
      "en": "Review day 5: Control and reliability: loops, sub-workflows and errors"
+    },
+    {
+     "ar": "⚡ تثبيت البيانات، وأكواد الحالة، والـ Credentials.",
+     "en": "⚡ Pinned data, status codes and credentials.",
+     "deep": 1
+    },
+    {
+     "ar": "⚡ وضعين الـ Code node، وRetry on Fail ومخرج الخطأ: اعمل workflow صغير يجمعهم كلهم.",
+     "en": "⚡ The two Code node modes, Retry on Fail and the error output: build a small workflow that uses them all.",
+     "deep": 1
     }
    ],
    "project": {

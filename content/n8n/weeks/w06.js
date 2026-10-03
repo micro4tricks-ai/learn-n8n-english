@@ -59,6 +59,18 @@ JOURNEY.week({
       "en": "Many services (payments, shipping) have a test mode or sandbox. Try there first and don't touch real data until the workflow is stable."
      },
      "ex": "https://api.sandbox.example.com → later https://api.example.com"
+    },
+    {
+     "h": {
+      "ar": "الـ pagination",
+      "en": "Pagination"
+     },
+     "p": {
+      "ar": "أغلب الـ APIs بترجع النتايج على صفحات (مثلًا 100 في المرة). أنواع: **page/limit** (`?page=2`)، **offset** (`?offset=200`)، و**cursor** (الرد فيه `next_cursor` تبعته في الطلب الجاي). HTTP Request فيه إعداد **Pagination** بيلف لوحده لحد ما الصفحات تخلص؛ حدّدله إمتى يقف.",
+      "en": "Most APIs return results in pages (e.g. 100 at a time). Kinds: **page/limit** (`?page=2`), **offset** (`?offset=200`), and **cursor** (the response has a `next_cursor` you send in the next request). HTTP Request has a **Pagination** option that loops by itself until the pages run out; tell it when to stop."
+     },
+     "ex": "HTTP Request → Options → Pagination\n  Mode: Update a Parameter in Each Request\n  Name: page   Value: {{ $pageCount + 1 }}\n  Complete when: response is empty",
+     "deep": 1
     }
    ],
    "practice": [
@@ -77,6 +89,16 @@ JOURNEY.week({
     {
      "ar": "اكتب «API card» للخدمة: base URL وauth و3 endpoints.",
      "en": "Write an \"API card\" for the service: base URL, auth and 3 endpoints."
+    },
+    {
+     "ar": "اجلب كل الـ posts من `https://jsonplaceholder.typicode.com/posts?_page=1&_limit=10` بالـ Pagination واتأكد إن العدد 100.",
+     "en": "Fetch every post from `https://jsonplaceholder.typicode.com/posts?_page=1&_limit=10` with Pagination and check the count is 100.",
+     "deep": 1
+    },
+    {
+     "ar": "اقرا توثيق API تستخدمه: نوع الـ pagination بتاعه إيه؟",
+     "en": "Read the docs of an API you use: which kind of pagination does it have?",
+     "deep": 1
     }
    ],
    "words": [
@@ -119,6 +141,22 @@ JOURNEY.week({
       "en": "the docs page listing every endpoint in detail"
      },
      "ex": "Check the API reference for required fields."
+    },
+    {
+     "t": "next page",
+     "m": {
+      "ar": "الصفحة الجاية من النتايج",
+      "en": "the following page of results"
+     },
+     "ex": "Request the next page until it is empty."
+    },
+    {
+     "t": "cursor",
+     "m": {
+      "ar": "علامة بتقول الصفحة الجاية تبدأ منين",
+      "en": "a marker that says where the next page starts"
+     },
+     "ex": "Send the cursor from the last response."
     }
    ],
    "read": [
@@ -209,6 +247,31 @@ JOURNEY.week({
       "ar": "تجربة آمنة.",
       "en": "Safe testing."
      }
+    },
+    {
+     "q": {
+      "ar": "الـ API رجّع 100 من 950 عنصر. تعمل إيه؟",
+      "en": "The API returned 100 of 950 items. What do you do?"
+     },
+     "o": [
+      {
+       "ar": "تفعّل الـ pagination",
+       "en": "enable pagination"
+      },
+      {
+       "ar": "تقبل الـ 100",
+       "en": "accept the 100"
+      },
+      {
+       "ar": "تغيّر الـ API",
+       "en": "change the API"
+      }
+     ],
+     "a": 0,
+     "why": {
+      "ar": "اجلب كل الصفحات.",
+      "en": "Fetch every page."
+     }
     }
    ],
    "minutes": 180
@@ -256,6 +319,18 @@ JOURNEY.week({
       "en": "If you type the key into a plain header, it gets exported with the workflow and ends up in Git. Credentials are encrypted with N8N_ENCRYPTION_KEY and aren't exported."
      },
      "ex": "✗ Header \"Authorization: Bearer sk_live_…\"\n✓ Credential: My Service API"
+    },
+    {
+     "h": {
+      "ar": "مكان المفتاح: header ولا query",
+      "en": "Where the key goes: header or query"
+     },
+     "p": {
+      "ar": "التوثيق بيقولك المفتاح يتحط فين: header زي `Authorization: Bearer …` أو `X-API-Key: …`، أو في الرابط `?api_key=…`. الـ header أأمن لأن الروابط بتتسجل في logs كتير. في n8n استخدم **Header Auth** أو **Query Auth** credential حسب التوثيق — مش تكتبه بإيدك في الخانة.",
+      "en": "The docs tell you where the key goes: a header like `Authorization: Bearer …` or `X-API-Key: …`, or in the URL `?api_key=…`. A header is safer because URLs end up in many logs. In n8n use a **Header Auth** or **Query Auth** credential as the docs say — never type it into the field."
+     },
+     "ex": "Docs: \"Send your key in the X-API-Key header\"\n→ Credential: Header Auth  Name: X-API-Key  Value: ••••••\n→ HTTP Request: Authentication = Generic → Header Auth",
+     "deep": 1
     }
    ],
    "practice": [
@@ -274,6 +349,16 @@ JOURNEY.week({
     {
      "ar": "صدّر الـ workflow واتأكد إن المفتاح مش في الملف.",
      "en": "Export the workflow and confirm the key is not in the file."
+    },
+    {
+     "ar": "اختار API مجاني بيطلب مفتاح (مثلًا طقس)، واعمل credential من النوع الصح، وجرّب طلب.",
+     "en": "Pick a free API that needs a key (e.g. weather), make a credential of the right type, and try a request.",
+     "deep": 1
+    },
+    {
+     "ar": "غلّط المفتاح عمدًا وسجّل الـ status والرسالة اللي رجعت.",
+     "en": "Break the key on purpose and note the status and message returned.",
+     "deep": 1
     }
    ],
    "words": [
@@ -316,6 +401,22 @@ JOURNEY.week({
       "en": "a common header name for an API key"
      },
      "ex": "X-Api-Key: ••••"
+    },
+    {
+     "t": "auth header",
+     "m": {
+      "ar": "header فيه بيانات الدخول للـ API",
+      "en": "a header that carries the API login details"
+     },
+     "ex": "Put the key in the auth header."
+    },
+    {
+     "t": "query string",
+     "m": {
+      "ar": "الجزء من الرابط بعد علامة ?",
+      "en": "the part of a URL after the ? sign"
+     },
+     "ex": "Avoid keys in the query string."
     }
    ],
    "read": [
@@ -406,6 +507,31 @@ JOURNEY.week({
       "ar": "احتفظ بيه، لو ضاع الـ credentials مش هتتقري.",
       "en": "Keep it; if lost, credentials can't be read."
      }
+    },
+    {
+     "q": {
+      "ar": "ليه الـ header أأمن من الرابط للمفتاح؟",
+      "en": "Why is a header safer than the URL for a key?"
+     },
+     "o": [
+      {
+       "ar": "الروابط بتتسجل في logs كتير",
+       "en": "URLs end up in many logs"
+      },
+      {
+       "ar": "الـ header أسرع",
+       "en": "headers are faster"
+      },
+      {
+       "ar": "مفيش فرق",
+       "en": "no difference"
+      }
+     ],
+     "a": 0,
+     "why": {
+      "ar": "سجلات السيرفر والمتصفح.",
+      "en": "Server and browser logs."
+     }
     }
    ],
    "minutes": 180
@@ -453,6 +579,18 @@ JOURNEY.week({
       "en": "Ask for the fewest scopes you need. The consent screen users see needs a clear app name and a support email."
      },
      "ex": "gmail.send instead of full Gmail access"
+    },
+    {
+     "h": {
+      "ar": "الـ scopes في OAuth2",
+      "en": "Scopes in OAuth2"
+     },
+     "p": {
+      "ar": "الـ **scope** بيحدد الصلاحية اللي بتطلبها: قراءة بس ولا كتابة، إيميل بس ولا Drive كمان. اطلب **أقل** scopes تكفي الشغل: العميل بيوافق أسهل، ولو التوكن اتسرّب الضرر أقل. لو غيّرت الـ scopes لازم تعيد الربط (reconnect).",
+      "en": "A **scope** sets the permission you ask for: read only or write, email only or Drive too. Ask for the **fewest** scopes that do the job: clients agree more easily, and if the token leaks the damage is smaller. If you change scopes you must reconnect."
+     },
+     "ex": "needs: read the calendar only\n✗ https://www.googleapis.com/auth/calendar\n✓ https://www.googleapis.com/auth/calendar.readonly",
+     "deep": 1
     }
    ],
    "practice": [
@@ -471,6 +609,16 @@ JOURNEY.week({
     {
      "ar": "غيّر الـ scopes لأقل حاجة ممكنة واتأكد إن الـ workflow لسه شغال.",
      "en": "Reduce the scopes to the minimum and confirm the workflow still works."
+    },
+    {
+     "ar": "افتح صفحة الموافقة بتاعة Google لما تربط credential، واقرا الصلاحيات المطلوبة واحدة واحدة.",
+     "en": "Open Google’s consent screen when you connect a credential, and read each permission requested.",
+     "deep": 1
+    },
+    {
+     "ar": "اكتب لـ 3 workflows عندك: أقل scope محتاجينه إيه؟",
+     "en": "For 3 of your workflows write the smallest scope each needs.",
+     "deep": 1
     }
    ],
    "words": [
@@ -513,6 +661,22 @@ JOURNEY.week({
       "en": "how long an access token lasts before renewal"
      },
      "ex": "Usually about one hour."
+    },
+    {
+     "t": "least privilege",
+     "m": {
+      "ar": "تدّي أقل صلاحية تكفي الشغل",
+      "en": "giving only the access the job needs"
+     },
+     "ex": "Least privilege limits the damage of a leak."
+    },
+    {
+     "t": "reconnect",
+     "m": {
+      "ar": "تعيد ربط الحساب عشان الصلاحيات الجديدة",
+      "en": "to link the account again for new permissions"
+     },
+     "ex": "Reconnect the credential after changing scopes."
     }
    ],
    "read": [
@@ -612,6 +776,31 @@ JOURNEY.week({
       "ar": "least privilege.",
       "en": "least privilege."
      }
+    },
+    {
+     "q": {
+      "ar": "محتاج تقرا ملفات Drive بس:",
+      "en": "You only need to read Drive files:"
+     },
+     "o": [
+      {
+       "ar": "scope قراءة بس",
+       "en": "a read-only scope"
+      },
+      {
+       "ar": "صلاحية كاملة احتياطي",
+       "en": "full access just in case"
+      },
+      {
+       "ar": "من غير scope",
+       "en": "no scope"
+      }
+     ],
+     "a": 0,
+     "why": {
+      "ar": "أقل صلاحية تكفي.",
+      "en": "The least access that works."
+     }
     }
    ],
    "minutes": 180
@@ -659,6 +848,18 @@ JOURNEY.week({
       "en": "In the HTTP Request options: Batching (Items per Batch + Batch Interval) to stay within limits, and Timeout so a stuck request doesn't hang the workflow."
      },
      "ex": "Batching: 10 items per batch, 1000 ms interval\nTimeout: 30000 ms"
+    },
+    {
+     "h": {
+      "ar": "الـ batching عشان حدود الطلبات",
+      "en": "Batching for rate limits"
+     },
+     "p": {
+      "ar": "لو الـ API بيسمح مثلًا بـ 10 طلبات في الثانية وعندك 500 عنصر، HTTP Request فيه **Batching**: عدد العناصر في كل دفعة ووقت الانتظار بين الدفعات. أو استخدم Loop Over Items مع Wait. اقرا الحد في التوثيق أو في headers زي `X-RateLimit-Remaining`.",
+      "en": "If the API allows, say, 10 requests a second and you have 500 items, HTTP Request has **Batching**: items per batch and the wait between batches. Or use Loop Over Items with a Wait. Find the limit in the docs or in headers such as `X-RateLimit-Remaining`."
+     },
+     "ex": "HTTP Request → Options → Batching\n  Items per Batch: 10\n  Batch Interval (ms): 1100\n500 items → 50 batches → about 55 seconds, no 429",
+     "deep": 1
     }
    ],
    "practice": [
@@ -677,6 +878,16 @@ JOURNEY.week({
     {
      "ar": "حط Timeout 10 ثواني وجرّب httpbin /delay/15.",
      "en": "Set a 10-second timeout and try httpbin /delay/15."
+    },
+    {
+     "ar": "ابعت 50 طلب لـ `https://httpbin.org/get` بدفعات 5 كل ثانية، وقيس الوقت الكلي.",
+     "en": "Send 50 requests to `https://httpbin.org/get` in batches of 5 per second, and measure the total time.",
+     "deep": 1
+    },
+    {
+     "ar": "احسب: API حده 60 طلب في الدقيقة وعندك 1000 عنصر — هياخد قد إيه؟",
+     "en": "Work it out: an API allows 60 requests a minute and you have 1000 items — how long will it take?",
+     "deep": 1
     }
    ],
    "words": [
@@ -719,6 +930,22 @@ JOURNEY.week({
       "en": "a temporary error that goes away (like 503)"
      },
      "ex": "Retry transient errors; don't retry 400s."
+    },
+    {
+     "t": "batch interval",
+     "m": {
+      "ar": "وقت الانتظار بين كل دفعة والتانية",
+      "en": "the wait between one batch and the next"
+     },
+     "ex": "Set the batch interval to 1100 ms."
+    },
+    {
+     "t": "throttle",
+     "m": {
+      "ar": "تبطّأ الطلبات عمدًا عشان متعديش الحد",
+      "en": "to slow requests on purpose to stay under a limit"
+     },
+     "ex": "Throttle the calls to 10 per second."
     }
    ],
    "read": [
@@ -818,6 +1045,31 @@ JOURNEY.week({
       "ar": "دفعات بفاصل.",
       "en": "Spaced groups."
      }
+    },
+    {
+     "q": {
+      "ar": "حد 10 طلبات/ثانية و100 عنصر: أحسن إعداد؟",
+      "en": "A limit of 10 per second and 100 items: best setting?"
+     },
+     "o": [
+      {
+       "ar": "10 في الدفعة كل ~1.1 ثانية",
+       "en": "10 per batch every ~1.1 s"
+      },
+      {
+       "ar": "100 مرة واحدة",
+       "en": "all 100 at once"
+      },
+      {
+       "ar": "1 كل دقيقة",
+       "en": "1 per minute"
+      }
+     ],
+     "a": 0,
+     "why": {
+      "ar": "تحت الحد بهامش صغير.",
+      "en": "Under the limit with a small margin."
+     }
     }
    ],
    "minutes": 180
@@ -865,6 +1117,18 @@ JOURNEY.week({
       "en": "Form-Data → a parameter of type n8n Binary File → the binary property name. Use it when an API expects a file."
      },
      "ex": "Body: Form-Data\nfile = (n8n Binary File) data\ndescription = \"Invoice September\""
+    },
+    {
+     "h": {
+      "ar": "رفع الملفات: multipart/form-data",
+      "en": "Uploading files: multipart/form-data"
+     },
+     "p": {
+      "ar": "لما الـ API يطلب ملف، الـ body بيبقى **Form-Data** مش JSON. في HTTP Request اختار Body: Form-Data، وخانة نوعها **n8n Binary File** واسم الـ binary (غالبًا `data`)، وخانات نص عادية للمعلومات التانية. الملف لازم يكون جاي من نود قبله (Read File، Google Drive، Telegram…).",
+      "en": "When an API wants a file, the body is **Form-Data**, not JSON. In HTTP Request choose Body: Form-Data, a field of type **n8n Binary File** with the binary name (often `data`), and normal text fields for other information. The file must come from an earlier node (Read File, Google Drive, Telegram…)."
+     },
+     "ex": "Google Drive: Download → (binary: data)\nHTTP Request POST /upload\n  Body: Form-Data\n    file  = n8n Binary File (data)\n    title = {{ $json.name }}",
+     "deep": 1
     }
    ],
    "practice": [
@@ -883,6 +1147,16 @@ JOURNEY.week({
     {
      "ar": "صلّح body JSON واقع بسبب علامات تنصيص حوالين رقم أو ناقصة حوالين نص.",
      "en": "Fix a JSON body that fails because of quotes around a number or missing quotes around text."
+    },
+    {
+     "ar": "نزّل ملف من Drive أو Read File، وارفعه لـ `https://httpbin.org/post` كـ form-data وشوف الرد.",
+     "en": "Download a file from Drive or Read File and upload it to `https://httpbin.org/post` as form-data, then read the response.",
+     "deep": 1
+    },
+    {
+     "ar": "افتح تبويب Binary في النود وشوف اسم الملف ونوعه وحجمه.",
+     "en": "Open the Binary tab in the node and look at the file name, type and size.",
+     "deep": 1
     }
    ],
    "words": [
@@ -925,6 +1199,22 @@ JOURNEY.week({
       "en": "a parameter type that uploads a file from binary data"
      },
      "ex": "file = data"
+    },
+    {
+     "t": "multipart",
+     "m": {
+      "ar": "طلب فيه أجزاء كتير زي ملف ونص مع بعض",
+      "en": "a request made of several parts, such as a file and text together"
+     },
+     "ex": "Upload the file as multipart form data."
+    },
+    {
+     "t": "form-data",
+     "m": {
+      "ar": "شكل body بيبعت ملفات وخانات مع بعض",
+      "en": "a body format that sends files and fields together"
+     },
+     "ex": "Upload the PDF as form-data."
     }
    ],
    "read": [
@@ -1003,6 +1293,31 @@ JOURNEY.week({
       "ar": "PATCH للجزئي.",
       "en": "PATCH is partial."
      }
+    },
+    {
+     "q": {
+      "ar": "عشان ترفع PDF لـ API غالبًا تستخدم:",
+      "en": "To upload a PDF to an API you usually use:"
+     },
+     "o": [
+      {
+       "ar": "Form-Data",
+       "en": "Form-Data"
+      },
+      {
+       "ar": "JSON",
+       "en": "JSON"
+      },
+      {
+       "ar": "Query parameter",
+       "en": "a query parameter"
+      }
+     ],
+     "a": 0,
+     "why": {
+      "ar": "الملفات بتتبعت multipart.",
+      "en": "Files go as multipart."
+     }
     }
    ],
    "minutes": 180
@@ -1037,6 +1352,16 @@ JOURNEY.week({
     {
      "ar": "JSON وurlencoded وform-data والملفات.",
      "en": "JSON, urlencoded, form-data and files."
+    },
+    {
+     "ar": "⚡ الـ pagination بأنواعها، ومكان المفتاح، والـ scopes.",
+     "en": "⚡ Kinds of pagination, where the key goes, and scopes.",
+     "deep": 1
+    },
+    {
+     "ar": "⚡ Batching تحت حد الطلبات، ورفع الملفات form-data: طبّقهم على API حقيقي.",
+     "en": "⚡ Batching under the rate limit and form-data uploads: use them on a real API.",
+     "deep": 1
     }
    ],
    "project": {

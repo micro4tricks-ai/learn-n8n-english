@@ -59,6 +59,18 @@ JOURNEY.week({
       "en": "Filter = drop items (one output). IF = two paths. Switch = three or more paths (Rules, or an Expression that returns the output number)."
      },
      "ex": "Switch (Expression mode): {{ [\"low\",\"mid\",\"high\"].indexOf($json.tier) }}"
+    },
+    {
+     "h": {
+      "ar": "Switch بقواعد ولا بـ expression",
+      "en": "Switch by rules or by expression"
+     },
+     "p": {
+      "ar": "Switch ليه وضعين: **Rules** (شروط لكل مخرج، تقدر تخلّي العنصر يروح لأكتر من مخرج لو فعّلت «Send data to all matching outputs») و**Expression** (expression بيرجّع رقم المخرج على طول، زي `{{ [\"low\",\"normal\",\"high\"].indexOf($json.priority) }}`). الـ Expression أقصر لما القيم كتير ومرتبة.",
+      "en": "Switch has two modes: **Rules** (conditions per output; an item can go to several outputs if you enable «Send data to all matching outputs») and **Expression** (an expression that returns the output number directly, like `{{ [\"low\",\"normal\",\"high\"].indexOf($json.priority) }}`). Expression is shorter when values are many and ordered."
+     },
+     "ex": "Mode: Expression   Number of outputs: 3\nOutput index: {{ [\"low\",\"normal\",\"high\"].indexOf($json.priority) }}\n\"high\" → output 2",
+     "deep": 1
     }
    ],
    "practice": [
@@ -77,6 +89,16 @@ JOURNEY.week({
     {
      "ar": "جرّب Switch في Expression mode.",
      "en": "Try a Switch in Expression mode."
+    },
+    {
+     "ar": "اعمل نفس التوزيع على 3 أولويات بالوضعين، وجرّب قيمة مش في القايمة في كل واحد.",
+     "en": "Route 3 priorities with both modes, and test a value not in the list in each.",
+     "deep": 1
+    },
+    {
+     "ar": "فعّل «all matching outputs» واعمل عنصر يروح لمخرجين (مثلًا «عاجل» و«VIP»).",
+     "en": "Enable «all matching outputs» and make an item go to two outputs (e.g. «urgent» and «VIP»).",
+     "deep": 1
     }
    ],
    "words": [
@@ -119,6 +141,22 @@ JOURNEY.week({
       "en": "treats capital and small letters as different"
      },
      "ex": "\"Paid\" vs \"paid\""
+    },
+    {
+     "t": "output index",
+     "m": {
+      "ar": "رقم المخرج اللي العنصر هيروح له",
+      "en": "the number of the output an item goes to"
+     },
+     "ex": "The expression returns the output index."
+    },
+    {
+     "t": "matching",
+     "m": {
+      "ar": "مطابق للشرط",
+      "en": "meeting the condition"
+     },
+     "ex": "Send the item to every matching output."
     }
    ],
    "read": [
@@ -192,6 +230,31 @@ JOURNEY.week({
       "ar": "مخرج واحد.",
       "en": "One output."
      }
+    },
+    {
+     "q": {
+      "ar": "`indexOf` رجّع `-1` في وضع Expression. يعني:",
+      "en": "`indexOf` returned `-1` in Expression mode. It means:"
+     },
+     "o": [
+      {
+       "ar": "القيمة مش في القايمة؛ لازم تتعامل معاها",
+       "en": "the value is not in the list; handle it"
+      },
+      {
+       "ar": "أول مخرج",
+       "en": "the first output"
+      },
+      {
+       "ar": "كله تمام",
+       "en": "all is well"
+      }
+     ],
+     "a": 0,
+     "why": {
+      "ar": "اعمل fallback للقيم غير المتوقعة.",
+      "en": "Add a fallback for unexpected values."
+     }
     }
    ],
    "minutes": 180
@@ -239,6 +302,18 @@ JOURNEY.week({
       "en": "The \"No Operation, do nothing\" node is useful as a clear end of a branch where you don't want to do anything, or as a readable gathering point."
      },
      "ex": "IF spam → No Operation (ignore)"
+    },
+    {
+     "h": {
+      "ar": "الفروع اللي مش بتشتغل",
+      "en": "Branches that do not run"
+     },
+     "p": {
+      "ar": "لو IF طلّع صفر عناصر في فرع، النودز بعده **مش بتشتغل خالص** — ونود بعد Merge ممكن يستنى للأبد. لو محتاج الفرع يكمّل حتى من غير بيانات، فعّل **Always Output Data** في الإعدادات (بيطلّع عنصر فاضي)، واتعامل مع العنصر الفاضي ده بعد كده.",
+      "en": "If an IF outputs zero items on a branch, the nodes after it **do not run at all** — and a node after a Merge may wait forever. If the branch must continue even without data, enable **Always Output Data** in settings (it outputs one empty item), and handle that empty item later."
+     },
+     "ex": "IF (has new orders?)\n  true  → 0 items → Send report  ✗ never runs\nFix: Always Output Data on the IF → 1 empty item\n  → Send report: \"No new orders today\"",
+     "deep": 1
     }
    ],
    "practice": [
@@ -257,6 +332,16 @@ JOURNEY.week({
     {
      "ar": "استخدم No Operation لفرع «تجاهل».",
      "en": "Use No Operation for an \"ignore\" branch."
+    },
+    {
+     "ar": "اعمل تقرير يومي بيتبعت حتى لو مفيش طلبات جديدة، ويقول «مفيش طلبات النهارده».",
+     "en": "Build a daily report that is sent even with no new orders, saying «no orders today».",
+     "deep": 1
+    },
+    {
+     "ar": "شوف في Executions الفرق بين نود اتنفّذ بصفر عناصر ونود متنفّذش.",
+     "en": "In Executions, see the difference between a node that ran with zero items and one that did not run.",
+     "deep": 1
     }
    ],
    "words": [
@@ -299,6 +384,22 @@ JOURNEY.week({
       "en": "a node's place on screen, which affects branch order"
      },
      "ex": "Upper branches run first."
+    },
+    {
+     "t": "empty item",
+     "m": {
+      "ar": "عنصر من غير بيانات",
+      "en": "an item with no data"
+     },
+     "ex": "Always Output Data sends one empty item."
+    },
+    {
+     "t": "skipped node",
+     "m": {
+      "ar": "نود متنفّذش لأن مفيش عناصر وصلته",
+      "en": "a node that did not run because no items reached it"
+     },
+     "ex": "The report node was a skipped node."
     }
    ],
    "read": [
@@ -381,6 +482,31 @@ JOURNEY.week({
       "ar": "بيطلّع item فاضي.",
       "en": "It outputs an empty item."
      }
+    },
+    {
+     "q": {
+      "ar": "فرع IF طلّع 0 عناصر. النود اللي بعده:",
+      "en": "An IF branch output 0 items. The next node:"
+     },
+     "o": [
+      {
+       "ar": "مش بيشتغل",
+       "en": "does not run"
+      },
+      {
+       "ar": "بيشتغل مرة",
+       "en": "runs once"
+      },
+      {
+       "ar": "بيطلّع خطأ",
+       "en": "throws an error"
+      }
+     ],
+     "a": 0,
+     "why": {
+      "ar": "إلا لو فعّلت Always Output Data.",
+      "en": "Unless Always Output Data is on."
+     }
     }
    ],
    "minutes": 180
@@ -428,6 +554,18 @@ JOURNEY.week({
       "en": "If you feed new items back into the loop every time, it may never end. Add an exit condition (an IF on a count or page) and a maximum number of rounds."
      },
      "ex": "IF page < 50 AND has_more → loop again\nelse → done"
+    },
+    {
+     "h": {
+      "ar": "Loop Over Items مع شرط خروج",
+      "en": "Loop Over Items with an exit condition"
+     },
+     "p": {
+      "ar": "أحيانًا محتاج تلف لحد ما حاجة تحصل: مثلًا API بيجهّز تقرير، وتسأل كل 30 ثانية «خلص؟». الشكل: HTTP (اسأل) ← IF (خلص؟) ← لو لأ: Wait 30 ثانية وارجع للـ HTTP. ولازم **حد أقصى** للمحاولات (عدّاد) عشان ميلفّش للأبد.",
+      "en": "Sometimes you must loop until something happens: e.g. an API prepares a report and you ask every 30 seconds «done?». The shape: HTTP (ask) → IF (done?) → if not: Wait 30 seconds and go back to the HTTP. You need a **maximum** number of tries (a counter) so it never loops forever."
+     },
+     "ex": "Set tries = 0 → HTTP: get report status → IF status = \"ready\"\n  yes → download\n  no  → IF tries < 20 → Wait 30 s → tries + 1 → back to HTTP\n        else → alert \"report not ready after 10 min\"",
+     "deep": 1
     }
    ],
    "practice": [
@@ -446,6 +584,16 @@ JOURNEY.week({
     {
      "ar": "اعمل loop pagination بشرط خروج وحد أقصى.",
      "en": "Build a pagination loop with an exit condition and a maximum."
+    },
+    {
+     "ar": "اعمل loop بيسأل `https://httpbin.org/anything` 5 مرات بعدّاد ويقف.",
+     "en": "Build a loop that calls `https://httpbin.org/anything` 5 times with a counter and stops.",
+     "deep": 1
+    },
+    {
+     "ar": "اكتب: إيه اللي يحصل لو نسيت العدّاد؟",
+     "en": "Write: what happens if you forget the counter?",
+     "deep": 1
     }
    ],
    "words": [
@@ -488,6 +636,22 @@ JOURNEY.week({
       "en": "a safety cap on the number of rounds"
      },
      "ex": "Stop after 50 pages."
+    },
+    {
+     "t": "loop guard",
+     "m": {
+      "ar": "حد بيمنع الـ loop إنه يلف للأبد",
+      "en": "a limit that stops a loop from running forever"
+     },
+     "ex": "A counter is a simple loop guard."
+    },
+    {
+     "t": "counter",
+     "m": {
+      "ar": "رقم بيزيد كل لفة",
+      "en": "a number that grows each time round"
+     },
+     "ex": "Stop when the counter reaches 20."
     }
    ],
    "read": [
@@ -570,6 +734,31 @@ JOURNEY.week({
       "ar": "حماية.",
       "en": "Safety."
      }
+    },
+    {
+     "q": {
+      "ar": "ليه حد أقصى للمحاولات؟",
+      "en": "Why a maximum number of tries?"
+     },
+     "o": [
+      {
+       "ar": "عشان الـ loop ميلفّش للأبد",
+       "en": "so the loop never runs forever"
+      },
+      {
+       "ar": "عشان أسرع",
+       "en": "to be faster"
+      },
+      {
+       "ar": "n8n بيطلبه",
+       "en": "n8n requires it"
+      }
+     ],
+     "a": 0,
+     "why": {
+      "ar": "والتنبيه لما يوصل للحد.",
+      "en": "And alert when it hits the limit."
+     }
     }
    ],
    "minutes": 180
@@ -617,6 +806,18 @@ JOURNEY.week({
       "en": "A long Wait (days) is saved in the database and doesn't use memory, but be careful: editing the workflow or moving the server can affect waiting executions. For long follow-ups, a Schedule reading from a sheet is sometimes clearer."
      },
      "ex": "Follow up after 3 days → Wait 3 days, or a daily Schedule checking \"follow_up_at\""
+    },
+    {
+     "h": {
+      "ar": "Wait لحد ما حد يرد",
+      "en": "Wait until someone answers"
+     },
+     "p": {
+      "ar": "نود **Wait** فيه وضع «On Webhook Call»: الـ workflow بيقف ويطلّع رابط مخصوص `$execution.resumeUrl`. تبعت الرابط ده في إيميل أو تليجرام («موافق؟»)، ولما الشخص يدوس، الـ workflow يكمّل من مكانه. حط مهلة (Limit Wait Time) عشان لو محدش رد.",
+      "en": "The **Wait** node has an «On Webhook Call» mode: the workflow pauses and gets a special link `$execution.resumeUrl`. Send that link by email or Telegram («approve?»), and when the person clicks, the workflow continues where it stopped. Set a time limit (Limit Wait Time) in case nobody answers."
+     },
+     "ex": "Telegram: \"Approve refund 350 EGP? {{ $execution.resumeUrl }}?ok=1\"\n→ Wait (On Webhook Call, limit: 24 h)\n→ IF {{ $json.query.ok === \"1\" }} → refund · else → notify",
+     "deep": 1
     }
    ],
    "practice": [
@@ -635,6 +836,16 @@ JOURNEY.week({
     {
      "ar": "اعمل follow-up بعد يومين مرة بـ Wait ومرة بـ Schedule وقارن.",
      "en": "Build a two-day follow-up once with Wait and once with Schedule, and compare."
+    },
+    {
+     "ar": "اعمل موافقة بسيطة: رسالة فيها رابطين (موافق / رافض) والـ workflow يكمّل حسب الاختيار.",
+     "en": "Build a simple approval: a message with two links (approve / reject) and the workflow continues based on the choice.",
+     "deep": 1
+    },
+    {
+     "ar": "جرّب المهلة: خليها دقيقتين ومتدوسش، وشوف يحصل إيه.",
+     "en": "Test the limit: set it to two minutes, do not click, and see what happens.",
+     "deep": 1
     }
    ],
    "words": [
@@ -677,6 +888,22 @@ JOURNEY.week({
       "en": "a later check-in (a reminder, a question)"
      },
      "ex": "Follow up after 3 days."
+    },
+    {
+     "t": "resume url",
+     "m": {
+      "ar": "رابط بيكمّل workflow واقف",
+      "en": "a link that continues a paused workflow"
+     },
+     "ex": "Send the resume URL to the manager."
+    },
+    {
+     "t": "approval",
+     "m": {
+      "ar": "موافقة إنسان قبل خطوة مهمة",
+      "en": "a person’s OK before an important step"
+     },
+     "ex": "Refunds need an approval first."
     }
    ],
    "read": [
@@ -759,6 +986,31 @@ JOURNEY.week({
       "ar": "مش في الذاكرة.",
       "en": "Not in memory."
      }
+    },
+    {
+     "q": {
+      "ar": "Wait بوضع On Webhook Call بيكمّل لما:",
+      "en": "Wait in On Webhook Call mode continues when:"
+     },
+     "o": [
+      {
+       "ar": "حد يفتح الـ resume URL",
+       "en": "someone opens the resume URL"
+      },
+      {
+       "ar": "يعدي ثانية",
+       "en": "a second passes"
+      },
+      {
+       "ar": "تقفل n8n",
+       "en": "you close n8n"
+      }
+     ],
+     "a": 0,
+     "why": {
+      "ar": "أو لما المهلة تخلص.",
+      "en": "Or when the time limit ends."
+     }
     }
    ],
    "minutes": 180
@@ -806,6 +1058,18 @@ JOURNEY.week({
       "en": "After Aggregate or Code, the link to the original items is lost, so `$(\"Node\").item` may fail. Read with `.first()` or carry the fields you need along in the item."
      },
      "ex": "Keep order_id in every item instead of looking back."
+    },
+    {
+     "h": {
+      "ar": "فروع متوازية وترتيبها",
+      "en": "Parallel branches and their order"
+     },
+     "p": {
+      "ar": "لما نود يطلّع لفرعين، n8n (الإصدار الحالي) بيشغّل فرع كامل لآخره وبعدين التاني، بالترتيب **من فوق لتحت** في الرسمة. ده مهم لو فرع بيعتمد على نتيجة التاني. متعتمدش على الترتيب في منطق مهم؛ لو لازم ترتيب، اربطهم ورا بعض أو استخدم Merge (Wait for both).",
+      "en": "When a node feeds two branches, n8n (current version) runs one whole branch to its end, then the other, in **top-to-bottom** order on the canvas. This matters if one branch depends on the other’s result. Do not rely on order for important logic; if order matters, chain them or use Merge (wait for both)."
+     },
+     "ex": "Get order ─┬─ (top)    Save to Sheet  → runs first\n            └─ (bottom) Email customer → runs second\nIf the email needs the row id: chain Save → Email instead",
+     "deep": 1
     }
    ],
    "practice": [
@@ -824,6 +1088,16 @@ JOURNEY.week({
     {
      "ar": "ارسم الـ workflow على ورقة قبل ما تبنيه.",
      "en": "Sketch the workflow on paper before building it."
+    },
+    {
+     "ar": "اعمل فرعين كل واحد فيه Wait مختلف وشوف ترتيب التنفيذ في Executions. حرّك فرع لفوق وشوف اتغيّر؟",
+     "en": "Build two branches with different Waits and check the run order in Executions. Move one branch up — does it change?",
+     "deep": 1
+    },
+    {
+     "ar": "حوّل workflow فيه فرعين معتمدين على بعض لسلسلة.",
+     "en": "Turn a workflow with two dependent branches into a chain.",
+     "deep": 1
     }
    ],
    "words": [
@@ -866,6 +1140,22 @@ JOURNEY.week({
       "en": "a sketch of the workflow before building"
      },
      "ex": "Boxes and arrows on paper."
+    },
+    {
+     "t": "branch order",
+     "m": {
+      "ar": "ترتيب تشغيل الفروع",
+      "en": "the order in which branches run"
+     },
+     "ex": "Do not depend on branch order."
+    },
+    {
+     "t": "parallel branches",
+     "m": {
+      "ar": "فروع طالعة من نفس النود",
+      "en": "branches that start from the same node"
+     },
+     "ex": "Use Merge to join parallel branches."
     }
    ],
    "read": [
@@ -938,6 +1228,31 @@ JOURNEY.week({
       "ar": "الربط اتقطع.",
       "en": "The link was broken."
      }
+    },
+    {
+     "q": {
+      "ar": "فرع B محتاج نتيجة فرع A. الأسلم:",
+      "en": "Branch B needs branch A’s result. Safest:"
+     },
+     "o": [
+      {
+       "ar": "تربطهم ورا بعض",
+       "en": "chain them"
+      },
+      {
+       "ar": "تعتمد على ترتيب الرسمة",
+       "en": "rely on canvas order"
+      },
+      {
+       "ar": "تزوّد Wait",
+       "en": "add a Wait"
+      }
+     ],
+     "a": 0,
+     "why": {
+      "ar": "الاعتماد صريح بدل ضمني.",
+      "en": "Make the dependency explicit."
+     }
     }
    ],
    "minutes": 180
@@ -972,6 +1287,16 @@ JOURNEY.week({
     {
      "ar": "fan-out وfan-in وAggregate وitem linking.",
      "en": "Fan-out, fan-in, Aggregate and item linking."
+    },
+    {
+     "ar": "⚡ Switch بالـ expression، والفروع الفاضية وAlways Output Data.",
+     "en": "⚡ Switch by expression, empty branches and Always Output Data.",
+     "deep": 1
+    },
+    {
+     "ar": "⚡ loop بشرط خروج وعدّاد، وموافقة بـ resume URL، وترتيب الفروع: ابني workflow موافقة على المرتجعات.",
+     "en": "⚡ A loop with an exit condition and counter, approval with a resume URL, and branch order: build a refund approval workflow.",
+     "deep": 1
     }
    ],
    "project": {

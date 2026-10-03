@@ -67,6 +67,18 @@ JOURNEY.week({
       "en": "In Arabic the adjective follows the noun; in English it comes first: a large file. Adjectives have no plural: new files, not \"news files\"."
      },
      "ex": "✗ a file large      ✓ a large file\n✗ the users actives  ✓ the active users"
+    },
+    {
+     "h": {
+      "ar": "نبر الجملة",
+      "en": "Sentence stress"
+     },
+     "p": {
+      "ar": "في الإنجليزي مش كل الكلمات بتتقال بنفس القوة. **كلمات المحتوى** (أسماء، أفعال، صفات، أرقام) بتتقال أعلى وأوضح، و**كلمات الربط** (a، the، to، of، is) بتتقال بسرعة وخفيف. لو قلت كل كلمة بنفس القوة، كلامك هيبان آلي وصعب يتفهم.",
+      "en": "In English not every word gets the same force. **Content words** (nouns, verbs, adjectives, numbers) are louder and clearer, and **function words** (a, the, to, of, is) are quick and light. If you give every word the same force, you sound robotic and are harder to follow."
+     },
+     "ex": "The SCRIPT SENDS an EMAIL to the CLIENT every MORNING.\nI NEED to UPDATE the DATABASE beFORE the DEMO.",
+     "deep": 1
     }
    ],
    "practice": [
@@ -85,6 +97,16 @@ JOURNEY.week({
     {
      "ar": "اكتب 5 جمل فيها صفة قبل الاسم عن مشروعك (a small script, a new feature…).",
      "en": "Write 5 sentences with an adjective before a noun about your project (a small script, a new feature…)."
+    },
+    {
+     "ar": "علّم كلمات المحتوى في 5 جمل من شغلك وقولها بصوت عالي مع النبر.",
+     "en": "Mark the content words in 5 sentences about your work and say them aloud with the stress.",
+     "deep": 1
+    },
+    {
+     "ar": "اسمع جملة من فيديو تقني وكررها بنفس الإيقاع (shadowing) 5 مرات.",
+     "en": "Listen to one sentence from a tech video and repeat it with the same rhythm (shadowing) 5 times.",
+     "deep": 1
     }
    ],
    "code": [
@@ -152,6 +174,22 @@ JOURNEY.week({
       "en": "the part of a sentence that says something about the subject"
      },
      "ex": "In \"The build passed\", \"passed\" is the predicate."
+    },
+    {
+     "t": "sentence stress",
+     "m": {
+      "ar": "الكلمات اللي بتتقال أقوى في الجملة",
+      "en": "the words said more strongly in a sentence"
+     },
+     "ex": "Sentence stress falls on the key words."
+    },
+    {
+     "t": "shadowing",
+     "m": {
+      "ar": "تكرر كلام متحدث وراه على طول بنفس الإيقاع",
+      "en": "repeating a speaker right after them with the same rhythm"
+     },
+     "ex": "Shadowing improves your rhythm fast."
     }
    ],
    "read": [
@@ -225,6 +263,22 @@ JOURNEY.week({
       "ar": "large صفة بتوصف الاسم file، وبتيجي قبله.",
       "en": "large is an adjective describing the noun file, and it comes before it."
      }
+    },
+    {
+     "q": {
+      "ar": "في «The script sends an email» الكلمة اللي مش بتتنبر:",
+      "en": "In «The script sends an email» the unstressed word is:"
+     },
+     "o": [
+      "an",
+      "script",
+      "email"
+     ],
+     "a": 0,
+     "why": {
+      "ar": "كلمات الربط خفيفة.",
+      "en": "Function words are light."
+     }
     }
    ],
    "minutes": 180
@@ -283,6 +337,18 @@ JOURNEY.week({
       "en": "I am; he/she/it is; we/you/they are. At work we often shorten them: I'm, it's, they're."
      },
      "ex": "I am on the backend team.\nThe tests are green.\nIt's ready for review."
+    },
+    {
+     "h": {
+      "ar": "الأشكال الضعيفة: is وare وthere",
+      "en": "Weak forms: is, are and there"
+     },
+     "p": {
+      "ar": "في الكلام الطبيعي `there are` بتتقال «ðə-rə» و`it is` بتبقى «its». و`to` بتبقى «tə» و`and` بتبقى «ən». ده سبب إنك بتفهم المكتوب ومش بتفهم المسموع. اتعلّم تسمعها، ومش لازم تقولها كده من أول يوم.",
+      "en": "In natural speech `there are` sounds like «ðə-rə» and `it is` becomes «its». `to` becomes «tə» and `and` becomes «ən». This is why you understand written English but not spoken English. Learn to hear them; you do not have to say them that way from day one."
+     },
+     "ex": "written:  There are two errors in the log.\nspoken:   ðə-rə TWO ERRors in the LOG.\nwritten:  I want to check it and fix it.\nspoken:   I WANT tə CHECK it ən FIX it.",
+     "deep": 1
     }
    ],
    "practice": [
@@ -301,6 +367,16 @@ JOURNEY.week({
     {
      "ar": "اوصف شاشة التطبيق اللي قدامك في 6 جمل بـ there is/are.",
      "en": "Describe the app screen in front of you in 6 sentences with there is/are."
+    },
+    {
+     "ar": "اسمع دقيقتين من فيديو شرح، واكتب كل `there is/are` و`to` اللي سمعتها.",
+     "en": "Listen to two minutes of a tutorial video and write every `there is/are` and `to` you hear.",
+     "deep": 1
+    },
+    {
+     "ar": "اعمل dictation: اسمع 3 جمل واكتبها، وبعدين قارن بالـ subtitles.",
+     "en": "Do a dictation: listen to 3 sentences, write them, then compare with the subtitles.",
+     "deep": 1
     }
    ],
    "words": [
@@ -359,6 +435,22 @@ JOURNEY.week({
       "en": "a group of words with a subject and a verb"
      },
      "ex": "\"If the file exists\" is a clause."
+    },
+    {
+     "t": "weak form",
+     "m": {
+      "ar": "نطق خفيف ومختصر لكلمة ربط",
+      "en": "a light, short way to say a function word"
+     },
+     "ex": "The weak form of to sounds like tə."
+    },
+    {
+     "t": "linking sound",
+     "m": {
+      "ar": "وصل آخر كلمة بأول اللي بعدها في الكلام",
+      "en": "joining the end of one word to the next in speech"
+     },
+     "ex": "In \"check it\" there is a linking sound: che-kit."
     }
    ],
    "read": [
@@ -423,6 +515,22 @@ JOURNEY.week({
       "ar": "The tests جمع، فالفعل are.",
       "en": "The tests is plural, so the verb is are."
      }
+    },
+    {
+     "q": {
+      "ar": "ليه بتفهم المكتوب أكتر من المسموع؟",
+      "en": "Why do you understand written English better than spoken?"
+     },
+     "o": [
+      "weak forms and linking",
+      "spelling",
+      "grammar"
+     ],
+     "a": 0,
+     "why": {
+      "ar": "الكلمات الصغيرة بتتقال مختصرة.",
+      "en": "Small words are said in short forms."
+     }
     }
    ],
    "minutes": 180
@@ -478,6 +586,18 @@ JOURNEY.week({
       "en": "Some nouns have irregular plurals: person → people, child → children, index → indices or indexes, analysis → analyses."
      },
      "ex": "✗ Ten persons joined the call.\n✓ Ten people joined the call."
+    },
+    {
+     "h": {
+      "ar": "أسماء بتتعد وأسماء مبتتعدش",
+      "en": "Countable and uncountable nouns"
+     },
+     "p": {
+      "ar": "في التقنية كلمات كتير **مبتتعدش**: `data`، `information`، `software`، `feedback`، `advice`، `code`، `equipment`. يعني من غير a ومن غير s: `some feedback` مش `a feedback` ولا `feedbacks`. ولو عايز تعدّها: `a piece of feedback`، `two lines of code`، `a software tool`.",
+      "en": "Many tech words are **uncountable**: `data`, `information`, `software`, `feedback`, `advice`, `code`, `equipment`. So no a and no s: `some feedback`, not `a feedback` or `feedbacks`. To count them: `a piece of feedback`, `two lines of code`, `a software tool`."
+     },
+     "ex": "✗ Thanks for the feedbacks.      ✓ Thanks for the feedback.\n✗ I wrote a code.                ✓ I wrote some code / a script.\n✗ Can you give me an advice?     ✓ Can you give me some advice?",
+     "deep": 1
     }
    ],
    "practice": [
@@ -496,6 +616,16 @@ JOURNEY.week({
     {
      "ar": "صلّح: `I need an informations.` و`The software are updated.` و`Give me some advices.`",
      "en": "Fix: `I need an informations.`, `The software are updated.` and `Give me some advices.`"
+    },
+    {
+     "ar": "صلّح 8 جمل فيها الأخطاء دي (اكتبها بنفسك الأول).",
+     "en": "Fix 8 sentences with these mistakes (write them yourself first).",
+     "deep": 1
+    },
+    {
+     "ar": "دوّر في إيميلاتك القديمة بالإنجليزي على `feedbacks` أو `informations` أو `a code`.",
+     "en": "Search your old English emails for `feedbacks`, `informations` or `a code`.",
+     "deep": 1
     }
    ],
    "words": [
@@ -554,6 +684,22 @@ JOURNEY.week({
       "en": "the , mark"
      },
      "ex": "Put a comma between items in a list."
+    },
+    {
+     "t": "uncountable",
+     "m": {
+      "ar": "اسم مبيتعدش ومالوش جمع (data، advice)",
+      "en": "a noun you cannot count, with no plural (data, advice)"
+     },
+     "ex": "Feedback is uncountable."
+    },
+    {
+     "t": "countable noun",
+     "m": {
+      "ar": "اسم بيتعد وليه جمع (file، bug)",
+      "en": "a noun you can count, with a plural (file, bug)"
+     },
+     "ex": "Bug is a countable noun: one bug, two bugs."
     }
    ],
    "read": [
@@ -618,6 +764,22 @@ JOURNEY.week({
       "ar": "لما نتكلم عن الناس عمومًا، منستخدمش the.",
       "en": "When we talk about people in general, we don't use the."
      }
+    },
+    {
+     "q": {
+      "ar": "الصح:",
+      "en": "Correct:"
+     },
+     "o": [
+      "Thanks for your feedback.",
+      "Thanks for your feedbacks.",
+      "Thanks for a feedback."
+     ],
+     "a": 0,
+     "why": {
+      "ar": "feedback مبيتعدش.",
+      "en": "feedback is uncountable."
+     }
     }
    ],
    "minutes": 180
@@ -676,6 +838,18 @@ JOURNEY.week({
       "en": "What, Where, When, Why, How, Which, Who, How many / How much."
      },
      "ex": "Where is the config file?\nHow do I run the tests?\nWhich version do you use?"
+    },
+    {
+     "h": {
+      "ar": "نغمة السؤال",
+      "en": "Question intonation"
+     },
+     "p": {
+      "ar": "سؤال **yes/no** صوتك بيطلع لفوق في آخره ↗: `Is the server running?` ↗. سؤال **wh-** (what, where, why) صوتك بينزل ↘: `Where is the log file?` ↘. لو طلّعت صوتك في كل سؤال، هتبان مش متأكد؛ ولو نزّلته في yes/no، هيبان كأنه أمر.",
+      "en": "In a **yes/no** question your voice goes up at the end ↗: `Is the server running?` ↗. In a **wh-** question (what, where, why) it goes down ↘: `Where is the log file?` ↘. Rising on every question sounds unsure; falling on yes/no can sound like an order."
+     },
+     "ex": "Did you restart it? ↗\nWhat did the logs say? ↘\nCan you share your screen? ↗\nWhy did the build fail? ↘",
+     "deep": 1
     }
    ],
    "practice": [
@@ -694,6 +868,16 @@ JOURNEY.week({
     {
      "ar": "اكتب سؤال واحد كامل تسأله في مجتمع برمجة عن مشكلة حقيقية قابلتك.",
      "en": "Write one complete question you would post in a developer community about a real problem you had."
+    },
+    {
+     "ar": "اكتب 5 أسئلة yes/no و5 wh- عن مشكلة تقنية، وقولهم بالنغمة الصح وسجّل.",
+     "en": "Write 5 yes/no and 5 wh- questions about a tech problem, say them with the right tone and record them.",
+     "deep": 1
+    },
+    {
+     "ar": "في فيديو مقابلة أو اجتماع، علّم النغمة في 5 أسئلة سمعتها.",
+     "en": "In an interview or meeting video, mark the tone of 5 questions you hear.",
+     "deep": 1
     }
    ],
    "code": [
@@ -761,6 +945,22 @@ JOURNEY.week({
       "en": "the answer changes with the situation"
      },
      "ex": "\"Can it be done today?\" \"It depends on the tests.\""
+    },
+    {
+     "t": "intonation",
+     "m": {
+      "ar": "طلوع ونزول الصوت في الكلام",
+      "en": "the rise and fall of the voice in speech"
+     },
+     "ex": "Your intonation shows it is a question."
+    },
+    {
+     "t": "rising tone",
+     "m": {
+      "ar": "الصوت بيطلع لفوق في الآخر",
+      "en": "the voice going up at the end"
+     },
+     "ex": "Yes/no questions usually have a rising tone."
     }
    ],
    "read": [
@@ -825,6 +1025,22 @@ JOURNEY.week({
       "ar": "الإجابة القصيرة بتكرر الفعل المساعد: Yes, I do.",
       "en": "A short answer repeats the helping verb: Yes, I do."
      }
+    },
+    {
+     "q": {
+      "ar": "«Where is the config file?» الصوت في الآخر:",
+      "en": "«Where is the config file?» — at the end the voice:"
+     },
+     "o": [
+      "falls",
+      "rises",
+      "stays flat"
+     ],
+     "a": 0,
+     "why": {
+      "ar": "أسئلة wh- بتنزل.",
+      "en": "Wh- questions fall."
+     }
     }
    ],
    "minutes": 180
@@ -883,6 +1099,18 @@ JOURNEY.week({
       "en": "Arabic often repeats the subject (\"the manager he said\"). English uses the subject once."
      },
      "ex": "✗ My manager he approved the plan.\n✓ My manager approved the plan."
+    },
+    {
+     "h": {
+      "ar": "ممنوع ومش لازم: must not وdon't have to",
+      "en": "Forbidden vs not needed: must not and don't have to"
+     },
+     "p": {
+      "ar": "فرق خطير في التوثيق: `You must not commit the .env file` = **ممنوع**. `You don't have to restart the server` = **مش لازم** (براحتك). وكمان `should not` = يُفضّل لأ، و`cannot` = مش ممكن تقنيًا. لو خلطتهم، ممكن تفهم التحذير على إنه اختيار.",
+      "en": "A critical difference in docs: `You must not commit the .env file` = **forbidden**. `You don't have to restart the server` = **not necessary** (your choice). Also `should not` = better not, and `cannot` = technically impossible. Mix them up and a warning may look like an option."
+     },
+     "ex": "You must not share your API key.        → forbidden\nYou don't have to install Docker.       → optional\nYou should not edit generated files.     → advice\nYou cannot delete the default workspace. → impossible",
+     "deep": 1
     }
    ],
    "practice": [
@@ -901,6 +1129,16 @@ JOURNEY.week({
     {
      "ar": "اكتب رسالة قصيرة لزميل بتقول فيها إيه اللي مش شغال عندك، من غير ما تستخدم not أكتر من مرة في الجملة.",
      "en": "Write a short message to a teammate saying what isn't working for you, never using not twice in one sentence."
+    },
+    {
+     "ar": "دوّر في توثيق أداة تستخدمها على 5 جمل فيها must أو should أو don't have to وصنّفها.",
+     "en": "Find 5 sentences with must, should or don't have to in a tool’s docs and classify them.",
+     "deep": 1
+    },
+    {
+     "ar": "اكتب 6 قواعد لمشروعك (2 ممنوع، 2 نصيحة، 2 اختياري).",
+     "en": "Write 6 rules for your project (2 forbidden, 2 advice, 2 optional).",
+     "deep": 1
     }
    ],
    "words": [
@@ -959,6 +1197,22 @@ JOURNEY.week({
       "en": "a polite reply to thanks"
      },
      "ex": "\"Thanks for your help.\" \"My pleasure.\""
+    },
+    {
+     "t": "prohibition",
+     "m": {
+      "ar": "منع صريح لحاجة",
+      "en": "a clear rule that something is not allowed"
+     },
+     "ex": "Must not expresses a prohibition."
+    },
+    {
+     "t": "falling tone",
+     "m": {
+      "ar": "الصوت بينزل في الآخر",
+      "en": "the voice going down at the end"
+     },
+     "ex": "Statements end with a falling tone."
     }
    ],
    "read": [
@@ -1023,6 +1277,22 @@ JOURNEY.week({
       "ar": "من غير اسم بعدها، نستخدم mine.",
       "en": "With no noun after it, we use mine."
      }
+    },
+    {
+     "q": {
+      "ar": "«You don't have to log in» معناها:",
+      "en": "«You don't have to log in» means:"
+     },
+     "o": [
+      "logging in is optional",
+      "logging in is forbidden",
+      "logging in is impossible"
+     ],
+     "a": 0,
+     "why": {
+      "ar": "مش لازم، بس مسموح.",
+      "en": "Not needed, but allowed."
+     }
     }
    ],
    "minutes": 180
@@ -1057,6 +1327,16 @@ JOURNEY.week({
     {
      "ar": "النفي مرة واحدة، وI في مكان الفاعل وme في مكان المفعول.",
      "en": "Negate only once; I as the subject, me as the object."
+    },
+    {
+     "ar": "⚡ نبر الجملة، والأشكال الضعيفة، والـ shadowing.",
+     "en": "⚡ Sentence stress, weak forms and shadowing.",
+     "deep": 1
+    },
+    {
+     "ar": "⚡ الأسماء اللي مبتتعدش، ونغمة الأسئلة، وmust not مقابل don't have to: سجّل دقيقة بتشرح فيها قواعد مشروعك.",
+     "en": "⚡ Uncountable nouns, question tones, and must not vs don't have to: record one minute explaining your project rules.",
+     "deep": 1
     }
    ],
    "project": {

@@ -56,6 +56,18 @@ JOURNEY.week({
       "en": "A sentence needs a subject and a verb and a complete idea. \"Because…\" alone is not a sentence."
      },
      "ex": "✗ The deploy failed. Because the server was down.\n✓ The deploy failed because the server was down."
+    },
+    {
+     "h": {
+      "ar": "خطوات إعادة المشكلة",
+      "en": "Repro steps"
+     },
+     "p": {
+      "ar": "الـ **repro steps** أهم جزء في بلاغ الخطأ: خطوات مرقّمة، كل خطوة فعل أمر واحد، بالقيم الحقيقية، من حالة بداية واضحة. `1. Log in as a viewer. 2. Open Settings. 3. Click Export.` وفي الآخر: `Reproducible: always / 3 out of 5 times`.",
+      "en": "**Repro steps** are the most important part of a bug report: numbered steps, one imperative action each, with real values, from a clear starting state. `1. Log in as a viewer. 2. Open Settings. 3. Click Export.` And at the end: `Reproducible: always / 3 out of 5 times`."
+     },
+     "ex": "Starting state: a new workflow, n8n 1.x, Chrome.\n1. Add a Webhook node.\n2. Set the path to \"orders/:id\".\n3. Send GET /webhook/orders/12.\nReproducible: always.",
+     "deep": 1
     }
    ],
    "practice": [
@@ -74,6 +86,16 @@ JOURNEY.week({
     {
      "ar": "صلّح الجمل الناقصة: `Because the token expired.` و`When clicking Save.`",
      "en": "Fix the fragments: `Because the token expired.` and `When clicking Save.`"
+    },
+    {
+     "ar": "اكتب repro steps لمشكلة حصلتلك، وادّيها لحد يجرّبها من غير ما تشرح.",
+     "en": "Write repro steps for a problem you had, and give them to someone to try without explaining.",
+     "deep": 1
+    },
+    {
+     "ar": "حوّل وصف مشكلة طويل (فقرة) لخطوات مرقّمة.",
+     "en": "Turn a long problem description (a paragraph) into numbered steps.",
+     "deep": 1
     }
    ],
    "words": [
@@ -132,6 +154,22 @@ JOURNEY.week({
       "en": "A keyboard shortcut"
      },
      "ex": "Ctrl+S is the shortcut for Save."
+    },
+    {
+     "t": "repro steps",
+     "m": {
+      "ar": "خطوات بتعيد المشكلة",
+      "en": "steps that make the problem happen again"
+     },
+     "ex": "Add clear repro steps to the issue."
+    },
+    {
+     "t": "reproducible",
+     "m": {
+      "ar": "تقدر تخليها تحصل تاني",
+      "en": "possible to make happen again"
+     },
+     "ex": "The bug is reproducible every time."
     }
    ],
    "read": [
@@ -205,6 +243,22 @@ JOURNEY.week({
       "ar": "actual = الفعلي.",
       "en": "actual = what really happened."
      }
+    },
+    {
+     "q": {
+      "ar": "خطوة repro كويسة:",
+      "en": "A good repro step:"
+     },
+     "o": [
+      "Click Export.",
+      "Then I clicked some buttons and it broke.",
+      "Export."
+     ],
+     "a": 0,
+     "why": {
+      "ar": "فعل أمر واحد واضح.",
+      "en": "One clear imperative action."
+     }
     }
    ],
    "minutes": 180
@@ -252,6 +306,18 @@ JOURNEY.week({
       "en": "also and even go before a normal verb and after to be, not at the start like Arabic \"kaman\"."
      },
      "ex": "✗ Also I fixed the tests.\n✓ I also fixed the tests."
+    },
+    {
+     "h": {
+      "ar": "وصف البيئة والـ logs",
+      "en": "Describing the environment and logs"
+     },
+     "p": {
+      "ar": "`Environment`: نظام التشغيل والإصدار، المتصفح، إصدار الأداة (`n8n 1.70, self-hosted in Docker`). والـ logs: الصق **جزء** مهم بس في code block، مش 500 سطر: `Relevant log lines:`. وامسح أي سر قبل ما تلصق (`[REDACTED]`).",
+      "en": "`Environment`: OS and version, browser, tool version (`n8n 1.70, self-hosted in Docker`). For logs, paste only the **relevant part** in a code block, not 500 lines: `Relevant log lines:`. Remove any secret before pasting (`[REDACTED]`)."
+     },
+     "ex": "Environment: Windows 11, Chrome 130, n8n 1.70 (Docker).\nRelevant log lines:\n```\nERROR 401 Unauthorized — token [REDACTED] expired\n```",
+     "deep": 1
     }
    ],
    "practice": [
@@ -270,6 +336,16 @@ JOURNEY.week({
     {
      "ar": "حط also وeven في مكانهم في 4 جمل: It also fails on Linux. It even fails with an empty file.",
      "en": "Put also and even in the right place in 4 sentences: It also fails on Linux. It even fails with an empty file."
+    },
+    {
+     "ar": "اكتب قسم Environment لجهازك وأدواتك.",
+     "en": "Write an Environment section for your machine and tools.",
+     "deep": 1
+    },
+    {
+     "ar": "خُد log طويل واختار منه أهم 5 سطور، وامسح أي سر.",
+     "en": "Take a long log, pick the 5 most relevant lines, and remove any secret.",
+     "deep": 1
     }
    ],
    "words": [
@@ -328,6 +404,22 @@ JOURNEY.week({
       "en": "to turn off and on again"
      },
      "ex": "Have you tried restarting it?"
+    },
+    {
+     "t": "redacted",
+     "m": {
+      "ar": "جزء اتشال عشان سري",
+      "en": "removed because it is secret"
+     },
+     "ex": "The API key is redacted in the log."
+    },
+    {
+     "t": "relevant",
+     "m": {
+      "ar": "ليه علاقة مباشرة بالموضوع",
+      "en": "directly connected to the topic"
+     },
+     "ex": "Paste only the relevant lines."
     }
    ],
    "read": [
@@ -410,6 +502,22 @@ JOURNEY.week({
       "ar": "keep + ing = يستمر.",
       "en": "keep + -ing = continue."
      }
+    },
+    {
+     "q": {
+      "ar": "في الـ log فيه API key. تعمل:",
+      "en": "The log contains an API key. You:"
+     },
+     "o": [
+      "replace it with [REDACTED]",
+      "paste it as is",
+      "delete the whole log"
+     ],
+     "a": 0,
+     "why": {
+      "ar": "متنشرش أسرار.",
+      "en": "Never publish secrets."
+     }
     }
    ],
    "minutes": 180
@@ -451,6 +559,18 @@ JOURNEY.week({
       "en": "I was importing a CSV (past continuous) when the app crashed (past simple). I had changed the delimiter the day before (past perfect)."
      },
      "ex": "While the job was running, the database restarted.\nThe migration had already dropped the old column, so the rollback failed."
+    },
+    {
+     "h": {
+      "ar": "المتوقع مقابل اللي حصل",
+      "en": "Expected versus actual"
+     },
+     "p": {
+      "ar": "جزئين منفصلين وواضحين: **Expected behaviour**: `The sheet should get one new row.` **Actual behaviour**: `The sheet gets two identical rows.` استخدم `should` في المتوقع والمضارع البسيط أو الماضي في اللي حصل. ولو فيه **workaround** مؤقت، اكتبه.",
+      "en": "Two separate, clear parts: **Expected behaviour**: `The sheet should get one new row.` **Actual behaviour**: `The sheet gets two identical rows.` Use `should` for expected and present or past simple for actual. If there is a temporary **workaround**, write it."
+     },
+     "ex": "Expected: one confirmation email per booking.\nActual: two emails are sent when the user double-clicks Book.\nWorkaround: disable the button after the first click.",
+     "deep": 1
     }
    ],
    "practice": [
@@ -469,6 +589,16 @@ JOURNEY.week({
     {
      "ar": "اكتب «Timeline» لمشكلة في 5 سطور بالأوقات والأزمنة الصح.",
      "en": "Write a 5-line \"Timeline\" of a problem with times and the right tenses."
+    },
+    {
+     "ar": "اكتب expected/actual لـ 3 مشاكل في مشروعاتك.",
+     "en": "Write expected/actual for 3 problems in your projects.",
+     "deep": 1
+    },
+    {
+     "ar": "اقرا 5 issues على GitHub لأداة بتستخدمها وشوف إزاي كاتبين الجزئين دول.",
+     "en": "Read 5 GitHub issues for a tool you use and see how they write these two parts.",
+     "deep": 1
     }
    ],
    "words": [
@@ -527,6 +657,22 @@ JOURNEY.week({
       "en": "The function that builds the object (__init__)"
      },
      "ex": "The constructor sets the initial values."
+    },
+    {
+     "t": "expected behaviour",
+     "m": {
+      "ar": "اللي المفروض يحصل",
+      "en": "what should happen"
+     },
+     "ex": "Describe the expected behaviour first."
+    },
+    {
+     "t": "actual behaviour",
+     "m": {
+      "ar": "اللي حصل فعلًا",
+      "en": "what really happens"
+     },
+     "ex": "The actual behaviour is two emails."
     }
    ],
    "read": [
@@ -600,6 +746,22 @@ JOURNEY.week({
       "ar": "exception handling.",
       "en": "exception handling."
      }
+    },
+    {
+     "q": {
+      "ar": "في «Expected» تستخدم غالبًا:",
+      "en": "In «Expected» you usually use:"
+     },
+     "o": [
+      "should",
+      "did",
+      "was being"
+     ],
+     "a": 0,
+     "why": {
+      "ar": "اللي المفروض يحصل.",
+      "en": "What should happen."
+     }
     }
    ],
    "minutes": 180
@@ -647,6 +809,18 @@ JOURNEY.week({
       "en": "An opening phrase must describe the subject that comes right after it."
      },
      "ex": "✗ After reading the docs, the bug was easy.\n✓ After reading the docs, I found the bug easy."
+    },
+    {
+     "h": {
+      "ar": "الخطورة والتكرار",
+      "en": "Severity and frequency"
+     },
+     "p": {
+      "ar": "`Severity`: `critical` (البيانات بتضيع أو النظام واقف)، `major`، `minor`، `cosmetic` (شكل بس). و`regression`: حاجة كانت شغالة وبطلت بعد تحديث — `This is a regression since v1.4.` والتكرار: `always`، `intermittent` (أحيانًا)، `flaky` للاختبارات اللي بتنجح وتفشل من غير سبب واضح.",
+      "en": "`Severity`: `critical` (data loss or the system is down), `major`, `minor`, `cosmetic` (looks only). A `regression` is something that used to work and broke after an update — `This is a regression since v1.4.` Frequency: `always`, `intermittent` (sometimes), and `flaky` for tests that pass and fail for no clear reason."
+     },
+     "ex": "Severity: major — bookings are duplicated.\nFrequency: intermittent (about 1 in 10).\nRegression: worked in v1.3, broken since v1.4.",
+     "deep": 1
     }
    ],
    "practice": [
@@ -665,6 +839,16 @@ JOURNEY.week({
     {
      "ar": "صلّح: `After clicking Save, the page reloads.` لو المقصود المستخدم هو اللي بيدوس.",
      "en": "Fix: `After clicking Save, the page reloads.` when you mean the user clicks."
+    },
+    {
+     "ar": "صنّف 6 مشاكل (حقيقية أو متخيّلة) بالخطورة والتكرار.",
+     "en": "Classify 6 problems (real or imagined) by severity and frequency.",
+     "deep": 1
+    },
+    {
+     "ar": "اكتب جملة regression لمشكلة ظهرت بعد تحديث.",
+     "en": "Write a regression sentence for a problem that appeared after an update.",
+     "deep": 1
     }
    ],
    "words": [
@@ -723,6 +907,22 @@ JOURNEY.week({
       "en": "a feature described from the user's side"
      },
      "ex": "As a user, I want to reset my password."
+    },
+    {
+     "t": "regression",
+     "m": {
+      "ar": "حاجة كانت شغالة وبطّلت بعد تغيير",
+      "en": "something that worked and broke after a change"
+     },
+     "ex": "The date bug is a regression."
+    },
+    {
+     "t": "intermittent",
+     "m": {
+      "ar": "بيحصل أحيانًا مش دايمًا",
+      "en": "happening sometimes, not always"
+     },
+     "ex": "The timeout is intermittent."
     }
    ],
    "read": [
@@ -796,6 +996,22 @@ JOURNEY.week({
       "ar": "القالب المشهور.",
       "en": "The well-known template."
      }
+    },
+    {
+     "q": {
+      "ar": "الزرار لونه غلط بس شغال:",
+      "en": "The button has the wrong colour but works:"
+     },
+     "o": [
+      "cosmetic",
+      "critical",
+      "regression"
+     ],
+     "a": 0,
+     "why": {
+      "ar": "شكل بس.",
+      "en": "Looks only."
+     }
     }
    ],
    "minutes": 180
@@ -843,6 +1059,18 @@ JOURNEY.week({
       "en": "Don't join two full sentences with only a comma. Use a period, and/but/so, or a semicolon."
      },
      "ex": "✗ The test failed, I fixed it.\n✓ The test failed, so I fixed it."
+    },
+    {
+     "h": {
+      "ar": "اشرح السبب الجذري",
+      "en": "Explaining the root cause"
+     },
+     "p": {
+      "ar": "بعد ما تحل المشكلة، اكتب السبب الحقيقي مش العرَض: `The root cause was that the webhook was retried after a timeout, and we did not check the event id.` وبعدين `To prevent this, we…`. أداة «5 whys»: اسأل «ليه؟» لحد ما توصل لحاجة تقدر تصلّحها.",
+      "en": "After you fix it, write the real cause, not the symptom: `The root cause was that the webhook was retried after a timeout, and we did not check the event id.` Then `To prevent this, we…`. The «5 whys» tool: keep asking «why?» until you reach something you can fix."
+     },
+     "ex": "Symptom: duplicate bookings.\nWhy? The webhook ran twice. Why? The service retried after 10 s.\nWhy? We replied after 15 s. → Root cause: slow reply + no duplicate check.\nFix: reply immediately and dedupe by event id.",
+     "deep": 1
     }
    ],
    "practice": [
@@ -861,6 +1089,16 @@ JOURNEY.week({
     {
      "ar": "صلّح الجمل المتلزقة: `The regex is wrong it matches spaces.`",
      "en": "Fix the run-on: `The regex is wrong it matches spaces.`"
+    },
+    {
+     "ar": "طبّق 5 whys على آخر عطل عندك واكتب السبب الجذري في جملتين.",
+     "en": "Apply 5 whys to your last failure and write the root cause in two sentences.",
+     "deep": 1
+    },
+    {
+     "ar": "اكتب closing comment لـ issue: السبب والحل وإزاي اتأكدت.",
+     "en": "Write a closing comment for an issue: the cause, the fix and how you checked.",
+     "deep": 1
     }
    ],
    "words": [
@@ -919,6 +1157,22 @@ JOURNEY.week({
       "en": "Not distinguishing between capital and small letters"
      },
      "ex": "Make the search case-insensitive with the i flag."
+    },
+    {
+     "t": "root cause",
+     "m": {
+      "ar": "السبب الحقيقي الأساسي للمشكلة",
+      "en": "the real, underlying cause of a problem"
+     },
+     "ex": "We found the root cause in the retry logic."
+    },
+    {
+     "t": "symptom",
+     "m": {
+      "ar": "العلامة اللي بتشوفها مش السبب",
+      "en": "the sign you see, not the cause"
+     },
+     "ex": "Duplicate rows were only a symptom."
     }
    ],
    "read": [
@@ -995,6 +1249,22 @@ JOURNEY.week({
       "ar": "اربط الجملتين بأداة أو نقطة.",
       "en": "Join the two clauses with a linking word or a full stop."
      }
+    },
+    {
+     "q": {
+      "ar": "«duplicate rows» في المثال ده:",
+      "en": "«duplicate rows» in this example is:"
+     },
+     "o": [
+      "the symptom",
+      "the root cause",
+      "the fix"
+     ],
+     "a": 0,
+     "why": {
+      "ar": "اللي بتشوفه.",
+      "en": "What you see."
+     }
     }
    ],
    "minutes": 180
@@ -1029,6 +1299,16 @@ JOURNEY.week({
     {
      "ar": "اقرا regex بالإنجليزي، ومن غير جمل متلزقة أو ناقصة.",
      "en": "Read regexes in English, with no run-ons or fragments."
+    },
+    {
+     "ar": "⚡ repro steps، والبيئة والـ logs من غير أسرار، وexpected/actual.",
+     "en": "⚡ Repro steps, environment and logs without secrets, and expected/actual.",
+     "deep": 1
+    },
+    {
+     "ar": "⚡ الخطورة والتكرار والـ regression، والسبب الجذري: اكتب بلاغ خطأ كامل لأداة مفتوحة المصدر (من غير ما تبعته لو مش حقيقي).",
+     "en": "⚡ Severity, frequency and regressions, and root causes: write a complete bug report for an open-source tool (do not send it unless it is real).",
+     "deep": 1
     }
    ],
    "project": {

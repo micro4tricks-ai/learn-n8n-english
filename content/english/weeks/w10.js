@@ -56,6 +56,18 @@ JOURNEY.week({
       "en": "Days, months, languages, nationalities and companies start with a capital: Monday, March, English, Egyptian."
      },
      "ex": "✗ the release is on monday in march.\n✓ The release is on Monday in March."
+    },
+    {
+     "h": {
+      "ar": "العناوين والـ badges في الـ README",
+      "en": "Headings and badges in a README"
+     },
+     "p": {
+      "ar": "العناوين بتبدأ بكلمة واضحة ومن غير نقطة في الآخر: `Installation`، `Usage`، `Configuration`. الأمريكان بيكتبوا Title Case (`Getting Started`) وكتير من المشاريع الحديثة Sentence case (`Getting started`) — اختار واحد والتزم. والـ badges (صور صغيرة فوق) بتقول حالة الاختبارات والرخصة والإصدار.",
+      "en": "Headings start with a clear word and have no full stop: `Installation`, `Usage`, `Configuration`. Some write Title Case (`Getting Started`) and many modern projects use Sentence case (`Getting started`) — pick one and stick to it. Badges (small images at the top) show the test status, licence and version."
+     },
+     "ex": "# Booking Bot\n![tests](badge.svg) ![license: MIT](badge2.svg)\n## Getting started\n## Usage\n## Configuration",
+     "deep": 1
     }
    ],
    "practice": [
@@ -74,6 +86,16 @@ JOURNEY.week({
     {
      "ar": "اكتب 4 عناوين بطريقة Title Case وSentence case وقارن.",
      "en": "Write 4 headings in Title Case and in Sentence case and compare them."
+    },
+    {
+     "ar": "راجع عناوين README مشروعك ووحّد شكلها.",
+     "en": "Review your README headings and make their style consistent.",
+     "deep": 1
+    },
+    {
+     "ar": "ضيف badge لحالة الاختبارات من GitHub Actions.",
+     "en": "Add a badge for the test status from GitHub Actions.",
+     "deep": 1
     }
    ],
    "words": [
@@ -132,6 +154,22 @@ JOURNEY.week({
       "en": "the & mark"
      },
      "ex": "Query parameters are joined with an ampersand."
+    },
+    {
+     "t": "badge",
+     "m": {
+      "ar": "صورة صغيرة في الـ README بتعرض حالة",
+      "en": "a small image in a README showing a status"
+     },
+     "ex": "The badge shows the tests are passing."
+    },
+    {
+     "t": "heading",
+     "m": {
+      "ar": "عنوان قسم",
+      "en": "a section title"
+     },
+     "ex": "Use a heading for each section."
     }
    ],
    "read": [
@@ -214,6 +252,22 @@ JOURNEY.week({
       "ar": "hash أو pound sign.",
       "en": "hash, or pound sign."
      }
+    },
+    {
+     "q": {
+      "ar": "العنوان الصح:",
+      "en": "The correct heading:"
+     },
+     "o": [
+      "## Installation",
+      "## installation.",
+      "## INSTALLATION!!"
+     ],
+     "a": 0,
+     "why": {
+      "ar": "كلمة واضحة ومن غير نقطة.",
+      "en": "A clear word, no full stop."
+     }
     }
    ],
    "minutes": 180
@@ -272,6 +326,18 @@ JOURNEY.week({
       "en": "It joins two complete, related sentences without and; the next word starts with a small letter."
      },
      "ex": "✗ The server is down; Please wait.\n✓ The server is down; please wait."
+    },
+    {
+     "h": {
+      "ar": "علامات الترقيم في الكتابة التقنية",
+      "en": "Punctuation in technical writing"
+     },
+     "p": {
+      "ar": "`:` قبل قايمة أو مثال (`You need three things:`). `;` بين جملتين مرتبطين (`The job failed; we retried it.`). الـ em dash `—` لتوضيح جانبي. الـ Oxford comma قبل and في قايمة: `Sheets, Gmail, and Telegram` (بتمنع اللبس). ومتحطش مسافة قبل `:` أو `?` (غلطة شائعة من العربي والفرنساوي).",
+      "en": "`:` before a list or example (`You need three things:`). `;` between two linked sentences (`The job failed; we retried it.`). The em dash `—` for a side note. The Oxford comma before and in a list: `Sheets, Gmail, and Telegram` (it avoids confusion). And no space before `:` or `?` (a common habit from Arabic and French)."
+     },
+     "ex": "✗ You need : Node , Docker and n8n .\n✓ You need: Node, Docker, and n8n.\n✓ The API is free — but it is limited to 100 calls a day.",
+     "deep": 1
     }
    ],
    "practice": [
@@ -290,6 +356,16 @@ JOURNEY.week({
     {
      "ar": "راجع README مشروعك كله للترقيم بس.",
      "en": "Check your whole project README for punctuation only."
+    },
+    {
+     "ar": "صلّح الترقيم في 3 فقرات كتبتها قبل كده بالإنجليزي.",
+     "en": "Fix the punctuation in 3 paragraphs you wrote in English before.",
+     "deep": 1
+    },
+    {
+     "ar": "اكتب فقرة فيها : و; و— صح.",
+     "en": "Write a paragraph that uses :, ; and — correctly.",
+     "deep": 1
     }
    ],
    "words": [
@@ -348,6 +424,22 @@ JOURNEY.week({
       "en": "A low line"
      },
      "ex": "user_id has an underscore."
+    },
+    {
+     "t": "semicolon",
+     "m": {
+      "ar": "العلامة ; بين جملتين مرتبطين",
+      "en": "the ; mark between two linked sentences"
+     },
+     "ex": "Use a semicolon to join the two ideas."
+    },
+    {
+     "t": "oxford comma",
+     "m": {
+      "ar": "الفاصلة قبل and في آخر قايمة",
+      "en": "the comma before and at the end of a list"
+     },
+     "ex": "With the Oxford comma: red, white, and blue."
     }
    ],
    "read": [
@@ -412,6 +504,22 @@ JOURNEY.week({
       "ar": "صفة مركبة قبل الاسم بشرطة.",
       "en": "A compound adjective before a noun takes a hyphen."
      }
+    },
+    {
+     "q": {
+      "ar": "الصح:",
+      "en": "Correct:"
+     },
+     "o": [
+      "Install it: npm install.",
+      "Install it : npm install .",
+      "Install it ;npm install"
+     ],
+     "a": 0,
+     "why": {
+      "ar": "من غير مسافة قبل :.",
+      "en": "No space before :."
+     }
     }
    ],
    "minutes": 180
@@ -459,6 +567,18 @@ JOURNEY.week({
       "en": "For exact words, a message or a button name. In American English, periods and commas go inside the quotes."
      },
      "ex": "✗ The message says \"Done\".\n✓ The message says \"Done.\""
+    },
+    {
+     "h": {
+      "ar": "أمثلة الاستخدام: inline وcode blocks",
+      "en": "Usage examples: inline and code blocks"
+     },
+     "p": {
+      "ar": "اسم ملف أو أمر جوه جملة يتكتب **inline code** بعلامة `` ` `` واحدة: «Edit `config.json`». الأمر الكامل أو الكود يتحط في block بتلات علامات ومعاه اسم اللغة. وقبل كل block جملة بتقول هيعمل إيه، وبعده النتيجة المتوقعة.",
+      "en": "A file name or command inside a sentence goes in **inline code** with one backtick: «Edit `config.json`». A full command or code goes in a block with three backticks and the language name. Before each block, a sentence says what it does; after it, the expected result."
+     },
+     "ex": "Start the server in development mode:\n```bash\nnpm run dev\n```\nYou should see `Listening on port 5678`.",
+     "deep": 1
     }
    ],
    "practice": [
@@ -477,6 +597,16 @@ JOURNEY.week({
     {
      "ar": "اكتب تعليمات «Quick start» في 4 خطوات مرقمة.",
      "en": "Write \"Quick start\" instructions in 4 numbered steps."
+    },
+    {
+     "ar": "اكتب قسم Usage لمشروعك فيه 3 أمثلة بالشكل ده (جملة، block، نتيجة).",
+     "en": "Write a Usage section for your project with 3 examples in this form (sentence, block, result).",
+     "deep": 1
+    },
+    {
+     "ar": "راجع الـ README: أي اسم ملف أو أمر مش في inline code؟",
+     "en": "Review the README: any file name or command not in inline code?",
+     "deep": 1
     }
    ],
    "words": [
@@ -535,6 +665,22 @@ JOURNEY.week({
       "en": "Instructions"
      },
      "ex": "Follow the instructions in the README."
+    },
+    {
+     "t": "inline code",
+     "m": {
+      "ar": "كود صغير جوه الجملة بين علامتين `",
+      "en": "short code inside a sentence between backticks"
+     },
+     "ex": "Put file names in inline code."
+    },
+    {
+     "t": "expected output",
+     "m": {
+      "ar": "النتيجة اللي المفروض تظهر",
+      "en": "the result that should appear"
+     },
+     "ex": "Show the expected output after each command."
     }
    ],
    "read": [
@@ -608,6 +754,22 @@ JOURNEY.week({
       "ar": "backslash (المايلة لورا).",
       "en": "backslash (leaning back)."
      }
+    },
+    {
+     "q": {
+      "ar": "بعد الأمر في الـ README كويس تكتب:",
+      "en": "After a command in a README it helps to write:"
+     },
+     "o": [
+      "the expected output",
+      "your phone number",
+      "nothing"
+     ],
+     "a": 0,
+     "why": {
+      "ar": "القارئ يتأكد إنه نجح.",
+      "en": "The reader can check it worked."
+     }
     }
    ],
    "minutes": 180
@@ -666,6 +828,18 @@ JOURNEY.week({
       "en": "e.g. = for example (some of many); i.e. = that is (exactly). In American English a comma follows: e.g., Python, Go."
      },
      "ex": "Use a scripting language, e.g., Python or Ruby.\nRun it as root, i.e., with sudo."
+    },
+    {
+     "h": {
+      "ar": "شيل الكلام الزيادة",
+      "en": "Cut the extra words"
+     },
+     "p": {
+      "ar": "عبارات طويلة ليها بديل قصير: `in order to` ← `to`، `at this point in time` ← `now`، `due to the fact that` ← `because`، `is able to` ← `can`، `make a decision` ← `decide`، `it is important to note that` ← (امسحها). والكلام المكرر (redundant): `past history`، `end result`، `free gift`.",
+      "en": "Long phrases have short versions: `in order to` → `to`, `at this point in time` → `now`, `due to the fact that` → `because`, `is able to` → `can`, `make a decision` → `decide`, `it is important to note that` → (delete it). And redundant pairs: `past history`, `end result`, `free gift`."
+     },
+     "ex": "✗ In order to be able to run the bot, it is important to note that you need a token.\n✓ To run the bot, you need a token.",
+     "deep": 1
     }
    ],
    "practice": [
@@ -684,6 +858,16 @@ JOURNEY.week({
     {
      "ar": "حط README بتاعك في Hemingway Editor وصلّح الجمل الصعبة.",
      "en": "Put your README into Hemingway Editor and fix the hard sentences."
+    },
+    {
+     "ar": "اختصر 3 فقرات من التوثيق بتاعك 30% من غير ما يضيع معنى.",
+     "en": "Shorten 3 paragraphs of your docs by 30% without losing meaning.",
+     "deep": 1
+    },
+    {
+     "ar": "اعمل قايمة شخصية بـ 10 عبارات طويلة بتكتبها وبدايلها.",
+     "en": "Make a personal list of 10 long phrases you tend to write and their short versions.",
+     "deep": 1
     }
    ],
    "words": [
@@ -742,6 +926,22 @@ JOURNEY.week({
       "en": "not applicable / not available"
      },
      "ex": "Environment: N/A (the problem is in the docs)."
+    },
+    {
+     "t": "redundant",
+     "m": {
+      "ar": "زيادة مالهاش لازمة لأنها متكررة",
+      "en": "unnecessary because it repeats something"
+     },
+     "ex": "\"Past history\" is redundant."
+    },
+    {
+     "t": "plain language",
+     "m": {
+      "ar": "كلام بسيط واضح من غير تعقيد",
+      "en": "simple, clear words with no complexity"
+     },
+     "ex": "Write the guide in plain language."
     }
    ],
    "read": [
@@ -824,6 +1024,22 @@ JOURNEY.week({
       "ar": "مراجعة لغوية.",
       "en": "A language check."
      }
+    },
+    {
+     "q": {
+      "ar": "أقصر بديل لـ «due to the fact that»:",
+      "en": "The shortest version of «due to the fact that»:"
+     },
+     "o": [
+      "because",
+      "owing to the fact that",
+      "in view of the fact"
+     ],
+     "a": 0,
+     "why": {
+      "ar": "كلمة واحدة.",
+      "en": "One word."
+     }
     }
    ],
    "minutes": 180
@@ -871,6 +1087,18 @@ JOURNEY.week({
       "en": "US: May 3, 2026. UK: 3 May 2026. At work ISO is clearest: 2026-05-03. Time: 3:30 PM."
      },
      "ex": "✗ The meeting is on 03/05 at 15.30pm.\n✓ The meeting is on 2026-05-03 at 3:30 PM."
+    },
+    {
+     "h": {
+      "ar": "alt text والتعليقات على الصور",
+      "en": "Alt text and captions"
+     },
+     "p": {
+      "ar": "كل صورة في التوثيق ليها **alt text** (للي بيستخدموا قارئ شاشة ولو الصورة ماظهرتش): يوصف المعلومة مش الشكل — `Workflow: Webhook → IF → Google Sheets` أحسن من `screenshot`. والـ caption تحت الصورة بيقول القارئ يبص على إيه: `The red arrow shows the error output.`",
+      "en": "Every image in docs needs **alt text** (for screen-reader users and when the image fails to load): describe the information, not the look — `Workflow: Webhook → IF → Google Sheets` beats `screenshot`. A caption under the image tells readers what to look at: `The red arrow shows the error output.`"
+     },
+     "ex": "![Workflow: Webhook → Validate → Google Sheets → Telegram alert](flow.png)\n*The error output (bottom) sends a Telegram alert.*",
+     "deep": 1
     }
    ],
    "practice": [
@@ -889,6 +1117,16 @@ JOURNEY.week({
     {
      "ar": "اوصف الـ IDE بتاعك في 5 جمل: فين الـ terminal، والملفات، والـ debugger.",
      "en": "Describe your IDE in 5 sentences: where the terminal, the files and the debugger are."
+    },
+    {
+     "ar": "اكتب alt text وcaption لكل صورة في الـ README بتاعك.",
+     "en": "Write alt text and a caption for every image in your README.",
+     "deep": 1
+    },
+    {
+     "ar": "اقفل الصور في المتصفح واقرا الـ README: لسه مفهوم؟",
+     "en": "Turn off images in your browser and read the README: is it still clear?",
+     "deep": 1
     }
    ],
    "words": [
@@ -947,6 +1185,22 @@ JOURNEY.week({
       "en": "Choosing / picking"
      },
      "ex": "Select the first row in the table."
+    },
+    {
+     "t": "alt text",
+     "m": {
+      "ar": "وصف نصي للصورة",
+      "en": "a text description of an image"
+     },
+     "ex": "Write alt text for every screenshot."
+    },
+    {
+     "t": "caption",
+     "m": {
+      "ar": "سطر تحت الصورة بيشرحها",
+      "en": "a line under an image explaining it"
+     },
+     "ex": "The caption points to the red arrow."
     }
    ],
    "read": [
@@ -1020,6 +1274,22 @@ JOURNEY.week({
       "ar": "ISO: سنة-شهر-يوم، ملهاش لخبطة.",
       "en": "ISO year-month-day is never ambiguous."
      }
+    },
+    {
+     "q": {
+      "ar": "أحسن alt text:",
+      "en": "The best alt text:"
+     },
+     "o": [
+      "Webhook → IF → Google Sheets workflow",
+      "image1.png",
+      "screenshot"
+     ],
+     "a": 0,
+     "why": {
+      "ar": "بيوصف المعلومة.",
+      "en": "It describes the information."
+     }
     }
    ],
    "minutes": 180
@@ -1054,6 +1324,16 @@ JOURNEY.week({
     {
      "ar": "أفعال الواجهة، وcaptions وalt text، والتاريخ ISO.",
      "en": "UI verbs, captions and alt text, and ISO dates."
+    },
+    {
+     "ar": "⚡ العناوين والـ badges، والترقيم، وinline code والـ blocks.",
+     "en": "⚡ Headings and badges, punctuation, and inline code and blocks.",
+     "deep": 1
+    },
+    {
+     "ar": "⚡ شيل الكلام الزيادة، وalt text والـ captions: أعد كتابة README مشروعك كله.",
+     "en": "⚡ Cutting extra words, alt text and captions: rewrite your project’s whole README.",
+     "deep": 1
     }
    ],
    "project": {

@@ -56,6 +56,18 @@ JOURNEY.week({
       "en": "The present simple is the tense of routines: I start work at 9. I check my email first. We have a stand-up every day."
      },
      "ex": "I usually commute by bus.\nOn weekdays, I code for two hours.\nAt the weekend, I rest."
+    },
+    {
+     "h": {
+      "ar": "نطق الـ s: /s/ و/z/ و/ɪz/",
+      "en": "Saying the s: /s/, /z/ and /ɪz/"
+     },
+     "p": {
+      "ar": "الـ s في `returns` و`checks` و`fixes` مش بتتنطق زي بعض: بعد صوت مكتوم (p, t, k, f) بتبقى **/s/**: checks، gets. بعد صوت مجهور أو حرف علة بتبقى **/z/**: returns، runs، saves. وبعد s, z, sh, ch, x بتبقى مقطع زيادة **/ɪz/**: fixes، pushes، caches.",
+      "en": "The s in `returns`, `checks` and `fixes` is not said the same way: after a voiceless sound (p, t, k, f) it is **/s/**: checks, gets. After a voiced sound or a vowel it is **/z/**: returns, runs, saves. After s, z, sh, ch, x it adds a syllable **/ɪz/**: fixes, pushes, caches."
+     },
+     "ex": "/s/  checks · gets · stops · writes\n/z/  returns · runs · saves · calls\n/ɪz/ fixes · pushes · caches · uses",
+     "deep": 1
     }
    ],
    "practice": [
@@ -74,6 +86,16 @@ JOURNEY.week({
     {
      "ar": "اقرا أول فقرة في توثيق أي مكتبة، ولوّن كل فعل في المضارع البسيط.",
      "en": "Read the first paragraph of any library's docs and highlight every present-simple verb."
+    },
+    {
+     "ar": "صنّف 15 فعل من شغلك للتلات مجموعات وقولهم بصوت عالي.",
+     "en": "Sort 15 verbs from your work into the three groups and say them aloud.",
+     "deep": 1
+    },
+    {
+     "ar": "اقرا وصف 3 دوال من توثيق (The function returns…) مع نطق الـ s الصح.",
+     "en": "Read the description of 3 functions from docs (The function returns…) with the right s sound.",
+     "deep": 1
     }
    ],
    "words": [
@@ -132,6 +154,22 @@ JOURNEY.week({
       "en": "where you work"
      },
      "ex": "A good workplace has clear processes."
+    },
+    {
+     "t": "third person",
+     "m": {
+      "ar": "he وshe وit (والاسم المفرد)",
+      "en": "he, she, it (and singular nouns)"
+     },
+     "ex": "Add s for the third person: it runs."
+    },
+    {
+     "t": "minimal pair",
+     "m": {
+      "ar": "كلمتين بيفرق بينهم صوت واحد",
+      "en": "two words that differ by one sound"
+     },
+     "ex": "ship and sheep are a minimal pair."
     }
    ],
    "read": [
@@ -208,6 +246,22 @@ JOURNEY.week({
       "ar": "مع we الفعل من غير s: have.",
       "en": "With we the verb has no s: have."
      }
+    },
+    {
+     "q": {
+      "ar": "الـ s في `fixes` بتتنطق:",
+      "en": "The s in `fixes` sounds like:"
+     },
+     "o": [
+      "/ɪz/",
+      "/s/",
+      "/z/"
+     ],
+     "a": 0,
+     "why": {
+      "ar": "بعد x بتزود مقطع.",
+      "en": "After x it adds a syllable."
+     }
     }
    ],
    "minutes": 180
@@ -266,6 +320,18 @@ JOURNEY.week({
       "en": "9:15 = a quarter past nine, 9:30 = half past nine, 9:45 = a quarter to ten. At work we often just say the numbers: nine fifteen."
      },
      "ex": "The meeting starts at half past ten.\nThe backup runs at midnight.\nLet's talk at noon."
+    },
+    {
+     "h": {
+      "ar": "قول الوقت والتواريخ",
+      "en": "Saying times and dates"
+     },
+     "p": {
+      "ar": "الوقت: `9:00` nine o'clock، `9:15` nine fifteen أو quarter past nine، `9:30` nine thirty أو half past nine، `9:45` nine forty-five أو quarter to ten. التاريخ: `March 5` يتقال March the fifth (أمريكي: March fifth). و`at` للساعة، `on` لليوم، `in` للشهر والسنة.",
+      "en": "Time: `9:00` nine o'clock, `9:15` nine fifteen or quarter past nine, `9:30` nine thirty or half past nine, `9:45` nine forty-five or quarter to ten. Dates: `March 5` is said March the fifth (US: March fifth). Use `at` for times, `on` for days, `in` for months and years."
+     },
+     "ex": "The job runs at 7:30 on Mondays in March.\n→ \"at seven thirty, on Mondays, in March\"\nThe meeting is on June 3rd at quarter past two.",
+     "deep": 1
     }
    ],
    "practice": [
@@ -284,6 +350,16 @@ JOURNEY.week({
     {
      "ar": "قول بصوت عالي 8 مواعيد: 7:15، 8:30، 11:45، 12:00 بالليل وبالنهار…",
      "en": "Say 8 times out loud: 7:15, 8:30, 11:45, 12:00 day and night…"
+    },
+    {
+     "ar": "قول مواعيد 5 cron jobs عندك بالإنجليزي كاملة (اليوم والساعة).",
+     "en": "Say the schedule of 5 of your cron jobs in full English (day and time).",
+     "deep": 1
+    },
+    {
+     "ar": "اكتب 5 جمل بـ at وon وin عن مواعيد شغلك.",
+     "en": "Write 5 sentences with at, on and in about your work schedule.",
+     "deep": 1
     }
    ],
    "words": [
@@ -342,6 +418,22 @@ JOURNEY.week({
       "en": "exactly at the time / early enough"
      },
      "ex": "The meeting started on time; I arrived in time."
+    },
+    {
+     "t": "o'clock",
+     "m": {
+      "ar": "الساعة بالظبط من غير دقايق",
+      "en": "an exact hour with no minutes"
+     },
+     "ex": "The backup runs at six o'clock."
+    },
+    {
+     "t": "quarter past",
+     "m": {
+      "ar": "وربع (بعد الساعة بـ 15 دقيقة)",
+      "en": "15 minutes after the hour"
+     },
+     "ex": "We meet at quarter past ten."
     }
    ],
    "read": [
@@ -406,6 +498,22 @@ JOURNEY.week({
       "ar": "on مع الأيام، وat مع الساعة.",
       "en": "on with days, at with clock times."
      }
+    },
+    {
+     "q": {
+      "ar": "الصح:",
+      "en": "Correct:"
+     },
+     "o": [
+      "on Monday at 9",
+      "in Monday at 9",
+      "at Monday on 9"
+     ],
+     "a": 0,
+     "why": {
+      "ar": "on لليوم، at للساعة.",
+      "en": "on for days, at for times."
+     }
     }
    ],
    "minutes": 180
@@ -464,6 +572,18 @@ JOURNEY.week({
       "en": "-ed has 3 sounds: /t/ after voiceless sounds (fixed, pushed), /d/ after the others (deployed, called), and /ɪd/ only after t and d (tested, updated)."
      },
      "ex": "fixed /fɪkst/   deployed /dɪˈplɔɪd/   tested /ˈtestɪd/"
+    },
+    {
+     "h": {
+      "ar": "نطق -ed: /t/ و/d/ و/ɪd/",
+      "en": "Saying -ed: /t/, /d/ and /ɪd/"
+     },
+     "p": {
+      "ar": "زي الـ s: بعد صوت مكتوم الـ ed بتبقى **/t/**: fixed، pushed، checked. بعد صوت مجهور **/d/**: saved، called، deployed. وبعد t أو d بس بتبقى مقطع زيادة **/ɪd/**: started، updated، added. غلطة شائعة: تقول «fix-ed» بمقطعين.",
+      "en": "Like the s: after a voiceless sound -ed is **/t/**: fixed, pushed, checked. After a voiced sound **/d/**: saved, called, deployed. Only after t or d does it add a syllable **/ɪd/**: started, updated, added. A common mistake: saying «fix-ed» with two syllables."
+     },
+     "ex": "/t/  fixed · pushed · checked · stopped\n/d/  saved · called · deployed · logged\n/ɪd/ started · updated · added · tested",
+     "deep": 1
     }
    ],
    "practice": [
@@ -482,6 +602,16 @@ JOURNEY.week({
     {
      "ar": "قول 10 أفعال ماضي بصوت عالي وقسّمهم على الأصوات التلاتة لـ ed.",
      "en": "Say 10 past-tense verbs out loud and sort them by the three -ed sounds."
+    },
+    {
+     "ar": "اقرا آخر 10 commits ليك بصيغة الماضي (Fixed، Added…) بالنطق الصح.",
+     "en": "Read your last 10 commits in the past tense (Fixed, Added…) with the right ending.",
+     "deep": 1
+    },
+    {
+     "ar": "احكي بصوت عالي إيه اللي عملته امبارح في 6 جمل ماضي.",
+     "en": "Say aloud what you did yesterday in 6 past-tense sentences.",
+     "deep": 1
     }
    ],
    "code": [
@@ -549,6 +679,22 @@ JOURNEY.week({
       "en": "A delay / a temporary pause"
      },
      "ex": "Add a short delay between requests."
+    },
+    {
+     "t": "regular verb",
+     "m": {
+      "ar": "فعل ماضيه بيتعمل بـ -ed",
+      "en": "a verb whose past is made with -ed"
+     },
+     "ex": "deploy is a regular verb: deployed."
+    },
+    {
+     "t": "past ending",
+     "m": {
+      "ar": "النهاية اللي بتضيفها للفعل في الماضي",
+      "en": "the ending you add to a verb for the past"
+     },
+     "ex": "The past ending in fixed sounds like /t/."
     }
    ],
    "read": [
@@ -613,6 +759,22 @@ JOURNEY.week({
       "ar": "بعد t وd بس بتتنطق مقطع كامل /ɪd/.",
       "en": "Only after t and d is it a full syllable, /ɪd/."
      }
+    },
+    {
+     "q": {
+      "ar": "أنهي فعل الـ ed فيه مقطع زيادة؟",
+      "en": "Which verb adds a syllable with -ed?"
+     },
+     "o": [
+      "updated",
+      "fixed",
+      "called"
+     ],
+     "a": 0,
+     "why": {
+      "ar": "بعد t أو d بس.",
+      "en": "Only after t or d."
+     }
     }
    ],
    "minutes": 180
@@ -660,6 +822,18 @@ JOURNEY.week({
       "en": "Use will for promises and decisions made now: I'll check it. I'll send it by 5. Use going to for a plan you already decided: We're going to migrate next month."
      },
      "ex": "A: The build is red.\nB: I'll look into it.\n\nWe're going to release version 2 on Monday."
+    },
+    {
+     "h": {
+      "ar": "كلام الخطط والتقدير",
+      "en": "Talking about plans and estimates"
+     },
+     "p": {
+      "ar": "في اجتماع التخطيط: `going to` للي اتقرر (`We're going to migrate in May`)، و`will` للتوقع أو قرار دلوقتي (`It will probably take two days`، `I'll check`). ولما مش متأكد، خفّف كلامك (hedge): `probably`، `should be done by Friday`، `I expect`، `if nothing breaks`.",
+      "en": "In a planning meeting: `going to` for what is decided (`We're going to migrate in May`), and `will` for predictions or decisions made now (`It will probably take two days`, `I'll check`). When unsure, hedge: `probably`, `should be done by Friday`, `I expect`, `if nothing breaks`."
+     },
+     "ex": "We're going to move the bot to the new server next week.\nIt should take about two days, if the API keys are ready.\nI'll send you an update on Thursday.",
+     "deep": 1
     }
    ],
    "practice": [
@@ -678,6 +852,16 @@ JOURNEY.week({
     {
      "ar": "اكتب توقعاتك (predictions) لمشروعك بعد 6 شهور في 5 جمل بـ will.",
      "en": "Write 5 predictions with will about your project six months from now."
+    },
+    {
+     "ar": "اكتب خطة أسبوعك الجاي في 5 جمل بـ going to و3 تقديرات بـ will مع hedge.",
+     "en": "Write next week’s plan in 5 going to sentences and 3 will estimates with hedging.",
+     "deep": 1
+    },
+    {
+     "ar": "قولها كأنك في اجتماع، وسجّل.",
+     "en": "Say it as if in a meeting, and record it.",
+     "deep": 1
     }
    ],
    "words": [
@@ -736,6 +920,22 @@ JOURNEY.week({
       "en": "free / not free"
      },
      "ex": "Are you available for a quick call?"
+    },
+    {
+     "t": "roadmap",
+     "m": {
+      "ar": "خطة بالمراحل الجاية ومواعيدها",
+      "en": "a plan of the coming stages and their dates"
+     },
+     "ex": "The roadmap shows the next three months."
+    },
+    {
+     "t": "hedge",
+     "m": {
+      "ar": "تخفّف كلامك عشان متوعدش بحاجة مش متأكد منها",
+      "en": "to soften what you say so you do not promise what you are unsure of"
+     },
+     "ex": "Hedge your estimate with \"probably\"."
     }
    ],
    "read": [
@@ -809,6 +1009,22 @@ JOURNEY.week({
       "ar": "reschedule = تغيّر الميعاد لوقت تاني.",
       "en": "reschedule = move it to another time."
      }
+    },
+    {
+     "q": {
+      "ar": "قرار اتاخد قبل الاجتماع:",
+      "en": "A decision made before the meeting:"
+     },
+     "o": [
+      "We're going to switch to Postgres.",
+      "We'll switch to Postgres, I think.",
+      "We switch to Postgres yesterday."
+     ],
+     "a": 0,
+     "why": {
+      "ar": "going to للي اتقرر.",
+      "en": "going to for decided plans."
+     }
     }
    ],
    "minutes": 180
@@ -856,6 +1072,18 @@ JOURNEY.week({
       "en": "I'm fixing the bug (now). I fix bugs every day (habit). In the stand-up we say: Today I'm working on…"
      },
      "ex": "Right now I'm writing the tests.\nThis week we're migrating the database.\nThe server is restarting, please wait."
+    },
+    {
+     "h": {
+      "ar": "تحديث الـ stand-up",
+      "en": "The stand-up update"
+     },
+     "p": {
+      "ar": "3 أسئلة، دقيقة واحدة: **Yesterday** (ماضي): `I finished the webhook.` **Today** (مستقبل/مستمر): `I'm working on the error alerts.` **Blockers**: `I'm blocked by the missing API key.` قلّل كلمات الحشو (um، like، so basically) وقف ثانية بدلها.",
+      "en": "Three questions, one minute: **Yesterday** (past): `I finished the webhook.` **Today** (future/continuous): `I'm working on the error alerts.` **Blockers**: `I'm blocked by the missing API key.` Cut filler words (um, like, so basically) and pause for a second instead."
+     },
+     "ex": "Yesterday I finished the booking webhook and tested it with curl.\nToday I'm adding the Telegram alerts.\nI'm blocked on the Gmail access — could someone share it?",
+     "deep": 1
     }
    ],
    "practice": [
@@ -874,6 +1102,16 @@ JOURNEY.week({
     {
      "ar": "اكتب رسالة حالة (status update) من 3 سطور عن مهمة شغال عليها.",
      "en": "Write a 3-line status update about a task you are working on."
+    },
+    {
+     "ar": "سجّل stand-up كل يوم الأسبوع ده (دقيقة)، واسمعه وعدّ كلمات الحشو.",
+     "en": "Record a one-minute stand-up every day this week, listen back and count the filler words.",
+     "deep": 1
+    },
+    {
+     "ar": "اكتب نفس الـ stand-up في رسالة Slack من 3 سطور.",
+     "en": "Write the same stand-up as a 3-line Slack message.",
+     "deep": 1
     }
    ],
    "words": [
@@ -932,6 +1170,22 @@ JOURNEY.week({
       "en": "as soon as possible"
      },
      "ex": "Please fix the login bug ASAP."
+    },
+    {
+     "t": "stand-up",
+     "m": {
+      "ar": "اجتماع يومي قصير كل واحد بيقول عمل إيه",
+      "en": "a short daily meeting where each person says what they did"
+     },
+     "ex": "Keep your stand-up under one minute."
+    },
+    {
+     "t": "filler words",
+     "m": {
+      "ar": "كلمات حشو زي um وlike",
+      "en": "empty words like um and like"
+     },
+     "ex": "Pause instead of using filler words."
     }
    ],
    "read": [
@@ -996,6 +1250,22 @@ JOURNEY.week({
       "ar": "ASAP = في أسرع وقت ممكن.",
       "en": "ASAP = as soon as possible."
      }
+    },
+    {
+     "q": {
+      "ar": "في الـ stand-up «النهارده» غالبًا بزمن:",
+      "en": "In a stand-up, «today» usually uses:"
+     },
+     "o": [
+      "I'm working on…",
+      "I worked on…",
+      "I have work on…"
+     ],
+     "a": 0,
+     "why": {
+      "ar": "شغل جاري.",
+      "en": "Work in progress."
+     }
     }
    ],
    "minutes": 180
@@ -1030,6 +1300,16 @@ JOURNEY.week({
     {
      "ar": "المضارع المستمر للشغل الجاري، ومن غير need/know/want في المستمر.",
      "en": "Present continuous for work in progress, and no need/know/want in the continuous."
+    },
+    {
+     "ar": "⚡ نطق -s و-ed، والوقت والتواريخ مع at/on/in.",
+     "en": "⚡ Saying -s and -ed, and times and dates with at/on/in.",
+     "deep": 1
+    },
+    {
+     "ar": "⚡ going to وwill والـ hedging، والـ stand-up في دقيقة: سجّل stand-up حقيقي وقيّمه.",
+     "en": "⚡ going to, will and hedging, and a one-minute stand-up: record a real stand-up and assess it.",
+     "deep": 1
     }
    ],
    "project": {

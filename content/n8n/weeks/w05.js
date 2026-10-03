@@ -59,6 +59,18 @@ JOURNEY.week({
       "en": "Append = always a new row. Update = change an existing row by a match column (Column to match on). Append or Update = update if it exists, add if not — this is what prevents duplicates."
      },
      "ex": "Append or Update → Column to match on: email"
+    },
+    {
+     "h": {
+      "ar": "Append or Update: مفتاح الصف",
+      "en": "Append or Update: the row key"
+     },
+     "p": {
+      "ar": "عملية **Append or Update Row** بتدوّر على صف بقيمة عمود معيّن (**Column to match on**، زي `order_id`): لو لقته تحدّثه، لو ملقتهوش تضيف صف جديد. كده تشغيل الـ workflow مرتين مش هيعمل صفوف مكررة. اختار عمود قيمته مش بتتكرر ومش بتتغيّر.",
+      "en": "The **Append or Update Row** operation looks for a row by one column’s value (**Column to match on**, like `order_id`): if found it updates it, if not it adds a new row. So running the workflow twice does not create duplicate rows. Pick a column whose value is unique and never changes."
+     },
+     "ex": "Google Sheets → Append or Update Row\n  Column to match on: order_id\n  order_id = {{ $json.id }}   status = {{ $json.status }}\nrun 1: adds row 1042 · run 2: updates row 1042",
+     "deep": 1
     }
    ],
    "practice": [
@@ -77,6 +89,16 @@ JOURNEY.week({
     {
      "ar": "ضيف نفس الـ lead مرتين بـ Append or Update واتأكد إنه صف واحد.",
      "en": "Add the same lead twice with Append or Update and check it stays one row."
+    },
+    {
+     "ar": "اعمل شيت `orders` وابعتله نفس 3 طلبات مرتين بـ Append، وبعدين بـ Append or Update. قارن عدد الصفوف.",
+     "en": "Make an `orders` sheet and send the same 3 orders twice with Append, then with Append or Update. Compare the row counts.",
+     "deep": 1
+    },
+    {
+     "ar": "غيّر حالة طلب واحد وشغّل تاني: اتأكد إن الصف اتحدّث بس.",
+     "en": "Change one order’s status and run again: check only that row was updated.",
+     "deep": 1
     }
    ],
    "words": [
@@ -119,6 +141,22 @@ JOURNEY.week({
       "en": "the long code in the sheet URL that identifies it"
      },
      "ex": "docs.google.com/spreadsheets/d/<ID>/edit"
+    },
+    {
+     "t": "upsert",
+     "m": {
+      "ar": "تحدّث لو موجود أو تضيف لو جديد",
+      "en": "update if it exists, insert if it is new"
+     },
+     "ex": "Append or Update is an upsert."
+    },
+    {
+     "t": "match column",
+     "m": {
+      "ar": "العمود اللي بيتدوّر بيه على الصف",
+      "en": "the column used to find the row"
+     },
+     "ex": "Use order_id as the match column."
     }
    ],
    "read": [
@@ -209,6 +247,31 @@ JOURNEY.week({
       "ar": "كل صف لازم سجل واضح.",
       "en": "Each row must be a clear record."
      }
+    },
+    {
+     "q": {
+      "ar": "ليه Append or Update أحسن من Append لمزامنة الطلبات؟",
+      "en": "Why is Append or Update better than Append for syncing orders?"
+     },
+     "o": [
+      {
+       "ar": "مش بيكرر الصفوف",
+       "en": "it does not duplicate rows"
+      },
+      {
+       "ar": "أسرع دايمًا",
+       "en": "it is always faster"
+      },
+      {
+       "ar": "مش محتاج credential",
+       "en": "it needs no credential"
+      }
+     ],
+     "a": 0,
+     "why": {
+      "ar": "بيحدّث الموجود.",
+      "en": "It updates what exists."
+     }
     }
    ],
    "minutes": 180
@@ -256,6 +319,18 @@ JOURNEY.week({
       "en": "Don't send hundreds of emails at once from a personal account (there are daily limits), add a Wait between messages, use a clear subject, and avoid words like FREE!!!. For bulk sending use a dedicated email service."
      },
      "ex": "Loop Over Items (batch 10) → Gmail → Wait 5s"
+    },
+    {
+     "h": {
+      "ar": "إيميلات HTML بقالب",
+      "en": "HTML emails from a template"
+     },
+     "p": {
+      "ar": "بدل ما تكتب الإيميل جوه النود، اعمل قالب HTML بسيط فيه خانات `{{ }}`، وخليه في نود Edit Fields أو HTML. خلّي التصميم بسيط: عمود واحد، خط واضح، زر واحد، ونسخة نص عادي للبرامج اللي مش بتعرض HTML. وجرّب على نفسك الأول دايمًا.",
+      "en": "Instead of writing the email inside the node, build a simple HTML template with `{{ }}` slots, kept in an Edit Fields or HTML node. Keep the design simple: one column, a clear font, one button, and a plain-text version for apps that do not show HTML. Always send to yourself first."
+     },
+     "ex": "<h2>Hi {{ $json.name }},</h2>\n<p>Your booking is on <b>{{ $json.date }}</b> at {{ $json.time }}.</p>\n<p><a href=\"{{ $json.manage_url }}\">Manage booking</a></p>",
+     "deep": 1
     }
    ],
    "practice": [
@@ -274,6 +349,16 @@ JOURNEY.week({
     {
      "ar": "اختبر شكل الإيميل على الموبايل والكمبيوتر.",
      "en": "Check how the email looks on mobile and desktop."
+    },
+    {
+     "ar": "اعمل قالب تذكير بميعاد فيه الاسم والتاريخ وزر، وابعته لنفسك من Gmail.",
+     "en": "Build an appointment reminder template with the name, date and a button, and send it to yourself from Gmail.",
+     "deep": 1
+    },
+    {
+     "ar": "افتح الإيميل على الموبايل والكمبيوتر: شكله مظبوط في الاتنين؟",
+     "en": "Open the email on your phone and computer: does it look right on both?",
+     "deep": 1
     }
    ],
    "words": [
@@ -319,6 +404,22 @@ JOURNEY.week({
       "en": "the maximum number of emails an account may send per day"
      },
      "ex": "Personal Gmail accounts have daily limits."
+    },
+    {
+     "t": "merge field",
+     "m": {
+      "ar": "خانة في القالب بتتملي ببيانات كل عميل",
+      "en": "a slot in a template that is filled with each customer’s data"
+     },
+     "ex": "The name is a merge field."
+    },
+    {
+     "t": "plain text",
+     "m": {
+      "ar": "نص عادي من غير تنسيق",
+      "en": "text with no formatting"
+     },
+     "ex": "Add a plain text version of the email."
     }
    ],
    "read": [
@@ -415,6 +516,31 @@ JOURNEY.week({
       "ar": "برامج الإيميل مختلفة.",
       "en": "Email clients differ."
      }
+    },
+    {
+     "q": {
+      "ar": "ليه تبعت الإيميل لنفسك الأول؟",
+      "en": "Why send the email to yourself first?"
+     },
+     "o": [
+      {
+       "ar": "تشوف شكله الحقيقي قبل العملاء",
+       "en": "to see how it really looks before customers do"
+      },
+      {
+       "ar": "عشان Gmail يطلب كده",
+       "en": "because Gmail requires it"
+      },
+      {
+       "ar": "عشان يبقى أسرع",
+       "en": "to make it faster"
+      }
+     ],
+     "a": 0,
+     "why": {
+      "ar": "الغلطة قدامك انت بس.",
+      "en": "Only you see the mistake."
+     }
     }
    ],
    "minutes": 180
@@ -462,6 +588,18 @@ JOURNEY.week({
       "en": "After processing an email, add a \"processed\" label or archive it so you don't handle it twice and the client can see what was done."
      },
      "ex": "Gmail: Add Label → processed"
+    },
+    {
+     "h": {
+      "ar": "بحث Gmail المتقدم",
+      "en": "Advanced Gmail search"
+     },
+     "p": {
+      "ar": "تريجر Gmail ونود Get Many بيقبلوا نفس بحث Gmail: `from:billing@shop.com`، `subject:invoice`، `has:attachment`، `is:unread`، `newer_than:2d`، `-label:processed`. وبعد ما تعالج الإيميل حطله label `processed` عشان متعالجوش تاني.",
+      "en": "The Gmail trigger and Get Many accept the same search as Gmail: `from:billing@shop.com`, `subject:invoice`, `has:attachment`, `is:unread`, `newer_than:2d`, `-label:processed`. After handling an email add a `processed` label so you do not handle it again."
+     },
+     "ex": "Search: from:(billing@shop.com) subject:invoice has:attachment -label:processed\n→ extract the attachment → save to Drive\n→ Gmail: Add Label \"processed\"",
+     "deep": 1
     }
    ],
    "practice": [
@@ -480,6 +618,16 @@ JOURNEY.week({
     {
      "ar": "ضيف label «processed» بعد المعالجة.",
      "en": "Add a \"processed\" label after processing."
+    },
+    {
+     "ar": "جرّب البحث ده في Gmail نفسه الأول لحد ما يجيب الإيميلات الصح، وبعدين حطه في n8n.",
+     "en": "Try the search in Gmail itself until it finds the right emails, then put it in n8n.",
+     "deep": 1
+    },
+    {
+     "ar": "ضيف label `processed` بعد المعالجة وشغّل مرتين: التانية لازم متلاقيش حاجة.",
+     "en": "Add a `processed` label after handling and run twice: the second run must find nothing.",
+     "deep": 1
     }
    ],
    "words": [
@@ -522,6 +670,22 @@ JOURNEY.week({
       "en": "a chain of messages on the same topic"
      },
      "ex": "Reply in the same thread."
+    },
+    {
+     "t": "search operator",
+     "m": {
+      "ar": "كلمة خاصة بتحدد البحث زي from: وhas:",
+      "en": "a special word that narrows a search, like from: and has:"
+     },
+     "ex": "Use the has:attachment search operator."
+    },
+    {
+     "t": "attachment",
+     "m": {
+      "ar": "ملف مرفق مع الإيميل",
+      "en": "a file sent with an email"
+     },
+     "ex": "Save each attachment to Drive."
     }
    ],
    "read": [
@@ -613,6 +777,31 @@ JOURNEY.week({
       "ar": "نفس بحث Gmail العادي.",
       "en": "The same syntax as Gmail search."
      }
+    },
+    {
+     "q": {
+      "ar": "`-label:processed` معناها:",
+      "en": "`-label:processed` means:"
+     },
+     "o": [
+      {
+       "ar": "الإيميلات اللي مش عليها الـ label ده",
+       "en": "emails without that label"
+      },
+      {
+       "ar": "امسح الـ label",
+       "en": "delete the label"
+      },
+      {
+       "ar": "الإيميلات اللي عليها الـ label",
+       "en": "emails with that label"
+      }
+     ],
+     "a": 0,
+     "why": {
+      "ar": "العلامة - = استبعد.",
+      "en": "The minus sign = exclude."
+     }
     }
    ],
    "minutes": 180
@@ -660,6 +849,18 @@ JOURNEY.week({
       "en": "Parse Mode: HTML lets you use <b>, <i>, <a> and <code>. Careful: < > & in the data must be escaped or the message fails."
      },
      "ex": "<b>Sales today</b>: {{ $json.total }} EGP\n<a href=\"{{ $json.url }}\">Open report</a>"
+    },
+    {
+     "h": {
+      "ar": "أوامر البوت والرد حسب الأمر",
+      "en": "Bot commands and routing"
+     },
+     "p": {
+      "ar": "المستخدم بيكتب `/start` أو `/price` أو `/help`. بعد Telegram Trigger حط **Switch** على `{{ $json.message.text.split(\" \")[0] }}` وكل أمر ليه فرع، وفرع افتراضي يرد «مش فاهم، اكتب /help». ومتنساش تسجّل الأوامر عند BotFather عشان تظهر في القايمة.",
+      "en": "The user types `/start`, `/price` or `/help`. After the Telegram Trigger add a **Switch** on `{{ $json.message.text.split(\" \")[0] }}` with a branch per command, and a fallback branch that replies «I did not understand, type /help». Register the commands with BotFather so they appear in the menu."
+     },
+     "ex": "Telegram Trigger → Switch (command)\n  /start → welcome message\n  /price → read price from Sheet → reply\n  /help  → list of commands\n  other  → \"type /help\"",
+     "deep": 1
     }
    ],
    "practice": [
@@ -678,6 +879,16 @@ JOURNEY.week({
     {
      "ar": "خلّي البوت يرد بس على chat ID بتاعك (أمان).",
      "en": "Make the bot reply only to your own chat ID (security)."
+    },
+    {
+     "ar": "اعمل بوت بـ 3 أوامر وفرع افتراضي، وسجّل الأوامر عند BotFather بـ `/setcommands`.",
+     "en": "Build a bot with 3 commands and a fallback branch, and register them with BotFather using `/setcommands`.",
+     "deep": 1
+    },
+    {
+     "ar": "خلّي `/price laptop` يقرا كلمة بعد الأمر ويدوّر عليها في شيت.",
+     "en": "Make `/price laptop` read the word after the command and look it up in a sheet.",
+     "deep": 1
     }
    ],
    "words": [
@@ -720,6 +931,22 @@ JOURNEY.week({
       "en": "replace < > & so they aren't read as HTML"
      },
      "ex": "& → &amp;"
+    },
+    {
+     "t": "command",
+     "m": {
+      "ar": "أمر بيبدأ بـ / للبوت",
+      "en": "an instruction starting with / for a bot"
+     },
+     "ex": "The /help command lists the options."
+    },
+    {
+     "t": "dispatch",
+     "m": {
+      "ar": "توزّع كل حالة على الفرع بتاعها",
+      "en": "to send each case to the part that handles it"
+     },
+     "ex": "The Switch dispatches each command."
     }
    ],
    "read": [
@@ -802,6 +1029,31 @@ JOURNEY.week({
       "ar": "Parse Mode HTML بيقرا < كـ tag.",
       "en": "HTML parse mode reads < as a tag."
      }
+    },
+    {
+     "q": {
+      "ar": "الفرع الافتراضي في Switch مهم ليه؟",
+      "en": "Why does the Switch need a fallback branch?"
+     },
+     "o": [
+      {
+       "ar": "عشان يرد على أي رسالة مش متوقعة",
+       "en": "to answer any unexpected message"
+      },
+      {
+       "ar": "عشان يسرّع البوت",
+       "en": "to speed up the bot"
+      },
+      {
+       "ar": "مش مهم",
+       "en": "it does not matter"
+      }
+     ],
+     "a": 0,
+     "why": {
+      "ar": "المستخدمين بيكتبوا أي حاجة.",
+      "en": "Users type anything."
+     }
     }
    ],
    "minutes": 180
@@ -849,6 +1101,18 @@ JOURNEY.week({
       "en": "Send Photo or Send Document takes binary data or a URL. Useful for reports (PDF) and charts."
      },
      "ex": "Convert to File (CSV) → Telegram: Send Document (binary: data)"
+    },
+    {
+     "h": {
+      "ar": "callback من أزرار Telegram",
+      "en": "Callbacks from Telegram buttons"
+     },
+     "p": {
+      "ar": "الأزرار (inline keyboard) لما حد يدوس عليها بتبعت **callback_query** مش رسالة. فعّل الحدث ده في التريجر، واقرا `callback_query.data` (اللي انت حددته للزر، زي `confirm_1042`)، ورد بـ **Answer Query** عشان علامة التحميل تختفي من عند المستخدم.",
+      "en": "When someone presses an inline keyboard button, Telegram sends a **callback_query**, not a message. Enable that update in the trigger, read `callback_query.data` (the value you set on the button, like `confirm_1042`), and reply with **Answer Query** so the loading sign disappears for the user."
+     },
+     "ex": "button: { text: \"✅ Confirm\", callback_data: \"confirm_1042\" }\nTrigger (updates: message, callback_query)\n→ IF {{ $json.callback_query?.data?.startsWith(\"confirm_\") }}\n→ update the booking → Answer Query: \"Confirmed ✅\"",
+     "deep": 1
     }
    ],
    "practice": [
@@ -867,6 +1131,16 @@ JOURNEY.week({
     {
      "ar": "جرّب Send and Wait for Response في workflow بسيط.",
      "en": "Try Send and Wait for Response in a simple workflow."
+    },
+    {
+     "ar": "ابعت رسالة فيها زرين (تأكيد / إلغاء) وخلّي كل زر يكتب في شيت.",
+     "en": "Send a message with two buttons (confirm / cancel) and make each button write to a sheet.",
+     "deep": 1
+    },
+    {
+     "ar": "اتأكد إن الزر بيشتغل مرة واحدة: لو اتداس تاني يرد «اتأكد قبل كده».",
+     "en": "Make the button work once: if pressed again, reply «already confirmed».",
+     "deep": 1
     }
    ],
    "words": [
@@ -909,6 +1183,22 @@ JOURNEY.week({
       "en": "the Telegram operation that sends a file"
      },
      "ex": "Send the monthly PDF."
+    },
+    {
+     "t": "callback",
+     "m": {
+      "ar": "إشارة بترجع لما المستخدم يعمل حاجة زي يدوس زر",
+      "en": "a signal sent back when the user does something like press a button"
+     },
+     "ex": "The callback carries the booking id."
+    },
+    {
+     "t": "button press",
+     "m": {
+      "ar": "ضغطة المستخدم على زر في رسالة البوت",
+      "en": "the user tapping a button in a bot message"
+     },
+     "ex": "A button press arrives as a callback query."
     }
    ],
    "read": [
@@ -990,6 +1280,31 @@ JOURNEY.week({
       "ar": "ملف = document.",
       "en": "A file = a document."
      }
+    },
+    {
+     "q": {
+      "ar": "دوسة زر inline بتوصل كـ:",
+      "en": "A press on an inline button arrives as:"
+     },
+     "o": [
+      {
+       "ar": "callback_query",
+       "en": "a callback_query"
+      },
+      {
+       "ar": "رسالة نصية",
+       "en": "a text message"
+      },
+      {
+       "ar": "إيميل",
+       "en": "an email"
+      }
+     ],
+     "a": 0,
+     "why": {
+      "ar": "لازم تفعّلها في التريجر.",
+      "en": "You must enable it in the trigger."
+     }
     }
    ],
    "minutes": 180
@@ -1024,6 +1339,16 @@ JOURNEY.week({
     {
      "ar": "أزرار inline وcallback_query وSend and Wait.",
      "en": "Inline buttons, callback_query and Send and Wait."
+    },
+    {
+     "ar": "⚡ Append or Update بعمود مفتاح، وقوالب الإيميل HTML.",
+     "en": "⚡ Append or Update with a key column, and HTML email templates.",
+     "deep": 1
+    },
+    {
+     "ar": "⚡ بحث Gmail وlabel للمعالَج، وأوامر البوت، وأزرار callback: اجمعهم في بوت حجز صغير.",
+     "en": "⚡ Gmail search and a label for handled mail, bot commands and callback buttons: combine them in a small booking bot.",
+     "deep": 1
     }
    ],
    "project": {

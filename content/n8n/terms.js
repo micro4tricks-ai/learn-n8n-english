@@ -2,6 +2,96 @@
 window.JOURNEY_TERMS = window.JOURNEY_TERMS || {};
 JOURNEY_TERMS["n8n"] = [
  {
+  "w": 1,
+  "t": "pin",
+  "m": {
+   "ar": "تثبيت خرج نود عشان التجارب تستخدمه",
+   "en": "to fix a node’s output so test runs reuse it"
+  },
+  "ex": "Pin the API response while you build."
+ },
+ {
+  "w": 1,
+  "t": "test run",
+  "m": {
+   "ar": "تشغيل تجريبي من المحرر",
+   "en": "a trial run started from the editor"
+  },
+  "ex": "A test run uses pinned data."
+ },
+ {
+  "w": 1,
+  "t": "client error",
+  "m": {
+   "ar": "خطأ من ناحية الطلب نفسه (أكواد 4xx)",
+   "en": "an error caused by the request itself (4xx codes)"
+  },
+  "ex": "A 404 is a client error: fix the URL."
+ },
+ {
+  "w": 1,
+  "t": "retry",
+  "m": {
+   "ar": "تعيد المحاولة بعد فشل",
+   "en": "to try again after a failure"
+  },
+  "ex": "Retry after a 503, not after a 400."
+ },
+ {
+  "w": 1,
+  "t": "encrypt",
+  "m": {
+   "ar": "تحوّل بيانات لشكل محدش يقراه من غير مفتاح",
+   "en": "to turn data into a form nobody can read without a key"
+  },
+  "ex": "n8n encrypts stored credentials."
+ },
+ {
+  "w": 1,
+  "t": "secret",
+  "m": {
+   "ar": "معلومة سرية زي مفتاح أو توكن",
+   "en": "a confidential value such as a key or token"
+  },
+  "ex": "Never paste a secret into a node field."
+ },
+ {
+  "w": 1,
+  "t": "mode",
+  "m": {
+   "ar": "طريقة تشغيل محددة لنود",
+   "en": "a particular way a node runs"
+  },
+  "ex": "Switch the Code node mode to Run Once for Each Item."
+ },
+ {
+  "w": 1,
+  "t": "running total",
+  "m": {
+   "ar": "مجموع بيزيد مع كل عنصر",
+   "en": "a sum that grows with each item"
+  },
+  "ex": "reduce keeps a running total."
+ },
+ {
+  "w": 1,
+  "t": "error branch",
+  "m": {
+   "ar": "الفرع اللي بتمشي فيه العناصر اللي فشلت",
+   "en": "the branch the failed items follow"
+  },
+  "ex": "The error branch sends a Telegram alert."
+ },
+ {
+  "w": 1,
+  "t": "flaky",
+  "m": {
+   "ar": "بيفشل أحيانًا وينجح أحيانًا من غير سبب واضح",
+   "en": "failing sometimes and working other times for no clear reason"
+  },
+  "ex": "A flaky API needs Retry On Fail."
+ },
+ {
   "w": 2,
   "t": "npx",
   "m": {
@@ -27,6 +117,24 @@ JOURNEY_TERMS["n8n"] = [
    "en": "the folder the terminal is currently in"
   },
   "ex": "pwd shows the working directory."
+ },
+ {
+  "w": 2,
+  "t": "docker image",
+  "m": {
+   "ar": "القالب الجاهز اللي الحاوية بتتعمل منه",
+   "en": "the ready template a container is created from"
+  },
+  "ex": "Pull the latest n8n docker image."
+ },
+ {
+  "w": 2,
+  "t": "persistent",
+  "m": {
+   "ar": "بيفضل موجود بعد إعادة التشغيل",
+   "en": "kept after a restart"
+  },
+  "ex": "Use persistent storage for the n8n data."
  },
  {
   "w": 2,
@@ -57,12 +165,48 @@ JOURNEY_TERMS["n8n"] = [
  },
  {
   "w": 2,
+  "t": "parse error",
+  "m": {
+   "ar": "خطأ لما البرنامج مش قادر يقرا النص كـ JSON",
+   "en": "an error when a program cannot read the text as JSON"
+  },
+  "ex": "A single quote causes a parse error."
+ },
+ {
+  "w": 2,
+  "t": "serialize",
+  "m": {
+   "ar": "تحوّل object لنص عشان تبعته أو تحفظه",
+   "en": "to turn an object into text to send or store it"
+  },
+  "ex": "JSON.stringify serializes an object."
+ },
+ {
+  "w": 2,
   "t": "git diff",
   "m": {
    "ar": "بيعرض الفرق بين نسختين من الملفات",
    "en": "shows the difference between two versions of files"
   },
   "ex": "git diff workflows/lead-alert.json"
+ },
+ {
+  "w": 2,
+  "t": "backup",
+  "m": {
+   "ar": "نسخة احتياطية ترجع لها لو حاجة ضاعت",
+   "en": "a spare copy to restore if something is lost"
+  },
+  "ex": "Export a backup every week."
+ },
+ {
+  "w": 2,
+  "t": "restore",
+  "m": {
+   "ar": "ترجّع البيانات من نسخة احتياطية",
+   "en": "to bring data back from a backup"
+  },
+  "ex": "Restore the workflows on the new server."
  },
  {
   "w": 2,
@@ -110,6 +254,42 @@ JOURNEY_TERMS["n8n"] = [
   "ex": "HTTP/1.1 404 Not Found"
  },
  {
+  "w": 2,
+  "t": "response header",
+  "m": {
+   "ar": "معلومة إضافية راجعة مع الرد",
+   "en": "extra information that comes back with the response"
+  },
+  "ex": "Check the rate limit in the response header."
+ },
+ {
+  "w": 2,
+  "t": "verbose",
+  "m": {
+   "ar": "بيعرض تفاصيل كتير عشان تفهم اللي حصل",
+   "en": "showing lots of detail so you can see what happened"
+  },
+  "ex": "Run curl in verbose mode with -v."
+ },
+ {
+  "w": 2,
+  "t": "convention",
+  "m": {
+   "ar": "قاعدة متفق عليها عشان الكل يمشي عليها",
+   "en": "an agreed rule everyone follows"
+  },
+  "ex": "Our naming convention starts with the client."
+ },
+ {
+  "w": 2,
+  "t": "rename",
+  "m": {
+   "ar": "تغيّر اسم حاجة",
+   "en": "to change the name of something"
+  },
+  "ex": "Rename HTTP Request3 to Get new orders."
+ },
+ {
   "w": 3,
   "t": "event",
   "m": {
@@ -135,6 +315,24 @@ JOURNEY_TERMS["n8n"] = [
    "en": "instant (the service pushes) vs. periodic checks (you ask)"
   },
   "ex": "Webhooks are instant; polling can be minutes late."
+ },
+ {
+  "w": 3,
+  "t": "real-time",
+  "m": {
+   "ar": "بيحصل في نفس اللحظة تقريبًا",
+   "en": "happening almost at the same moment"
+  },
+  "ex": "Webhooks give real-time updates."
+ },
+ {
+  "w": 3,
+  "t": "latency",
+  "m": {
+   "ar": "الوقت بين الحدث ورد الفعل",
+   "en": "the time between an event and the reaction"
+  },
+  "ex": "Polling every 10 minutes adds latency."
  },
  {
   "w": 3,
@@ -183,6 +381,24 @@ JOURNEY_TERMS["n8n"] = [
  },
  {
   "w": 3,
+  "t": "recurring",
+  "m": {
+   "ar": "بيتكرر بانتظام",
+   "en": "happening again at regular times"
+  },
+  "ex": "A recurring job runs every Monday at 9."
+ },
+ {
+  "w": 3,
+  "t": "time zone",
+  "m": {
+   "ar": "المنطقة الزمنية اللي المواعيد بتتحسب بيها",
+   "en": "the region whose clock the times use"
+  },
+  "ex": "Set the time zone to Africa/Cairo."
+ },
+ {
+  "w": 3,
   "t": "poll times",
   "m": {
    "ar": "كل قد إيه الـ trigger يسأل الخدمة",
@@ -207,6 +423,24 @@ JOURNEY_TERMS["n8n"] = [
    "en": "a search condition in the trigger that fetches only what you need"
   },
   "ex": "from:billing@ has:attachment"
+ },
+ {
+  "w": 3,
+  "t": "duplicate",
+  "m": {
+   "ar": "نسخة مكررة من نفس الحاجة",
+   "en": "a repeated copy of the same thing"
+  },
+  "ex": "Remove duplicates before saving."
+ },
+ {
+  "w": 3,
+  "t": "deduplicate",
+  "m": {
+   "ar": "تشيل التكرار",
+   "en": "to remove repeated copies"
+  },
+  "ex": "Deduplicate the orders by id."
  },
  {
   "w": 3,
@@ -246,6 +480,24 @@ JOURNEY_TERMS["n8n"] = [
  },
  {
   "w": 3,
+  "t": "acknowledge",
+  "m": {
+   "ar": "ترد إنك استلمت (من غير ما تخلص الشغل)",
+   "en": "to reply that you received it (before finishing the work)"
+  },
+  "ex": "Acknowledge the webhook with 200 first."
+ },
+ {
+  "w": 3,
+  "t": "timeout",
+  "m": {
+   "ar": "أقصى وقت للانتظار قبل ما الطلب يتلغي",
+   "en": "the longest wait before a request is cancelled"
+  },
+  "ex": "The service has a 10-second timeout."
+ },
+ {
+  "w": 3,
   "t": "Form node",
   "m": {
    "ar": "نود بتضيف صفحة تانية للفورم أو صفحة نهاية",
@@ -279,6 +531,24 @@ JOURNEY_TERMS["n8n"] = [
    "en": "a trigger that lets another workflow run this one"
   },
   "ex": "The start of every sub-workflow."
+ },
+ {
+  "w": 3,
+  "t": "reusable",
+  "m": {
+   "ar": "تقدر تستخدمه في أكتر من مكان",
+   "en": "that can be used in more than one place"
+  },
+  "ex": "A reusable workflow formats phone numbers."
+ },
+ {
+  "w": 3,
+  "t": "caller",
+  "m": {
+   "ar": "اللي بينادي workflow أو دالة",
+   "en": "whatever calls a workflow or function"
+  },
+  "ex": "The caller sends the phone number."
  },
  {
   "w": 4,
@@ -315,6 +585,24 @@ JOURNEY_TERMS["n8n"] = [
    "en": "rounds a number to a number of decimals and returns text"
   },
   "ex": "{{ ($json.total * 1.14).toFixed(2) }}"
+ },
+ {
+  "w": 4,
+  "t": "fallback",
+  "m": {
+   "ar": "قيمة بديلة لما الأصلية مش موجودة",
+   "en": "a replacement value when the original is missing"
+  },
+  "ex": "Use \"unknown\" as a fallback."
+ },
+ {
+  "w": 4,
+  "t": "nullish",
+  "m": {
+   "ar": "قيمته null أو undefined",
+   "en": "being null or undefined"
+  },
+  "ex": "?? only replaces nullish values."
  },
  {
   "w": 4,
@@ -363,6 +651,24 @@ JOURNEY_TERMS["n8n"] = [
  },
  {
   "w": 4,
+  "t": "linked item",
+  "m": {
+   "ar": "العنصر المرتبط بالعنصر الحالي في نود قبله",
+   "en": "the item connected to the current one in an earlier node"
+  },
+  "ex": ".item returns the linked item."
+ },
+ {
+  "w": 4,
+  "t": "reference",
+  "m": {
+   "ar": "إشارة لقيمة في مكان تاني",
+   "en": "a pointer to a value somewhere else"
+  },
+  "ex": "The expression has a reference to the Settings node."
+ },
+ {
+  "w": 4,
   "t": "plus() / minus()",
   "m": {
    "ar": "تزود أو تنقص مدة من تاريخ",
@@ -408,6 +714,24 @@ JOURNEY_TERMS["n8n"] = [
  },
  {
   "w": 4,
+  "t": "duration",
+  "m": {
+   "ar": "مدة زمنية (أيام، ساعات)",
+   "en": "a length of time (days, hours)"
+  },
+  "ex": "Compute the duration between the two dates."
+ },
+ {
+  "w": 4,
+  "t": "overdue",
+  "m": {
+   "ar": "متأخر عن ميعاده",
+   "en": "late, past its due date"
+  },
+  "ex": "Send a reminder for overdue invoices."
+ },
+ {
+  "w": 4,
   "t": "isEmpty()",
   "m": {
    "ar": "دالة n8n بتقول القيمة فاضية ولا لأ",
@@ -432,6 +756,24 @@ JOURNEY_TERMS["n8n"] = [
    "en": "pulls one field from each object in a list"
   },
   "ex": "items.pluck(\"price\")"
+ },
+ {
+  "w": 4,
+  "t": "pluck",
+  "m": {
+   "ar": "تطلّع حقل واحد من كل عنصر",
+   "en": "to take one field out of every item"
+  },
+  "ex": "Pluck the emails from the users."
+ },
+ {
+  "w": 4,
+  "t": "chunk",
+  "m": {
+   "ar": "تقسّم قايمة لمجموعات صغيرة",
+   "en": "to split a list into small groups"
+  },
+  "ex": "Chunk the list into groups of 50."
  },
  {
   "w": 4,
@@ -477,6 +819,24 @@ JOURNEY_TERMS["n8n"] = [
    "en": "a node that hasn't run in this execution, so you can't read from it"
   },
   "ex": "Referenced node is unexecuted"
+ },
+ {
+  "w": 4,
+  "t": "preview",
+  "m": {
+   "ar": "معاينة النتيجة قبل التشغيل",
+   "en": "a look at the result before running"
+  },
+  "ex": "The preview shows undefined, so check the field."
+ },
+ {
+  "w": 4,
+  "t": "syntax error",
+  "m": {
+   "ar": "خطأ في كتابة الكود نفسه (قوس، تنصيص)",
+   "en": "a mistake in how the code is written (a bracket, a quote)"
+  },
+  "ex": "A missing bracket causes a syntax error."
  },
  {
   "w": 5,
@@ -525,6 +885,24 @@ JOURNEY_TERMS["n8n"] = [
  },
  {
   "w": 5,
+  "t": "upsert",
+  "m": {
+   "ar": "تحدّث لو موجود أو تضيف لو جديد",
+   "en": "update if it exists, insert if it is new"
+  },
+  "ex": "Append or Update is an upsert."
+ },
+ {
+  "w": 5,
+  "t": "match column",
+  "m": {
+   "ar": "العمود اللي بيتدوّر بيه على الصف",
+   "en": "the column used to find the row"
+  },
+  "ex": "Use order_id as the match column."
+ },
+ {
+  "w": 5,
   "t": "binary property",
   "m": {
    "ar": "اسم المكان اللي الملف متخزن فيه جوه الـ item (غالبًا data)",
@@ -549,6 +927,24 @@ JOURNEY_TERMS["n8n"] = [
    "en": "the maximum number of emails an account may send per day"
   },
   "ex": "Personal Gmail accounts have daily limits."
+ },
+ {
+  "w": 5,
+  "t": "merge field",
+  "m": {
+   "ar": "خانة في القالب بتتملي ببيانات كل عميل",
+   "en": "a slot in a template that is filled with each customer’s data"
+  },
+  "ex": "The name is a merge field."
+ },
+ {
+  "w": 5,
+  "t": "plain text",
+  "m": {
+   "ar": "نص عادي من غير تنسيق",
+   "en": "text with no formatting"
+  },
+  "ex": "Add a plain text version of the email."
  },
  {
   "w": 5,
@@ -585,6 +981,24 @@ JOURNEY_TERMS["n8n"] = [
    "en": "a chain of messages on the same topic"
   },
   "ex": "Reply in the same thread."
+ },
+ {
+  "w": 5,
+  "t": "search operator",
+  "m": {
+   "ar": "كلمة خاصة بتحدد البحث زي from: وhas:",
+   "en": "a special word that narrows a search, like from: and has:"
+  },
+  "ex": "Use the has:attachment search operator."
+ },
+ {
+  "w": 5,
+  "t": "attachment",
+  "m": {
+   "ar": "ملف مرفق مع الإيميل",
+   "en": "a file sent with an email"
+  },
+  "ex": "Save each attachment to Drive."
  },
  {
   "w": 5,
@@ -633,6 +1047,24 @@ JOURNEY_TERMS["n8n"] = [
  },
  {
   "w": 5,
+  "t": "command",
+  "m": {
+   "ar": "أمر بيبدأ بـ / للبوت",
+   "en": "an instruction starting with / for a bot"
+  },
+  "ex": "The /help command lists the options."
+ },
+ {
+  "w": 5,
+  "t": "dispatch",
+  "m": {
+   "ar": "توزّع كل حالة على الفرع بتاعها",
+   "en": "to send each case to the part that handles it"
+  },
+  "ex": "The Switch dispatches each command."
+ },
+ {
+  "w": 5,
   "t": "inline keyboard",
   "m": {
    "ar": "أزرار تحت رسالة Telegram",
@@ -675,6 +1107,24 @@ JOURNEY_TERMS["n8n"] = [
    "en": "the Telegram operation that sends a file"
   },
   "ex": "Send the monthly PDF."
+ },
+ {
+  "w": 5,
+  "t": "callback",
+  "m": {
+   "ar": "إشارة بترجع لما المستخدم يعمل حاجة زي يدوس زر",
+   "en": "a signal sent back when the user does something like press a button"
+  },
+  "ex": "The callback carries the booking id."
+ },
+ {
+  "w": 5,
+  "t": "button press",
+  "m": {
+   "ar": "ضغطة المستخدم على زر في رسالة البوت",
+   "en": "the user tapping a button in a bot message"
+  },
+  "ex": "A button press arrives as a callback query."
  },
  {
   "w": 6,
@@ -723,6 +1173,24 @@ JOURNEY_TERMS["n8n"] = [
  },
  {
   "w": 6,
+  "t": "next page",
+  "m": {
+   "ar": "الصفحة الجاية من النتايج",
+   "en": "the following page of results"
+  },
+  "ex": "Request the next page until it is empty."
+ },
+ {
+  "w": 6,
+  "t": "cursor",
+  "m": {
+   "ar": "علامة بتقول الصفحة الجاية تبدأ منين",
+   "en": "a marker that says where the next page starts"
+  },
+  "ex": "Send the cursor from the last response."
+ },
+ {
+  "w": 6,
   "t": "Query Auth",
   "m": {
    "ar": "مصادقة بتحط المفتاح كـ query parameter",
@@ -756,6 +1224,24 @@ JOURNEY_TERMS["n8n"] = [
    "en": "a common header name for an API key"
   },
   "ex": "X-Api-Key: ••••"
+ },
+ {
+  "w": 6,
+  "t": "auth header",
+  "m": {
+   "ar": "header فيه بيانات الدخول للـ API",
+   "en": "a header that carries the API login details"
+  },
+  "ex": "Put the key in the auth header."
+ },
+ {
+  "w": 6,
+  "t": "query string",
+  "m": {
+   "ar": "الجزء من الرابط بعد علامة ?",
+   "en": "the part of a URL after the ? sign"
+  },
+  "ex": "Avoid keys in the query string."
  },
  {
   "w": 6,
@@ -804,6 +1290,24 @@ JOURNEY_TERMS["n8n"] = [
  },
  {
   "w": 6,
+  "t": "least privilege",
+  "m": {
+   "ar": "تدّي أقل صلاحية تكفي الشغل",
+   "en": "giving only the access the job needs"
+  },
+  "ex": "Least privilege limits the damage of a leak."
+ },
+ {
+  "w": 6,
+  "t": "reconnect",
+  "m": {
+   "ar": "تعيد ربط الحساب عشان الصلاحيات الجديدة",
+   "en": "to link the account again for new permissions"
+  },
+  "ex": "Reconnect the credential after changing scopes."
+ },
+ {
+  "w": 6,
   "t": "Retry-After",
   "m": {
    "ar": "header بيقول تستنى قد إيه قبل ما تحاول تاني",
@@ -849,6 +1353,24 @@ JOURNEY_TERMS["n8n"] = [
  },
  {
   "w": 6,
+  "t": "batch interval",
+  "m": {
+   "ar": "وقت الانتظار بين كل دفعة والتانية",
+   "en": "the wait between one batch and the next"
+  },
+  "ex": "Set the batch interval to 1100 ms."
+ },
+ {
+  "w": 6,
+  "t": "throttle",
+  "m": {
+   "ar": "تبطّأ الطلبات عمدًا عشان متعديش الحد",
+   "en": "to slow requests on purpose to stay under a limit"
+  },
+  "ex": "Throttle the calls to 10 per second."
+ },
+ {
+  "w": 6,
   "t": "PUT vs PATCH",
   "m": {
    "ar": "PUT يبدّل الحاجة كلها، PATCH يعدّل جزء",
@@ -891,6 +1413,24 @@ JOURNEY_TERMS["n8n"] = [
    "en": "a parameter type that uploads a file from binary data"
   },
   "ex": "file = data"
+ },
+ {
+  "w": 6,
+  "t": "multipart",
+  "m": {
+   "ar": "طلب فيه أجزاء كتير زي ملف ونص مع بعض",
+   "en": "a request made of several parts, such as a file and text together"
+  },
+  "ex": "Upload the file as multipart form data."
+ },
+ {
+  "w": 6,
+  "t": "form-data",
+  "m": {
+   "ar": "شكل body بيبعت ملفات وخانات مع بعض",
+   "en": "a body format that sends files and fields together"
+  },
+  "ex": "Upload the PDF as form-data."
  },
  {
   "w": 7,
@@ -939,6 +1479,24 @@ JOURNEY_TERMS["n8n"] = [
  },
  {
   "w": 7,
+  "t": "route parameter",
+  "m": {
+   "ar": "جزء متغيّر في المسار زي :id",
+   "en": "a variable part of the route, like :id"
+  },
+  "ex": "The order id is a route parameter."
+ },
+ {
+  "w": 7,
+  "t": "rest api",
+  "m": {
+   "ar": "API بيستخدم روابط للحاجات وmethods للأفعال",
+   "en": "an API that uses URLs for things and methods for actions"
+  },
+  "ex": "GET /orders/1042 is typical of a REST API."
+ },
+ {
+  "w": 7,
   "t": "422 Unprocessable",
   "m": {
    "ar": "الطلب شكله صح بس القيم مش مقبولة",
@@ -981,6 +1539,24 @@ JOURNEY_TERMS["n8n"] = [
    "en": "an early check that stops when the input is wrong"
   },
   "ex": "if (!email) return error"
+ },
+ {
+  "w": 7,
+  "t": "machine-readable",
+  "m": {
+   "ar": "مكتوب بشكل البرامج تفهمه بسهولة",
+   "en": "written so programs can read it easily"
+  },
+  "ex": "Add a machine-readable code to each error."
+ },
+ {
+  "w": 7,
+  "t": "consistent",
+  "m": {
+   "ar": "ماشي على نفس الشكل كل مرة",
+   "en": "following the same pattern every time"
+  },
+  "ex": "Keep the error format consistent."
  },
  {
   "w": 7,
@@ -1029,6 +1605,24 @@ JOURNEY_TERMS["n8n"] = [
  },
  {
   "w": 7,
+  "t": "hmac",
+  "m": {
+   "ar": "توقيع بيتحسب من الرسالة وسر مشترك",
+   "en": "a signature computed from a message and a shared secret"
+  },
+  "ex": "Check the HMAC before trusting the webhook."
+ },
+ {
+  "w": 7,
+  "t": "shared secret",
+  "m": {
+   "ar": "سر متفق عليه بينك وبين الخدمة",
+   "en": "a secret known to you and the service"
+  },
+  "ex": "The HMAC uses a shared secret."
+ },
+ {
+  "w": 7,
   "t": "event type",
   "m": {
    "ar": "نوع الحدث اللي الخدمة بتبلّغ عنه",
@@ -1074,6 +1668,24 @@ JOURNEY_TERMS["n8n"] = [
  },
  {
   "w": 7,
+  "t": "replay attack",
+  "m": {
+   "ar": "حد بيعيد إرسال طلب قديم صحيح عشان يكرر أثره",
+   "en": "someone resending an old valid request to repeat its effect"
+  },
+  "ex": "Store event ids to stop a replay attack."
+ },
+ {
+  "w": 7,
+  "t": "redelivery",
+  "m": {
+   "ar": "إعادة إرسال نفس الحدث من الخدمة",
+   "en": "the service sending the same event again"
+  },
+  "ex": "Expect redelivery after a timeout."
+ },
+ {
+  "w": 7,
   "t": "Postman collection",
   "m": {
    "ar": "مجموعة طلبات محفوظة لاختبار API",
@@ -1116,6 +1728,24 @@ JOURNEY_TERMS["n8n"] = [
    "en": "a periodic check that the endpoint is up"
   },
   "ex": "Ping /v1/health every 5 minutes."
+ },
+ {
+  "w": 7,
+  "t": "request example",
+  "m": {
+   "ar": "مثال طلب كامل في التوثيق",
+   "en": "a complete sample request in the docs"
+  },
+  "ex": "Every endpoint needs a request example."
+ },
+ {
+  "w": 7,
+  "t": "openapi",
+  "m": {
+   "ar": "معيار لوصف الـ APIs في ملف",
+   "en": "a standard for describing APIs in a file"
+  },
+  "ex": "Export an OpenAPI file for the client."
  },
  {
   "w": 8,
@@ -1164,6 +1794,24 @@ JOURNEY_TERMS["n8n"] = [
  },
  {
   "w": 8,
+  "t": "nested object",
+  "m": {
+   "ar": "object جواه object",
+   "en": "an object inside another object"
+  },
+  "ex": "The API expects a nested object for the address."
+ },
+ {
+  "w": 8,
+  "t": "flat",
+  "m": {
+   "ar": "من غير مستويات متداخلة",
+   "en": "with no nested levels"
+  },
+  "ex": "The sheet rows are flat."
+ },
+ {
+  "w": 8,
   "t": "Append (Merge)",
   "m": {
    "ar": "وضع Merge بيحط المدخلين ورا بعض",
@@ -1209,6 +1857,24 @@ JOURNEY_TERMS["n8n"] = [
  },
  {
   "w": 8,
+  "t": "left join",
+  "m": {
+   "ar": "دمج بيحتفظ بكل صفوف الجدول الأول",
+   "en": "a join that keeps every row of the first table"
+  },
+  "ex": "A left join keeps customers with no orders."
+ },
+ {
+  "w": 8,
+  "t": "aggregate query",
+  "m": {
+   "ar": "استعلام بيحسب مجاميع ومتوسطات",
+   "en": "a query that computes totals and averages"
+  },
+  "ex": "An aggregate query gives the total per customer."
+ },
+ {
+  "w": 8,
   "t": "strict equality (===)",
   "m": {
    "ar": "مقارنة بالقيمة والنوع مع بعض",
@@ -1224,6 +1890,24 @@ JOURNEY_TERMS["n8n"] = [
    "en": "tells you the type of a value"
   },
   "ex": "typeof 42 → \"number\""
+ },
+ {
+  "w": 8,
+  "t": "unpack",
+  "m": {
+   "ar": "تفك قيم من object في متغيّرات",
+   "en": "to take values out of an object into variables"
+  },
+  "ex": "Unpack name and phone from $json."
+ },
+ {
+  "w": 8,
+  "t": "object spread",
+  "m": {
+   "ar": "نسخ حقول object لـ object جديد بـ ...",
+   "en": "copying an object’s fields into a new object with ..."
+  },
+  "ex": "Object spread keeps the original item unchanged."
  },
  {
   "w": 8,
@@ -1260,6 +1944,24 @@ JOURNEY_TERMS["n8n"] = [
    "en": "the top N items after sorting"
   },
   "ex": "Sort desc → Limit 10"
+ },
+ {
+  "w": 8,
+  "t": "dataset",
+  "m": {
+   "ar": "مجموعة بيانات (قايمة سجلات)",
+   "en": "a set of data (a list of records)"
+  },
+  "ex": "Compare the two datasets by id."
+ },
+ {
+  "w": 8,
+  "t": "sync",
+  "m": {
+   "ar": "تخلّي نظامين فيهم نفس البيانات",
+   "en": "to make two systems hold the same data"
+  },
+  "ex": "Sync the shop orders to the sheet every hour."
  },
  {
   "w": 8,
@@ -1305,6 +2007,24 @@ JOURNEY_TERMS["n8n"] = [
    "en": "the one place whose data is the reference"
   },
   "ex": "The ERP is the source of truth for stock."
+ },
+ {
+  "w": 8,
+  "t": "lookup table",
+  "m": {
+   "ar": "جدول بيربط قيمة بقيمة تانية",
+   "en": "a table that links one value to another"
+  },
+  "ex": "Use a lookup table for city codes."
+ },
+ {
+  "w": 8,
+  "t": "unmapped",
+  "m": {
+   "ar": "قيمة ملهاش مقابل في جدول الربط",
+   "en": "a value with no match in the mapping table"
+  },
+  "ex": "Alert on any unmapped status."
  },
  {
   "w": 9,
@@ -1353,6 +2073,24 @@ JOURNEY_TERMS["n8n"] = [
  },
  {
   "w": 9,
+  "t": "return shape",
+  "m": {
+   "ar": "شكل البيانات اللي الكود لازم يرجّعها",
+   "en": "the form of data the code must return"
+  },
+  "ex": "Check the return shape: an array of { json }."
+ },
+ {
+  "w": 9,
+  "t": "empty array",
+  "m": {
+   "ar": "قايمة مفيهاش عناصر []",
+   "en": "a list with no items: []"
+  },
+  "ex": "Return an empty array to stop quietly."
+ },
+ {
+  "w": 9,
   "t": "reduce()",
   "m": {
    "ar": "يجمّع القايمة في قيمة واحدة",
@@ -1398,6 +2136,24 @@ JOURNEY_TERMS["n8n"] = [
  },
  {
   "w": 9,
+  "t": "flatmap",
+  "m": {
+   "ar": "map وبعدين يفرد القوايم في قايمة واحدة",
+   "en": "map, then flatten the lists into one list"
+  },
+  "ex": "flatMap gives one item per order line."
+ },
+ {
+  "w": 9,
+  "t": "order line",
+  "m": {
+   "ar": "سطر في الطلب: منتج وكمية",
+   "en": "one row of an order: a product and quantity"
+  },
+  "ex": "Each order line has a sku and qty."
+ },
+ {
+  "w": 9,
   "t": "this.helpers.httpRequest",
   "m": {
    "ar": "دالة لطلبات HTTP جوه Code node",
@@ -1431,6 +2187,24 @@ JOURNEY_TERMS["n8n"] = [
    "en": "the text of an error message"
   },
   "ex": "error: e.message"
+ },
+ {
+  "w": 9,
+  "t": "await",
+  "m": {
+   "ar": "استنى النتيجة قبل ما تكمّل",
+   "en": "wait for the result before continuing"
+  },
+  "ex": "Use await before the request."
+ },
+ {
+  "w": 9,
+  "t": "mixed results",
+  "m": {
+   "ar": "بعض العناصر نجحت وبعضها فشل",
+   "en": "some items succeeded and some failed"
+  },
+  "ex": "Return mixed results with an ok field."
  },
  {
   "w": 9,
@@ -1479,6 +2253,24 @@ JOURNEY_TERMS["n8n"] = [
  },
  {
   "w": 9,
+  "t": "raw bytes",
+  "m": {
+   "ar": "محتوى الملف كأرقام قبل ما يتحوّل نص",
+   "en": "the file content as numbers before it becomes text"
+  },
+  "ex": "Read the raw bytes, then decode them as UTF-8."
+ },
+ {
+  "w": 9,
+  "t": "delimiter",
+  "m": {
+   "ar": "الحرف اللي بيفصل الأعمدة (, أو ;)",
+   "en": "the character that separates columns (, or ;)"
+  },
+  "ex": "This CSV uses a semicolon delimiter."
+ },
+ {
+  "w": 9,
   "t": "helper function",
   "m": {
    "ar": "دالة صغيرة بتعمل حاجة واحدة وبتتكرر",
@@ -1523,6 +2315,24 @@ JOURNEY_TERMS["n8n"] = [
   "ex": "A 200-line Code node is a smell."
  },
  {
+  "w": 9,
+  "t": "readable",
+  "m": {
+   "ar": "سهل تقراه وتفهمه",
+   "en": "easy to read and understand"
+  },
+  "ex": "Short functions make code readable."
+ },
+ {
+  "w": 9,
+  "t": "constant",
+  "m": {
+   "ar": "قيمة ثابتة باسم واضح",
+   "en": "a fixed value with a clear name"
+  },
+  "ex": "Put the VAT rate in a constant."
+ },
+ {
   "w": 10,
   "t": "character class",
   "m": {
@@ -1548,6 +2358,24 @@ JOURNEY_TERMS["n8n"] = [
    "en": "a backslash that makes a special character literal"
   },
   "ex": "\\. matches a real dot"
+ },
+ {
+  "w": 10,
+  "t": "greedy",
+  "m": {
+   "ar": "بياخد أطول مطابقة ممكنة",
+   "en": "taking the longest possible match"
+  },
+  "ex": ".* is greedy by default."
+ },
+ {
+  "w": 10,
+  "t": "lazy quantifier",
+  "m": {
+   "ar": "علامة ? بعد * أو + عشان ياخد أقصر مطابقة",
+   "en": "a ? after * or + to take the shortest match"
+  },
+  "ex": "Use a lazy quantifier between tags."
  },
  {
   "w": 10,
@@ -1584,6 +2412,24 @@ JOURNEY_TERMS["n8n"] = [
    "en": "a flag that returns all matches"
   },
   "ex": "/\\d+/g"
+ },
+ {
+  "w": 10,
+  "t": "lookahead",
+  "m": {
+   "ar": "شرط إن حاجة تيجي بعد المطابقة",
+   "en": "a condition that something follows the match"
+  },
+  "ex": "A lookahead checks for \" EGP\" after the number."
+ },
+ {
+  "w": 10,
+  "t": "lookbehind",
+  "m": {
+   "ar": "شرط إن حاجة تيجي قبل المطابقة",
+   "en": "a condition that something comes before the match"
+  },
+  "ex": "Use a lookbehind for the # sign."
  },
  {
   "w": 10,
@@ -1632,6 +2478,24 @@ JOURNEY_TERMS["n8n"] = [
  },
  {
   "w": 10,
+  "t": "diacritics",
+  "m": {
+   "ar": "علامات التشكيل فوق وتحت الحروف",
+   "en": "marks above or below letters"
+  },
+  "ex": "Remove diacritics before comparing names."
+ },
+ {
+  "w": 10,
+  "t": "arabic block",
+  "m": {
+   "ar": "مدى أكواد الحروف العربية في Unicode",
+   "en": "the range of Arabic letter codes in Unicode"
+  },
+  "ex": "The Arabic block starts at U+0600."
+ },
+ {
+  "w": 10,
   "t": "test()",
   "m": {
    "ar": "بيرجّع true لو النص بيطابق الـ pattern",
@@ -1677,6 +2541,24 @@ JOURNEY_TERMS["n8n"] = [
  },
  {
   "w": 10,
+  "t": "e.164",
+  "m": {
+   "ar": "الصيغة الدولية للأرقام زي +201012345678",
+   "en": "the international number format like +201012345678"
+  },
+  "ex": "Store phone numbers in E.164."
+ },
+ {
+  "w": 10,
+  "t": "country code",
+  "m": {
+   "ar": "كود الدولة في أول الرقم (مصر 20)",
+   "en": "the country prefix of a number (Egypt is 20)"
+  },
+  "ex": "Add the country code before sending."
+ },
+ {
+  "w": 10,
   "t": "line break (\\n)",
   "m": {
    "ar": "علامة سطر جديد في النص",
@@ -1719,6 +2601,24 @@ JOURNEY_TERMS["n8n"] = [
    "en": "turning free text into structured data"
   },
   "ex": "\"2 x Pizza\" → { qty: 2, item: \"Pizza\" }"
+ },
+ {
+  "w": 10,
+  "t": "scrape",
+  "m": {
+   "ar": "تطلّع بيانات من صفحة ويب آليًا",
+   "en": "to pull data out of a web page automatically"
+  },
+  "ex": "Scrape only pages you are allowed to."
+ },
+ {
+  "w": 10,
+  "t": "free-form",
+  "m": {
+   "ar": "نص من غير شكل ثابت",
+   "en": "text with no fixed format"
+  },
+  "ex": "Free-form emails are hard for regex."
  },
  {
   "w": 11,
@@ -1767,6 +2667,24 @@ JOURNEY_TERMS["n8n"] = [
  },
  {
   "w": 11,
+  "t": "output index",
+  "m": {
+   "ar": "رقم المخرج اللي العنصر هيروح له",
+   "en": "the number of the output an item goes to"
+  },
+  "ex": "The expression returns the output index."
+ },
+ {
+  "w": 11,
+  "t": "matching",
+  "m": {
+   "ar": "مطابق للشرط",
+   "en": "meeting the condition"
+  },
+  "ex": "Send the item to every matching output."
+ },
+ {
+  "w": 11,
   "t": "execution order",
   "m": {
    "ar": "الترتيب اللي n8n بيشغّل بيه الـ nodes والفروع",
@@ -1809,6 +2727,24 @@ JOURNEY_TERMS["n8n"] = [
    "en": "a node's place on screen, which affects branch order"
   },
   "ex": "Upper branches run first."
+ },
+ {
+  "w": 11,
+  "t": "empty item",
+  "m": {
+   "ar": "عنصر من غير بيانات",
+   "en": "an item with no data"
+  },
+  "ex": "Always Output Data sends one empty item."
+ },
+ {
+  "w": 11,
+  "t": "skipped node",
+  "m": {
+   "ar": "نود متنفّذش لأن مفيش عناصر وصلته",
+   "en": "a node that did not run because no items reached it"
+  },
+  "ex": "The report node was a skipped node."
  },
  {
   "w": 11,
@@ -1857,6 +2793,24 @@ JOURNEY_TERMS["n8n"] = [
  },
  {
   "w": 11,
+  "t": "loop guard",
+  "m": {
+   "ar": "حد بيمنع الـ loop إنه يلف للأبد",
+   "en": "a limit that stops a loop from running forever"
+  },
+  "ex": "A counter is a simple loop guard."
+ },
+ {
+  "w": 11,
+  "t": "counter",
+  "m": {
+   "ar": "رقم بيزيد كل لفة",
+   "en": "a number that grows each time round"
+  },
+  "ex": "Stop when the counter reaches 20."
+ },
+ {
+  "w": 11,
   "t": "At Specified Time",
   "m": {
    "ar": "وضع Wait بيستنى لحد تاريخ وساعة محددين",
@@ -1902,6 +2856,24 @@ JOURNEY_TERMS["n8n"] = [
  },
  {
   "w": 11,
+  "t": "resume url",
+  "m": {
+   "ar": "رابط بيكمّل workflow واقف",
+   "en": "a link that continues a paused workflow"
+  },
+  "ex": "Send the resume URL to the manager."
+ },
+ {
+  "w": 11,
+  "t": "approval",
+  "m": {
+   "ar": "موافقة إنسان قبل خطوة مهمة",
+   "en": "a person’s OK before an important step"
+  },
+  "ex": "Refunds need an approval first."
+ },
+ {
+  "w": 11,
   "t": "fan-out",
   "m": {
    "ar": "توزيع نفس البيانات على مسارات كتير",
@@ -1944,6 +2916,24 @@ JOURNEY_TERMS["n8n"] = [
    "en": "a sketch of the workflow before building"
   },
   "ex": "Boxes and arrows on paper."
+ },
+ {
+  "w": 11,
+  "t": "branch order",
+  "m": {
+   "ar": "ترتيب تشغيل الفروع",
+   "en": "the order in which branches run"
+  },
+  "ex": "Do not depend on branch order."
+ },
+ {
+  "w": 11,
+  "t": "parallel branches",
+  "m": {
+   "ar": "فروع طالعة من نفس النود",
+   "en": "branches that start from the same node"
+  },
+  "ex": "Use Merge to join parallel branches."
  },
  {
   "w": 12,
@@ -1992,6 +2982,24 @@ JOURNEY_TERMS["n8n"] = [
  },
  {
   "w": 12,
+  "t": "expected error",
+  "m": {
+   "ar": "خطأ عارف إنه هيحصل وليه حل عادي",
+   "en": "an error you know will happen and has a normal fix"
+  },
+  "ex": "A wrong phone number is an expected error."
+ },
+ {
+  "w": 12,
+  "t": "fail loudly",
+  "m": {
+   "ar": "تفشل بشكل واضح يوصل تنبيه",
+   "en": "to fail in a visible way that raises an alert"
+  },
+  "ex": "Let credential errors fail loudly."
+ },
+ {
+  "w": 12,
   "t": "execution.url",
   "m": {
    "ar": "لينك التنفيذ اللي وقع، جوه بيانات Error Trigger",
@@ -2034,6 +3042,24 @@ JOURNEY_TERMS["n8n"] = [
    "en": "written steps for what to do when a given error occurs"
   },
   "ex": "If the token expired: reconnect the credential."
+ },
+ {
+  "w": 12,
+  "t": "failure report",
+  "m": {
+   "ar": "رسالة بتوصف عطل وفيها تفاصيله",
+   "en": "a message describing a failure with its details"
+  },
+  "ex": "The failure report links to the execution."
+ },
+ {
+  "w": 12,
+  "t": "noise",
+  "m": {
+   "ar": "تنبيهات كتير ملهاش لازمة بتخبّي المهم",
+   "en": "many useless alerts that hide the important ones"
+  },
+  "ex": "Group repeated errors to cut the noise."
  },
  {
   "w": 12,
@@ -2082,6 +3108,24 @@ JOURNEY_TERMS["n8n"] = [
  },
  {
   "w": 12,
+  "t": "contract",
+  "m": {
+   "ar": "اتفاق على المدخلات والمخرجات",
+   "en": "an agreement on inputs and outputs"
+  },
+  "ex": "Do not break the sub-workflow contract."
+ },
+ {
+  "w": 12,
+  "t": "input contract",
+  "m": {
+   "ar": "المدخلات اللي الـ sub-workflow متفق إنه ياخدها",
+   "en": "the inputs a sub-workflow has agreed to accept"
+  },
+  "ex": "Renaming a field breaks the input contract."
+ },
+ {
+  "w": 12,
   "t": "Retry execution",
   "m": {
    "ar": "إعادة تشغيل تنفيذ فشل",
@@ -2115,6 +3159,24 @@ JOURNEY_TERMS["n8n"] = [
    "en": "earlier versions of a workflow you can go back to"
   },
   "ex": "Restore yesterday's version."
+ },
+ {
+  "w": 12,
+  "t": "custom data",
+  "m": {
+   "ar": "بيانات انت بتضيفها على التنفيذ",
+   "en": "data you attach to an execution yourself"
+  },
+  "ex": "Save the order id as custom data."
+ },
+ {
+  "w": 12,
+  "t": "execution log",
+  "m": {
+   "ar": "سجل كل مرات تشغيل الـ workflow",
+   "en": "the record of every run of a workflow"
+  },
+  "ex": "Search the execution log by order id."
  },
  {
   "w": 12,
@@ -2160,6 +3222,24 @@ JOURNEY_TERMS["n8n"] = [
    "en": "the number of attempts so far"
   },
   "ex": "Give up after tries = 5."
+ },
+ {
+  "w": 12,
+  "t": "dead letter",
+  "m": {
+   "ar": "مكان بتتحفظ فيه العناصر اللي فشلت عشان ترجعلها",
+   "en": "a place where failed items are kept to handle later"
+  },
+  "ex": "Send failed orders to the dead letter sheet."
+ },
+ {
+  "w": 12,
+  "t": "reprocess",
+  "m": {
+   "ar": "تعالج تاني بعد الإصلاح",
+   "en": "to handle again after a fix"
+  },
+  "ex": "Reprocess the failed items tomorrow."
  },
  {
   "w": 13,

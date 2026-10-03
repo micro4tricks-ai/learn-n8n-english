@@ -59,6 +59,18 @@ JOURNEY.week({
       "en": "If the step is essential and the rest is meaningless without it (no data, or the payment failed), let it stop and send an alert. Don't continue with incomplete data."
      },
      "ex": "Payment failed → Stop → Error Workflow → alert"
+    },
+    {
+     "h": {
+      "ar": "أخطاء متوقعة ولا مفاجئة؟",
+      "en": "Expected or unexpected errors?"
+     },
+     "p": {
+      "ar": "فرّق بين نوعين: **متوقّع** (رقم موبايل غلط، عميل مش موجود) — ده مش عطل، اتعامل معاه في فرع عادي وابعت رسالة مفهومة. و**مفاجئ** (الـ API واقع، credential انتهى) — ده عطل، خلّيه يفشل بصوت عالي ويوصل لـ error workflow. الغلطة الشائعة: تخلّي كل حاجة «Continue» فالأعطال الحقيقية تعدّي ساكتة.",
+      "en": "Separate two kinds: **expected** (a wrong mobile number, a missing customer) — not a failure; handle it on a normal branch with a clear message. **Unexpected** (the API is down, a credential expired) — a failure; let it fail loudly and reach the error workflow. The common mistake: setting everything to «Continue» so real failures pass silently."
+     },
+     "ex": "expected   → IF invalid phone → reply \"please check the number\"\nunexpected → HTTP 503 after retries → fail → Error Trigger → alert",
+     "deep": 1
     }
    ],
    "practice": [
@@ -77,6 +89,16 @@ JOURNEY.week({
     {
      "ar": "اكتب لكل node في workflow عندك الاختيار الصح وليه.",
      "en": "Write the right choice for every node in one of your workflows, and why."
+    },
+    {
+     "ar": "راجع workflow عندك: علّم كل نود: الأخطاء المتوقعة فيه إيه، والمفاجئة إيه، وبيتعامل معاهم إزاي.",
+     "en": "Review one of your workflows: for each node mark its expected and unexpected errors, and how they are handled.",
+     "deep": 1
+    },
+    {
+     "ar": "شيل أي «Continue» مالوش لازمة وحط فرع واضح بداله.",
+     "en": "Remove any needless «Continue» and add a clear branch instead.",
+     "deep": 1
     }
    ],
    "words": [
@@ -119,6 +141,22 @@ JOURNEY.week({
       "en": "a step the rest can't do without"
      },
      "ex": "No payment → stop."
+    },
+    {
+     "t": "expected error",
+     "m": {
+      "ar": "خطأ عارف إنه هيحصل وليه حل عادي",
+      "en": "an error you know will happen and has a normal fix"
+     },
+     "ex": "A wrong phone number is an expected error."
+    },
+    {
+     "t": "fail loudly",
+     "m": {
+      "ar": "تفشل بشكل واضح يوصل تنبيه",
+      "en": "to fail in a visible way that raises an alert"
+     },
+     "ex": "Let credential errors fail loudly."
     }
    ],
    "read": [
@@ -192,6 +230,31 @@ JOURNEY.week({
       "ar": "بيقف.",
       "en": "It stops."
      }
+    },
+    {
+     "q": {
+      "ar": "الـ credential انتهى. التصرف الصح:",
+      "en": "A credential expired. The right handling:"
+     },
+     "o": [
+      {
+       "ar": "يفشل ويوصل تنبيه",
+       "en": "fail and send an alert"
+      },
+      {
+       "ar": "Continue ساكت",
+       "en": "continue silently"
+      },
+      {
+       "ar": "يعيد للأبد",
+       "en": "retry forever"
+      }
+     ],
+     "a": 0,
+     "why": {
+      "ar": "ده عطل محتاج إنسان.",
+      "en": "This failure needs a person."
+     }
     }
    ],
    "minutes": 180
@@ -239,6 +302,18 @@ JOURNEY.week({
       "en": "If alerts are too frequent, people stop reading them. Group repeats, separate critical from minor, and send a daily digest for small issues."
      },
      "ex": "critical → Telegram now\nminor → daily summary email"
+    },
+    {
+     "h": {
+      "ar": "تنبيه مفيد من الـ Error Trigger",
+      "en": "A useful alert from the Error Trigger"
+     },
+     "p": {
+      "ar": "التنبيه اللي بيقول «حصل خطأ» بس مش مفيد. الـ Error Trigger بيدّيك: اسم الـ workflow، النود اللي فشل، رسالة الخطأ، رابط التنفيذ `execution.url`، والوقت. ابعتهم كلهم في رسالة قصيرة، ورتّب: الأعطال المتكررة تتجمع بدل 100 رسالة.",
+      "en": "An alert that only says «an error happened» is useless. The Error Trigger gives you: the workflow name, the failed node, the error message, the execution link `execution.url`, and the time. Send all of them in a short message, and group repeated failures instead of 100 messages."
+     },
+     "ex": "🔴 {{ $json.workflow.name }}\nNode: {{ $json.execution.lastNodeExecuted }}\nError: {{ $json.execution.error.message }}\nOpen: {{ $json.execution.url }}",
+     "deep": 1
     }
    ],
    "practice": [
@@ -257,6 +332,16 @@ JOURNEY.week({
     {
      "ar": "سجّل كل خطأ في Sheet كمان.",
      "en": "Also log every error in a sheet."
+    },
+    {
+     "ar": "ابني error workflow يبعت الرسالة دي على تليجرام، واربطه بـ 3 workflows من Settings.",
+     "en": "Build an error workflow that sends this message to Telegram, and link it to 3 workflows from Settings.",
+     "deep": 1
+    },
+    {
+     "ar": "اعمل خطأ عمدًا وادخل من الرابط على التنفيذ اللي فشل على طول.",
+     "en": "Cause an error on purpose and open the failed execution straight from the link.",
+     "deep": 1
     }
    ],
    "words": [
@@ -299,6 +384,22 @@ JOURNEY.week({
       "en": "written steps for what to do when a given error occurs"
      },
      "ex": "If the token expired: reconnect the credential."
+    },
+    {
+     "t": "failure report",
+     "m": {
+      "ar": "رسالة بتوصف عطل وفيها تفاصيله",
+      "en": "a message describing a failure with its details"
+     },
+     "ex": "The failure report links to the execution."
+    },
+    {
+     "t": "noise",
+     "m": {
+      "ar": "تنبيهات كتير ملهاش لازمة بتخبّي المهم",
+      "en": "many useless alerts that hide the important ones"
+     },
+     "ex": "Group repeated errors to cut the noise."
     }
    ],
    "read": [
@@ -389,6 +490,31 @@ JOURNEY.week({
       "ar": "تنبيهات أقل وأهم.",
       "en": "Fewer, more important alerts."
      }
+    },
+    {
+     "q": {
+      "ar": "أهم حاجة في رسالة التنبيه:",
+      "en": "The most useful part of an alert:"
+     },
+     "o": [
+      {
+       "ar": "رابط التنفيذ اللي فشل",
+       "en": "the link to the failed execution"
+      },
+      {
+       "ar": "إيموجي",
+       "en": "an emoji"
+      },
+      {
+       "ar": "اسمك",
+       "en": "your name"
+      }
+     ],
+     "a": 0,
+     "why": {
+      "ar": "توصل للمشكلة في ثانية.",
+      "en": "Reach the problem in a second."
+     }
     }
    ],
    "minutes": 180
@@ -436,6 +562,18 @@ JOURNEY.week({
       "en": "Execute Workflow has \"Wait for Sub-Workflow Completion\": if you need the result, wait. If it's just a notification, don't wait and the main workflow continues immediately."
      },
      "ex": "Get customer ID → wait\nSend alert → don't wait"
+    },
+    {
+     "h": {
+      "ar": "عقد الـ sub-workflow",
+      "en": "The sub-workflow contract"
+     },
+     "p": {
+      "ar": "الـ sub-workflow زي دالة ليها **عقد**: المدخلات (أسماء وأنواع، في Execute Workflow Trigger)، والمخرجات (شكل ثابت)، والأخطاء (بيرجع `ok: false` ولا بيفشل؟). اكتب العقد ده في sticky note جوه الـ sub-workflow نفسه. ولو غيّرت العقد، كل اللي بينادوه ممكن يتكسروا.",
+      "en": "A sub-workflow is like a function with a **contract**: inputs (names and types, in the Execute Workflow Trigger), outputs (a fixed shape), and errors (does it return `ok: false` or fail?). Write the contract in a note inside the sub-workflow. If you change the contract, every caller may break."
+     },
+     "ex": "Contract: Format phone\n  in:  phone (string)\n  out: { ok: true, phone_e164: \"+20…\" } | { ok: false, reason: \"invalid\" }\n  never throws for bad input",
+     "deep": 1
     }
    ],
    "practice": [
@@ -454,6 +592,16 @@ JOURNEY.week({
     {
      "ar": "خلّي الـ sub-workflow يرجّع {ok, id} واستخدمه بعدها.",
      "en": "Make the sub-workflow return {ok, id} and use it afterwards."
+    },
+    {
+     "ar": "اكتب العقد لـ sub-workflow عندك، وخلّيه يرجّع نفس الشكل دايمًا (نجاح أو فشل).",
+     "en": "Write the contract for one of your sub-workflows, and make it always return the same shape (success or failure).",
+     "deep": 1
+    },
+    {
+     "ar": "ابحث مين بينادي الـ sub-workflow ده قبل ما تغيّر فيه حاجة.",
+     "en": "Find who calls this sub-workflow before you change anything in it.",
+     "deep": 1
     }
    ],
    "words": [
@@ -496,6 +644,22 @@ JOURNEY.week({
       "en": "start a job without waiting for its result"
      },
      "ex": "Send the alert and move on."
+    },
+    {
+     "t": "contract",
+     "m": {
+      "ar": "اتفاق على المدخلات والمخرجات",
+      "en": "an agreement on inputs and outputs"
+     },
+     "ex": "Do not break the sub-workflow contract."
+    },
+    {
+     "t": "input contract",
+     "m": {
+      "ar": "المدخلات اللي الـ sub-workflow متفق إنه ياخدها",
+      "en": "the inputs a sub-workflow has agreed to accept"
+     },
+     "ex": "Renaming a field breaks the input contract."
     }
    ],
    "read": [
@@ -587,6 +751,31 @@ JOURNEY.week({
       "ar": "إعادة استخدام.",
       "en": "Reuse."
      }
+    },
+    {
+     "q": {
+      "ar": "غيّرت اسم مدخل في sub-workflow. ده:",
+      "en": "You renamed an input of a sub-workflow. That is:"
+     },
+     "o": [
+      {
+       "ar": "breaking change",
+       "en": "a breaking change"
+      },
+      {
+       "ar": "تحسين صغير",
+       "en": "a small improvement"
+      },
+      {
+       "ar": "مش بيأثر",
+       "en": "harmless"
+      }
+     ],
+     "a": 0,
+     "why": {
+      "ar": "اللي بينادوه هيبعتوا الاسم القديم.",
+      "en": "Callers still send the old name."
+     }
     }
    ],
    "minutes": 180
@@ -634,6 +823,18 @@ JOURNEY.week({
       "en": "In workflow settings: save successful, failed and manual executions, and Save execution progress (saves after each node — slower, but allows resuming). On a server, execution pruning keeps the database from growing."
      },
      "ex": "Save successful: No (busy workflow)\nSave failed: Yes"
+    },
+    {
+     "h": {
+      "ar": "Custom Execution Data للبحث",
+      "en": "Custom execution data for searching"
+     },
+     "p": {
+      "ar": "بعد شهر هيبقى عندك آلاف التنفيذات. نود **Execution Data** (أو `$execution.customData.set()`) بيحط معلومات على التنفيذ زي `order_id` أو `customer`. بعد كده تقدر تفلتر التنفيذات بيها وتلاقي «التنفيذ بتاع طلب 1042» في ثواني.",
+      "en": "In a month you will have thousands of executions. The **Execution Data** node (or `$execution.customData.set()`) attaches information to an execution, such as `order_id` or `customer`. You can then filter executions by it and find «the run for order 1042» in seconds."
+     },
+     "ex": "Execution Data node: order_id = {{ $json.id }}, customer = {{ $json.email }}\nExecutions → Filter → order_id = 1042",
+     "deep": 1
     }
    ],
    "practice": [
@@ -652,6 +853,16 @@ JOURNEY.week({
     {
      "ar": "ظبّط إعدادات الحفظ لـ workflow بيشتغل كل دقيقة.",
      "en": "Set the saving options for a workflow that runs every minute."
+    },
+    {
+     "ar": "ضيف Execution Data بـ order_id في workflow الطلبات، وشغّله على 3 طلبات، ودوّر على واحد منهم.",
+     "en": "Add Execution Data with order_id to the orders workflow, run it for 3 orders, and search for one of them.",
+     "deep": 1
+    },
+    {
+     "ar": "قرّر لكل workflow عندك: أنهي حقل هتحتاج تدوّر بيه؟",
+     "en": "Decide for each of your workflows: which field will you need to search by?",
+     "deep": 1
     }
    ],
    "words": [
@@ -694,6 +905,22 @@ JOURNEY.week({
       "en": "earlier versions of a workflow you can go back to"
      },
      "ex": "Restore yesterday's version."
+    },
+    {
+     "t": "custom data",
+     "m": {
+      "ar": "بيانات انت بتضيفها على التنفيذ",
+      "en": "data you attach to an execution yourself"
+     },
+     "ex": "Save the order id as custom data."
+    },
+    {
+     "t": "execution log",
+     "m": {
+      "ar": "سجل كل مرات تشغيل الـ workflow",
+      "en": "the record of every run of a workflow"
+     },
+     "ex": "Search the execution log by order id."
     }
    ],
    "read": [
@@ -767,6 +994,31 @@ JOURNEY.week({
       "ar": "النسخ القديمة.",
       "en": "Earlier versions."
      }
+    },
+    {
+     "q": {
+      "ar": "ليه تحط order_id كـ custom data؟",
+      "en": "Why store order_id as custom data?"
+     },
+     "o": [
+      {
+       "ar": "تلاقي التنفيذ بتاع الطلب بسرعة",
+       "en": "to find the run for an order quickly"
+      },
+      {
+       "ar": "عشان أسرع",
+       "en": "to run faster"
+      },
+      {
+       "ar": "عشان الأمان",
+       "en": "for security"
+      }
+     ],
+     "a": 0,
+     "why": {
+      "ar": "فلترة التنفيذات.",
+      "en": "Filtering executions."
+     }
     }
    ],
    "minutes": 180
@@ -814,6 +1066,18 @@ JOURNEY.week({
       "en": "Prepare 10 test items covering the cases: normal, a missing field, an odd value, a duplicate, a very large one. Run them after every change (a smoke test for the workflow)."
      },
      "ex": "Manual Trigger → \"Test data\" (Code) → the real steps"
+    },
+    {
+     "h": {
+      "ar": "إعادة التشغيل الآمنة",
+      "en": "Safe re-runs"
+     },
+     "p": {
+      "ar": "لما عطل يتصلّح، محتاج تعيد العناصر اللي فشلت. **Retry** من صفحة التنفيذ بيعيد من النود اللي فشل. بس اسأل الأول: لو اتعاد، فيه حاجة هتتكرر؟ (إيميل اتبعت، دفع اتسجّل). لو أيوه، خلّي الخطوات دي idempotent أو ابدأ من بعدها. وفي الحالات الكبيرة: احفظ العناصر الفاشلة في شيت «dead letter» وارجع لها.",
+      "en": "When a failure is fixed, you need to redo the failed items. **Retry** on the execution page restarts from the failed node. But ask first: if it re-runs, will something repeat? (an email sent, a payment saved). If yes, make those steps idempotent or start after them. For bigger cases: save failed items to a «dead letter» sheet and come back to them."
+     },
+     "ex": "error branch → Google Sheets \"dead_letter\" (time, workflow, item, error)\nafter the fix: manual trigger → read dead_letter → reprocess → mark done",
+     "deep": 1
     }
    ],
    "practice": [
@@ -832,6 +1096,16 @@ JOURNEY.week({
     {
      "ar": "جهّز 10 items تجربة وشغّلهم.",
      "en": "Prepare 10 test items and run them."
+    },
+    {
+     "ar": "ابني شيت dead letter وworkflow يعيد معالجة اللي فيه ويعلّمهم «اتعالج».",
+     "en": "Build a dead letter sheet and a workflow that reprocesses its rows and marks them «done».",
+     "deep": 1
+    },
+    {
+     "ar": "جرّب Retry من صفحة تنفيذ فاشل بعد ما تصلّح السبب.",
+     "en": "Try Retry on a failed execution after fixing the cause.",
+     "deep": 1
     }
    ],
    "words": [
@@ -874,6 +1148,22 @@ JOURNEY.week({
       "en": "the number of attempts so far"
      },
      "ex": "Give up after tries = 5."
+    },
+    {
+     "t": "dead letter",
+     "m": {
+      "ar": "مكان بتتحفظ فيه العناصر اللي فشلت عشان ترجعلها",
+      "en": "a place where failed items are kept to handle later"
+     },
+     "ex": "Send failed orders to the dead letter sheet."
+    },
+    {
+     "t": "reprocess",
+     "m": {
+      "ar": "تعالج تاني بعد الإصلاح",
+      "en": "to handle again after a fix"
+     },
+     "ex": "Reprocess the failed items tomorrow."
     }
    ],
    "read": [
@@ -964,6 +1254,31 @@ JOURNEY.week({
       "ar": "الـ edge cases.",
       "en": "The edge cases."
      }
+    },
+    {
+     "q": {
+      "ar": "قبل ما تعيد تشغيل تنفيذ فاشل تسأل:",
+      "en": "Before retrying a failed execution, ask:"
+     },
+     "o": [
+      {
+       "ar": "فيه خطوة هتتكرر؟",
+       "en": "will any step repeat?"
+      },
+      {
+       "ar": "الساعة كام؟",
+       "en": "what time is it?"
+      },
+      {
+       "ar": "مين عمله؟",
+       "en": "who built it?"
+      }
+     ],
+     "a": 0,
+     "why": {
+      "ar": "إيميل مكرر أو دفع مكرر.",
+      "en": "A double email or double payment."
+     }
     }
    ],
    "minutes": 180
@@ -994,6 +1309,16 @@ JOURNEY.week({
     {
      "ar": "الأخطاء والـ sub-workflows والـ debug والإعادة (الأسبوع 12).",
      "en": "Errors, sub-workflows, debugging and replay (week 12)."
+    },
+    {
+     "ar": "⚡ الأخطاء المتوقعة والمفاجئة، وتنبيه مفيد فيه رابط التنفيذ.",
+     "en": "⚡ Expected and unexpected errors, and a useful alert with the execution link.",
+     "deep": 1
+    },
+    {
+     "ar": "⚡ عقد الـ sub-workflow، والـ custom data، والـ dead letter وإعادة التشغيل الآمنة: طبّقهم في مشروع الشهر التالت.",
+     "en": "⚡ The sub-workflow contract, custom data, dead letters and safe re-runs: use them in the month 3 project.",
+     "deep": 1
     }
    ],
    "project": {

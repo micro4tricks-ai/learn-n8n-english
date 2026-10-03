@@ -59,6 +59,18 @@ JOURNEY.week({
       "en": "If the service can send a webhook, use it (instant and cheaper). If not, poll every so often. If the job depends on time, use Schedule."
      },
      "ex": "Webhook: instant, 1 request per event\nPolling every 5 min: up to 5 min late, 288 checks a day"
+    },
+    {
+     "h": {
+      "ar": "اختار التريجر الصح",
+      "en": "Choosing the right trigger"
+     },
+     "p": {
+      "ar": "سؤالين: **مين بيبدأ؟** (انت يدوي، الوقت، خدمة تانية، إنسان في فورم) و**قد إيه لازم يكون سريع؟** لو الخدمة بتدعم webhook استخدمه (فوري ومن غير استهلاك). لو مش بتدعم، polling كل كام دقيقة. ولو الشغل مرة في اليوم، Schedule.",
+      "en": "Two questions: **who starts it?** (you manually, the clock, another service, a person in a form) and **how fast must it react?** If the service supports webhooks, use one (instant and cheap). If not, poll every few minutes. If the job runs once a day, use a Schedule."
+     },
+     "ex": "needs to react in seconds + service has webhooks → Webhook / app trigger\nno webhooks                                    → polling trigger (every 5 min)\nfixed time of day                              → Schedule Trigger\na person fills data                            → Form Trigger",
+     "deep": 1
     }
    ],
    "practice": [
@@ -77,6 +89,16 @@ JOURNEY.week({
     {
      "ar": "اعمل workflow فيه triggerين (Schedule + Manual) لنفس الخطوات.",
      "en": "Build a workflow with two triggers (Schedule + Manual) feeding the same steps."
+    },
+    {
+     "ar": "اكتب 6 مواقف من شغلك أو شغل حد تعرفه، واختار لكل واحد التريجر المناسب مع السبب.",
+     "en": "Write 6 situations from your work or someone you know, and pick the right trigger for each with the reason.",
+     "deep": 1
+    },
+    {
+     "ar": "دوّر في توثيق خدمتين (مثلًا Stripe وGoogle Sheets): مين فيهم بيدعم webhooks؟",
+     "en": "Search the docs of two services (e.g. Stripe and Google Sheets): which one supports webhooks?",
+     "deep": 1
     }
    ],
    "words": [
@@ -122,6 +144,22 @@ JOURNEY.week({
       "en": "instant (the service pushes) vs. periodic checks (you ask)"
      },
      "ex": "Webhooks are instant; polling can be minutes late."
+    },
+    {
+     "t": "real-time",
+     "m": {
+      "ar": "بيحصل في نفس اللحظة تقريبًا",
+      "en": "happening almost at the same moment"
+     },
+     "ex": "Webhooks give real-time updates."
+    },
+    {
+     "t": "latency",
+     "m": {
+      "ar": "الوقت بين الحدث ورد الفعل",
+      "en": "the time between an event and the reaction"
+     },
+     "ex": "Polling every 10 minutes adds latency."
     }
    ],
    "read": [
@@ -212,6 +250,31 @@ JOURNEY.week({
       "ar": "بتسأل كل فترة.",
       "en": "You ask every interval."
      }
+    },
+    {
+     "q": {
+      "ar": "الخدمة مش بتدعم webhooks ومحتاج تتابعها:",
+      "en": "The service has no webhooks and you need to follow it:"
+     },
+     "o": [
+      {
+       "ar": "polling كل كام دقيقة",
+       "en": "poll every few minutes"
+      },
+      {
+       "ar": "Form Trigger",
+       "en": "a Form Trigger"
+      },
+      {
+       "ar": "مفيش حل",
+       "en": "there is no way"
+      }
+     ],
+     "a": 0,
+     "why": {
+      "ar": "اسأل كل فترة عن الجديد.",
+      "en": "Ask for new data every so often."
+     }
     }
    ],
    "minutes": 180
@@ -259,6 +322,18 @@ JOURNEY.week({
       "en": "Workflow settings have a Timezone. If it's wrong, your \"8 am\" report may arrive at 5. Watch out for daylight saving time in countries that change the clock."
      },
      "ex": "Workflow settings → Timezone → Africa/Cairo"
+    },
+    {
+     "h": {
+      "ar": "الـ cron بالتفصيل",
+      "en": "Cron in detail"
+     },
+     "p": {
+      "ar": "خمس خانات: دقيقة، ساعة، يوم في الشهر، شهر، يوم في الأسبوع. `*` يعني أي قيمة، `*/15` كل 15، `1-5` من لحد، `1,15` قايمة. الأسبوع بيبدأ من 0 = الأحد. وافتكر إن التوقيت حسب `GENERIC_TIMEZONE` أو إعداد الـ workflow.",
+      "en": "Five fields: minute, hour, day of month, month, day of week. `*` means any value, `*/15` every 15, `1-5` a range, `1,15` a list. The week starts at 0 = Sunday. Remember the time follows `GENERIC_TIMEZONE` or the workflow setting."
+     },
+     "ex": "0 9 * * 0-4      → 9:00 Sunday to Thursday\n*/30 8-17 * * *  → every 30 min from 8:00 to 17:30\n0 0 1 * *        → midnight on the 1st of each month\n0 18 * * 5       → 18:00 every Friday",
+     "deep": 1
     }
    ],
    "practice": [
@@ -277,6 +352,16 @@ JOURNEY.week({
     {
      "ar": "اعمل workflow بيبعتلك رسالة كل يوم الساعة 9 بـ `{{ $now.toFormat(\"cccc dd LLL\") }}`.",
      "en": "Build a workflow that messages you every day at 9 with `{{ $now.toFormat(\"cccc dd LLL\") }}`."
+    },
+    {
+     "ar": "اكتب cron لـ: 7 الصبح كل يوم، كل ساعة في أيام الشغل، أول يوم في الشهر، وآخر الأسبوع.",
+     "en": "Write cron for: 7 am every day, every hour on working days, the 1st of the month, and the weekend.",
+     "deep": 1
+    },
+    {
+     "ar": "اتأكد من كل واحد في أداة زي crontab.guru، وبعدين جرّبه في Schedule Trigger.",
+     "en": "Check each in a tool like crontab.guru, then try it in a Schedule Trigger.",
+     "deep": 1
     }
    ],
    "words": [
@@ -319,6 +404,22 @@ JOURNEY.week({
       "en": "a workflow's settings: timezone, error workflow, saving executions"
      },
      "ex": "Set the timezone in workflow settings."
+    },
+    {
+     "t": "recurring",
+     "m": {
+      "ar": "بيتكرر بانتظام",
+      "en": "happening again at regular times"
+     },
+     "ex": "A recurring job runs every Monday at 9."
+    },
+    {
+     "t": "time zone",
+     "m": {
+      "ar": "المنطقة الزمنية اللي المواعيد بتتحسب بيها",
+      "en": "the region whose clock the times use"
+     },
+     "ex": "Set the time zone to Africa/Cairo."
     }
    ],
    "read": [
@@ -418,6 +519,31 @@ JOURNEY.week({
       "ar": "فرق التوقيت.",
       "en": "A timezone difference."
      }
+    },
+    {
+     "q": {
+      "ar": "`0 9 * * 0-4` معناها:",
+      "en": "`0 9 * * 0-4` means:"
+     },
+     "o": [
+      {
+       "ar": "9 الصبح من الأحد للخميس",
+       "en": "9 am Sunday to Thursday"
+      },
+      {
+       "ar": "كل 9 دقايق",
+       "en": "every 9 minutes"
+      },
+      {
+       "ar": "يوم 9 في الشهر",
+       "en": "the 9th of the month"
+      }
+     ],
+     "a": 0,
+     "why": {
+      "ar": "دقيقة 0، ساعة 9، أيام 0 لـ 4.",
+      "en": "Minute 0, hour 9, days 0 to 4."
+     }
     }
    ],
    "minutes": 180
@@ -465,6 +591,18 @@ JOURNEY.week({
       "en": "Filter in the trigger when you can (label, query, folder) instead of fetching everything and filtering later. Faster and lighter."
      },
      "ex": "Gmail search: from:billing@ has:attachment newer_than:1d"
+    },
+    {
+     "h": {
+      "ar": "منع التكرار في الـ polling",
+      "en": "Avoiding duplicates when polling"
+     },
+     "p": {
+      "ar": "الـ polling بيسأل «إيه الجديد؟». لو مخدتش بالك هتعالج نفس العنصر مرتين. الحلول: التريجرز الجاهزة بتفتكر آخر عنصر لوحدها؛ ولو بتعمل polling بنفسك استخدم نود **Remove Duplicates** (بيفتكر الـ IDs بين التشغيلات)، أو احفظ آخر وقت/آخر ID في شيت أو في **static data**.",
+      "en": "Polling asks «what is new?». Careless polling processes the same item twice. Fixes: built-in triggers remember the last item themselves; when you poll yourself use the **Remove Duplicates** node (it remembers IDs across runs), or store the last time/ID in a sheet or in **static data**."
+     },
+     "ex": "Schedule (5 min) → HTTP: get orders → Remove Duplicates\n  (Operation: Remove items processed in previous executions, Value: {{ $json.id }})\n→ only new orders continue",
+     "deep": 1
     }
    ],
    "practice": [
@@ -483,6 +621,16 @@ JOURNEY.week({
     {
      "ar": "اكتب جدول: لكل trigger في شغلك، polling ولا webhook، وكل قد إيه.",
      "en": "Write a table: for each trigger in your work, polling or webhook, and how often."
+    },
+    {
+     "ar": "اعمل polling كل دقيقة على API بيرجع نفس البيانات، وحط Remove Duplicates؛ شغّله مرتين واتأكد إن التانية مطلّعتش حاجة.",
+     "en": "Poll an API that returns the same data every minute, add Remove Duplicates, run twice and check the second run outputs nothing.",
+     "deep": 1
+    },
+    {
+     "ar": "اكتب في ملاحظاتك: ليه الـ ID أحسن من الاسم في منع التكرار؟",
+     "en": "Write in your notes: why is an ID better than a name for avoiding duplicates?",
+     "deep": 1
     }
    ],
    "words": [
@@ -525,6 +673,22 @@ JOURNEY.week({
       "en": "a search condition in the trigger that fetches only what you need"
      },
      "ex": "from:billing@ has:attachment"
+    },
+    {
+     "t": "duplicate",
+     "m": {
+      "ar": "نسخة مكررة من نفس الحاجة",
+      "en": "a repeated copy of the same thing"
+     },
+     "ex": "Remove duplicates before saving."
+    },
+    {
+     "t": "deduplicate",
+     "m": {
+      "ar": "تشيل التكرار",
+      "en": "to remove repeated copies"
+     },
+     "ex": "Deduplicate the orders by id."
     }
    ],
    "read": [
@@ -621,6 +785,31 @@ JOURNEY.week({
       "ar": "تكرار الفحص.",
       "en": "The check frequency."
      }
+    },
+    {
+     "q": {
+      "ar": "أحسن حقل لمنع التكرار:",
+      "en": "The best field to avoid duplicates:"
+     },
+     "o": [
+      {
+       "ar": "الـ id",
+       "en": "the id"
+      },
+      {
+       "ar": "الاسم",
+       "en": "the name"
+      },
+      {
+       "ar": "السعر",
+       "en": "the price"
+      }
+     ],
+     "a": 0,
+     "why": {
+      "ar": "الـ id ثابت ومش بيتكرر.",
+      "en": "An id is stable and unique."
+     }
     }
    ],
    "minutes": 180
@@ -668,6 +857,18 @@ JOURNEY.week({
       "en": "On a server, n8n must know its public address to show the right webhook URL: the WEBHOOK_URL variable. Without it the URL may show localhost."
      },
      "ex": "WEBHOOK_URL=https://n8n.example.com/"
+    },
+    {
+     "h": {
+      "ar": "الرد على الـ webhook",
+      "en": "Replying to a webhook"
+     },
+     "p": {
+      "ar": "في نود Webhook اختيار **Respond**: «Immediately» يرد فورًا بـ 200 وبعدين يكمّل الشغل (الأحسن لو الخدمة مستعجلة)، أو «Using Respond to Webhook node» عشان ترد بنتيجة بعد ما تحسبها. كتير من الخدمات بتلغي الطلب لو مردّتش في ثواني، وتبعته تاني، فتبقى عندك نسخ مكررة.",
+      "en": "The Webhook node has a **Respond** option: «Immediately» answers 200 at once and then keeps working (best when the service is impatient), or «Using Respond to Webhook node» to answer with a result after computing it. Many services give up if you do not answer within seconds, and send again — so you get duplicates."
+     },
+     "ex": "Webhook (Respond: Using Respond to Webhook node)\n  → Validate input → Save to Sheet\n  → Respond to Webhook: 200 {\"ok\": true, \"id\": \"{{ $json.id }}\"}",
+     "deep": 1
     }
    ],
    "practice": [
@@ -686,6 +887,16 @@ JOURNEY.week({
     {
      "ar": "اكتب في README الـ Webhook URL والـ method والـ header المطلوب.",
      "en": "Document the webhook URL, method and required header in a README."
+    },
+    {
+     "ar": "اعمل webhook يرجّع `{\"ok\": true}` على طول، وواحد تاني يرجّع نتيجة حساب بعد 3 نودز. جرّبهم بـ curl.",
+     "en": "Make one webhook that returns `{\"ok\": true}` immediately, and another that returns a calculated result after 3 nodes. Test both with curl.",
+     "deep": 1
+    },
+    {
+     "ar": "ضيف نود Wait 20 ثانية قبل الرد وشوف curl بيعمل إيه — وده بيعلّمك ليه الرد السريع مهم.",
+     "en": "Add a 20-second Wait before the reply and see what curl does — this shows why a quick answer matters.",
+     "deep": 1
     }
    ],
    "words": [
@@ -728,6 +939,22 @@ JOURNEY.week({
       "en": "the webhook replies at once, before the workflow finishes"
      },
      "ex": "Use it when the work takes long."
+    },
+    {
+     "t": "acknowledge",
+     "m": {
+      "ar": "ترد إنك استلمت (من غير ما تخلص الشغل)",
+      "en": "to reply that you received it (before finishing the work)"
+     },
+     "ex": "Acknowledge the webhook with 200 first."
+    },
+    {
+     "t": "timeout",
+     "m": {
+      "ar": "أقصى وقت للانتظار قبل ما الطلب يتلغي",
+      "en": "the longest wait before a request is cancelled"
+     },
+     "ex": "The service has a 10-second timeout."
     }
    ],
    "read": [
@@ -827,6 +1054,31 @@ JOURNEY.week({
       "ar": "حماية بسيطة.",
       "en": "Simple protection."
      }
+    },
+    {
+     "q": {
+      "ar": "الخدمة بتلغي لو مردّتش في 5 ثواني والشغل بياخد دقيقة:",
+      "en": "The service gives up after 5 s and your work takes a minute:"
+     },
+     "o": [
+      {
+       "ar": "رد فورًا وكمّل بعدين",
+       "en": "reply at once and continue after"
+      },
+      {
+       "ar": "خلّي الشغل أسرع",
+       "en": "make the work faster"
+      },
+      {
+       "ar": "متردش خالص",
+       "en": "never reply"
+      }
+     ],
+     "a": 0,
+     "why": {
+      "ar": "Respond Immediately.",
+      "en": "Respond Immediately."
+     }
     }
    ],
    "minutes": 180
@@ -874,6 +1126,18 @@ JOURNEY.week({
       "en": "A trigger that lets this workflow be called from another (via Execute Workflow) and receive data from it. It is the basis of sub-workflows."
      },
      "ex": "Main: … → Execute Workflow (Send alert)\nSub: When Executed by Another Workflow → Telegram"
+    },
+    {
+     "h": {
+      "ar": "الـ workflow اللي بيتنادي (Execute Workflow Trigger)",
+      "en": "The called workflow (Execute Workflow Trigger)"
+     },
+     "p": {
+      "ar": "workflow بيبدأ بـ **When Executed by Another Workflow** بيبقى زي «دالة»: workflows تانية تناديه بنود Execute Workflow وتبعتله بيانات، ويرجّع نتيجة. حدّد المدخلات اللي مستنيها (اسمها ونوعها) عشان اللي بيناديه يعرف يبعت إيه.",
+      "en": "A workflow that starts with **When Executed by Another Workflow** works like a «function»: other workflows call it with an Execute Workflow node, send it data, and get a result back. Define the inputs it expects (name and type) so callers know what to send."
+     },
+     "ex": "Workflow A: … → Execute Workflow (\"Format phone\") → …\nWorkflow \"Format phone\":\n  When Executed by Another Workflow (inputs: phone: string)\n  → Code: clean the number → return { phone_e164 }",
+     "deep": 1
     }
    ],
    "practice": [
@@ -892,6 +1156,16 @@ JOURNEY.week({
     {
      "ar": "جرّب Chat Trigger وشوف شكل البيانات اللي بتوصل.",
      "en": "Try the Chat Trigger and look at the shape of the incoming data."
+    },
+    {
+     "ar": "اعمل workflow اسمه `Format phone` بياخد رقم ويرجّعه بصيغة `+20…`، وناديه من workflow تاني.",
+     "en": "Build a `Format phone` workflow that takes a number and returns it as `+20…`, and call it from another workflow.",
+     "deep": 1
+    },
+    {
+     "ar": "ناديه من workflowين مختلفين؛ صلّح فيه غلطة مرة واحدة واتأكد إن الاتنين استفادوا.",
+     "en": "Call it from two different workflows; fix a bug in it once and check both benefit.",
+     "deep": 1
     }
    ],
    "words": [
@@ -934,6 +1208,22 @@ JOURNEY.week({
       "en": "a trigger that lets another workflow run this one"
      },
      "ex": "The start of every sub-workflow."
+    },
+    {
+     "t": "reusable",
+     "m": {
+      "ar": "تقدر تستخدمه في أكتر من مكان",
+      "en": "that can be used in more than one place"
+     },
+     "ex": "A reusable workflow formats phone numbers."
+    },
+    {
+     "t": "caller",
+     "m": {
+      "ar": "اللي بينادي workflow أو دالة",
+      "en": "whatever calls a workflow or function"
+     },
+     "ex": "The caller sends the phone number."
     }
    ],
    "read": [
@@ -1015,6 +1305,31 @@ JOURNEY.week({
       "ar": "للمحادثة بالذكاء الاصطناعي.",
       "en": "For AI conversations."
      }
+    },
+    {
+     "q": {
+      "ar": "الـ workflow اللي بيتنادي شبه إيه في البرمجة؟",
+      "en": "A called workflow is like what in programming?"
+     },
+     "o": [
+      {
+       "ar": "دالة",
+       "en": "a function"
+      },
+      {
+       "ar": "متغير",
+       "en": "a variable"
+      },
+      {
+       "ar": "تعليق",
+       "en": "a comment"
+      }
+     ],
+     "a": 0,
+     "why": {
+      "ar": "مدخلات ← شغل ← نتيجة.",
+      "en": "Inputs → work → result."
+     }
     }
    ],
    "minutes": 180
@@ -1049,6 +1364,16 @@ JOURNEY.week({
     {
      "ar": "Form Trigger وForm node وChat Trigger والـ sub-workflows.",
      "en": "Form Trigger, the Form node, Chat Trigger and sub-workflows."
+    },
+    {
+     "ar": "⚡ اختيار التريجر، والـ cron، ومنع التكرار في الـ polling.",
+     "en": "⚡ Choosing the trigger, cron, and avoiding duplicates when polling.",
+     "deep": 1
+    },
+    {
+     "ar": "⚡ الرد على الـ webhook في الوقت، والـ workflows اللي بتتنادي كدوال.",
+     "en": "⚡ Answering webhooks in time, and called workflows as functions.",
+     "deep": 1
     }
    ],
    "project": {

@@ -59,6 +59,18 @@ JOURNEY.week({
       "en": "`console.log(x)` appears in the browser console (F12) when you run from the editor. Use JSON.stringify for large objects."
      },
      "ex": "console.log(\"items:\", $input.all().length);\nconsole.log(JSON.stringify($input.first().json, null, 2));"
+    },
+    {
+     "h": {
+      "ar": "شكل الرجوع الصح",
+      "en": "The right return shape"
+     },
+     "p": {
+      "ar": "في وضع All Items لازم ترجع **array** كل عنصر فيه `{ json: {...} }` (واختياري `binary`). أخطاء شائعة: ترجع object واحد، أو array من غير `json`، أو تنسى `return` خالص. ولو عايز ترجع عناصر صفر، ارجع `[]` — الـ workflow هيقف عند النود ده بهدوء.",
+      "en": "In All Items mode you must return an **array** where each item is `{ json: {...} }` (and optionally `binary`). Common mistakes: returning one object, an array without `json`, or no `return` at all. To return zero items, return `[]` — the workflow quietly stops at that node."
+     },
+     "ex": "// ✓\nreturn $input.all().map(i => ({ json: { id: i.json.id, total: i.json.qty * i.json.price } }));\n// ✓ nothing to do\nif (!$input.all().length) return [];",
+     "deep": 1
     }
    ],
    "practice": [
@@ -77,6 +89,16 @@ JOURNEY.week({
     {
      "ar": "استخدم console.log وشوفه في F12.",
      "en": "Use console.log and find it with F12."
+    },
+    {
+     "ar": "اكتب Code node بيرجع عنصر لكل منتج سعره فوق 100، وجرّبه على قايمة مفيهاش ولا واحد.",
+     "en": "Write a Code node that returns one item per product priced above 100, and test it on a list with none.",
+     "deep": 1
+    },
+    {
+     "ar": "ارجع شكل غلط كل مرة (object، array من غير json) واكتب رسالة الخطأ.",
+     "en": "Return a wrong shape each time (an object, an array without json) and note the error message.",
+     "deep": 1
     }
    ],
    "words": [
@@ -119,6 +141,22 @@ JOURNEY.week({
       "en": "the browser's developer tools"
      },
      "ex": "Open the Console tab."
+    },
+    {
+     "t": "return shape",
+     "m": {
+      "ar": "شكل البيانات اللي الكود لازم يرجّعها",
+      "en": "the form of data the code must return"
+     },
+     "ex": "Check the return shape: an array of { json }."
+    },
+    {
+     "t": "empty array",
+     "m": {
+      "ar": "قايمة مفيهاش عناصر []",
+      "en": "a list with no items: []"
+     },
+     "ex": "Return an empty array to stop quietly."
     }
    ],
    "read": [
@@ -192,6 +230,31 @@ JOURNEY.week({
       "ar": "F12.",
       "en": "F12."
      }
+    },
+    {
+     "q": {
+      "ar": "في All Items ترجع:",
+      "en": "In All Items mode you return:"
+     },
+     "o": [
+      {
+       "ar": "array من `{ json }`",
+       "en": "an array of `{ json }`"
+      },
+      {
+       "ar": "object واحد",
+       "en": "one object"
+      },
+      {
+       "ar": "نص",
+       "en": "a string"
+      }
+     ],
+     "a": 0,
+     "why": {
+      "ar": "n8n بيشتغل بقوايم عناصر.",
+      "en": "n8n works with lists of items."
+     }
     }
    ],
    "minutes": 180
@@ -239,6 +302,18 @@ JOURNEY.week({
       "en": "find = the first match. some = is there at least one? every = do all match? Object.entries = turns an object into [key, value] pairs you can turn into items."
      },
      "ex": "return Object.entries(byCity).map(([city, total]) => ({ json: { city, total } }));"
+    },
+    {
+     "h": {
+      "ar": "flatMap وفك القوايم المتداخلة",
+      "en": "flatMap and flattening nested lists"
+     },
+     "p": {
+      "ar": "طلب فيه `lines` (منتجات). عايز عنصر لكل منتج مع رقم الطلب؟ `flatMap` بيعمل map ويفرد النتيجة في قايمة واحدة. ده بديل لنود Split Out لما محتاج تضيف حقول من الأب.",
+      "en": "An order has `lines` (products). Want one item per product with the order number? `flatMap` maps and flattens the result into one list. It replaces the Split Out node when you need fields from the parent."
+     },
+     "ex": "return $input.all().flatMap(o =>\n  o.json.lines.map(l => ({ json: { order: o.json.id, sku: l.sku, qty: l.qty } }))\n);",
+     "deep": 1
     }
    ],
    "practice": [
@@ -257,6 +332,16 @@ JOURNEY.week({
     {
      "ar": "استخدم every تتأكد إن كل الإيميلات صحيحة.",
      "en": "Use every to check that all emails are valid."
+    },
+    {
+     "ar": "من 3 طلبات فيهم 7 منتجات، طلّع 7 عناصر فيها رقم الطلب والمنتج.",
+     "en": "From 3 orders holding 7 products, output 7 items with the order number and product.",
+     "deep": 1
+    },
+    {
+     "ar": "اعمل نفس الحاجة بـ Split Out وقارن: إمتى تختار ده وإمتى ده؟",
+     "en": "Do the same with Split Out and compare: when would you choose each?",
+     "deep": 1
     }
    ],
    "words": [
@@ -299,6 +384,22 @@ JOURNEY.week({
       "en": "turns an object into [key, value] pairs"
      },
      "ex": "Object.entries({a:1}) → [[\"a\",1]]"
+    },
+    {
+     "t": "flatmap",
+     "m": {
+      "ar": "map وبعدين يفرد القوايم في قايمة واحدة",
+      "en": "map, then flatten the lists into one list"
+     },
+     "ex": "flatMap gives one item per order line."
+    },
+    {
+     "t": "order line",
+     "m": {
+      "ar": "سطر في الطلب: منتج وكمية",
+      "en": "one row of an order: a product and quantity"
+     },
+     "ex": "Each order line has a sku and qty."
     }
    ],
    "read": [
@@ -371,6 +472,31 @@ JOURNEY.week({
       "ar": "في واحد أكبر من 2.",
       "en": "One is greater than 2."
      }
+    },
+    {
+     "q": {
+      "ar": "`[[1,2],[3]].flat()` بتطلع:",
+      "en": "`[[1,2],[3]].flat()` gives:"
+     },
+     "o": [
+      {
+       "ar": "`[1, 2, 3]`",
+       "en": "`[1, 2, 3]`"
+      },
+      {
+       "ar": "`[[1,2],[3]]`",
+       "en": "`[[1,2],[3]]`"
+      },
+      {
+       "ar": "`6`",
+       "en": "`6`"
+      }
+     ],
+     "a": 0,
+     "why": {
+      "ar": "بتفرد مستوى واحد.",
+      "en": "It flattens one level."
+     }
     }
    ],
    "minutes": 180
@@ -418,6 +544,18 @@ JOURNEY.week({
       "en": "Wrap the request in try/catch so one failure doesn't stop everything, and record the error on the item: `{ ok: false, error: e.message }`."
      },
      "ex": "try { … } catch (e) {\n  out.push({ json: { id, ok: false, error: e.message } });\n}"
+    },
+    {
+     "h": {
+      "ar": "طلبات HTTP من الكود بأمان",
+      "en": "HTTP requests from code, safely"
+     },
+     "p": {
+      "ar": "`this.helpers.httpRequest({ method, url, body, json: true })` بيعمل طلب من Code node. حط الطلبات في `try/catch`، وحدّد مهلة (`timeout`)، ومتبعتش 500 طلب مرة واحدة: قسّمهم دفعات. ولو الشغل كله طلبات، غالبًا نود HTTP Request أوضح وأسهل في التتبع.",
+      "en": "`this.helpers.httpRequest({ method, url, body, json: true })` makes a request from a Code node. Wrap requests in `try/catch`, set a `timeout`, and do not send 500 requests at once: split them into batches. If the work is all requests, the HTTP Request node is usually clearer and easier to trace."
+     },
+     "ex": "const out = [];\nfor (const item of $input.all()) {\n  try {\n    const r = await this.helpers.httpRequest({ url: `https://api.example.com/users/${item.json.id}`, json: true, timeout: 10000 });\n    out.push({ json: { id: item.json.id, ok: true, name: r.name } });\n  } catch (e) { out.push({ json: { id: item.json.id, ok: false, error: e.message } }); }\n}\nreturn out;",
+     "deep": 1
     }
    ],
    "practice": [
@@ -436,6 +574,16 @@ JOURNEY.week({
     {
      "ar": "قارن نفس الشغل بـ HTTP Request node واكتب الفروق.",
      "en": "Compare the same job with the HTTP Request node and write the differences."
+    },
+    {
+     "ar": "اطلب 5 مستخدمين من `jsonplaceholder` بالكود، وخلّي واحد فيهم id غلط وشوف إن الباقي كمّل.",
+     "en": "Fetch 5 users from `jsonplaceholder` in code, make one id wrong, and check the rest still finish.",
+     "deep": 1
+    },
+    {
+     "ar": "اكتب سطرين: إمتى تعمل الطلب في Code ومتى في HTTP Request؟",
+     "en": "Write two lines: when to make the request in Code and when in HTTP Request?",
+     "deep": 1
     }
    ],
    "words": [
@@ -478,6 +626,22 @@ JOURNEY.week({
       "en": "the text of an error message"
      },
      "ex": "error: e.message"
+    },
+    {
+     "t": "await",
+     "m": {
+      "ar": "استنى النتيجة قبل ما تكمّل",
+      "en": "wait for the result before continuing"
+     },
+     "ex": "Use await before the request."
+    },
+    {
+     "t": "mixed results",
+     "m": {
+      "ar": "بعض العناصر نجحت وبعضها فشل",
+      "en": "some items succeeded and some failed"
+     },
+     "ex": "Return mixed results with an ok field."
     }
    ],
    "read": [
@@ -568,6 +732,31 @@ JOURNEY.week({
       "ar": "امسك وكمّل.",
       "en": "Catch and continue."
      }
+    },
+    {
+     "q": {
+      "ar": "ليه `try/catch` حوالين كل طلب؟",
+      "en": "Why `try/catch` around each request?"
+     },
+     "o": [
+      {
+       "ar": "فشل واحد ميوقفش الكل",
+       "en": "one failure does not stop all"
+      },
+      {
+       "ar": "عشان يبقى أسرع",
+       "en": "to be faster"
+      },
+      {
+       "ar": "n8n بيطلبه",
+       "en": "n8n requires it"
+      }
+     ],
+     "a": 0,
+     "why": {
+      "ar": "تسجّل الفشل وتكمّل.",
+      "en": "Record the failure and continue."
+     }
     }
    ],
    "minutes": 180
@@ -615,6 +804,18 @@ JOURNEY.week({
       "en": "Luxon's `DateTime` is available in the Code node: `DateTime.now().setZone(\"Africa/Cairo\")`. Avoid `new Date(\"28/09/2026\")`, which doesn't understand that format; use ISO."
      },
      "ex": "const d = DateTime.fromFormat(\"28/09/2026\", \"dd/MM/yyyy\");\nd.toISODate(); // \"2026-09-28\""
+    },
+    {
+     "h": {
+      "ar": "قراءة ملف CSV في الكود",
+      "en": "Reading a CSV file in code"
+     },
+     "p": {
+      "ar": "الملف بيوصل كـ binary. `await this.helpers.getBinaryDataBuffer(0, 'data')` بيجيب محتواه، و`.toString('utf8')` بيحوّله نص. لملفات بسيطة تقسم السطور والأعمدة؛ للملفات الحقيقية (فواصل جوه تنصيص) استخدم نود **Extract From File** أسلم.",
+      "en": "The file arrives as binary. `await this.helpers.getBinaryDataBuffer(0, 'data')` gets its content, and `.toString('utf8')` turns it into text. For simple files split the lines and columns; for real files (commas inside quotes) the **Extract From File** node is safer."
+     },
+     "ex": "const buf = await this.helpers.getBinaryDataBuffer(0, 'data');\nconst [head, ...rows] = buf.toString('utf8').trim().split(/\\r?\\n/);\nconst cols = head.split(',');\nreturn rows.map(r => ({ json: Object.fromEntries(r.split(',').map((v, i) => [cols[i], v])) }));",
+     "deep": 1
     }
    ],
    "practice": [
@@ -633,6 +834,16 @@ JOURNEY.week({
     {
      "ar": "اعرض التاريخ بتوقيتين مختلفين.",
      "en": "Show a date in two different timezones."
+    },
+    {
+     "ar": "ارفع CSV بسيط وحوّله لعناصر بالكود، وبعدين بـ Extract From File، وقارن.",
+     "en": "Upload a simple CSV and turn it into items with code, then with Extract From File, and compare.",
+     "deep": 1
+    },
+    {
+     "ar": "ضيف سطر فيه فاصلة جوه تنصيص (`\"Giza, Egypt\"`) وشوف مين فيهم اتكسر.",
+     "en": "Add a line with a comma inside quotes (`\"Giza, Egypt\"`) and see which one breaks.",
+     "deep": 1
     }
    ],
    "words": [
@@ -675,6 +886,22 @@ JOURNEY.week({
       "en": "reads a date in a format you specify"
      },
      "ex": "fromFormat(\"28/09/2026\", \"dd/MM/yyyy\")"
+    },
+    {
+     "t": "raw bytes",
+     "m": {
+      "ar": "محتوى الملف كأرقام قبل ما يتحوّل نص",
+      "en": "the file content as numbers before it becomes text"
+     },
+     "ex": "Read the raw bytes, then decode them as UTF-8."
+    },
+    {
+     "t": "delimiter",
+     "m": {
+      "ar": "الحرف اللي بيفصل الأعمدة (, أو ;)",
+      "en": "the character that separates columns (, or ;)"
+     },
+     "ex": "This CSV uses a semicolon delimiter."
     }
    ],
    "read": [
@@ -765,6 +992,31 @@ JOURNEY.week({
       "ar": "ترميز مش تشفير.",
       "en": "Encoding, not encryption."
      }
+    },
+    {
+     "q": {
+      "ar": "CSV فيه فواصل جوه قيم بين تنصيص. الأسلم:",
+      "en": "A CSV has commas inside quoted values. Safest:"
+     },
+     "o": [
+      {
+       "ar": "Extract From File",
+       "en": "Extract From File"
+      },
+      {
+       "ar": "`split(\",\")`",
+       "en": "`split(\",\")`"
+      },
+      {
+       "ar": "تمسح الفواصل",
+       "en": "delete the commas"
+      }
+     ],
+     "a": 0,
+     "why": {
+      "ar": "split بيقسم الفاصلة اللي جوه القيمة.",
+      "en": "split breaks the comma inside the value."
+     }
     }
    ],
    "minutes": 180
@@ -812,6 +1064,18 @@ JOURNEY.week({
       "en": "A pure function returns the same result for the same input and changes nothing outside. It's easier to test. Keep requests and files at the edges and the calculations pure in the middle."
      },
      "ex": "function priceWithTax(p) { return Math.round(p * 1.14 * 100) / 100; }"
+    },
+    {
+     "h": {
+      "ar": "كود سهل تقراه بعد شهر",
+      "en": "Code you can read in a month"
+     },
+     "p": {
+      "ar": "قواعد بسيطة: أسماء بتوصف (`paidOrders` مش `arr2`)، ثوابت فوق (`const VAT = 0.14`)، دالة صغيرة لكل خطوة، تعليق بيقول **ليه** مش إيه، وCode node بيعمل حاجة واحدة اسمها مكتوب في اسم النود. لو الكود عدّى 40 سطر، فكّر تقسّمه.",
+      "en": "Simple rules: descriptive names (`paidOrders`, not `arr2`), constants at the top (`const VAT = 0.14`), a small function per step, comments that say **why**, not what, and a Code node that does one thing named in the node’s title. If the code passes 40 lines, consider splitting it."
+     },
+     "ex": "const VAT = 0.14; // Egypt VAT, change here only\nconst isPaid = o => o.status === 'paid';\nconst withVat = o => ({ ...o, total: +(o.subtotal * (1 + VAT)).toFixed(2) });\nreturn $input.all().map(i => i.json).filter(isPaid).map(withVat).map(json => ({ json }));",
+     "deep": 1
     }
    ],
    "practice": [
@@ -830,6 +1094,16 @@ JOURNEY.week({
     {
      "ar": "ضيف تعليق في أول كل Code node بيقول بيعمل إيه.",
      "en": "Add a comment at the top of every Code node saying what it does."
+    },
+    {
+     "ar": "خُد أطول Code node عندك ونضّفه بالقواعد دي من غير ما تغيّر نتيجته (قارن الخرج قبل وبعد).",
+     "en": "Take your longest Code node and clean it with these rules without changing its result (compare output before and after).",
+     "deep": 1
+    },
+    {
+     "ar": "اطلب من AI مراجعة الكود ببرومبت «code review» من صفحة البرومبتات.",
+     "en": "Ask an AI to review the code with the «code review» prompt from the prompts page.",
+     "deep": 1
     }
    ],
    "words": [
@@ -872,6 +1146,22 @@ JOURNEY.week({
       "en": "a sign that code needs cleaning up"
      },
      "ex": "A 200-line Code node is a smell."
+    },
+    {
+     "t": "readable",
+     "m": {
+      "ar": "سهل تقراه وتفهمه",
+      "en": "easy to read and understand"
+     },
+     "ex": "Short functions make code readable."
+    },
+    {
+     "t": "constant",
+     "m": {
+      "ar": "قيمة ثابتة باسم واضح",
+      "en": "a fixed value with a clear name"
+     },
+     "ex": "Put the VAT rate in a constant."
     }
    ],
    "read": [
@@ -962,6 +1252,31 @@ JOURNEY.week({
       "ar": "من غير آثار جانبية.",
       "en": "No side effects."
      }
+    },
+    {
+     "q": {
+      "ar": "أحسن تعليق:",
+      "en": "The best comment:"
+     },
+     "o": [
+      {
+       "ar": "بيقول ليه الكود كده",
+       "en": "says why the code is this way"
+      },
+      {
+       "ar": "بيعيد اللي الكود بيقوله",
+       "en": "repeats what the code says"
+      },
+      {
+       "ar": "مفيش تعليقات خالص",
+       "en": "no comments at all"
+      }
+     ],
+     "a": 0,
+     "why": {
+      "ar": "الكود بيقول إيه، التعليق بيقول ليه.",
+      "en": "Code says what; comments say why."
+     }
     }
    ],
    "minutes": 180
@@ -996,6 +1311,16 @@ JOURNEY.week({
     {
      "ar": "helpers وconstants وpure functions، والـ node قبل الكود.",
      "en": "Helpers, constants and pure functions — and nodes before code."
+    },
+    {
+     "ar": "⚡ شكل الرجوع، وflatMap، وطلبات HTTP من الكود بـ try/catch.",
+     "en": "⚡ The return shape, flatMap, and HTTP requests in code with try/catch.",
+     "deep": 1
+    },
+    {
+     "ar": "⚡ قراءة الملفات من binary، وكود نضيف بأسماء وثوابت ودوال صغيرة.",
+     "en": "⚡ Reading files from binary, and clean code with names, constants and small functions.",
+     "deep": 1
     }
    ],
    "project": {

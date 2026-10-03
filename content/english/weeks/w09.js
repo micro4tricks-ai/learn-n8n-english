@@ -56,6 +56,18 @@ JOURNEY.week({
       "en": "Some phrasal verbs can take the object in the middle (turn it off). A pronoun object must go in the middle."
      },
      "ex": "✗ Turn off it before you leave.\n✓ Turn it off before you leave."
+    },
+    {
+     "h": {
+      "ar": "أوامر Git بالكلام",
+      "en": "Git commands in speech"
+     },
+     "p": {
+      "ar": "في المكالمات بنقول: `pull the latest changes`، `create a branch off main`، `push your branch`، `open a PR`، `rebase onto main` (تحط تغييراتك فوق آخر main)، `squash the commits` (تجمعهم في واحد)، `resolve the merge conflict`، `revert the commit` (تلغيه بـ commit عكسه).",
+      "en": "On calls we say: `pull the latest changes`, `create a branch off main`, `push your branch`, `open a PR`, `rebase onto main` (put your changes on top of the latest main), `squash the commits` (combine them into one), `resolve the merge conflict`, `revert the commit` (undo it with an opposite commit)."
+     },
+     "ex": "\"Could you rebase onto main and squash your commits before I merge?\"\n\"There's a merge conflict in config.json — I'll resolve it.\"",
+     "deep": 1
     }
    ],
    "practice": [
@@ -74,6 +86,16 @@ JOURNEY.week({
     {
      "ar": "اكتب 4 جمل بـ phrasal verbs والمفعول في مكانه: set it up، look it up، turn it off.",
      "en": "Write 4 sentences with phrasal verbs and the object in the right place: set it up, look it up, turn it off."
+    },
+    {
+     "ar": "اكتب 8 جمل بالأفعال دي عن مواقف حقيقية في Git.",
+     "en": "Write 8 sentences with these verbs about real Git situations.",
+     "deep": 1
+    },
+    {
+     "ar": "اشرح لصاحبك بصوت عالي الفرق بين merge وrebase في 30 ثانية.",
+     "en": "Explain aloud to a friend the difference between merge and rebase in 30 seconds.",
+     "deep": 1
     }
    ],
    "words": [
@@ -132,6 +154,22 @@ JOURNEY.week({
       "en": "A file of code that runs automatically"
      },
      "ex": "I wrote a script that renames 100 files."
+    },
+    {
+     "t": "rebase",
+     "m": {
+      "ar": "تنقل تغييراتك فوق آخر نسخة من فرع تاني",
+      "en": "to move your changes on top of the latest version of another branch"
+     },
+     "ex": "Rebase onto main before you open the PR."
+    },
+    {
+     "t": "squash",
+     "m": {
+      "ar": "تجمع كذا commit في commit واحد",
+      "en": "to combine several commits into one"
+     },
+     "ex": "Squash the fix-up commits."
     }
    ],
    "read": [
@@ -217,6 +255,22 @@ JOURNEY.week({
       "ar": "الضمير بين الفعل وoff.",
       "en": "The pronoun goes between the verb and off."
      }
+    },
+    {
+     "q": {
+      "ar": "«squash the commits» معناها:",
+      "en": "«squash the commits» means:"
+     },
+     "o": [
+      "combine them into one",
+      "delete them",
+      "push them"
+     ],
+     "a": 0,
+     "why": {
+      "ar": "commit واحد نضيف.",
+      "en": "One clean commit."
+     }
     }
    ],
    "minutes": 180
@@ -264,6 +318,18 @@ JOURNEY.week({
       "en": "The verb comes first, with no subject and no to. It's used in steps, instructions and commit messages."
      },
      "ex": "✗ You should to install the package.\n✓ Install the package."
+    },
+    {
+     "h": {
+      "ar": "جسم الـ commit: ليه مش إيه",
+      "en": "The commit body: why, not what"
+     },
+     "p": {
+      "ar": "السطر الأول (أقل من 50 حرف، أمر) بيقول **إيه**. الجسم بعد سطر فاضي بيقول **ليه** وأي تأثير: `Users on mobile could not submit the form because…`. استخدم `so that`، `because`، `previously…, now…`. والـ diff بيقول إيه اللي اتغير بالتفصيل، فمتعيدوش.",
+      "en": "The first line (under 50 characters, imperative) says **what**. The body, after a blank line, says **why** and any impact: `Users on mobile could not submit the form because…`. Use `so that`, `because`, `previously…, now…`. The diff already shows the details, so do not repeat it."
+     },
+     "ex": "Fix booking form on mobile\n\nPreviously the submit button was hidden behind the keyboard on small\nscreens, so users could not book. Now the form scrolls the button into\nview when the keyboard opens.",
+     "deep": 1
     }
    ],
    "practice": [
@@ -282,6 +348,16 @@ JOURNEY.week({
     {
      "ar": "صلّح: `fixed bug.` و`Updates` و`changing the files and some stuff`.",
      "en": "Fix: `fixed bug.`, `Updates` and `changing the files and some stuff`."
+    },
+    {
+     "ar": "اكتب جسم commit لآخر 3 تغييرات مهمة عملتها، كل واحد 2–3 سطور.",
+     "en": "Write a commit body for your last 3 important changes, 2–3 lines each.",
+     "deep": 1
+    },
+    {
+     "ar": "اقرا commits في مشروع مفتوح المصدر كبير ولاحظ إزاي بيكتبوا الجسم.",
+     "en": "Read commits in a big open-source project and notice how they write the body.",
+     "deep": 1
     }
    ],
    "words": [
@@ -340,6 +416,22 @@ JOURNEY.week({
       "en": "can, could, should, must, may, might"
      },
      "ex": "\"You must restart the app\" uses a modal verb."
+    },
+    {
+     "t": "commit body",
+     "m": {
+      "ar": "الجزء بعد السطر الأول اللي بيشرح ليه",
+      "en": "the part after the first line that explains why"
+     },
+     "ex": "Explain the reason in the commit body."
+    },
+    {
+     "t": "previously",
+     "m": {
+      "ar": "قبل كده",
+      "en": "before now"
+     },
+     "ex": "Previously the job ran twice."
     }
    ],
    "read": [
@@ -413,6 +505,22 @@ JOURNEY.week({
       "ar": "الـ diff بيوري «إزاي».",
       "en": "The diff already shows how."
      }
+    },
+    {
+     "q": {
+      "ar": "جسم الـ commit المفروض يشرح:",
+      "en": "The commit body should explain:"
+     },
+     "o": [
+      "why the change was made",
+      "every line changed",
+      "your name"
+     ],
+     "a": 0,
+     "why": {
+      "ar": "الـ diff بيوري إيه.",
+      "en": "The diff shows what."
+     }
     }
    ],
    "minutes": 180
@@ -460,6 +568,18 @@ JOURNEY.week({
       "en": "Items in a list should have the same form: all -ing, all verbs, or all nouns."
      },
      "ex": "✗ The tool is for testing, to deploy and monitoring.\n✓ The tool is for testing, deploying and monitoring."
+    },
+    {
+     "h": {
+      "ar": "لغة مراجعة الكود",
+      "en": "Code review language"
+     },
+     "p": {
+      "ar": "المراجعة باحترام: اسأل بدل ما تأمر (`What do you think about…?`، `Could we…?`)، قول السبب، وفرّق بين المهم والذوق: `nit:` (nitpick، حاجة صغيرة اختيارية)، `blocking:` (لازم قبل الدمج). والرد على المراجعة: `Good catch, fixed.`، `I kept it because…`، `Done in 3f2a1c.`",
+      "en": "Review with respect: ask rather than order (`What do you think about…?`, `Could we…?`), give the reason, and separate what matters from taste: `nit:` (a nitpick, small and optional), `blocking:` (must be fixed before merging). Replying to a review: `Good catch, fixed.`, `I kept it because…`, `Done in 3f2a1c.`"
+     },
+     "ex": "nit: maybe rename `d` to `dueDate` for clarity?\nblocking: this logs the API key — could we mask it?\nReply: Good catch, fixed in 3f2a1c. I kept the loop because the list is tiny.",
+     "deep": 1
     }
    ],
    "practice": [
@@ -478,6 +598,16 @@ JOURNEY.week({
     {
      "ar": "اقرا 3 PRs في مشروع مفتوح المصدر ولاحظ شكل الوصف، واكتب أحسن حاجة شفتها.",
      "en": "Read 3 PRs in an open-source project, notice how they are described, and write down the best thing you saw."
+    },
+    {
+     "ar": "راجع PR (حقيقي أو كود قديم ليك) واكتب 5 تعليقات: 3 nit و2 blocking.",
+     "en": "Review a PR (real or your old code) and write 5 comments: 3 nits and 2 blocking.",
+     "deep": 1
+    },
+    {
+     "ar": "اكتب 3 ردود مهذبة على تعليقات مراجعة، واحد منهم بتختلف فيه.",
+     "en": "Write 3 polite replies to review comments, one of them disagreeing.",
+     "deep": 1
     }
    ],
    "code": [
@@ -545,6 +675,22 @@ JOURNEY.week({
       "en": "quality assurance and testing"
      },
      "ex": "The QA team found three bugs."
+    },
+    {
+     "t": "nitpick",
+     "m": {
+      "ar": "ملاحظة صغيرة جدًا مش ضرورية",
+      "en": "a very small, optional remark"
+     },
+     "ex": "This is just a nitpick, feel free to ignore it."
+    },
+    {
+     "t": "reviewer",
+     "m": {
+      "ar": "الشخص اللي بيراجع الكود",
+      "en": "the person who reviews the code"
+     },
+     "ex": "Add two reviewers to the PR."
     }
    ],
    "read": [
@@ -627,6 +773,22 @@ JOURNEY.week({
       "ar": "work in progress.",
       "en": "work in progress."
      }
+    },
+    {
+     "q": {
+      "ar": "تعليق «nit:» معناه:",
+      "en": "A «nit:» comment means:"
+     },
+     "o": [
+      "small and optional",
+      "must fix before merging",
+      "the code is broken"
+     ],
+     "a": 0,
+     "why": {
+      "ar": "nitpick.",
+      "en": "A nitpick."
+     }
     }
    ],
    "minutes": 180
@@ -674,6 +836,18 @@ JOURNEY.week({
       "en": "Put a comma after However, For example, Unfortunately and In my opinion at the start of a sentence."
      },
      "ex": "✗ However the test still fails.\n✓ However, the test still fails."
+    },
+    {
+     "h": {
+      "ar": "حالات الـ PR",
+      "en": "The states of a PR"
+     },
+     "p": {
+      "ar": "`draft PR` (لسه بشتغل، مش جاهز للمراجعة)، `ready for review`، `changes requested` (المراجع طلب تعديلات)، `approved`، `merged`، `closed`. وجمل: `I've marked it ready for review.` `I've addressed all comments.` `Could you take another look?`",
+      "en": "`draft PR` (still working, not ready for review), `ready for review`, `changes requested` (the reviewer asked for changes), `approved`, `merged`, `closed`. Phrases: `I've marked it ready for review.` `I've addressed all comments.` `Could you take another look?`"
+     },
+     "ex": "Draft → Ready for review → Changes requested → (fixes) → Approved → Merged\n\"I've addressed all your comments — could you take another look?\"",
+     "deep": 1
     }
    ],
    "practice": [
@@ -692,6 +866,16 @@ JOURNEY.week({
     {
      "ar": "قسّم (break down) مهمة كبيرة عندك لـ 5 مهام صغيرة واكتبهم بالأمر.",
      "en": "Break down a big task of yours into 5 small tasks and write them as imperatives."
+    },
+    {
+     "ar": "افتح draft PR في مشروعك على GitHub، وحوّله لـ ready، واكتب رسالة للمراجع.",
+     "en": "Open a draft PR in your project on GitHub, mark it ready, and write a message to the reviewer.",
+     "deep": 1
+    },
+    {
+     "ar": "اكتب 4 رسايل لكل مرحلة من مراحل الـ PR.",
+     "en": "Write 4 messages, one for each stage of a PR.",
+     "deep": 1
     }
    ],
    "words": [
@@ -750,6 +934,22 @@ JOURNEY.week({
       "en": "to look at / to switch to a branch in Git"
      },
      "ex": "Check out the new branch and run the tests."
+    },
+    {
+     "t": "draft pr",
+     "m": {
+      "ar": "PR لسه مش جاهز للمراجعة",
+      "en": "a PR not yet ready for review"
+     },
+     "ex": "Open a draft PR to share early work."
+    },
+    {
+     "t": "requested changes",
+     "m": {
+      "ar": "تعديلات المراجع طلبها قبل الموافقة",
+      "en": "edits a reviewer asked for before approving"
+     },
+     "ex": "I've made the requested changes."
     }
    ],
    "read": [
@@ -832,6 +1032,22 @@ JOURNEY.week({
       "ar": "point out = ينبّه.",
       "en": "point out = draw attention to."
      }
+    },
+    {
+     "q": {
+      "ar": "«I've addressed all comments» معناها:",
+      "en": "«I've addressed all comments» means:"
+     },
+     "o": [
+      "I've handled every comment",
+      "I've read the address",
+      "I've deleted the comments"
+     ],
+     "a": 0,
+     "why": {
+      "ar": "address = تتعامل مع.",
+      "en": "address = deal with."
+     }
     }
    ],
    "minutes": 180
@@ -879,6 +1095,18 @@ JOURNEY.week({
       "en": "Some verbs take -ing after them: avoid, finish, suggest, consider, keep. Others take to: want, need, decide, plan."
      },
      "ex": "✗ I suggest to use a cache.\n✓ I suggest using a cache."
+    },
+    {
+     "h": {
+      "ar": "وصف الاختبارات في الـ PR",
+      "en": "Describing tests in a PR"
+     },
+     "p": {
+      "ar": "قسم **How to test** بيوفّر وقت المراجع: الخطوات بصيغة الأمر، والنتيجة المتوقعة. وقول اللي عملته: `I added unit tests for…`، `Test coverage went from 60% to 75%.`، `I tested it manually with…`، `Not tested: …` (بصراحة).",
+      "en": "A **How to test** section saves the reviewer time: imperative steps and the expected result. And say what you did: `I added unit tests for…`, `Test coverage went from 60% to 75%.`, `I tested it manually with…`, `Not tested: …` (honestly)."
+     },
+     "ex": "## How to test\n1. Run `npm test`. All 48 tests should pass.\n2. Send a booking with an invalid phone. You should get a 422.\nNot tested: the WhatsApp channel (no test account yet).",
+     "deep": 1
     }
    ],
    "practice": [
@@ -897,6 +1125,16 @@ JOURNEY.week({
     {
      "ar": "اختار gerund ولا to: avoid (to use/using)، decide (to add/adding)، enjoy (to write/writing).",
      "en": "Choose gerund or to: avoid (to use/using), decide (to add/adding), enjoy (to write/writing)."
+    },
+    {
+     "ar": "اكتب قسم How to test لـ PR من مشروعك.",
+     "en": "Write a How to test section for a PR in your project.",
+     "deep": 1
+    },
+    {
+     "ar": "قيس الـ coverage لو أداتك بتدعمها، واكتب جملة عنها.",
+     "en": "Measure coverage if your tool supports it, and write a sentence about it.",
+     "deep": 1
     }
    ],
    "words": [
@@ -955,6 +1193,22 @@ JOURNEY.week({
       "en": "A set or collection (pronounced “sweet”)"
      },
      "ex": "Run the whole test suite."
+    },
+    {
+     "t": "test coverage",
+     "m": {
+      "ar": "نسبة الكود اللي الاختبارات بتغطيه",
+      "en": "the share of the code the tests run"
+     },
+     "ex": "Test coverage is now 75%."
+    },
+    {
+     "t": "manually",
+     "m": {
+      "ar": "بإيدك مش آليًا",
+      "en": "by hand, not automatically"
+     },
+     "ex": "I tested the email manually."
     }
    ],
    "read": [
@@ -1028,6 +1282,22 @@ JOURNEY.week({
       "ar": "avoid + ing.",
       "en": "avoid + -ing."
      }
+    },
+    {
+     "q": {
+      "ar": "«Not tested: …» في الـ PR:",
+      "en": "«Not tested: …» in a PR is:"
+     },
+     "o": [
+      "honest and helpful",
+      "a mistake to hide",
+      "not allowed"
+     ],
+     "a": 0,
+     "why": {
+      "ar": "المراجع يعرف المخاطرة.",
+      "en": "The reviewer knows the risk."
+     }
     }
    ],
    "minutes": 180
@@ -1062,6 +1332,16 @@ JOURNEY.week({
     {
      "ar": "أسماء التستات جمل، وavoid/enjoy + ing.",
      "en": "Test names are sentences, and avoid/enjoy + -ing."
+    },
+    {
+     "ar": "⚡ أوامر Git بالكلام، وجسم الـ commit، ولغة المراجعة.",
+     "en": "⚡ Git commands in speech, the commit body, and review language.",
+     "deep": 1
+    },
+    {
+     "ar": "⚡ حالات الـ PR، وقسم How to test: افتح PR كامل في مشروعك بالإنجليزي.",
+     "en": "⚡ PR states and the How to test section: open a complete PR in English in your project.",
+     "deep": 1
     }
    ],
    "project": {
