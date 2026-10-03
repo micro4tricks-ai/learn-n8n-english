@@ -6363,5 +6363,833 @@ JOURNEY_TERMS["js"] = [
    "en": "the isolated process running n8n code"
   },
   "ex": "The task runner limits memory."
+ },
+ {
+  "w": 22,
+  "t": "apps script",
+  "m": {
+   "ar": "جافاسكريبت على سيرفرات Google",
+   "en": "JavaScript running on Google’s servers"
+  },
+  "ex": "An Apps Script fills the report."
+ },
+ {
+  "w": 22,
+  "t": "bound script",
+  "m": {
+   "ar": "سكربت مربوط بملف Google معين",
+   "en": "a script tied to one Google file"
+  },
+  "ex": "The bound script adds a menu."
+ },
+ {
+  "w": 22,
+  "t": "standalone script",
+  "m": {
+   "ar": "سكربت لوحده مش مربوط بملف",
+   "en": "a script not tied to a file"
+  },
+  "ex": "A standalone script handles many sheets."
+ },
+ {
+  "w": 22,
+  "t": "spreadsheetapp",
+  "m": {
+   "ar": "خدمة Apps Script للـ Sheets",
+   "en": "the Apps Script service for Sheets"
+  },
+  "ex": "SpreadsheetApp.getActive() opens the file."
+ },
+ {
+  "w": 22,
+  "t": "getvalues",
+  "m": {
+   "ar": "قراءة نطاق كمصفوفة 2D",
+   "en": "reading a range as a 2D array"
+  },
+  "ex": "getValues reads all rows at once."
+ },
+ {
+  "w": 22,
+  "t": "setvalues",
+  "m": {
+   "ar": "كتابة مصفوفة 2D في نطاق",
+   "en": "writing a 2D array into a range"
+  },
+  "ex": "setValues writes in one call."
+ },
+ {
+  "w": 22,
+  "t": "batch operation",
+  "m": {
+   "ar": "عملية واحدة على بيانات كتير",
+   "en": "one operation on lots of data"
+  },
+  "ex": "Batch operations keep scripts fast."
+ },
+ {
+  "w": 22,
+  "t": "simple trigger",
+  "m": {
+   "ar": "محفز باسم محجوز بصلاحيات محدودة",
+   "en": "a reserved-name trigger with limited permissions"
+  },
+  "ex": "onOpen is a simple trigger."
+ },
+ {
+  "w": 22,
+  "t": "onopen",
+  "m": {
+   "ar": "دالة بتشتغل لما الملف يتفتح",
+   "en": "a function running when the file opens"
+  },
+  "ex": "onOpen builds the menu."
+ },
+ {
+  "w": 22,
+  "t": "onedit",
+  "m": {
+   "ar": "دالة بتشتغل لما خلية تتعدل",
+   "en": "a function running when a cell is edited"
+  },
+  "ex": "onEdit stamps the date."
+ },
+ {
+  "w": 22,
+  "t": "custom menu",
+  "m": {
+   "ar": "قايمة مخصصة في الشيت",
+   "en": "a custom menu in the sheet"
+  },
+  "ex": "The custom menu runs the cleaner."
+ },
+ {
+  "w": 22,
+  "t": "installable trigger",
+  "m": {
+   "ar": "محفز بصلاحياتك الكاملة",
+   "en": "a trigger with your full permissions"
+  },
+  "ex": "An installable trigger can send email."
+ },
+ {
+  "w": 22,
+  "t": "time-driven trigger",
+  "m": {
+   "ar": "محفز بالوقت",
+   "en": "a trigger based on time"
+  },
+  "ex": "A time-driven trigger runs at 7 a.m."
+ },
+ {
+  "w": 22,
+  "t": "onformsubmit",
+  "m": {
+   "ar": "محفز إرسال فورم",
+   "en": "the form-submission trigger"
+  },
+  "ex": "onFormSubmit forwards answers to n8n."
+ },
+ {
+  "w": 22,
+  "t": "lockservice",
+  "m": {
+   "ar": "خدمة قفل تمنع التشغيل المتزامن",
+   "en": "a locking service preventing concurrent runs"
+  },
+  "ex": "LockService avoids duplicate ids."
+ },
+ {
+  "w": 22,
+  "t": "execution time limit",
+  "m": {
+   "ar": "أقصى مدة للتشغيل",
+   "en": "the maximum run time"
+  },
+  "ex": "The execution time limit is 6 minutes."
+ },
+ {
+  "w": 22,
+  "t": "urlfetchapp",
+  "m": {
+   "ar": "خدمة طلبات HTTP في Apps Script",
+   "en": "the HTTP request service in Apps Script"
+  },
+  "ex": "UrlFetchApp posts to n8n."
+ },
+ {
+  "w": 22,
+  "t": "muteHttpExceptions",
+  "m": {
+   "ar": "خيار يخلّي الأخطاء ترجع رد بدل ما ترمي",
+   "en": "an option returning error replies instead of throwing"
+  },
+  "ex": "Set muteHttpExceptions to read the 400 body."
+ },
+ {
+  "w": 22,
+  "t": "propertiesservice",
+  "m": {
+   "ar": "خدمة حفظ إعدادات وأسرار السكربت",
+   "en": "the service storing a script’s settings and secrets"
+  },
+  "ex": "PropertiesService holds the key."
+ },
+ {
+  "w": 22,
+  "t": "script properties",
+  "m": {
+   "ar": "إعدادات محفوظة للسكربت",
+   "en": "saved settings for a script"
+  },
+  "ex": "Put the webhook URL in script properties."
+ },
+ {
+  "w": 22,
+  "t": "web app",
+  "m": {
+   "ar": "سكربت منشور برابط بيستقبل طلبات",
+   "en": "a script published at a URL that receives requests"
+  },
+  "ex": "The web app receives orders from n8n."
+ },
+ {
+  "w": 22,
+  "t": "dopost",
+  "m": {
+   "ar": "دالة بتستقبل POST في web app",
+   "en": "the function receiving a POST in a web app"
+  },
+  "ex": "doPost writes the row."
+ },
+ {
+  "w": 22,
+  "t": "contentservice",
+  "m": {
+   "ar": "خدمة الرد بنص أو JSON",
+   "en": "the service for replying with text or JSON"
+  },
+  "ex": "ContentService returns JSON."
+ },
+ {
+  "w": 22,
+  "t": "gmailapp",
+  "m": {
+   "ar": "خدمة Gmail في Apps Script",
+   "en": "the Gmail service in Apps Script"
+  },
+  "ex": "GmailApp.search finds the invoices."
+ },
+ {
+  "w": 22,
+  "t": "driveapp",
+  "m": {
+   "ar": "خدمة Drive في Apps Script",
+   "en": "the Drive service in Apps Script"
+  },
+  "ex": "DriveApp saves the PDF."
+ },
+ {
+  "w": 22,
+  "t": "documentapp",
+  "m": {
+   "ar": "خدمة Docs في Apps Script",
+   "en": "the Docs service in Apps Script"
+  },
+  "ex": "DocumentApp fills the template."
+ },
+ {
+  "w": 22,
+  "t": "calendarapp",
+  "m": {
+   "ar": "خدمة Calendar في Apps Script",
+   "en": "the Calendar service in Apps Script"
+  },
+  "ex": "CalendarApp books the visit."
+ },
+ {
+  "w": 22,
+  "t": "custom function",
+  "m": {
+   "ar": "دالة بتتكتب في خلية زي =VAT()",
+   "en": "a function used in a cell like =VAT()"
+  },
+  "ex": "The custom function cleans phones."
+ },
+ {
+  "w": 22,
+  "t": "clasp",
+  "m": {
+   "ar": "أداة سطر أوامر لمشاريع Apps Script",
+   "en": "a command-line tool for Apps Script projects"
+  },
+  "ex": "clasp push uploads the code."
+ },
+ {
+  "w": 22,
+  "t": "deployment",
+  "m": {
+   "ar": "نسخة منشورة برقم إصدار",
+   "en": "a published copy with a version number"
+  },
+  "ex": "The web app deployment is v3."
+ },
+ {
+  "w": 22,
+  "t": "oauth scope",
+  "m": {
+   "ar": "صلاحية محددة بيطلبها السكربت",
+   "en": "a specific permission the script requests"
+  },
+  "ex": "Ask for the narrowest OAuth scope."
+ },
+ {
+  "w": 22,
+  "t": "appsscript.json",
+  "m": {
+   "ar": "ملف إعدادات مشروع Apps Script",
+   "en": "the Apps Script project settings file"
+  },
+  "ex": "Set the time zone in appsscript.json."
+ },
+ {
+  "w": 22,
+  "t": "v8 runtime",
+  "m": {
+   "ar": "محرك جافاسكريبت الحديث في Apps Script",
+   "en": "the modern JavaScript engine in Apps Script"
+  },
+  "ex": "Set runtimeVersion to the V8 runtime."
+ },
+ {
+  "w": 23,
+  "t": "playwright",
+  "m": {
+   "ar": "مكتبة للتحكم في المتصفحات بالكود",
+   "en": "a library controlling browsers from code"
+  },
+  "ex": "Playwright downloads the daily report."
+ },
+ {
+  "w": 23,
+  "t": "browser automation",
+  "m": {
+   "ar": "التحكم في متصفح بالكود",
+   "en": "controlling a browser with code"
+  },
+  "ex": "Use browser automation only without an API."
+ },
+ {
+  "w": 23,
+  "t": "browser context",
+  "m": {
+   "ar": "جلسة متصفح معزولة",
+   "en": "an isolated browser session"
+  },
+  "ex": "Each user gets a new browser context."
+ },
+ {
+  "w": 23,
+  "t": "headless",
+  "m": {
+   "ar": "من غير نافذة ظاهرة",
+   "en": "without a visible window"
+  },
+  "ex": "Servers run Chromium headless."
+ },
+ {
+  "w": 23,
+  "t": "headed",
+  "m": {
+   "ar": "بنافذة ظاهرة",
+   "en": "with a visible window"
+  },
+  "ex": "Debug in headed mode."
+ },
+ {
+  "w": 23,
+  "t": "codegen",
+  "m": {
+   "ar": "تسجيل خطوات وتحويلها كود",
+   "en": "recording steps and turning them into code"
+  },
+  "ex": "codegen picked good locators."
+ },
+ {
+  "w": 23,
+  "t": "locator",
+  "m": {
+   "ar": "وصف لعنصر في الصفحة",
+   "en": "a description of an element on the page"
+  },
+  "ex": "The locator finds the Save button."
+ },
+ {
+  "w": 23,
+  "t": "getbyrole",
+  "m": {
+   "ar": "إيجاد عنصر بدوره واسمه",
+   "en": "finding an element by role and name"
+  },
+  "ex": "getByRole(\"button\", { name: \"Save\" })."
+ },
+ {
+  "w": 23,
+  "t": "getbylabel",
+  "m": {
+   "ar": "إيجاد خانة بعنوانها",
+   "en": "finding a field by its label"
+  },
+  "ex": "getByLabel(\"Email\") fills the field."
+ },
+ {
+  "w": 23,
+  "t": "getbytestid",
+  "m": {
+   "ar": "إيجاد عنصر بـ data-testid",
+   "en": "finding an element by data-testid"
+  },
+  "ex": "getByTestId survives redesigns."
+ },
+ {
+  "w": 23,
+  "t": "auto-waiting",
+  "m": {
+   "ar": "انتظار تلقائي لحد ما العنصر يبقى جاهز",
+   "en": "waiting automatically until an element is ready"
+  },
+  "ex": "Auto-waiting replaces sleeps."
+ },
+ {
+  "w": 23,
+  "t": "flaky",
+  "m": {
+   "ar": "بيشتغل ساعات ويفشل ساعات",
+   "en": "sometimes passing, sometimes failing"
+  },
+  "ex": "Fixed sleeps make scripts flaky."
+ },
+ {
+  "w": 23,
+  "t": "strict mode",
+  "m": {
+   "ar": "رفض الفعل لو الـ locator لقى أكتر من عنصر",
+   "en": "refusing an action when a locator matches several elements"
+  },
+  "ex": "Strict mode stopped the wrong click."
+ },
+ {
+  "w": 23,
+  "t": "fill",
+  "m": {
+   "ar": "كتابة قيمة في خانة",
+   "en": "typing a value into a field"
+  },
+  "ex": "fill replaces the old value."
+ },
+ {
+  "w": 23,
+  "t": "file upload",
+  "m": {
+   "ar": "رفع ملف لموقع",
+   "en": "sending a file to a website"
+  },
+  "ex": "setInputFiles handles the file upload."
+ },
+ {
+  "w": 23,
+  "t": "download",
+  "m": {
+   "ar": "تنزيل ملف من الموقع",
+   "en": "getting a file from the site"
+  },
+  "ex": "Wait for the download event first."
+ },
+ {
+  "w": 23,
+  "t": "dialog",
+  "m": {
+   "ar": "نافذة alert أو confirm",
+   "en": "an alert or confirm window"
+  },
+  "ex": "Accept the dialog to continue."
+ },
+ {
+  "w": 23,
+  "t": "frame",
+  "m": {
+   "ar": "صفحة جوه صفحة (iframe)",
+   "en": "a page inside a page (iframe)"
+  },
+  "ex": "The payment form is in a frame."
+ },
+ {
+  "w": 23,
+  "t": "storagestate",
+  "m": {
+   "ar": "ملف كوكيز وتخزين جلسة المتصفح",
+   "en": "a file of the browser session’s cookies and storage"
+  },
+  "ex": "storageState keeps us logged in."
+ },
+ {
+  "w": 23,
+  "t": "session reuse",
+  "m": {
+   "ar": "استخدام تسجيل دخول محفوظ",
+   "en": "reusing a saved login"
+  },
+  "ex": "Session reuse avoids daily logins."
+ },
+ {
+  "w": 23,
+  "t": "waitforresponse",
+  "m": {
+   "ar": "انتظار رد شبكة معين",
+   "en": "waiting for a specific network reply"
+  },
+  "ex": "waitForResponse grabs the orders JSON."
+ },
+ {
+  "w": 23,
+  "t": "network interception",
+  "m": {
+   "ar": "التحكم في طلبات الصفحة",
+   "en": "controlling the page’s requests"
+  },
+  "ex": "Network interception blocks images."
+ },
+ {
+  "w": 23,
+  "t": "har",
+  "m": {
+   "ar": "ملف تسجيل كل طلبات الشبكة",
+   "en": "a file recording all network requests"
+  },
+  "ex": "Open the HAR to see the calls."
+ },
+ {
+  "w": 23,
+  "t": "tracing",
+  "m": {
+   "ar": "تسجيل كل خطوات السكربت للمراجعة",
+   "en": "recording every script step for review"
+  },
+  "ex": "Tracing showed the missing button."
+ },
+ {
+  "w": 23,
+  "t": "trace viewer",
+  "m": {
+   "ar": "أداة عرض ملف الـ trace",
+   "en": "the tool for viewing a trace file"
+  },
+  "ex": "Open the zip in the trace viewer."
+ },
+ {
+  "w": 23,
+  "t": "screenshot",
+  "m": {
+   "ar": "صورة للصفحة",
+   "en": "a picture of the page"
+  },
+  "ex": "Save a screenshot on failure."
+ },
+ {
+  "w": 23,
+  "t": "playwright test",
+  "m": {
+   "ar": "إطار الاختبارات بتاع Playwright",
+   "en": "Playwright’s test framework"
+  },
+  "ex": "Playwright Test runs in CI."
+ },
+ {
+  "w": 23,
+  "t": "expect",
+  "m": {
+   "ar": "دالة التأكد في الاختبارات",
+   "en": "the assertion function in tests"
+  },
+  "ex": "expect(page).toHaveURL checks the URL."
+ },
+ {
+  "w": 23,
+  "t": "web-first assertion",
+  "m": {
+   "ar": "تأكيد بيستنى لحد ما الشرط يتحقق",
+   "en": "an assertion that waits until the condition holds"
+  },
+  "ex": "toBeVisible is a web-first assertion."
+ },
+ {
+  "w": 24,
+  "t": "web scraping",
+  "m": {
+   "ar": "جمع بيانات من صفحات ويب بالكود",
+   "en": "collecting data from web pages with code"
+  },
+  "ex": "Web scraping is a last resort."
+ },
+ {
+  "w": 24,
+  "t": "robots.txt",
+  "m": {
+   "ar": "ملف قواعد الزحف للمواقع",
+   "en": "a site’s file of crawling rules"
+  },
+  "ex": "Check robots.txt before crawling."
+ },
+ {
+  "w": 24,
+  "t": "crawl delay",
+  "m": {
+   "ar": "المدة المطلوبة بين الطلبات",
+   "en": "the requested time between requests"
+  },
+  "ex": "Respect a crawl delay of 2 seconds."
+ },
+ {
+  "w": 24,
+  "t": "terms of service",
+  "m": {
+   "ar": "شروط استخدام الموقع",
+   "en": "the site’s terms of use"
+  },
+  "ex": "The terms of service forbid scraping."
+ },
+ {
+  "w": 24,
+  "t": "personal data",
+  "m": {
+   "ar": "بيانات بتحدد شخص",
+   "en": "data identifying a person"
+  },
+  "ex": "Do not collect personal data."
+ },
+ {
+  "w": 24,
+  "t": "scraper",
+  "m": {
+   "ar": "برنامج بيستخرج بيانات من صفحات",
+   "en": "a program extracting data from pages"
+  },
+  "ex": "The scraper reads prices."
+ },
+ {
+  "w": 24,
+  "t": "crawler",
+  "m": {
+   "ar": "برنامج بيمشي على روابط الصفحات",
+   "en": "a program following links between pages"
+  },
+  "ex": "The crawler stays on one domain."
+ },
+ {
+  "w": 24,
+  "t": "cheerio",
+  "m": {
+   "ar": "مكتبة تحليل HTML في Node",
+   "en": "an HTML parsing library for Node"
+  },
+  "ex": "Cheerio reads the product cards."
+ },
+ {
+  "w": 24,
+  "t": "domparser",
+  "m": {
+   "ar": "محلل HTML في المتصفح",
+   "en": "the browser’s HTML parser"
+  },
+  "ex": "DOMParser turns text into a document."
+ },
+ {
+  "w": 24,
+  "t": "css selector",
+  "m": {
+   "ar": "نمط لاختيار عناصر HTML",
+   "en": "a pattern selecting HTML elements"
+  },
+  "ex": "The CSS selector .price finds prices."
+ },
+ {
+  "w": 24,
+  "t": "view source",
+  "m": {
+   "ar": "عرض الـ HTML الأصلي للصفحة",
+   "en": "showing a page’s original HTML"
+  },
+  "ex": "View Source shows the prices are there."
+ },
+ {
+  "w": 24,
+  "t": "layout change",
+  "m": {
+   "ar": "تغيير تصميم بيكسر المحددات",
+   "en": "a design change breaking selectors"
+  },
+  "ex": "A layout change returned 0 products."
+ },
+ {
+  "w": 24,
+  "t": "url queue",
+  "m": {
+   "ar": "قايمة روابط مستنية زيارة",
+   "en": "a list of links waiting to be visited"
+  },
+  "ex": "Push new links onto the URL queue."
+ },
+ {
+  "w": 24,
+  "t": "visited set",
+  "m": {
+   "ar": "مجموعة الروابط اللي اتزارت",
+   "en": "the set of links already visited"
+  },
+  "ex": "The visited set stops loops."
+ },
+ {
+  "w": 24,
+  "t": "crawl depth",
+  "m": {
+   "ar": "عدد الخطوات من صفحة البداية",
+   "en": "how many steps from the start page"
+  },
+  "ex": "Limit the crawl depth to 3."
+ },
+ {
+  "w": 24,
+  "t": "same origin",
+  "m": {
+   "ar": "نفس الموقع (بروتوكول ودومين وport)",
+   "en": "the same site (scheme, domain and port)"
+  },
+  "ex": "Stay on the same origin."
+ },
+ {
+  "w": 24,
+  "t": "sitemap",
+  "m": {
+   "ar": "ملف بكل صفحات الموقع",
+   "en": "a file listing a site’s pages"
+  },
+  "ex": "The sitemap lists 4000 products."
+ },
+ {
+  "w": 24,
+  "t": "next link",
+  "m": {
+   "ar": "رابط الصفحة التالية",
+   "en": "the link to the following page"
+  },
+  "ex": "Follow the next link until it disappears."
+ },
+ {
+  "w": 24,
+  "t": "politeness",
+  "m": {
+   "ar": "التعامل بأدب مع سيرفر الموقع",
+   "en": "treating the site’s server gently"
+  },
+  "ex": "Politeness means one request at a time."
+ },
+ {
+  "w": 24,
+  "t": "per-host limit",
+  "m": {
+   "ar": "حد طلبات لكل دومين",
+   "en": "a request limit per domain"
+  },
+  "ex": "A per-host limit of 1 protects small sites."
+ },
+ {
+  "w": 24,
+  "t": "etag",
+  "m": {
+   "ar": "بصمة نسخة الصفحة من السيرفر",
+   "en": "the server’s fingerprint of a page version"
+  },
+  "ex": "Save the ETag for next time."
+ },
+ {
+  "w": 24,
+  "t": "conditional request",
+  "m": {
+   "ar": "طلب «ابعت لو اتغير بس»",
+   "en": "a «send only if changed» request"
+  },
+  "ex": "A conditional request saves bandwidth."
+ },
+ {
+  "w": 24,
+  "t": "304 not modified",
+  "m": {
+   "ar": "رد «متغيرش» من غير جسم",
+   "en": "an «unchanged» reply with no body"
+  },
+  "ex": "304 Not Modified means use your copy."
+ },
+ {
+  "w": 24,
+  "t": "content hash",
+  "m": {
+   "ar": "بصمة للمحتوى نفسه",
+   "en": "a fingerprint of the content itself"
+  },
+  "ex": "Compare the content hash to spot edits."
+ },
+ {
+  "w": 24,
+  "t": "change detection",
+  "m": {
+   "ar": "اكتشاف إن حاجة اتغيرت",
+   "en": "noticing that something changed"
+  },
+  "ex": "Change detection drives the alerts."
+ },
+ {
+  "w": 24,
+  "t": "structured data",
+  "m": {
+   "ar": "بيانات منظمة جوه الصفحة لمحركات البحث",
+   "en": "tidy data inside a page for search engines"
+  },
+  "ex": "Read the structured data first."
+ },
+ {
+  "w": 24,
+  "t": "json-ld",
+  "m": {
+   "ar": "صيغة structured data في script",
+   "en": "the structured-data format inside a script tag"
+  },
+  "ex": "The JSON-LD holds the price."
+ },
+ {
+  "w": 24,
+  "t": "canonical url",
+  "m": {
+   "ar": "الرابط الأساسي للصفحة",
+   "en": "a page’s main URL"
+  },
+  "ex": "Deduplicate by canonical URL."
+ },
+ {
+  "w": 24,
+  "t": "price parsing",
+  "m": {
+   "ar": "تحويل نص السعر لرقم",
+   "en": "turning price text into a number"
+  },
+  "ex": "Price parsing handles Arabic digits."
+ },
+ {
+  "w": 24,
+  "t": "history",
+  "m": {
+   "ar": "كل النسخ القديمة بالتاريخ",
+   "en": "every old version by date"
+  },
+  "ex": "Keep 90 days of history."
  }
 ];
