@@ -9873,5 +9873,239 @@ JOURNEY_TERMS["js"] = [
    "en": "replacing API keys regularly"
   },
   "ex": "API key rotation every 90 days."
+ },
+ {
+  "w": 35,
+  "t": "real time",
+  "m": {
+   "ar": "تحديثات لحظة بلحظة",
+   "en": "moment-by-moment updates"
+  },
+  "ex": "The board shows orders in real time."
+ },
+ {
+  "w": 35,
+  "t": "polling",
+  "m": {
+   "ar": "السؤال الدوري عن الجديد",
+   "en": "asking for news at regular intervals"
+  },
+  "ex": "Polling every minute is enough here."
+ },
+ {
+  "w": 35,
+  "t": "long polling",
+  "m": {
+   "ar": "طلب بيستنى لحد ما يحصل جديد",
+   "en": "a request held until something new happens"
+  },
+  "ex": "Long polling works over plain HTTP."
+ },
+ {
+  "w": 35,
+  "t": "server-sent events",
+  "m": {
+   "ar": "السيرفر يبعت تحديثات في اتجاه واحد",
+   "en": "the server pushing one-way updates"
+  },
+  "ex": "Server-sent events power the feed."
+ },
+ {
+  "w": 35,
+  "t": "websocket",
+  "m": {
+   "ar": "اتصال مفتوح في الاتجاهين",
+   "en": "an open two-way connection"
+  },
+  "ex": "Chat needs a WebSocket."
+ },
+ {
+  "w": 35,
+  "t": "text/event-stream",
+  "m": {
+   "ar": "نوع المحتوى بتاع SSE",
+   "en": "the content type of SSE"
+  },
+  "ex": "Reply with text/event-stream."
+ },
+ {
+  "w": 35,
+  "t": "eventsource",
+  "m": {
+   "ar": "واجهة المتصفح لاستقبال SSE",
+   "en": "the browser API for receiving SSE"
+  },
+  "ex": "EventSource reconnects by itself."
+ },
+ {
+  "w": 35,
+  "t": "last-event-id",
+  "m": {
+   "ar": "header بيقول آخر حدث وصل",
+   "en": "a header naming the last event received"
+  },
+  "ex": "Resume after Last-Event-ID."
+ },
+ {
+  "w": 35,
+  "t": "reconnect",
+  "m": {
+   "ar": "إعادة الاتصال بعد الانقطاع",
+   "en": "connecting again after a drop"
+  },
+  "ex": "The client reconnects in 3 seconds."
+ },
+ {
+  "w": 35,
+  "t": "keep-alive comment",
+  "m": {
+   "ar": "سطر تعليق بيمنع قفل الاتصال",
+   "en": "a comment line preventing idle closes"
+  },
+  "ex": "Send a keep-alive comment every 25 s."
+ },
+ {
+  "w": 35,
+  "t": "ws",
+  "m": {
+   "ar": "أشهر مكتبة WebSocket لـ Node",
+   "en": "the best-known WebSocket library for Node"
+  },
+  "ex": "The server uses ws."
+ },
+ {
+  "w": 35,
+  "t": "upgrade",
+  "m": {
+   "ar": "تحويل طلب HTTP لاتصال WebSocket",
+   "en": "switching an HTTP request to a WebSocket"
+  },
+  "ex": "The upgrade happens on /ws."
+ },
+ {
+  "w": 35,
+  "t": "message format",
+  "m": {
+   "ar": "شكل الرسايل المتفق عليه",
+   "en": "the agreed shape of messages"
+  },
+  "ex": "Every message format has a type."
+ },
+ {
+  "w": 35,
+  "t": "backoff reconnect",
+  "m": {
+   "ar": "إعادة اتصال بانتظار متزايد",
+   "en": "reconnecting with growing waits"
+  },
+  "ex": "Backoff reconnect avoids a thundering herd."
+ },
+ {
+  "w": 35,
+  "t": "heartbeat ping",
+  "m": {
+   "ar": "نبضة دورية للتأكد إن الاتصال عايش",
+   "en": "a regular check that the connection lives"
+  },
+  "ex": "No pong after a heartbeat ping: terminate."
+ },
+ {
+  "w": 35,
+  "t": "room",
+  "m": {
+   "ar": "مجموعة اتصالات بتستقبل نفس الرسايل",
+   "en": "a group of connections receiving the same messages"
+  },
+  "ex": "Join the order:1042 room."
+ },
+ {
+  "w": 35,
+  "t": "channel",
+  "m": {
+   "ar": "اسم قناة رسايل",
+   "en": "a named message stream"
+  },
+  "ex": "Publish on the orders channel."
+ },
+ {
+  "w": 35,
+  "t": "redis pub/sub",
+  "m": {
+   "ar": "نشر واشتراك عبر Redis بين سيرفرات",
+   "en": "publish/subscribe through Redis across servers"
+  },
+  "ex": "Redis pub/sub links both servers."
+ },
+ {
+  "w": 35,
+  "t": "sticky sessions",
+  "m": {
+   "ar": "إبقاء العميل على نفس السيرفر",
+   "en": "keeping a client on the same server"
+  },
+  "ex": "Enable sticky sessions for WebSockets."
+ },
+ {
+  "w": 35,
+  "t": "presence",
+  "m": {
+   "ar": "معرفة مين متصل دلوقتي",
+   "en": "knowing who is connected now"
+  },
+  "ex": "Presence shows who is online."
+ },
+ {
+  "w": 35,
+  "t": "maxpayload",
+  "m": {
+   "ar": "أقصى حجم لرسالة WebSocket",
+   "en": "the maximum size of a WebSocket message"
+  },
+  "ex": "Set maxPayload to 16 KB."
+ },
+ {
+  "w": 35,
+  "t": "throttle updates",
+  "m": {
+   "ar": "تقليل عدد التحديثات المبعوتة",
+   "en": "reducing how many updates are sent"
+  },
+  "ex": "Throttle updates to twice a second."
+ },
+ {
+  "w": 35,
+  "t": "batch",
+  "m": {
+   "ar": "تجميع حاجات في رسالة واحدة",
+   "en": "grouping things into one message"
+  },
+  "ex": "Send updates as one batch."
+ },
+ {
+  "w": 35,
+  "t": "catch up",
+  "m": {
+   "ar": "تعويض اللي فات بعد الرجوع",
+   "en": "recovering what was missed after returning"
+  },
+  "ex": "Boards catch up with Last-Event-ID."
+ },
+ {
+  "w": 35,
+  "t": "load test",
+  "m": {
+   "ar": "اختبار بأعداد كبيرة",
+   "en": "a test with large numbers"
+  },
+  "ex": "A load test opened 100 connections."
+ },
+ {
+  "w": 35,
+  "t": "internal endpoint",
+  "m": {
+   "ar": "endpoint للأنظمة الداخلية بس",
+   "en": "an endpoint for internal systems only"
+  },
+  "ex": "n8n posts to the internal endpoint."
  }
 ];
