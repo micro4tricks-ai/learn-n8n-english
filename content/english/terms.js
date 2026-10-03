@@ -4572,5 +4572,293 @@ JOURNEY_TERMS["english"] = [
    "en": "raising a price"
   },
   "ex": "Announce the price increase 60 days ahead."
+ },
+ {
+  "w": 40,
+  "t": "support reply",
+  "m": {
+   "ar": "رد دعم",
+   "en": "a reply to a support request"
+  },
+  "ex": "A good support reply ends with the next step."
+ },
+ {
+  "w": 40,
+  "t": "empathy statement",
+  "m": {
+   "ar": "جملة تعاطف",
+   "en": "a sentence showing you understand feelings"
+  },
+  "ex": "Start with a specific empathy statement."
+ },
+ {
+  "w": 40,
+  "t": "holding reply",
+  "m": {
+   "ar": "رد مؤقت لحد الحل",
+   "en": "a quick reply before the full answer"
+  },
+  "ex": "Send a holding reply within 30 minutes."
+ },
+ {
+  "w": 40,
+  "t": "follow through",
+  "m": {
+   "ar": "تنفّذ اللي وعدت بيه",
+   "en": "to do what you promised"
+  },
+  "ex": "Always follow through on your update times."
+ },
+ {
+  "w": 40,
+  "t": "resolution",
+  "m": {
+   "ar": "الحل النهائي",
+   "en": "the final fix"
+  },
+  "ex": "The resolution email lists what changed."
+ },
+ {
+  "w": 40,
+  "t": "canned response",
+  "m": {
+   "ar": "رد جاهز",
+   "en": "a prepared standard reply"
+  },
+  "ex": "Personalise every canned response."
+ },
+ {
+  "w": 40,
+  "t": "personalise",
+  "m": {
+   "ar": "تخصص للشخص",
+   "en": "to tailor to the person"
+  },
+  "ex": "Personalise the template with their details."
+ },
+ {
+  "w": 40,
+  "t": "positive language",
+  "m": {
+   "ar": "لغة بتركز على الممكن",
+   "en": "wording that focuses on what is possible"
+  },
+  "ex": "Use positive language in support replies."
+ },
+ {
+  "w": 40,
+  "t": "de-escalate",
+  "m": {
+   "ar": "تهدّي الموقف",
+   "en": "to calm a tense situation"
+  },
+  "ex": "Listening helped de-escalate the call."
+ },
+ {
+  "w": 40,
+  "t": "vent",
+  "m": {
+   "ar": "يطلّع غضبه",
+   "en": "to express strong feelings"
+  },
+  "ex": "Let the client vent first."
+ },
+ {
+  "w": 40,
+  "t": "acknowledge feelings",
+  "m": {
+   "ar": "تعترف بمشاعر الشخص",
+   "en": "to recognise someone’s emotions"
+  },
+  "ex": "Acknowledge feelings before solutions."
+ },
+ {
+  "w": 40,
+  "t": "cool down",
+  "m": {
+   "ar": "تهدا قبل الرد",
+   "en": "to calm yourself before replying"
+  },
+  "ex": "Cool down before answering the email."
+ },
+ {
+  "w": 40,
+  "t": "sincere apology",
+  "m": {
+   "ar": "اعتذار حقيقي",
+   "en": "a genuine apology"
+  },
+  "ex": "A sincere apology names the mistake."
+ },
+ {
+  "w": 40,
+  "t": "non-apology",
+  "m": {
+   "ar": "اعتذار شكلي بيلوم الطرف التاني",
+   "en": "a fake apology that shifts blame"
+  },
+  "ex": "«Sorry if you feel that way» is a non-apology."
+ },
+ {
+  "w": 40,
+  "t": "take ownership",
+  "m": {
+   "ar": "تتحمل المسؤولية",
+   "en": "to accept responsibility"
+  },
+  "ex": "Take ownership of the missed test."
+ },
+ {
+  "w": 40,
+  "t": "angry customer",
+  "m": {
+   "ar": "عميل غاضب",
+   "en": "an upset client"
+  },
+  "ex": "An angry customer needs to feel heard."
+ },
+ {
+  "w": 40,
+  "t": "bad news",
+  "m": {
+   "ar": "خبر وحش",
+   "en": "unwelcome information"
+  },
+  "ex": "Share bad news early."
+ },
+ {
+  "w": 40,
+  "t": "delay notice",
+  "m": {
+   "ar": "إشعار تأخير",
+   "en": "a message announcing a delay"
+  },
+  "ex": "Send the delay notice today, not Friday."
+ },
+ {
+  "w": 40,
+  "t": "we regret",
+  "m": {
+   "ar": "نأسف (رسمي)",
+   "en": "we are sorry (formal)"
+  },
+  "ex": "We regret to inform you of a delay."
+ },
+ {
+  "w": 40,
+  "t": "unfortunately",
+  "m": {
+   "ar": "للأسف",
+   "en": "sadly"
+  },
+  "ex": "Unfortunately, the templates were rejected."
+ },
+ {
+  "w": 40,
+  "t": "going forward",
+  "m": {
+   "ar": "من دلوقتي ورايح",
+   "en": "from now on"
+  },
+  "ex": "Going forward, we will test every update."
+ },
+ {
+  "w": 40,
+  "t": "reframe",
+  "m": {
+   "ar": "تعيد الصياغة من زاوية بناءة",
+   "en": "to present from a constructive angle"
+  },
+  "ex": "Reframe the delay as extra testing time."
+ },
+ {
+  "w": 40,
+  "t": "say no",
+  "m": {
+   "ar": "ترفض",
+   "en": "to refuse"
+  },
+  "ex": "It’s okay to say no politely."
+ },
+ {
+  "w": 40,
+  "t": "boundary",
+  "m": {
+   "ar": "حد بيحمي وقتك",
+   "en": "a limit protecting your time"
+  },
+  "ex": "Set a boundary on support hours."
+ },
+ {
+  "w": 40,
+  "t": "disagreement",
+  "m": {
+   "ar": "اختلاف في الرأي",
+   "en": "a difference of opinion"
+  },
+  "ex": "We had a professional disagreement about staging."
+ },
+ {
+  "w": 40,
+  "t": "difficult conversation",
+  "m": {
+   "ar": "محادثة صعبة",
+   "en": "a hard, sensitive talk"
+  },
+  "ex": "Prepare notes for the difficult conversation."
+ },
+ {
+  "w": 40,
+  "t": "common ground",
+  "m": {
+   "ar": "أرضية مشتركة",
+   "en": "shared interests or views"
+  },
+  "ex": "Start from common ground."
+ },
+ {
+  "w": 40,
+  "t": "client journey",
+  "m": {
+   "ar": "رحلة العميل من أول تواصل للتجديد",
+   "en": "the client’s path from first contact to renewal"
+  },
+  "ex": "Map the client journey in eight stops."
+ },
+ {
+  "w": 40,
+  "t": "phrase bank",
+  "m": {
+   "ar": "مكتبة جمل جاهزة",
+   "en": "a collection of ready phrases"
+  },
+  "ex": "My phrase bank has 200 sentences."
+ },
+ {
+  "w": 40,
+  "t": "renewal email",
+  "m": {
+   "ar": "إيميل تجديد",
+   "en": "an email about continuing a contract"
+  },
+  "ex": "Send the renewal email a month early."
+ },
+ {
+  "w": 40,
+  "t": "tone shift",
+  "m": {
+   "ar": "تغيير النبرة حسب الموقف",
+   "en": "changing tone for the situation"
+  },
+  "ex": "Notice the tone shift from sales to contracts."
+ },
+ {
+  "w": 40,
+  "t": "client onboarding",
+  "m": {
+   "ar": "استقبال العميل وتجهيزه",
+   "en": "welcoming and setting up a new client"
+  },
+  "ex": "Client onboarding states your boundaries."
  }
 ];
