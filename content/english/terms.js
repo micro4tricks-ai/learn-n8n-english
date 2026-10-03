@@ -1080,5 +1080,905 @@ JOURNEY_TERMS["english"] = [
    "en": "the sound keeps cutting out on a call"
   },
   "ex": "Sorry, you're breaking up."
+ },
+ {
+  "w": 25,
+  "t": "rfc",
+  "m": {
+   "ar": "مستند رسمي بيحدد معيار من معايير الإنترنت",
+   "en": "an official document defining an internet standard"
+  },
+  "ex": "HTTP is described in an RFC."
+ },
+ {
+  "w": 25,
+  "t": "specification",
+  "m": {
+   "ar": "وصف رسمي دقيق لإزاي حاجة لازم تشتغل",
+   "en": "a precise official description of how something must work"
+  },
+  "ex": "Read the specification before you build the client."
+ },
+ {
+  "w": 25,
+  "t": "normative",
+  "m": {
+   "ar": "جزء ملزم في المواصفة",
+   "en": "a binding part of a specification"
+  },
+  "ex": "Only normative sections contain requirements."
+ },
+ {
+  "w": 25,
+  "t": "conformance",
+  "m": {
+   "ar": "الالتزام بمتطلبات المواصفة",
+   "en": "following a specification’s requirements"
+  },
+  "ex": "Conformance tests check every MUST."
+ },
+ {
+  "w": 25,
+  "t": "recommended",
+  "m": {
+   "ar": "مُوصى بيه (SHOULD)",
+   "en": "advised; the SHOULD level"
+  },
+  "ex": "Compression is recommended but not required."
+ },
+ {
+  "w": 25,
+  "t": "abstract",
+  "m": {
+   "ar": "ملخص قصير في أول المستند",
+   "en": "a short summary at the start of a document"
+  },
+  "ex": "Read the abstract to decide if the RFC is relevant."
+ },
+ {
+  "w": 25,
+  "t": "terminology",
+  "m": {
+   "ar": "قسم المصطلحات وتعريفاتها",
+   "en": "the section defining the terms"
+  },
+  "ex": "Always read the terminology section first."
+ },
+ {
+  "w": 25,
+  "t": "informative",
+  "m": {
+   "ar": "للشرح بس ومش ملزم",
+   "en": "for explanation only, not binding"
+  },
+  "ex": "The examples are informative."
+ },
+ {
+  "w": 25,
+  "t": "errata",
+  "m": {
+   "ar": "أخطاء اتصلحت بعد نشر المستند",
+   "en": "mistakes corrected after a document was published"
+  },
+  "ex": "Check the errata before quoting the spec."
+ },
+ {
+  "w": 25,
+  "t": "obsolete",
+  "m": {
+   "ar": "يلغي مستند قديم ويحل محله (أو: قديم وملغي)",
+   "en": "to replace an older document (or: replaced and out of date)"
+  },
+  "ex": "RFC 9110 obsoletes RFC 7231."
+ },
+ {
+  "w": 25,
+  "t": "main clause",
+  "m": {
+   "ar": "الجملة الأساسية اللي ممكن تقف لوحدها",
+   "en": "the core sentence that can stand alone"
+  },
+  "ex": "Find the main clause first."
+ },
+ {
+  "w": 25,
+  "t": "provided that",
+  "m": {
+   "ar": "بشرط إن",
+   "en": "on condition that"
+  },
+  "ex": "You may cache it, provided that it is fresh."
+ },
+ {
+  "w": 25,
+  "t": "unless",
+  "m": {
+   "ar": "إلا لو / لو مش",
+   "en": "except if; if not"
+  },
+  "ex": "Retry unless the error is permanent."
+ },
+ {
+  "w": 25,
+  "t": "in which case",
+  "m": {
+   "ar": "وفي الحالة دي",
+   "en": "and if that happens"
+  },
+  "ex": "It may expire, in which case you must refresh it."
+ },
+ {
+  "w": 25,
+  "t": "parenthetical",
+  "m": {
+   "ar": "إضافة جانبية بين أقواس أو فواصل",
+   "en": "a side remark between brackets or commas"
+  },
+  "ex": "Skip the parenthetical on the first read."
+ },
+ {
+  "w": 25,
+  "t": "respectively",
+  "m": {
+   "ar": "بالترتيب المذكور",
+   "en": "in the order just given"
+  },
+  "ex": "They return 200 and 404 respectively."
+ },
+ {
+  "w": 25,
+  "t": "the former",
+  "m": {
+   "ar": "الأول من اتنين اتذكروا",
+   "en": "the first of two things mentioned"
+  },
+  "ex": "The former is faster."
+ },
+ {
+  "w": 25,
+  "t": "the latter",
+  "m": {
+   "ar": "التاني من اتنين اتذكروا",
+   "en": "the second of two things mentioned"
+  },
+  "ex": "The latter is easier to read."
+ },
+ {
+  "w": 25,
+  "t": "whereby",
+  "m": {
+   "ar": "اللي عن طريقه / بيه",
+   "en": "by which"
+  },
+  "ex": "A process whereby tokens are renewed."
+ },
+ {
+  "w": 25,
+  "t": "subject to",
+  "m": {
+   "ar": "خاضع لـ / مقيّد بـ",
+   "en": "depending on or limited by"
+  },
+  "ex": "Usage is subject to the fair-use policy."
+ },
+ {
+  "w": 25,
+  "t": "mandatory",
+  "m": {
+   "ar": "إجباري ولازم يتعمل",
+   "en": "required; it must be done"
+  },
+  "ex": "Authentication is mandatory for every endpoint."
+ },
+ {
+  "w": 25,
+  "t": "glossary",
+  "m": {
+   "ar": "قايمة مصطلحات بتعريفاتها",
+   "en": "a list of terms with their definitions"
+  },
+  "ex": "Add the term to the project glossary."
+ },
+ {
+  "w": 25,
+  "t": "interoperability",
+  "m": {
+   "ar": "قدرة أنظمة مختلفة تشتغل مع بعض",
+   "en": "the ability of different systems to work together"
+  },
+  "ex": "Specs exist for interoperability."
+ },
+ {
+  "w": 25,
+  "t": "implementation",
+  "m": {
+   "ar": "تطبيق المواصفة في كود حقيقي",
+   "en": "turning a spec into real code"
+  },
+  "ex": "Our implementation follows RFC 9110."
+ },
+ {
+  "w": 25,
+  "t": "ambiguous wording",
+  "m": {
+   "ar": "صياغة ممكن تتفهم بأكتر من طريقة",
+   "en": "phrasing that can be read in more than one way"
+  },
+  "ex": "Quote the ambiguous wording in your question."
+ },
+ {
+  "w": 26,
+  "t": "codebase",
+  "m": {
+   "ar": "كل كود المشروع",
+   "en": "all the code of a project"
+  },
+  "ex": "Search the codebase for the function."
+ },
+ {
+  "w": 26,
+  "t": "entry point",
+  "m": {
+   "ar": "المكان اللي البرنامج بيبدأ منه",
+   "en": "where a program starts running"
+  },
+  "ex": "app.py is the entry point."
+ },
+ {
+  "w": 26,
+  "t": "call site",
+  "m": {
+   "ar": "المكان اللي الدالة بتتنادي منه",
+   "en": "a place where a function is called"
+  },
+  "ex": "There are three call sites."
+ },
+ {
+  "w": 26,
+  "t": "legacy",
+  "m": {
+   "ar": "قديم ومحتفظين بيه عشان التوافق",
+   "en": "old and kept for compatibility"
+  },
+  "ex": "Avoid the legacy export in new code."
+ },
+ {
+  "w": 26,
+  "t": "naming hint",
+  "m": {
+   "ar": "معلومة بتفهمها من اسم في الكود",
+   "en": "information you get from a name in code"
+  },
+  "ex": "The prefix try_ is a naming hint."
+ },
+ {
+  "w": 26,
+  "t": "changelog entry",
+  "m": {
+   "ar": "سطر في سجل التغييرات",
+   "en": "one line in a changelog"
+  },
+  "ex": "Each PR adds a changelog entry."
+ },
+ {
+  "w": 26,
+  "t": "migration guide",
+  "m": {
+   "ar": "دليل خطوات الانتقال لإصدار جديد",
+   "en": "a step guide for moving to a new version"
+  },
+  "ex": "Follow the migration guide before upgrading."
+ },
+ {
+  "w": 26,
+  "t": "upgrade path",
+  "m": {
+   "ar": "الطريق من إصدار لإصدار",
+   "en": "the route from one version to another"
+  },
+  "ex": "The upgrade path goes through 2.9."
+ },
+ {
+  "w": 26,
+  "t": "release candidate",
+  "m": {
+   "ar": "نسخة شبه نهائية للتجربة",
+   "en": "an almost-final version for testing"
+  },
+  "ex": "Do not use a release candidate in production."
+ },
+ {
+  "w": 26,
+  "t": "lts",
+  "m": {
+   "ar": "إصدار بدعم طويل المدى",
+   "en": "a version with long-term support"
+  },
+  "ex": "Stay on the LTS release."
+ },
+ {
+  "w": 26,
+  "t": "issue thread",
+  "m": {
+   "ar": "النقاش كله تحت issue",
+   "en": "the whole discussion under an issue"
+  },
+  "ex": "Read the issue thread from the end."
+ },
+ {
+  "w": 26,
+  "t": "good first issue",
+  "m": {
+   "ar": "مهمة سهلة للمساهمين الجداد",
+   "en": "an easy task for new contributors"
+  },
+  "ex": "Start with a good first issue."
+ },
+ {
+  "w": 26,
+  "t": "wontfix",
+  "m": {
+   "ar": "مش هيتعمل (قرار المشرفين)",
+   "en": "will not be done (a maintainers’ decision)"
+  },
+  "ex": "The request was labelled wontfix."
+ },
+ {
+  "w": 26,
+  "t": "stale",
+  "m": {
+   "ar": "متساب من غير رد فترة طويلة",
+   "en": "left without a reply for a long time"
+  },
+  "ex": "The bot closed the stale issue."
+ },
+ {
+  "w": 26,
+  "t": "maintainer",
+  "m": {
+   "ar": "الشخص المسؤول عن المشروع",
+   "en": "a person responsible for a project"
+  },
+  "ex": "Wait for a maintainer to review."
+ },
+ {
+  "w": 26,
+  "t": "upvote",
+  "m": {
+   "ar": "تأييد بتفاعل بدل تعليق",
+   "en": "support shown with a reaction instead of a comment"
+  },
+  "ex": "Upvote the issue instead of commenting +1."
+ },
+ {
+  "w": 26,
+  "t": "triage",
+  "m": {
+   "ar": "فرز وترتيب الـ issues حسب الأهمية",
+   "en": "sorting issues by importance"
+  },
+  "ex": "The team triages new issues every Monday."
+ },
+ {
+  "w": 26,
+  "t": "pinned issue",
+  "m": {
+   "ar": "issue متثبّت فوق القايمة",
+   "en": "an issue fixed at the top of the list"
+  },
+  "ex": "Read the pinned issue before reporting."
+ },
+ {
+  "w": 26,
+  "t": "mention",
+  "m": {
+   "ar": "ذكر شخص بـ @ عشان يوصله إشعار",
+   "en": "tagging someone with @ so they get notified"
+  },
+  "ex": "Avoid mentions unless needed."
+ },
+ {
+  "w": 26,
+  "t": "follow-up",
+  "m": {
+   "ar": "متابعة بعد فترة",
+   "en": "a later message checking progress"
+  },
+  "ex": "A polite follow-up after two weeks is fine."
+ },
+ {
+  "w": 26,
+  "t": "conventional commit",
+  "m": {
+   "ar": "رسالة commit بنوع محدد زي feat: وfix:",
+   "en": "a commit message with a set type like feat: and fix:"
+  },
+  "ex": "Use a conventional commit for every change."
+ },
+ {
+  "w": 26,
+  "t": "chore",
+  "m": {
+   "ar": "شغل صيانة مش ميزة ولا إصلاح",
+   "en": "maintenance work, neither a feature nor a fix"
+  },
+  "ex": "chore: update the CI config."
+ },
+ {
+  "w": 26,
+  "t": "bump",
+  "m": {
+   "ar": "ترفع رقم إصدار",
+   "en": "to raise a version number"
+  },
+  "ex": "Bump the version to 2.4.1."
+ },
+ {
+  "w": 26,
+  "t": "blame",
+  "m": {
+   "ar": "عرض مين غيّر كل سطر وإمتى",
+   "en": "showing who changed each line and when"
+  },
+  "ex": "Use blame to find the PR behind the line."
+ },
+ {
+  "w": 26,
+  "t": "backport",
+  "m": {
+   "ar": "نقل إصلاح لإصدار قديم مدعوم",
+   "en": "moving a fix to an older supported version"
+  },
+  "ex": "The security fix was backported to 2.x."
+ },
+ {
+  "w": 27,
+  "t": "hook",
+  "m": {
+   "ar": "بداية بتشد القارئ",
+   "en": "an opening that grabs the reader"
+  },
+  "ex": "The hook was a 40-minute CI build."
+ },
+ {
+  "w": 27,
+  "t": "claim",
+  "m": {
+   "ar": "ادعاء محتاج دليل",
+   "en": "a statement that needs proof"
+  },
+  "ex": "Check every claim against the data."
+ },
+ {
+  "w": 27,
+  "t": "evidence",
+  "m": {
+   "ar": "الدليل اللي بيدعم الادعاء",
+   "en": "the proof supporting a claim"
+  },
+  "ex": "The chart is the evidence."
+ },
+ {
+  "w": 27,
+  "t": "opinion piece",
+  "m": {
+   "ar": "مقال رأي شخصي",
+   "en": "an article giving a personal view"
+  },
+  "ex": "Read the opinion piece as one view."
+ },
+ {
+  "w": 27,
+  "t": "takeaway",
+  "m": {
+   "ar": "الخلاصة اللي هتطبقها",
+   "en": "the main lesson you will apply"
+  },
+  "ex": "My takeaway: cache the dependencies."
+ },
+ {
+  "w": 27,
+  "t": "research paper",
+  "m": {
+   "ar": "ورقة بحثية علمية",
+   "en": "a scientific research article"
+  },
+  "ex": "The research paper compares five RAG methods."
+ },
+ {
+  "w": 27,
+  "t": "related work",
+  "m": {
+   "ar": "الأبحاث السابقة في نفس الموضوع",
+   "en": "earlier research on the same topic"
+  },
+  "ex": "Related work lists earlier approaches."
+ },
+ {
+  "w": 27,
+  "t": "limitation",
+  "m": {
+   "ar": "حد أو نقطة ضعف في البحث",
+   "en": "a boundary or weakness of a study"
+  },
+  "ex": "The main limitation is English-only data."
+ },
+ {
+  "w": 27,
+  "t": "preprint",
+  "m": {
+   "ar": "ورقة منشورة قبل المراجعة الرسمية",
+   "en": "a paper published before formal review"
+  },
+  "ex": "Treat a preprint with care."
+ },
+ {
+  "w": 27,
+  "t": "peer review",
+  "m": {
+   "ar": "مراجعة الورقة من باحثين تانيين قبل النشر",
+   "en": "review of a paper by other researchers before publication"
+  },
+  "ex": "The paper passed peer review in 2025."
+ },
+ {
+  "w": 27,
+  "t": "suggest",
+  "m": {
+   "ar": "يشير إلى (من غير ما يثبت)",
+   "en": "to indicate without proving"
+  },
+  "ex": "The data suggest a link."
+ },
+ {
+  "w": 27,
+  "t": "appear to",
+  "m": {
+   "ar": "يبان إنه",
+   "en": "to seem to"
+  },
+  "ex": "The model appears to ignore long contexts."
+ },
+ {
+  "w": 27,
+  "t": "significant",
+  "m": {
+   "ar": "في الأبحاث: مش صدفة إحصائيًا",
+   "en": "in research: statistically unlikely to be chance"
+  },
+  "ex": "The difference is significant at p < 0.05."
+ },
+ {
+  "w": 27,
+  "t": "state of the art",
+  "m": {
+   "ar": "أحسن نتيجة منشورة على مقياس",
+   "en": "the best published result on a benchmark"
+  },
+  "ex": "It is state of the art on one benchmark only."
+ },
+ {
+  "w": 27,
+  "t": "outperform",
+  "m": {
+   "ar": "يتفوّق على في قياس معيّن",
+   "en": "to score higher than on a given measure"
+  },
+  "ex": "B outperforms A on short questions."
+ },
+ {
+  "w": 27,
+  "t": "sharp increase",
+  "m": {
+   "ar": "زيادة كبيرة وسريعة",
+   "en": "a large, fast rise"
+  },
+  "ex": "There was a sharp increase in errors at 9 a.m."
+ },
+ {
+  "w": 27,
+  "t": "plateau",
+  "m": {
+   "ar": "يثبت بعد صعود",
+   "en": "to level off after rising"
+  },
+  "ex": "Accuracy plateaued at 92%."
+ },
+ {
+  "w": 27,
+  "t": "outlier",
+  "m": {
+   "ar": "قيمة شاذة بعيدة عن الباقي",
+   "en": "a value far from the others"
+  },
+  "ex": "Remove the outlier before averaging."
+ },
+ {
+  "w": 27,
+  "t": "percentage point",
+  "m": {
+   "ar": "فرق بين نسبتين بالنقط",
+   "en": "the difference between two percentages"
+  },
+  "ex": "Errors fell by 10 percentage points."
+ },
+ {
+  "w": 27,
+  "t": "benchmark",
+  "m": {
+   "ar": "اختبار قياسي للمقارنة",
+   "en": "a standard test for comparison"
+  },
+  "ex": "Compare models on the same benchmark."
+ },
+ {
+  "w": 27,
+  "t": "critique",
+  "m": {
+   "ar": "تقييم عادل لنقط القوة والضعف",
+   "en": "a fair assessment of strengths and weaknesses"
+  },
+  "ex": "Write a short critique of the article."
+ },
+ {
+  "w": 27,
+  "t": "sample size",
+  "m": {
+   "ar": "عدد الحالات اللي اتقاسوا",
+   "en": "the number of cases measured"
+  },
+  "ex": "A sample size of 12 is too small."
+ },
+ {
+  "w": 27,
+  "t": "anecdote",
+  "m": {
+   "ar": "حكاية شخصية واحدة مش بيانات",
+   "en": "a single personal story, not data"
+  },
+  "ex": "One anecdote is not evidence."
+ },
+ {
+  "w": 27,
+  "t": "cite",
+  "m": {
+   "ar": "تذكر المصدر",
+   "en": "to name the source"
+  },
+  "ex": "Cite the paper when you use its idea."
+ },
+ {
+  "w": 27,
+  "t": "plagiarism",
+  "m": {
+   "ar": "نسخ كلام حد من غير ذكره",
+   "en": "copying someone’s words without credit"
+  },
+  "ex": "Copying a blog post is plagiarism."
+ },
+ {
+  "w": 28,
+  "t": "one-liner",
+  "m": {
+   "ar": "ملخص في جملة واحدة",
+   "en": "a one-sentence summary"
+  },
+  "ex": "Start the email with a one-liner."
+ },
+ {
+  "w": 28,
+  "t": "executive summary",
+  "m": {
+   "ar": "ملخص قصير لمدير مشغول",
+   "en": "a short summary for a busy manager"
+  },
+  "ex": "Put the executive summary at the top."
+ },
+ {
+  "w": 28,
+  "t": "gist",
+  "m": {
+   "ar": "الفكرة الأساسية",
+   "en": "the main idea"
+  },
+  "ex": "I got the gist of the talk."
+ },
+ {
+  "w": 28,
+  "t": "omit",
+  "m": {
+   "ar": "تشيل/متذكرش",
+   "en": "to leave out"
+  },
+  "ex": "Omit the details the reader does not need."
+ },
+ {
+  "w": 28,
+  "t": "condense",
+  "m": {
+   "ar": "تختصر من غير ما يضيع المعنى",
+   "en": "to shorten without losing meaning"
+  },
+  "ex": "Condense the report to one page."
+ },
+ {
+  "w": 28,
+  "t": "cornell notes",
+  "m": {
+   "ar": "طريقة ملاحظات بأسئلة وملخص",
+   "en": "a note method with questions and a summary"
+  },
+  "ex": "Cornell notes make review easy."
+ },
+ {
+  "w": 28,
+  "t": "cue",
+  "m": {
+   "ar": "كلمة أو سؤال بيفكّرك بالفكرة",
+   "en": "a word or question that reminds you of an idea"
+  },
+  "ex": "Write a cue in the left column."
+ },
+ {
+  "w": 28,
+  "t": "atomic note",
+  "m": {
+   "ar": "ملاحظة فيها فكرة واحدة بس",
+   "en": "a note holding exactly one idea"
+  },
+  "ex": "Each atomic note has one idea."
+ },
+ {
+  "w": 28,
+  "t": "zettelkasten",
+  "m": {
+   "ar": "نظام ملاحظات صغيرة مترابطة",
+   "en": "a system of small linked notes"
+  },
+  "ex": "My zettelkasten has 200 notes."
+ },
+ {
+  "w": 28,
+  "t": "in your own words",
+  "m": {
+   "ar": "بأسلوبك مش نسخ",
+   "en": "in your style, not copied"
+  },
+  "ex": "Write the definition in your own words."
+ },
+ {
+  "w": 28,
+  "t": "to sum up",
+  "m": {
+   "ar": "باختصار / للتلخيص",
+   "en": "to summarise"
+  },
+  "ex": "To sum up, we ship on Thursday."
+ },
+ {
+  "w": 28,
+  "t": "the bottom line",
+  "m": {
+   "ar": "الخلاصة المهمة",
+   "en": "the most important conclusion"
+  },
+  "ex": "The bottom line is cost."
+ },
+ {
+  "w": 28,
+  "t": "the main point",
+  "m": {
+   "ar": "النقطة الأساسية",
+   "en": "the central idea"
+  },
+  "ex": "The main point is that tests must pass."
+ },
+ {
+  "w": 28,
+  "t": "key point",
+  "m": {
+   "ar": "نقطة مهمة",
+   "en": "an important point"
+  },
+  "ex": "Write down each key point."
+ },
+ {
+  "w": 28,
+  "t": "action point",
+  "m": {
+   "ar": "مهمة محددة لشخص بميعاد",
+   "en": "a specific task for a person with a date"
+  },
+  "ex": "Each action point has an owner."
+ },
+ {
+  "w": 28,
+  "t": "reword",
+  "m": {
+   "ar": "تعيد الكتابة بكلام تاني",
+   "en": "to write again in other words"
+  },
+  "ex": "Reword the sentence for beginners."
+ },
+ {
+  "w": 28,
+  "t": "synonym",
+  "m": {
+   "ar": "كلمة بمعنى قريب",
+   "en": "a word with a similar meaning"
+  },
+  "ex": "«Fix» is a synonym for «repair»."
+ },
+ {
+  "w": 28,
+  "t": "restructure",
+  "m": {
+   "ar": "تغيّر ترتيب وبناء الجملة",
+   "en": "to change a sentence’s order and build"
+  },
+  "ex": "Restructure the sentence to start with the result."
+ },
+ {
+  "w": 28,
+  "t": "nominalisation",
+  "m": {
+   "ar": "تحويل فعل لاسم",
+   "en": "turning a verb into a noun"
+  },
+  "ex": "«Decision» is a nominalisation of «decide»."
+ },
+ {
+  "w": 28,
+  "t": "shift in meaning",
+  "m": {
+   "ar": "تغيير غير مقصود في المعنى",
+   "en": "an unintended change of meaning"
+  },
+  "ex": "Check for any shift in meaning."
+ },
+ {
+  "w": 28,
+  "t": "knowledge base",
+  "m": {
+   "ar": "مكان منظم لكل معرفتك",
+   "en": "an organised place for all your knowledge"
+  },
+  "ex": "Search your knowledge base first."
+ },
+ {
+  "w": 28,
+  "t": "tag",
+  "m": {
+   "ar": "وسم بيصنّف الملاحظة",
+   "en": "a label that classifies a note"
+  },
+  "ex": "Add the tag #rag."
+ },
+ {
+  "w": 28,
+  "t": "backlink",
+  "m": {
+   "ar": "رابط راجع بيوريك مين بيشاور على الملاحظة",
+   "en": "a reverse link showing which notes point to this one"
+  },
+  "ex": "The backlinks show related ideas."
+ },
+ {
+  "w": 28,
+  "t": "review session",
+  "m": {
+   "ar": "وقت ثابت لمراجعة الملاحظات",
+   "en": "a set time to go over your notes"
+  },
+  "ex": "My review session is on Sunday."
+ },
+ {
+  "w": 28,
+  "t": "reading log",
+  "m": {
+   "ar": "سجل باللي قريته وخلاصته",
+   "en": "a record of what you read and its takeaway"
+  },
+  "ex": "Add the article to the reading log."
  }
 ];
