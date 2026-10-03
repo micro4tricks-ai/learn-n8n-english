@@ -13779,5 +13779,392 @@ JOURNEY_TERMS["python"] = [
    "en": "dependence on one provider"
   },
   "ex": "Containers reduce vendor lock-in."
+ },
+ {
+  "w": 47,
+  "t": "observability",
+  "m": {
+   "ar": "القدرة على فهم النظام من بياناته",
+   "en": "understanding a system from its outputs"
+  },
+  "ex": "Observability answers questions you didn’t plan for."
+ },
+ {
+  "w": 47,
+  "t": "structured logging",
+  "m": {
+   "ar": "لوج بحقول منظمة",
+   "en": "logging as fields, usually JSON"
+  },
+  "ex": "Structured logging made errors countable."
+ },
+ {
+  "w": 47,
+  "t": "log aggregation",
+  "m": {
+   "ar": "تجميع اللوج في مكان واحد",
+   "en": "collecting logs from many places"
+  },
+  "ex": "Log aggregation runs on Loki."
+ },
+ {
+  "w": 47,
+  "t": "correlation id",
+  "m": {
+   "ar": "معرّف بيربط كل لوج الطلب",
+   "en": "an id linking all logs of one request"
+  },
+  "ex": "Search by correlation id across services."
+ },
+ {
+  "w": 47,
+  "t": "contextvars",
+  "m": {
+   "ar": "متغيرات خاصة بالسياق الحالي",
+   "en": "context-local variables in Python"
+  },
+  "ex": "contextvars keeps the request id in async code."
+ },
+ {
+  "w": 47,
+  "t": "log retention",
+  "m": {
+   "ar": "مدة الاحتفاظ باللوج",
+   "en": "how long logs are kept"
+  },
+  "ex": "Log retention is 30 days."
+ },
+ {
+  "w": 47,
+  "t": "metrics",
+  "m": {
+   "ar": "مقاييس رقمية مع الوقت",
+   "en": "numbers aggregated over time"
+  },
+  "ex": "Metrics show the trend; logs show the detail."
+ },
+ {
+  "w": 47,
+  "t": "gauge",
+  "m": {
+   "ar": "مقياس بيطلع وينزل",
+   "en": "a metric that can go up and down"
+  },
+  "ex": "Queue depth is a gauge."
+ },
+ {
+  "w": 47,
+  "t": "histogram",
+  "m": {
+   "ar": "مقياس توزيع في buckets",
+   "en": "a distribution of values in buckets"
+  },
+  "ex": "Latency is recorded as a histogram."
+ },
+ {
+  "w": 47,
+  "t": "percentile",
+  "m": {
+   "ar": "شريحة مئوية",
+   "en": "the value below which a share of data falls"
+  },
+  "ex": "The 95th percentile is 420 ms."
+ },
+ {
+  "w": 47,
+  "t": "prometheus",
+  "m": {
+   "ar": "نظام مقاييس بيسحب من /metrics",
+   "en": "a metrics system scraping /metrics"
+  },
+  "ex": "Prometheus scrapes every 15 seconds."
+ },
+ {
+  "w": 47,
+  "t": "red method",
+  "m": {
+   "ar": "Rate وErrors وDuration",
+   "en": "rate, errors and duration per service"
+  },
+  "ex": "Start dashboards with the RED method."
+ },
+ {
+  "w": 47,
+  "t": "error rate",
+  "m": {
+   "ar": "نسبة الأخطاء",
+   "en": "the share of failed requests"
+  },
+  "ex": "The error rate jumped to 4%."
+ },
+ {
+  "w": 47,
+  "t": "saturation",
+  "m": {
+   "ar": "قد إيه المورد مليان",
+   "en": "how full a resource is"
+  },
+  "ex": "Queue saturation warned us early."
+ },
+ {
+  "w": 47,
+  "t": "golden signals",
+  "m": {
+   "ar": "الإشارات الأربعة الأساسية",
+   "en": "latency, traffic, errors and saturation"
+  },
+  "ex": "Alert on the golden signals."
+ },
+ {
+  "w": 47,
+  "t": "cardinality",
+  "m": {
+   "ar": "عدد القيم المختلفة لـ label",
+   "en": "the number of distinct label values"
+  },
+  "ex": "order_id as a label explodes cardinality."
+ },
+ {
+  "w": 47,
+  "t": "distributed tracing",
+  "m": {
+   "ar": "تتبع الطلب عبر الخدمات",
+   "en": "following a request across services"
+  },
+  "ex": "Distributed tracing showed Odoo took 3 s."
+ },
+ {
+  "w": 47,
+  "t": "span",
+  "m": {
+   "ar": "عملية واحدة في الـ trace",
+   "en": "one timed operation in a trace"
+  },
+  "ex": "Each DB query is a span."
+ },
+ {
+  "w": 47,
+  "t": "opentelemetry",
+  "m": {
+   "ar": "المعيار المفتوح للمراقبة",
+   "en": "the open observability standard"
+  },
+  "ex": "OpenTelemetry exports to Tempo."
+ },
+ {
+  "w": 47,
+  "t": "instrumentation",
+  "m": {
+   "ar": "إضافة القياس للكود",
+   "en": "adding telemetry to code"
+  },
+  "ex": "Auto-instrumentation covers FastAPI and httpx."
+ },
+ {
+  "w": 47,
+  "t": "exporter",
+  "m": {
+   "ar": "جزء بيبعت البيانات لخدمة",
+   "en": "the component sending telemetry out"
+  },
+  "ex": "The OTLP exporter sends to the collector."
+ },
+ {
+  "w": 47,
+  "t": "trace context",
+  "m": {
+   "ar": "سياق التتبع بين الخدمات",
+   "en": "trace ids passed between services"
+  },
+  "ex": "Trace context travels in traceparent."
+ },
+ {
+  "w": 47,
+  "t": "traceparent",
+  "m": {
+   "ar": "header سياق التتبع",
+   "en": "the W3C header carrying trace context"
+  },
+  "ex": "n8n forwards the traceparent header."
+ },
+ {
+  "w": 47,
+  "t": "sli",
+  "m": {
+   "ar": "مقياس مستوى الخدمة",
+   "en": "a service level indicator"
+  },
+  "ex": "Our SLI is orders processed within 5 minutes."
+ },
+ {
+  "w": 47,
+  "t": "slo",
+  "m": {
+   "ar": "هدف مستوى الخدمة",
+   "en": "a service level objective"
+  },
+  "ex": "The SLO is 99% over 30 days."
+ },
+ {
+  "w": 47,
+  "t": "error budget",
+  "m": {
+   "ar": "ميزانية الأخطاء المسموحة",
+   "en": "the failure allowed by an SLO"
+  },
+  "ex": "We spent 80% of the error budget."
+ },
+ {
+  "w": 47,
+  "t": "burn rate",
+  "m": {
+   "ar": "سرعة صرف ميزانية الأخطاء",
+   "en": "how fast the error budget is used"
+  },
+  "ex": "A 14× burn rate pages on-call."
+ },
+ {
+  "w": 47,
+  "t": "symptom-based alert",
+  "m": {
+   "ar": "تنبيه على اللي المستخدم حاسس بيه",
+   "en": "an alert on user-visible problems"
+  },
+  "ex": "Prefer a symptom-based alert to a CPU alert."
+ },
+ {
+  "w": 47,
+  "t": "synthetic check",
+  "m": {
+   "ar": "فحص بيقلّد المستخدم من برّه",
+   "en": "an automated user-like check from outside"
+  },
+  "ex": "A synthetic check places a test order hourly."
+ },
+ {
+  "w": 47,
+  "t": "heartbeat",
+  "m": {
+   "ar": "إشارة «أنا اشتغلت»",
+   "en": "a regular «I am alive» signal"
+  },
+  "ex": "The backup job sends a heartbeat."
+ },
+ {
+  "w": 47,
+  "t": "dead man’s switch",
+  "m": {
+   "ar": "تنبيه لما الإشارة متجيش",
+   "en": "an alert fired when a signal stops"
+  },
+  "ex": "A dead man’s switch caught the stopped cron."
+ },
+ {
+  "w": 47,
+  "t": "incident",
+  "m": {
+   "ar": "حادثة / عطل مؤثر",
+   "en": "an event disrupting service"
+  },
+  "ex": "Declare an incident when orders fail."
+ },
+ {
+  "w": 47,
+  "t": "postmortem",
+  "m": {
+   "ar": "تحليل ما بعد الحادثة",
+   "en": "a written review after an incident"
+  },
+  "ex": "The postmortem listed three actions."
+ },
+ {
+  "w": 47,
+  "t": "blameless",
+  "m": {
+   "ar": "من غير لوم أشخاص",
+   "en": "focused on systems, not blaming people"
+  },
+  "ex": "Blameless reviews make people honest."
+ },
+ {
+  "w": 47,
+  "t": "mttr",
+  "m": {
+   "ar": "متوسط زمن الإصلاح",
+   "en": "mean time to recovery"
+  },
+  "ex": "MTTR fell to 25 minutes."
+ },
+ {
+  "w": 47,
+  "t": "error tracking",
+  "m": {
+   "ar": "تتبع وتجميع الأخطاء",
+   "en": "collecting and grouping errors"
+  },
+  "ex": "Error tracking showed a new exception."
+ },
+ {
+  "w": 47,
+  "t": "end of life",
+  "m": {
+   "ar": "نهاية الدعم",
+   "en": "the date support stops"
+  },
+  "ex": "Python 3.10 reaches end of life in October 2026."
+ },
+ {
+  "w": 47,
+  "t": "python upgrade",
+  "m": {
+   "ar": "ترقية نسخة Python",
+   "en": "moving a service to a newer Python"
+  },
+  "ex": "Schedule the Python upgrade for Q4."
+ },
+ {
+  "w": 47,
+  "t": "dependency updates",
+  "m": {
+   "ar": "تحديث المكتبات",
+   "en": "updating third-party packages"
+  },
+  "ex": "Dependency updates run monthly."
+ },
+ {
+  "w": 47,
+  "t": "technical debt",
+  "m": {
+   "ar": "الديون التقنية",
+   "en": "the cost of past shortcuts"
+  },
+  "ex": "Pay technical debt every month."
+ },
+ {
+  "w": 47,
+  "t": "tech debt register",
+  "m": {
+   "ar": "سجل الديون التقنية",
+   "en": "a list of known technical debt"
+  },
+  "ex": "The tech debt register has 12 items."
+ },
+ {
+  "w": 47,
+  "t": "deprecation",
+  "m": {
+   "ar": "إعلان إيقاف ميزة لاحقًا",
+   "en": "announcing a feature’s future removal"
+  },
+  "ex": "The deprecation notice gives three months."
+ },
+ {
+  "w": 47,
+  "t": "health report",
+  "m": {
+   "ar": "تقرير صحة النظام",
+   "en": "a periodic summary of system health"
+  },
+  "ex": "Clients get a monthly health report."
  }
 ];
