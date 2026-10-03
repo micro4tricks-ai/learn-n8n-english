@@ -869,7 +869,7 @@ JOURNEY.week({
      },
      "p": {
       "ar": "لو العميل كتب «stop» أو «إلغاء» أو «مش عايز»، شيله **فورًا** من التسويق وضيفه لـ **suppression list**، ورد بتأكيد قصير. والـ outbox قبل أي إرسال يقارن بالقايمة دي. الرسايل الـ transactional (فاتورته، معاده) ممكن تكمّل لأنها جزء من خدمته.",
-      "en": "If a customer writes «stop», «إلغاء» or «not interested», remove them from marketing **at once** and add them to the **suppression list**, with a short confirmation. The outbox checks this list before every send. Transactional messages (their invoice, their appointment) may continue because they are part of the service."
+      "en": "If a customer writes `stop`, `إلغاء` or «not interested», remove them from marketing **at once** and add them to the **suppression list**, with a short confirmation. The outbox checks this list before every send. Transactional messages (their invoice, their appointment) may continue because they are part of the service."
      },
      "ex": "IF /^(stop|unsubscribe|إلغاء|الغاء|مش عايز)/i.test(text)\n→ INSERT suppression(phone, channel, at) → reply \"تم إلغاء الاشتراك ✅\"\noutbox worker: skip WHERE phone IN suppression AND purpose = 'marketing'"
     },
@@ -996,7 +996,7 @@ JOURNEY.week({
     {
      "q": {
       "ar": "العميل كتب «إلغاء»:",
-      "en": "The customer wrote «إلغاء» (cancel):"
+      "en": "The customer wrote `إلغاء` (cancel):"
      },
      "o": [
       {

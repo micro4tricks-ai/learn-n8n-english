@@ -45,7 +45,7 @@ JOURNEY.week({
      },
      "p": {
       "ar": "كل نوع مستند ليه حقول وقواعد مختلفة. صنّف بقواعد بسيطة الأول (اسم الملف، المرسل، كلمات زي «فاتورة» / «Invoice») وبعدين AI للباقي. وخلّي فيه نوع «other» يروح لإنسان بدل ما يتصنّف غلط.",
-      "en": "Each document type has different fields and rules. Classify with simple rules first (file name, sender, words like «فاتورة» / «Invoice»), then AI for the rest. Keep an «other» type that goes to a person instead of being misclassified."
+      "en": "Each document type has different fields and rules. Classify with simple rules first (file name, sender, words like `فاتورة` or `Invoice`), then AI for the rest. Keep an «other» type that goes to a person instead of being misclassified."
      },
      "ex": "rules: sender = billing@supplier.com → invoice\nAI fallback: { \"type\": \"invoice|contract|id_card|receipt|other\", \"confidence\": 0.0-1.0 }"
     },
