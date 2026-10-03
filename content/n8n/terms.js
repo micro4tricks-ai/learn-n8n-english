@@ -9000,5 +9000,239 @@ JOURNEY_TERMS["n8n"] = [
    "en": "the underlying cause of a problem"
   },
   "ex": "The root cause was Redis memory."
+ },
+ {
+  "w": 41,
+  "t": "threat model",
+  "m": {
+   "ar": "تحليل الأصول والتهديدات والحماية",
+   "en": "an analysis of assets, threats and controls"
+  },
+  "ex": "Start with a threat model."
+ },
+ {
+  "w": 41,
+  "t": "attack surface",
+  "m": {
+   "ar": "كل الأماكن اللي ممكن يتهاجم منها النظام",
+   "en": "every place a system can be attacked from"
+  },
+  "ex": "Public webhooks widen the attack surface."
+ },
+ {
+  "w": 41,
+  "t": "defence in depth",
+  "m": {
+   "ar": "حماية بطبقات كتير",
+   "en": "protection in many layers"
+  },
+  "ex": "Defence in depth stops a single failure."
+ },
+ {
+  "w": 41,
+  "t": "security advisory",
+  "m": {
+   "ar": "إعلان رسمي عن ثغرة وتصليحها",
+   "en": "an official notice of a vulnerability and its fix"
+  },
+  "ex": "Read the latest security advisory."
+ },
+ {
+  "w": 41,
+  "t": "ip allowlist",
+  "m": {
+   "ar": "قايمة عناوين مسموح لها بس",
+   "en": "a list of the only allowed addresses"
+  },
+  "ex": "The UI has an IP allowlist."
+ },
+ {
+  "w": 41,
+  "t": "secret store",
+  "m": {
+   "ar": "خزنة أسرار مركزية",
+   "en": "a central vault for secrets"
+  },
+  "ex": "Keys live in the secret store."
+ },
+ {
+  "w": 41,
+  "t": "external secrets",
+  "m": {
+   "ar": "ميزة n8n لقراءة الأسرار من خزنة خارجية",
+   "en": "n8n’s feature reading secrets from an outside vault"
+  },
+  "ex": "External secrets pull keys from Vault."
+ },
+ {
+  "w": 41,
+  "t": "vault",
+  "m": {
+   "ar": "خزنة أسرار زي HashiCorp Vault",
+   "en": "a secret vault such as HashiCorp Vault"
+  },
+  "ex": "Store the CRM key in the vault."
+ },
+ {
+  "w": 41,
+  "t": "secrets register",
+  "m": {
+   "ar": "سجل الأسرار من غير قيمها",
+   "en": "a list of secrets without their values"
+  },
+  "ex": "The secrets register shows the next rotation."
+ },
+ {
+  "w": 41,
+  "t": "secret scanning",
+  "m": {
+   "ar": "فحص الكود عن أسرار متسربة",
+   "en": "scanning code for leaked secrets"
+  },
+  "ex": "GitHub secret scanning caught a key."
+ },
+ {
+  "w": 41,
+  "t": "rbac",
+  "m": {
+   "ar": "صلاحيات حسب الدور",
+   "en": "role-based access control"
+  },
+  "ex": "n8n RBAC uses project roles."
+ },
+ {
+  "w": 41,
+  "t": "project roles",
+  "m": {
+   "ar": "أدوار جوه مشروع n8n",
+   "en": "roles inside an n8n project"
+  },
+  "ex": "Project roles: admin, editor, viewer."
+ },
+ {
+  "w": 41,
+  "t": "sso",
+  "m": {
+   "ar": "دخول بحساب الشركة الموحّد",
+   "en": "signing in with the company account"
+  },
+  "ex": "SSO disables leavers everywhere."
+ },
+ {
+  "w": 41,
+  "t": "2fa",
+  "m": {
+   "ar": "تحقق بعاملين",
+   "en": "two-factor authentication"
+  },
+  "ex": "Require 2FA for all users."
+ },
+ {
+  "w": 41,
+  "t": "break-glass account",
+  "m": {
+   "ar": "حساب طوارئ محفوظ في خزنة",
+   "en": "an emergency account kept in a vault"
+  },
+  "ex": "Use the break-glass account only if SSO fails."
+ },
+ {
+  "w": 41,
+  "t": "webhook authentication",
+  "m": {
+   "ar": "التحقق إن طلب الـ webhook من مصدر مسموح",
+   "en": "checking a webhook request comes from an allowed source"
+  },
+  "ex": "Turn on webhook authentication."
+ },
+ {
+  "w": 41,
+  "t": "ssrf",
+  "m": {
+   "ar": "خداع السيرفر يطلب عناوين داخلية",
+   "en": "tricking a server into calling internal addresses"
+  },
+  "ex": "Block egress to stop SSRF."
+ },
+ {
+  "w": 41,
+  "t": "task runner",
+  "m": {
+   "ar": "عملية معزولة بتشغّل كود الـ Code node",
+   "en": "an isolated process running Code-node code"
+  },
+  "ex": "Enable the task runner."
+ },
+ {
+  "w": 41,
+  "t": "n8n_blocked_nodes",
+  "m": {
+   "ar": "فكرة منع nodes خطيرة بـ NODES_EXCLUDE",
+   "en": "blocking dangerous nodes with NODES_EXCLUDE"
+  },
+  "ex": "Execute Command is in the n8n_blocked_nodes list."
+ },
+ {
+  "w": 41,
+  "t": "supply chain",
+  "m": {
+   "ar": "الكود الخارجي اللي بتعتمد عليه",
+   "en": "the outside code you depend on"
+  },
+  "ex": "Community nodes are part of the supply chain."
+ },
+ {
+  "w": 41,
+  "t": "community node risk",
+  "m": {
+   "ar": "خطر كود node خارجي جوه n8n",
+   "en": "the risk of outside node code inside n8n"
+  },
+  "ex": "Pin versions to reduce community node risk."
+ },
+ {
+  "w": 41,
+  "t": "tls",
+  "m": {
+   "ar": "تشفير الاتصال",
+   "en": "encryption of connections"
+  },
+  "ex": "Caddy provides TLS automatically."
+ },
+ {
+  "w": 41,
+  "t": "encryption at rest",
+  "m": {
+   "ar": "تشفير البيانات المخزنة",
+   "en": "encrypting stored data"
+  },
+  "ex": "Backups have encryption at rest."
+ },
+ {
+  "w": 41,
+  "t": "security audit",
+  "m": {
+   "ar": "فحص أمني دوري",
+   "en": "a regular security check"
+  },
+  "ex": "The security audit found 3 unused credentials."
+ },
+ {
+  "w": 41,
+  "t": "audit log",
+  "m": {
+   "ar": "سجل مين عمل إيه وإمتى",
+   "en": "a record of who did what and when"
+  },
+  "ex": "Check the audit log after a leaver."
+ },
+ {
+  "w": 41,
+  "t": "penetration test",
+  "m": {
+   "ar": "محاولة اختراق متفق عليها لاكتشاف الثغرات",
+   "en": "an agreed hacking attempt to find weaknesses"
+  },
+  "ex": "The bank asked for a penetration test."
  }
 ];
