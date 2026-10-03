@@ -5904,5 +5904,500 @@ JOURNEY_TERMS["english"] = [
    "en": "using too many words"
   },
   "ex": "Cut the wordiness from the introduction."
+ },
+ {
+  "w": 44,
+  "t": "LLM",
+  "m": {
+   "ar": "موديل لغوي كبير",
+   "en": "a large language model"
+  },
+  "ex": "The assistant runs on an LLM."
+ },
+ {
+  "w": 44,
+  "t": "system prompt",
+  "m": {
+   "ar": "التعليمات الثابتة للموديل",
+   "en": "fixed instructions for the model"
+  },
+  "ex": "The system prompt sets the rules."
+ },
+ {
+  "w": 44,
+  "t": "tool use",
+  "m": {
+   "ar": "استخدام الموديل للأدوات",
+   "en": "the model calling functions"
+  },
+  "ex": "Tool use lets it check orders."
+ },
+ {
+  "w": 44,
+  "t": "retrieval",
+  "m": {
+   "ar": "استرجاع المعلومات",
+   "en": "fetching relevant documents"
+  },
+  "ex": "Retrieval finds the right policy."
+ },
+ {
+  "w": 44,
+  "t": "grounding",
+  "m": {
+   "ar": "ربط الإجابة بمصادر حقيقية",
+   "en": "basing answers on real sources"
+  },
+  "ex": "Grounding reduces made-up answers."
+ },
+ {
+  "w": 44,
+  "t": "guardrail",
+  "m": {
+   "ar": "حد حماية",
+   "en": "a safety limit"
+  },
+  "ex": "Add a guardrail for payments."
+ },
+ {
+  "w": 44,
+  "t": "prompt injection",
+  "m": {
+   "ar": "حقن تعليمات خبيثة",
+   "en": "hidden instructions in input"
+  },
+  "ex": "The email contained a prompt injection."
+ },
+ {
+  "w": 44,
+  "t": "jailbreak",
+  "m": {
+   "ar": "محاولة كسر قواعد الموديل",
+   "en": "tricking a model past its rules"
+  },
+  "ex": "The jailbreak attempt failed."
+ },
+ {
+  "w": 44,
+  "t": "red teaming",
+  "m": {
+   "ar": "هجوم متعمد لاكتشاف الثغرات",
+   "en": "deliberate attack testing"
+  },
+  "ex": "Red teaming found two issues."
+ },
+ {
+  "w": 44,
+  "t": "human in the loop",
+  "m": {
+   "ar": "إنسان بيراجع قبل التنفيذ",
+   "en": "a person approving actions"
+  },
+  "ex": "Keep a human in the loop for refunds."
+ },
+ {
+  "w": 44,
+  "t": "model drift",
+  "m": {
+   "ar": "تغيّر أداء الموديل مع الوقت",
+   "en": "performance changing over time"
+  },
+  "ex": "Weekly evals catch model drift."
+ },
+ {
+  "w": 44,
+  "t": "evals",
+  "m": {
+   "ar": "اختبارات قياس الجودة",
+   "en": "fixed quality tests for AI"
+  },
+  "ex": "Run the evals before each release."
+ },
+ {
+  "w": 44,
+  "t": "explainability",
+  "m": {
+   "ar": "القدرة على شرح القرار",
+   "en": "being able to explain decisions"
+  },
+  "ex": "Clients asked for explainability."
+ },
+ {
+  "w": 44,
+  "t": "responsible AI",
+  "m": {
+   "ar": "الذكاء الاصطناعي المسؤول",
+   "en": "safe, fair and transparent AI"
+  },
+  "ex": "Our responsible AI policy is public."
+ },
+ {
+  "w": 44,
+  "t": "region",
+  "m": {
+   "ar": "منطقة سحابية",
+   "en": "a geographic cloud area"
+  },
+  "ex": "We chose the Bahrain region."
+ },
+ {
+  "w": 44,
+  "t": "availability zone",
+  "m": {
+   "ar": "داتا سنتر منفصل جوه المنطقة",
+   "en": "a separate data centre in a region"
+  },
+  "ex": "Run in two availability zones."
+ },
+ {
+  "w": 44,
+  "t": "uptime",
+  "m": {
+   "ar": "نسبة وقت التشغيل",
+   "en": "the time a system is working"
+  },
+  "ex": "Uptime last month was 99.95%."
+ },
+ {
+  "w": 44,
+  "t": "serverless",
+  "m": {
+   "ar": "من غير إدارة سيرفر",
+   "en": "run by the provider per request"
+  },
+  "ex": "The function is serverless."
+ },
+ {
+  "w": 44,
+  "t": "cold start",
+  "m": {
+   "ar": "تأخير أول تشغيل",
+   "en": "the delay after idle time"
+  },
+  "ex": "The cold start takes a second."
+ },
+ {
+  "w": 44,
+  "t": "autoscaling",
+  "m": {
+   "ar": "توسّع تلقائي",
+   "en": "automatic resizing with load"
+  },
+  "ex": "Autoscaling handled the sale."
+ },
+ {
+  "w": 44,
+  "t": "throughput",
+  "m": {
+   "ar": "كمية الشغل في الوقت",
+   "en": "work done per unit of time"
+  },
+  "ex": "Throughput doubled with workers."
+ },
+ {
+  "w": 44,
+  "t": "infrastructure as code",
+  "m": {
+   "ar": "البنية كملفات كود",
+   "en": "infrastructure defined in files"
+  },
+  "ex": "We manage servers with infrastructure as code."
+ },
+ {
+  "w": 44,
+  "t": "object storage",
+  "m": {
+   "ar": "تخزين ملفات سحابي",
+   "en": "cloud storage for files"
+  },
+  "ex": "PDFs go to object storage."
+ },
+ {
+  "w": 44,
+  "t": "egress",
+  "m": {
+   "ar": "بيانات خارجة من السحابة",
+   "en": "data leaving the cloud"
+  },
+  "ex": "Egress fees surprised the client."
+ },
+ {
+  "w": 44,
+  "t": "vendor lock-in",
+  "m": {
+   "ar": "الارتباط بمزود واحد",
+   "en": "dependence on one provider"
+  },
+  "ex": "Open formats reduce vendor lock-in."
+ },
+ {
+  "w": 44,
+  "t": "multi-tenant",
+  "m": {
+   "ar": "متعدد العملاء",
+   "en": "serving many clients in one system"
+  },
+  "ex": "Our platform is multi-tenant."
+ },
+ {
+  "w": 44,
+  "t": "data residency",
+  "m": {
+   "ar": "بقاء البيانات في بلد معين",
+   "en": "keeping data in a specific country"
+  },
+  "ex": "The contract requires data residency."
+ },
+ {
+  "w": 44,
+  "t": "threat model",
+  "m": {
+   "ar": "تحليل التهديدات",
+   "en": "an analysis of possible attacks"
+  },
+  "ex": "Update the threat model yearly."
+ },
+ {
+  "w": 44,
+  "t": "attack surface",
+  "m": {
+   "ar": "نقط الهجوم الممكنة",
+   "en": "all possible points of attack"
+  },
+  "ex": "Unused webhooks increase the attack surface."
+ },
+ {
+  "w": 44,
+  "t": "zero-day",
+  "m": {
+   "ar": "ثغرة لسه ملهاش إصلاح",
+   "en": "a flaw with no fix yet"
+  },
+  "ex": "A zero-day hit the library."
+ },
+ {
+  "w": 44,
+  "t": "social engineering",
+  "m": {
+   "ar": "خداع الناس",
+   "en": "manipulating people to gain access"
+  },
+  "ex": "The fake invoice was social engineering."
+ },
+ {
+  "w": 44,
+  "t": "access control",
+  "m": {
+   "ar": "التحكم في الصلاحيات",
+   "en": "rules on who can do what"
+  },
+  "ex": "Review access control monthly."
+ },
+ {
+  "w": 44,
+  "t": "MFA",
+  "m": {
+   "ar": "تحقق متعدد العوامل",
+   "en": "multi-factor authentication"
+  },
+  "ex": "Enable MFA for all admins."
+ },
+ {
+  "w": 44,
+  "t": "encryption at rest",
+  "m": {
+   "ar": "تشفير البيانات المخزنة",
+   "en": "encrypting stored data"
+  },
+  "ex": "The database uses encryption at rest."
+ },
+ {
+  "w": 44,
+  "t": "encryption in transit",
+  "m": {
+   "ar": "تشفير البيانات وهي بتتنقل",
+   "en": "encrypting data while moving"
+  },
+  "ex": "TLS provides encryption in transit."
+ },
+ {
+  "w": 44,
+  "t": "audit log",
+  "m": {
+   "ar": "سجل المراجعة",
+   "en": "a record of who did what"
+  },
+  "ex": "Check the audit log for changes."
+ },
+ {
+  "w": 44,
+  "t": "penetration test",
+  "m": {
+   "ar": "اختبار اختراق مصرح",
+   "en": "an authorised attack test"
+  },
+  "ex": "The penetration test found one issue."
+ },
+ {
+  "w": 44,
+  "t": "breach",
+  "m": {
+   "ar": "اختراق وتسريب بيانات",
+   "en": "unauthorised data access"
+  },
+  "ex": "Report a breach within 72 hours."
+ },
+ {
+  "w": 44,
+  "t": "ransomware",
+  "m": {
+   "ar": "برنامج فدية",
+   "en": "malware demanding payment"
+  },
+  "ex": "Offline backups protect against ransomware."
+ },
+ {
+  "w": 44,
+  "t": "incident response",
+  "m": {
+   "ar": "الاستجابة للحوادث",
+   "en": "the plan for handling incidents"
+  },
+  "ex": "Our incident response took six minutes."
+ },
+ {
+  "w": 44,
+  "t": "compliance",
+  "m": {
+   "ar": "الالتزام بالقوانين والمعايير",
+   "en": "following rules and standards"
+  },
+  "ex": "Compliance requires an audit log."
+ },
+ {
+  "w": 44,
+  "t": "analogy",
+  "m": {
+   "ar": "تشبيه",
+   "en": "a comparison with something familiar"
+  },
+  "ex": "Use an analogy for availability zones."
+ },
+ {
+  "w": 44,
+  "t": "in plain terms",
+  "m": {
+   "ar": "بكلام بسيط",
+   "en": "in simple words"
+  },
+  "ex": "In plain terms, it saves an hour a day."
+ },
+ {
+  "w": 44,
+  "t": "layman’s terms",
+  "m": {
+   "ar": "كلام غير المتخصصين",
+   "en": "non-technical language"
+  },
+  "ex": "Explain it in layman’s terms."
+ },
+ {
+  "w": 44,
+  "t": "PII",
+  "m": {
+   "ar": "بيانات بتعرّف الشخص",
+   "en": "personally identifiable information"
+  },
+  "ex": "Mask PII before logging."
+ },
+ {
+  "w": 44,
+  "t": "data leakage",
+  "m": {
+   "ar": "تسرب البيانات",
+   "en": "data escaping where it shouldn’t"
+  },
+  "ex": "Prevent data leakage to the model."
+ },
+ {
+  "w": 44,
+  "t": "anonymise",
+  "m": {
+   "ar": "تخفي هوية البيانات",
+   "en": "to remove identifying details"
+  },
+  "ex": "Anonymise names before analysis."
+ },
+ {
+  "w": 44,
+  "t": "consent",
+  "m": {
+   "ar": "موافقة",
+   "en": "permission"
+  },
+  "ex": "Ask for consent before recording."
+ },
+ {
+  "w": 44,
+  "t": "retention",
+  "m": {
+   "ar": "مدة الاحتفاظ بالبيانات",
+   "en": "how long data is kept"
+  },
+  "ex": "Log retention is 30 days."
+ },
+ {
+  "w": 44,
+  "t": "opt out",
+  "m": {
+   "ar": "ترفض المشاركة",
+   "en": "to choose not to take part"
+  },
+  "ex": "Customers can opt out of AI replies."
+ },
+ {
+  "w": 44,
+  "t": "security questionnaire",
+  "m": {
+   "ar": "استبيان أمان",
+   "en": "a client’s list of security questions"
+  },
+  "ex": "We answered the security questionnaire in a day."
+ },
+ {
+  "w": 44,
+  "t": "blast radius",
+  "m": {
+   "ar": "حجم الضرر المحتمل",
+   "en": "how far damage can spread"
+  },
+  "ex": "Separate keys limit the blast radius."
+ },
+ {
+  "w": 44,
+  "t": "vocabulary log",
+  "m": {
+   "ar": "سجل مصطلحات",
+   "en": "a personal record of new terms"
+  },
+  "ex": "Add three terms to your vocabulary log each week."
+ },
+ {
+  "w": 44,
+  "t": "certification",
+  "m": {
+   "ar": "شهادة اعتماد",
+   "en": "an official proof of meeting a standard"
+  },
+  "ex": "ISO certification takes months."
+ },
+ {
+  "w": 44,
+  "t": "design review",
+  "m": {
+   "ar": "مراجعة التصميم",
+   "en": "a meeting to check a design"
+  },
+  "ex": "Bring your questions to the design review."
  }
 ];
