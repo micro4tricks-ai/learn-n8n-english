@@ -1307,7 +1307,7 @@ JOURNEY.week({
     },
     {
      "t": "n8n Docs: Code node",
-     "url": "https://docs.n8n.io/code/code-node/",
+     "url": "https://docs.n8n.io/build/code-in-n8n/using-the-code-node",
      "what": {
       "ar": "اقرا صفحة الـ Webhook node من نفس التوثيق: Workflow development وResponse.",
       "en": "Read the Webhook node page in the same docs: Workflow development and Response."

@@ -6120,5 +6120,248 @@ JOURNEY_TERMS["js"] = [
    "en": "a fixed message with changing data"
   },
   "ex": "Approve the message template first."
+ },
+ {
+  "w": 21,
+  "t": "code node",
+  "m": {
+   "ar": "node بيشغّل كود JS أو بايثون في n8n",
+   "en": "an n8n node running JS or Python code"
+  },
+  "ex": "Clean the data in a Code node."
+ },
+ {
+  "w": 21,
+  "t": "n8n item",
+  "m": {
+   "ar": "وحدة بيانات بتعدّي بين nodes",
+   "en": "one unit of data passed between nodes"
+  },
+  "ex": "Each row becomes one n8n item."
+ },
+ {
+  "w": 21,
+  "t": "json key",
+  "m": {
+   "ar": "المفتاح json اللي فيه بيانات الـ item",
+   "en": "the json key holding an item’s data"
+  },
+  "ex": "Put your fields under the json key."
+ },
+ {
+  "w": 21,
+  "t": "run once for all items",
+  "m": {
+   "ar": "الكود يشتغل مرة على كل الـ items",
+   "en": "the code runs once over all items"
+  },
+  "ex": "Use Run Once for All Items to total."
+ },
+ {
+  "w": 21,
+  "t": "run once for each item",
+  "m": {
+   "ar": "الكود يشتغل لكل item لوحده",
+   "en": "the code runs separately per item"
+  },
+  "ex": "Run Once for Each Item exposes $json."
+ },
+ {
+  "w": 21,
+  "t": "$input",
+  "m": {
+   "ar": "مدخل الـ Code node",
+   "en": "the Code node’s input"
+  },
+  "ex": "$input.all() returns every item."
+ },
+ {
+  "w": 21,
+  "t": "$json",
+  "m": {
+   "ar": "بيانات الـ item الحالي",
+   "en": "the current item’s data"
+  },
+  "ex": "$json.total is the order total."
+ },
+ {
+  "w": 21,
+  "t": "node reference",
+  "m": {
+   "ar": "الإشارة لـ node بالاسم",
+   "en": "pointing to a node by name"
+  },
+  "ex": "$(\"Settings\") is a node reference."
+ },
+ {
+  "w": 21,
+  "t": "expression",
+  "m": {
+   "ar": "كود صغير جوه {{ }} في خانة",
+   "en": "a small piece of code inside {{ }} in a field"
+  },
+  "ex": "Use an expression for the subject line."
+ },
+ {
+  "w": 21,
+  "t": "$execution",
+  "m": {
+   "ar": "معلومات التشغيل الحالي",
+   "en": "information about the current run"
+  },
+  "ex": "Log $execution.id with errors."
+ },
+ {
+  "w": 21,
+  "t": "$now",
+  "m": {
+   "ar": "الوقت الحالي كـ Luxon DateTime",
+   "en": "the current time as a Luxon DateTime"
+  },
+  "ex": "$now.toISO() gives the timestamp."
+ },
+ {
+  "w": 21,
+  "t": "$vars",
+  "m": {
+   "ar": "متغيرات مشتركة على مستوى n8n",
+   "en": "shared variables across n8n"
+  },
+  "ex": "Read the API base from $vars."
+ },
+ {
+  "w": 21,
+  "t": "split into items",
+  "m": {
+   "ar": "تحويل مصفوفة جوه item لـ items منفصلة",
+   "en": "turning an array inside one item into separate items"
+  },
+  "ex": "Split into items before the CRM node."
+ },
+ {
+  "w": 21,
+  "t": "paireditem",
+  "m": {
+   "ar": "ربط item جديد بالـ item اللي جه منه",
+   "en": "linking a new item to the one it came from"
+  },
+  "ex": "Set pairedItem when creating items."
+ },
+ {
+  "w": 21,
+  "t": "item linking",
+  "m": {
+   "ar": "تتبع أصل كل item بين nodes",
+   "en": "tracing each item’s origin across nodes"
+  },
+  "ex": "Item linking makes .item work."
+ },
+ {
+  "w": 21,
+  "t": "aggregate items",
+  "m": {
+   "ar": "دمج items كتير في item واحد",
+   "en": "combining many items into one"
+  },
+  "ex": "Aggregate items into one Slack message."
+ },
+ {
+  "w": 21,
+  "t": "lookup map",
+  "m": {
+   "ar": "Map للبحث السريع بمفتاح",
+   "en": "a Map for fast lookup by key"
+  },
+  "ex": "Build a lookup map of customers by phone."
+ },
+ {
+  "w": 21,
+  "t": "luxon",
+  "m": {
+   "ar": "مكتبة التواريخ المدمجة في n8n",
+   "en": "the date library built into n8n"
+  },
+  "ex": "Luxon handles the time zones."
+ },
+ {
+  "w": 21,
+  "t": "datetime",
+  "m": {
+   "ar": "كائن تاريخ ووقت في Luxon",
+   "en": "a date-and-time object in Luxon"
+  },
+  "ex": "DateTime.fromISO parses the date."
+ },
+ {
+  "w": 21,
+  "t": "static data",
+  "m": {
+   "ar": "بيانات صغيرة محفوظة بين التشغيلات",
+   "en": "small data saved between runs"
+  },
+  "ex": "Static data keeps the last id."
+ },
+ {
+  "w": 21,
+  "t": "jmespath",
+  "m": {
+   "ar": "لغة استعلام في JSON",
+   "en": "a query language for JSON"
+  },
+  "ex": "$jmespath filters nested arrays."
+ },
+ {
+  "w": 21,
+  "t": "$env",
+  "m": {
+   "ar": "متغيرات البيئة في n8n",
+   "en": "environment variables in n8n"
+  },
+  "ex": "$env may be blocked for security."
+ },
+ {
+  "w": 21,
+  "t": "continue on fail",
+  "m": {
+   "ar": "إعداد بيخلي الـ workflow يكمّل بعد خطأ",
+   "en": "a setting letting the workflow continue after an error"
+  },
+  "ex": "Turn on continue on fail for the CRM node."
+ },
+ {
+  "w": 21,
+  "t": "error output",
+  "m": {
+   "ar": "مخرج منفصل للـ items الفاشلة",
+   "en": "a separate output for failed items"
+  },
+  "ex": "Route the error output to a review sheet."
+ },
+ {
+  "w": 21,
+  "t": "binary data",
+  "m": {
+   "ar": "ملفات جوه الـ items",
+   "en": "files carried inside items"
+  },
+  "ex": "The PDF is in the binary data."
+ },
+ {
+  "w": 21,
+  "t": "base64",
+  "m": {
+   "ar": "تحويل bytes لنص",
+   "en": "turning bytes into text"
+  },
+  "ex": "The image arrives as base64."
+ },
+ {
+  "w": 21,
+  "t": "task runner",
+  "m": {
+   "ar": "العملية المعزولة اللي بتشغّل كود n8n",
+   "en": "the isolated process running n8n code"
+  },
+  "ex": "The task runner limits memory."
  }
 ];

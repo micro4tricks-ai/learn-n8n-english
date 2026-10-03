@@ -450,7 +450,7 @@ JOURNEY.week({
     },
     {
      "t": "n8n Docs: Code node",
-     "url": "https://docs.n8n.io/code/code-node/",
+     "url": "https://docs.n8n.io/build/code-in-n8n/using-the-code-node",
      "what": {
       "ar": "Using the Code node: الجزء الخاص بشكل الـ items والإرجاع.",
       "en": "Using the Code node: the part about the shape of items and returning them."

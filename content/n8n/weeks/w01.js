@@ -421,7 +421,7 @@ JOURNEY.week({
     },
     {
      "t": "n8n Docs: Built-in methods and variables",
-     "url": "https://docs.n8n.io/code/builtin/overview/",
+     "url": "https://docs.n8n.io/build/code-in-n8n/use-built-in-shortcuts",
      "what": {
       "ar": "Current node input و Output of other nodes و Date and time.",
       "en": "Current node input, Output of other nodes, and Date and time."
@@ -2004,7 +2004,7 @@ JOURNEY.week({
     },
     {
      "t": "n8n Docs: Code node",
-     "url": "https://docs.n8n.io/code/code-node/",
+     "url": "https://docs.n8n.io/build/code-in-n8n/using-the-code-node",
      "what": {
       "ar": "الصفحة كلها + Code node cookbook.",
       "en": "The whole page + the Code node cookbook."
@@ -2031,7 +2031,7 @@ JOURNEY.week({
     },
     {
      "t": "n8n Docs: Built-in methods and variables",
-     "url": "https://docs.n8n.io/code/builtin/overview/",
+     "url": "https://docs.n8n.io/build/code-in-n8n/use-built-in-shortcuts",
      "what": {
       "ar": "Current node input و Output of other nodes و Date and time.",
       "en": "Current node input, Output of other nodes, and Date and time."

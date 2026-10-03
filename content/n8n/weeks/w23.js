@@ -655,7 +655,7 @@ JOURNEY.week({
    "read": [
     {
      "t": "n8n Docs: Creating nodes",
-     "url": "https://docs.n8n.io/integrations/creating-nodes/overview/",
+     "url": "https://docs.n8n.io/connect/create-nodes/overview",
      "what": {
       "ar": "اقرا الـ tutorial الأول (declarative).",
       "en": "Read the first (declarative) tutorial."

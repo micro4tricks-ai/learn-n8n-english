@@ -162,7 +162,7 @@ JOURNEY.week({
    "read": [
     {
      "t": "n8n Docs: Code node",
-     "url": "https://docs.n8n.io/code/code-node/",
+     "url": "https://docs.n8n.io/build/code-in-n8n/using-the-code-node",
      "what": {
       "ar": "الصفحة كلها + Code node cookbook.",
       "en": "The whole page + the Code node cookbook."
@@ -907,7 +907,7 @@ JOURNEY.week({
    "read": [
     {
      "t": "n8n Docs: Code node",
-     "url": "https://docs.n8n.io/code/code-node/",
+     "url": "https://docs.n8n.io/build/code-in-n8n/using-the-code-node",
      "what": {
       "ar": "الصفحة كلها + Code node cookbook.",
       "en": "The whole page + the Code node cookbook."

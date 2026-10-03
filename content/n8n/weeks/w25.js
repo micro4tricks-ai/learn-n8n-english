@@ -544,7 +544,7 @@ JOURNEY.week({
     },
     {
      "t": "n8n Docs: Built-in methods and variables",
-     "url": "https://docs.n8n.io/code/builtin/overview/",
+     "url": "https://docs.n8n.io/build/code-in-n8n/use-built-in-shortcuts",
      "what": {
       "ar": "دوّر على getWorkflowStaticData واقرا ملاحظاته.",
       "en": "Find getWorkflowStaticData and read its notes."

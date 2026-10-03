@@ -130,7 +130,7 @@ module.exports = {
         { t: 'TypeScript', m: B('JavaScript بأنواع (types)', 'JavaScript with types'), ex: 'const n: number = 5;' },
         { t: 'declarative routing', m: B('node بتوصف الطلبات بدل ما تكتب execute', 'a node that describes requests instead of writing execute'), ex: 'routing: { request: { url: "/weather" } }' },
         { t: 'npm link', m: B('تربط حزمة محلية عشان تجرّبها', 'link a local package to try it'), ex: 'npm link n8n-nodes-weather' }],
-      read: [{ t: 'n8n Docs: Creating nodes', url: 'https://docs.n8n.io/integrations/creating-nodes/overview/', what: B('اقرا الـ tutorial الأول (declarative).', 'Read the first (declarative) tutorial.') }],
+      read: [{ t: 'n8n Docs: Creating nodes', url: 'https://docs.n8n.io/connect/create-nodes/overview', what: B('اقرا الـ tutorial الأول (declarative).', 'Read the first (declarative) tutorial.') }],
       challenge: B('خلّص node الطقس بعمليتين (current و forecast)، وcredentials (لو الخدمة محتاجة)، وأيقونة، وارفعه على GitHub.', 'Finish the weather node with two operations (current and forecast), credentials (if the service needs them) and an icon, and push it to GitHub.'),
       quiz: [
         { q: B('خدمة هتستخدمها مرة واحدة:', 'A service you\'ll use once:'), o: ['HTTP Request', B('ابني node', 'build a node'), B('ابني n8n جديد', 'build a new n8n')], a: 0, why: B('أبسط.', 'Simpler.') },

@@ -137,7 +137,7 @@
     ['ai', 'MCP Python SDK', 'https://github.com/modelcontextprotocol/python-sdk', 'doc', 'a', 'تبني MCP server بـ Python في كام سطر (الإصدار 2: MCPServer).', 'Build an MCP server in Python in a few lines (version 2: MCPServer).', 'README: Quickstart وTools وملاحظات الترقية من الإصدار 1.', 'README: Quickstart, Tools and the notes on upgrading from version 1.'],
     ['ai', 'Ollama', 'https://ollama.com/', 'tool', 'i', 'تشغّل نماذج AI على جهازك من غير API.', 'Run AI models on your own computer with no API.', 'Download وأول model.', 'Download and your first model.'],
     ['ai', 'Hugging Face Learn', 'https://huggingface.co/learn', 'course', 'a', 'كورسات مجانية عن الـ LLMs والـ agents.', 'Free courses on LLMs and agents.', 'Agents Course.', 'The Agents Course.'],
-    ['ai', 'n8n Docs: Code node', 'https://docs.n8n.io/code/code-node/', 'doc', 'i', 'تكتب Python جوه n8n نفسه.', 'Write Python inside n8n itself.', 'Python في الـ Code node.', 'Python in the Code node.'],
+    ['ai', 'n8n Docs: Code node', 'https://docs.n8n.io/build/code-in-n8n/using-the-code-node', 'doc', 'i', 'تكتب Python جوه n8n نفسه.', 'Write Python inside n8n itself.', 'Python في الـ Code node.', 'Python in the Code node.'],
     // ---- practice ----
     ['practice', 'Exercism: Python track', 'https://exercism.org/tracks/python', 'practice', 'b', 'تمارين مجانية بمرشدين بيراجعوا كودك.', 'Free exercises with mentors who review your code.', 'الـ Learning Exercises بالترتيب.', 'The learning exercises in order.'],
     ['practice', 'Advent of Code', 'https://adventofcode.com/', 'practice', 'i', 'ألغاز برمجة سنوية ممتعة بتقوّي التفكير.', 'Fun yearly programming puzzles that sharpen your thinking.', 'أول 5 أيام من أي سنة.', 'The first 5 days of any year.'],

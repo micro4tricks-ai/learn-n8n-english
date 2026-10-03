@@ -380,7 +380,7 @@ JOURNEY.week({
     },
     {
      "t": "n8n Docs: Code node",
-     "url": "https://docs.n8n.io/code/code-node/",
+     "url": "https://docs.n8n.io/build/code-in-n8n/using-the-code-node",
      "what": {
       "ar": "اقرا جزء JavaScript وإزاي ترجّع items.",
       "en": "Read the JavaScript part and how to return items."
