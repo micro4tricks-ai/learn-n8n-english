@@ -12411,5 +12411,293 @@ JOURNEY_TERMS["python"] = [
    "en": "a layer translating external models"
   },
   "ex": "The anti-corruption layer hides Shopify’s field names."
+ },
+ {
+  "w": 43,
+  "t": "test pyramid",
+  "m": {
+   "ar": "هرم الاختبارات",
+   "en": "many unit, fewer integration, few end-to-end tests"
+  },
+  "ex": "Our test pyramid was upside down."
+ },
+ {
+  "w": 43,
+  "t": "end-to-end test",
+  "m": {
+   "ar": "اختبار النظام كله من أوله لآخره",
+   "en": "a test of the whole system"
+  },
+  "ex": "The end-to-end test runs nightly."
+ },
+ {
+  "w": 43,
+  "t": "tdd",
+  "m": {
+   "ar": "التطوير بالاختبار أولًا",
+   "en": "test-driven development"
+  },
+  "ex": "TDD made the phone parser solid."
+ },
+ {
+  "w": 43,
+  "t": "red green refactor",
+  "m": {
+   "ar": "فشل ← نجاح ← تحسين",
+   "en": "the TDD cycle"
+  },
+  "ex": "Follow red green refactor in small steps."
+ },
+ {
+  "w": 43,
+  "t": "arrange act assert",
+  "m": {
+   "ar": "جهّز ← نفّذ ← تحقق",
+   "en": "the three parts of a test"
+  },
+  "ex": "Each test reads as arrange act assert."
+ },
+ {
+  "w": 43,
+  "t": "test isolation",
+  "m": {
+   "ar": "استقلال كل اختبار",
+   "en": "tests not affecting each other"
+  },
+  "ex": "Shared caches break test isolation."
+ },
+ {
+  "w": 43,
+  "t": "fixture",
+  "m": {
+   "ar": "تجهيز مشترك للاختبارات",
+   "en": "reusable setup for tests"
+  },
+  "ex": "A fixture creates a fresh database."
+ },
+ {
+  "w": 43,
+  "t": "test double",
+  "m": {
+   "ar": "بديل لاعتماد حقيقي في الاختبار",
+   "en": "a stand-in for a real dependency in tests"
+  },
+  "ex": "Pick the simplest test double that works."
+ },
+ {
+  "w": 43,
+  "t": "stub",
+  "m": {
+   "ar": "بديل بيرجّع رد ثابت",
+   "en": "a double returning fixed answers"
+  },
+  "ex": "A stub returns the exchange rate."
+ },
+ {
+  "w": 43,
+  "t": "fake",
+  "m": {
+   "ar": "تنفيذ مبسّط شغال",
+   "en": "a simplified working implementation"
+  },
+  "ex": "The fake inbox stores messages in a list."
+ },
+ {
+  "w": 43,
+  "t": "spy",
+  "m": {
+   "ar": "بديل بيسجّل النداءات",
+   "en": "a double recording calls"
+  },
+  "ex": "The spy shows send was called twice."
+ },
+ {
+  "w": 43,
+  "t": "patch",
+  "m": {
+   "ar": "تبديل اسم مؤقتًا وقت الاختبار",
+   "en": "to replace a name temporarily in a test"
+  },
+  "ex": "Patch httpx where the module uses it."
+ },
+ {
+  "w": 43,
+  "t": "time freezing",
+  "m": {
+   "ar": "تثبيت الوقت في الاختبار",
+   "en": "fixing the current time during a test"
+  },
+  "ex": "Time freezing made the overdue test stable."
+ },
+ {
+  "w": 43,
+  "t": "property-based testing",
+  "m": {
+   "ar": "اختبار خصائص بمدخلات مولّدة",
+   "en": "testing properties with generated inputs"
+  },
+  "ex": "Property-based testing found the rounding bug."
+ },
+ {
+  "w": 43,
+  "t": "hypothesis",
+  "m": {
+   "ar": "مكتبة اختبار الخصائص في Python",
+   "en": "Python’s property-based testing library"
+  },
+  "ex": "Hypothesis shrank the failure to n=3."
+ },
+ {
+  "w": 43,
+  "t": "shrinking",
+  "m": {
+   "ar": "تصغير المثال الفاشل لأبسط شكل",
+   "en": "reducing a failing input to its simplest form"
+  },
+  "ex": "Shrinking turned a huge input into 1 and 3."
+ },
+ {
+  "w": 43,
+  "t": "round-trip",
+  "m": {
+   "ar": "تحويل ورجوع لنفس الأصل",
+   "en": "converting and back to the original"
+  },
+  "ex": "Test the CSV round-trip."
+ },
+ {
+  "w": 43,
+  "t": "mutation testing",
+  "m": {
+   "ar": "اختبار الاختبارات بتغيير الكود",
+   "en": "checking tests by mutating the code"
+  },
+  "ex": "Mutation testing exposed a missing boundary test."
+ },
+ {
+  "w": 43,
+  "t": "coverage",
+  "m": {
+   "ar": "نسبة الكود اللي الاختبارات شغّلته",
+   "en": "the share of code run by tests"
+  },
+  "ex": "Coverage is a floor, not a goal."
+ },
+ {
+  "w": 43,
+  "t": "respx",
+  "m": {
+   "ar": "مكتبة لاعتراض طلبات httpx في الاختبار",
+   "en": "a library mocking httpx requests"
+  },
+  "ex": "respx returns a fake Shopify reply."
+ },
+ {
+  "w": 43,
+  "t": "vcr",
+  "m": {
+   "ar": "تسجيل ردود HTTP وإعادتها",
+   "en": "recording and replaying HTTP interactions"
+  },
+  "ex": "VCR made the Odoo tests offline."
+ },
+ {
+  "w": 43,
+  "t": "cassette",
+  "m": {
+   "ar": "ملف الردود المسجّلة",
+   "en": "a file of recorded HTTP replies"
+  },
+  "ex": "Scrub tokens from the cassette."
+ },
+ {
+  "w": 43,
+  "t": "golden file",
+  "m": {
+   "ar": "ملف المخرجات المتوقعة",
+   "en": "a file of expected output"
+  },
+  "ex": "Update the golden file only on purpose."
+ },
+ {
+  "w": 43,
+  "t": "testcontainers",
+  "m": {
+   "ar": "تشغيل خدمات حقيقية في Docker للاختبار",
+   "en": "running real services in Docker for tests"
+  },
+  "ex": "testcontainers starts Postgres 17."
+ },
+ {
+  "w": 43,
+  "t": "contract testing",
+  "m": {
+   "ar": "اختبار الاتفاق بين خدمتين",
+   "en": "testing the agreed interface between services"
+  },
+  "ex": "Contract testing caught a renamed field."
+ },
+ {
+  "w": 43,
+  "t": "branch coverage",
+  "m": {
+   "ar": "تغطية الفروع في الاتجاهين",
+   "en": "whether each branch was taken both ways"
+  },
+  "ex": "Branch coverage showed the else was never tested."
+ },
+ {
+  "w": 43,
+  "t": "conftest",
+  "m": {
+   "ar": "ملف fixtures المشتركة في pytest",
+   "en": "pytest’s shared fixtures file"
+  },
+  "ex": "Put the repo fixture in conftest."
+ },
+ {
+  "w": 43,
+  "t": "marker",
+  "m": {
+   "ar": "تصنيف للاختبارات",
+   "en": "a label to group tests"
+  },
+  "ex": "Run pytest -m \"not integration\"."
+ },
+ {
+  "w": 43,
+  "t": "xfail",
+  "m": {
+   "ar": "اختبار متوقع يفشل",
+   "en": "a test expected to fail"
+  },
+  "ex": "The known rounding bug is xfail."
+ },
+ {
+  "w": 43,
+  "t": "caplog",
+  "m": {
+   "ar": "fixture بتمسك اللوج",
+   "en": "a pytest fixture capturing logs"
+  },
+  "ex": "Assert on caplog.text."
+ },
+ {
+  "w": 43,
+  "t": "test data builder",
+  "m": {
+   "ar": "دالة بتبني بيانات اختبار بقيم افتراضية",
+   "en": "a helper building test objects with defaults"
+  },
+  "ex": "make_order is a test data builder."
+ },
+ {
+  "w": 43,
+  "t": "seeding",
+  "m": {
+   "ar": "تثبيت بذرة العشوائية",
+   "en": "fixing the random seed"
+  },
+  "ex": "Seeding makes random tests repeatable."
  }
 ];
