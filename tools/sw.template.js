@@ -36,7 +36,9 @@ self.addEventListener('fetch', function(e){
 // the review page asks for the whole site to be kept offline: every page's files plus the week files it sends
 self.addEventListener('message', function(e){
   if(!e.data || e.data.type !== 'cache-all' || !e.data.urls) return;
-  var urls = LAZY.concat(e.data.urls), done = 0, port = e.ports && e.ports[0];
+  // only this site's own files (relative paths), never another origin
+  var asked = [].concat(e.data.urls).filter(function(u){ return typeof u === 'string' && /^[\w-]+(\/[\w.-]+)*(\?v=\w+)?$/.test(u); });
+  var urls = LAZY.concat(asked), done = 0, port = e.ports && e.ports[0];
   caches.open(CACHE).then(function(c){
     return Promise.all(urls.map(function(u){
       return c.match(u).then(function(hit){ return hit || c.add(u); }).catch(function(){}).then(function(){ done++; if(port) port.postMessage({ done: done, total: urls.length }); });

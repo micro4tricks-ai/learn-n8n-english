@@ -118,7 +118,7 @@
     return window.TF ? window.TF(s, v) : s.replace(/\{(\w+)\}/g, function(_, k){ return v && v[k] != null ? v[k] : ''; });
   }
   var L = J.L;
-  function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+  function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;'); }
   // content text: `code` and **bold** (bold only outside code, so `2 ** 3` stays as written)
   function fmt(s){
     return String(s == null ? '' : s).split(/(`[^`]+`)/).map(function(p){

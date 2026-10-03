@@ -52,7 +52,8 @@
   function worker(){
     // a module worker: Pyodide's current builds load as an ES module
     var src = 'import { loadPyodide } from ' + JSON.stringify(CDN + 'pyodide.mjs') + ';\n(' + workerMain.toString() + ')(loadPyodide, ' + JSON.stringify(CDN) + ');';
-    var w = new Worker(URL.createObjectURL(new Blob([src], { type: 'text/javascript' })), { type: 'module' });
+    // it lives in the sandboxed runner frame (sandbox.js), away from this site's storage and sign-in
+    var w = window.SANDBOX.worker({ src: src, module: true });
     var st = { w: w, ready: false, wait: [], onStatus: null, onStart: null };
     st.readyP = new Promise(function(res, rej){
       w.onmessage = function(e){

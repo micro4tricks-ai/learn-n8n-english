@@ -9,7 +9,7 @@
 
   function T(s){ return window.T ? window.T(s) : s; }
   function TF(s, v){ return window.TF ? window.TF(s, v) : s; }
-  function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+  function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;'); }
 
   var client = window.supabase.createClient(cfg.url, cfg.anonKey, {
     // "implicit" lets the email link open on a different device from the one that asked for it.

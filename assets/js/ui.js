@@ -76,7 +76,8 @@
   function parse(h){
     h = (h || '').replace(/^#/, '');
     var i = h.indexOf('?'), p = {};
-    if(i !== -1) h.slice(i + 1).split('&').forEach(function(kv){ var x = kv.split('='); if(x[0]) p[decodeURIComponent(x[0])] = decodeURIComponent((x[1] || '').replace(/\+/g, ' ')); });
+    var dec = function(s){ try{ return decodeURIComponent(s); }catch(e){ return s; } };   // a broken %-escape must not stop the page
+    if(i !== -1) h.slice(i + 1).split('&').forEach(function(kv){ var x = kv.split('='), k = dec(x[0]); if(k && k !== '__proto__') p[k] = dec((x[1] || '').replace(/\+/g, ' ')); });
     return { id: i === -1 ? h : h.slice(0, i), p: p };
   }
   // A section without a search box: try each of its tabs until a card holding the text shows, and mark that card.

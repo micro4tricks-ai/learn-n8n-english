@@ -134,6 +134,15 @@ and the tests on every push; `links.yml` checks the links weekly.
 | GoatCounter (`config.js`) | Visit counts, no cookies | only when a code is set (empty by default) |
 | Google Fonts | Fonts | every page |
 
+## Security
+
+- **Content-Security-Policy** in every page (`tools/build_csp.js`, part of `npm run build`): scripts only from this site, the page's own inline scripts by hash, giscus and (on the lab) jsDelivr; no plugins, no `<base>`, forms post only here. A new outside service must be added there.
+- **Learners' code runs isolated.** Python (Pyodide), the lab's JavaScript/expressions and the HTML/JS examples run in `run.html` inside `<iframe sandbox="allow-scripts">` (`assets/js/sandbox.js` → `assets/js/runhost.js`). The frame has no origin of its own, so the code can't read localStorage (progress, the sign-in session), IndexedDB, cookies or the offline cache. Never add `allow-same-origin` to it.
+- **Everything from outside is text.** Pasted workflow JSON, template API answers, synced stores, imported backups and the URL hash go through `esc()` / `S.inline()`; workflow positions and sizes are coerced to numbers before they reach the SVG.
+- `npm run security` (`tools/xss_fuzz.js`, also in CI) fills every store, the URL hash, the search box, a pasted workflow and the template API with HTML/JS payloads on every page in both languages, fails if anything runs or becomes markup, and checks that the runner can't reach the site's storage.
+- Supabase: row-level security on every table; each user can read and write only their own rows.
+- How to report a problem privately: [SECURITY.md](../SECURITY.md).
+
 ## Things that must stay true
 
 - Arabic is the source text; every visible string has English too (`npm test` fails on Arabic left in English mode).

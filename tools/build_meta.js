@@ -6,7 +6,7 @@ const ROOT = path.resolve(__dirname, '..');
 const SITE = 'https://micro4tricks-ai.github.io/learn-n8n-english/';
 const IMAGE = SITE + 'docs/social-preview.png';
 const esc = s => String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
-const pages = fs.readdirSync(ROOT).filter(f => f.endsWith('.html')).sort((a, b) => a === 'index.html' ? -1 : b === 'index.html' ? 1 : a.localeCompare(b));
+const pages = fs.readdirSync(ROOT).filter(f => f.endsWith('.html') && !/<meta name="robots" content="noindex">/.test(fs.readFileSync(path.join(ROOT, f), 'utf8'))).sort((a, b) => a === 'index.html' ? -1 : b === 'index.html' ? 1 : a.localeCompare(b));
 pages.forEach(f => {
   const p = path.join(ROOT, f);
   let html = fs.readFileSync(p, 'utf8');

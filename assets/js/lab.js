@@ -56,6 +56,7 @@
     vectorStoreInMemory: ['📚', 'مخزن vectors للبحث في مستنداتك (RAG).', 'A vector store to search your documents (RAG).'],
     outputParserStructured: ['🧾', 'بيجبر رد الموديل يطلع JSON بشكل محدد.', 'Forces the model reply into a fixed JSON shape.']
   };
+  function num(v, d){ v = Number(v); return isFinite(v) ? v : (d || 0); }
   function short(type){ return String(type || '').split('.').pop(); }
   function info(type){
     var k = short(type), n = NODE[k];
@@ -75,7 +76,18 @@
     var j = typeof text === 'string' ? JSON.parse(text) : text;
     for(var i = 0; i < 3 && j && !j.nodes && j.workflow; i++) j = j.workflow;
     if(!j || !Array.isArray(j.nodes)) throw new Error(B('ده مش JSON بتاع Workflow: مفيش `nodes`.', 'This is not workflow JSON: there are no `nodes`.'));
-    j.connections = j.connections || {};
+    // the JSON can come from anyone (a pasted file, a template): names and types become text, positions and sizes numbers
+    j.nodes = j.nodes.filter(function(n){ return n && typeof n === 'object'; }).map(function(n){
+      var p = Array.isArray(n.position) ? n.position : [0, 0];
+      n.name = String(n.name == null ? '' : n.name); n.type = String(n.type == null ? '' : n.type);
+      n.position = [num(p[0]), num(p[1])];
+      if(n.parameters && typeof n.parameters === 'object'){
+        if('width' in n.parameters) n.parameters.width = num(n.parameters.width, 260);
+        if('height' in n.parameters) n.parameters.height = num(n.parameters.height, 120);
+      }
+      return n;
+    });
+    j.connections = j.connections && typeof j.connections === 'object' ? j.connections : {};
     return j;
   }
   // every edge: {from, to, kind ('main' or ai_*), out (output index)}
@@ -261,7 +273,7 @@
       var g = out.querySelector('[data-node="' + i + '"]'); if(g) g.classList.add('sel');
       var params = JSON.stringify(n.parameters || {}, null, 2);
       d.innerHTML = '<div class="md-card"><div class="md-top"><h3>' + esc(ic[0] + ' ' + n.name) + '</h3><button type="button" class="acct-x" data-close aria-label="' + esc(B('إغلاق', 'Close')) + '">✕</button></div>' +
-        '<p class="sub-note" dir="ltr">' + esc(n.type) + (n.typeVersion ? ' · v' + n.typeVersion : '') + '</p><p>' + esc(B(ic[1], ic[2])) + '</p>' +
+        '<p class="sub-note" dir="ltr">' + esc(n.type + (n.typeVersion ? ' · v' + n.typeVersion : '')) + '</p><p>' + esc(B(ic[1], ic[2])) + '</p>' +
         '<pre tabindex="0" class="md-code" dir="ltr"><code>' + esc(params.length > 2500 ? params.slice(0, 2500) + '\n…' : params) + '</code></pre></div>';
     }
     el.addEventListener('click', function(e){
@@ -303,7 +315,7 @@
           return '<article class="md-card"><h3 dir="auto">' + esc(w.name) + '</h3><div class="lib-badges">' +
             (w.price ? '<span class="tag">' + esc(B('مدفوع', 'Paid')) + '</span>' : '') + '<span class="tag">👁 ' + Number(w.totalViews || 0).toLocaleString('en') + '</span></div>' +
             (nodes.length ? '<p class="sub-note" dir="ltr">' + esc(nodes.join(' · ')) + '</p>' : '') +
-            '<div class="jr-actions">' + (w.price ? '' : '<button type="button" class="link-btn" data-open="' + w.id + '">' + esc(B('افتحه هنا', 'Open it here')) + '</button>') +
+            '<div class="jr-actions">' + (w.price ? '' : '<button type="button" class="link-btn" data-open="' + esc(w.id) + '">' + esc(B('افتحه هنا', 'Open it here')) + '</button>') +
             '<a class="ghost-btn" href="https://n8n.io/workflows/' + encodeURIComponent(w.id) + '" target="_blank" rel="noopener">n8n.io ↗</a></div></article>';
         }).join('');
       }).catch(function(){
@@ -340,11 +352,12 @@
       '  }catch(err){ postMessage({ ok: false, error: String(err && err.stack ? err.message : err), line: err && err.lineNumber, logs: logs }); }\n' +
       '};';
   }
-  var blobUrl = null;
+  var blobUrl = null;   // the worker source, built once
   function runJS(msg, ms){
     return new Promise(function(resolve){
-      if(!blobUrl) blobUrl = URL.createObjectURL(new Blob([workerSrc()], { type: 'text/javascript' }));
-      var w = new Worker(blobUrl), done = false;
+      // a fresh worker in the sandboxed runner frame (sandbox.js): the code can't reach this site's storage or sign-in
+      if(!blobUrl) blobUrl = workerSrc();
+      var w = window.SANDBOX.worker({ src: blobUrl }), done = false;
       var t = setTimeout(function(){ if(done) return; done = true; w.terminate(); resolve({ ok: false, timeout: true, error: B('الكود أخد أكتر من ' + (ms / 1000) + ' ثواني ووقفناه. غالبًا فيه loop مش بيخلص.', 'The code took more than ' + (ms / 1000) + ' seconds and was stopped. There is probably a loop that never ends.'), logs: [] }); }, ms);
       w.onmessage = function(e){ if(done) return; done = true; clearTimeout(t); w.terminate(); resolve(e.data); };
       w.onerror = function(e){ if(done) return; done = true; clearTimeout(t); w.terminate(); resolve({ ok: false, error: e.message, logs: [] }); e.preventDefault(); };

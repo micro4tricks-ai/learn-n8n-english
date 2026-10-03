@@ -7,7 +7,8 @@ const AXE = fs.readFileSync(require.resolve('axe-core/axe.min.js'), 'utf8');
 const srv = http.createServer((q, r) => { const f = path.join(ROOT, decodeURIComponent(q.url.split('?')[0]).replace(/\/$/, '/index.html')); if(!fs.existsSync(f)){ r.writeHead(404); return r.end(); } r.writeHead(200, { 'Content-Type': f.endsWith('.js') ? 'text/javascript' : f.endsWith('.css') ? 'text/css' : f.endsWith('.svg') ? 'image/svg+xml' : 'text/html' }); fs.createReadStream(f).pipe(r); });
 srv.listen(0, async () => {
   const b = await chromium.launch({ channel: 'chrome' });
-  const p = await b.newPage({ viewport: { width: 1280, height: 900 } });
+  // bypassCSP: the pages' Content-Security-Policy would block axe, which is injected as an inline script
+  const p = await b.newPage({ viewport: { width: 1280, height: 900 }, bypassCSP: true });
   const seen = {};
   for(const pg of ['index', 'n8n', 'english', 'review', 'lab', 'speak', 'prompts', 'sheets']){
     await p.goto('http://127.0.0.1:' + srv.address().port + '/' + pg + '.html');

@@ -15,7 +15,7 @@
   }
   function saveState(){ try{ localStorage.setItem(STORE_KEY, JSON.stringify(state)); }catch(e){} if(window.SITE && SITE.touch) SITE.touch(); }
   var state = loadState();
-  function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+  function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;'); }
   // `text` in backticks becomes inline code
   function fmt(s){ return esc(s).replace(/`([^`]+)`/g, '<code>$1</code>'); }
 

@@ -2,24 +2,24 @@
 /* The offline app. Pages are network-first (fresh when online, cached copy when offline); versioned
  * assets (?v=…) are cache-first since a new release changes their URL. Only this site's own files are
  * cached: accounts (Supabase), CDNs and other sites always go to the network. */
-var VERSION = '202610022';
+var VERSION = '202610031';
 var CACHE = 'site-' + VERSION;
 var FILES = [
  "./",
- "assets/css/site.css?v=202610022",
+ "assets/css/site.css?v=202610031",
  "assets/favicon.svg",
  "assets/icons/icon-192.png",
  "assets/icons/icon-512.png",
- "assets/js/account.js?v=202610022",
- "assets/js/common-en.js?v=202610022",
- "assets/js/config.js?v=202610022",
- "assets/js/i18n.js?v=202610022",
- "assets/js/sections.js?v=202610022",
- "assets/js/site.js?v=202610022",
- "assets/js/ui.js?v=202610022",
- "assets/js/vendor/supabase.js?v=202610022",
+ "assets/js/account.js?v=202610031",
+ "assets/js/common-en.js?v=202610031",
+ "assets/js/config.js?v=202610031",
+ "assets/js/i18n.js?v=202610031",
+ "assets/js/sections.js?v=202610031",
+ "assets/js/site.js?v=202610031",
+ "assets/js/ui.js?v=202610031",
+ "assets/js/vendor/supabase.js?v=202610031",
  "assets/logo.svg",
- "content/pages.js?v=202610022",
+ "content/pages.js?v=202610031",
  "english.html",
  "index.html",
  "lab.html",
@@ -28,43 +28,46 @@ var FILES = [
  "prompts.html",
  "python.html",
  "review.html",
+ "run.html",
  "sheets.html",
  "speak.html"
 ];   // the shared shell, kept on install
 var LAZY = [
- "assets/data/deck.js?v=202610022",
- "assets/data/search-index.js?v=202610022",
- "assets/js/english-app.js?v=202610022",
- "assets/js/english-data.js?v=202610022",
- "assets/js/english-en.js?v=202610022",
- "assets/js/journey.js?v=202610022",
- "assets/js/lab-expr.js?v=202610022",
- "assets/js/lab.js?v=202610022",
- "assets/js/n8n-app.js?v=202610022",
- "assets/js/n8n-data.js?v=202610022",
- "assets/js/n8n-en.js?v=202610022",
- "assets/js/prompts.js?v=202610022",
- "assets/js/pyrun.js?v=202610022",
- "assets/js/python-app.js?v=202610022",
- "assets/js/review.js?v=202610022",
- "assets/js/speak.js?v=202610022",
- "assets/js/vendor/ts-fsrs.umd.js?v=202610022",
- "content/english/outline.js?v=202610022",
- "content/english/terms.js?v=202610022",
- "content/library/english.js?v=202610022",
- "content/library/n8n.js?v=202610022",
- "content/library/python.js?v=202610022",
- "content/n8n/outline.js?v=202610022",
- "content/n8n/terms.js?v=202610022",
- "content/python/outline.js?v=202610022",
- "content/python/terms.js?v=202610022",
- "content/sections/lab.js?v=202610022",
- "content/sections/prompts.js?v=202610022",
- "content/sections/python-ref.js?v=202610022",
- "content/sections/python.js?v=202610022",
- "content/sections/review.js?v=202610022",
- "content/sections/sheets.js?v=202610022",
- "content/sections/speak.js?v=202610022"
+ "assets/data/deck.js?v=202610031",
+ "assets/data/search-index.js?v=202610031",
+ "assets/js/english-app.js?v=202610031",
+ "assets/js/english-data.js?v=202610031",
+ "assets/js/english-en.js?v=202610031",
+ "assets/js/journey.js?v=202610031",
+ "assets/js/lab-expr.js?v=202610031",
+ "assets/js/lab.js?v=202610031",
+ "assets/js/n8n-app.js?v=202610031",
+ "assets/js/n8n-data.js?v=202610031",
+ "assets/js/n8n-en.js?v=202610031",
+ "assets/js/prompts.js?v=202610031",
+ "assets/js/pyrun.js?v=202610031",
+ "assets/js/python-app.js?v=202610031",
+ "assets/js/review.js?v=202610031",
+ "assets/js/runhost.js?v=202610031",
+ "assets/js/sandbox.js?v=202610031",
+ "assets/js/speak.js?v=202610031",
+ "assets/js/vendor/ts-fsrs.umd.js?v=202610031",
+ "content/english/outline.js?v=202610031",
+ "content/english/terms.js?v=202610031",
+ "content/library/english.js?v=202610031",
+ "content/library/n8n.js?v=202610031",
+ "content/library/python.js?v=202610031",
+ "content/n8n/outline.js?v=202610031",
+ "content/n8n/terms.js?v=202610031",
+ "content/python/outline.js?v=202610031",
+ "content/python/terms.js?v=202610031",
+ "content/sections/lab.js?v=202610031",
+ "content/sections/prompts.js?v=202610031",
+ "content/sections/python-ref.js?v=202610031",
+ "content/sections/python.js?v=202610031",
+ "content/sections/review.js?v=202610031",
+ "content/sections/sheets.js?v=202610031",
+ "content/sections/speak.js?v=202610031"
 ];     // page data and scripts: kept when used, or all at once on «Download for offline»
 
 self.addEventListener('install', function(e){
@@ -97,7 +100,9 @@ self.addEventListener('fetch', function(e){
 // the review page asks for the whole site to be kept offline: every page's files plus the week files it sends
 self.addEventListener('message', function(e){
   if(!e.data || e.data.type !== 'cache-all' || !e.data.urls) return;
-  var urls = LAZY.concat(e.data.urls), done = 0, port = e.ports && e.ports[0];
+  // only this site's own files (relative paths), never another origin
+  var asked = [].concat(e.data.urls).filter(function(u){ return typeof u === 'string' && /^[\w-]+(\/[\w.-]+)*(\?v=\w+)?$/.test(u); });
+  var urls = LAZY.concat(asked), done = 0, port = e.ports && e.ports[0];
   caches.open(CACHE).then(function(c){
     return Promise.all(urls.map(function(u){
       return c.match(u).then(function(hit){ return hit || c.add(u); }).catch(function(){}).then(function(){ done++; if(port) port.postMessage({ done: done, total: urls.length }); });

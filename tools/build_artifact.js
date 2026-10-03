@@ -35,7 +35,7 @@ html = html
     if(p === 'assets/js/site.js') out = inline(read('assets/data/search-index.js')) + '\n' + out;
     return out;
   })
-  .replace(/href="(index|n8n|english|review|lab|speak|prompts|sheets)\.html"/g, (_, p) => p === page ? 'href="#"' : 'href="' + LIVE + (p === 'index' ? '' : p + '.html') + '" target="_blank" rel="noopener"');
+  .replace(/href="(index|n8n|english|python|review|lab|speak|prompts|sheets)\.html"/g, (_, p) => p === page ? 'href="#"' : 'href="' + LIVE + (p === 'index' ? '' : p + '.html') + '" target="_blank" rel="noopener"');
 
 // The artifact frame misbehaves with an RTL root element, so the direction lives on <body> in the copy.
 html = html.replace('document.documentElement.dir = ', 'document.body.dir = ')

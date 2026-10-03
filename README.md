@@ -286,6 +286,7 @@ The tool pages don't use the dictionaries at all: their texts are `{ar, en}` in 
 | `npm run artifact` | One-file copy of the n8n page (for the claude.ai artifact) |
 | `npm run a11y` | Accessibility audit of every page (needs Chrome) |
 | `npm run e2e` | The tool pages in a real Chrome (needs Chrome and internet) |
+| `npm run security` | Security check in a real Chrome: HTML/JS payloads in every store, link, search and pasted workflow; the code runner's isolation ([SECURITY.md](SECURITY.md)) |
 
 ## Deploy
 

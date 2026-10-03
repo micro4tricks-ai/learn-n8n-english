@@ -173,7 +173,7 @@
       if(e.target.checked) S.setItem('done', id, { on: 1 }); else S.removeItem('done', id);
       var openId = e.target.closest('[data-id]').dataset.id;
       paint();
-      var d = el.querySelector('[data-id="' + openId + '"]'); if(d) d.open = true;
+      var d = el.querySelector('[data-id="' + (window.CSS && CSS.escape ? CSS.escape(openId) : openId) + '"]'); if(d) d.open = true;
     });
     // one lesson open at a time
     el.addEventListener('toggle', function(e){

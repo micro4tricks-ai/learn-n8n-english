@@ -30,7 +30,7 @@
     }
     return out;
   };
-  S.esc = function(s){ return String(s == null ? '' : s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); };
+  S.esc = function(s){ return String(s == null ? '' : s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;'); };
   // inline: `code`, **bold**, [text](https://link)
   function inline(s){
     return S.esc(s)
@@ -427,9 +427,11 @@
   });
 
   // ---------- deep links: #section?q=… ----------
+  // a broken %-escape in a shared link must not stop the page
+  function dec(s){ try{ return decodeURIComponent(s); }catch(e){ return s; } }
   S.hashParams = function(){
     var h = location.hash.slice(1), i = h.indexOf('?'), p = {};
-    if(i !== -1) h.slice(i + 1).split('&').forEach(function(kv){ var x = kv.split('='); if(x[0]) p[decodeURIComponent(x[0])] = decodeURIComponent((x[1] || '').replace(/\+/g, ' ')); });
+    if(i !== -1) h.slice(i + 1).split('&').forEach(function(kv){ var x = kv.split('='), k = dec(x[0]); if(k && k !== '__proto__') p[k] = dec((x[1] || '').replace(/\+/g, ' ')); });
     return { id: i === -1 ? h : h.slice(0, i), p: p };
   };
 

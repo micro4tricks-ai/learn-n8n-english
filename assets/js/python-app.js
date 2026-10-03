@@ -19,8 +19,11 @@
   var frameSeq = 0;
   function runWeb(code, out, btn, kind, html){
     var id = 'jr' + (++frameSeq) + '_' + Date.now(), logs = [];
-    var frame = out.nextElementSibling && out.nextElementSibling.classList.contains('run-frame') ? out.nextElementSibling : null;
-    if(!frame){ frame = document.createElement('iframe'); frame.className = 'run-frame'; frame.setAttribute('sandbox', 'allow-scripts'); frame.title = B('معاينة المثال', 'Example preview'); out.parentNode.insertBefore(frame, out.nextSibling); }
+    // a fresh frame for every run, showing run.html#page (sandbox.js): no origin of its own, so no access to this site
+    var old = out.nextElementSibling && out.nextElementSibling.classList.contains('run-frame') ? out.nextElementSibling : null;
+    var frame = document.createElement('iframe');
+    frame.className = 'run-frame'; frame.title = B('معاينة المثال', 'Example preview');
+    if(old) old.replaceWith(frame); else out.parentNode.insertBefore(frame, out.nextSibling);
     var hook = '<script>(function(){var ID=' + JSON.stringify(id) + ';function s(t,a){try{parent.postMessage({jr:ID,t:t,a:Array.prototype.map.call(a,function(x){return typeof x==="object"?JSON.stringify(x):String(x);}).join(" ")},"*");}catch(e){}}' +
       'console.log=function(){s("log",arguments);};console.info=console.log;console.warn=function(){s("warn",arguments);};console.error=function(){s("err",arguments);};' +
       'window.onerror=function(m,u,l){s("err",[m+(l?" (line "+l+")":"")]);};window.addEventListener("unhandledrejection",function(e){s("err",[String(e.reason)]);});})();<\/script>';
@@ -28,7 +31,7 @@
       : '<!doctype html><meta charset="utf-8"><body style="font-family:system-ui;margin:12px">' + (html || '') + '</body>' + hook + '<script>\n' + code.replace(/<\/script/gi, '<\\/script') + '\n<\/script>';
     function onMsg(e){
       var d = e.data;
-      if(!d || d.jr !== id) return;
+      if(!d || d.jr !== id || e.source !== frame.contentWindow) return;   // only this example's own frame
       logs.push((d.t === 'err' ? '✗ ' : d.t === 'warn' ? '⚠ ' : '') + d.a);
       out.hidden = false;
       out.textContent = logs.join('\n');
@@ -40,7 +43,7 @@
     out.textContent = kind === 'html' ? B('المعاينة تحت ↓', 'Preview below ↓') : B('(مفيش console.log لسه)', '(no console.log yet)');
     out.hidden = kind === 'html';
     frame.hidden = kind === 'js' && !html;
-    frame.srcdoc = doc;
+    window.SANDBOX.page(frame, doc);
     if(btn && btn.blur) btn.blur();
   }
 
