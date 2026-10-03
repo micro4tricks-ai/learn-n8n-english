@@ -12699,5 +12699,338 @@ JOURNEY_TERMS["python"] = [
    "en": "fixing the random seed"
   },
   "ex": "Seeding makes random tests repeatable."
+ },
+ {
+  "w": 44,
+  "t": "owasp top 10",
+  "m": {
+   "ar": "أشهر 10 مخاطر لتطبيقات الويب",
+   "en": "the ten most critical web app risks"
+  },
+  "ex": "Review the OWASP Top 10 every year."
+ },
+ {
+  "w": 44,
+  "t": "command injection",
+  "m": {
+   "ar": "حقن أوامر نظام",
+   "en": "running attacker input as a system command"
+  },
+  "ex": "shell=True invited command injection."
+ },
+ {
+  "w": 44,
+  "t": "shell=True",
+  "m": {
+   "ar": "تشغيل الأمر عبر الـ shell",
+   "en": "running a subprocess through the shell"
+  },
+  "ex": "Never use shell=True with input."
+ },
+ {
+  "w": 44,
+  "t": "allowlist validation",
+  "m": {
+   "ar": "تحقق بقايمة المسموح",
+   "en": "accepting only known good values"
+  },
+  "ex": "Allowlist validation beats blocking characters."
+ },
+ {
+  "w": 44,
+  "t": "path traversal",
+  "m": {
+   "ar": "الخروج من المجلد بـ ../",
+   "en": "escaping a folder with ../"
+  },
+  "ex": "resolve() plus is_relative_to stops path traversal."
+ },
+ {
+  "w": 44,
+  "t": "zip slip",
+  "m": {
+   "ar": "أرشيف بيكتب برّه مجلد الفك",
+   "en": "an archive writing outside the extraction folder"
+  },
+  "ex": "Check every member name to prevent zip slip."
+ },
+ {
+  "w": 44,
+  "t": "ssrf",
+  "m": {
+   "ar": "تزوير طلبات من السيرفر",
+   "en": "server-side request forgery"
+  },
+  "ex": "The image importer was open to SSRF."
+ },
+ {
+  "w": 44,
+  "t": "eval",
+  "m": {
+   "ar": "تشغيل نص ككود Python",
+   "en": "running a string as Python code"
+  },
+  "ex": "Never eval user input."
+ },
+ {
+  "w": 44,
+  "t": "deserialization",
+  "m": {
+   "ar": "تحويل بيانات مخزّنة لكائنات",
+   "en": "turning stored data back into objects"
+  },
+  "ex": "Unsafe deserialization runs code."
+ },
+ {
+  "w": 44,
+  "t": "ast.literal_eval",
+  "m": {
+   "ar": "فك قيم بسيطة بأمان",
+   "en": "safely parsing Python literals"
+  },
+  "ex": "ast.literal_eval refuses function calls."
+ },
+ {
+  "w": 44,
+  "t": "yaml.safe_load",
+  "m": {
+   "ar": "قراية YAML كبيانات بس",
+   "en": "loading YAML as plain data only"
+  },
+  "ex": "Always use yaml.safe_load."
+ },
+ {
+  "w": 44,
+  "t": "defusedxml",
+  "m": {
+   "ar": "محلل XML آمن",
+   "en": "a safe XML parsing library"
+  },
+  "ex": "Parse supplier XML with defusedxml."
+ },
+ {
+  "w": 44,
+  "t": "xml external entity",
+  "m": {
+   "ar": "كيان XML بيقرا ملفات خارجية",
+   "en": "an XML feature that can read external files"
+  },
+  "ex": "An XML external entity leaked /etc/passwd."
+ },
+ {
+  "w": 44,
+  "t": "secrets module",
+  "m": {
+   "ar": "مكتبة العشوائية الآمنة",
+   "en": "the module for secure random values"
+  },
+  "ex": "Generate API keys with the secrets module."
+ },
+ {
+  "w": 44,
+  "t": "token_urlsafe",
+  "m": {
+   "ar": "توكن عشوائي آمن للروابط",
+   "en": "a random URL-safe token"
+  },
+  "ex": "Reset links use token_urlsafe(32)."
+ },
+ {
+  "w": 44,
+  "t": "timing attack",
+  "m": {
+   "ar": "تخمين سر من زمن المقارنة",
+   "en": "guessing a secret from comparison time"
+  },
+  "ex": "compare_digest prevents a timing attack."
+ },
+ {
+  "w": 44,
+  "t": "argon2",
+  "m": {
+   "ar": "أفضل خوارزمية لتخزين كلمات السر",
+   "en": "a modern password-hashing algorithm"
+  },
+  "ex": "Hash passwords with argon2."
+ },
+ {
+  "w": 44,
+  "t": "fernet",
+  "m": {
+   "ar": "تشفير متماثل جاهز وآمن",
+   "en": "a ready authenticated symmetric encryption"
+  },
+  "ex": "Encrypt stored tokens with Fernet."
+ },
+ {
+  "w": 44,
+  "t": "secret manager",
+  "m": {
+   "ar": "خزنة أسرار",
+   "en": "a service storing secrets securely"
+  },
+  "ex": "Keys live in the secret manager."
+ },
+ {
+  "w": 44,
+  "t": "key rotation",
+  "m": {
+   "ar": "تغيير المفاتيح دوريًا",
+   "en": "replacing keys periodically"
+  },
+  "ex": "Key rotation runs every six months."
+ },
+ {
+  "w": 44,
+  "t": "supply chain",
+  "m": {
+   "ar": "سلسلة التوريد البرمجية",
+   "en": "all the third-party code you depend on"
+  },
+  "ex": "Supply chain attacks target popular packages."
+ },
+ {
+  "w": 44,
+  "t": "cve",
+  "m": {
+   "ar": "رقم ثغرة معروفة",
+   "en": "an identifier for a known vulnerability"
+  },
+  "ex": "pip-audit reported a CVE in an old version."
+ },
+ {
+  "w": 44,
+  "t": "dependency confusion",
+  "m": {
+   "ar": "تنزيل حزمة داخلية من المستودع العام",
+   "en": "pulling an internal package name from a public index"
+  },
+  "ex": "A private index prevents dependency confusion."
+ },
+ {
+  "w": 44,
+  "t": "lockfile",
+  "m": {
+   "ar": "ملف النسخ المثبّتة",
+   "en": "a file pinning exact dependency versions"
+  },
+  "ex": "Commit the lockfile."
+ },
+ {
+  "w": 44,
+  "t": "hash pinning",
+  "m": {
+   "ar": "تثبيت hash كل حزمة",
+   "en": "pinning each package to a known hash"
+  },
+  "ex": "Hash pinning blocks tampered downloads."
+ },
+ {
+  "w": 44,
+  "t": "pip-audit",
+  "m": {
+   "ar": "أداة فحص ثغرات المكتبات",
+   "en": "a tool checking dependencies for known vulnerabilities"
+  },
+  "ex": "pip-audit runs in CI."
+ },
+ {
+  "w": 44,
+  "t": "bandit",
+  "m": {
+   "ar": "أداة تحليل أمان لكود Python",
+   "en": "a security linter for Python"
+  },
+  "ex": "bandit flagged shell=True."
+ },
+ {
+  "w": 44,
+  "t": "sast",
+  "m": {
+   "ar": "تحليل أمان ساكن للكود",
+   "en": "static application security testing"
+  },
+  "ex": "SAST runs on every pull request."
+ },
+ {
+  "w": 44,
+  "t": "sbom",
+  "m": {
+   "ar": "قايمة مكونات البرنامج",
+   "en": "a software bill of materials"
+  },
+  "ex": "The client asked for an SBOM."
+ },
+ {
+  "w": 44,
+  "t": "security headers",
+  "m": {
+   "ar": "ترويسات حماية الويب",
+   "en": "HTTP headers that harden a web app"
+  },
+  "ex": "Security headers block clickjacking."
+ },
+ {
+  "w": 44,
+  "t": "rate limiting",
+  "m": {
+   "ar": "تحديد عدد الطلبات",
+   "en": "limiting how many requests are allowed"
+  },
+  "ex": "Rate limiting protects the login route."
+ },
+ {
+  "w": 44,
+  "t": "logging secrets",
+  "m": {
+   "ar": "تسريب أسرار في اللوج",
+   "en": "writing secrets into logs by mistake"
+  },
+  "ex": "Redaction stops logging secrets."
+ },
+ {
+  "w": 44,
+  "t": "threat model",
+  "m": {
+   "ar": "تحليل التهديدات",
+   "en": "an analysis of possible attacks"
+  },
+  "ex": "Update the threat model for the new webhook."
+ },
+ {
+  "w": 44,
+  "t": "stride",
+  "m": {
+   "ar": "إطار تصنيف التهديدات الستة",
+   "en": "a six-category threat framework"
+  },
+  "ex": "STRIDE found a repudiation gap."
+ },
+ {
+  "w": 44,
+  "t": "security review",
+  "m": {
+   "ar": "مراجعة أمان قبل الإطلاق",
+   "en": "a security check before release"
+  },
+  "ex": "The security review blocked the launch."
+ },
+ {
+  "w": 44,
+  "t": "vulnerability disclosure",
+  "m": {
+   "ar": "سياسة الإبلاغ عن الثغرات",
+   "en": "how to report security flaws"
+  },
+  "ex": "Publish a vulnerability disclosure policy."
+ },
+ {
+  "w": 44,
+  "t": "security.txt",
+  "m": {
+   "ar": "ملف بيوضح إزاي تبلّغ عن ثغرة",
+   "en": "a file stating how to report vulnerabilities"
+  },
+  "ex": "Add /.well-known/security.txt."
  }
 ];
