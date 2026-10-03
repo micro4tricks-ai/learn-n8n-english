@@ -11799,5 +11799,257 @@ JOURNEY_TERMS["js"] = [
    "en": "combining several abort signals"
   },
   "ex": "AbortSignal.any joins the user and the timeout."
+ },
+ {
+  "w": 42,
+  "t": "feature folder",
+  "m": {
+   "ar": "مجلد لكل ميزة",
+   "en": "a folder grouping one feature’s code"
+  },
+  "ex": "Each feature folder owns its routes and repo."
+ },
+ {
+  "w": 42,
+  "t": "hexagonal architecture",
+  "m": {
+   "ar": "المنطق في النص والأدوات على الأطراف",
+   "en": "logic at the core, tools at the edges"
+  },
+  "ex": "Hexagonal architecture keeps Express out of the domain."
+ },
+ {
+  "w": 42,
+  "t": "ports and adapters",
+  "m": {
+   "ar": "واجهات وتنفيذاتها",
+   "en": "interfaces and their implementations"
+  },
+  "ex": "With ports and adapters, Telegram is replaceable."
+ },
+ {
+  "w": 42,
+  "t": "dependency direction",
+  "m": {
+   "ar": "اتجاه الاعتماد",
+   "en": "which way imports point"
+  },
+  "ex": "Dependency direction must point inward."
+ },
+ {
+  "w": 42,
+  "t": "circular dependency",
+  "m": {
+   "ar": "اعتماد دايري",
+   "en": "two modules importing each other"
+  },
+  "ex": "The barrel file caused a circular dependency."
+ },
+ {
+  "w": 42,
+  "t": "barrel file",
+  "m": {
+   "ar": "ملف index بيعيد التصدير",
+   "en": "an index file re-exporting a folder"
+  },
+  "ex": "Use one barrel file per feature at most."
+ },
+ {
+  "w": 42,
+  "t": "module boundary",
+  "m": {
+   "ar": "حدود الموديول",
+   "en": "the edge a module exposes to others"
+  },
+  "ex": "Respect the module boundary of orders."
+ },
+ {
+  "w": 42,
+  "t": "composition root",
+  "m": {
+   "ar": "المكان الوحيد اللي بيوصّل الأجزاء",
+   "en": "the single place wiring dependencies"
+  },
+  "ex": "main.ts is the composition root."
+ },
+ {
+  "w": 42,
+  "t": "structural typing",
+  "m": {
+   "ar": "الأنواع حسب الشكل مش الاسم",
+   "en": "type compatibility by shape"
+  },
+  "ex": "Structural typing lets a fake replace the real repo."
+ },
+ {
+  "w": 42,
+  "t": "fake adapter",
+  "m": {
+   "ar": "adapter وهمي للاختبار",
+   "en": "a test implementation of a port"
+  },
+  "ex": "The fake adapter stores orders in a Map."
+ },
+ {
+  "w": 42,
+  "t": "wiring",
+  "m": {
+   "ar": "توصيل الأجزاء ببعض",
+   "en": "connecting components together"
+  },
+  "ex": "Keep all wiring in main.ts."
+ },
+ {
+  "w": 42,
+  "t": "use case",
+  "m": {
+   "ar": "عملية بيزنس واحدة",
+   "en": "one business operation"
+  },
+  "ex": "cancelOrder is a use case."
+ },
+ {
+  "w": 42,
+  "t": "strategy pattern",
+  "m": {
+   "ar": "نمط خوارزميات قابلة للتبديل",
+   "en": "interchangeable algorithms behind one call"
+  },
+  "ex": "The strategy pattern picks the carrier formula."
+ },
+ {
+  "w": 42,
+  "t": "observer pattern",
+  "m": {
+   "ar": "نمط المستمعين للأحداث",
+   "en": "listeners reacting to events"
+  },
+  "ex": "The observer pattern decouples invoicing."
+ },
+ {
+  "w": 42,
+  "t": "eventemitter",
+  "m": {
+   "ar": "باعث الأحداث في Node",
+   "en": "Node’s event emitter class"
+  },
+  "ex": "EventEmitter notifies three listeners."
+ },
+ {
+  "w": 42,
+  "t": "eventtarget",
+  "m": {
+   "ar": "معيار الأحداث في الويب وNode",
+   "en": "the web-standard event target"
+  },
+  "ex": "EventTarget works in browsers and Node."
+ },
+ {
+  "w": 42,
+  "t": "compose",
+  "m": {
+   "ar": "تركيب دوال في سلسلة",
+   "en": "chaining functions into one pipeline"
+  },
+  "ex": "compose runs middleware in order."
+ },
+ {
+  "w": 42,
+  "t": "decorator pattern",
+  "m": {
+   "ar": "نمط لف دالة بسلوك إضافي",
+   "en": "wrapping a function to add behaviour"
+  },
+  "ex": "withRetry is the decorator pattern."
+ },
+ {
+  "w": 42,
+  "t": "custom error class",
+  "m": {
+   "ar": "كلاس خطأ خاص",
+   "en": "an error type you define"
+  },
+  "ex": "NotFoundError is a custom error class."
+ },
+ {
+  "w": 42,
+  "t": "error cause",
+  "m": {
+   "ar": "الخطأ الأصلي جوه خطأ جديد",
+   "en": "the original error inside a new one"
+  },
+  "ex": "Keep the error cause when wrapping."
+ },
+ {
+  "w": 42,
+  "t": "domain error",
+  "m": {
+   "ar": "خطأ قاعدة بيزنس",
+   "en": "a broken business rule"
+  },
+  "ex": "Cancelling a paid order is a domain error."
+ },
+ {
+  "w": 42,
+  "t": "error boundary",
+  "m": {
+   "ar": "مكان واحد بيترجم الأخطاء",
+   "en": "one place translating errors into responses"
+  },
+  "ex": "The error boundary hides internals."
+ },
+ {
+  "w": 42,
+  "t": "expected failure",
+  "m": {
+   "ar": "فشل متوقع وطبيعي",
+   "en": "a normal, anticipated failure case"
+  },
+  "ex": "An unknown reference is an expected failure."
+ },
+ {
+  "w": 42,
+  "t": "monorepo",
+  "m": {
+   "ar": "ريبو واحد لكذا تطبيق",
+   "en": "one repository holding several projects"
+  },
+  "ex": "The API and worker live in one monorepo."
+ },
+ {
+  "w": 42,
+  "t": "npm workspaces",
+  "m": {
+   "ar": "إدارة حزم متعددة في ريبو",
+   "en": "npm’s multi-package support"
+  },
+  "ex": "npm workspaces link packages locally."
+ },
+ {
+  "w": 42,
+  "t": "shared package",
+  "m": {
+   "ar": "حزمة مشتركة بين التطبيقات",
+   "en": "a package used by several apps"
+  },
+  "ex": "@shop/domain is a shared package."
+ },
+ {
+  "w": 42,
+  "t": "config validation",
+  "m": {
+   "ar": "التحقق من الإعدادات",
+   "en": "checking configuration at startup"
+  },
+  "ex": "Config validation caught a missing URL."
+ },
+ {
+  "w": 42,
+  "t": "feature flag",
+  "m": {
+   "ar": "مفتاح تشغيل ميزة",
+   "en": "a switch enabling a feature at run time"
+  },
+  "ex": "Turn the feature flag on for acme only."
  }
 ];
