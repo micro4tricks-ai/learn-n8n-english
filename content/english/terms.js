@@ -4293,5 +4293,284 @@ JOURNEY_TERMS["english"] = [
    "en": "despite"
   },
   "ex": "Notwithstanding clause 7, confidentiality survives."
+ },
+ {
+  "w": 39,
+  "t": "quote",
+  "m": {
+   "ar": "عرض سعر محدد",
+   "en": "a specific price offer"
+  },
+  "ex": "The quote is valid for 30 days."
+ },
+ {
+  "w": 39,
+  "t": "rate card",
+  "m": {
+   "ar": "قايمة أسعارك",
+   "en": "your list of prices"
+  },
+  "ex": "Our rate card is on the website."
+ },
+ {
+  "w": 39,
+  "t": "day rate",
+  "m": {
+   "ar": "سعر اليوم",
+   "en": "a price per working day"
+  },
+  "ex": "My day rate is 350 dollars."
+ },
+ {
+  "w": 39,
+  "t": "fixed fee",
+  "m": {
+   "ar": "سعر ثابت للنطاق",
+   "en": "one set price for the scope"
+  },
+  "ex": "We charge a fixed fee for the setup."
+ },
+ {
+  "w": 39,
+  "t": "value-based pricing",
+  "m": {
+   "ar": "تسعير حسب القيمة",
+   "en": "pricing by the value delivered"
+  },
+  "ex": "Value-based pricing reflects the savings."
+ },
+ {
+  "w": 39,
+  "t": "currency",
+  "m": {
+   "ar": "العملة",
+   "en": "the money system used"
+  },
+  "ex": "Which currency should I invoice in?"
+ },
+ {
+  "w": 39,
+  "t": "exchange rate",
+  "m": {
+   "ar": "سعر الصرف",
+   "en": "the rate between two currencies"
+  },
+  "ex": "The exchange rate changed last week."
+ },
+ {
+  "w": 39,
+  "t": "bank transfer",
+  "m": {
+   "ar": "تحويل بنكي",
+   "en": "sending money between bank accounts"
+  },
+  "ex": "Payment is by bank transfer."
+ },
+ {
+  "w": 39,
+  "t": "value framing",
+  "m": {
+   "ar": "تقديم السعر جنب القيمة",
+   "en": "presenting the price beside the value"
+  },
+  "ex": "Value framing made the price feel fair."
+ },
+ {
+  "w": 39,
+  "t": "justify",
+  "m": {
+   "ar": "يبرر",
+   "en": "to give good reasons for"
+  },
+  "ex": "Justify the price with their numbers."
+ },
+ {
+  "w": 39,
+  "t": "price sensitivity",
+  "m": {
+   "ar": "حساسية العميل للسعر",
+   "en": "how much price affects a buyer"
+  },
+  "ex": "Small shops have high price sensitivity."
+ },
+ {
+  "w": 39,
+  "t": "budget constraint",
+  "m": {
+   "ar": "حد الميزانية",
+   "en": "a limit on available money"
+  },
+  "ex": "Their budget constraint is this quarter only."
+ },
+ {
+  "w": 39,
+  "t": "bundle",
+  "m": {
+   "ar": "باقة مجمّعة",
+   "en": "a group of services at one price"
+  },
+  "ex": "The bundle includes three months of support."
+ },
+ {
+  "w": 39,
+  "t": "counter-offer",
+  "m": {
+   "ar": "عرض مضاد",
+   "en": "an offer made in reply to another"
+  },
+  "ex": "My counter-offer included a bigger deposit."
+ },
+ {
+  "w": 39,
+  "t": "meet halfway",
+  "m": {
+   "ar": "حل وسط",
+   "en": "to compromise equally"
+  },
+  "ex": "Let’s meet halfway on the timeline."
+ },
+ {
+  "w": 39,
+  "t": "scope reduction",
+  "m": {
+   "ar": "تقليل النطاق",
+   "en": "making the scope smaller"
+  },
+  "ex": "A scope reduction kept our price intact."
+ },
+ {
+  "w": 39,
+  "t": "non-negotiable",
+  "m": {
+   "ar": "مش قابل للتفاوض",
+   "en": "not open to discussion"
+  },
+  "ex": "The deposit is non-negotiable."
+ },
+ {
+  "w": 39,
+  "t": "walk away",
+  "m": {
+   "ar": "تنسحب من الصفقة",
+   "en": "to decline a deal"
+  },
+  "ex": "Sometimes it’s better to walk away."
+ },
+ {
+  "w": 39,
+  "t": "invoice number",
+  "m": {
+   "ar": "رقم الفاتورة",
+   "en": "an invoice’s unique number"
+  },
+  "ex": "Quote the invoice number in the transfer."
+ },
+ {
+  "w": 39,
+  "t": "line item",
+  "m": {
+   "ar": "بند في الفاتورة",
+   "en": "one row on an invoice"
+  },
+  "ex": "Each line item has a description."
+ },
+ {
+  "w": 39,
+  "t": "itemised",
+  "m": {
+   "ar": "مفصّل بند بند",
+   "en": "listed item by item"
+  },
+  "ex": "They asked for an itemised invoice."
+ },
+ {
+  "w": 39,
+  "t": "vat",
+  "m": {
+   "ar": "ضريبة القيمة المضافة",
+   "en": "value added tax"
+  },
+  "ex": "Is VAT included in the price?"
+ },
+ {
+  "w": 39,
+  "t": "purchase order",
+  "m": {
+   "ar": "أمر شراء",
+   "en": "a buyer’s official order document"
+  },
+  "ex": "Add the purchase order number."
+ },
+ {
+  "w": 39,
+  "t": "net amount",
+  "m": {
+   "ar": "المبلغ قبل الضريبة",
+   "en": "the amount before tax"
+  },
+  "ex": "The net amount is 1,245 dollars."
+ },
+ {
+  "w": 39,
+  "t": "overdue",
+  "m": {
+   "ar": "متأخر عن الاستحقاق",
+   "en": "past the due date"
+  },
+  "ex": "The invoice is ten days overdue."
+ },
+ {
+  "w": 39,
+  "t": "outstanding balance",
+  "m": {
+   "ar": "المبلغ المتبقي",
+   "en": "the amount still owed"
+  },
+  "ex": "The outstanding balance is 1,245 dollars."
+ },
+ {
+  "w": 39,
+  "t": "final notice",
+  "m": {
+   "ar": "إخطار أخير",
+   "en": "a last formal warning"
+  },
+  "ex": "We sent a final notice."
+ },
+ {
+  "w": 39,
+  "t": "remittance",
+  "m": {
+   "ar": "إشعار التحويل",
+   "en": "confirmation that payment was sent"
+  },
+  "ex": "Could you send the remittance?"
+ },
+ {
+  "w": 39,
+  "t": "credit note",
+  "m": {
+   "ar": "إشعار دائن",
+   "en": "a document reducing an invoice"
+  },
+  "ex": "I’ve issued a credit note."
+ },
+ {
+  "w": 39,
+  "t": "goodwill gesture",
+  "m": {
+   "ar": "لفتة حسن نية",
+   "en": "a kind act to keep good relations"
+  },
+  "ex": "The free hour was a goodwill gesture."
+ },
+ {
+  "w": 39,
+  "t": "price increase",
+  "m": {
+   "ar": "زيادة السعر",
+   "en": "raising a price"
+  },
+  "ex": "Announce the price increase 60 days ahead."
  }
 ];
