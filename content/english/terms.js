@@ -6399,5 +6399,311 @@ JOURNEY_TERMS["english"] = [
    "en": "a meeting to check a design"
   },
   "ex": "Bring your questions to the design review."
+ },
+ {
+  "w": 45,
+  "t": "BLUF",
+  "m": {
+   "ar": "الخلاصة في الأول",
+   "en": "bottom line up front"
+  },
+  "ex": "Use BLUF in every executive email."
+ },
+ {
+  "w": 45,
+  "t": "time-poor",
+  "m": {
+   "ar": "وقته ضيق جدًا",
+   "en": "having very little time"
+  },
+  "ex": "Executives are time-poor."
+ },
+ {
+  "w": 45,
+  "t": "so what",
+  "m": {
+   "ar": "وإيه يعني؟ (اختبار الأثر)",
+   "en": "the test of why a fact matters"
+  },
+  "ex": "Every number needs a «so what»."
+ },
+ {
+  "w": 45,
+  "t": "decision-ready",
+  "m": {
+   "ar": "جاهز لاتخاذ قرار",
+   "en": "containing everything needed to decide"
+  },
+  "ex": "Make the memo decision-ready."
+ },
+ {
+  "w": 45,
+  "t": "key message",
+  "m": {
+   "ar": "الرسالة الأساسية",
+   "en": "the one main point"
+  },
+  "ex": "What’s your key message?"
+ },
+ {
+  "w": 45,
+  "t": "bottom line",
+  "m": {
+   "ar": "الخلاصة",
+   "en": "the essential conclusion"
+  },
+  "ex": "The bottom line: we save USD 60,000."
+ },
+ {
+  "w": 45,
+  "t": "pyramid principle",
+  "m": {
+   "ar": "مبدأ الهرم (الفكرة فوق)",
+   "en": "main idea first, then support"
+  },
+  "ex": "Structure the memo with the pyramid principle."
+ },
+ {
+  "w": 45,
+  "t": "SCQA",
+  "m": {
+   "ar": "وضع، تعقيد، سؤال، إجابة",
+   "en": "situation, complication, question, answer"
+  },
+  "ex": "Open with SCQA."
+ },
+ {
+  "w": 45,
+  "t": "situation",
+  "m": {
+   "ar": "الوضع الحالي",
+   "en": "the current context"
+  },
+  "ex": "Start with the situation everyone agrees on."
+ },
+ {
+  "w": 45,
+  "t": "complication",
+  "m": {
+   "ar": "المشكلة أو التغيير",
+   "en": "what changed or went wrong"
+  },
+  "ex": "The complication is doubling volume."
+ },
+ {
+  "w": 45,
+  "t": "one-pager",
+  "m": {
+   "ar": "مستند صفحة واحدة",
+   "en": "a one-page summary document"
+  },
+  "ex": "Send a one-pager before the meeting."
+ },
+ {
+  "w": 45,
+  "t": "business case",
+  "m": {
+   "ar": "الحجة المالية للمشروع",
+   "en": "the financial argument for a project"
+  },
+  "ex": "The business case convinced the CFO."
+ },
+ {
+  "w": 45,
+  "t": "ROI",
+  "m": {
+   "ar": "العائد على الاستثمار",
+   "en": "return on investment"
+  },
+  "ex": "The ROI is 178% in year one."
+ },
+ {
+  "w": 45,
+  "t": "payback period",
+  "m": {
+   "ar": "مدة استرداد التكلفة",
+   "en": "the time to recover the cost"
+  },
+  "ex": "The payback period is four months."
+ },
+ {
+  "w": 45,
+  "t": "cost of inaction",
+  "m": {
+   "ar": "تكلفة إننا منعملش حاجة",
+   "en": "the price of doing nothing"
+  },
+  "ex": "Show the cost of inaction first."
+ },
+ {
+  "w": 45,
+  "t": "opportunity cost",
+  "m": {
+   "ar": "تكلفة الفرصة البديلة",
+   "en": "what you give up by choosing"
+  },
+  "ex": "Manual work has an opportunity cost."
+ },
+ {
+  "w": 45,
+  "t": "run-rate",
+  "m": {
+   "ar": "المعدل الحالي محسوب سنويًا",
+   "en": "the current figure projected yearly"
+  },
+  "ex": "Our run-rate is USD 9,000 a year."
+ },
+ {
+  "w": 45,
+  "t": "base case",
+  "m": {
+   "ar": "السيناريو المتوقع",
+   "en": "the expected scenario"
+  },
+  "ex": "In the base case we save USD 60K."
+ },
+ {
+  "w": 45,
+  "t": "worst case",
+  "m": {
+   "ar": "أسوأ سيناريو",
+   "en": "the worst likely scenario"
+  },
+  "ex": "Even in the worst case it pays back."
+ },
+ {
+  "w": 45,
+  "t": "best case",
+  "m": {
+   "ar": "أحسن سيناريو",
+   "en": "the best likely scenario"
+  },
+  "ex": "The best case assumes full adoption."
+ },
+ {
+  "w": 45,
+  "t": "upside",
+  "m": {
+   "ar": "المكسب المحتمل",
+   "en": "the potential benefit"
+  },
+  "ex": "The upside is faster month-end closing."
+ },
+ {
+  "w": 45,
+  "t": "downside",
+  "m": {
+   "ar": "الخسارة المحتملة",
+   "en": "the potential loss"
+  },
+  "ex": "The downside is limited."
+ },
+ {
+  "w": 45,
+  "t": "decision memo",
+  "m": {
+   "ar": "مذكرة قرار",
+   "en": "a document requesting a decision"
+  },
+  "ex": "Send the decision memo on Sunday."
+ },
+ {
+  "w": 45,
+  "t": "recommendation",
+  "m": {
+   "ar": "توصية",
+   "en": "the option you advise"
+  },
+  "ex": "My recommendation is Option B."
+ },
+ {
+  "w": 45,
+  "t": "risk register",
+  "m": {
+   "ar": "سجل المخاطر",
+   "en": "a table of risks and responses"
+  },
+  "ex": "Update the risk register weekly."
+ },
+ {
+  "w": 45,
+  "t": "contingency",
+  "m": {
+   "ar": "خطة طوارئ بديلة",
+   "en": "a backup plan"
+  },
+  "ex": "We have a contingency for low accuracy."
+ },
+ {
+  "w": 45,
+  "t": "approval",
+  "m": {
+   "ar": "موافقة",
+   "en": "official permission"
+  },
+  "ex": "We need approval by Thursday."
+ },
+ {
+  "w": 45,
+  "t": "budget request",
+  "m": {
+   "ar": "طلب ميزانية",
+   "en": "a formal request for money"
+  },
+  "ex": "The budget request is USD 18,000."
+ },
+ {
+  "w": 45,
+  "t": "RAG status",
+  "m": {
+   "ar": "حالة أحمر/أصفر/أخضر",
+   "en": "red, amber or green project status"
+  },
+  "ex": "The RAG status is amber this week."
+ },
+ {
+  "w": 45,
+  "t": "QBR",
+  "m": {
+   "ar": "مراجعة ربع سنوية",
+   "en": "quarterly business review"
+  },
+  "ex": "Prepare the QBR slides."
+ },
+ {
+  "w": 45,
+  "t": "quarter-over-quarter",
+  "m": {
+   "ar": "مقارنة بالربع اللي فات",
+   "en": "compared with the previous quarter"
+  },
+  "ex": "Orders grew 22% quarter-over-quarter."
+ },
+ {
+  "w": 45,
+  "t": "year-over-year",
+  "m": {
+   "ar": "مقارنة بنفس الفترة السنة اللي فاتت",
+   "en": "compared with the same period last year"
+  },
+  "ex": "Year-over-year growth was 40%."
+ },
+ {
+  "w": 45,
+  "t": "at a glance",
+  "m": {
+   "ar": "في نظرة سريعة",
+   "en": "quickly, in a short view"
+  },
+  "ex": "Q3 at a glance: four numbers."
+ },
+ {
+  "w": 45,
+  "t": "strategic",
+  "m": {
+   "ar": "استراتيجي",
+   "en": "related to long-term goals"
+  },
+  "ex": "Link the update to strategic goals."
  }
 ];
