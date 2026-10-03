@@ -30,8 +30,8 @@ async function runJs(code, html, where){
   await new Promise(r => setTimeout(r, offline ? 50 : 4000));
   w.close();
   ran++;
-  // an example may log a handled error on purpose (console.error in a catch) — those mention "failed:"
-  errors.filter(m => !/^failed:/.test(m)).forEach(m => problems.push(where + ': ' + m));
+  // an example may log a handled error on purpose (console.error in a catch) — those contain "failed:"
+  errors.filter(m => !/\bfailed:/.test(m)).forEach(m => problems.push(where + ': ' + m));
 }
 function runNode(code, x, where){
   if(x.net && offline){ skipped++; return; }
@@ -58,6 +58,7 @@ function runNode(code, x, where){
           if(x.run === 'js') await runJs(code, x.html, where);
           else if(x.run === 'html') [...code.matchAll(/<script>([\s\S]*?)<\/script>/g)].forEach((m, k) => parse(m[1], where + ' script ' + (k + 1)));
           else if(x.node) runNode(code, x, where);
+          else if(x.lang === 'js' && /^\s*(import|export)\s/m.test(code)) parse(code, where, true);   // an ES module snippet
           else if(x.lang === 'js') parse('(async function(){\n' + code + '\n})', where);   // snippets may use return/await at the top (n8n Code node)
         }
       }

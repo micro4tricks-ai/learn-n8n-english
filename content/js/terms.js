@@ -1260,5 +1260,1256 @@ JOURNEY_TERMS["js"] = [
    "en": "a row’s number in the source file, for review"
   },
   "ex": "row 3: bad qty"
+ },
+ {
+  "w": 5,
+  "t": "object",
+  "m": {
+   "ar": "مجموعة خصايص كل واحدة مفتاح وقيمة",
+   "en": "a set of properties, each a key and a value"
+  },
+  "ex": "{ id: 7, total: 50 }"
+ },
+ {
+  "w": 5,
+  "t": "property",
+  "m": {
+   "ar": "خاصية: اسم وقيمة جوه كائن",
+   "en": "a name and a value inside an object"
+  },
+  "ex": "order.total"
+ },
+ {
+  "w": 5,
+  "t": "dot notation",
+  "m": {
+   "ar": "قراية خاصية بالنقطة",
+   "en": "reading a property with a dot"
+  },
+  "ex": "user.name"
+ },
+ {
+  "w": 5,
+  "t": "bracket notation",
+  "m": {
+   "ar": "قراية خاصية بالأقواس والاسم كنص",
+   "en": "reading a property with brackets and the name as text"
+  },
+  "ex": "row[\"First Name\"]"
+ },
+ {
+  "w": 5,
+  "t": "computed key",
+  "m": {
+   "ar": "اسم خاصية جاي من متغير",
+   "en": "a property name coming from a variable"
+  },
+  "ex": "{ [field]: value }"
+ },
+ {
+  "w": 5,
+  "t": "shorthand property",
+  "m": {
+   "ar": "كتابة `{ name }` بدل `{ name: name }`",
+   "en": "writing `{ name }` instead of `{ name: name }`"
+  },
+  "ex": "{ name, total }"
+ },
+ {
+  "w": 5,
+  "t": "hasOwn",
+  "m": {
+   "ar": "بيسأل: الكائن ده نفسه فيه الخاصية دي؟",
+   "en": "asks: does this object itself have the property?"
+  },
+  "ex": "Object.hasOwn(o, \"id\")"
+ },
+ {
+  "w": 5,
+  "t": "nested object",
+  "m": {
+   "ar": "كائن جوه كائن",
+   "en": "an object inside an object"
+  },
+  "ex": "order.customer.address"
+ },
+ {
+  "w": 5,
+  "t": "path",
+  "m": {
+   "ar": "الطريق لقيمة جوه كائن متداخل",
+   "en": "the route to a value inside a nested object"
+  },
+  "ex": "\"customer.address.city\""
+ },
+ {
+  "w": 5,
+  "t": "flatten",
+  "m": {
+   "ar": "تحويل كائن متداخل لصف مسطّح",
+   "en": "turning a nested object into a flat row"
+  },
+  "ex": "customer_city"
+ },
+ {
+  "w": 5,
+  "t": "response",
+  "m": {
+   "ar": "الرد اللي بيرجع من API",
+   "en": "the reply an API sends back"
+  },
+  "ex": "the JSON response"
+ },
+ {
+  "w": 5,
+  "t": "payload",
+  "m": {
+   "ar": "البيانات اللي بتتبعت أو بترجع في طلب",
+   "en": "the data sent or returned in a request"
+  },
+  "ex": "the webhook payload"
+ },
+ {
+  "w": 5,
+  "t": "default value",
+  "m": {
+   "ar": "قيمة بديلة لو الأصلية ناقصة",
+   "en": "a value used when the original is missing"
+  },
+  "ex": "city ?? \"unknown\""
+ },
+ {
+  "w": 5,
+  "t": "Split Out",
+  "m": {
+   "ar": "node في n8n بتعمل item لكل عنصر في مصفوفة",
+   "en": "an n8n node that makes one item per array element"
+  },
+  "ex": "Split Out on items"
+ },
+ {
+  "w": 5,
+  "t": "Object.keys",
+  "m": {
+   "ar": "مصفوفة أسماء خصايص الكائن",
+   "en": "the array of an object’s property names"
+  },
+  "ex": "Object.keys(o)"
+ },
+ {
+  "w": 5,
+  "t": "Object.values",
+  "m": {
+   "ar": "مصفوفة قيم الكائن",
+   "en": "the array of an object’s values"
+  },
+  "ex": "Object.values(o)"
+ },
+ {
+  "w": 5,
+  "t": "Object.entries",
+  "m": {
+   "ar": "مصفوفة أزواج [اسم، قيمة]",
+   "en": "the array of [name, value] pairs"
+  },
+  "ex": "Object.entries(o)"
+ },
+ {
+  "w": 5,
+  "t": "fromEntries",
+  "m": {
+   "ar": "يعمل كائن من أزواج",
+   "en": "builds an object from pairs"
+  },
+  "ex": "Object.fromEntries(pairs)"
+ },
+ {
+  "w": 5,
+  "t": "snake_case",
+  "m": {
+   "ar": "أسماء بحروف صغيرة و_ بين الكلمات",
+   "en": "names in lower case with _ between words"
+  },
+  "ex": "customer_name"
+ },
+ {
+  "w": 5,
+  "t": "defaults",
+  "m": {
+   "ar": "القيم الافتراضية قبل ما المستخدم يغيّر",
+   "en": "the default values before the user changes them"
+  },
+  "ex": "{ ...defaults, ...user }"
+ },
+ {
+  "w": 5,
+  "t": "logical nullish assignment",
+  "m": {
+   "ar": "??= : حط القيمة لو المتغير null أو undefined",
+   "en": "??=: set the value if the variable is null or undefined"
+  },
+  "ex": "groups[k] ??= []"
+ },
+ {
+  "w": 5,
+  "t": "JSON",
+  "m": {
+   "ar": "صيغة نص للبيانات شكلها زي كائنات JS",
+   "en": "a text format for data shaped like JS objects"
+  },
+  "ex": "{\"id\": 1}"
+ },
+ {
+  "w": 5,
+  "t": "serialize",
+  "m": {
+   "ar": "تحويل كائن لنص عشان يتبعت أو يتحفظ",
+   "en": "turning an object into text to send or save"
+  },
+  "ex": "JSON.stringify(o)"
+ },
+ {
+  "w": 5,
+  "t": "deserialize",
+  "m": {
+   "ar": "تحويل النص لكائن تاني",
+   "en": "turning text back into an object"
+  },
+  "ex": "JSON.parse(text)"
+ },
+ {
+  "w": 5,
+  "t": "pretty-print",
+  "m": {
+   "ar": "طباعة منسّقة بمسافات وأسطر",
+   "en": "printing nicely with indentation and lines"
+  },
+  "ex": "JSON.stringify(o, null, 2)"
+ },
+ {
+  "w": 5,
+  "t": "replacer",
+  "m": {
+   "ar": "دالة بتتحكم في stringify: تغيّر أو تشيل قيم",
+   "en": "a function steering stringify: changes or removes values"
+  },
+  "ex": "(k, v) => …"
+ },
+ {
+  "w": 5,
+  "t": "ISO 8601",
+  "m": {
+   "ar": "الصيغة الدولية للتاريخ والوقت",
+   "en": "the international date and time format"
+  },
+  "ex": "2026-10-03T08:00:00Z"
+ },
+ {
+  "w": 5,
+  "t": "sensitive data",
+  "m": {
+   "ar": "بيانات لازم متظهرش (كلمات سر، توكنز، كروت)",
+   "en": "data that must not be shown (passwords, tokens, cards)"
+  },
+  "ex": "never log tokens"
+ },
+ {
+  "w": 5,
+  "t": "adapter",
+  "m": {
+   "ar": "دالة بتحوّل شكل مصدر لشكل موحّد",
+   "en": "a function turning a source’s shape into the unified one"
+  },
+  "ex": "fromCrmAdapter(c)"
+ },
+ {
+  "w": 5,
+  "t": "unified schema",
+  "m": {
+   "ar": "الشكل الموحّد اللي كل المصادر بتتحوّل له",
+   "en": "the single shape every source is converted to"
+  },
+  "ex": "{ name, email, phone }"
+ },
+ {
+  "w": 5,
+  "t": "priority",
+  "m": {
+   "ar": "مين يكسب لما قيمتين يختلفوا",
+   "en": "which one wins when two values differ"
+  },
+  "ex": "payments before CRM"
+ },
+ {
+  "w": 5,
+  "t": "source of truth",
+  "m": {
+   "ar": "المصدر اللي بنعتمده كأصح قيمة",
+   "en": "the source treated as the correct value"
+  },
+  "ex": "payments is the source of truth for names"
+ },
+ {
+  "w": 5,
+  "t": "union",
+  "m": {
+   "ar": "اتحاد: كل القيم من الاتنين من غير تكرار",
+   "en": "union: all values from both, without repeats"
+  },
+  "ex": "[...new Set([...a, ...b])]"
+ },
+ {
+  "w": 5,
+  "t": "round trip",
+  "m": {
+   "ar": "تصدير ثم استيراد ويرجع نفس البيانات",
+   "en": "export then import, getting the same data back"
+  },
+  "ex": "importCard(exportCard(c))"
+ },
+ {
+  "w": 5,
+  "t": "record linkage",
+  "m": {
+   "ar": "ربط سجلات نفس الشخص من مصادر مختلفة",
+   "en": "linking records of the same person from different sources"
+  },
+  "ex": "match by phone or email"
+ },
+ {
+  "w": 6,
+  "t": "function",
+  "m": {
+   "ar": "كود ليه اسم بياخد مدخلات ويرجّع ناتج",
+   "en": "named code that takes inputs and returns a result"
+  },
+  "ex": "function addVat(p) { … }"
+ },
+ {
+  "w": 6,
+  "t": "call",
+  "m": {
+   "ar": "تنادي الدالة عشان تشتغل",
+   "en": "to run a function"
+  },
+  "ex": "addVat(200)"
+ },
+ {
+  "w": 6,
+  "t": "parameter",
+  "m": {
+   "ar": "اسم المدخل في تعريف الدالة",
+   "en": "an input’s name in the function definition"
+  },
+  "ex": "function f(price)"
+ },
+ {
+  "w": 6,
+  "t": "return value",
+  "m": {
+   "ar": "القيمة اللي الدالة بترجّعها",
+   "en": "the value a function gives back"
+  },
+  "ex": "return total;"
+ },
+ {
+  "w": 6,
+  "t": "single responsibility",
+  "m": {
+   "ar": "الدالة تعمل حاجة واحدة بس",
+   "en": "a function does only one thing"
+  },
+  "ex": "cleanOrder vs sendEmail"
+ },
+ {
+  "w": 6,
+  "t": "hoisting",
+  "m": {
+   "ar": "تعريف الدوال قبل تشغيل باقي الكود",
+   "en": "declarations made known before the rest of the code runs"
+  },
+  "ex": "call before declare"
+ },
+ {
+  "w": 6,
+  "t": "reusable",
+  "m": {
+   "ar": "ينفع يتستخدم تاني في أماكن كتير",
+   "en": "usable again in many places"
+  },
+  "ex": "a reusable helper"
+ },
+ {
+  "w": 6,
+  "t": "default parameter",
+  "m": {
+   "ar": "قيمة افتراضية للمدخل لو متبعتش",
+   "en": "a value used when the input is not passed"
+  },
+  "ex": "function f(x = 1)"
+ },
+ {
+  "w": 6,
+  "t": "options object",
+  "m": {
+   "ar": "كائن إعدادات بدل مدخلات كتير بالترتيب",
+   "en": "a settings object instead of many ordered inputs"
+  },
+  "ex": "send({ email, lang })"
+ },
+ {
+  "w": 6,
+  "t": "rest parameter",
+  "m": {
+   "ar": "...name بيجمّع باقي المدخلات في مصفوفة",
+   "en": "...name gathers the remaining arguments into an array"
+  },
+  "ex": "function sum(...n)"
+ },
+ {
+  "w": 6,
+  "t": "pure function",
+  "m": {
+   "ar": "نفس المدخلات ← نفس الناتج ومن غير تأثير برّه",
+   "en": "same inputs → same output, with no outside effects"
+  },
+  "ex": "const add = (a, b) => a + b"
+ },
+ {
+  "w": 6,
+  "t": "side effect",
+  "m": {
+   "ar": "تأثير برّه الدالة: تغيير بيانات، شبكة، ملف، طباعة",
+   "en": "an effect outside the function: data change, network, file, printing"
+  },
+  "ex": "list.push(x)"
+ },
+ {
+  "w": 6,
+  "t": "signature",
+  "m": {
+   "ar": "شكل الدالة: اسمها ومدخلاتها وناتجها",
+   "en": "a function’s shape: name, inputs and output"
+  },
+  "ex": "calc(lines, vatRate) → { total }"
+ },
+ {
+  "w": 6,
+  "t": "readability",
+  "m": {
+   "ar": "سهولة إن الكود يتقري ويتفهم",
+   "en": "how easy code is to read and understand"
+  },
+  "ex": "options objects help readability"
+ },
+ {
+  "w": 6,
+  "t": "arrow function",
+  "m": {
+   "ar": "دالة مختصرة بـ =>",
+   "en": "a short function written with =>"
+  },
+  "ex": "x => x * 2"
+ },
+ {
+  "w": 6,
+  "t": "implicit return",
+  "m": {
+   "ar": "رجوع تلقائي في arrow من سطر واحد",
+   "en": "the automatic return of a one-line arrow"
+  },
+  "ex": "x => x + 1"
+ },
+ {
+  "w": 6,
+  "t": "callback",
+  "m": {
+   "ar": "دالة بتتبعت لدالة تانية عشان تناديها",
+   "en": "a function passed to another function to be called"
+  },
+  "ex": "btn.addEventListener(\"click\", cb)"
+ },
+ {
+  "w": 6,
+  "t": "first-class function",
+  "m": {
+   "ar": "الدوال قيم: تتخزّن وتتبعت وترجع",
+   "en": "functions are values: stored, passed and returned"
+  },
+  "ex": "const f = add;"
+ },
+ {
+  "w": 6,
+  "t": "higher-order function",
+  "m": {
+   "ar": "دالة بتاخد دالة أو بترجّع دالة",
+   "en": "a function taking or returning a function"
+  },
+  "ex": "map(fn)"
+ },
+ {
+  "w": 6,
+  "t": "this",
+  "m": {
+   "ar": "الكائن اللي الـ method اتنادت عليه",
+   "en": "the object a method was called on"
+  },
+  "ex": "this.items"
+ },
+ {
+  "w": 6,
+  "t": "method",
+  "m": {
+   "ar": "دالة جوه كائن",
+   "en": "a function inside an object"
+  },
+  "ex": "cart.total()"
+ },
+ {
+  "w": 6,
+  "t": "scope chain",
+  "m": {
+   "ar": "سلسلة النطاقات من جوه لبرّه اللي JS بيدوّر فيها",
+   "en": "the chain of scopes from inside out that JS searches"
+  },
+  "ex": "inner → outer → global"
+ },
+ {
+  "w": 6,
+  "t": "closure",
+  "m": {
+   "ar": "دالة فاكرة المتغيرات اللي كانت حواليها",
+   "en": "a function remembering the variables around it"
+  },
+  "ex": "makeCounter()"
+ },
+ {
+  "w": 6,
+  "t": "shadowing",
+  "m": {
+   "ar": "متغير جوه بنفس اسم متغير برّه بيغطّي عليه",
+   "en": "an inner variable hiding an outer one with the same name"
+  },
+  "ex": "const name inside and outside"
+ },
+ {
+  "w": 6,
+  "t": "global variable",
+  "m": {
+   "ar": "متغير في أعلى الملف أي حد يقدر يغيّره",
+   "en": "a variable at the top level that anything can change"
+  },
+  "ex": "let config = …"
+ },
+ {
+  "w": 6,
+  "t": "factory function",
+  "m": {
+   "ar": "دالة بتصنع وترجّع دوال أو كائنات",
+   "en": "a function that makes and returns functions or objects"
+  },
+  "ex": "vatFor(0.14)"
+ },
+ {
+  "w": 6,
+  "t": "memoize",
+  "m": {
+   "ar": "تخزين نتايج دالة عشان متتحسبش تاني",
+   "en": "storing a function’s results so they are not recomputed"
+  },
+  "ex": "memoize(fetchRate)"
+ },
+ {
+  "w": 6,
+  "t": "private state",
+  "m": {
+   "ar": "بيانات محدش برّه يقدر يوصلها",
+   "en": "data nothing outside can reach"
+  },
+  "ex": "the counter inside a closure"
+ },
+ {
+  "w": 6,
+  "t": "utility function",
+  "m": {
+   "ar": "دالة مساعدة عامة بتستخدمها في كل مكان",
+   "en": "a general helper function used everywhere"
+  },
+  "ex": "round2(n)"
+ },
+ {
+  "w": 6,
+  "t": "toolkit",
+  "m": {
+   "ar": "مجموعة أدوات جاهزة",
+   "en": "a set of ready tools"
+  },
+  "ex": "my utils toolkit"
+ },
+ {
+  "w": 6,
+  "t": "slug",
+  "m": {
+   "ar": "اسم صالح لرابط أو ملف من حروف وأرقام وشرط",
+   "en": "a link- or file-safe name of letters, digits and dashes"
+  },
+  "ex": "new-offer-50-off"
+ },
+ {
+  "w": 6,
+  "t": "mask",
+  "m": {
+   "ar": "إخفاء جزء من بيانات حساسة",
+   "en": "hiding part of sensitive data"
+  },
+  "ex": "010*****678"
+ },
+ {
+  "w": 6,
+  "t": "assertion",
+  "m": {
+   "ar": "سطر بيتأكد إن الناتج زي المتوقع",
+   "en": "a line checking that a result is as expected"
+  },
+  "ex": "test(\"null\", f(null), \"\")"
+ },
+ {
+  "w": 6,
+  "t": "export",
+  "m": {
+   "ar": "تخلّي دالة متاحة لملفات تانية",
+   "en": "making a function available to other files"
+  },
+  "ex": "export const round2 = …"
+ },
+ {
+  "w": 6,
+  "t": "import",
+  "m": {
+   "ar": "تجيب دالة من ملف تاني",
+   "en": "bringing in a function from another file"
+  },
+  "ex": "import { round2 } from \"./utils.mjs\""
+ },
+ {
+  "w": 7,
+  "t": "map",
+  "m": {
+   "ar": "يحوّل كل عنصر ويرجّع مصفوفة جديدة بنفس الطول",
+   "en": "transforms each item into a new array of the same length"
+  },
+  "ex": "arr.map(x => x * 2)"
+ },
+ {
+  "w": 7,
+  "t": "transform",
+  "m": {
+   "ar": "تحويل قيمة لشكل تاني",
+   "en": "turning a value into another shape"
+  },
+  "ex": "transform each order"
+ },
+ {
+  "w": 7,
+  "t": "forEach",
+  "m": {
+   "ar": "يلف على كل عنصر من غير ما يرجّع حاجة",
+   "en": "loops over each item without returning anything"
+  },
+  "ex": "arr.forEach(x => …)"
+ },
+ {
+  "w": 7,
+  "t": "immutable update",
+  "m": {
+   "ar": "تعديل بعمل نسخة جديدة بدل تغيير الأصل",
+   "en": "updating by making a new copy instead of changing the original"
+  },
+  "ex": "({ ...o, total })"
+ },
+ {
+  "w": 7,
+  "t": "Array.from",
+  "m": {
+   "ar": "يعمل مصفوفة من أي حاجة شبهها أو من طول",
+   "en": "makes an array from anything array-like, or from a length"
+  },
+  "ex": "Array.from({ length: 5 })"
+ },
+ {
+  "w": 7,
+  "t": "item",
+  "m": {
+   "ar": "عنصر واحد في n8n: كائن فيه json",
+   "en": "one n8n element: an object holding json"
+  },
+  "ex": "{ json: { … } }"
+ },
+ {
+  "w": 7,
+  "t": "computed field",
+  "m": {
+   "ar": "حقل بيتحسب من حقول تانية",
+   "en": "a field calculated from other fields"
+  },
+  "ex": "total = qty * price"
+ },
+ {
+  "w": 7,
+  "t": "filter",
+  "m": {
+   "ar": "يسيب العناصر اللي بتحقق شرط في مصفوفة جديدة",
+   "en": "keeps the items that pass a test in a new array"
+  },
+  "ex": "orders.filter(o => o.paid)"
+ },
+ {
+  "w": 7,
+  "t": "predicate",
+  "m": {
+   "ar": "دالة بترجّع true أو false لعنصر",
+   "en": "a function returning true or false for an item"
+  },
+  "ex": "o => o.total > 1000"
+ },
+ {
+  "w": 7,
+  "t": "find",
+  "m": {
+   "ar": "يرجّع أول عنصر يحقق الشرط",
+   "en": "returns the first item that passes"
+  },
+  "ex": "list.find(x => x.id === 7)"
+ },
+ {
+  "w": 7,
+  "t": "some",
+  "m": {
+   "ar": "هل فيه عنصر واحد على الأقل يحقق الشرط؟",
+   "en": "does at least one item pass?"
+  },
+  "ex": "lines.some(l => l.qty === 0)"
+ },
+ {
+  "w": 7,
+  "t": "every",
+  "m": {
+   "ar": "هل كل العناصر بتحقق الشرط؟",
+   "en": "do all items pass?"
+  },
+  "ex": "rows.every(isValid)"
+ },
+ {
+  "w": 7,
+  "t": "criteria",
+  "m": {
+   "ar": "شروط الفلترة",
+   "en": "the filter conditions"
+  },
+  "ex": "{ city, min, status }"
+ },
+ {
+  "w": 7,
+  "t": "Set",
+  "m": {
+   "ar": "مجموعة قيم فريدة بسؤال has سريع",
+   "en": "a set of unique values with a fast has"
+  },
+  "ex": "new Set(emails).has(e)"
+ },
+ {
+  "w": 7,
+  "t": "reduce",
+  "m": {
+   "ar": "يلخّص المصفوفة لقيمة واحدة خطوة بخطوة",
+   "en": "summarises an array to one value step by step"
+  },
+  "ex": "arr.reduce((a, x) => a + x, 0)"
+ },
+ {
+  "w": 7,
+  "t": "initial value",
+  "m": {
+   "ar": "القيمة اللي reduce بتبدأ بيها",
+   "en": "the value reduce starts from"
+  },
+  "ex": "reduce(fn, 0)"
+ },
+ {
+  "w": 7,
+  "t": "running total",
+  "m": {
+   "ar": "إجمالي بيكبر مع كل عنصر",
+   "en": "a total growing with each item"
+  },
+  "ex": "acc + x"
+ },
+ {
+  "w": 7,
+  "t": "lookup object",
+  "m": {
+   "ar": "كائن مفاتيحه IDs للوصول السريع",
+   "en": "an object keyed by IDs for fast access"
+  },
+  "ex": "byId[\"c2\"]"
+ },
+ {
+  "w": 7,
+  "t": "single pass",
+  "m": {
+   "ar": "لفة واحدة على البيانات بدل كذا لفة",
+   "en": "one pass over the data instead of several"
+  },
+  "ex": "sum and count together"
+ },
+ {
+  "w": 7,
+  "t": "Infinity",
+  "m": {
+   "ar": "قيمة «لا نهاية» تنفع بداية للأصغر",
+   "en": "an «infinite» value, handy as the start for a minimum"
+  },
+  "ex": "min: Infinity"
+ },
+ {
+  "w": 7,
+  "t": "clever code",
+  "m": {
+   "ar": "كود ذكي بس صعب يتفهم",
+   "en": "smart but hard-to-follow code"
+  },
+  "ex": "prefer clear over clever"
+ },
+ {
+  "w": 7,
+  "t": "method chain",
+  "m": {
+   "ar": "methods ورا بعض كل واحدة على ناتج اللي قبلها",
+   "en": "methods one after another, each on the previous result"
+  },
+  "ex": ".filter().map().reduce()"
+ },
+ {
+  "w": 7,
+  "t": "flatMap",
+  "m": {
+   "ar": "map وبعدين يفك مستوى واحد",
+   "en": "map, then flatten one level"
+  },
+  "ex": "orders.flatMap(o => o.items)"
+ },
+ {
+  "w": 7,
+  "t": "flat",
+  "m": {
+   "ar": "بيفك مصفوفات جوه مصفوفات لمصفوفة واحدة",
+   "en": "unpacks arrays inside arrays into one array"
+  },
+  "ex": "[[1], [2]].flat()"
+ },
+ {
+  "w": 7,
+  "t": "join",
+  "m": {
+   "ar": "ربط قايمتين بمفتاح مشترك",
+   "en": "linking two lists by a shared key"
+  },
+  "ex": "orders + customers by id"
+ },
+ {
+  "w": 7,
+  "t": "intersection",
+  "m": {
+   "ar": "القيم الموجودة في القايمتين",
+   "en": "the values present in both lists"
+  },
+  "ex": "returning customers"
+ },
+ {
+  "w": 7,
+  "t": "difference",
+  "m": {
+   "ar": "القيم اللي في قايمة ومش في التانية",
+   "en": "the values in one list but not the other"
+  },
+  "ex": "new customers"
+ },
+ {
+  "w": 7,
+  "t": "state",
+  "m": {
+   "ar": "اختيارات المستخدم الحالية اللي بتحدد الشكل",
+   "en": "the user’s current choices that decide what is shown"
+  },
+  "ex": "{ city: \"Cairo\" }"
+ },
+ {
+  "w": 7,
+  "t": "render",
+  "m": {
+   "ar": "رسم الصفحة (أو جزء منها) من البيانات والحالة",
+   "en": "drawing the page (or part of it) from data and state"
+  },
+  "ex": "render()"
+ },
+ {
+  "w": 7,
+  "t": "dashboard",
+  "m": {
+   "ar": "لوحة بتعرض أرقام وجداول مهمة",
+   "en": "a board showing key numbers and tables"
+  },
+  "ex": "an orders dashboard"
+ },
+ {
+  "w": 7,
+  "t": "escape",
+  "m": {
+   "ar": "تحويل رموز HTML لرموز آمنة قبل العرض",
+   "en": "turning HTML characters into safe codes before display"
+  },
+  "ex": "esc(\"<b>\")"
+ },
+ {
+  "w": 7,
+  "t": "XSS",
+  "m": {
+   "ar": "هجوم بيحقن كود في صفحة عن طريق بيانات",
+   "en": "an attack injecting code into a page through data"
+  },
+  "ex": "never innerHTML raw input"
+ },
+ {
+  "w": 7,
+  "t": "derived data",
+  "m": {
+   "ar": "بيانات محسوبة من بيانات تانية (مش متخزنة)",
+   "en": "data computed from other data (not stored)"
+  },
+  "ex": "visible orders"
+ },
+ {
+  "w": 7,
+  "t": "dropdown",
+  "m": {
+   "ar": "قايمة اختيار منسدلة",
+   "en": "a drop-down list"
+  },
+  "ex": "<select>"
+ },
+ {
+  "w": 8,
+  "t": "error message",
+  "m": {
+   "ar": "الرسالة اللي بتشرح الخطأ",
+   "en": "the message explaining the error"
+  },
+  "ex": "Cannot read properties of undefined"
+ },
+ {
+  "w": 8,
+  "t": "TypeError",
+  "m": {
+   "ar": "عملية على قيمة من نوع غلط",
+   "en": "an operation on a value of the wrong type"
+  },
+  "ex": "null.name"
+ },
+ {
+  "w": 8,
+  "t": "ReferenceError",
+  "m": {
+   "ar": "اسم مش متعرّف",
+   "en": "a name that is not defined"
+  },
+  "ex": "totl is not defined"
+ },
+ {
+  "w": 8,
+  "t": "SyntaxError",
+  "m": {
+   "ar": "الكود أو الـ JSON مكتوب غلط",
+   "en": "the code or JSON is written wrong"
+  },
+  "ex": "Unexpected token"
+ },
+ {
+  "w": 8,
+  "t": "stack trace",
+  "m": {
+   "ar": "سلسلة الدوال اللي وصلت للخطأ بأرقام السطور",
+   "en": "the chain of calls that led to the error, with line numbers"
+  },
+  "ex": "at computeTotal (app.js:12)"
+ },
+ {
+  "w": 8,
+  "t": "bug",
+  "m": {
+   "ar": "خطأ في البرنامج",
+   "en": "a mistake in a program"
+  },
+  "ex": "fix the bug"
+ },
+ {
+  "w": 8,
+  "t": "minimal reproduction",
+  "m": {
+   "ar": "أصغر كود بيعمل نفس المشكلة",
+   "en": "the smallest code that shows the same problem"
+  },
+  "ex": "a 5-line example"
+ },
+ {
+  "w": 8,
+  "t": "try...catch",
+  "m": {
+   "ar": "تجرّب كود وتمسك خطأه لو حصل",
+   "en": "trying code and catching its error if one happens"
+  },
+  "ex": "try { … } catch (err) { … }"
+ },
+ {
+  "w": 8,
+  "t": "throw",
+  "m": {
+   "ar": "ترمي خطأ بنفسك",
+   "en": "raising an error yourself"
+  },
+  "ex": "throw new Error(\"…\")"
+ },
+ {
+  "w": 8,
+  "t": "finally",
+  "m": {
+   "ar": "بلوك بيتنفّذ دايمًا بعد try",
+   "en": "a block that always runs after try"
+  },
+  "ex": "finally { hideSpinner(); }"
+ },
+ {
+  "w": 8,
+  "t": "swallow an error",
+  "m": {
+   "ar": "تمسك خطأ وتتجاهله بصمت",
+   "en": "catching an error and silently ignoring it"
+  },
+  "ex": "catch (err) {}"
+ },
+ {
+  "w": 8,
+  "t": "rethrow",
+  "m": {
+   "ar": "ترمي الخطأ تاني بعد ما تزوّد سياق",
+   "en": "throwing the error again after adding context"
+  },
+  "ex": "throw new Error(\"…\", { cause: err })"
+ },
+ {
+  "w": 8,
+  "t": "custom error",
+  "m": {
+   "ar": "نوع خطأ خاص بيك",
+   "en": "an error type of your own"
+  },
+  "ex": "class ValidationError extends Error"
+ },
+ {
+  "w": 8,
+  "t": "graceful",
+  "m": {
+   "ar": "بأدب ومن غير ما البرنامج يقع",
+   "en": "politely, without crashing the program"
+  },
+  "ex": "handle errors gracefully"
+ },
+ {
+  "w": 8,
+  "t": "breakpoint",
+  "m": {
+   "ar": "سطر الكود بيقف عنده عشان تفحص",
+   "en": "a line where code pauses so you can inspect"
+  },
+  "ex": "click a line number in Sources"
+ },
+ {
+  "w": 8,
+  "t": "debugger",
+  "m": {
+   "ar": "أداة (أو كلمة في الكود) بتوقف التشغيل للفحص",
+   "en": "a tool (or a keyword in code) that pauses execution to inspect"
+  },
+  "ex": "debugger;"
+ },
+ {
+  "w": 8,
+  "t": "step over",
+  "m": {
+   "ar": "ينفّذ السطر ويروح للي بعده",
+   "en": "runs the line and moves to the next"
+  },
+  "ex": "F10"
+ },
+ {
+  "w": 8,
+  "t": "step into",
+  "m": {
+   "ar": "يدخل جوه الدالة اللي في السطر",
+   "en": "goes inside the function called on the line"
+  },
+  "ex": "F11"
+ },
+ {
+  "w": 8,
+  "t": "watch expression",
+  "m": {
+   "ar": "تعبير بيتحدّث قيمته وانت بتمشي",
+   "en": "an expression whose value updates as you step"
+  },
+  "ex": "total > 5000"
+ },
+ {
+  "w": 8,
+  "t": "status code",
+  "m": {
+   "ar": "رقم بيقول نتيجة طلب HTTP",
+   "en": "a number giving the result of an HTTP request"
+  },
+  "ex": "200, 404, 500"
+ },
+ {
+  "w": 8,
+  "t": "conditional breakpoint",
+  "m": {
+   "ar": "breakpoint بيقف بس لو شرط صح",
+   "en": "a breakpoint that pauses only when a condition holds"
+  },
+  "ex": "Number.isNaN(x)"
+ },
+ {
+  "w": 8,
+  "t": "log level",
+  "m": {
+   "ar": "درجة أهمية اللوج: debug وinfo وwarn وerror",
+   "en": "a log’s importance: debug, info, warn, error"
+  },
+  "ex": "LOG_LEVEL=info"
+ },
+ {
+  "w": 8,
+  "t": "structured log",
+  "m": {
+   "ar": "لوج مكتوب كـ JSON بحقول",
+   "en": "a log written as JSON with fields"
+  },
+  "ex": "{\"event\":\"order.saved\"}"
+ },
+ {
+  "w": 8,
+  "t": "context",
+  "m": {
+   "ar": "المعلومات اللي حوالين الحدث (مين، فين، إمتى)",
+   "en": "the information around an event (who, where, when)"
+  },
+  "ex": "orderId: 77"
+ },
+ {
+  "w": 8,
+  "t": "exit code",
+  "m": {
+   "ar": "رقم بيرجّعه البرنامج: 0 نجاح وغيره فشل",
+   "en": "the number a program returns: 0 success, others failure"
+  },
+  "ex": "process.exitCode = 1"
+ },
+ {
+  "w": 8,
+  "t": "uncaught exception",
+  "m": {
+   "ar": "خطأ محدش مسكه",
+   "en": "an error nobody caught"
+  },
+  "ex": "process.on(\"uncaughtException\")"
+ },
+ {
+  "w": 8,
+  "t": "monitoring",
+  "m": {
+   "ar": "مراقبة البرنامج وهو شغال عشان تعرف أول ما يقع",
+   "en": "watching a running program to know as soon as it breaks"
+  },
+  "ex": "send errors to monitoring"
+ },
+ {
+  "w": 8,
+  "t": "inspect",
+  "m": {
+   "ar": "تفحص التشغيل من جوه بأدوات الـ debug",
+   "en": "examining a run from inside with debug tools"
+  },
+  "ex": "node --inspect"
+ },
+ {
+  "w": 8,
+  "t": "defensive programming",
+  "m": {
+   "ar": "كود بيتوقّع البيانات الغلط ويتعامل معاها",
+   "en": "code that expects bad data and handles it"
+  },
+  "ex": "validate at the edges"
+ },
+ {
+  "w": 8,
+  "t": "fail fast",
+  "m": {
+   "ar": "تفشل بدري أول ما تلاقي مشكلة",
+   "en": "failing early as soon as a problem appears"
+  },
+  "ex": "throw on the first line"
+ },
+ {
+  "w": 8,
+  "t": "assert",
+  "m": {
+   "ar": "سطر بيتأكد إن شرط صح وإلا يرمي خطأ",
+   "en": "a line checking a condition holds, throwing otherwise"
+  },
+  "ex": "assert.equal(a, b)"
+ },
+ {
+  "w": 8,
+  "t": "test runner",
+  "m": {
+   "ar": "أداة بتشغّل الاختبارات وتطلّع النتيجة",
+   "en": "a tool that runs tests and reports results"
+  },
+  "ex": "node --test"
+ },
+ {
+  "w": 8,
+  "t": "boundary case",
+  "m": {
+   "ar": "حالة على الحدود: فاضي، صفر، أكبر قيمة",
+   "en": "a case at the limits: empty, zero, the maximum"
+  },
+  "ex": "median([])"
+ },
+ {
+  "w": 8,
+  "t": "regression test",
+  "m": {
+   "ar": "اختبار بيضمن إن bug اتصلّح ميرجعش",
+   "en": "a test making sure a fixed bug does not return"
+  },
+  "ex": "test the bug before fixing"
+ },
+ {
+  "w": 8,
+  "t": "trusted data",
+  "m": {
+   "ar": "بيانات اتحقق منها وبقت موثوقة",
+   "en": "data that was checked and can now be trusted"
+  },
+  "ex": "after parseIncomingOrder"
  }
 ];
