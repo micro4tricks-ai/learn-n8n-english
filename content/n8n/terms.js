@@ -10422,5 +10422,248 @@ JOURNEY_TERMS["n8n"] = [
    "en": "the maximum liability"
   },
   "ex": "The liability cap is 12 months of fees."
+ },
+ {
+  "w": 47,
+  "t": "engineering standards",
+  "m": {
+   "ar": "قواعد الشغل المكتوبة للفريق",
+   "en": "the team’s written ways of working"
+  },
+  "ex": "Our engineering standards fit on one page."
+ },
+ {
+  "w": 47,
+  "t": "review culture",
+  "m": {
+   "ar": "عادة المراجعة للتعلم والجودة",
+   "en": "a habit of reviewing for learning and quality"
+  },
+  "ex": "A healthy review culture spreads knowledge."
+ },
+ {
+  "w": 47,
+  "t": "mentoring",
+  "m": {
+   "ar": "توجيه حد أقل خبرة",
+   "en": "guiding someone less experienced"
+  },
+  "ex": "Mentoring juniors takes an hour a week."
+ },
+ {
+  "w": 47,
+  "t": "pair building",
+  "m": {
+   "ar": "بناء workflow مع زميل مع بعض",
+   "en": "building a workflow together with a colleague"
+  },
+  "ex": "Pair building fixed the design fast."
+ },
+ {
+  "w": 47,
+  "t": "delegation",
+  "m": {
+   "ar": "تسليم مسؤولية نتيجة لحد",
+   "en": "handing someone responsibility for an outcome"
+  },
+  "ex": "Good delegation states the outcome."
+ },
+ {
+  "w": 47,
+  "t": "one-on-one",
+  "m": {
+   "ar": "اجتماع أسبوعي فردي مع عضو الفريق",
+   "en": "a weekly individual meeting with a team member"
+  },
+  "ex": "Ask about blockers in the one-on-one."
+ },
+ {
+  "w": 47,
+  "t": "citizen developer",
+  "m": {
+   "ar": "موظف مش مبرمج بيبني أتمتة",
+   "en": "a non-programmer employee who builds automations"
+  },
+  "ex": "The accountant became a citizen developer."
+ },
+ {
+  "w": 47,
+  "t": "workshop",
+  "m": {
+   "ar": "ورشة تدريب عملية",
+   "en": "a practical training session"
+  },
+  "ex": "The workshop runs over three mornings."
+ },
+ {
+  "w": 47,
+  "t": "hands-on lab",
+  "m": {
+   "ar": "تمرين عملي على مشكلة حقيقية",
+   "en": "a practical exercise on a real problem"
+  },
+  "ex": "Each hands-on lab uses their own sheet."
+ },
+ {
+  "w": 47,
+  "t": "learning path",
+  "m": {
+   "ar": "مسار تعلم بمستويات",
+   "en": "a learning route with levels"
+  },
+  "ex": "The learning path ends at reviewer level."
+ },
+ {
+  "w": 47,
+  "t": "training plan",
+  "m": {
+   "ar": "خطة تدريب للفريق",
+   "en": "a training plan for a team"
+  },
+  "ex": "Sell a quarterly training plan."
+ },
+ {
+  "w": 47,
+  "t": "reusable sub-workflow",
+  "m": {
+   "ar": "workflow صغير بيتنادى من أماكن كتير",
+   "en": "a small workflow called from many places"
+  },
+  "ex": "The reusable sub-workflow sends alerts."
+ },
+ {
+  "w": 47,
+  "t": "template library",
+  "m": {
+   "ar": "مكتبة workflows جاهزة للبدء منها",
+   "en": "a library of ready workflows to start from"
+  },
+  "ex": "Start from the template library."
+ },
+ {
+  "w": 47,
+  "t": "workflow template",
+  "m": {
+   "ar": "workflow جاهز قابل للتعديل",
+   "en": "a ready, adaptable workflow"
+  },
+  "ex": "The workflow template saves two days."
+ },
+ {
+  "w": 47,
+  "t": "creator hub",
+  "m": {
+   "ar": "منصة n8n لنشر القوالب",
+   "en": "n8n’s platform for publishing templates"
+  },
+  "ex": "We published three on the creator hub."
+ },
+ {
+  "w": 47,
+  "t": "setup readme",
+  "m": {
+   "ar": "ملف شرح تجهيز القالب",
+   "en": "a file explaining how to set up a template"
+  },
+  "ex": "The setup README takes 30 minutes to follow."
+ },
+ {
+  "w": 47,
+  "t": "governance",
+  "m": {
+   "ar": "قواعد السرعة والأمان مع بعض",
+   "en": "rules for speed and safety together"
+  },
+  "ex": "Governance lets staff build safely."
+ },
+ {
+  "w": 47,
+  "t": "review gate",
+  "m": {
+   "ar": "مراجعة لازمة قبل الانتقال لمستوى أعلى",
+   "en": "a review required before moving up a tier"
+  },
+  "ex": "Team workflows pass a review gate."
+ },
+ {
+  "w": 47,
+  "t": "center of excellence",
+  "m": {
+   "ar": "فريق صغير بيمكّن الشركة من الأتمتة",
+   "en": "a small team enabling a company’s automation"
+  },
+  "ex": "The center of excellence runs office hours."
+ },
+ {
+  "w": 47,
+  "t": "usage report",
+  "m": {
+   "ar": "تقرير مين بيستخدم وبيبني إيه",
+   "en": "a report of who uses and builds what"
+  },
+  "ex": "The usage report found 22 builders."
+ },
+ {
+  "w": 47,
+  "t": "risky pattern",
+  "m": {
+   "ar": "نمط بناء فيه خطر",
+   "en": "a building pattern carrying risk"
+  },
+  "ex": "An open webhook is a risky pattern."
+ },
+ {
+  "w": 47,
+  "t": "community forum",
+  "m": {
+   "ar": "منتدى مستخدمي n8n",
+   "en": "the n8n users’ forum"
+  },
+  "ex": "Answer one community forum question a week."
+ },
+ {
+  "w": 47,
+  "t": "contribution",
+  "m": {
+   "ar": "مساهمة في مشروع مفتوح",
+   "en": "a contribution to an open project"
+  },
+  "ex": "A docs fix is a real contribution."
+ },
+ {
+  "w": 47,
+  "t": "bug report",
+  "m": {
+   "ar": "تقرير مشكلة بخطوات إعادة",
+   "en": "a problem report with repro steps"
+  },
+  "ex": "Attach a minimal workflow to the bug report."
+ },
+ {
+  "w": 47,
+  "t": "thought leadership",
+  "m": {
+   "ar": "مشاركة خبرة حقيقية بتبني سمعة",
+   "en": "sharing real expertise that builds reputation"
+  },
+  "ex": "Case studies are honest thought leadership."
+ },
+ {
+  "w": 47,
+  "t": "case study write-up",
+  "m": {
+   "ar": "مقال قصة نجاح بالأرقام",
+   "en": "an article telling a success story with numbers"
+  },
+  "ex": "The case study write-up brought two clients."
+ },
+ {
+  "w": 47,
+  "t": "talk proposal",
+  "m": {
+   "ar": "اقتراح محاضرة لمؤتمر",
+   "en": "a talk submission to an event"
+  },
+  "ex": "Send the talk proposal to the meetup."
  }
 ];
