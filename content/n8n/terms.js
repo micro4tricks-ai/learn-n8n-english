@@ -9459,5 +9459,230 @@ JOURNEY_TERMS["n8n"] = [
    "en": "the party processing data on another’s behalf"
   },
   "ex": "Our agency is the processor."
+ },
+ {
+  "w": 43,
+  "t": "rto",
+  "m": {
+   "ar": "أقصى وقت توقف مقبول",
+   "en": "the longest acceptable downtime"
+  },
+  "ex": "The RTO for orders is 30 minutes."
+ },
+ {
+  "w": 43,
+  "t": "rpo",
+  "m": {
+   "ar": "أقصى بيانات مقبول تضيع",
+   "en": "the most data acceptable to lose"
+  },
+  "ex": "The RPO is 5 minutes."
+ },
+ {
+  "w": 43,
+  "t": "high availability",
+  "m": {
+   "ar": "الخدمة تكمّل لو جزء وقع",
+   "en": "the service continues when a part fails"
+  },
+  "ex": "High availability for the webhooks only."
+ },
+ {
+  "w": 43,
+  "t": "availability",
+  "m": {
+   "ar": "نسبة الوقت والخدمة شغالة",
+   "en": "the share of time a service works"
+  },
+  "ex": "99.9% availability allows 43 minutes a month."
+ },
+ {
+  "w": 43,
+  "t": "dependency map",
+  "m": {
+   "ar": "خريطة الحاجات اللي النظام بيعتمد عليها",
+   "en": "a map of what a system relies on"
+  },
+  "ex": "The dependency map showed DNS as a risk."
+ },
+ {
+  "w": 43,
+  "t": "multi-main",
+  "m": {
+   "ar": "أكتر من main لـ n8n في نفس الوقت",
+   "en": "several n8n mains at once"
+  },
+  "ex": "Multi-main needs Enterprise."
+ },
+ {
+  "w": 43,
+  "t": "leader election",
+  "m": {
+   "ar": "اختيار نسخة واحدة تقود",
+   "en": "choosing one instance to lead"
+  },
+  "ex": "Leader election runs schedules once."
+ },
+ {
+  "w": 43,
+  "t": "failover",
+  "m": {
+   "ar": "التحويل للبديل لما الأساسي يقع",
+   "en": "switching to the standby when the primary fails"
+  },
+  "ex": "Failover took 70 seconds."
+ },
+ {
+  "w": 43,
+  "t": "replica",
+  "m": {
+   "ar": "نسخة متزامنة من القاعدة",
+   "en": "a synchronised copy of the database"
+  },
+  "ex": "Reports read from the replica."
+ },
+ {
+  "w": 43,
+  "t": "managed database",
+  "m": {
+   "ar": "قاعدة بيديرها مزوّد",
+   "en": "a database run by a provider"
+  },
+  "ex": "A managed database handles failover."
+ },
+ {
+  "w": 43,
+  "t": "point-in-time recovery",
+  "m": {
+   "ar": "الاستعادة لأي لحظة",
+   "en": "restoring to any moment"
+  },
+  "ex": "Point-in-time recovery saved the morning’s orders."
+ },
+ {
+  "w": 43,
+  "t": "wal",
+  "m": {
+   "ar": "سجل كل تغييرات Postgres",
+   "en": "Postgres’s log of every change"
+  },
+  "ex": "WAL archives go to S3."
+ },
+ {
+  "w": 43,
+  "t": "3-2-1 rule",
+  "m": {
+   "ar": "3 نسخ، 2 نوع، 1 برة",
+   "en": "3 copies, 2 media, 1 off-site"
+  },
+  "ex": "Follow the 3-2-1 rule."
+ },
+ {
+  "w": 43,
+  "t": "immutable backup",
+  "m": {
+   "ar": "نسخة مايتمسحش لمدة",
+   "en": "a copy that cannot be deleted for a period"
+  },
+  "ex": "An immutable backup beats ransomware."
+ },
+ {
+  "w": 43,
+  "t": "backup verification",
+  "m": {
+   "ar": "التأكد آليًا إن النسخة بتترجع",
+   "en": "checking automatically that a backup restores"
+  },
+  "ex": "Backup verification runs at 03:30."
+ },
+ {
+  "w": 43,
+  "t": "disaster recovery",
+  "m": {
+   "ar": "الرجوع بعد كارثة كبيرة",
+   "en": "returning after a major disaster"
+  },
+  "ex": "Our disaster recovery target is 60 minutes."
+ },
+ {
+  "w": 43,
+  "t": "cold standby",
+  "m": {
+   "ar": "بنية احتياطية مطفية جاهزة تتشغّل",
+   "en": "powered-off backup infrastructure ready to start"
+  },
+  "ex": "A cold standby is cheap but slower."
+ },
+ {
+  "w": 43,
+  "t": "warm standby",
+  "m": {
+   "ar": "نسخة احتياطية صغيرة شغالة",
+   "en": "a small backup copy already running"
+  },
+  "ex": "The warm standby scales up in minutes."
+ },
+ {
+  "w": 43,
+  "t": "multi-region",
+  "m": {
+   "ar": "التشغيل في أكتر من منطقة",
+   "en": "running in more than one region"
+  },
+  "ex": "Multi-region is costly for small clients."
+ },
+ {
+  "w": 43,
+  "t": "dr drill",
+  "m": {
+   "ar": "تمرين تنفيذ خطة الكوارث",
+   "en": "a rehearsal of the disaster plan"
+  },
+  "ex": "The DR drill took 94 minutes."
+ },
+ {
+  "w": 43,
+  "t": "zero-downtime upgrade",
+  "m": {
+   "ar": "تحديث من غير توقف الخدمة",
+   "en": "an upgrade without service interruption"
+  },
+  "ex": "Workers allow a zero-downtime upgrade."
+ },
+ {
+  "w": 43,
+  "t": "blue-green",
+  "m": {
+   "ar": "بيئتين وتحويل بينهم",
+   "en": "two environments and a switch between them"
+  },
+  "ex": "A blue-green deploy makes rollback instant."
+ },
+ {
+  "w": 43,
+  "t": "webhook retries",
+  "m": {
+   "ar": "إعادة المرسل للـ webhook لو فشل",
+   "en": "the sender re-sending a failed webhook"
+  },
+  "ex": "Shopify webhook retries last 4 hours."
+ },
+ {
+  "w": 43,
+  "t": "idempotent replay",
+  "m": {
+   "ar": "إعادة تشغيل أحداث من غير تكرار الأثر",
+   "en": "re-running events without repeating effects"
+  },
+  "ex": "Idempotent replay recovered 600 orders."
+ },
+ {
+  "w": 43,
+  "t": "maintenance window",
+  "m": {
+   "ar": "وقت متفق عليه للصيانة",
+   "en": "an agreed time for maintenance"
+  },
+  "ex": "The maintenance window is Sunday 01:00."
  }
 ];
