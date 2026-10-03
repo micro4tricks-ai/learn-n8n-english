@@ -2,7 +2,7 @@
 // Months 1–3 are the intensive start (3 hours a day); then 2 hours a day from intermediate to expert.
 JOURNEY.outline({
  track: 'js',
- ready: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25],
+ ready: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26],
  months: [
   { n: 1, level: { ar: 'مبتدئ · مكثّف', en: 'Beginner · intensive' }, title: { ar: 'أساسيات جافاسكريبت', en: 'JavaScript basics' } },
   { n: 2, level: { ar: 'مبتدئ · مكثّف', en: 'Beginner · intensive' }, title: { ar: 'الكائنات والدوال والبيانات', en: 'Objects, functions and data' } },

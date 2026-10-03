@@ -7461,5 +7461,239 @@ JOURNEY_TERMS["js"] = [
    "en": "a comment enabling checks in a JS file"
   },
   "ex": "Add // @ts-check at the top."
+ },
+ {
+  "w": 26,
+  "t": "generics",
+  "m": {
+   "ar": "أنواع بتتبعت كمعاملات",
+   "en": "types passed as parameters"
+  },
+  "ex": "Generics keep the element type."
+ },
+ {
+  "w": 26,
+  "t": "type parameter",
+  "m": {
+   "ar": "المتغير <T> في الدالة",
+   "en": "the <T> variable of a function"
+  },
+  "ex": "T is the type parameter."
+ },
+ {
+  "w": 26,
+  "t": "generic constraint",
+  "m": {
+   "ar": "شرط على النوع العام بـ extends",
+   "en": "a condition on a generic with extends"
+  },
+  "ex": "The generic constraint requires an id."
+ },
+ {
+  "w": 26,
+  "t": "propertykey",
+  "m": {
+   "ar": "string أو number أو symbol",
+   "en": "string, number or symbol"
+  },
+  "ex": "Keys extend PropertyKey."
+ },
+ {
+  "w": 26,
+  "t": "parameter property",
+  "m": {
+   "ar": "تعريف خاصية جوه معاملات الـ constructor",
+   "en": "declaring a property in constructor parameters"
+  },
+  "ex": "A parameter property is not erasable."
+ },
+ {
+  "w": 26,
+  "t": "utility type",
+  "m": {
+   "ar": "نوع جاهز بيحوّل نوع تاني",
+   "en": "a ready-made type transforming another"
+  },
+  "ex": "Omit is a utility type."
+ },
+ {
+  "w": 26,
+  "t": "partial",
+  "m": {
+   "ar": "كل الحقول اختيارية",
+   "en": "every field optional"
+  },
+  "ex": "PATCH bodies use Partial."
+ },
+ {
+  "w": 26,
+  "t": "pick",
+  "m": {
+   "ar": "خد حقول معينة",
+   "en": "take some fields"
+  },
+  "ex": "Pick the fields the table shows."
+ },
+ {
+  "w": 26,
+  "t": "omit",
+  "m": {
+   "ar": "شيل حقول معينة",
+   "en": "drop some fields"
+  },
+  "ex": "Omit id when creating."
+ },
+ {
+  "w": 26,
+  "t": "returntype",
+  "m": {
+   "ar": "نوع اللي الدالة بترجعه",
+   "en": "the type a function returns"
+  },
+  "ex": "ReturnType<typeof toProduct>."
+ },
+ {
+  "w": 26,
+  "t": "awaited",
+  "m": {
+   "ar": "النوع اللي جوه Promise",
+   "en": "the type inside a promise"
+  },
+  "ex": "Awaited unwraps the promise."
+ },
+ {
+  "w": 26,
+  "t": "keyof",
+  "m": {
+   "ar": "union بأسماء حقول النوع",
+   "en": "a union of a type’s field names"
+  },
+  "ex": "keyof Order lists its fields."
+ },
+ {
+  "w": 26,
+  "t": "typeof operator",
+  "m": {
+   "ar": "جلب نوع قيمة موجودة",
+   "en": "getting the type of an existing value"
+  },
+  "ex": "Use the typeof operator on PLANS."
+ },
+ {
+  "w": 26,
+  "t": "indexed access type",
+  "m": {
+   "ar": "نوع حقل بالفهرس T[\"k\"]",
+   "en": "a field’s type by index, T[\"k\"]"
+  },
+  "ex": "LineItem is an indexed access type."
+ },
+ {
+  "w": 26,
+  "t": "derived type",
+  "m": {
+   "ar": "نوع متولد من قيمة أو نوع تاني",
+   "en": "a type generated from a value or another type"
+  },
+  "ex": "Plan is a derived type."
+ },
+ {
+  "w": 26,
+  "t": "lookup type",
+  "m": {
+   "ar": "اسم تاني للوصول بالفهرس",
+   "en": "another name for indexed access"
+  },
+  "ex": "A lookup type reads one field’s type."
+ },
+ {
+  "w": 26,
+  "t": "mapped type",
+  "m": {
+   "ar": "نوع بيلف على مفاتيح نوع تاني",
+   "en": "a type looping over another type’s keys"
+  },
+  "ex": "Partial is a mapped type."
+ },
+ {
+  "w": 26,
+  "t": "conditional type",
+  "m": {
+   "ar": "if على مستوى الأنواع",
+   "en": "an if at the type level"
+  },
+  "ex": "A conditional type picks the branch."
+ },
+ {
+  "w": 26,
+  "t": "infer",
+  "m": {
+   "ar": "استخراج جزء من نوع جوه conditional",
+   "en": "extracting part of a type inside a conditional"
+  },
+  "ex": "infer U unwraps the promise."
+ },
+ {
+  "w": 26,
+  "t": "template literal type",
+  "m": {
+   "ar": "نوع نصي مبني من أنواع تانية",
+   "en": "a string type built from other types"
+  },
+  "ex": "EventName is a template literal type."
+ },
+ {
+  "w": 26,
+  "t": "exclude",
+  "m": {
+   "ar": "شيل أنواع من union",
+   "en": "removing types from a union"
+  },
+  "ex": "Exclude<T, null> drops null."
+ },
+ {
+  "w": 26,
+  "t": "z.infer",
+  "m": {
+   "ar": "استخراج نوع TS من schema Zod",
+   "en": "extracting a TS type from a Zod schema"
+  },
+  "ex": "type Order = z.infer<typeof OrderSchema>."
+ },
+ {
+  "w": 26,
+  "t": "schema inference",
+  "m": {
+   "ar": "توليد الأنواع من الـ schema",
+   "en": "generating types from the schema"
+  },
+  "ex": "Schema inference keeps them in sync."
+ },
+ {
+  "w": 26,
+  "t": "result type",
+  "m": {
+   "ar": "نوع نجاح أو فشل بدل الرمي",
+   "en": "a success-or-failure type instead of throwing"
+  },
+  "ex": "parseQty returns a result type."
+ },
+ {
+  "w": 26,
+  "t": "type-safe api client",
+  "m": {
+   "ar": "عميل API أنواعه مضمونة",
+   "en": "an API client with guaranteed types"
+  },
+  "ex": "The type-safe API client validates replies."
+ },
+ {
+  "w": 26,
+  "t": "single source of truth",
+  "m": {
+   "ar": "تعريف واحد بيتولد منه الباقي",
+   "en": "one definition everything else derives from"
+  },
+  "ex": "The schema is the single source of truth."
  }
 ];
