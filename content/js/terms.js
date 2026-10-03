@@ -4995,5 +4995,842 @@ JOURNEY_TERMS["js"] = [
    "en": "the #! line naming the script’s interpreter"
   },
   "ex": "The shebang makes it executable on Linux."
+ },
+ {
+  "w": 17,
+  "t": "parseargs",
+  "m": {
+   "ar": "دالة Node لقراءة الـ options",
+   "en": "Node’s function for reading options"
+  },
+  "ex": "parseArgs handles --month and -m."
+ },
+ {
+  "w": 17,
+  "t": "option",
+  "m": {
+   "ar": "إعداد بيتبعت بـ --اسم",
+   "en": "a setting passed as --name"
+  },
+  "ex": "The --out option sets the folder."
+ },
+ {
+  "w": 17,
+  "t": "flag",
+  "m": {
+   "ar": "option بـ true أو false",
+   "en": "a true-or-false option"
+  },
+  "ex": "Add the --dry-run flag."
+ },
+ {
+  "w": 17,
+  "t": "positional argument",
+  "m": {
+   "ar": "argument من غير اسم بترتيبه",
+   "en": "an unnamed argument read by its position"
+  },
+  "ex": "The command is the first positional argument."
+ },
+ {
+  "w": 17,
+  "t": "usage",
+  "m": {
+   "ar": "سطر بيشرح إزاي تشغّل الأداة",
+   "en": "a line explaining how to run the tool"
+  },
+  "ex": "Print the usage on bad input."
+ },
+ {
+  "w": 17,
+  "t": "scheduler",
+  "m": {
+   "ar": "أداة بتشغّل مهام في أوقات محددة",
+   "en": "a tool running jobs at set times"
+  },
+  "ex": "The scheduler starts the backup at 2 a.m."
+ },
+ {
+  "w": 17,
+  "t": "task scheduler",
+  "m": {
+   "ar": "مجدول المهام في ويندوز",
+   "en": "the Windows job scheduler"
+  },
+  "ex": "Task Scheduler runs node.exe daily."
+ },
+ {
+  "w": 17,
+  "t": "cron job",
+  "m": {
+   "ar": "مهمة مجدولة في لينكس",
+   "en": "a scheduled job on Linux"
+  },
+  "ex": "The cron job runs every 15 minutes."
+ },
+ {
+  "w": 17,
+  "t": "cron expression",
+  "m": {
+   "ar": "صيغة الوقت في cron",
+   "en": "the time format used by cron"
+  },
+  "ex": "The cron expression 0 7 * * 1-5 means weekdays at 7."
+ },
+ {
+  "w": 17,
+  "t": "overlapping runs",
+  "m": {
+   "ar": "تشغيلتين لنفس السكربت في نفس الوقت",
+   "en": "two runs of one script at once"
+  },
+  "ex": "A lock prevents overlapping runs."
+ },
+ {
+  "w": 17,
+  "t": "lock file",
+  "m": {
+   "ar": "ملف بيمنع نسخة تانية تشتغل",
+   "en": "a file stopping a second copy from running"
+  },
+  "ex": "Delete the lock file in finally."
+ },
+ {
+  "w": 17,
+  "t": "time zone",
+  "m": {
+   "ar": "المنطقة الزمنية",
+   "en": "the regional time setting"
+  },
+  "ex": "Set the time zone to Africa/Cairo."
+ },
+ {
+  "w": 17,
+  "t": "json lines",
+  "m": {
+   "ar": "ملف كل سطر فيه كائن JSON",
+   "en": "a file with one JSON object per line"
+  },
+  "ex": "Write logs as JSON lines."
+ },
+ {
+  "w": 17,
+  "t": "logger",
+  "m": {
+   "ar": "أداة بتكتب اللوج بمستويات",
+   "en": "a tool writing logs with levels"
+  },
+  "ex": "The logger hides debug lines."
+ },
+ {
+  "w": 17,
+  "t": "correlation id",
+  "m": {
+   "ar": "معرّف بيربط سطور تشغيل واحد",
+   "en": "an id linking the lines of one run"
+  },
+  "ex": "Filter the log by correlation id."
+ },
+ {
+  "w": 17,
+  "t": "log rotation",
+  "m": {
+   "ar": "تقسيم اللوج لملفات ومسح القديم",
+   "en": "splitting logs into files and deleting old ones"
+  },
+  "ex": "Log rotation keeps 14 days."
+ },
+ {
+  "w": 17,
+  "t": "child logger",
+  "m": {
+   "ar": "logger بيورث حقول ثابتة",
+   "en": "a logger inheriting fixed fields"
+  },
+  "ex": "Create a child logger per run."
+ },
+ {
+  "w": 17,
+  "t": "inbox folder",
+  "m": {
+   "ar": "فولدر الملفات اللي مستنية معالجة",
+   "en": "the folder of files waiting to be processed"
+  },
+  "ex": "Drop the CSV in the inbox folder."
+ },
+ {
+  "w": 17,
+  "t": "processed folder",
+  "m": {
+   "ar": "فولدر الملفات اللي خلصت",
+   "en": "the folder of finished files"
+  },
+  "ex": "Move it to the processed folder."
+ },
+ {
+  "w": 17,
+  "t": "quarantine",
+  "m": {
+   "ar": "عزل الملفات الفاشلة لمراجعتها",
+   "en": "setting failed files aside for review"
+  },
+  "ex": "Bad files go to quarantine."
+ },
+ {
+  "w": 17,
+  "t": "poll",
+  "m": {
+   "ar": "الفحص الدوري بدل انتظار حدث",
+   "en": "checking regularly instead of waiting for an event"
+  },
+  "ex": "Poll the folder every minute."
+ },
+ {
+  "w": 17,
+  "t": "partial file",
+  "m": {
+   "ar": "ملف لسه بيتكتب",
+   "en": "a file still being written"
+  },
+  "ex": "Ignore partial files ending in .part."
+ },
+ {
+  "w": 17,
+  "t": "readline",
+  "m": {
+   "ar": "موديول قراءة سطور من الإدخال",
+   "en": "the module for reading input lines"
+  },
+  "ex": "readline asks for the name."
+ },
+ {
+  "w": 17,
+  "t": "confirmation",
+  "m": {
+   "ar": "طلب تأكيد قبل فعل",
+   "en": "asking for approval before acting"
+  },
+  "ex": "Ask for confirmation before deleting."
+ },
+ {
+  "w": 17,
+  "t": "unattended",
+  "m": {
+   "ar": "شغال من غير إنسان",
+   "en": "running with nobody watching"
+  },
+  "ex": "Unattended runs must not prompt."
+ },
+ {
+  "w": 17,
+  "t": "tty",
+  "m": {
+   "ar": "terminal تفاعلي",
+   "en": "an interactive terminal"
+  },
+  "ex": "Colours only when stdout is a TTY."
+ },
+ {
+  "w": 17,
+  "t": "styletext",
+  "m": {
+   "ar": "دالة Node لتلوين النص في الترمينال",
+   "en": "Node’s function for coloured terminal text"
+  },
+  "ex": "styleText makes errors red."
+ },
+ {
+  "w": 17,
+  "t": "notification",
+  "m": {
+   "ar": "رسالة تنبيه",
+   "en": "an alert message"
+  },
+  "ex": "Send a notification on failure."
+ },
+ {
+  "w": 17,
+  "t": "heartbeat",
+  "m": {
+   "ar": "إشارة «أنا شغال» دورية",
+   "en": "a regular «I am alive» signal"
+  },
+  "ex": "No heartbeat for a day means trouble."
+ },
+ {
+  "w": 18,
+  "t": "http server",
+  "m": {
+   "ar": "برنامج بيستقبل طلبات HTTP ويرد",
+   "en": "a program that receives HTTP requests and replies"
+  },
+  "ex": "Node can be an HTTP server."
+ },
+ {
+  "w": 18,
+  "t": "createserver",
+  "m": {
+   "ar": "دالة Node لعمل سيرفر",
+   "en": "Node’s function for making a server"
+  },
+  "ex": "createServer gets req and res."
+ },
+ {
+  "w": 18,
+  "t": "port",
+  "m": {
+   "ar": "رقم الباب اللي السيرفر بيسمع عليه",
+   "en": "the number the server listens on"
+  },
+  "ex": "The API runs on port 3000."
+ },
+ {
+  "w": 18,
+  "t": "route",
+  "m": {
+   "ar": "طريقة ومسار مربوطين بدالة",
+   "en": "a method and path tied to a function"
+  },
+  "ex": "Add a route for POST /orders."
+ },
+ {
+  "w": 18,
+  "t": "body size limit",
+  "m": {
+   "ar": "أقصى حجم مسموح للجسم",
+   "en": "the largest body allowed"
+  },
+  "ex": "Set a body size limit of 100 KB."
+ },
+ {
+  "w": 18,
+  "t": "400 bad request",
+  "m": {
+   "ar": "الطلب نفسه غلط",
+   "en": "the request itself is malformed"
+  },
+  "ex": "Broken JSON returns 400 Bad Request."
+ },
+ {
+  "w": 18,
+  "t": "express",
+  "m": {
+   "ar": "أشهر إطار سيرفرات لـ Node",
+   "en": "the best-known server framework for Node"
+  },
+  "ex": "Build the webhook receiver with Express."
+ },
+ {
+  "w": 18,
+  "t": "route parameter",
+  "m": {
+   "ar": "جزء متغير في المسار زي :id",
+   "en": "a variable part of a path such as :id"
+  },
+  "ex": "Read the route parameter from req.params."
+ },
+ {
+  "w": 18,
+  "t": "express.json",
+  "m": {
+   "ar": "middleware بيقرا جسم JSON",
+   "en": "middleware that parses a JSON body"
+  },
+  "ex": "Add express.json before the routes."
+ },
+ {
+  "w": 18,
+  "t": "middleware",
+  "m": {
+   "ar": "دالة بتشتغل قبل الـ route",
+   "en": "a function running before the route"
+  },
+  "ex": "The auth middleware checks the key."
+ },
+ {
+  "w": 18,
+  "t": "next",
+  "m": {
+   "ar": "دالة بتعدّي للـ middleware اللي بعده",
+   "en": "the function passing control to the next middleware"
+  },
+  "ex": "Call next() to continue."
+ },
+ {
+  "w": 18,
+  "t": "error handler",
+  "m": {
+   "ar": "middleware بيحوّل الأخطاء لرد",
+   "en": "middleware turning errors into a reply"
+  },
+  "ex": "The error handler hides stack traces."
+ },
+ {
+  "w": 18,
+  "t": "hmac",
+  "m": {
+   "ar": "بصمة بسر مشترك بتثبت إن البيانات متعدلتش",
+   "en": "a keyed fingerprint proving data was not altered"
+  },
+  "ex": "Shopify signs webhooks with HMAC."
+ },
+ {
+  "w": 18,
+  "t": "raw body",
+  "m": {
+   "ar": "جسم الطلب بالـ bytes الأصلية",
+   "en": "the request body as the original bytes"
+  },
+  "ex": "Verify the raw body, not the parsed one."
+ },
+ {
+  "w": 18,
+  "t": "shared secret",
+  "m": {
+   "ar": "سر معروف للطرفين بس",
+   "en": "a secret known only to both sides"
+  },
+  "ex": "Store the shared secret in .env."
+ },
+ {
+  "w": 18,
+  "t": "signature header",
+  "m": {
+   "ar": "header فيه التوقيع",
+   "en": "a header carrying the signature"
+  },
+  "ex": "Read the signature header."
+ },
+ {
+  "w": 18,
+  "t": "timingsafeequal",
+  "m": {
+   "ar": "مقارنة ثابتة الوقت",
+   "en": "a constant-time comparison"
+  },
+  "ex": "Compare signatures with timingSafeEqual."
+ },
+ {
+  "w": 18,
+  "t": "deduplication",
+  "m": {
+   "ar": "منع معالجة نفس الحاجة مرتين",
+   "en": "preventing the same thing being processed twice"
+  },
+  "ex": "Deduplication uses the event id."
+ },
+ {
+  "w": 18,
+  "t": "event id",
+  "m": {
+   "ar": "معرّف فريد للحدث",
+   "en": "a unique identifier of an event"
+  },
+  "ex": "Save every event id you processed."
+ },
+ {
+  "w": 18,
+  "t": "zod",
+  "m": {
+   "ar": "مكتبة لوصف البيانات والتحقق منها",
+   "en": "a library for describing and validating data"
+  },
+  "ex": "Zod checks the webhook body."
+ },
+ {
+  "w": 18,
+  "t": "schema",
+  "m": {
+   "ar": "وصف شكل البيانات المسموح",
+   "en": "a description of the allowed data shape"
+  },
+  "ex": "The schema requires a phone."
+ },
+ {
+  "w": 18,
+  "t": "safeparse",
+  "m": {
+   "ar": "تحقق بيرجّع نتيجة من غير ما يرمي",
+   "en": "validation returning a result without throwing"
+  },
+  "ex": "safeParse returns success: false."
+ },
+ {
+  "w": 18,
+  "t": "field error",
+  "m": {
+   "ar": "خطأ خاص بحقل معين",
+   "en": "an error tied to one field"
+  },
+  "ex": "Show each field error under its input."
+ },
+ {
+  "w": 18,
+  "t": "422 unprocessable",
+  "m": {
+   "ar": "البيانات مفهومة بس مش صحيحة",
+   "en": "the data is understood but invalid"
+  },
+  "ex": "A bad phone returns 422."
+ },
+ {
+  "w": 18,
+  "t": "health check",
+  "m": {
+   "ar": "endpoint بيقول السيرفر سليم",
+   "en": "an endpoint saying the server is healthy"
+  },
+  "ex": "Docker calls the health check."
+ },
+ {
+  "w": 18,
+  "t": "server.close",
+  "m": {
+   "ar": "إيقاف استقبال طلبات جديدة",
+   "en": "stopping new requests"
+  },
+  "ex": "server.close waits for in-flight requests."
+ },
+ {
+  "w": 18,
+  "t": "security headers",
+  "m": {
+   "ar": "headers بتحمي المتصفح من هجمات",
+   "en": "headers protecting browsers from attacks"
+  },
+  "ex": "helmet sets the security headers."
+ },
+ {
+  "w": 18,
+  "t": "helmet",
+  "m": {
+   "ar": "middleware بيضيف security headers",
+   "en": "middleware adding security headers"
+  },
+  "ex": "Add helmet first."
+ },
+ {
+  "w": 18,
+  "t": "tunnel",
+  "m": {
+   "ar": "رابط عام بيوصل لجهازك",
+   "en": "a public URL reaching your machine"
+  },
+  "ex": "Use a tunnel to test webhooks."
+ },
+ {
+  "w": 18,
+  "t": "reverse proxy",
+  "m": {
+   "ar": "سيرفر قدام تطبيقك بيعمل HTTPS ويوزّع",
+   "en": "a server in front of your app handling HTTPS and routing"
+  },
+  "ex": "Caddy is our reverse proxy."
+ },
+ {
+  "w": 19,
+  "t": "csv",
+  "m": {
+   "ar": "ملف نص بقيم مفصولة بفواصل",
+   "en": "a text file of comma-separated values"
+  },
+  "ex": "Export the orders as CSV."
+ },
+ {
+  "w": 19,
+  "t": "quoted field",
+  "m": {
+   "ar": "خانة بين علامتي اقتباس",
+   "en": "a cell wrapped in quotation marks"
+  },
+  "ex": "A quoted field may contain commas."
+ },
+ {
+  "w": 19,
+  "t": "delimiter",
+  "m": {
+   "ar": "الحرف الفاصل بين الخانات",
+   "en": "the character separating cells"
+  },
+  "ex": "Arabic Excel uses ; as the delimiter."
+ },
+ {
+  "w": 19,
+  "t": "bom",
+  "m": {
+   "ar": "حرف خفي في أول الملف بيحدد الترميز",
+   "en": "a hidden first character marking the encoding"
+  },
+  "ex": "Strip the BOM before reading headers."
+ },
+ {
+  "w": 19,
+  "t": "csv-parse",
+  "m": {
+   "ar": "مكتبة قراءة CSV في Node",
+   "en": "a CSV reading library for Node"
+  },
+  "ex": "csv-parse handles quoted newlines."
+ },
+ {
+  "w": 19,
+  "t": "papa parse",
+  "m": {
+   "ar": "مكتبة قراءة CSV في المتصفح",
+   "en": "a CSV reading library for the browser"
+  },
+  "ex": "Papa Parse reads the uploaded file."
+ },
+ {
+  "w": 19,
+  "t": "utf-8 bom",
+  "m": {
+   "ar": "علامة في أول الملف بتقول UTF-8",
+   "en": "a marker at the file start meaning UTF-8"
+  },
+  "ex": "Add a UTF-8 BOM for Excel."
+ },
+ {
+  "w": 19,
+  "t": "escaping",
+  "m": {
+   "ar": "تعديل قيمة عشان متبوظش الصيغة",
+   "en": "changing a value so it does not break the format"
+  },
+  "ex": "Escaping doubles the quotes."
+ },
+ {
+  "w": 19,
+  "t": "mojibake",
+  "m": {
+   "ar": "نص بايظ بسبب ترميز غلط",
+   "en": "garbled text from a wrong encoding"
+  },
+  "ex": "Without a BOM Arabic becomes mojibake."
+ },
+ {
+  "w": 19,
+  "t": "iso date",
+  "m": {
+   "ar": "تاريخ بصيغة سنة-شهر-يوم",
+   "en": "a date in year-month-day format"
+  },
+  "ex": "Write ISO dates in exports."
+ },
+ {
+  "w": 19,
+  "t": "leading zero",
+  "m": {
+   "ar": "صفر في أول الرقم",
+   "en": "a zero at the start of a number"
+  },
+  "ex": "Excel drops the leading zero."
+ },
+ {
+  "w": 19,
+  "t": "stream",
+  "m": {
+   "ar": "بيانات بتتقري أو تتكتب حتة حتة",
+   "en": "data read or written piece by piece"
+  },
+  "ex": "Use a stream for big files."
+ },
+ {
+  "w": 19,
+  "t": "chunk",
+  "m": {
+   "ar": "حتة من البيانات في stream",
+   "en": "one piece of data in a stream"
+  },
+  "ex": "Each chunk is about 64 KB."
+ },
+ {
+  "w": 19,
+  "t": "createreadstream",
+  "m": {
+   "ar": "فتح ملف كـ stream للقراءة",
+   "en": "opening a file as a readable stream"
+  },
+  "ex": "createReadStream keeps memory low."
+ },
+ {
+  "w": 19,
+  "t": "readable stream",
+  "m": {
+   "ar": "مصدر بيانات بيتقري",
+   "en": "a source of data to read"
+  },
+  "ex": "An HTTP response is a readable stream."
+ },
+ {
+  "w": 19,
+  "t": "writable stream",
+  "m": {
+   "ar": "هدف بتكتب فيه",
+   "en": "a target you write to"
+  },
+  "ex": "A file is a writable stream."
+ },
+ {
+  "w": 19,
+  "t": "transform stream",
+  "m": {
+   "ar": "stream بيعدّل البيانات وهي معدية",
+   "en": "a stream changing data as it passes"
+  },
+  "ex": "The transform stream filters rows."
+ },
+ {
+  "w": 19,
+  "t": "backpressure",
+  "m": {
+   "ar": "تبطيء المصدر لما الهدف مش ملاحق",
+   "en": "slowing the source when the target lags"
+  },
+  "ex": "pipeline handles backpressure."
+ },
+ {
+  "w": 19,
+  "t": "ndjson",
+  "m": {
+   "ar": "JSON سطر لكل كائن",
+   "en": "JSON with one object per line"
+  },
+  "ex": "Export the orders as NDJSON."
+ },
+ {
+  "w": 19,
+  "t": "xlsx",
+  "m": {
+   "ar": "صيغة ملفات Excel الحديثة",
+   "en": "the modern Excel file format"
+  },
+  "ex": "Send the report as xlsx."
+ },
+ {
+  "w": 19,
+  "t": "sheetjs",
+  "m": {
+   "ar": "مكتبة قراءة وكتابة جداول",
+   "en": "a library for reading and writing spreadsheets"
+  },
+  "ex": "SheetJS reads old .xls too."
+ },
+ {
+  "w": 19,
+  "t": "exceljs",
+  "m": {
+   "ar": "مكتبة كتابة Excel بتنسيق",
+   "en": "a library for writing formatted Excel"
+  },
+  "ex": "ExcelJS sets column widths."
+ },
+ {
+  "w": 19,
+  "t": "workbook",
+  "m": {
+   "ar": "ملف Excel كامل",
+   "en": "a whole Excel file"
+  },
+  "ex": "The workbook has three sheets."
+ },
+ {
+  "w": 19,
+  "t": "worksheet",
+  "m": {
+   "ar": "ورقة واحدة جوه الملف",
+   "en": "one sheet inside the file"
+  },
+  "ex": "Read the Orders worksheet."
+ },
+ {
+  "w": 19,
+  "t": "cell",
+  "m": {
+   "ar": "خانة في الجدول",
+   "en": "one box in the grid"
+  },
+  "ex": "Colour the cell red when negative."
+ },
+ {
+  "w": 19,
+  "t": "formula",
+  "m": {
+   "ar": "معادلة Excel بتحسب",
+   "en": "an Excel calculation"
+  },
+  "ex": "Use a SUM formula for the total."
+ },
+ {
+  "w": 19,
+  "t": "number format",
+  "m": {
+   "ar": "شكل عرض الرقم",
+   "en": "how a number is displayed"
+  },
+  "ex": "Set a currency number format."
+ },
+ {
+  "w": 19,
+  "t": "html to pdf",
+  "m": {
+   "ar": "طباعة صفحة HTML كملف PDF",
+   "en": "printing an HTML page as a PDF"
+  },
+  "ex": "HTML to PDF keeps Arabic shaping."
+ },
+ {
+  "w": 19,
+  "t": "page.pdf",
+  "m": {
+   "ar": "دالة Playwright للطباعة PDF",
+   "en": "Playwright’s print-to-PDF function"
+  },
+  "ex": "page.pdf writes an A4 invoice."
+ },
+ {
+  "w": 19,
+  "t": "text shaping",
+  "m": {
+   "ar": "توصيل الحروف وترتيبها صح",
+   "en": "joining and ordering letters correctly"
+  },
+  "ex": "Arabic needs text shaping."
+ },
+ {
+  "w": 19,
+  "t": "pdf-lib",
+  "m": {
+   "ar": "مكتبة تعديل ودمج PDF",
+   "en": "a library to edit and merge PDFs"
+  },
+  "ex": "pdf-lib adds page numbers."
+ },
+ {
+  "w": 19,
+  "t": "font embedding",
+  "m": {
+   "ar": "تضمين خط جوه الملف",
+   "en": "including a font inside the file"
+  },
+  "ex": "Font embedding makes it print anywhere."
+ },
+ {
+  "w": 19,
+  "t": "pdf extraction",
+  "m": {
+   "ar": "سحب النص من PDF",
+   "en": "pulling text out of a PDF"
+  },
+  "ex": "PDF extraction fails on scans."
+ },
+ {
+  "w": 19,
+  "t": "template",
+  "m": {
+   "ar": "قالب بيتملا ببيانات",
+   "en": "a pattern filled with data"
+  },
+  "ex": "The invoice template uses HTML."
  }
 ];
