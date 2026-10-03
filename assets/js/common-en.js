@@ -170,5 +170,17 @@ window.I18N_ADD && I18N_ADD({
  "خلّصت رحلة الـ {w} أسبوع في «{track}» من مبتدئ لخبير: {d} يوم، و{w} اختبار أسبوعي، و{e} امتحان شهري، والامتحان النهائي بأحسن درجة {p}%.": "You finished the {w}-week «{track}» journey from beginner to expert: {d} days, {w} weekly tests, {e} monthly exams, and the final exam with a best score of {p}%.",
  "ساعة التكثيف": "Intensive hour",
  "مثال Node.js: احفظه في ملف main.mjs على جهازك وشغّله بـ node main.mjs": "A Node.js example: save it as main.mjs on your computer and run node main.mjs",
- "كل الأسابيع ({n})": "All weeks ({n})"
+ "كل الأسابيع ({n})": "All weeks ({n})",
+ "أربع رحلات مجانية، كل رحلة 12 شهر من مبتدئ لمتوسط لمحترف لخبير: أول 3 شهور مكثّفة 3 ساعات في اليوم، وبعدها ساعتين في اليوم. كل يوم فيه شرح وتطبيق واختبار، وكل أسبوع بيخلص بمشروع واختبار لازم تعدّيه عشان تكمّل. تقدمك بيتحفظ في المتصفح، ولو عملت حساب بالإيميل بيتحفظ أونلاين.": "Four free journeys, each 12 months from beginner to intermediate to professional to expert: the first 3 months are intensive at 3 hours a day, then 2 hours a day. Every day has an explanation, practice and a quiz, and every week ends with a project and a test you must pass to continue. Your progress is saved in the browser, and online when you sign up with your email.",
+ "12 شهر (48 أسبوع): من الأساسيات للإنتاج والوكالة ومستوى الخبير": "12 months (48 weeks): from the basics to production, running an agency and expert level",
+ "12 شهر (48 أسبوع): من الأساسيات لـ FastAPI والبيانات والذكاء الاصطناعي ومستوى الخبير": "12 months (48 weeks): from the basics to FastAPI, data, AI and expert level",
+ "رحلة جافاسكريبت والويب للأتمتة": "The JavaScript journey: the web and automation",
+ "لغة n8n نفسها: من أول سطر لحد صفحات وفورمز بتبعت لـ n8n، وسكربتات Node، وأتمتة المتصفح وGoogle، وNodes مخصصة وخوادم MCP.": "n8n’s own language: from your first line to pages and forms that send to n8n, Node scripts, browser and Google automation, custom nodes and MCP servers.",
+ "12 شهر (48 أسبوع): أول 3 شهور مكثّفة 3 ساعات في اليوم": "12 months (48 weeks): the first 3 months intensive at 3 hours a day",
+ "أمثلة بتشغّلها جوه الصفحة: JavaScript وHTML وCSS": "Examples you run right on the page: JavaScript, HTML and CSS",
+ "مصطلحات بالإنجليزي، و12 مشروع أتمتة، وملخصات للطباعة": "English terms, 12 automation projects and printable cheat sheets",
+ "مكتبة فيها أكتر من 120 مصدر مجاني ورسمي": "A library of more than 120 free, official sources",
+ "ابدأ رحلة جافاسكريبت ←": "Start the JavaScript journey →",
+ "12 شهر (48 أسبوع): من A1 لحد C1–C2": "12 months (48 weeks): from A1 to C1–C2",
+ "أربع رحلات تعلم مجانية بالعربي والإنجليزي، كل واحدة 12 شهر من مبتدئ لخبير: أتمتة n8n، وبايثون، وجافاسكريبت والويب، والإنجليزي التقني للمبرمجين.": "Four free learning journeys in Arabic and English, each 12 months from beginner to expert: n8n automation, Python, JavaScript and the web, and technical English for developers."
 });

@@ -2015,5 +2015,10 @@ window.I18N_ADD && I18N_ADD({
  "إنجليزي": "English",
  "الحالة:": "Status:",
  "لسه مخلّصتوش": "Not done yet",
- "خلّصته": "Done"
+ "خلّصته": "Done",
+ "<span class=\"n\">01</span> رحلة الـ 12 شهر": "<span class=\"n\">01</span> The 12-month journey",
+ "رحلة 12 شهر (48 أسبوع) من مبتدئ لخبير: أول 3 شهور مكثّفة 3 ساعات في اليوم، وبعدها ساعتين في اليوم، 6 أيام في الأسبوع. كل يوم فيه شرح وتطبيق بإيدك ومصطلحات وقراءة واختبار قصير، وآخر كل أسبوع مشروع واختبار لازم تعدّي فيه بـ 70% عشان الأسبوع اللي بعده يفتح. ومعاها JavaScript وPython وSQL وDocker والذكاء الاصطناعي، لحد ما تسلّم مشاريع لعملاء وتشغّلها في الإنتاج.": "A 12-month (48-week) journey from beginner to expert: the first 3 months intensive at 3 hours a day, then 2 hours a day, 6 days a week. Every day has an explanation, hands-on practice, terms, reading and a short quiz, and each week ends with a project and a test you must pass at 70% to open the next week. With JavaScript, Python, SQL, Docker and AI, up to delivering client projects and running them in production.",
+ "رحلة 12 شهر": "12-month journey",
+ "⏱ الشهور 1–3: 3 ساعات في اليوم (ساعة التكثيف ⚡ زيادة)": "⏱ Months 1–3: 3 hours a day (plus the ⚡ intensive hour)",
+ "من الرحلة": "From the journey"
 });

@@ -2962,5 +2962,10 @@ window.I18N_ADD && I18N_ADD({
  "المستوى:": "Level:",
  "الحالة:": "Status:",
  "لسه مخلّصتوش": "Not done yet",
- "خلّصته": "Done"
+ "خلّصته": "Done",
+ "رحلة 12 شهر (48 أسبوع) من A1 لحد C1–C2 في إنجليزي الشغل: أول 3 شهور مكثّفة 3 ساعات في اليوم، وبعدها ساعتين في اليوم، 6 أيام في الأسبوع. تقرا رسائل الأخطاء والتوثيق، وتكتب commits وREADME وإيميلات، وتتكلم في الاجتماعات والمقابلات. كل يوم فيه شرح وتطبيق وكلمات بالنطق وقراءة واختبار قصير، وآخر كل أسبوع مشروع واختبار لازم تعدّي فيه بـ 70%.": "A 12-month (48-week) journey from A1 to C1–C2 in workplace English: the first 3 months intensive at 3 hours a day, then 2 hours a day, 6 days a week. Read error messages and documentation, write commits, READMEs and emails, and speak in meetings and interviews. Every day has an explanation, practice, words with pronunciation, reading and a short quiz, and each week ends with a project and a test you must pass at 70%.",
+ "<span class=\"n\">01</span> رحلة الـ 12 شهر": "<span class=\"n\">01</span> The 12-month journey",
+ "رحلة 12 شهر": "12-month journey",
+ "⏱ الشهور 1–3: 3 ساعات في اليوم (ساعة التكثيف ⚡ زيادة)": "⏱ Months 1–3: 3 hours a day (plus the ⚡ intensive hour)",
+ "من الرحلة": "From the journey"
 });

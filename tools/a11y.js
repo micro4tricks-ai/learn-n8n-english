@@ -10,7 +10,7 @@ srv.listen(0, async () => {
   // bypassCSP: the pages' Content-Security-Policy would block axe, which is injected as an inline script
   const p = await b.newPage({ viewport: { width: 1280, height: 900 }, bypassCSP: true });
   const seen = {};
-  for(const pg of ['index', 'n8n', 'english', 'review', 'lab', 'speak', 'prompts', 'sheets']){
+  for(const pg of ['index', 'n8n', 'english', 'python', 'js', 'review', 'lab', 'speak', 'prompts', 'sheets']){
     await p.goto('http://127.0.0.1:' + srv.address().port + '/' + pg + '.html');
     await p.waitForTimeout(800);
     // open every section so its content is checked too

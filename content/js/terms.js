@@ -2511,5 +2511,1265 @@ JOURNEY_TERMS["js"] = [
    "en": "data that was checked and can now be trusted"
   },
   "ex": "after parseIncomingOrder"
+ },
+ {
+  "w": 9,
+  "t": "HTML",
+  "m": {
+   "ar": "لغة وصف محتوى صفحات الويب ومعناه",
+   "en": "the language describing web pages’ content and meaning"
+  },
+  "ex": "<p>Hello</p>"
+ },
+ {
+  "w": 9,
+  "t": "tag",
+  "m": {
+   "ar": "الوسم بين < > زي <p> و</p>",
+   "en": "the marker between < > such as <p> and </p>"
+  },
+  "ex": "<h1>"
+ },
+ {
+  "w": 9,
+  "t": "attribute",
+  "m": {
+   "ar": "خاصية جوه وسم الفتح بتدّي معلومة زيادة",
+   "en": "a setting inside an opening tag giving extra information"
+  },
+  "ex": "href=\"…\""
+ },
+ {
+  "w": 9,
+  "t": "doctype",
+  "m": {
+   "ar": "أول سطر بيقول للمتصفح إن ده HTML حديث",
+   "en": "the first line telling the browser this is modern HTML"
+  },
+  "ex": "<!doctype html>"
+ },
+ {
+  "w": 9,
+  "t": "heading",
+  "m": {
+   "ar": "عنوان h1 لـ h6 بيعمل فهرس الصفحة",
+   "en": "an h1–h6 title building the page’s outline"
+  },
+  "ex": "<h2>Sales</h2>"
+ },
+ {
+  "w": 9,
+  "t": "viewport",
+  "m": {
+   "ar": "إعداد بيخلي الصفحة تتعرض صح على الموبايل",
+   "en": "a setting that makes the page display correctly on phones"
+  },
+  "ex": "<meta name=\"viewport\" …>"
+ },
+ {
+  "w": 9,
+  "t": "validator",
+  "m": {
+   "ar": "أداة بتفحص كود HTML وتطلّع أخطاءه",
+   "en": "a tool checking HTML and listing its errors"
+  },
+  "ex": "validator.w3.org"
+ },
+ {
+  "w": 9,
+  "t": "semantic HTML",
+  "m": {
+   "ar": "عناصر بتقول الجزء ده معناه إيه",
+   "en": "elements saying what each part means"
+  },
+  "ex": "<nav>, <article>"
+ },
+ {
+  "w": 9,
+  "t": "nav",
+  "m": {
+   "ar": "عنصر روابط التنقل",
+   "en": "the navigation links element"
+  },
+  "ex": "<nav>…</nav>"
+ },
+ {
+  "w": 9,
+  "t": "block element",
+  "m": {
+   "ar": "عنصر بياخد سطر كامل لوحده",
+   "en": "an element taking a full line of its own"
+  },
+  "ex": "<div>, <p>"
+ },
+ {
+  "w": 9,
+  "t": "inline element",
+  "m": {
+   "ar": "عنصر بيفضل جوه السطر",
+   "en": "an element staying inside the line"
+  },
+  "ex": "<span>, <a>"
+ },
+ {
+  "w": 9,
+  "t": "anchor",
+  "m": {
+   "ar": "الرابط <a>، وكمان مكان في الصفحة بـ #id",
+   "en": "the <a> link, and also a spot on the page via #id"
+  },
+  "ex": "<a href=\"#contact\">"
+ },
+ {
+  "w": 9,
+  "t": "relative path",
+  "m": {
+   "ar": "مسار ملف من مكان الصفحة الحالية",
+   "en": "a file path from the current page’s location"
+  },
+  "ex": "../img/logo.png"
+ },
+ {
+  "w": 9,
+  "t": "absolute URL",
+  "m": {
+   "ar": "عنوان كامل بالبروتوكول والدومين",
+   "en": "a full address with protocol and domain"
+  },
+  "ex": "https://site.com/a.png"
+ },
+ {
+  "w": 9,
+  "t": "alt text",
+  "m": {
+   "ar": "وصف نصي للصورة لقارئ الشاشة ولو محمّلتش",
+   "en": "a text description of an image for screen readers and failed loads"
+  },
+  "ex": "alt=\"A blue backpack\""
+ },
+ {
+  "w": 9,
+  "t": "lazy loading",
+  "m": {
+   "ar": "تأجيل تحميل الصور لحد ما المستخدم يقرب منها",
+   "en": "delaying images until the user nears them"
+  },
+  "ex": "loading=\"lazy\""
+ },
+ {
+  "w": 9,
+  "t": "caption",
+  "m": {
+   "ar": "عنوان أو تعليق لجدول أو صورة",
+   "en": "a title or caption for a table or image"
+  },
+  "ex": "<caption>"
+ },
+ {
+  "w": 9,
+  "t": "table header",
+  "m": {
+   "ar": "خانة عنوان <th> لعمود أو صف",
+   "en": "a <th> heading cell for a column or row"
+  },
+  "ex": "<th scope=\"col\">City</th>"
+ },
+ {
+  "w": 9,
+  "t": "colspan",
+  "m": {
+   "ar": "خانة بتاخد أكتر من عمود",
+   "en": "a cell spanning several columns"
+  },
+  "ex": "colspan=\"3\""
+ },
+ {
+  "w": 9,
+  "t": "iframe",
+  "m": {
+   "ar": "صفحة جوه صفحة",
+   "en": "a page inside a page"
+  },
+  "ex": "<iframe src=\"…\" title=\"Map\">"
+ },
+ {
+  "w": 9,
+  "t": "embed",
+  "m": {
+   "ar": "تحط محتوى من مكان تاني جوه صفحتك",
+   "en": "to place content from elsewhere inside your page"
+  },
+  "ex": "embed a video"
+ },
+ {
+  "w": 9,
+  "t": "form",
+  "m": {
+   "ar": "مجموعة حقول بتتبعت مع بعض",
+   "en": "a group of fields sent together"
+  },
+  "ex": "<form method=\"post\">"
+ },
+ {
+  "w": 9,
+  "t": "label",
+  "m": {
+   "ar": "عنوان الحقل المربوط بيه",
+   "en": "the title tied to a field"
+  },
+  "ex": "<label for=\"email\">"
+ },
+ {
+  "w": 9,
+  "t": "input type",
+  "m": {
+   "ar": "نوع الحقل اللي بيحدد شكله والكيبورد",
+   "en": "the field type deciding its look and keyboard"
+  },
+  "ex": "<input type=\"email\">"
+ },
+ {
+  "w": 9,
+  "t": "required",
+  "m": {
+   "ar": "الحقل لازم يتملا",
+   "en": "the field must be filled in"
+  },
+  "ex": "<input required>"
+ },
+ {
+  "w": 9,
+  "t": "pattern",
+  "m": {
+   "ar": "Regex لازم القيمة تطابقه",
+   "en": "a regex the value must match"
+  },
+  "ex": "pattern=\"01[0-9]{9}\""
+ },
+ {
+  "w": 9,
+  "t": "client-side validation",
+  "m": {
+   "ar": "تحقق في المتصفح قبل الإرسال (والسيرفر لازم يتحقق تاني)",
+   "en": "checking in the browser before sending (the server must check again)"
+  },
+  "ex": "required, min, pattern"
+ },
+ {
+  "w": 9,
+  "t": "autocomplete",
+  "m": {
+   "ar": "خاصية بتخلي المتصفح يملا الحقل لوحده",
+   "en": "an attribute letting the browser fill the field in"
+  },
+  "ex": "autocomplete=\"email\""
+ },
+ {
+  "w": 9,
+  "t": "accessibility",
+  "m": {
+   "ar": "إن الصفحة يقدر يستخدمها كل الناس (a11y)",
+   "en": "making a page usable by everyone (a11y)"
+  },
+  "ex": "labels, alt, keyboard"
+ },
+ {
+  "w": 9,
+  "t": "screen reader",
+  "m": {
+   "ar": "برنامج بيقرا الصفحة بصوت للمكفوفين",
+   "en": "software reading the page aloud for blind users"
+  },
+  "ex": "NVDA, VoiceOver"
+ },
+ {
+  "w": 9,
+  "t": "focus",
+  "m": {
+   "ar": "العنصر اللي عليه الدور حاليًا للكيبورد",
+   "en": "the element currently taking keyboard input"
+  },
+  "ex": ":focus-visible"
+ },
+ {
+  "w": 9,
+  "t": "ARIA",
+  "m": {
+   "ar": "خصايص بتدّي معلومات زيادة لقارئ الشاشة",
+   "en": "attributes giving screen readers extra information"
+  },
+  "ex": "aria-label=\"Close\""
+ },
+ {
+  "w": 9,
+  "t": "SEO",
+  "m": {
+   "ar": "تحسين الصفحة لمحركات البحث",
+   "en": "improving a page for search engines"
+  },
+  "ex": "<title> and description"
+ },
+ {
+  "w": 9,
+  "t": "Open Graph",
+  "m": {
+   "ar": "وسوم بتتحكم في شكل الرابط لما يتشارك",
+   "en": "tags controlling how a link looks when shared"
+  },
+  "ex": "og:image"
+ },
+ {
+  "w": 9,
+  "t": "Lighthouse",
+  "m": {
+   "ar": "أداة في Chrome بتقيس الأداء وإمكانية الوصول وSEO",
+   "en": "a Chrome tool measuring performance, accessibility and SEO"
+  },
+  "ex": "run Lighthouse"
+ },
+ {
+  "w": 10,
+  "t": "CSS",
+  "m": {
+   "ar": "لغة تحديد شكل صفحات الويب",
+   "en": "the language deciding how web pages look"
+  },
+  "ex": "h1 { color: green; }"
+ },
+ {
+  "w": 10,
+  "t": "selector",
+  "m": {
+   "ar": "الجزء اللي بيحدد القاعدة على أنهي عناصر",
+   "en": "the part choosing which elements a rule applies to"
+  },
+  "ex": ".price"
+ },
+ {
+  "w": 10,
+  "t": "declaration",
+  "m": {
+   "ar": "خاصية وقيمة جوه قاعدة",
+   "en": "a property and value inside a rule"
+  },
+  "ex": "color: red;"
+ },
+ {
+  "w": 10,
+  "t": "class selector",
+  "m": {
+   "ar": "محدد بيبدأ بنقطة للعناصر اللي عليها كلاس",
+   "en": "a selector starting with a dot for elements with a class"
+  },
+  "ex": ".card"
+ },
+ {
+  "w": 10,
+  "t": "stylesheet",
+  "m": {
+   "ar": "ملف أو بلوك فيه قواعد CSS",
+   "en": "a file or block holding CSS rules"
+  },
+  "ex": "style.css"
+ },
+ {
+  "w": 10,
+  "t": "descendant selector",
+  "m": {
+   "ar": "محدد بمسافة: عنصر جوه عنصر",
+   "en": "a selector with a space: an element inside another"
+  },
+  "ex": ".card h3"
+ },
+ {
+  "w": 10,
+  "t": "inline style",
+  "m": {
+   "ar": "تنسيق مكتوب في خاصية style على العنصر",
+   "en": "styling written in an element’s style attribute"
+  },
+  "ex": "style=\"color:red\""
+ },
+ {
+  "w": 10,
+  "t": "cascade",
+  "m": {
+   "ar": "ترتيب الأولوية بين القواعد: الأحدث يكسب لو متساويين",
+   "en": "the order of priority between rules: the later wins when equal"
+  },
+  "ex": "the second rule wins"
+ },
+ {
+  "w": 10,
+  "t": "specificity",
+  "m": {
+   "ar": "قوة المحدد: id ثم class ثم type",
+   "en": "a selector’s strength: id, then class, then type"
+  },
+  "ex": "#a beats .b"
+ },
+ {
+  "w": 10,
+  "t": "inheritance",
+  "m": {
+   "ar": "خصايص بتنتقل من الأب للأبناء",
+   "en": "properties passed from parent to children"
+  },
+  "ex": "color on body"
+ },
+ {
+  "w": 10,
+  "t": "override",
+  "m": {
+   "ar": "قاعدة بتغلب قاعدة تانية",
+   "en": "one rule beating another"
+  },
+  "ex": "override a library style"
+ },
+ {
+  "w": 10,
+  "t": "!important",
+  "m": {
+   "ar": "علامة بتخلي القيمة تكسب تقريبًا دايمًا",
+   "en": "a flag making a value win almost always"
+  },
+  "ex": "display: none !important"
+ },
+ {
+  "w": 10,
+  "t": "computed style",
+  "m": {
+   "ar": "القيمة النهائية الفعلية بعد كل القواعد",
+   "en": "the actual final value after every rule"
+  },
+  "ex": "DevTools → Computed"
+ },
+ {
+  "w": 10,
+  "t": "Styles panel",
+  "m": {
+   "ar": "لوحة في DevTools بتعرض قواعد CSS على العنصر",
+   "en": "the DevTools panel showing an element’s CSS rules"
+  },
+  "ex": "Inspect → Styles"
+ },
+ {
+  "w": 10,
+  "t": "box model",
+  "m": {
+   "ar": "كل عنصر صندوق: محتوى وpadding وborder وmargin",
+   "en": "every element is a box: content, padding, border and margin"
+  },
+  "ex": "DevTools → Computed"
+ },
+ {
+  "w": 10,
+  "t": "content box",
+  "m": {
+   "ar": "الجزء الداخلي من الصندوق اللي فيه المحتوى",
+   "en": "the inner part of the box holding the content"
+  },
+  "ex": "box-sizing: content-box"
+ },
+ {
+  "w": 10,
+  "t": "margin",
+  "m": {
+   "ar": "مسافة برّه الصندوق بينه وبين غيره",
+   "en": "space outside the box between it and others"
+  },
+  "ex": "margin-block: 1rem"
+ },
+ {
+  "w": 10,
+  "t": "border-box",
+  "m": {
+   "ar": "المقاس يشمل الـ padding والـ border",
+   "en": "the size includes padding and border"
+  },
+  "ex": "box-sizing: border-box"
+ },
+ {
+  "w": 10,
+  "t": "rem",
+  "m": {
+   "ar": "وحدة نسبة لخط الصفحة الأساسي",
+   "en": "a unit relative to the page’s base font"
+  },
+  "ex": "1.5rem = 24px"
+ },
+ {
+  "w": 10,
+  "t": "display",
+  "m": {
+   "ar": "بيحدد إزاي العنصر بيتعرض (block وinline...)",
+   "en": "decides how an element is shown (block, inline...)"
+  },
+  "ex": "display: inline-block"
+ },
+ {
+  "w": 10,
+  "t": "logical property",
+  "m": {
+   "ar": "خاصية بتتبع اتجاه النص بدل يمين وشمال",
+   "en": "a property following the text direction instead of left and right"
+  },
+  "ex": "margin-inline-start"
+ },
+ {
+  "w": 10,
+  "t": "hex color",
+  "m": {
+   "ar": "لون بالصيغة #RRGGBB",
+   "en": "a colour written as #RRGGBB"
+  },
+  "ex": "#1f6f4a"
+ },
+ {
+  "w": 10,
+  "t": "HSL",
+  "m": {
+   "ar": "لون بدرجة وتشبّع وإضاءة",
+   "en": "a colour as hue, saturation and lightness"
+  },
+  "ex": "hsl(152 56% 28%)"
+ },
+ {
+  "w": 10,
+  "t": "custom property",
+  "m": {
+   "ar": "متغير CSS بيبدأ بـ --",
+   "en": "a CSS variable starting with --"
+  },
+  "ex": "--brand: #1f6f4a"
+ },
+ {
+  "w": 10,
+  "t": "gradient",
+  "m": {
+   "ar": "تدرّج بين لونين أو أكتر",
+   "en": "a blend between two or more colours"
+  },
+  "ex": "linear-gradient(…)"
+ },
+ {
+  "w": 10,
+  "t": "border radius",
+  "m": {
+   "ar": "تدوير زوايا الصندوق",
+   "en": "rounding a box’s corners"
+  },
+  "ex": "border-radius: 12px"
+ },
+ {
+  "w": 10,
+  "t": "box shadow",
+  "m": {
+   "ar": "ظل حوالين الصندوق",
+   "en": "a shadow around the box"
+  },
+  "ex": "box-shadow: 0 2px 8px …"
+ },
+ {
+  "w": 10,
+  "t": "contrast ratio",
+  "m": {
+   "ar": "نسبة الفرق بين لون النص والخلفية (4.5:1 على الأقل)",
+   "en": "the difference between text and background colours (at least 4.5:1)"
+  },
+  "ex": "WCAG AA"
+ },
+ {
+  "w": 10,
+  "t": "font family",
+  "m": {
+   "ar": "اسم الخط وبدائله بالترتيب",
+   "en": "a font’s name and its fallbacks in order"
+  },
+  "ex": "\"Cairo\", sans-serif"
+ },
+ {
+  "w": 10,
+  "t": "fallback font",
+  "m": {
+   "ar": "خط احتياطي لو الأول مش موجود",
+   "en": "a backup font if the first is missing"
+  },
+  "ex": "sans-serif"
+ },
+ {
+  "w": 10,
+  "t": "font weight",
+  "m": {
+   "ar": "تخانة الخط (400 عادي، 700 عريض)",
+   "en": "a font’s thickness (400 normal, 700 bold)"
+  },
+  "ex": "font-weight: 700"
+ },
+ {
+  "w": 10,
+  "t": "line height",
+  "m": {
+   "ar": "المسافة بين أسطر النص",
+   "en": "the space between lines of text"
+  },
+  "ex": "line-height: 1.8"
+ },
+ {
+  "w": 10,
+  "t": "web font",
+  "m": {
+   "ar": "خط بيتحمّل من الإنترنت للصفحة",
+   "en": "a font downloaded from the internet for the page"
+  },
+  "ex": "Google Fonts"
+ },
+ {
+  "w": 10,
+  "t": "bidirectional text",
+  "m": {
+   "ar": "نص فيه اتجاهين (عربي وإنجليزي)",
+   "en": "text mixing two directions (Arabic and English)"
+  },
+  "ex": "<bdi>"
+ },
+ {
+  "w": 10,
+  "t": "ellipsis",
+  "m": {
+   "ar": "الثلاث نقط … للنص اللي اتقص",
+   "en": "the three dots … for cut-off text"
+  },
+  "ex": "text-overflow: ellipsis"
+ },
+ {
+  "w": 11,
+  "t": "Flexbox",
+  "m": {
+   "ar": "نظام تخطيط لصف أو عمود من العناصر",
+   "en": "a layout system for a row or column of items"
+  },
+  "ex": "display: flex"
+ },
+ {
+  "w": 11,
+  "t": "flex container",
+  "m": {
+   "ar": "الأب اللي عليه display: flex",
+   "en": "the parent with display: flex"
+  },
+  "ex": ".row { display: flex }"
+ },
+ {
+  "w": 11,
+  "t": "main axis",
+  "m": {
+   "ar": "اتجاه الصف أو العمود الأساسي",
+   "en": "the main direction of the row or column"
+  },
+  "ex": "justify-content works on it"
+ },
+ {
+  "w": 11,
+  "t": "cross axis",
+  "m": {
+   "ar": "الاتجاه العمودي على الأساسي",
+   "en": "the direction across the main one"
+  },
+  "ex": "align-items works on it"
+ },
+ {
+  "w": 11,
+  "t": "gap",
+  "m": {
+   "ar": "المسافة بين العناصر في flex أو grid",
+   "en": "the space between items in flex or grid"
+  },
+  "ex": "gap: 1rem"
+ },
+ {
+  "w": 11,
+  "t": "wrap",
+  "m": {
+   "ar": "ينزل سطر جديد لما المكان يخلص",
+   "en": "moving onto a new line when space runs out"
+  },
+  "ex": "flex-wrap: wrap"
+ },
+ {
+  "w": 11,
+  "t": "flex-grow",
+  "m": {
+   "ar": "قد إيه العنصر ياخد من المكان الفاضي",
+   "en": "how much free space an item takes"
+  },
+  "ex": "flex: 1"
+ },
+ {
+  "w": 11,
+  "t": "CSS Grid",
+  "m": {
+   "ar": "نظام تخطيط بصفوف وأعمدة مع بعض",
+   "en": "a layout system with rows and columns together"
+  },
+  "ex": "display: grid"
+ },
+ {
+  "w": 11,
+  "t": "fr unit",
+  "m": {
+   "ar": "حصة من المكان المتبقي في Grid",
+   "en": "a share of the remaining space in Grid"
+  },
+  "ex": "1fr 2fr"
+ },
+ {
+  "w": 11,
+  "t": "auto-fit",
+  "m": {
+   "ar": "اعمل أكبر عدد أعمدة يناسب المكان",
+   "en": "make as many columns as fit"
+  },
+  "ex": "repeat(auto-fit, …)"
+ },
+ {
+  "w": 11,
+  "t": "minmax",
+  "m": {
+   "ar": "مقاس بحد أدنى وحد أقصى",
+   "en": "a size with a minimum and a maximum"
+  },
+  "ex": "minmax(220px, 1fr)"
+ },
+ {
+  "w": 11,
+  "t": "grid area",
+  "m": {
+   "ar": "منطقة باسم في شبكة",
+   "en": "a named region of a grid"
+  },
+  "ex": "grid-area: main"
+ },
+ {
+  "w": 11,
+  "t": "span",
+  "m": {
+   "ar": "العنصر ياخد أكتر من خانة",
+   "en": "an item taking several cells"
+  },
+  "ex": "grid-column: span 2"
+ },
+ {
+  "w": 11,
+  "t": "grid line",
+  "m": {
+   "ar": "الخطوط الفاصلة المرقّمة بين الأعمدة أو الصفوف",
+   "en": "the numbered lines between columns or rows"
+  },
+  "ex": "grid-column: 1 / -1"
+ },
+ {
+  "w": 11,
+  "t": "position",
+  "m": {
+   "ar": "بيحدد إزاي العنصر بيتحط في الصفحة",
+   "en": "decides how an element is placed on the page"
+  },
+  "ex": "position: absolute"
+ },
+ {
+  "w": 11,
+  "t": "absolute positioning",
+  "m": {
+   "ar": "حط العنصر بالنسبة لأقرب أب relative",
+   "en": "placing an element relative to the nearest relative parent"
+  },
+  "ex": "a badge on a card"
+ },
+ {
+  "w": 11,
+  "t": "sticky",
+  "m": {
+   "ar": "يتحرك عادي وبعدين يلزق في مكانه",
+   "en": "moves normally, then sticks in place"
+  },
+  "ex": "position: sticky; top: 0"
+ },
+ {
+  "w": 11,
+  "t": "fixed",
+  "m": {
+   "ar": "مثبّت بالنسبة للشاشة",
+   "en": "pinned relative to the screen"
+  },
+  "ex": "a floating button"
+ },
+ {
+  "w": 11,
+  "t": "z-index",
+  "m": {
+   "ar": "ترتيب الطبقات: الأكبر فوق",
+   "en": "the layer order: higher is on top"
+  },
+  "ex": "z-index: 10"
+ },
+ {
+  "w": 11,
+  "t": "overflow",
+  "m": {
+   "ar": "إيه اللي يحصل للمحتوى الطالع برّه الصندوق",
+   "en": "what happens to content spilling out of a box"
+  },
+  "ex": "overflow: auto"
+ },
+ {
+  "w": 11,
+  "t": "object-fit",
+  "m": {
+   "ar": "إزاي الصورة تملا مكانها",
+   "en": "how an image fills its space"
+  },
+  "ex": "object-fit: cover"
+ },
+ {
+  "w": 11,
+  "t": "responsive design",
+  "m": {
+   "ar": "تصميم بيتظبط على كل مقاسات الشاشات",
+   "en": "design adapting to every screen size"
+  },
+  "ex": "from phone to desktop"
+ },
+ {
+  "w": 11,
+  "t": "mobile-first",
+  "m": {
+   "ar": "تبدأ تصمم للموبايل وبعدين تكبّر",
+   "en": "designing for phones first, then scaling up"
+  },
+  "ex": "@media (min-width: …)"
+ },
+ {
+  "w": 11,
+  "t": "media query",
+  "m": {
+   "ar": "شرط في CSS حسب الشاشة أو الإعدادات",
+   "en": "a CSS condition on the screen or settings"
+  },
+  "ex": "@media (min-width: 768px)"
+ },
+ {
+  "w": 11,
+  "t": "responsive breakpoint",
+  "m": {
+   "ar": "المقاس اللي التصميم بيتغيّر عنده",
+   "en": "the size at which the design changes"
+  },
+  "ex": "768px"
+ },
+ {
+  "w": 11,
+  "t": "fluid",
+  "m": {
+   "ar": "بيكبر ويصغر بسلاسة مع الشاشة",
+   "en": "growing and shrinking smoothly with the screen"
+  },
+  "ex": "clamp(1rem, 4vw, 2rem)"
+ },
+ {
+  "w": 11,
+  "t": "tap target",
+  "m": {
+   "ar": "المساحة اللي الإصبع بيدوس عليها",
+   "en": "the area a finger presses"
+  },
+  "ex": "at least 44px"
+ },
+ {
+  "w": 11,
+  "t": "horizontal scroll",
+  "m": {
+   "ar": "سحب الصفحة جنب (عيب على الموبايل)",
+   "en": "dragging the page sideways (a flaw on phones)"
+  },
+  "ex": "overflow-x"
+ },
+ {
+  "w": 11,
+  "t": "wireframe",
+  "m": {
+   "ar": "رسم مبسّط للتخطيط بالمربعات",
+   "en": "a simple box sketch of a layout"
+  },
+  "ex": "sketch the wireframe first"
+ },
+ {
+  "w": 11,
+  "t": "KPI",
+  "m": {
+   "ar": "مؤشر أداء رئيسي: رقم مهم في لوحة",
+   "en": "a key performance indicator: an important number on a dashboard"
+  },
+  "ex": "revenue, orders"
+ },
+ {
+  "w": 11,
+  "t": "tabular numbers",
+  "m": {
+   "ar": "أرقام بعرض متساوي عشان الخانات تتساوى",
+   "en": "equal-width digits so columns line up"
+  },
+  "ex": "font-variant-numeric: tabular-nums"
+ },
+ {
+  "w": 11,
+  "t": "data attribute",
+  "m": {
+   "ar": "خاصية data-* تخزّن معلومة في عنصر",
+   "en": "a data-* attribute storing information on an element"
+  },
+  "ex": "data-label=\"Total\""
+ },
+ {
+  "w": 11,
+  "t": "dark mode",
+  "m": {
+   "ar": "ألوان غامقة حسب إعداد المستخدم",
+   "en": "dark colours following the user’s setting"
+  },
+  "ex": "prefers-color-scheme: dark"
+ },
+ {
+  "w": 11,
+  "t": "checklist",
+  "m": {
+   "ar": "قايمة بنود تتأكد منها قبل التسليم",
+   "en": "a list of items to check before delivery"
+  },
+  "ex": "the release checklist"
+ },
+ {
+  "w": 11,
+  "t": "zoom",
+  "m": {
+   "ar": "تكبير الصفحة أو الخط",
+   "en": "enlarging the page or text"
+  },
+  "ex": "browser zoom 200%"
+ },
+ {
+  "w": 12,
+  "t": "DOM",
+  "m": {
+   "ar": "شجرة الكائنات اللي المتصفح بيعملها من الـ HTML",
+   "en": "the tree of objects the browser builds from HTML"
+  },
+  "ex": "document.querySelector(…)"
+ },
+ {
+  "w": 12,
+  "t": "querySelector",
+  "m": {
+   "ar": "يرجّع أول عنصر بيطابق محدد CSS",
+   "en": "returns the first element matching a CSS selector"
+  },
+  "ex": "document.querySelector(\".price\")"
+ },
+ {
+  "w": 12,
+  "t": "NodeList",
+  "m": {
+   "ar": "قايمة عناصر بترجع من querySelectorAll",
+   "en": "a list of elements returned by querySelectorAll"
+  },
+  "ex": "[...nodeList]"
+ },
+ {
+  "w": 12,
+  "t": "textContent",
+  "m": {
+   "ar": "النص اللي جوه العنصر (آمن)",
+   "en": "the text inside an element (safe)"
+  },
+  "ex": "el.textContent = name"
+ },
+ {
+  "w": 12,
+  "t": "innerHTML",
+  "m": {
+   "ar": "الـ HTML اللي جوه العنصر (خطر مع بيانات برّه)",
+   "en": "the HTML inside an element (dangerous with outside data)"
+  },
+  "ex": "el.innerHTML = \"<b>hi</b>\""
+ },
+ {
+  "w": 12,
+  "t": "dataset",
+  "m": {
+   "ar": "خصايص data-* كمتغيرات على العنصر",
+   "en": "data-* attributes as properties of the element"
+  },
+  "ex": "btn.dataset.orderId"
+ },
+ {
+  "w": 12,
+  "t": "closest",
+  "m": {
+   "ar": "أقرب أب بيطابق محدد",
+   "en": "the nearest ancestor matching a selector"
+  },
+  "ex": "btn.closest(\".card\")"
+ },
+ {
+  "w": 12,
+  "t": "classList",
+  "m": {
+   "ar": "أدوات تضيف وتشيل وتبدّل كلاسات العنصر",
+   "en": "tools to add, remove and toggle an element’s classes"
+  },
+  "ex": "el.classList.toggle(\"open\")"
+ },
+ {
+  "w": 12,
+  "t": "createElement",
+  "m": {
+   "ar": "يعمل عنصر HTML جديد من JS",
+   "en": "makes a new HTML element from JS"
+  },
+  "ex": "document.createElement(\"li\")"
+ },
+ {
+  "w": 12,
+  "t": "append",
+  "m": {
+   "ar": "يضيف عنصر أو نص في آخر الأب",
+   "en": "adds an element or text at the end of a parent"
+  },
+  "ex": "list.append(li)"
+ },
+ {
+  "w": 12,
+  "t": "DocumentFragment",
+  "m": {
+   "ar": "صندوق مؤقت تبني فيه عناصر وتحطهم مرة واحدة",
+   "en": "a temporary box to build elements in and insert once"
+  },
+  "ex": "createDocumentFragment()"
+ },
+ {
+  "w": 12,
+  "t": "template element",
+  "m": {
+   "ar": "شكل HTML مخفي بتنسخ منه عناصر",
+   "en": "a hidden HTML shape you clone elements from"
+  },
+  "ex": "<template id=\"card\">"
+ },
+ {
+  "w": 12,
+  "t": "clone",
+  "m": {
+   "ar": "نسخة من عنصر",
+   "en": "a copy of an element"
+  },
+  "ex": "tpl.content.cloneNode(true)"
+ },
+ {
+  "w": 12,
+  "t": "re-render",
+  "m": {
+   "ar": "ترسم الجزء من جديد من البيانات",
+   "en": "redrawing a part from the data"
+  },
+  "ex": "render() after every change"
+ },
+ {
+  "w": 12,
+  "t": "event",
+  "m": {
+   "ar": "حدث في الصفحة (ضغطة، كتابة، إرسال)",
+   "en": "something happening on the page (a click, typing, a submit)"
+  },
+  "ex": "\"click\""
+ },
+ {
+  "w": 12,
+  "t": "addEventListener",
+  "m": {
+   "ar": "بيربط دالة بحدث على عنصر",
+   "en": "attaches a function to an event on an element"
+  },
+  "ex": "btn.addEventListener(\"click\", fn)"
+ },
+ {
+  "w": 12,
+  "t": "event object",
+  "m": {
+   "ar": "الكائن اللي فيه تفاصيل الحدث",
+   "en": "the object holding the event’s details"
+  },
+  "ex": "e.target, e.key"
+ },
+ {
+  "w": 12,
+  "t": "event delegation",
+  "m": {
+   "ar": "مستمع واحد على الأب لكل اللي جواه",
+   "en": "one listener on the parent for everything inside"
+  },
+  "ex": "e.target.closest(…)"
+ },
+ {
+  "w": 12,
+  "t": "bubbling",
+  "m": {
+   "ar": "الحدث بيطلع من العنصر لأبوه لحد الـ document",
+   "en": "an event rising from the element through its parents"
+  },
+  "ex": "the list hears its buttons"
+ },
+ {
+  "w": 12,
+  "t": "preventDefault",
+  "m": {
+   "ar": "يمنع سلوك المتصفح الافتراضي",
+   "en": "stops the browser’s default behaviour"
+  },
+  "ex": "e.preventDefault()"
+ },
+ {
+  "w": 12,
+  "t": "debounce",
+  "m": {
+   "ar": "تستنى المستخدم يبطّل وبعدين تنفّذ مرة",
+   "en": "waiting for the user to stop, then running once"
+  },
+  "ex": "debounce(search, 300)"
+ },
+ {
+  "w": 12,
+  "t": "submit event",
+  "m": {
+   "ar": "حدث إرسال الفورم (بالزرار أو Enter)",
+   "en": "the form-sending event (button or Enter)"
+  },
+  "ex": "form.addEventListener(\"submit\", …)"
+ },
+ {
+  "w": 12,
+  "t": "FormData",
+  "m": {
+   "ar": "كائن بيقرا كل حقول الفورم",
+   "en": "an object reading every field of a form"
+  },
+  "ex": "new FormData(form)"
+ },
+ {
+  "w": 12,
+  "t": "inline validation",
+  "m": {
+   "ar": "رسايل خطأ جنب الحقل وقت الكتابة",
+   "en": "error messages beside the field while typing"
+  },
+  "ex": "aria-describedby"
+ },
+ {
+  "w": 12,
+  "t": "localStorage",
+  "m": {
+   "ar": "تخزين نصوص في المتصفح بيفضل بعد القفل",
+   "en": "browser text storage that survives closing"
+  },
+  "ex": "localStorage.setItem(k, v)"
+ },
+ {
+  "w": 12,
+  "t": "draft",
+  "m": {
+   "ar": "مسودة محفوظة لحد ما تتبعت",
+   "en": "a saved draft until it is sent"
+  },
+  "ex": "restore the draft"
+ },
+ {
+  "w": 12,
+  "t": "quota",
+  "m": {
+   "ar": "الحد الأقصى للمساحة",
+   "en": "the maximum space allowed"
+  },
+  "ex": "QuotaExceededError"
+ },
+ {
+  "w": 12,
+  "t": "schema version",
+  "m": {
+   "ar": "رقم نسخة لشكل البيانات المحفوظة",
+   "en": "a version number for the saved data’s shape"
+  },
+  "ex": "{ v: 1, items }"
+ },
+ {
+  "w": 12,
+  "t": "webhook",
+  "m": {
+   "ar": "عنوان بيستقبل طلبات ويبدأ workflow",
+   "en": "an address that receives requests and starts a workflow"
+  },
+  "ex": "POST /webhook/quote"
+ },
+ {
+  "w": 12,
+  "t": "fetch",
+  "m": {
+   "ar": "دالة المتصفح لإرسال واستقبال طلبات HTTP",
+   "en": "the browser’s function for HTTP requests"
+  },
+  "ex": "fetch(url, { method: \"POST\" })"
+ },
+ {
+  "w": 12,
+  "t": "request body",
+  "m": {
+   "ar": "البيانات اللي بتتبعت جوه الطلب",
+   "en": "the data sent inside a request"
+  },
+  "ex": "JSON.stringify(data)"
+ },
+ {
+  "w": 12,
+  "t": "loading state",
+  "m": {
+   "ar": "حالة «جاري…» والمستخدم مستني",
+   "en": "the «working…» state while the user waits"
+  },
+  "ex": "btn.disabled = true"
+ },
+ {
+  "w": 12,
+  "t": "honeypot",
+  "m": {
+   "ar": "حقل مخفي بيمسك البوتات",
+   "en": "a hidden field that catches bots"
+  },
+  "ex": "<input name=\"website\" hidden>"
+ },
+ {
+  "w": 12,
+  "t": "spam",
+  "m": {
+   "ar": "رسايل مزعجة أو أوتوماتيك مش مطلوبة",
+   "en": "unwanted or automated junk messages"
+  },
+  "ex": "block spam"
+ },
+ {
+  "w": 12,
+  "t": "echo server",
+  "m": {
+   "ar": "سيرفر بيرجّعلك اللي بعته عشان تجرّب",
+   "en": "a server returning what you sent, for testing"
+  },
+  "ex": "httpbin.org/post"
  }
 ];

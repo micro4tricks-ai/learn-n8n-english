@@ -17,7 +17,7 @@ const server = http.createServer((req, res) => {
 // every payload marks window.__xss when it runs; the markup ones also leave a [data-xss] element if parsed
 const P = '"\'><img src=x data-xss onerror="window.__xss=(window.__xss||[]).concat(1)"><svg data-xss onload="window.__xss=(window.__xss||[]).concat(2)"></svg>';
 const PJ = 'javascript:window.__xss=(window.__xss||[]).concat(3)';
-const PAGES = ['index', 'n8n', 'english', 'python', 'review', 'lab', 'speak', 'prompts', 'sheets'];
+const PAGES = ['index', 'n8n', 'english', 'python', 'js', 'review', 'lab', 'speak', 'prompts', 'sheets'];
 
 function evilItem(i){
   return { id: P + i, t: P, m: P, ex: P, q: P, a: 0, o: [P, P, P], why: P, from: { ar: P, en: P }, tr: 'n8n', text: P + ' {{' + P + '}}',

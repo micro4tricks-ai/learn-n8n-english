@@ -28,11 +28,11 @@ function run(file, lang) {
 }
 let failed = false;
 function check(ok, what) { if (!ok) { failed = true; console.log('  FAIL:', what); } }
-// The 24-week journey: map, locks, day view, and a full pass through week 1 and its weekly test.
+// The 48-week (12-month) journey: map, locks, day view, and a full pass through week 1 and its weekly test.
 function journeyChecks(doc, w, where) {
   const J = w.JOURNEY;
   check(!doc.getElementById('sprint'), where + ': old #sprint section is gone');
-  check(doc.querySelectorAll('#journey .jr-week').length === 24, where + ': 24 week buttons');
+  check(doc.querySelectorAll('#journey .jr-week').length === 48, where + ': 48 week buttons');
   check(!doc.querySelector('.jr-week[data-week="1"]').classList.contains('locked'), where + ': week 1 open');
   check(doc.querySelector('.jr-week[data-week="2"]').classList.contains('locked'), where + ': week 2 locked');
   check(doc.querySelectorAll('#jrTabs .day-tab').length === 6, where + ': 6 day tabs');
@@ -93,8 +93,10 @@ function allWeeksChecks(doc, w, where) {
   });
   check(views >= 6, where + ': rendered ' + views + ' day views');
   // exams: with every week passed, a month exam and the final open, score, and the final shows the certificate
-  if (Object.keys(J.weeks[track]).length === 24) {
-    for (const [m, count] of [[1, 20], [6, 48]]) {
+  // month exams need their 4 weeks; the final (month 12, 48 questions) needs all 48
+  const loaded = Object.keys(J.weeks[track]).length;
+  if (loaded >= 24) {
+    for (const [m, count] of [[1, 20], [6, 20]].concat(loaded === 48 ? [[12, 48]] : [])) {
       doc.querySelector('.jr-exam[data-exam="' + m + '"]').click();
       const opts = doc.querySelectorAll('#journeyApp .q-opt[data-je]');
       const qs = [...new Set([...opts].map(b => b.dataset.je))];
@@ -105,11 +107,13 @@ function allWeeksChecks(doc, w, where) {
       check(doc.querySelector('#journeyApp .jr-result'), where + ': exam ' + m + ' shows a result');
       check(J.getProgress().tests[J.rules.examId(m)].length === 1, where + ': exam ' + m + ' attempt recorded');
     }
+  }
+  if (loaded === 48) {
     // force a pass on the final to render the certificate
     const p2 = J.getProgress();
     p2.tests['final-exam'].push({ score: 40, total: 48, at: 2 });
     J.setProgress(p2);
-    doc.querySelector('.jr-exam[data-exam="6"]').click();
+    doc.querySelector('.jr-exam[data-exam="12"]').click();
     check(doc.querySelector('#jrCert'), where + ': certificate shown after passing the final');
     const walker = doc.createTreeWalker(doc.getElementById('journeyApp'), w.NodeFilter.SHOW_TEXT);
     let t;

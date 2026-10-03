@@ -167,7 +167,7 @@ const log = (ok, what, extra) => { out.push((ok ? 'PASS ' : 'FAIL ') + what + (e
 
   // ---- phone
   await page.setViewportSize({ width: 390, height: 844 });
-  for(const p of ['index', 'review', 'lab', 'prompts', 'python']){
+  for(const p of ['index', 'review', 'lab', 'prompts', 'python', 'js']){
     await page.goto(BASE + p + '.html');
     await page.waitForTimeout(700);
     const over = await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth);
