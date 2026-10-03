@@ -7020,5 +7020,365 @@ JOURNEY_TERMS["english"] = [
    "en": "contacting your former colleagues"
   },
   "ex": "Brief your referees before the reference check."
+ },
+ {
+  "w": 47,
+  "t": "talk proposal",
+  "m": {
+   "ar": "مقترح محاضرة",
+   "en": "a submission to speak at an event"
+  },
+  "ex": "My talk proposal was accepted."
+ },
+ {
+  "w": 47,
+  "t": "meetup",
+  "m": {
+   "ar": "لقاء مجتمع تقني",
+   "en": "an informal community event"
+  },
+  "ex": "Start speaking at a local meetup."
+ },
+ {
+  "w": 47,
+  "t": "speaker bio",
+  "m": {
+   "ar": "نبذة المتحدث",
+   "en": "a short description of a speaker"
+  },
+  "ex": "Send your speaker bio in the third person."
+ },
+ {
+  "w": 47,
+  "t": "keynote",
+  "m": {
+   "ar": "المحاضرة الرئيسية",
+   "en": "the main talk at an event"
+  },
+  "ex": "The keynote opened the conference."
+ },
+ {
+  "w": 47,
+  "t": "panel discussion",
+  "m": {
+   "ar": "نقاش جماعي على المسرح",
+   "en": "a group conversation on stage"
+  },
+  "ex": "I joined a panel discussion on AI."
+ },
+ {
+  "w": 47,
+  "t": "moderator",
+  "m": {
+   "ar": "مدير النقاش",
+   "en": "the person running a discussion"
+  },
+  "ex": "The moderator kept time well."
+ },
+ {
+  "w": 47,
+  "t": "contributor",
+  "m": {
+   "ar": "مساهم",
+   "en": "someone who contributes to a project"
+  },
+  "ex": "Thank every new contributor."
+ },
+ {
+  "w": 47,
+  "t": "contributing guide",
+  "m": {
+   "ar": "دليل المساهمة",
+   "en": "the rules for contributing"
+  },
+  "ex": "Read the contributing guide first."
+ },
+ {
+  "w": 47,
+  "t": "code of conduct",
+  "m": {
+   "ar": "مدونة السلوك",
+   "en": "rules for respectful behaviour"
+  },
+  "ex": "The project has a code of conduct."
+ },
+ {
+  "w": 47,
+  "t": "issue tracker",
+  "m": {
+   "ar": "نظام تتبع المشاكل",
+   "en": "where bugs and requests are listed"
+  },
+  "ex": "Search the issue tracker before posting."
+ },
+ {
+  "w": 47,
+  "t": "pull request",
+  "m": {
+   "ar": "طلب دمج تعديل",
+   "en": "a proposed code change"
+  },
+  "ex": "I opened a pull request."
+ },
+ {
+  "w": 47,
+  "t": "PR description",
+  "m": {
+   "ar": "وصف طلب الدمج",
+   "en": "the explanation of a pull request"
+  },
+  "ex": "Link the issue in the PR description."
+ },
+ {
+  "w": 47,
+  "t": "nit",
+  "m": {
+   "ar": "ملاحظة صغيرة",
+   "en": "a minor optional review comment"
+  },
+  "ex": "Just a nit: rename this variable."
+ },
+ {
+  "w": 47,
+  "t": "upstream",
+  "m": {
+   "ar": "المشروع الأصلي",
+   "en": "the original project"
+  },
+  "ex": "The fix was merged upstream."
+ },
+ {
+  "w": 47,
+  "t": "fork",
+  "m": {
+   "ar": "نسخة منفصلة من المشروع",
+   "en": "your own copy of a project"
+  },
+  "ex": "I tested it in my fork."
+ },
+ {
+  "w": 47,
+  "t": "README",
+  "m": {
+   "ar": "ملف تعريف المشروع",
+   "en": "the main introduction file of a project"
+  },
+  "ex": "Put an example in the README."
+ },
+ {
+  "w": 47,
+  "t": "license",
+  "m": {
+   "ar": "رخصة الاستخدام",
+   "en": "the legal terms for using code"
+  },
+  "ex": "The project uses the MIT license."
+ },
+ {
+  "w": 47,
+  "t": "semantic versioning",
+  "m": {
+   "ar": "ترقيم الإصدارات الدلالي",
+   "en": "MAJOR.MINOR.PATCH numbering"
+  },
+  "ex": "We follow semantic versioning."
+ },
+ {
+  "w": 47,
+  "t": "release notes",
+  "m": {
+   "ar": "ملاحظات الإصدار",
+   "en": "a description of a new version"
+  },
+  "ex": "Read the release notes before upgrading."
+ },
+ {
+  "w": 47,
+  "t": "deprecation",
+  "m": {
+   "ar": "إعلان إيقاف ميزة لاحقًا",
+   "en": "marking a feature for future removal"
+  },
+  "ex": "The deprecation gives users six months."
+ },
+ {
+  "w": 47,
+  "t": "backwards compatible",
+  "m": {
+   "ar": "متوافق مع القديم",
+   "en": "not breaking existing use"
+  },
+  "ex": "This update is backwards compatible."
+ },
+ {
+  "w": 47,
+  "t": "community",
+  "m": {
+   "ar": "مجتمع",
+   "en": "the people around a project"
+  },
+  "ex": "A friendly community attracts contributors."
+ },
+ {
+  "w": 47,
+  "t": "governance",
+  "m": {
+   "ar": "طريقة الحكم واتخاذ القرار",
+   "en": "how decisions are made"
+  },
+  "ex": "Document the project’s governance."
+ },
+ {
+  "w": 47,
+  "t": "sponsor",
+  "m": {
+   "ar": "داعم مالي",
+   "en": "someone who funds a project"
+  },
+  "ex": "Two companies sponsor the project."
+ },
+ {
+  "w": 47,
+  "t": "bus factor",
+  "m": {
+   "ar": "عدد الناس اللي المشروع معتمد عليهم",
+   "en": "how many people a project depends on"
+  },
+  "ex": "Our bus factor is only one."
+ },
+ {
+  "w": 47,
+  "t": "personal brand",
+  "m": {
+   "ar": "العلامة الشخصية",
+   "en": "what people know you for"
+  },
+  "ex": "Build a narrow personal brand."
+ },
+ {
+  "w": 47,
+  "t": "thought leadership",
+  "m": {
+   "ar": "محتوى برأي وخبرة أصلية",
+   "en": "content with original expert views"
+  },
+  "ex": "Real lessons are thought leadership."
+ },
+ {
+  "w": 47,
+  "t": "LinkedIn post",
+  "m": {
+   "ar": "بوست لينكدإن",
+   "en": "a post on LinkedIn"
+  },
+  "ex": "My LinkedIn post got 40 comments."
+ },
+ {
+  "w": 47,
+  "t": "case study",
+  "m": {
+   "ar": "دراسة حالة",
+   "en": "a detailed project story"
+  },
+  "ex": "Publish a case study with numbers."
+ },
+ {
+  "w": 47,
+  "t": "testimonial",
+  "m": {
+   "ar": "شهادة عميل",
+   "en": "a client’s quote praising your work"
+  },
+  "ex": "Ask for a testimonial after delivery."
+ },
+ {
+  "w": 47,
+  "t": "newsletter",
+  "m": {
+   "ar": "نشرة بريدية",
+   "en": "a regular email to subscribers"
+  },
+  "ex": "My newsletter goes out monthly."
+ },
+ {
+  "w": 47,
+  "t": "audience building",
+  "m": {
+   "ar": "بناء جمهور",
+   "en": "growing followers over time"
+  },
+  "ex": "Audience building takes years."
+ },
+ {
+  "w": 47,
+  "t": "engagement",
+  "m": {
+   "ar": "تفاعل الجمهور",
+   "en": "how much people interact"
+  },
+  "ex": "Replies show real engagement."
+ },
+ {
+  "w": 47,
+  "t": "byline",
+  "m": {
+   "ar": "اسم الكاتب على المقال",
+   "en": "the author’s name on an article"
+  },
+  "ex": "I got my first byline on a big blog."
+ },
+ {
+  "w": 47,
+  "t": "podcast guest",
+  "m": {
+   "ar": "ضيف بودكاست",
+   "en": "a guest on a podcast"
+  },
+  "ex": "I was a podcast guest last month."
+ },
+ {
+  "w": 47,
+  "t": "cold pitch",
+  "m": {
+   "ar": "عرض لحد ماتعرفوش",
+   "en": "an unsolicited proposal"
+  },
+  "ex": "Keep a cold pitch under 120 words."
+ },
+ {
+  "w": 47,
+  "t": "burnout",
+  "m": {
+   "ar": "احتراق نفسي",
+   "en": "exhaustion from long stress"
+  },
+  "ex": "Take breaks to avoid burnout."
+ },
+ {
+  "w": 47,
+  "t": "imposter syndrome",
+  "m": {
+   "ar": "متلازمة المحتال",
+   "en": "feeling like a fraud despite success"
+  },
+  "ex": "Many experts have imposter syndrome."
+ },
+ {
+  "w": 47,
+  "t": "step back",
+  "m": {
+   "ar": "تاخد خطوة لورا / تبعد مؤقتًا",
+   "en": "to withdraw from a role for a while"
+  },
+  "ex": "I’m stepping back from the project until March."
+ },
+ {
+  "w": 47,
+  "t": "keep in touch",
+  "m": {
+   "ar": "نفضل على تواصل",
+   "en": "to stay in contact"
+  },
+  "ex": "Let’s keep in touch for the spring event."
  }
 ];
