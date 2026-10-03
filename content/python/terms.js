@@ -12123,5 +12123,293 @@ JOURNEY_TERMS["python"] = [
    "en": "the law limiting parallel speed-up"
   },
   "ex": "Amdahl says 20% serial caps us at 5×."
+ },
+ {
+  "w": 42,
+  "t": "code smell",
+  "m": {
+   "ar": "علامة إن الكود هيبقى صعب يتعدّل",
+   "en": "a sign that code will be hard to change"
+  },
+  "ex": "A 200-line function is a code smell."
+ },
+ {
+  "w": 42,
+  "t": "god object",
+  "m": {
+   "ar": "كلاس بيعمل كل حاجة",
+   "en": "a class that does far too much"
+  },
+  "ex": "OrderManager became a god object."
+ },
+ {
+  "w": 42,
+  "t": "coupling",
+  "m": {
+   "ar": "درجة اعتماد الأجزاء على بعض",
+   "en": "how much parts depend on each other"
+  },
+  "ex": "Low coupling makes changes local."
+ },
+ {
+  "w": 42,
+  "t": "cohesion",
+  "m": {
+   "ar": "ترابط الحاجات المتعلقة ببعض في مكان واحد",
+   "en": "how closely related things are kept together"
+  },
+  "ex": "High cohesion keeps tax logic in one module."
+ },
+ {
+  "w": 42,
+  "t": "refactoring",
+  "m": {
+   "ar": "إعادة هيكلة من غير تغيير السلوك",
+   "en": "restructuring code without changing behaviour"
+  },
+  "ex": "Refactoring needs tests first."
+ },
+ {
+  "w": 42,
+  "t": "characterization test",
+  "m": {
+   "ar": "اختبار بيثبّت سلوك الكود الحالي",
+   "en": "a test pinning existing behaviour"
+  },
+  "ex": "A characterization test protected the legacy fee code."
+ },
+ {
+  "w": 42,
+  "t": "solid",
+  "m": {
+   "ar": "خمس مبادئ لتصميم كود سهل التعديل",
+   "en": "five principles for maintainable design"
+  },
+  "ex": "SOLID is a guide, not a law."
+ },
+ {
+  "w": 42,
+  "t": "open/closed",
+  "m": {
+   "ar": "مفتوح للإضافة مقفول للتعديل",
+   "en": "open to extension, closed to modification"
+  },
+  "ex": "The tax registry follows open/closed."
+ },
+ {
+  "w": 42,
+  "t": "dependency inversion",
+  "m": {
+   "ar": "المنطق يعتمد على واجهات مش أدوات",
+   "en": "depending on abstractions, not concrete tools"
+  },
+  "ex": "Dependency inversion lets us swap Gmail for SES."
+ },
+ {
+  "w": 42,
+  "t": "interface segregation",
+  "m": {
+   "ar": "واجهات صغيرة متخصصة",
+   "en": "small, focused interfaces"
+  },
+  "ex": "Interface segregation gave us Sender and Reader."
+ },
+ {
+  "w": 42,
+  "t": "liskov",
+  "m": {
+   "ar": "النوع الفرعي يشتغل مكان الأصلي",
+   "en": "subtypes must be substitutable"
+  },
+  "ex": "Raising in save() breaks Liskov."
+ },
+ {
+  "w": 42,
+  "t": "abc",
+  "m": {
+   "ar": "كلاس مجرد بيجبر التنفيذ",
+   "en": "an abstract base class"
+  },
+  "ex": "Use an abc when methods must be implemented."
+ },
+ {
+  "w": 42,
+  "t": "composition over inheritance",
+  "m": {
+   "ar": "التركيب بدل الوراثة",
+   "en": "having parts rather than inheriting"
+  },
+  "ex": "Composition over inheritance kept classes small."
+ },
+ {
+  "w": 42,
+  "t": "design pattern",
+  "m": {
+   "ar": "نمط تصميم: حل متكرر لمشكلة متكررة",
+   "en": "a reusable solution to a common problem"
+  },
+  "ex": "Use a design pattern only when it fits."
+ },
+ {
+  "w": 42,
+  "t": "strategy pattern",
+  "m": {
+   "ar": "نمط خوارزميات قابلة للتبديل",
+   "en": "interchangeable algorithms behind one interface"
+  },
+  "ex": "The strategy pattern picks the carrier formula."
+ },
+ {
+  "w": 42,
+  "t": "factory",
+  "m": {
+   "ar": "دالة بتبني الكائن المناسب",
+   "en": "a function creating the right object"
+  },
+  "ex": "The factory reads the carrier from settings."
+ },
+ {
+  "w": 42,
+  "t": "observer",
+  "m": {
+   "ar": "نمط مستمعين بيتصرفوا على حدث",
+   "en": "listeners reacting to an event"
+  },
+  "ex": "The observer pattern decouples invoicing."
+ },
+ {
+  "w": 42,
+  "t": "event bus",
+  "m": {
+   "ar": "ناقل أحداث بين أجزاء البرنامج",
+   "en": "a hub that delivers events to listeners"
+  },
+  "ex": "Publish OrderPaid on the event bus."
+ },
+ {
+  "w": 42,
+  "t": "domain event",
+  "m": {
+   "ar": "حدث مهم في البيزنس",
+   "en": "a meaningful business occurrence"
+  },
+  "ex": "OrderPaid is a domain event."
+ },
+ {
+  "w": 42,
+  "t": "command pattern",
+  "m": {
+   "ar": "العملية ككائن يتنفذ أو يتأجل",
+   "en": "an operation wrapped as an object"
+  },
+  "ex": "The command pattern lets refunds wait for approval."
+ },
+ {
+  "w": 42,
+  "t": "registry",
+  "m": {
+   "ar": "سجل بيربط أسماء بدوال أو كلاسات",
+   "en": "a mapping from names to implementations"
+  },
+  "ex": "Plugins add themselves to the registry."
+ },
+ {
+  "w": 42,
+  "t": "repository pattern",
+  "m": {
+   "ar": "واجهة للبيانات بتخبّي SQL",
+   "en": "a collection-like interface hiding storage"
+  },
+  "ex": "The repository pattern made tests fast."
+ },
+ {
+  "w": 42,
+  "t": "unit of work",
+  "m": {
+   "ar": "عملية بيزنس واحدة = transaction واحدة",
+   "en": "one business operation as one transaction"
+  },
+  "ex": "The unit of work rolled back the failed order."
+ },
+ {
+  "w": 42,
+  "t": "in-memory repository",
+  "m": {
+   "ar": "repository في الذاكرة للاختبار",
+   "en": "a repository storing data in memory for tests"
+  },
+  "ex": "Tests use an in-memory repository."
+ },
+ {
+  "w": 42,
+  "t": "layered architecture",
+  "m": {
+   "ar": "معمارية طبقات",
+   "en": "code organised in layers"
+  },
+  "ex": "A layered architecture suits the API service."
+ },
+ {
+  "w": 42,
+  "t": "business transaction",
+  "m": {
+   "ar": "عملية بيزنس كاملة كوحدة واحدة",
+   "en": "a business operation saved as one unit"
+  },
+  "ex": "Placing an order is one business transaction."
+ },
+ {
+  "w": 42,
+  "t": "clean architecture",
+  "m": {
+   "ar": "معمارية المنطق فيها مستقل عن الأدوات",
+   "en": "architecture keeping logic independent of tools"
+  },
+  "ex": "Clean architecture let us swap the database."
+ },
+ {
+  "w": 42,
+  "t": "hexagonal architecture",
+  "m": {
+   "ar": "المعمارية السداسية",
+   "en": "an architecture of a core with ports and adapters"
+  },
+  "ex": "Hexagonal architecture fits integration-heavy apps."
+ },
+ {
+  "w": 42,
+  "t": "ports and adapters",
+  "m": {
+   "ar": "واجهات وتنفيذاتها على الأطراف",
+   "en": "interfaces with implementations at the edges"
+  },
+  "ex": "With ports and adapters, Telegram is just an adapter."
+ },
+ {
+  "w": 42,
+  "t": "use case",
+  "m": {
+   "ar": "عملية بيزنس واحدة في الكود",
+   "en": "one business operation in code"
+  },
+  "ex": "request_refund is a use case."
+ },
+ {
+  "w": 42,
+  "t": "functional core imperative shell",
+  "m": {
+   "ar": "قلب نقي وأطراف فيها I/O",
+   "en": "pure logic inside, I/O at the edges"
+  },
+  "ex": "Functional core imperative shell made decisions easy to test."
+ },
+ {
+  "w": 42,
+  "t": "anti-corruption layer",
+  "m": {
+   "ar": "طبقة ترجمة بيانات الأنظمة الخارجية",
+   "en": "a layer translating external models"
+  },
+  "ex": "The anti-corruption layer hides Shopify’s field names."
  }
 ];
