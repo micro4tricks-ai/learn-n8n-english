@@ -5382,5 +5382,905 @@ JOURNEY_TERMS["n8n"] = [
    "en": "a live showing of the system working"
   },
   "ex": "2-minute demo video"
+ },
+ {
+  "w": 25,
+  "t": "pipeline",
+  "m": {
+   "ar": "خطوات ورا بعض كل واحدة بتسلّم اللي بعدها",
+   "en": "steps in a row, each handing over to the next"
+  },
+  "ex": "A pipeline: trigger, validate, process, output."
+ },
+ {
+  "w": 25,
+  "t": "router",
+  "m": {
+   "ar": "جزء بيوزّع المدخلات على الأجزاء المناسبة",
+   "en": "a part that sends inputs to the right handlers"
+  },
+  "ex": "The router only decides; it never processes."
+ },
+ {
+  "w": 25,
+  "t": "orchestrator",
+  "m": {
+   "ar": "workflow بينظّم شغل workflows تانية",
+   "en": "a workflow that coordinates other workflows"
+  },
+  "ex": "The orchestrator collects the workers’ results."
+ },
+ {
+  "w": 25,
+  "t": "worker workflow",
+  "m": {
+   "ar": "workflow بيعمل قطعة واحدة من الشغل",
+   "en": "a workflow that does one piece of the work"
+  },
+  "ex": "Each worker workflow processes one batch."
+ },
+ {
+  "w": 25,
+  "t": "design pattern",
+  "m": {
+   "ar": "حل متكرر لمشكلة بتتكرر",
+   "en": "a reusable solution to a recurring problem"
+  },
+  "ex": "The router is a common design pattern."
+ },
+ {
+  "w": 25,
+  "t": "service",
+  "m": {
+   "ar": "جزء صغير بيقدّم وظيفة واحدة لباقي النظام",
+   "en": "a small part offering one function to the rest of the system"
+  },
+  "ex": "svc: notify is a service."
+ },
+ {
+  "w": 25,
+  "t": "callee",
+  "m": {
+   "ar": "الـ workflow اللي بيتنادي",
+   "en": "the workflow being called"
+  },
+  "ex": "The callee returns { ok, data }."
+ },
+ {
+  "w": 25,
+  "t": "deprecated",
+  "m": {
+   "ar": "لسه شغال بس هيتشال، متستخدموش في الجديد",
+   "en": "still working but being retired; do not use it in new work"
+  },
+  "ex": "notify v1 is deprecated."
+ },
+ {
+  "w": 25,
+  "t": "response shape",
+  "m": {
+   "ar": "الشكل الثابت للرد",
+   "en": "the fixed form of a reply"
+  },
+  "ex": "Every service has the same response shape."
+ },
+ {
+  "w": 25,
+  "t": "reuse",
+  "m": {
+   "ar": "تستخدم نفس الجزء في أكتر من مكان",
+   "en": "to use the same part in more than one place"
+  },
+  "ex": "Reuse the phone formatter everywhere."
+ },
+ {
+  "w": 25,
+  "t": "configuration",
+  "m": {
+   "ar": "الإعدادات اللي بتتحكم في سلوك النظام",
+   "en": "the settings that control how a system behaves"
+  },
+  "ex": "Keep configuration out of the nodes."
+ },
+ {
+  "w": 25,
+  "t": "static data",
+  "m": {
+   "ar": "بيانات صغيرة بتتحفظ مع الـ workflow بين التشغيلات",
+   "en": "small data saved with a workflow between runs"
+  },
+  "ex": "Store lastId in static data."
+ },
+ {
+  "w": 25,
+  "t": "feature flag",
+  "m": {
+   "ar": "مفتاح تشغيل/إيقاف لجزء من النظام",
+   "en": "an on/off switch for part of a system"
+  },
+  "ex": "Turn the WhatsApp feature flag off."
+ },
+ {
+  "w": 25,
+  "t": "hard-coded",
+  "m": {
+   "ar": "قيمة مكتوبة جوه الكود أو النود مباشرة",
+   "en": "a value typed directly into code or a node"
+  },
+  "ex": "The chat id is hard-coded in 12 nodes."
+ },
+ {
+  "w": 25,
+  "t": "single source of truth",
+  "m": {
+   "ar": "مكان واحد هو المرجع لقيمة",
+   "en": "one place that is the reference for a value"
+  },
+  "ex": "The config table is the single source of truth."
+ },
+ {
+  "w": 25,
+  "t": "message queue",
+  "m": {
+   "ar": "طابور بيحفظ الرسايل لحد ما تتعالج",
+   "en": "a line that holds messages until they are processed"
+  },
+  "ex": "Put each webhook event in a message queue."
+ },
+ {
+  "w": 25,
+  "t": "decouple",
+  "m": {
+   "ar": "تفصل جزئين عشان كل واحد يشتغل لوحده",
+   "en": "to separate two parts so each works on its own"
+  },
+  "ex": "A queue decouples receiving from processing."
+ },
+ {
+  "w": 25,
+  "t": "burst",
+  "m": {
+   "ar": "كمية كبيرة جاية فجأة في وقت قصير",
+   "en": "a large amount arriving suddenly in a short time"
+  },
+  "ex": "The queue absorbs the burst."
+ },
+ {
+  "w": 25,
+  "t": "skip locked",
+  "m": {
+   "ar": "تتخطى الصفوف اللي عامل تاني ماسكها",
+   "en": "skipping rows another worker has locked"
+  },
+  "ex": "SKIP LOCKED lets two workers share the queue."
+ },
+ {
+  "w": 25,
+  "t": "backlog",
+  "m": {
+   "ar": "الشغل المتراكم اللي لسه متعالجش",
+   "en": "work piled up and not yet processed"
+  },
+  "ex": "The worker cleared the backlog in ten minutes."
+ },
+ {
+  "w": 25,
+  "t": "architecture",
+  "m": {
+   "ar": "الشكل العام للنظام وأجزاءه وعلاقاتها",
+   "en": "the overall shape of a system, its parts and their relations"
+  },
+  "ex": "Draw the architecture before you build."
+ },
+ {
+  "w": 25,
+  "t": "diagram",
+  "m": {
+   "ar": "رسمة بتوضح أجزاء وعلاقات",
+   "en": "a drawing that shows parts and relations"
+  },
+  "ex": "Keep the diagram in Git."
+ },
+ {
+  "w": 25,
+  "t": "adr",
+  "m": {
+   "ar": "سجل قرار معماري: السياق والقرار والبدائل",
+   "en": "an architecture decision record: context, decision, alternatives"
+  },
+  "ex": "Write an ADR for the queue choice."
+ },
+ {
+  "w": 25,
+  "t": "owner",
+  "m": {
+   "ar": "الشخص المسؤول عن جزء",
+   "en": "the person responsible for a part"
+  },
+  "ex": "Every workflow needs an owner."
+ },
+ {
+  "w": 25,
+  "t": "mermaid",
+  "m": {
+   "ar": "لغة نصية لرسم المخططات",
+   "en": "a text language for drawing diagrams"
+  },
+  "ex": "GitHub renders Mermaid diagrams."
+ },
+ {
+  "w": 26,
+  "t": "binary slot",
+  "m": {
+   "ar": "الخانة اللي الملف متخزّن فيها جوه العنصر",
+   "en": "the slot on an item where a file is stored"
+  },
+  "ex": "The PDF sits in the invoice binary slot."
+ },
+ {
+  "w": 26,
+  "t": "mimetype",
+  "m": {
+   "ar": "نوع الملف زي application/pdf",
+   "en": "a file’s type, like application/pdf"
+  },
+  "ex": "Check the mimeType before converting."
+ },
+ {
+  "w": 26,
+  "t": "filesystem mode",
+  "m": {
+   "ar": "وضع بيحفظ الملفات على القرص بدل الذاكرة",
+   "en": "a mode that stores files on disk instead of memory"
+  },
+  "ex": "Use filesystem mode for large files."
+ },
+ {
+  "w": 26,
+  "t": "attachment_0",
+  "m": {
+   "ar": "الاسم الافتراضي لأول مرفق إيميل في n8n",
+   "en": "the default name of the first email attachment in n8n"
+  },
+  "ex": "Gmail puts the first file in attachment_0."
+ },
+ {
+  "w": 26,
+  "t": "file name",
+  "m": {
+   "ar": "اسم الملف اللي هيتحفظ بيه",
+   "en": "the name the file will be saved with"
+  },
+  "ex": "Set the file name to INV-{{ $json.id }}.pdf."
+ },
+ {
+  "w": 26,
+  "t": "file parsing",
+  "m": {
+   "ar": "قراءة محتوى ملف وتحويله لبيانات",
+   "en": "reading a file’s content and turning it into data"
+  },
+  "ex": "File parsing turns the XLSX rows into items."
+ },
+ {
+  "w": 26,
+  "t": "file export",
+  "m": {
+   "ar": "تحويل البيانات لملف تبعته أو تحفظه",
+   "en": "turning data into a file to send or store"
+  },
+  "ex": "The file export creates the weekly report."
+ },
+ {
+  "w": 26,
+  "t": "spreadsheet file",
+  "m": {
+   "ar": "ملف جداول زي Excel",
+   "en": "a table file such as Excel"
+  },
+  "ex": "Send the totals as a spreadsheet file."
+ },
+ {
+  "w": 26,
+  "t": "binary helper",
+  "m": {
+   "ar": "دالة مساعدة بتعمل أو تقرا ملفات في Code node",
+   "en": "a helper that creates or reads files in a Code node"
+  },
+  "ex": "Use the binary helper to attach the CSV."
+ },
+ {
+  "w": 26,
+  "t": "sheet tab",
+  "m": {
+   "ar": "ورقة واحدة جوه ملف Excel",
+   "en": "one worksheet inside an Excel file"
+  },
+  "ex": "Read the September sheet tab."
+ },
+ {
+  "w": 26,
+  "t": "enrich",
+  "m": {
+   "ar": "تضيف بيانات من مصدر تاني لعناصرك",
+   "en": "to add data from another source to your items"
+  },
+  "ex": "Enrich the leads with company data."
+ },
+ {
+  "w": 26,
+  "t": "non-match",
+  "m": {
+   "ar": "عنصر ملقالوش مقابل في المصدر التاني",
+   "en": "an item with no partner in the other source"
+  },
+  "ex": "Keep the non-matches for follow-up."
+ },
+ {
+  "w": 26,
+  "t": "composite key",
+  "m": {
+   "ar": "مفتاح من أكتر من حقل",
+   "en": "a key made of more than one field"
+  },
+  "ex": "sku + warehouse is a composite key."
+ },
+ {
+  "w": 26,
+  "t": "fan-out rows",
+  "m": {
+   "ar": "صفوف بتتكرر لما مفتاح ليه أكتر من مقابل",
+   "en": "rows that repeat when a key has several matches"
+  },
+  "ex": "Summarize first to avoid fan-out rows."
+ },
+ {
+  "w": 26,
+  "t": "normalise",
+  "m": {
+   "ar": "توحّد شكل القيم قبل المقارنة",
+   "en": "to make values the same form before comparing"
+  },
+  "ex": "Normalise emails to lowercase."
+ },
+ {
+  "w": 26,
+  "t": "split by",
+  "m": {
+   "ar": "الحقل اللي بتقسم المجموعات على أساسه",
+   "en": "the field you divide the groups by"
+  },
+  "ex": "Split by city to get a total per city."
+ },
+ {
+  "w": 26,
+  "t": "count unique",
+  "m": {
+   "ar": "عدد القيم المختلفة",
+   "en": "the number of different values"
+  },
+  "ex": "Count unique customers, not orders."
+ },
+ {
+  "w": 26,
+  "t": "single list",
+  "m": {
+   "ar": "كل العناصر متجمعة في قايمة واحدة",
+   "en": "every item gathered into one list"
+  },
+  "ex": "Aggregate the rows into a single list."
+ },
+ {
+  "w": 26,
+  "t": "leaderboard",
+  "m": {
+   "ar": "ترتيب لأعلى النتايج",
+   "en": "a ranking of the top results"
+  },
+  "ex": "The email shows a leaderboard of cities."
+ },
+ {
+  "w": 26,
+  "t": "rollup",
+  "m": {
+   "ar": "تجميع أرقام تفصيلية لأرقام أعلى",
+   "en": "combining detailed numbers into higher-level totals"
+  },
+  "ex": "A monthly rollup of daily sales."
+ },
+ {
+  "w": 26,
+  "t": "out of memory",
+  "m": {
+   "ar": "الذاكرة خلصت والبرنامج وقف",
+   "en": "memory ran out and the program stopped"
+  },
+  "ex": "The run failed with out of memory."
+ },
+ {
+  "w": 26,
+  "t": "chunked processing",
+  "m": {
+   "ar": "معالجة البيانات على قطع صغيرة",
+   "en": "processing data in small pieces"
+  },
+  "ex": "Chunked processing keeps memory low."
+ },
+ {
+  "w": 26,
+  "t": "prune",
+  "m": {
+   "ar": "تمسح البيانات القديمة بانتظام",
+   "en": "to delete old data regularly"
+  },
+  "ex": "Prune executions older than 14 days."
+ },
+ {
+  "w": 26,
+  "t": "execution data",
+  "m": {
+   "ar": "البيانات المحفوظة عن كل تشغيل",
+   "en": "the data saved about each run"
+  },
+  "ex": "Execution data takes most of the disk."
+ },
+ {
+  "w": 26,
+  "t": "lightweight",
+  "m": {
+   "ar": "خفيف ومش بياخد موارد كتير",
+   "en": "light, not using many resources"
+  },
+  "ex": "Pass lightweight IDs to the batches."
+ },
+ {
+  "w": 27,
+  "t": "failure mode",
+  "m": {
+   "ar": "طريقة معيّنة ممكن النظام يفشل بيها",
+   "en": "a particular way a system can fail"
+  },
+  "ex": "List the failure modes of each workflow."
+ },
+ {
+  "w": 27,
+  "t": "request timeout",
+  "m": {
+   "ar": "أقصى وقت تستنى فيه رد الطلب",
+   "en": "the longest you wait for a request’s reply"
+  },
+  "ex": "Set a 15-second request timeout."
+ },
+ {
+  "w": 27,
+  "t": "silent failure",
+  "m": {
+   "ar": "فشل محدش بياخد باله منه لأن مفيش خطأ ظاهر",
+   "en": "a failure nobody notices because no error shows"
+  },
+  "ex": "An empty report was a silent failure."
+ },
+ {
+  "w": 27,
+  "t": "cascading failure",
+  "m": {
+   "ar": "عطل في جزء بيوقّع أجزاء تانية ورا بعض",
+   "en": "a fault in one part that brings down others in turn"
+  },
+  "ex": "Timeouts prevent cascading failure."
+ },
+ {
+  "w": 27,
+  "t": "permanent error",
+  "m": {
+   "ar": "خطأ مش هيتصلّح بإعادة المحاولة",
+   "en": "an error that retrying will not fix"
+  },
+  "ex": "A 404 is a permanent error."
+ },
+ {
+  "w": 27,
+  "t": "backoff",
+  "m": {
+   "ar": "انتظار بيزيد بين كل محاولة والتانية",
+   "en": "a wait that grows between one try and the next"
+  },
+  "ex": "Double the backoff after each 503."
+ },
+ {
+  "w": 27,
+  "t": "jitter",
+  "m": {
+   "ar": "وقت عشوائي صغير بيتضاف للانتظار",
+   "en": "a small random time added to a wait"
+  },
+  "ex": "Jitter spreads the retries out."
+ },
+ {
+  "w": 27,
+  "t": "retry budget",
+  "m": {
+   "ar": "أقصى عدد محاولات أو وقت مسموح للإعادة",
+   "en": "the most tries or time allowed for retrying"
+  },
+  "ex": "The retry budget is 5 tries or 2 minutes."
+ },
+ {
+  "w": 27,
+  "t": "max wait",
+  "m": {
+   "ar": "أطول انتظار مسموح بين محاولتين",
+   "en": "the longest wait allowed between two tries"
+  },
+  "ex": "Cap the max wait at 60 seconds."
+ },
+ {
+  "w": 27,
+  "t": "thundering herd",
+  "m": {
+   "ar": "طلبات كتير بتضرب خدمة في نفس اللحظة",
+   "en": "many requests hitting a service at the same moment"
+  },
+  "ex": "Jitter prevents a thundering herd."
+ },
+ {
+  "w": 27,
+  "t": "idempotency key",
+  "m": {
+   "ar": "مفتاح ثابت بيخلي الطلب المكرر يتنفّذ مرة",
+   "en": "a stable key that makes a repeated request run once"
+  },
+  "ex": "Send an idempotency key with every refund."
+ },
+ {
+  "w": 27,
+  "t": "at-least-once",
+  "m": {
+   "ar": "ضمان إن الرسالة توصل مرة أو أكتر",
+   "en": "a guarantee that a message arrives once or more"
+  },
+  "ex": "Webhooks are at-least-once."
+ },
+ {
+  "w": 27,
+  "t": "exactly-once",
+  "m": {
+   "ar": "ضمان إن الحاجة تحصل مرة بالظبط (صعب جدًا)",
+   "en": "a guarantee something happens exactly one time (very hard)"
+  },
+  "ex": "Do not promise exactly-once delivery."
+ },
+ {
+  "w": 27,
+  "t": "dedupe table",
+  "m": {
+   "ar": "جدول بيسجّل اللي اتعمل عشان ميتكررش",
+   "en": "a table recording what was done so it is not repeated"
+  },
+  "ex": "Check the dedupe table before sending."
+ },
+ {
+  "w": 27,
+  "t": "on conflict",
+  "m": {
+   "ar": "جزء في SQL بيحدد يحصل إيه لو المفتاح موجود",
+   "en": "an SQL clause saying what to do if the key exists"
+  },
+  "ex": "ON CONFLICT DO NOTHING skips duplicates."
+ },
+ {
+  "w": 27,
+  "t": "poison message",
+  "m": {
+   "ar": "رسالة بتفشل كل مرة وبتسد الطابور",
+   "en": "a message that fails every time and blocks the queue"
+  },
+  "ex": "Quarantine the poison message after 3 tries."
+ },
+ {
+  "w": 27,
+  "t": "quarantine",
+  "m": {
+   "ar": "تعزل حاجة بايظة بعيد عن الباقي",
+   "en": "to isolate something broken away from the rest"
+  },
+  "ex": "Failed events go to quarantine."
+ },
+ {
+  "w": 27,
+  "t": "dead-letter queue",
+  "m": {
+   "ar": "طابور للرسايل اللي فشلت نهائيًا",
+   "en": "a queue for messages that failed for good"
+  },
+  "ex": "Check the dead-letter queue every morning."
+ },
+ {
+  "w": 27,
+  "t": "replay tool",
+  "m": {
+   "ar": "أداة بتعيد إدخال رسايل للمعالجة",
+   "en": "a tool that puts messages back for processing"
+  },
+  "ex": "Use the replay tool after the fix."
+ },
+ {
+  "w": 27,
+  "t": "payload",
+  "m": {
+   "ar": "محتوى الرسالة أو الطلب نفسه",
+   "en": "the content of a message or request itself"
+  },
+  "ex": "Store the full payload in the DLQ."
+ },
+ {
+  "w": 27,
+  "t": "circuit breaker",
+  "m": {
+   "ar": "آلية بتوقف الطلبات لخدمة بتفشل لفترة",
+   "en": "a mechanism that stops calls to a failing service for a while"
+  },
+  "ex": "The circuit breaker opened after 5 failures."
+ },
+ {
+  "w": 27,
+  "t": "half-open",
+  "m": {
+   "ar": "حالة تجربة طلب واحد بعد فترة الإيقاف",
+   "en": "the state of trying one call after the pause"
+  },
+  "ex": "In half-open we send a single test call."
+ },
+ {
+  "w": 27,
+  "t": "graceful degradation",
+  "m": {
+   "ar": "تقديم خدمة أبسط بدل ما كله يقع",
+   "en": "offering a simpler service instead of failing completely"
+  },
+  "ex": "A template reply is graceful degradation."
+ },
+ {
+  "w": 27,
+  "t": "fallback channel",
+  "m": {
+   "ar": "قناة بديلة لما الأساسية تفشل",
+   "en": "a backup channel when the main one fails"
+  },
+  "ex": "Email is the fallback channel for WhatsApp."
+ },
+ {
+  "w": 27,
+  "t": "health check",
+  "m": {
+   "ar": "طلب خفيف بيتأكد إن خدمة شغالة",
+   "en": "a light request checking a service is up"
+  },
+  "ex": "Run a health check every 5 minutes."
+ },
+ {
+  "w": 28,
+  "t": "test fixture",
+  "m": {
+   "ar": "مثال مدخل ثابت للاختبار نتيجته معروفة",
+   "en": "a fixed test input with a known result"
+  },
+  "ex": "Add a test fixture for an empty message."
+ },
+ {
+  "w": 28,
+  "t": "expected output",
+  "m": {
+   "ar": "النتيجة اللي المفروض تطلع",
+   "en": "the result that should come out"
+  },
+  "ex": "Compare the reply with the expected output."
+ },
+ {
+  "w": 28,
+  "t": "test runner",
+  "m": {
+   "ar": "أداة أو workflow بيشغّل الاختبارات ويقارن",
+   "en": "a tool or workflow that runs tests and compares"
+  },
+  "ex": "Run the test runner before each deploy."
+ },
+ {
+  "w": 28,
+  "t": "edge input",
+  "m": {
+   "ar": "مدخل غريب أو على الحدود",
+   "en": "an unusual or borderline input"
+  },
+  "ex": "A negative amount is an edge input."
+ },
+ {
+  "w": 28,
+  "t": "pass rate",
+  "m": {
+   "ar": "نسبة الاختبارات اللي نجحت",
+   "en": "the share of tests that passed"
+  },
+  "ex": "The pass rate must be 100% to deploy."
+ },
+ {
+  "w": 28,
+  "t": "dry run",
+  "m": {
+   "ar": "تشغيل تجريبي بيسجّل الأفعال من غير ما ينفّذها",
+   "en": "a trial run that logs actions without doing them"
+  },
+  "ex": "Run the campaign as a dry run first."
+ },
+ {
+  "w": 28,
+  "t": "mock data",
+  "m": {
+   "ar": "بيانات وهمية شبه الحقيقية للاختبار",
+   "en": "fake data that looks real, for testing"
+  },
+  "ex": "Generate mock data with Arabic names."
+ },
+ {
+  "w": 28,
+  "t": "fake service",
+  "m": {
+   "ar": "خدمة وهمية بتقلّد ردود خدمة حقيقية",
+   "en": "a pretend service that imitates a real one’s replies"
+  },
+  "ex": "The fake service returns 429 on demand."
+ },
+ {
+  "w": 28,
+  "t": "endpoint swap",
+  "m": {
+   "ar": "تبديل عنوان API بين الحقيقي والوهمي من الإعدادات",
+   "en": "switching an API address between real and fake from settings"
+  },
+  "ex": "An endpoint swap points tests at the fake CRM."
+ },
+ {
+  "w": 28,
+  "t": "test log",
+  "m": {
+   "ar": "سجل بيكتب فيه اللي كان هيتعمل",
+   "en": "a log of what would have been done"
+  },
+  "ex": "Check the test log after the dry run."
+ },
+ {
+  "w": 28,
+  "t": "release tag",
+  "m": {
+   "ar": "علامة في Git على نسخة اتنشرت",
+   "en": "a Git marker on a version that was deployed"
+  },
+  "ex": "Create a release tag for v1.4.0."
+ },
+ {
+  "w": 28,
+  "t": "version history",
+  "m": {
+   "ar": "كل النسخ القديمة لملف أو workflow",
+   "en": "all the older versions of a file or workflow"
+  },
+  "ex": "Open the version history to compare."
+ },
+ {
+  "w": 28,
+  "t": "semantic versioning",
+  "m": {
+   "ar": "ترقيم إصدارات كبير.متوسط.صغير",
+   "en": "numbering releases major.minor.patch"
+  },
+  "ex": "v1.4.0 follows semantic versioning."
+ },
+ {
+  "w": 28,
+  "t": "pretty print",
+  "m": {
+   "ar": "كتابة JSON بمسافات وسطور مقروءة",
+   "en": "writing JSON with readable spaces and lines"
+  },
+  "ex": "Pretty print the export for clean diffs."
+ },
+ {
+  "w": 28,
+  "t": "change log",
+  "m": {
+   "ar": "ملف بيسجّل التغييرات في كل إصدار",
+   "en": "a file recording the changes in each release"
+  },
+  "ex": "Update the change log before tagging."
+ },
+ {
+  "w": 28,
+  "t": "staging",
+  "m": {
+   "ar": "بيئة شبه الإنتاج للاختبار النهائي",
+   "en": "a near-production environment for final testing"
+  },
+  "ex": "Test the release on staging first."
+ },
+ {
+  "w": 28,
+  "t": "production",
+  "m": {
+   "ar": "البيئة الحقيقية اللي العملاء بيستخدموها",
+   "en": "the real environment customers use"
+  },
+  "ex": "Never edit production directly."
+ },
+ {
+  "w": 28,
+  "t": "promote",
+  "m": {
+   "ar": "تنقل نسخة من بيئة للبيئة الأعلى",
+   "en": "to move a version up to the next environment"
+  },
+  "ex": "Promote the workflow from staging to production."
+ },
+ {
+  "w": 28,
+  "t": "environment parity",
+  "m": {
+   "ar": "إن البيئات تبقى شبه بعض قدر الإمكان",
+   "en": "keeping environments as alike as possible"
+  },
+  "ex": "Environment parity makes staging tests meaningful."
+ },
+ {
+  "w": 28,
+  "t": "source control",
+  "m": {
+   "ar": "تتبع التغييرات بأداة زي Git",
+   "en": "tracking changes with a tool like Git"
+  },
+  "ex": "Use source control for all workflows."
+ },
+ {
+  "w": 28,
+  "t": "smoke test",
+  "m": {
+   "ar": "اختبار سريع لحالة واحدة من الأول للآخر بعد النشر",
+   "en": "a quick end-to-end check of one case after deploying"
+  },
+  "ex": "Run a smoke test with a test order."
+ },
+ {
+  "w": 28,
+  "t": "pre-flight check",
+  "m": {
+   "ar": "فحص قبل البدء زي الطيارين",
+   "en": "a check before starting, like pilots do"
+  },
+  "ex": "The pre-flight check found a missing variable."
+ },
+ {
+  "w": 28,
+  "t": "deploy window",
+  "m": {
+   "ar": "الوقت المتفق عليه للنشر",
+   "en": "the agreed time for deploying"
+  },
+  "ex": "Our deploy window is Sunday morning."
+ },
+ {
+  "w": 28,
+  "t": "roll back",
+  "m": {
+   "ar": "ترجع لنسخة قديمة شغالة",
+   "en": "to return to an older working version"
+  },
+  "ex": "Roll back to v1.3.2 in two minutes."
+ },
+ {
+  "w": 28,
+  "t": "hotfix",
+  "m": {
+   "ar": "إصلاح سريع ومستعجل في الإنتاج",
+   "en": "a quick, urgent fix in production"
+  },
+  "ex": "Ship the hotfix after a staging check."
  }
 ];

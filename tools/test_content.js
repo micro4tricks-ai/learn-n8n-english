@@ -34,7 +34,7 @@ for(const track of ['english', 'n8n', 'python', 'js']){
     count++;
     if(!wk){ problems.push(W + ': no JOURNEY.week call'); continue; }
     if(wk.track !== track || 'w' + String(wk.n).padStart(2, '0') + '.js' !== f) problems.push(W + ': track/n mismatch');
-    if(!(wk.month >= 1 && wk.month <= 6)) problems.push(W + ': month must be 1-6');
+    if(!(wk.month >= 1 && wk.month <= 12)) problems.push(W + ': month must be 1-12');
     bi(wk.title, W + ' title'); bi(wk.goal, W + ' goal'); bi(wk.level, W + ' level');
     if(!Array.isArray(wk.days) || wk.days.length !== 6){ problems.push(W + ': needs 6 days'); continue; }
     wk.days.forEach((d, i) => {

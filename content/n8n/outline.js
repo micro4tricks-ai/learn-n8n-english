@@ -2,7 +2,7 @@
 // Months 1–3 are the intensive start (3 hours a day); then 2 hours a day from intermediate to expert.
 JOURNEY.outline({
  track: 'n8n',
- ready: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24],
+ ready: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28],
  months: [
   { n: 1, level: { ar: 'مبتدئ · مكثّف', en: 'Beginner · intensive' }, title: { ar: 'الأساسيات', en: 'The basics' } },
   { n: 2, level: { ar: 'مبتدئ · مكثّف', en: 'Beginner · intensive' }, title: { ar: 'الربط والبيانات', en: 'Integrations and data' } },
