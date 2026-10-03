@@ -7380,5 +7380,320 @@ JOURNEY_TERMS["english"] = [
    "en": "to stay in contact"
   },
   "ex": "Let’s keep in touch for the spring event."
+ },
+ {
+  "w": 48,
+  "t": "CEFR",
+  "m": {
+   "ar": "الإطار الأوروبي لمستويات اللغة",
+   "en": "the European scale of language levels"
+  },
+  "ex": "C2 is the top CEFR level."
+ },
+ {
+  "w": 48,
+  "t": "can-do statement",
+  "m": {
+   "ar": "جملة «أقدر أعمل»",
+   "en": "a description of what a learner can do"
+  },
+  "ex": "Tick each can-do statement honestly."
+ },
+ {
+  "w": 48,
+  "t": "proficiency",
+  "m": {
+   "ar": "التمكّن",
+   "en": "a high level of skill"
+  },
+  "ex": "C2 is called Proficiency."
+ },
+ {
+  "w": 48,
+  "t": "fluency",
+  "m": {
+   "ar": "الطلاقة",
+   "en": "speaking smoothly without many pauses"
+  },
+  "ex": "Fluency improves with daily speaking."
+ },
+ {
+  "w": 48,
+  "t": "complexity",
+  "m": {
+   "ar": "تنوع وتعقيد التراكيب",
+   "en": "the variety of structures you use"
+  },
+  "ex": "Add complexity with inversion and clefts."
+ },
+ {
+  "w": 48,
+  "t": "coherence",
+  "m": {
+   "ar": "منطق وترابط الأفكار",
+   "en": "the logical flow of ideas"
+  },
+  "ex": "Coherence comes from a clear plan."
+ },
+ {
+  "w": 48,
+  "t": "cohesion",
+  "m": {
+   "ar": "ترابط الجمل بالروابط",
+   "en": "linking sentences together"
+  },
+  "ex": "Use varied linkers for cohesion."
+ },
+ {
+  "w": 48,
+  "t": "intelligibility",
+  "m": {
+   "ar": "سهولة فهم كلامك",
+   "en": "being easily understood"
+  },
+  "ex": "Intelligibility matters more than accent."
+ },
+ {
+  "w": 48,
+  "t": "accent",
+  "m": {
+   "ar": "اللكنة",
+   "en": "the way you pronounce a language"
+  },
+  "ex": "Your accent is part of who you are."
+ },
+ {
+  "w": 48,
+  "t": "self-assessment",
+  "m": {
+   "ar": "تقييم ذاتي",
+   "en": "judging your own level"
+  },
+  "ex": "Repeat the self-assessment every quarter."
+ },
+ {
+  "w": 48,
+  "t": "mock test",
+  "m": {
+   "ar": "اختبار تجريبي",
+   "en": "a practice exam"
+  },
+  "ex": "Take a mock test under real timing."
+ },
+ {
+  "w": 48,
+  "t": "band score",
+  "m": {
+   "ar": "درجة IELTS",
+   "en": "an IELTS score out of 9"
+  },
+  "ex": "She got a band score of 8.5."
+ },
+ {
+  "w": 48,
+  "t": "fossilised error",
+  "m": {
+   "ar": "غلط متجذر",
+   "en": "a mistake fixed by long repetition"
+  },
+  "ex": "«Discuss about» is a fossilised error."
+ },
+ {
+  "w": 48,
+  "t": "error log",
+  "m": {
+   "ar": "سجل الأخطاء",
+   "en": "a record of recurring mistakes"
+  },
+  "ex": "Update your error log weekly."
+ },
+ {
+  "w": 48,
+  "t": "redraft",
+  "m": {
+   "ar": "تعيد كتابة",
+   "en": "to write again, improved"
+  },
+  "ex": "Redraft the email without the error."
+ },
+ {
+  "w": 48,
+  "t": "final draft",
+  "m": {
+   "ar": "النسخة النهائية",
+   "en": "the finished version"
+  },
+  "ex": "Send only the final draft."
+ },
+ {
+  "w": 48,
+  "t": "style sheet",
+  "m": {
+   "ar": "دليل أسلوب شخصي",
+   "en": "a list of your writing rules"
+  },
+  "ex": "My style sheet says «email», not «e-mail»."
+ },
+ {
+  "w": 48,
+  "t": "writing portfolio",
+  "m": {
+   "ar": "حافظة كتابة",
+   "en": "a collection of your best writing"
+  },
+  "ex": "Share your writing portfolio with clients."
+ },
+ {
+  "w": 48,
+  "t": "final edit",
+  "m": {
+   "ar": "التحرير النهائي",
+   "en": "the last revision before publishing"
+  },
+  "ex": "The final edit cut 15% of the words."
+ },
+ {
+  "w": 48,
+  "t": "before and after",
+  "m": {
+   "ar": "قبل وبعد",
+   "en": "a comparison showing change"
+  },
+  "ex": "The before and after shows real progress."
+ },
+ {
+  "w": 48,
+  "t": "stylistic range",
+  "m": {
+   "ar": "تنوع الأساليب",
+   "en": "the variety of styles you can write in"
+  },
+  "ex": "The portfolio shows my stylistic range."
+ },
+ {
+  "w": 48,
+  "t": "progress evidence",
+  "m": {
+   "ar": "دليل على التطور",
+   "en": "proof that you have improved"
+  },
+  "ex": "A before-and-after pair is strong progress evidence."
+ },
+ {
+  "w": 48,
+  "t": "rehearsal",
+  "m": {
+   "ar": "بروفة",
+   "en": "a practice performance"
+  },
+  "ex": "Do a full rehearsal with a timer."
+ },
+ {
+  "w": 48,
+  "t": "impromptu",
+  "m": {
+   "ar": "مرتجل من غير تحضير",
+   "en": "without preparation"
+  },
+  "ex": "Give an impromptu two-minute answer."
+ },
+ {
+  "w": 48,
+  "t": "articulate",
+  "m": {
+   "ar": "بيعبّر بوضوح وسلاسة",
+   "en": "able to express ideas clearly"
+  },
+  "ex": "She is articulate under pressure."
+ },
+ {
+  "w": 48,
+  "t": "talk around",
+  "m": {
+   "ar": "تلف حوالين الكلمة",
+   "en": "to describe a word you can’t recall"
+  },
+  "ex": "If you forget a word, talk around it."
+ },
+ {
+  "w": 48,
+  "t": "spoken performance",
+  "m": {
+   "ar": "الأداء الشفهي",
+   "en": "how well you speak in a test or task"
+  },
+  "ex": "The spoken performance was recorded."
+ },
+ {
+  "w": 48,
+  "t": "input diet",
+  "m": {
+   "ar": "نظامك من الاستماع والقراءة",
+   "en": "your regular listening and reading mix"
+  },
+  "ex": "A rich input diet keeps C2 alive."
+ },
+ {
+  "w": 48,
+  "t": "immersion",
+  "m": {
+   "ar": "الانغماس في اللغة",
+   "en": "surrounding yourself with a language"
+  },
+  "ex": "Immersion doesn’t require travel."
+ },
+ {
+  "w": 48,
+  "t": "spaced repetition",
+  "m": {
+   "ar": "المراجعة المتباعدة",
+   "en": "reviewing at growing intervals"
+  },
+  "ex": "Spaced repetition beats cramming."
+ },
+ {
+  "w": 48,
+  "t": "learning plan",
+  "m": {
+   "ar": "خطة تعلّم",
+   "en": "a plan for what to learn and when"
+  },
+  "ex": "My learning plan has four quarterly goals."
+ },
+ {
+  "w": 48,
+  "t": "accountability partner",
+  "m": {
+   "ar": "شريك متابعة",
+   "en": "someone who checks your progress"
+  },
+  "ex": "My accountability partner keeps me honest."
+ },
+ {
+  "w": 48,
+  "t": "language exchange",
+  "m": {
+   "ar": "تبادل لغوي",
+   "en": "helping each other learn languages"
+  },
+  "ex": "I teach Arabic in a language exchange."
+ },
+ {
+  "w": 48,
+  "t": "teach to learn",
+  "m": {
+   "ar": "تعلّم بالتعليم",
+   "en": "learning deeply by teaching others"
+  },
+  "ex": "Teach to learn: run a free workshop."
+ },
+ {
+  "w": 48,
+  "t": "lifelong learner",
+  "m": {
+   "ar": "متعلم مدى الحياة",
+   "en": "someone who keeps learning always"
+  },
+  "ex": "Every expert is a lifelong learner."
  }
 ];
