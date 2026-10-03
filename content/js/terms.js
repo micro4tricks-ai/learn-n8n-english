@@ -9045,5 +9045,239 @@ JOURNEY_TERMS["js"] = [
    "en": "a light DOM environment for tests"
   },
   "ex": "Vitest can use happy-dom."
+ },
+ {
+  "w": 32,
+  "t": "react",
+  "m": {
+   "ar": "مكتبة لبناء الواجهات من مكوّنات",
+   "en": "a library for building UIs from components"
+  },
+  "ex": "The dashboard is built with React."
+ },
+ {
+  "w": 32,
+  "t": "jsx",
+  "m": {
+   "ar": "صيغة HTML جوه JS",
+   "en": "HTML-like syntax inside JS"
+  },
+  "ex": "JSX compiles to function calls."
+ },
+ {
+  "w": 32,
+  "t": "function component",
+  "m": {
+   "ar": "مكوّن React كدالة",
+   "en": "a React component written as a function"
+  },
+  "ex": "OrderCard is a function component."
+ },
+ {
+  "w": 32,
+  "t": "reconciliation",
+  "m": {
+   "ar": "مقارنة الواجهة القديمة بالجديدة وتحديث الفرق",
+   "en": "comparing old and new UI and updating the difference"
+  },
+  "ex": "Reconciliation updates one row only."
+ },
+ {
+  "w": 32,
+  "t": "children",
+  "m": {
+   "ar": "المحتوى اللي بيتحط جوه المكوّن",
+   "en": "the content placed inside a component"
+  },
+  "ex": "Panel renders its children."
+ },
+ {
+  "w": 32,
+  "t": "htm",
+  "m": {
+   "ar": "صيغة شبه JSX من غير بناء",
+   "en": "JSX-like syntax with no build step"
+  },
+  "ex": "htm is handy for quick demos."
+ },
+ {
+  "w": 32,
+  "t": "usestate",
+  "m": {
+   "ar": "hook لـ state جوه المكوّن",
+   "en": "a hook for state inside a component"
+  },
+  "ex": "useState holds the cart items."
+ },
+ {
+  "w": 32,
+  "t": "hook",
+  "m": {
+   "ar": "دالة use… بتضيف قدرة للمكوّن",
+   "en": "a use… function adding a capability to a component"
+  },
+  "ex": "Call hooks at the top level only."
+ },
+ {
+  "w": 32,
+  "t": "controlled input",
+  "m": {
+   "ar": "خانة قيمتها من الـ state",
+   "en": "an input whose value comes from state"
+  },
+  "ex": "The search box is a controlled input."
+ },
+ {
+  "w": 32,
+  "t": "key prop",
+  "m": {
+   "ar": "معرّف ثابت لكل عنصر في قايمة",
+   "en": "a stable identifier for each list item"
+  },
+  "ex": "Use the order id as the key prop."
+ },
+ {
+  "w": 32,
+  "t": "lifting state up",
+  "m": {
+   "ar": "نقل الـ state لأقرب أب مشترك",
+   "en": "moving state to the nearest common parent"
+  },
+  "ex": "Lifting state up shares the filter."
+ },
+ {
+  "w": 32,
+  "t": "useeffect",
+  "m": {
+   "ar": "hook لكود بيتعامل مع العالم الخارجي بعد الرسم",
+   "en": "a hook for outside-world code after render"
+  },
+  "ex": "useEffect fetches the order."
+ },
+ {
+  "w": 32,
+  "t": "dependency array",
+  "m": {
+   "ar": "قايمة بتحدد إمتى الـ effect يتعاد",
+   "en": "the list deciding when an effect re-runs"
+  },
+  "ex": "Put id in the dependency array."
+ },
+ {
+  "w": 32,
+  "t": "cleanup function",
+  "m": {
+   "ar": "دالة بتلغي الـ effect القديم",
+   "en": "a function undoing the previous effect"
+  },
+  "ex": "The cleanup function aborts the fetch."
+ },
+ {
+  "w": 32,
+  "t": "custom hook",
+  "m": {
+   "ar": "دالة use… بتعيد استخدام منطق",
+   "en": "a use… function reusing logic"
+  },
+  "ex": "useFetch is a custom hook."
+ },
+ {
+  "w": 32,
+  "t": "strict mode react",
+  "m": {
+   "ar": "وضع تطوير بيكشف الأخطاء",
+   "en": "a development mode exposing mistakes"
+  },
+  "ex": "Strict mode React runs effects twice."
+ },
+ {
+  "w": 32,
+  "t": "usereducer",
+  "m": {
+   "ar": "hook لـ state معقد بـ actions",
+   "en": "a hook for complex state with actions"
+  },
+  "ex": "useReducer manages the cart."
+ },
+ {
+  "w": 32,
+  "t": "reducer",
+  "m": {
+   "ar": "دالة (state, action) ← state جديد",
+   "en": "a function (state, action) → new state"
+  },
+  "ex": "Test the reducer without React."
+ },
+ {
+  "w": 32,
+  "t": "dispatch",
+  "m": {
+   "ar": "إرسال action للـ reducer",
+   "en": "sending an action to the reducer"
+  },
+  "ex": "dispatch({ type: \"clear\" })."
+ },
+ {
+  "w": 32,
+  "t": "usecontext",
+  "m": {
+   "ar": "قراءة بيانات مشتركة من Provider",
+   "en": "reading shared data from a Provider"
+  },
+  "ex": "useContext reads the cart."
+ },
+ {
+  "w": 32,
+  "t": "provider",
+  "m": {
+   "ar": "مكوّن بيوفّر context لشجرته",
+   "en": "a component supplying context to its tree"
+  },
+  "ex": "Wrap the app in CartProvider."
+ },
+ {
+  "w": 32,
+  "t": "virtual dom",
+  "m": {
+   "ar": "وصف للواجهة في الذاكرة بيتقارن",
+   "en": "an in-memory description of the UI that gets compared"
+  },
+  "ex": "The virtual DOM is a convenience, not magic."
+ },
+ {
+  "w": 32,
+  "t": "react testing library",
+  "m": {
+   "ar": "مكتبة اختبار المكوّنات زي المستخدم",
+   "en": "a library testing components like a user"
+  },
+  "ex": "React Testing Library finds by role."
+ },
+ {
+  "w": 32,
+  "t": "memo",
+  "m": {
+   "ar": "منع إعادة رسم مكوّن لو props متغيرتش",
+   "en": "skipping a re-render when props are unchanged"
+  },
+  "ex": "memo stopped 500 row renders."
+ },
+ {
+  "w": 32,
+  "t": "meta-framework",
+  "m": {
+   "ar": "إطار فوق React بـ routing وسيرفر",
+   "en": "a framework over React with routing and a server"
+  },
+  "ex": "Next.js is a meta-framework."
+ },
+ {
+  "w": 32,
+  "t": "hydration",
+  "m": {
+   "ar": "تفعيل HTML جاي من السيرفر في المتصفح",
+   "en": "activating server-rendered HTML in the browser"
+  },
+  "ex": "Hydration attaches the event handlers."
  }
 ];
