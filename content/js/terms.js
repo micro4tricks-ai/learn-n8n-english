@@ -10620,5 +10620,257 @@ JOURNEY_TERMS["js"] = [
    "en": "the marker for the cached prefix"
   },
   "ex": "Put cache_control on the policies block."
+ },
+ {
+  "w": 38,
+  "t": "mcp",
+  "m": {
+   "ar": "بروتوكول توصيل الـ AI بالأدوات",
+   "en": "the Model Context Protocol"
+  },
+  "ex": "MCP connects Claude to your tools."
+ },
+ {
+  "w": 38,
+  "t": "mcp server",
+  "m": {
+   "ar": "برنامج بيعرض أدوات وبيانات",
+   "en": "a program exposing tools and data"
+  },
+  "ex": "Our MCP server wraps the shop database."
+ },
+ {
+  "w": 38,
+  "t": "mcp client",
+  "m": {
+   "ar": "التطبيق اللي بيستخدم السيرفرات",
+   "en": "the app that uses MCP servers"
+  },
+  "ex": "Claude Code is an MCP client."
+ },
+ {
+  "w": 38,
+  "t": "mcp tool",
+  "m": {
+   "ar": "أداة في سيرفر MCP",
+   "en": "a callable action on an MCP server"
+  },
+  "ex": "sales_summary is an MCP tool."
+ },
+ {
+  "w": 38,
+  "t": "stdio transport",
+  "m": {
+   "ar": "التواصل عبر stdin/stdout",
+   "en": "communication over standard input/output"
+  },
+  "ex": "Local servers use the stdio transport."
+ },
+ {
+  "w": 38,
+  "t": "json-rpc",
+  "m": {
+   "ar": "بروتوكول طلب ورد بـ JSON",
+   "en": "a JSON request/response protocol"
+  },
+  "ex": "Each MCP message is JSON-RPC."
+ },
+ {
+  "w": 38,
+  "t": "mcp inspector",
+  "m": {
+   "ar": "أداة تجرّب فيها السيرفر",
+   "en": "a tool for testing MCP servers"
+  },
+  "ex": "Open the MCP Inspector before connecting clients."
+ },
+ {
+  "w": 38,
+  "t": "registertool",
+  "m": {
+   "ar": "دالة تسجيل أداة في الـ SDK",
+   "en": "the SDK method registering a tool"
+  },
+  "ex": "Call registerTool for each action."
+ },
+ {
+  "w": 38,
+  "t": "inputschema",
+  "m": {
+   "ar": "شكل مدخلات الأداة",
+   "en": "the schema of a tool’s input"
+  },
+  "ex": "The inputSchema is written in zod."
+ },
+ {
+  "w": 38,
+  "t": "structured content",
+  "m": {
+   "ar": "نتيجة JSON منظمة",
+   "en": "machine-readable tool output"
+  },
+  "ex": "Return structured content plus text."
+ },
+ {
+  "w": 38,
+  "t": "output schema",
+  "m": {
+   "ar": "شكل نتيجة الأداة",
+   "en": "the schema of a tool’s result"
+  },
+  "ex": "Clients validate against the output schema."
+ },
+ {
+  "w": 38,
+  "t": "iserror",
+  "m": {
+   "ar": "علامة إن النتيجة خطأ",
+   "en": "a flag marking a tool result as an error"
+  },
+  "ex": "Return isError when an order is missing."
+ },
+ {
+  "w": 38,
+  "t": "tool annotations",
+  "m": {
+   "ar": "تلميحات طبيعة الأداة",
+   "en": "hints about a tool’s behaviour"
+  },
+  "ex": "Tool annotations mark cancel_order as destructive."
+ },
+ {
+  "w": 38,
+  "t": "mcp resource",
+  "m": {
+   "ar": "بيانات بعنوان في سيرفر MCP",
+   "en": "addressable data on an MCP server"
+  },
+  "ex": "Attach the schema MCP resource to the chat."
+ },
+ {
+  "w": 38,
+  "t": "resource template",
+  "m": {
+   "ar": "عنوان resource بمتغيّر",
+   "en": "a resource address with variables"
+  },
+  "ex": "shop://orders/{id} is a resource template."
+ },
+ {
+  "w": 38,
+  "t": "uri",
+  "m": {
+   "ar": "عنوان المورد",
+   "en": "a resource identifier"
+  },
+  "ex": "Each resource has a URI."
+ },
+ {
+  "w": 38,
+  "t": "mcp prompt",
+  "m": {
+   "ar": "قالب برومبت في السيرفر",
+   "en": "a prompt template offered by a server"
+  },
+  "ex": "The weekly_review MCP prompt takes a week."
+ },
+ {
+  "w": 38,
+  "t": "slash command",
+  "m": {
+   "ar": "أمر يبدأ بـ /",
+   "en": "a command typed with a leading slash"
+  },
+  "ex": "MCP prompts appear as slash commands."
+ },
+ {
+  "w": 38,
+  "t": "streamable http",
+  "m": {
+   "ar": "نقل MCP عبر HTTP",
+   "en": "MCP transport over HTTP"
+  },
+  "ex": "Remote clients use Streamable HTTP."
+ },
+ {
+  "w": 38,
+  "t": "session id",
+  "m": {
+   "ar": "معرّف جلسة MCP",
+   "en": "the identifier of an MCP session"
+  },
+  "ex": "The session id travels in Mcp-Session-Id."
+ },
+ {
+  "w": 38,
+  "t": "client token",
+  "m": {
+   "ar": "توكن خاص بكل client",
+   "en": "a secret token issued to one client"
+  },
+  "ex": "Each client token maps to its allowed tools."
+ },
+ {
+  "w": 38,
+  "t": "mcp client tool",
+  "m": {
+   "ar": "نود n8n بيستخدم سيرفر MCP",
+   "en": "the n8n node that uses an MCP server"
+  },
+  "ex": "The MCP Client Tool sends the client token."
+ },
+ {
+  "w": 38,
+  "t": "cloudflare workers",
+  "m": {
+   "ar": "تشغيل كود على شبكة Cloudflare",
+   "en": "serverless functions on Cloudflare’s network"
+  },
+  "ex": "We host the MCP server on Cloudflare Workers."
+ },
+ {
+  "w": 38,
+  "t": "in-memory transport",
+  "m": {
+   "ar": "نقل في الذاكرة للاختبار",
+   "en": "a linked transport pair for tests"
+  },
+  "ex": "Tests use the in-memory transport."
+ },
+ {
+  "w": 38,
+  "t": "contract snapshot",
+  "m": {
+   "ar": "نسخة محفوظة من واجهة الأدوات",
+   "en": "a saved copy of the tool interface"
+  },
+  "ex": "The contract snapshot caught a new required field."
+ },
+ {
+  "w": 38,
+  "t": "breaking change",
+  "m": {
+   "ar": "تغيير بيكسر الـ clients",
+   "en": "a change that breaks existing clients"
+  },
+  "ex": "Removing a tool is a breaking change."
+ },
+ {
+  "w": 38,
+  "t": "bin field",
+  "m": {
+   "ar": "حقل الأوامر في package.json",
+   "en": "the package.json field declaring commands"
+  },
+  "ex": "The bin field makes npx shop-mcp work."
+ },
+ {
+  "w": 38,
+  "t": "provenance",
+  "m": {
+   "ar": "إثبات مصدر بناء الحزمة",
+   "en": "proof of where a package was built"
+  },
+  "ex": "Publish with provenance from CI."
  }
 ];
