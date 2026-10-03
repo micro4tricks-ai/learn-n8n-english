@@ -8793,5 +8793,257 @@ JOURNEY_TERMS["js"] = [
    "en": "running Lighthouse automatically in CI"
   },
   "ex": "Lighthouse CI checks every PR."
+ },
+ {
+  "w": 31,
+  "t": "ui component",
+  "m": {
+   "ar": "قطعة واجهة قابلة لإعادة الاستخدام",
+   "en": "a reusable piece of interface"
+  },
+  "ex": "The order card is a UI component."
+ },
+ {
+  "w": 31,
+  "t": "unidirectional data flow",
+  "m": {
+   "ar": "البيانات بتنزل والأحداث بتطلع",
+   "en": "data flows down, events flow up"
+  },
+  "ex": "Unidirectional data flow keeps bugs away."
+ },
+ {
+  "w": 31,
+  "t": "derived state",
+  "m": {
+   "ar": "قيم بتتحسب من الـ state",
+   "en": "values computed from the state"
+  },
+  "ex": "The total is derived state."
+ },
+ {
+  "w": 31,
+  "t": "single source of state",
+  "m": {
+   "ar": "مكان واحد للبيانات",
+   "en": "one place for the data"
+  },
+  "ex": "Keep a single source of state."
+ },
+ {
+  "w": 31,
+  "t": "encapsulation",
+  "m": {
+   "ar": "إخفاء التفاصيل الداخلية للمكوّن",
+   "en": "hiding a component’s internals"
+  },
+  "ex": "Encapsulation keeps styles from leaking."
+ },
+ {
+  "w": 31,
+  "t": "store",
+  "m": {
+   "ar": "مكان واحد للـ state مع اشتراكات",
+   "en": "one place for state with subscriptions"
+  },
+  "ex": "The cart store notifies the header."
+ },
+ {
+  "w": 31,
+  "t": "subscribe",
+  "m": {
+   "ar": "التسجيل لاستلام التغييرات",
+   "en": "registering to receive changes"
+  },
+  "ex": "The table subscribes to the store."
+ },
+ {
+  "w": 31,
+  "t": "unsubscribe",
+  "m": {
+   "ar": "إلغاء الاشتراك",
+   "en": "cancelling a subscription"
+  },
+  "ex": "Unsubscribe when the panel closes."
+ },
+ {
+  "w": 31,
+  "t": "action",
+  "m": {
+   "ar": "دالة بتوصف تغيير في الـ state",
+   "en": "a function describing a state change"
+  },
+  "ex": "The remove action filters the item."
+ },
+ {
+  "w": 31,
+  "t": "undo history",
+  "m": {
+   "ar": "قايمة نسخ الـ state للرجوع",
+   "en": "a list of state copies for going back"
+  },
+  "ex": "Immutable updates make undo history easy."
+ },
+ {
+  "w": 31,
+  "t": "web component",
+  "m": {
+   "ar": "عنصر HTML بتعرّفه بنفسك",
+   "en": "an HTML element you define yourself"
+  },
+  "ex": "The order card is a web component."
+ },
+ {
+  "w": 31,
+  "t": "custom element",
+  "m": {
+   "ar": "كلاس مسجّل كعنصر HTML",
+   "en": "a class registered as an HTML element"
+  },
+  "ex": "Define the custom element with a hyphenated name."
+ },
+ {
+  "w": 31,
+  "t": "lifecycle callback",
+  "m": {
+   "ar": "دالة بتتنادى في مراحل حياة العنصر",
+   "en": "a function called at stages of an element’s life"
+  },
+  "ex": "connectedCallback is a lifecycle callback."
+ },
+ {
+  "w": 31,
+  "t": "connectedcallback",
+  "m": {
+   "ar": "بيشتغل لما العنصر يدخل الصفحة",
+   "en": "runs when the element enters the page"
+  },
+  "ex": "Render in connectedCallback."
+ },
+ {
+  "w": 31,
+  "t": "observedattributes",
+  "m": {
+   "ar": "قايمة الـ attributes اللي بتتراقب",
+   "en": "the list of watched attributes"
+  },
+  "ex": "observedAttributes lists \"status\"."
+ },
+ {
+  "w": 31,
+  "t": "attributechangedcallback",
+  "m": {
+   "ar": "بيتنادى لما attribute يتغير",
+   "en": "called when an attribute changes"
+  },
+  "ex": "attributeChangedCallback redraws the badge."
+ },
+ {
+  "w": 31,
+  "t": "shadow dom",
+  "m": {
+   "ar": "DOM وCSS خاصين بالمكوّن",
+   "en": "a component’s private DOM and CSS"
+  },
+  "ex": "Shadow DOM stops styles leaking."
+ },
+ {
+  "w": 31,
+  "t": "slot",
+  "m": {
+   "ar": "مكان للمحتوى اللي بيتحط جوه المكوّن",
+   "en": "a place for content put inside the component"
+  },
+  "ex": "The title goes into the named slot."
+ },
+ {
+  "w": 31,
+  "t": "customevent",
+  "m": {
+   "ar": "حدث مخصص ببيانات",
+   "en": "a custom event carrying data"
+  },
+  "ex": "The card dispatches a CustomEvent."
+ },
+ {
+  "w": 31,
+  "t": "dispatchevent",
+  "m": {
+   "ar": "إطلاق حدث من عنصر",
+   "en": "firing an event from an element"
+  },
+  "ex": "dispatchEvent tells the parent."
+ },
+ {
+  "w": 31,
+  "t": "event bus",
+  "m": {
+   "ar": "قناة أحداث مشتركة بين أجزاء بعيدة",
+   "en": "a shared event channel between distant parts"
+  },
+  "ex": "The toast listens on the event bus."
+ },
+ {
+  "w": 31,
+  "t": "state machine",
+  "m": {
+   "ar": "حالات محددة وانتقالات مسموحة",
+   "en": "fixed states and allowed transitions"
+  },
+  "ex": "The form is a state machine."
+ },
+ {
+  "w": 31,
+  "t": "finite state",
+  "m": {
+   "ar": "عدد محدود من الحالات",
+   "en": "a limited number of states"
+  },
+  "ex": "Finite states remove impossible combos."
+ },
+ {
+  "w": 31,
+  "t": "props",
+  "m": {
+   "ar": "بيانات بتتبعت للمكوّن كخصائص",
+   "en": "data passed to a component as properties"
+  },
+  "ex": "Pass the order object as props."
+ },
+ {
+  "w": 31,
+  "t": "component api",
+  "m": {
+   "ar": "عقد استخدام المكوّن",
+   "en": "the contract for using a component"
+  },
+  "ex": "Document the component API."
+ },
+ {
+  "w": 31,
+  "t": "::part",
+  "m": {
+   "ar": "تخصيص جزء داخلي من shadow DOM",
+   "en": "styling an inner part of a shadow DOM"
+  },
+  "ex": "::part(title) changes the heading."
+ },
+ {
+  "w": 31,
+  "t": "elementinternals",
+  "m": {
+   "ar": "واجهة لربط مكوّن بالفورمز والـ a11y",
+   "en": "an API linking a component to forms and a11y"
+  },
+  "ex": "ElementInternals makes it a form field."
+ },
+ {
+  "w": 31,
+  "t": "happy-dom",
+  "m": {
+   "ar": "بيئة DOM خفيفة للاختبارات",
+   "en": "a light DOM environment for tests"
+  },
+  "ex": "Vitest can use happy-dom."
  }
 ];
