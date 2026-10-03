@@ -3780,5 +3780,230 @@ JOURNEY_TERMS["english"] = [
    "en": "text of the speech shown on a video"
   },
   "ex": "Add captions for accessibility."
+ },
+ {
+  "w": 37,
+  "t": "rapport",
+  "m": {
+   "ar": "علاقة ثقة وراحة",
+   "en": "a relationship of trust and ease"
+  },
+  "ex": "Building rapport takes a minute, not ten."
+ },
+ {
+  "w": 37,
+  "t": "ice-breaker",
+  "m": {
+   "ar": "جملة خفيفة بتكسر الجمود",
+   "en": "a light remark that eases the start"
+  },
+  "ex": "A short ice-breaker relaxes everyone."
+ },
+ {
+  "w": 37,
+  "t": "warm-up",
+  "m": {
+   "ar": "كلام قصير قبل الموضوع",
+   "en": "short talk before the main topic"
+  },
+  "ex": "Keep the warm-up under a minute."
+ },
+ {
+  "w": 37,
+  "t": "set expectations",
+  "m": {
+   "ar": "توضيح اللي هيحصل مقدمًا",
+   "en": "to explain in advance what will happen"
+  },
+  "ex": "Set expectations about the call length."
+ },
+ {
+  "w": 37,
+  "t": "time check",
+  "m": {
+   "ar": "التأكد من الوقت المتاح",
+   "en": "confirming the time available"
+  },
+  "ex": "Start with a quick time check."
+ },
+ {
+  "w": 37,
+  "t": "walk me through",
+  "m": {
+   "ar": "اشرحلي خطوة بخطوة",
+   "en": "explain to me step by step"
+  },
+  "ex": "Could you walk me through your process?"
+ },
+ {
+  "w": 37,
+  "t": "current process",
+  "m": {
+   "ar": "الطريقة الحالية للشغل",
+   "en": "the way the work is done now"
+  },
+  "ex": "Let’s map the current process first."
+ },
+ {
+  "w": 37,
+  "t": "pain point",
+  "m": {
+   "ar": "المشكلة اللي بتوجع",
+   "en": "the problem that hurts"
+  },
+  "ex": "Manual invoicing is their main pain point."
+ },
+ {
+  "w": 37,
+  "t": "indirect question",
+  "m": {
+   "ar": "سؤال بصيغة مهذبة غير مباشرة",
+   "en": "a question in a polite, indirect form"
+  },
+  "ex": "Use an indirect question about budget."
+ },
+ {
+  "w": 37,
+  "t": "follow-up question",
+  "m": {
+   "ar": "سؤال بيكمل على إجابة",
+   "en": "a question building on an answer"
+  },
+  "ex": "A good follow-up question finds the numbers."
+ },
+ {
+  "w": 37,
+  "t": "back-channelling",
+  "m": {
+   "ar": "إشارات سماع قصيرة",
+   "en": "short listening signals"
+  },
+  "ex": "Back-channelling shows you are engaged."
+ },
+ {
+  "w": 37,
+  "t": "check understanding",
+  "m": {
+   "ar": "التأكد إنك فهمت صح",
+   "en": "to confirm you understood correctly"
+  },
+  "ex": "Always check understanding before proposing."
+ },
+ {
+  "w": 37,
+  "t": "reflect back",
+  "m": {
+   "ar": "تكرار كلام العميل بكلامك",
+   "en": "to repeat the client’s point in your words"
+  },
+  "ex": "Reflect back the main problem."
+ },
+ {
+  "w": 37,
+  "t": "clarifying question",
+  "m": {
+   "ar": "سؤال للتوضيح",
+   "en": "a question asking for clarity"
+  },
+  "ex": "Ask a clarifying question about numbers."
+ },
+ {
+  "w": 37,
+  "t": "interrupt",
+  "m": {
+   "ar": "يقاطع",
+   "en": "to cut in while someone is speaking"
+  },
+  "ex": "Interrupt politely only when needed."
+ },
+ {
+  "w": 37,
+  "t": "feature",
+  "m": {
+   "ar": "ميزة/خاصية في المنتج",
+   "en": "something a product does"
+  },
+  "ex": "Don’t lead with the feature."
+ },
+ {
+  "w": 37,
+  "t": "which means",
+  "m": {
+   "ar": "وده معناه (جسر للفايدة)",
+   "en": "a bridge from feature to benefit"
+  },
+  "ex": "It runs at night, which means no lost orders."
+ },
+ {
+  "w": 37,
+  "t": "ballpark",
+  "m": {
+   "ar": "تقدير تقريبي",
+   "en": "a rough estimate"
+  },
+  "ex": "Can you give me a ballpark figure?"
+ },
+ {
+  "w": 37,
+  "t": "track record",
+  "m": {
+   "ar": "سجل نجاحات سابقة",
+   "en": "a history of past results"
+  },
+  "ex": "Our track record with shops is strong."
+ },
+ {
+  "w": 37,
+  "t": "value statement",
+  "m": {
+   "ar": "جملة بتلخص قيمتك",
+   "en": "a sentence summarising your value"
+  },
+  "ex": "Open with your value statement."
+ },
+ {
+  "w": 37,
+  "t": "close the call",
+  "m": {
+   "ar": "تنهي المكالمة بخطوة واضحة",
+   "en": "to end a call with a clear step"
+  },
+  "ex": "Always close the call with a date."
+ },
+ {
+  "w": 37,
+  "t": "decision maker",
+  "m": {
+   "ar": "الشخص اللي بيقرر",
+   "en": "the person who decides"
+  },
+  "ex": "Is the owner the decision maker?"
+ },
+ {
+  "w": 37,
+  "t": "timeline",
+  "m": {
+   "ar": "الجدول الزمني المطلوب",
+   "en": "the expected schedule"
+  },
+  "ex": "What timeline are you working towards?"
+ },
+ {
+  "w": 37,
+  "t": "follow-up email",
+  "m": {
+   "ar": "إيميل متابعة بعد المكالمة",
+   "en": "an email after the call"
+  },
+  "ex": "Send the follow-up email the same day."
+ },
+ {
+  "w": 37,
+  "t": "nudge",
+  "m": {
+   "ar": "تذكير لطيف",
+   "en": "a gentle reminder"
+  },
+  "ex": "A nudge with a case study works well."
  }
 ];
