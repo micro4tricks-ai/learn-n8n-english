@@ -5832,5 +5832,293 @@ JOURNEY_TERMS["js"] = [
    "en": "a pattern filled with data"
   },
   "ex": "The invoice template uses HTML."
+ },
+ {
+  "w": 20,
+  "t": "regex",
+  "m": {
+   "ar": "نمط بحث في النصوص",
+   "en": "a text search pattern"
+  },
+  "ex": "A regex finds every order number."
+ },
+ {
+  "w": 20,
+  "t": "regular expression",
+  "m": {
+   "ar": "الاسم الكامل لـ regex",
+   "en": "the full name of a regex"
+  },
+  "ex": "Write a regular expression for phones."
+ },
+ {
+  "w": 20,
+  "t": "character class",
+  "m": {
+   "ar": "مجموعة حروف مسموحة زي [0-9]",
+   "en": "a set of allowed characters such as [0-9]"
+  },
+  "ex": "\\d is a character class for digits."
+ },
+ {
+  "w": 20,
+  "t": "quantifier",
+  "m": {
+   "ar": "رمز بيحدد عدد التكرار",
+   "en": "a symbol saying how many times"
+  },
+  "ex": "The quantifier {4} means exactly four."
+ },
+ {
+  "w": 20,
+  "t": "global flag",
+  "m": {
+   "ar": "الـ flag g لكل التطابقات",
+   "en": "the g flag for all matches"
+  },
+  "ex": "Without the global flag only one is replaced."
+ },
+ {
+  "w": 20,
+  "t": "unicode flag",
+  "m": {
+   "ar": "الـ flag u لفهم الحروف كاملة",
+   "en": "the u flag for whole characters"
+  },
+  "ex": "Use the unicode flag with Arabic."
+ },
+ {
+  "w": 20,
+  "t": "matchall",
+  "m": {
+   "ar": "دالة بترجّع كل التطابقات بالتفاصيل",
+   "en": "a method returning every match with details"
+  },
+  "ex": "matchAll gives each group and index."
+ },
+ {
+  "w": 20,
+  "t": "capture group",
+  "m": {
+   "ar": "جزء من النمط بيتحفظ لوحده",
+   "en": "a part of the pattern kept separately"
+  },
+  "ex": "The capture group holds the id."
+ },
+ {
+  "w": 20,
+  "t": "named group",
+  "m": {
+   "ar": "مجموعة ليها اسم (?<name>)",
+   "en": "a group with a name (?<name>)"
+  },
+  "ex": "Read m.groups.total from the named group."
+ },
+ {
+  "w": 20,
+  "t": "alternation",
+  "m": {
+   "ar": "اختيار بين بدائل بـ |",
+   "en": "choosing between options with |"
+  },
+  "ex": "EGP|SAR is an alternation."
+ },
+ {
+  "w": 20,
+  "t": "greedy",
+  "m": {
+   "ar": "بياخد أكبر حتة ممكنة",
+   "en": "taking the biggest possible piece"
+  },
+  "ex": ".* is greedy."
+ },
+ {
+  "w": 20,
+  "t": "lazy",
+  "m": {
+   "ar": "بياخد أصغر حتة ممكنة",
+   "en": "taking the smallest possible piece"
+  },
+  "ex": ".*? is lazy."
+ },
+ {
+  "w": 20,
+  "t": "lookahead",
+  "m": {
+   "ar": "شرط على اللي بعد من غير أخده",
+   "en": "a condition on what follows, without taking it"
+  },
+  "ex": "A lookahead finds numbers before EGP."
+ },
+ {
+  "w": 20,
+  "t": "lookbehind",
+  "m": {
+   "ar": "شرط على اللي قبل",
+   "en": "a condition on what comes before"
+  },
+  "ex": "The lookbehind matches after \"ref \"."
+ },
+ {
+  "w": 20,
+  "t": "word boundary",
+  "m": {
+   "ar": "حدود الكلمة \\b",
+   "en": "the edge of a word, \\b"
+  },
+  "ex": "Use a word boundary to match \"cat\" alone."
+ },
+ {
+  "w": 20,
+  "t": "normalization",
+  "m": {
+   "ar": "توحيد أشكال النص للمقارنة",
+   "en": "unifying text forms for comparison"
+  },
+  "ex": "Normalization makes أحمد equal احمد."
+ },
+ {
+  "w": 20,
+  "t": "tashkeel",
+  "m": {
+   "ar": "علامات التشكيل العربية",
+   "en": "Arabic diacritic marks"
+  },
+  "ex": "Strip tashkeel before searching."
+ },
+ {
+  "w": 20,
+  "t": "tatweel",
+  "m": {
+   "ar": "حرف المد ـ في الكلام",
+   "en": "the Arabic stretching character `ـ`"
+  },
+  "ex": "Remove the tatweel from names."
+ },
+ {
+  "w": 20,
+  "t": "arabic-indic digits",
+  "m": {
+   "ar": "الأرقام ٠١٢٣",
+   "en": "the digits `٠١٢٣`"
+  },
+  "ex": "Convert Arabic-Indic digits before Number()."
+ },
+ {
+  "w": 20,
+  "t": "intl.collator",
+  "m": {
+   "ar": "أداة ترتيب نصوص حسب اللغة",
+   "en": "a tool for sorting text by language rules"
+  },
+  "ex": "Intl.Collator sorts Arabic names."
+ },
+ {
+  "w": 20,
+  "t": "intl.segmenter",
+  "m": {
+   "ar": "أداة تقسيم النص لكلمات وجمل",
+   "en": "a tool splitting text into words and sentences"
+  },
+  "ex": "Intl.Segmenter counts the words."
+ },
+ {
+  "w": 20,
+  "t": "tokenize",
+  "m": {
+   "ar": "تقسيم النص لوحدات",
+   "en": "to split text into units"
+  },
+  "ex": "Tokenize the review before counting."
+ },
+ {
+  "w": 20,
+  "t": "extraction",
+  "m": {
+   "ar": "سحب بيانات من نص",
+   "en": "pulling data out of text"
+  },
+  "ex": "Extraction found 3 phone numbers."
+ },
+ {
+  "w": 20,
+  "t": "international format",
+  "m": {
+   "ar": "الرقم بكود الدولة",
+   "en": "a number with the country code"
+  },
+  "ex": "Store phones in international format."
+ },
+ {
+  "w": 20,
+  "t": "catastrophic backtracking",
+  "m": {
+   "ar": "regex بياخد وقت أُسّي",
+   "en": "a regex taking exponential time"
+  },
+  "ex": "Nested quantifiers cause catastrophic backtracking."
+ },
+ {
+  "w": 20,
+  "t": "redos",
+  "m": {
+   "ar": "هجوم بيوقّف السيرفر بنص بيبطّأ الـ regex",
+   "en": "an attack stalling a server with a slow-regex string"
+  },
+  "ex": "Limit input length to prevent ReDoS."
+ },
+ {
+  "w": 20,
+  "t": "nested quantifier",
+  "m": {
+   "ar": "تكرار جوه تكرار زي (a+)+",
+   "en": "a repeat inside a repeat such as (a+)+"
+  },
+  "ex": "Avoid nested quantifiers."
+ },
+ {
+  "w": 20,
+  "t": "levenshtein distance",
+  "m": {
+   "ar": "عدد التعديلات بين كلمتين",
+   "en": "the number of edits between two words"
+  },
+  "ex": "The Levenshtein distance is 1."
+ },
+ {
+  "w": 20,
+  "t": "fuzzy match",
+  "m": {
+   "ar": "مطابقة بتسمح بأخطاء بسيطة",
+   "en": "matching that tolerates small mistakes"
+  },
+  "ex": "A fuzzy match found «Mohammed»."
+ },
+ {
+  "w": 20,
+  "t": "threshold",
+  "m": {
+   "ar": "الحد اللي بنقبل تحته",
+   "en": "the limit we accept below"
+  },
+  "ex": "Set the threshold at 20%."
+ },
+ {
+  "w": 20,
+  "t": "placeholder",
+  "m": {
+   "ar": "مكان في القالب بيتملا",
+   "en": "a slot in a template to be filled"
+  },
+  "ex": "The {{name}} placeholder became Sara."
+ },
+ {
+  "w": 20,
+  "t": "message template",
+  "m": {
+   "ar": "قالب رسالة ثابت ببيانات متغيرة",
+   "en": "a fixed message with changing data"
+  },
+  "ex": "Approve the message template first."
  }
 ];
