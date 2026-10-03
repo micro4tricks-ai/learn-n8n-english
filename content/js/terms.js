@@ -7695,5 +7695,563 @@ JOURNEY_TERMS["js"] = [
    "en": "one definition everything else derives from"
   },
   "ex": "The schema is the single source of truth."
+ },
+ {
+  "w": 27,
+  "t": "unit test",
+  "m": {
+   "ar": "اختبار لدالة أو جزء صغير لوحده",
+   "en": "a test of one small piece on its own"
+  },
+  "ex": "Each mapper has a unit test."
+ },
+ {
+  "w": 27,
+  "t": "test suite",
+  "m": {
+   "ar": "مجموعة الاختبارات",
+   "en": "the collection of tests"
+  },
+  "ex": "The test suite runs in 2 seconds."
+ },
+ {
+  "w": 27,
+  "t": "vitest",
+  "m": {
+   "ar": "إطار اختبارات سريع لـ JS وTS",
+   "en": "a fast test framework for JS and TS"
+  },
+  "ex": "Vitest re-runs on save."
+ },
+ {
+  "w": 27,
+  "t": "describe",
+  "m": {
+   "ar": "تجميع اختبارات تحت اسم",
+   "en": "grouping tests under a name"
+  },
+  "ex": "describe(\"vat\") holds four tests."
+ },
+ {
+  "w": 27,
+  "t": "assertion library",
+  "m": {
+   "ar": "أدوات التأكد من النتايج",
+   "en": "tools for checking results"
+  },
+  "ex": "expect is Vitest’s assertion library."
+ },
+ {
+  "w": 27,
+  "t": "toequal",
+  "m": {
+   "ar": "مقارنة عميقة للقيم",
+   "en": "a deep comparison of values"
+  },
+  "ex": "toEqual compares the objects’ contents."
+ },
+ {
+  "w": 27,
+  "t": "arrange act assert",
+  "m": {
+   "ar": "جهّز، نفّذ، اتأكد",
+   "en": "prepare, perform, check"
+  },
+  "ex": "Follow arrange act assert in every test."
+ },
+ {
+  "w": 27,
+  "t": "edge-case test",
+  "m": {
+   "ar": "اختبار للحالات الطرفية",
+   "en": "a test of boundary cases"
+  },
+  "ex": "Add an edge-case test for empty input."
+ },
+ {
+  "w": 27,
+  "t": "async test",
+  "m": {
+   "ar": "اختبار بيستنى Promise",
+   "en": "a test that awaits a promise"
+  },
+  "ex": "Mark the async test with async."
+ },
+ {
+  "w": 27,
+  "t": "rejects",
+  "m": {
+   "ar": "التأكد إن Promise فشل",
+   "en": "checking that a promise fails"
+  },
+  "ex": "await assert.rejects(p, /invalid/)."
+ },
+ {
+  "w": 27,
+  "t": "fake timers",
+  "m": {
+   "ar": "ساعة وهمية بتتحرك بإيدك",
+   "en": "a pretend clock you move by hand"
+  },
+  "ex": "Fake timers skip the 30-second wait."
+ },
+ {
+  "w": 27,
+  "t": "test isolation",
+  "m": {
+   "ar": "كل اختبار مستقل عن التاني",
+   "en": "each test independent of the others"
+  },
+  "ex": "Test isolation removes order bugs."
+ },
+ {
+  "w": 27,
+  "t": "beforeeach",
+  "m": {
+   "ar": "كود بيشتغل قبل كل اختبار",
+   "en": "code run before every test"
+  },
+  "ex": "beforeEach creates a fresh folder."
+ },
+ {
+  "w": 27,
+  "t": "test double",
+  "m": {
+   "ar": "بديل لحاجة حقيقية في الاختبار",
+   "en": "a stand-in for a real thing in a test"
+  },
+  "ex": "The email sender is a test double."
+ },
+ {
+  "w": 27,
+  "t": "stub",
+  "m": {
+   "ar": "بديل بيرجّع رد ثابت",
+   "en": "a stand-in returning a fixed answer"
+  },
+  "ex": "The stub returns two orders."
+ },
+ {
+  "w": 27,
+  "t": "spy",
+  "m": {
+   "ar": "بديل بيسجّل النداءات",
+   "en": "a stand-in recording calls"
+  },
+  "ex": "The spy saw two calls."
+ },
+ {
+  "w": 27,
+  "t": "mock",
+  "m": {
+   "ar": "بديل بيرد ويتسجل ويتأكد",
+   "en": "a stand-in that answers, records and checks"
+  },
+  "ex": "Mock fetch to return 429."
+ },
+ {
+  "w": 27,
+  "t": "dependency injection",
+  "m": {
+   "ar": "تمرير الاعتماديات كمعاملات",
+   "en": "passing dependencies in as parameters"
+  },
+  "ex": "Dependency injection makes tests easy."
+ },
+ {
+  "w": 27,
+  "t": "mock.fn",
+  "m": {
+   "ar": "دالة وهمية في node:test",
+   "en": "a fake function in node:test"
+  },
+  "ex": "mock.fn records each call."
+ },
+ {
+  "w": 27,
+  "t": "vi.fn",
+  "m": {
+   "ar": "دالة وهمية في Vitest",
+   "en": "a fake function in Vitest"
+  },
+  "ex": "vi.fn() replaces the sender."
+ },
+ {
+  "w": 27,
+  "t": "integration test",
+  "m": {
+   "ar": "اختبار أجزاء كتير مع بعض",
+   "en": "a test of several parts together"
+  },
+  "ex": "The integration test sends real HTTP."
+ },
+ {
+  "w": 27,
+  "t": "end-to-end test",
+  "m": {
+   "ar": "اختبار النظام كامل زي المستخدم",
+   "en": "testing the whole system like a user"
+  },
+  "ex": "Playwright runs the end-to-end test."
+ },
+ {
+  "w": 27,
+  "t": "fixture",
+  "m": {
+   "ar": "بيانات اختبار ثابتة",
+   "en": "fixed test data"
+  },
+  "ex": "Load the webhook fixture."
+ },
+ {
+  "w": 27,
+  "t": "supertest",
+  "m": {
+   "ar": "مكتبة لاختبار تطبيقات HTTP",
+   "en": "a library for testing HTTP apps"
+  },
+  "ex": "supertest posts to the Express app."
+ },
+ {
+  "w": 27,
+  "t": "test pyramid",
+  "m": {
+   "ar": "unit كتير، integration أقل، e2e قليل",
+   "en": "many unit, fewer integration, few e2e tests"
+  },
+  "ex": "Follow the test pyramid."
+ },
+ {
+  "w": 27,
+  "t": "code coverage",
+  "m": {
+   "ar": "نسبة الكود اللي الاختبارات شغّلته",
+   "en": "the share of code the tests ran"
+  },
+  "ex": "Code coverage is 86%."
+ },
+ {
+  "w": 27,
+  "t": "tdd",
+  "m": {
+   "ar": "كتابة الاختبار قبل الكود",
+   "en": "writing the test before the code"
+  },
+  "ex": "Use TDD for the discount rules."
+ },
+ {
+  "w": 27,
+  "t": "red green refactor",
+  "m": {
+   "ar": "فشل، نجاح، تنضيف",
+   "en": "fail, pass, tidy"
+  },
+  "ex": "Each TDD cycle is red green refactor."
+ },
+ {
+  "w": 27,
+  "t": "ci pipeline",
+  "m": {
+   "ar": "خطوات آلية مع كل تغيير",
+   "en": "automatic steps on every change"
+  },
+  "ex": "The CI pipeline blocks the merge."
+ },
+ {
+  "w": 27,
+  "t": "flaky test",
+  "m": {
+   "ar": "اختبار مش ثابت النتيجة",
+   "en": "a test with unstable results"
+  },
+  "ex": "Quarantine the flaky test."
+ },
+ {
+  "w": 28,
+  "t": "linter",
+  "m": {
+   "ar": "أداة بتدوّر على أخطاء في الكود",
+   "en": "a tool looking for problems in code"
+  },
+  "ex": "The linter flagged an unused variable."
+ },
+ {
+  "w": 28,
+  "t": "eslint",
+  "m": {
+   "ar": "أشهر linter لجافاسكريبت",
+   "en": "the best-known JavaScript linter"
+  },
+  "ex": "Run ESLint in CI."
+ },
+ {
+  "w": 28,
+  "t": "lint rule",
+  "m": {
+   "ar": "قاعدة واحدة بيفحصها الـ linter",
+   "en": "one check the linter performs"
+  },
+  "ex": "Turn the eqeqeq lint rule on."
+ },
+ {
+  "w": 28,
+  "t": "flat config",
+  "m": {
+   "ar": "ملف إعدادات ESLint الحديث",
+   "en": "ESLint’s modern settings file"
+  },
+  "ex": "eslint.config.js is a flat config."
+ },
+ {
+  "w": 28,
+  "t": "typescript-eslint",
+  "m": {
+   "ar": "قواعد ESLint لـ TypeScript",
+   "en": "ESLint rules for TypeScript"
+  },
+  "ex": "typescript-eslint knows the types."
+ },
+ {
+  "w": 28,
+  "t": "no-floating-promises",
+  "m": {
+   "ar": "قاعدة بتمسك Promise من غير await",
+   "en": "a rule catching unawaited promises"
+  },
+  "ex": "no-floating-promises found the bug."
+ },
+ {
+  "w": 28,
+  "t": "autofix",
+  "m": {
+   "ar": "تصليح تلقائي",
+   "en": "automatic fixing"
+  },
+  "ex": "Autofix removed the unused import."
+ },
+ {
+  "w": 28,
+  "t": "prettier",
+  "m": {
+   "ar": "أداة تنسيق كود تلقائي",
+   "en": "an automatic code formatter"
+  },
+  "ex": "Prettier fixed the indentation."
+ },
+ {
+  "w": 28,
+  "t": "formatter",
+  "m": {
+   "ar": "أداة بتعيد كتابة شكل الكود",
+   "en": "a tool rewriting code layout"
+  },
+  "ex": "A formatter ends style debates."
+ },
+ {
+  "w": 28,
+  "t": "format on save",
+  "m": {
+   "ar": "تنسيق تلقائي عند الحفظ",
+   "en": "automatic formatting on save"
+  },
+  "ex": "Turn on format on save."
+ },
+ {
+  "w": 28,
+  "t": "editorconfig",
+  "m": {
+   "ar": "ملف إعدادات محرر مشترك",
+   "en": "a shared editor settings file"
+  },
+  "ex": "The editorconfig enforces LF."
+ },
+ {
+  "w": 28,
+  "t": "line ending",
+  "m": {
+   "ar": "نهاية السطر LF أو CRLF",
+   "en": "the end-of-line marker, LF or CRLF"
+  },
+  "ex": "Windows uses CRLF line endings."
+ },
+ {
+  "w": 28,
+  "t": "git branch",
+  "m": {
+   "ar": "خط تطوير منفصل",
+   "en": "a separate line of development"
+  },
+  "ex": "Create a git branch per feature."
+ },
+ {
+  "w": 28,
+  "t": "feature branch",
+  "m": {
+   "ar": "فرع لميزة واحدة",
+   "en": "a branch for one feature"
+  },
+  "ex": "Merge the feature branch after review."
+ },
+ {
+  "w": 28,
+  "t": "pull request",
+  "m": {
+   "ar": "طلب دمج تغيير بعد مراجعة",
+   "en": "a request to merge a change after review"
+  },
+  "ex": "Open a pull request for the fix."
+ },
+ {
+  "w": 28,
+  "t": "conventional commits",
+  "m": {
+   "ar": "صيغة موحدة لرسايل commits",
+   "en": "a standard format for commit messages"
+  },
+  "ex": "feat: and fix: are conventional commits."
+ },
+ {
+  "w": 28,
+  "t": "commit message",
+  "m": {
+   "ar": "وصف التغيير في Git",
+   "en": "the description of a Git change"
+  },
+  "ex": "A good commit message says why."
+ },
+ {
+  "w": 28,
+  "t": "rebase",
+  "m": {
+   "ar": "إعادة تطبيق commits فوق فرع تاني",
+   "en": "replaying commits on top of another branch"
+  },
+  "ex": "Rebase onto main before merging."
+ },
+ {
+  "w": 28,
+  "t": "merge conflict",
+  "m": {
+   "ar": "تعارض تغييرين في نفس المكان",
+   "en": "two changes clashing in one place"
+  },
+  "ex": "Resolve the merge conflict and run tests."
+ },
+ {
+  "w": 28,
+  "t": "git hook",
+  "m": {
+   "ar": "سكربت بيشتغل مع حدث Git",
+   "en": "a script run on a Git event"
+  },
+  "ex": "A git hook runs before each commit."
+ },
+ {
+  "w": 28,
+  "t": "pre-commit",
+  "m": {
+   "ar": "hook قبل الـ commit",
+   "en": "the hook before a commit"
+  },
+  "ex": "The pre-commit hook formats files."
+ },
+ {
+  "w": 28,
+  "t": "husky",
+  "m": {
+   "ar": "أداة تركيب git hooks للفريق",
+   "en": "a tool installing git hooks for a team"
+  },
+  "ex": "husky installs the hooks on npm install."
+ },
+ {
+  "w": 28,
+  "t": "lint-staged",
+  "m": {
+   "ar": "تشغيل الأدوات على الملفات المتغيرة بس",
+   "en": "running tools on changed files only"
+  },
+  "ex": "lint-staged keeps commits fast."
+ },
+ {
+  "w": 28,
+  "t": "code review",
+  "m": {
+   "ar": "مراجعة التغيير قبل الدمج",
+   "en": "reviewing a change before merging"
+  },
+  "ex": "Code review found a leaked key."
+ },
+ {
+  "w": 28,
+  "t": "code smell",
+  "m": {
+   "ar": "علامة إن الكود محتاج تحسين",
+   "en": "a sign code needs improving"
+  },
+  "ex": "A 100-line function is a code smell."
+ },
+ {
+  "w": 28,
+  "t": "magic number",
+  "m": {
+   "ar": "رقم في الكود من غير اسم",
+   "en": "an unnamed number in code"
+  },
+  "ex": "Replace the magic number with VAT_RATE."
+ },
+ {
+  "w": 28,
+  "t": "refactoring",
+  "m": {
+   "ar": "تحسين الكود من غير تغيير السلوك",
+   "en": "improving code without changing behaviour"
+  },
+  "ex": "Refactoring is safe with tests."
+ },
+ {
+  "w": 28,
+  "t": "readme",
+  "m": {
+   "ar": "ملف التعريف والتشغيل للمشروع",
+   "en": "the project’s introduction and run guide"
+  },
+  "ex": "The README has three commands."
+ },
+ {
+  "w": 28,
+  "t": "changelog",
+  "m": {
+   "ar": "سجل التغييرات لكل إصدار",
+   "en": "the record of changes per release"
+  },
+  "ex": "Update the changelog before releasing."
+ },
+ {
+  "w": 28,
+  "t": "adr",
+  "m": {
+   "ar": "سجل قرار معماري",
+   "en": "an architecture decision record"
+  },
+  "ex": "ADR 0002 explains the signatures."
+ },
+ {
+  "w": 28,
+  "t": "release tag",
+  "m": {
+   "ar": "علامة Git على إصدار",
+   "en": "a Git marker on a release"
+  },
+  "ex": "Push the v1.3.0 release tag."
+ },
+ {
+  "w": 28,
+  "t": "folder by feature",
+  "m": {
+   "ar": "تنظيم الملفات حسب المجال",
+   "en": "organising files by domain"
+  },
+  "ex": "Folder by feature keeps orders together."
  }
 ];
