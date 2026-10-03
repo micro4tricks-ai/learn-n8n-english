@@ -7929,5 +7929,905 @@ JOURNEY_TERMS["python"] = [
    "en": "delivering a project with its docs, secrets and training"
   },
   "ex": "README + ops.md + video"
+ },
+ {
+  "w": 25,
+  "t": "free variable",
+  "m": {
+   "ar": "متغير بتستخدمه الدالة ومش معرّف جواها",
+   "en": "a variable a function uses but does not define"
+  },
+  "ex": "greeting is a free variable of greet."
+ },
+ {
+  "w": 25,
+  "t": "nonlocal",
+  "m": {
+   "ar": "كلمة بتسمح بتعديل متغير من الدالة الخارجية",
+   "en": "a keyword allowing changes to an outer function’s variable"
+  },
+  "ex": "Use nonlocal to update the counter."
+ },
+ {
+  "w": 25,
+  "t": "late binding",
+  "m": {
+   "ar": "المتغير بيتقري وقت التشغيل مش وقت الإنشاء",
+   "en": "a variable read at call time, not creation time"
+  },
+  "ex": "Late binding made every lambda return 2."
+ },
+ {
+  "w": 25,
+  "t": "factory function",
+  "m": {
+   "ar": "دالة بتصنع وترجّع دوال",
+   "en": "a function that builds and returns functions"
+  },
+  "ex": "make_greeter is a factory function."
+ },
+ {
+  "w": 25,
+  "t": "first-class function",
+  "m": {
+   "ar": "الدوال بتتعامل كقيم عادية",
+   "en": "functions treated as ordinary values"
+  },
+  "ex": "Python has first-class functions."
+ },
+ {
+  "w": 25,
+  "t": "functools.wraps",
+  "m": {
+   "ar": "بيحافظ على اسم ووثائق الدالة الأصلية",
+   "en": "keeps the original function’s name and docs"
+  },
+  "ex": "Always use functools.wraps in decorators."
+ },
+ {
+  "w": 25,
+  "t": "decorator factory",
+  "m": {
+   "ar": "دالة بتاخد معاملات وترجّع decorator",
+   "en": "a function taking arguments and returning a decorator"
+  },
+  "ex": "retry(times=3) is a decorator factory."
+ },
+ {
+  "w": 25,
+  "t": "stacked decorators",
+  "m": {
+   "ar": "أكتر من decorator على نفس الدالة",
+   "en": "several decorators on one function"
+  },
+  "ex": "Stacked decorators apply bottom-up."
+ },
+ {
+  "w": 25,
+  "t": "retry decorator",
+  "m": {
+   "ar": "decorator بيعيد المحاولة لما يفشل",
+   "en": "a decorator that retries on failure"
+  },
+  "ex": "Wrap the API call in a retry decorator."
+ },
+ {
+  "w": 25,
+  "t": "timing decorator",
+  "m": {
+   "ar": "decorator بيقيس وقت التنفيذ",
+   "en": "a decorator that measures run time"
+  },
+  "ex": "The timing decorator printed 0.002s."
+ },
+ {
+  "w": 25,
+  "t": "generator pipeline",
+  "m": {
+   "ar": "سلسلة generators كل واحد بياخد من اللي قبله",
+   "en": "a chain of generators each feeding the next"
+  },
+  "ex": "The generator pipeline reads a 2 GB log."
+ },
+ {
+  "w": 25,
+  "t": "yield from",
+  "m": {
+   "ar": "تسليم كل عناصر generator تاني",
+   "en": "passing through every item of another generator"
+  },
+  "ex": "Use yield from in recursive walks."
+ },
+ {
+  "w": 25,
+  "t": "islice",
+  "m": {
+   "ar": "أخد جزء من iterator من غير ما تحمّله",
+   "en": "taking part of an iterator without loading it"
+  },
+  "ex": "islice gives the first five items."
+ },
+ {
+  "w": 25,
+  "t": "chain",
+  "m": {
+   "ar": "ربط أكتر من iterable ورا بعض",
+   "en": "joining several iterables end to end"
+  },
+  "ex": "chain the two lists of orders."
+ },
+ {
+  "w": 25,
+  "t": "lazy evaluation",
+  "m": {
+   "ar": "الحساب بيحصل وقت الحاجة بس",
+   "en": "computing only when the value is needed"
+  },
+  "ex": "Generators use lazy evaluation."
+ },
+ {
+  "w": 25,
+  "t": "iterator protocol",
+  "m": {
+   "ar": "قواعد __iter__ و__next__",
+   "en": "the rules of __iter__ and __next__"
+  },
+  "ex": "Implement the iterator protocol for custom loops."
+ },
+ {
+  "w": 25,
+  "t": "__next__",
+  "m": {
+   "ar": "دالة بترجّع العنصر الجاي",
+   "en": "the method returning the next item"
+  },
+  "ex": "__next__ raises StopIteration at the end."
+ },
+ {
+  "w": 25,
+  "t": "stopiteration",
+  "m": {
+   "ar": "الاستثناء اللي بيقول الـ iterator خلص",
+   "en": "the exception signalling an iterator is finished"
+  },
+  "ex": "for stops at StopIteration."
+ },
+ {
+  "w": 25,
+  "t": "__iter__",
+  "m": {
+   "ar": "دالة بترجّع iterator",
+   "en": "the method returning an iterator"
+  },
+  "ex": "Make __iter__ a generator."
+ },
+ {
+  "w": 25,
+  "t": "consumed",
+  "m": {
+   "ar": "اتستهلك ومبقاش فيه عناصر",
+   "en": "used up, with no items left"
+  },
+  "ex": "The generator was already consumed."
+ },
+ {
+  "w": 25,
+  "t": "memoization",
+  "m": {
+   "ar": "حفظ نتايج الدالة عشان متتحسبش تاني",
+   "en": "storing function results to avoid recomputing"
+  },
+  "ex": "Memoization made fib(80) instant."
+ },
+ {
+  "w": 25,
+  "t": "cache",
+  "m": {
+   "ar": "مخزن مؤقت للنتايج",
+   "en": "a store of saved results"
+  },
+  "ex": "The cache has 81 entries."
+ },
+ {
+  "w": 25,
+  "t": "singledispatch",
+  "m": {
+   "ar": "دالة بتتصرف حسب نوع المدخل",
+   "en": "a function that behaves by argument type"
+  },
+  "ex": "singledispatch replaced ten if statements."
+ },
+ {
+  "w": 25,
+  "t": "cached_property",
+  "m": {
+   "ar": "خاصية بتتحسب مرة وتتحفظ",
+   "en": "a property computed once and stored"
+  },
+  "ex": "Use cached_property for the totals."
+ },
+ {
+  "w": 25,
+  "t": "cache hit",
+  "m": {
+   "ar": "لقى النتيجة محفوظة",
+   "en": "finding the result already stored"
+  },
+  "ex": "Most calls were cache hits."
+ },
+ {
+  "w": 26,
+  "t": "__enter__",
+  "m": {
+   "ar": "الدالة اللي بتتنادي في أول with",
+   "en": "the method called at the start of a with block"
+  },
+  "ex": "__enter__ returns the resource."
+ },
+ {
+  "w": 26,
+  "t": "__exit__",
+  "m": {
+   "ar": "الدالة اللي بتتنادي في آخر with حتى مع الخطأ",
+   "en": "the method called at the end of with, even on error"
+  },
+  "ex": "__exit__ closes the connection."
+ },
+ {
+  "w": 26,
+  "t": "contextmanager",
+  "m": {
+   "ar": "decorator بيحوّل generator لـ context manager",
+   "en": "a decorator turning a generator into a context manager"
+  },
+  "ex": "Use contextmanager for quick helpers."
+ },
+ {
+  "w": 26,
+  "t": "suppress",
+  "m": {
+   "ar": "تجاهل خطأ معيّن بوضوح",
+   "en": "explicitly ignoring a specific error"
+  },
+  "ex": "suppress(FileNotFoundError) when deleting temp files."
+ },
+ {
+  "w": 26,
+  "t": "exitstack",
+  "m": {
+   "ar": "إدارة عدد متغير من context managers",
+   "en": "managing a variable number of context managers"
+  },
+  "ex": "ExitStack closes every opened file."
+ },
+ {
+  "w": 26,
+  "t": "frozen",
+  "m": {
+   "ar": "dataclass مينفعش يتعدّل بعد الإنشاء",
+   "en": "a dataclass that cannot change after creation"
+  },
+  "ex": "Use frozen=True for value objects."
+ },
+ {
+  "w": 26,
+  "t": "__post_init__",
+  "m": {
+   "ar": "دالة بتشتغل بعد إنشاء الـ dataclass",
+   "en": "a method running after a dataclass is created"
+  },
+  "ex": "Validate inputs in __post_init__."
+ },
+ {
+  "w": 26,
+  "t": "slots",
+  "m": {
+   "ar": "تخزين attributes ثابت أوفر في الذاكرة",
+   "en": "a fixed, memory-saving attribute layout"
+  },
+  "ex": "slots=True catches attribute typos."
+ },
+ {
+  "w": 26,
+  "t": "value object",
+  "m": {
+   "ar": "كائن بيتعرّف بقيمته مش هويته",
+   "en": "an object defined by its value, not its identity"
+  },
+  "ex": "Money is a value object."
+ },
+ {
+  "w": 26,
+  "t": "dataclasses.replace",
+  "m": {
+   "ar": "نسخة من dataclass بقيم متغيّرة",
+   "en": "a copy of a dataclass with some values changed"
+  },
+  "ex": "Use dataclasses.replace to change a frozen object."
+ },
+ {
+  "w": 26,
+  "t": "union type",
+  "m": {
+   "ar": "نوع ممكن يبقى واحد من أكتر من نوع",
+   "en": "a type that may be one of several types"
+  },
+  "ex": "str | None is a union type."
+ },
+ {
+  "w": 26,
+  "t": "generic",
+  "m": {
+   "ar": "نوع بيحافظ على نوع اللي جواه",
+   "en": "a type that preserves the type of its contents"
+  },
+  "ex": "first() is generic over T."
+ },
+ {
+  "w": 26,
+  "t": "typevar",
+  "m": {
+   "ar": "متغير نوع للـ generics",
+   "en": "a type variable for generics"
+  },
+  "ex": "Declare T with TypeVar."
+ },
+ {
+  "w": 26,
+  "t": "structural typing",
+  "m": {
+   "ar": "التوافق بالشكل (الدوال) مش بالوراثة",
+   "en": "compatibility by shape (methods), not inheritance"
+  },
+  "ex": "Protocol gives structural typing."
+ },
+ {
+  "w": 26,
+  "t": "optional value",
+  "m": {
+   "ar": "قيمة ممكن تكون None",
+   "en": "a value that may be None"
+  },
+  "ex": "Handle the optional value before using it."
+ },
+ {
+  "w": 26,
+  "t": "type checker",
+  "m": {
+   "ar": "أداة بتفحص الأنواع من غير تشغيل",
+   "en": "a tool that checks types without running code"
+  },
+  "ex": "Run the type checker in CI."
+ },
+ {
+  "w": 26,
+  "t": "gradual typing",
+  "m": {
+   "ar": "إضافة الأنواع للمشروع تدريجيًا",
+   "en": "adding types to a project step by step"
+  },
+  "ex": "Gradual typing starts with the services."
+ },
+ {
+  "w": 26,
+  "t": "reveal_type",
+  "m": {
+   "ar": "أداة بتعرض النوع اللي mypy فهمه",
+   "en": "a helper showing the type mypy inferred"
+  },
+  "ex": "reveal_type showed Customer | None."
+ },
+ {
+  "w": 26,
+  "t": "type: ignore",
+  "m": {
+   "ar": "تعليق بيخلي mypy يتجاهل سطر",
+   "en": "a comment telling mypy to skip a line"
+  },
+  "ex": "Add the error code to every type: ignore."
+ },
+ {
+  "w": 26,
+  "t": "strict mode",
+  "m": {
+   "ar": "إعداد صارم بيطلب أنواع لكل حاجة",
+   "en": "a strict setting requiring types everywhere"
+  },
+  "ex": "Turn on strict mode for new modules."
+ },
+ {
+  "w": 26,
+  "t": "validation boundary",
+  "m": {
+   "ar": "المكان اللي البيانات الخارجية بتتحقق فيه",
+   "en": "the place where outside data is validated"
+  },
+  "ex": "The webhook handler is our validation boundary."
+ },
+ {
+  "w": 26,
+  "t": "domain model",
+  "m": {
+   "ar": "كائنات تمثّل مفاهيم البيزنس",
+   "en": "objects representing business concepts"
+  },
+  "ex": "Order is a domain model."
+ },
+ {
+  "w": 26,
+  "t": "parse, don't validate",
+  "m": {
+   "ar": "حوّل البيانات لنوع موثوق بدل الفحص المتكرر",
+   "en": "turn data into a trusted type instead of re-checking it"
+  },
+  "ex": "Parse, don’t validate: return an Order."
+ },
+ {
+  "w": 26,
+  "t": "enum member",
+  "m": {
+   "ar": "قيمة واحدة من Enum",
+   "en": "one value of an Enum"
+  },
+  "ex": "Status.PAID is an enum member."
+ },
+ {
+  "w": 26,
+  "t": "typo-safe",
+  "m": {
+   "ar": "محمي من أخطاء الكتابة",
+   "en": "protected against spelling mistakes"
+  },
+  "ex": "StrEnum makes statuses typo-safe."
+ },
+ {
+  "w": 27,
+  "t": "parallelism",
+  "m": {
+   "ar": "تنفيذ حاجات في نفس اللحظة فعلًا على أكتر من core",
+   "en": "running things at the same instant on several cores"
+  },
+  "ex": "Processes give true parallelism."
+ },
+ {
+  "w": 27,
+  "t": "cpu-bound",
+  "m": {
+   "ar": "شغل وقته أغلبه حساب",
+   "en": "work whose time is mostly computation"
+  },
+  "ex": "Resizing images is CPU-bound."
+ },
+ {
+  "w": 27,
+  "t": "gil",
+  "m": {
+   "ar": "قفل بيخلي thread واحد يشغّل بايثون في المرة",
+   "en": "a lock letting one thread run Python at a time"
+  },
+  "ex": "The GIL limits CPU work in threads."
+ },
+ {
+  "w": 27,
+  "t": "wall time",
+  "m": {
+   "ar": "الوقت الحقيقي الكلي",
+   "en": "the real elapsed time"
+  },
+  "ex": "Wall time was 3 s but CPU time 0.2 s."
+ },
+ {
+  "w": 27,
+  "t": "cpu time",
+  "m": {
+   "ar": "الوقت اللي المعالج اشتغل فيه فعلًا",
+   "en": "the time the processor actually worked"
+  },
+  "ex": "Low CPU time means mostly waiting."
+ },
+ {
+  "w": 27,
+  "t": "as_completed",
+  "m": {
+   "ar": "بيرجّع كل نتيجة أول ما تخلص",
+   "en": "yields each result as soon as it is done"
+  },
+  "ex": "Use as_completed for a progress bar."
+ },
+ {
+  "w": 27,
+  "t": "race condition",
+  "m": {
+   "ar": "نتيجة غلط بسبب تعديل متزامن",
+   "en": "a wrong result caused by simultaneous changes"
+  },
+  "ex": "The shared counter had a race condition."
+ },
+ {
+  "w": 27,
+  "t": "lock",
+  "m": {
+   "ar": "قفل بيخلي thread واحد بس يدخل",
+   "en": "a guard letting only one thread in"
+  },
+  "ex": "Wrap the update in a lock."
+ },
+ {
+  "w": 27,
+  "t": "thread safety",
+  "m": {
+   "ar": "إن الكود يشتغل صح مع threads كتير",
+   "en": "code working correctly with many threads"
+  },
+  "ex": "queue.Queue gives thread safety for free."
+ },
+ {
+  "w": 27,
+  "t": "max_workers",
+  "m": {
+   "ar": "أقصى عدد threads أو processes في الـ pool",
+   "en": "the most threads or processes in a pool"
+  },
+  "ex": "Set max_workers to match the API limit."
+ },
+ {
+  "w": 27,
+  "t": "processpoolexecutor",
+  "m": {
+   "ar": "pool بيشغّل مهام في processes منفصلة",
+   "en": "a pool running tasks in separate processes"
+  },
+  "ex": "Use ProcessPoolExecutor for heavy maths."
+ },
+ {
+  "w": 27,
+  "t": "pickle",
+  "m": {
+   "ar": "تحويل كائنات بايثون لبايتات للنقل",
+   "en": "turning Python objects into bytes for transfer"
+  },
+  "ex": "Arguments are sent to workers with pickle."
+ },
+ {
+  "w": 27,
+  "t": "overhead",
+  "m": {
+   "ar": "تكلفة إضافية مش من الشغل نفسه",
+   "en": "extra cost not part of the work itself"
+  },
+  "ex": "Small tasks drown in overhead."
+ },
+ {
+  "w": 27,
+  "t": "chunksize",
+  "m": {
+   "ar": "عدد العناصر اللي بتتبعت لكل worker مرة واحدة",
+   "en": "how many items are sent to each worker at once"
+  },
+  "ex": "A larger chunksize cuts overhead."
+ },
+ {
+  "w": 27,
+  "t": "core",
+  "m": {
+   "ar": "نواة معالج",
+   "en": "one processing unit of a CPU"
+  },
+  "ex": "The laptop has 8 cores."
+ },
+ {
+  "w": 27,
+  "t": "taskgroup",
+  "m": {
+   "ar": "مجموعة مهام async بتتدار مع بعض",
+   "en": "a group of async tasks managed together"
+  },
+  "ex": "TaskGroup cancels the rest on failure."
+ },
+ {
+  "w": 27,
+  "t": "return_exceptions",
+  "m": {
+   "ar": "خيار في gather بيرجّع الأخطاء كقيم",
+   "en": "a gather option returning errors as values"
+  },
+  "ex": "Use return_exceptions=True to keep going."
+ },
+ {
+  "w": 27,
+  "t": "wait_for",
+  "m": {
+   "ar": "تستنى coroutine لحد مهلة",
+   "en": "waiting for a coroutine up to a timeout"
+  },
+  "ex": "wait_for cancels slow calls."
+ },
+ {
+  "w": 27,
+  "t": "cancellation",
+  "m": {
+   "ar": "إلغاء مهمة شغالة",
+   "en": "stopping a running task"
+  },
+  "ex": "Handle cancellation in finally."
+ },
+ {
+  "w": 27,
+  "t": "cancellederror",
+  "m": {
+   "ar": "الاستثناء اللي بيوصل للمهمة الملغية",
+   "en": "the exception raised inside a cancelled task"
+  },
+  "ex": "Do not swallow CancelledError."
+ },
+ {
+  "w": 27,
+  "t": "producer-consumer",
+  "m": {
+   "ar": "نمط منتج بيحط شغل ومستهلكين بياخدوه",
+   "en": "a pattern where a producer adds work and consumers take it"
+  },
+  "ex": "Use producer-consumer for big imports."
+ },
+ {
+  "w": 27,
+  "t": "asyncio.queue",
+  "m": {
+   "ar": "طابور آمن للـ coroutines",
+   "en": "a queue safe for coroutines"
+  },
+  "ex": "Workers read from an asyncio.Queue."
+ },
+ {
+  "w": 27,
+  "t": "task_done",
+  "m": {
+   "ar": "إشارة إن مهمة من الطابور خلصت",
+   "en": "a signal that a queued task is finished"
+  },
+  "ex": "Call task_done after each item."
+ },
+ {
+  "w": 27,
+  "t": "backpressure",
+  "m": {
+   "ar": "تبطيء المنتج لما المستهلكين متأخرين",
+   "en": "slowing the producer when consumers fall behind"
+  },
+  "ex": "maxsize gives you backpressure."
+ },
+ {
+  "w": 27,
+  "t": "worker pool",
+  "m": {
+   "ar": "عدد ثابت من العمّال",
+   "en": "a fixed number of workers"
+  },
+  "ex": "A worker pool of 5 respects the API limit."
+ },
+ {
+  "w": 28,
+  "t": "src layout",
+  "m": {
+   "ar": "هيكل الكود جوه فولدر src",
+   "en": "a layout with the code inside an src folder"
+  },
+  "ex": "The src layout catches packaging mistakes."
+ },
+ {
+  "w": 28,
+  "t": "build backend",
+  "m": {
+   "ar": "الأداة اللي بتبني الحزمة",
+   "en": "the tool that builds the package"
+  },
+  "ex": "We use hatchling as the build backend."
+ },
+ {
+  "w": 28,
+  "t": "editable install",
+  "m": {
+   "ar": "تثبيت التعديلات بتظهر فيه على طول",
+   "en": "an install where code changes show immediately"
+  },
+  "ex": "Use an editable install while developing."
+ },
+ {
+  "w": 28,
+  "t": "public interface",
+  "m": {
+   "ar": "اللي المستخدم المفروض يستخدمه من الحزمة",
+   "en": "what users are meant to use from a package"
+  },
+  "ex": "Keep the public interface small."
+ },
+ {
+  "w": 28,
+  "t": "__all__",
+  "m": {
+   "ar": "قايمة الأسماء العامة في الموديول",
+   "en": "the list of public names in a module"
+  },
+  "ex": "__all__ lists to_e164 and is_valid."
+ },
+ {
+  "w": 28,
+  "t": "sdist",
+  "m": {
+   "ar": "توزيع الكود المصدري",
+   "en": "a source distribution"
+  },
+  "ex": "The sdist contains the source files."
+ },
+ {
+  "w": 28,
+  "t": "wheel",
+  "m": {
+   "ar": "ملف حزمة جاهز للتثبيت السريع",
+   "en": "a ready-to-install package file"
+  },
+  "ex": "pip installs the wheel quickly."
+ },
+ {
+  "w": 28,
+  "t": "importlib.metadata",
+  "m": {
+   "ar": "قراءة معلومات الحزم المتثبتة",
+   "en": "reading information about installed packages"
+  },
+  "ex": "Read the version with importlib.metadata."
+ },
+ {
+  "w": 28,
+  "t": "patch release",
+  "m": {
+   "ar": "إصدار إصلاحات بس",
+   "en": "a release with fixes only"
+  },
+  "ex": "0.1.1 is a patch release."
+ },
+ {
+  "w": 28,
+  "t": "dist folder",
+  "m": {
+   "ar": "فولدر الملفات المبنية للنشر",
+   "en": "the folder holding built files for publishing"
+  },
+  "ex": "Upload everything in the dist folder."
+ },
+ {
+  "w": 28,
+  "t": "console script",
+  "m": {
+   "ar": "أمر طرفية بيتعمل من الحزمة",
+   "en": "a terminal command created by a package"
+  },
+  "ex": "pip creates the console script."
+ },
+ {
+  "w": 28,
+  "t": "argv",
+  "m": {
+   "ar": "قايمة مدخلات سطر الأوامر",
+   "en": "the list of command-line arguments"
+  },
+  "ex": "Pass argv to main for testing."
+ },
+ {
+  "w": 28,
+  "t": "stdin",
+  "m": {
+   "ar": "المدخل القياسي (من pipe مثلًا)",
+   "en": "standard input (from a pipe, for example)"
+  },
+  "ex": "Read numbers from stdin."
+ },
+ {
+  "w": 28,
+  "t": "capsys",
+  "m": {
+   "ar": "fixture في pytest بيمسك المطبوع",
+   "en": "a pytest fixture capturing printed output"
+  },
+  "ex": "Check the output with capsys."
+ },
+ {
+  "w": 28,
+  "t": "pipe",
+  "m": {
+   "ar": "توصيل خرج أمر لمدخل أمر تاني",
+   "en": "connecting one command’s output to another’s input"
+  },
+  "ex": "cat file | egypt-phone - uses a pipe."
+ },
+ {
+  "w": 28,
+  "t": "testpypi",
+  "m": {
+   "ar": "نسخة تجريبية من PyPI",
+   "en": "a practice copy of PyPI"
+  },
+  "ex": "Publish to TestPyPI first."
+ },
+ {
+  "w": 28,
+  "t": "trusted publishing",
+  "m": {
+   "ar": "النشر من CI من غير tokens محفوظة",
+   "en": "publishing from CI without stored tokens"
+  },
+  "ex": "Trusted publishing removes the API token."
+ },
+ {
+  "w": 28,
+  "t": "long description",
+  "m": {
+   "ar": "الوصف الطويل اللي بيظهر في صفحة الحزمة",
+   "en": "the long text shown on the package page"
+  },
+  "ex": "The README is the long description."
+ },
+ {
+  "w": 28,
+  "t": "classifier",
+  "m": {
+   "ar": "وسم بيصنّف الحزمة على PyPI",
+   "en": "a tag classifying a package on PyPI"
+  },
+  "ex": "Add a classifier for Python 3.12."
+ },
+ {
+  "w": 28,
+  "t": "twine",
+  "m": {
+   "ar": "أداة رفع الحزم على PyPI",
+   "en": "a tool that uploads packages to PyPI"
+  },
+  "ex": "twine upload dist/* publishes it."
+ },
+ {
+  "w": 28,
+  "t": "deprecationwarning",
+  "m": {
+   "ar": "تحذير إن حاجة هتتشال",
+   "en": "a warning that something will be removed"
+  },
+  "ex": "Raise a DeprecationWarning for one minor release."
+ },
+ {
+  "w": 28,
+  "t": "warnings.warn",
+  "m": {
+   "ar": "دالة إطلاق تحذير",
+   "en": "the function that issues a warning"
+  },
+  "ex": "warnings.warn names the replacement."
+ },
+ {
+  "w": 28,
+  "t": "ci matrix",
+  "m": {
+   "ar": "تشغيل الاختبارات على تركيبات إصدارات وأنظمة",
+   "en": "running tests across combinations of versions and systems"
+  },
+  "ex": "The CI matrix covers Python 3.10–3.13."
+ },
+ {
+  "w": 28,
+  "t": "supported versions",
+  "m": {
+   "ar": "إصدارات بايثون اللي الحزمة بتدعمها",
+   "en": "the Python versions a package supports"
+  },
+  "ex": "List the supported versions in the README."
+ },
+ {
+  "w": 28,
+  "t": "stacklevel",
+  "m": {
+   "ar": "بيخلي التحذير يشاور على سطر المستخدم",
+   "en": "makes a warning point at the caller’s line"
+  },
+  "ex": "Use stacklevel=2 in deprecation warnings."
  }
 ];

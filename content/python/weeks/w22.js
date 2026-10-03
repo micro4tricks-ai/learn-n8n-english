@@ -945,8 +945,7 @@ JOURNEY.week({
       "ar": "لو المكتبة sync (requests وboto وغيرهم) ومش عايز تعيد كتابتها: `ThreadPoolExecutor(max_workers=8)` و`executor.map(fn, items)` بيشغّلها بالتوازي في threads. للحسابات التقيلة (CPU) استخدم `ProcessPoolExecutor`. القاعدة: بيستنى شبكة → async أو threads، بيحسب كتير → processes، شوية حاجات → عادي من غير توازي (أبسط).",
       "en": "If the library is sync (requests, boto and others) and you do not want to rewrite it: `ThreadPoolExecutor(max_workers=8)` with `executor.map(fn, items)` runs it in parallel threads. For heavy (CPU) calculations use `ProcessPoolExecutor`. The rule: waiting on the network → async or threads, heavy computing → processes, only a few items → plain sequential code (simplest)."
      },
-     "ex": "import time\nfrom concurrent.futures import ThreadPoolExecutor\n\ndef slow_lookup(order_id: int) -> str:\n    time.sleep(0.3)                          # a blocking call, like requests.get\n    return f\"order {order_id}: shipped\"\n\nt = time.perf_counter()\nwith ThreadPoolExecutor(max_workers=8) as pool:\n    results = list(pool.map(slow_lookup, range(16)))\nprint(results[:2], f\"{time.perf_counter() - t:.1f}s with 8 threads (one by one: ~4.8s)\")",
-     "run": 1
+     "ex": "import time\nfrom concurrent.futures import ThreadPoolExecutor\n\ndef slow_lookup(order_id: int) -> str:\n    time.sleep(0.3)                          # a blocking call, like requests.get\n    return f\"order {order_id}: shipped\"\n\nt = time.perf_counter()\nwith ThreadPoolExecutor(max_workers=8) as pool:\n    results = list(pool.map(slow_lookup, range(16)))\nprint(results[:2], f\"{time.perf_counter() - t:.1f}s with 8 threads (one by one: ~4.8s)\")"
     }
    ],
    "practice": [
