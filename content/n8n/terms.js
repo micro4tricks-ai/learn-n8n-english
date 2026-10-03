@@ -9945,5 +9945,248 @@ JOURNEY_TERMS["n8n"] = [
    "en": "a complete monitoring bundle for Kubernetes"
   },
   "ex": "kube-prometheus-stack ships Grafana."
+ },
+ {
+  "w": 45,
+  "t": "process mapping",
+  "m": {
+   "ar": "رسم العملية خطوة بخطوة",
+   "en": "drawing a process step by step"
+  },
+  "ex": "Process mapping found the real delay."
+ },
+ {
+  "w": 45,
+  "t": "pain point",
+  "m": {
+   "ar": "المشكلة اللي بتوجع العميل",
+   "en": "the problem that hurts the client"
+  },
+  "ex": "The pain point was price errors."
+ },
+ {
+  "w": 45,
+  "t": "roi",
+  "m": {
+   "ar": "العائد على الاستثمار",
+   "en": "return on investment"
+  },
+  "ex": "The ROI is 4× in the first year."
+ },
+ {
+  "w": 45,
+  "t": "time saved",
+  "m": {
+   "ar": "الوقت اللي الأتمتة بتوفره",
+   "en": "the time the automation saves"
+  },
+  "ex": "Time saved is 55 hours a month."
+ },
+ {
+  "w": 45,
+  "t": "payback period",
+  "m": {
+   "ar": "المدة لحد ما المشروع يرجّع تكلفته",
+   "en": "how long until a project pays for itself"
+  },
+  "ex": "The payback period is under 3 months."
+ },
+ {
+  "w": 45,
+  "t": "opportunity scoring",
+  "m": {
+   "ar": "ترتيب أفكار الأتمتة بالقيمة والصعوبة",
+   "en": "ranking automation ideas by value and difficulty"
+  },
+  "ex": "Opportunity scoring picked the quick win."
+ },
+ {
+  "w": 45,
+  "t": "productized service",
+  "m": {
+   "ar": "خدمة باسم وسعر ونطاق ثابتين",
+   "en": "a service with a fixed name, price and scope"
+  },
+  "ex": "Our productized service takes 10 days."
+ },
+ {
+  "w": 45,
+  "t": "pricing tier",
+  "m": {
+   "ar": "مستوى سعر بمميزات",
+   "en": "a price level with features"
+  },
+  "ex": "Most clients pick the middle pricing tier."
+ },
+ {
+  "w": 45,
+  "t": "paid discovery",
+  "m": {
+   "ar": "مرحلة اكتشاف مدفوعة",
+   "en": "a paid discovery phase"
+  },
+  "ex": "Start big projects with paid discovery."
+ },
+ {
+  "w": 45,
+  "t": "pilot project",
+  "m": {
+   "ar": "مشروع تجريبي صغير يثبت القيمة",
+   "en": "a small trial project proving value"
+  },
+  "ex": "The pilot project ran for a month."
+ },
+ {
+  "w": 45,
+  "t": "out of scope",
+  "m": {
+   "ar": "خارج نطاق العرض",
+   "en": "outside the offer’s scope"
+  },
+  "ex": "ERP integrations are out of scope."
+ },
+ {
+  "w": 45,
+  "t": "ideal client profile",
+  "m": {
+   "ar": "وصف العميل اللي بيكسب أكتر من شغلك",
+   "en": "a description of the client who gains most from your work"
+  },
+  "ex": "Our ideal client profile is Shopify stores."
+ },
+ {
+  "w": 45,
+  "t": "lead magnet",
+  "m": {
+   "ar": "حاجة مجانية بتجذب مهتمين",
+   "en": "a free resource attracting interested people"
+  },
+  "ex": "The checklist is our lead magnet."
+ },
+ {
+  "w": 45,
+  "t": "buying signal",
+  "m": {
+   "ar": "علامة إن الشركة محتاجة حلك",
+   "en": "a sign a company needs your solution"
+  },
+  "ex": "Hiring an order clerk is a buying signal."
+ },
+ {
+  "w": 45,
+  "t": "nurture sequence",
+  "m": {
+   "ar": "رسايل متابعة طويلة للمهتمين مش جاهزين",
+   "en": "a long series of messages for not-yet-ready leads"
+  },
+  "ex": "Cold leads enter the nurture sequence."
+ },
+ {
+  "w": 45,
+  "t": "partner referral",
+  "m": {
+   "ar": "عميل جاي من شريك",
+   "en": "a client sent by a partner"
+  },
+  "ex": "The accountant sent a partner referral."
+ },
+ {
+  "w": 45,
+  "t": "discovery questions",
+  "m": {
+   "ar": "أسئلة بتكشف الوضع والمشكلة والأثر",
+   "en": "questions revealing situation, problem and impact"
+  },
+  "ex": "Prepare ten discovery questions."
+ },
+ {
+  "w": 45,
+  "t": "objection handling",
+  "m": {
+   "ar": "الرد على اعتراضات العميل",
+   "en": "answering a client’s objections"
+  },
+  "ex": "Objection handling starts with listening."
+ },
+ {
+  "w": 45,
+  "t": "impact question",
+  "m": {
+   "ar": "سؤال عن تكلفة المشكلة",
+   "en": "a question about the problem’s cost"
+  },
+  "ex": "The impact question revealed 40 hours a month."
+ },
+ {
+  "w": 45,
+  "t": "next step",
+  "m": {
+   "ar": "خطوة جاية محددة بميعاد",
+   "en": "a specific follow-up action with a date"
+  },
+  "ex": "End every call with a next step."
+ },
+ {
+  "w": 45,
+  "t": "reference call",
+  "m": {
+   "ar": "مكالمة مع عميل سابق للتزكية",
+   "en": "a call with a past client vouching for you"
+  },
+  "ex": "The bank asked for a reference call."
+ },
+ {
+  "w": 45,
+  "t": "procurement",
+  "m": {
+   "ar": "إدارة المشتريات واعتماد الموردين",
+   "en": "purchasing and supplier approval"
+  },
+  "ex": "Procurement needs our tax card."
+ },
+ {
+  "w": 45,
+  "t": "security questionnaire",
+  "m": {
+   "ar": "أسئلة أمان من العميل للمورد",
+   "en": "security questions from client to supplier"
+  },
+  "ex": "The security questionnaire had 90 questions."
+ },
+ {
+  "w": 45,
+  "t": "security pack",
+  "m": {
+   "ar": "ملف جاهز بممارسات الأمان",
+   "en": "a ready file of security practices"
+  },
+  "ex": "Send the security pack before they ask."
+ },
+ {
+  "w": 45,
+  "t": "statement of work",
+  "m": {
+   "ar": "وثيقة نطاق العمل والمخرجات",
+   "en": "a document of scope and deliverables"
+  },
+  "ex": "Both sides sign the statement of work."
+ },
+ {
+  "w": 45,
+  "t": "assumptions",
+  "m": {
+   "ar": "شروط مفروض تتحقق عشان الخطة تمشي",
+   "en": "conditions the plan relies on"
+  },
+  "ex": "List the assumptions in the SOW."
+ },
+ {
+  "w": 45,
+  "t": "payment terms",
+  "m": {
+   "ar": "شروط ومدد الدفع",
+   "en": "when and how payment is made"
+  },
+  "ex": "Their payment terms are net 45."
  }
 ];
