@@ -12663,5 +12663,302 @@ JOURNEY_TERMS["js"] = [
    "en": "a warning when spending passes a threshold"
   },
   "ex": "The budget alert caught a retry loop."
+ },
+ {
+  "w": 45,
+  "t": "dockerfile",
+  "m": {
+   "ar": "ملف وصف بناء الصورة",
+   "en": "the file describing how to build an image"
+  },
+  "ex": "The Dockerfile has two stages."
+ },
+ {
+  "w": 45,
+  "t": "multi-stage build",
+  "m": {
+   "ar": "بناء على مراحل",
+   "en": "a build with separate build and runtime stages"
+  },
+  "ex": "A multi-stage build dropped 600 MB."
+ },
+ {
+  "w": 45,
+  "t": "base image",
+  "m": {
+   "ar": "الصورة الأساسية",
+   "en": "the image a build starts from"
+  },
+  "ex": "node:22-slim is our base image."
+ },
+ {
+  "w": 45,
+  "t": "alpine",
+  "m": {
+   "ar": "توزيعة لينكس صغيرة جدًا",
+   "en": "a tiny Linux distribution"
+  },
+  "ex": "Alpine uses musl instead of glibc."
+ },
+ {
+  "w": 45,
+  "t": "distroless",
+  "m": {
+   "ar": "صورة من غير نظام كامل",
+   "en": "an image with only the runtime"
+  },
+  "ex": "Distroless images have no shell."
+ },
+ {
+  "w": 45,
+  "t": "layer caching",
+  "m": {
+   "ar": "إعادة استخدام طبقات البناء",
+   "en": "reusing unchanged build layers"
+  },
+  "ex": "Layer caching skips npm ci."
+ },
+ {
+  "w": 45,
+  "t": ".dockerignore",
+  "m": {
+   "ar": "ملف استبعاد من الـ build",
+   "en": "files excluded from the build context"
+  },
+  "ex": "Add .env to .dockerignore."
+ },
+ {
+  "w": 45,
+  "t": "non-root user",
+  "m": {
+   "ar": "مستخدم عادي مش root",
+   "en": "a user without admin rights"
+  },
+  "ex": "Run Node as a non-root user."
+ },
+ {
+  "w": 45,
+  "t": "pid 1",
+  "m": {
+   "ar": "أول عملية في الـ container",
+   "en": "the first process in a container"
+  },
+  "ex": "Node as PID 1 ignores signals by default."
+ },
+ {
+  "w": 45,
+  "t": "tini",
+  "m": {
+   "ar": "init صغير بيوصّل الإشارات",
+   "en": "a tiny init forwarding signals"
+  },
+  "ex": "init: true runs tini."
+ },
+ {
+  "w": 45,
+  "t": "sigterm",
+  "m": {
+   "ar": "إشارة طلب الإقفال",
+   "en": "the signal asking a process to stop"
+  },
+  "ex": "Handle SIGTERM to finish requests."
+ },
+ {
+  "w": 45,
+  "t": "closeidleconnections",
+  "m": {
+   "ar": "قفل اتصالات keep-alive الفاضية",
+   "en": "closing idle keep-alive connections"
+  },
+  "ex": "Call closeIdleConnections during shutdown."
+ },
+ {
+  "w": 45,
+  "t": "max-old-space-size",
+  "m": {
+   "ar": "حد ذاكرة V8",
+   "en": "the V8 heap size limit"
+  },
+  "ex": "Set max-old-space-size to 384."
+ },
+ {
+  "w": 45,
+  "t": "node_options",
+  "m": {
+   "ar": "خيارات Node من البيئة",
+   "en": "Node flags set via the environment"
+  },
+  "ex": "NODE_OPTIONS carries the heap limit."
+ },
+ {
+  "w": 45,
+  "t": "oom kill",
+  "m": {
+   "ar": "قتل العملية لنفاد الذاكرة",
+   "en": "a process killed for using too much memory"
+  },
+  "ex": "The worker died by OOM kill."
+ },
+ {
+  "w": 45,
+  "t": "docker compose",
+  "m": {
+   "ar": "تشغيل كذا container مع بعض",
+   "en": "running multi-container apps"
+  },
+  "ex": "docker compose up starts everything."
+ },
+ {
+  "w": 45,
+  "t": "volumes",
+  "m": {
+   "ar": "تخزين دائم للـ containers",
+   "en": "persistent storage for containers"
+  },
+  "ex": "Postgres data lives in volumes."
+ },
+ {
+  "w": 45,
+  "t": "service_healthy",
+  "m": {
+   "ar": "استنى الخدمة تبقى سليمة",
+   "en": "waiting until a service passes its healthcheck"
+  },
+  "ex": "depends_on uses service_healthy."
+ },
+ {
+  "w": 45,
+  "t": "parseenv",
+  "m": {
+   "ar": "فك ملف .env في Node",
+   "en": "parsing .env text in Node"
+  },
+  "ex": "util.parseEnv reads the example file."
+ },
+ {
+  "w": 45,
+  "t": "docker secrets",
+  "m": {
+   "ar": "أسرار بتتحط كملفات في الـ container",
+   "en": "secrets mounted as files"
+  },
+  "ex": "The DB password comes from Docker secrets."
+ },
+ {
+  "w": 45,
+  "t": "caddy",
+  "m": {
+   "ar": "reverse proxy بـ HTTPS تلقائي",
+   "en": "a reverse proxy with automatic HTTPS"
+  },
+  "ex": "Caddy renewed the certificate itself."
+ },
+ {
+  "w": 45,
+  "t": "let’s encrypt",
+  "m": {
+   "ar": "شهادات HTTPS مجانية",
+   "en": "a free certificate authority"
+  },
+  "ex": "Let’s Encrypt issues 90-day certificates."
+ },
+ {
+  "w": 45,
+  "t": "vps",
+  "m": {
+   "ar": "سيرفر افتراضي خاص",
+   "en": "a virtual private server"
+  },
+  "ex": "One VPS runs the API, n8n and Postgres."
+ },
+ {
+  "w": 45,
+  "t": "pm2",
+  "m": {
+   "ar": "مدير عمليات لـ Node",
+   "en": "a process manager for Node"
+  },
+  "ex": "pm2 restarts the app after a crash."
+ },
+ {
+  "w": 45,
+  "t": "systemd",
+  "m": {
+   "ar": "مدير الخدمات في Linux",
+   "en": "Linux’s service manager"
+  },
+  "ex": "A systemd unit runs the API at boot."
+ },
+ {
+  "w": 45,
+  "t": "zero-downtime",
+  "m": {
+   "ar": "تحديث من غير توقف",
+   "en": "deploying without interrupting users"
+  },
+  "ex": "The proxy switch gives zero-downtime."
+ },
+ {
+  "w": 45,
+  "t": "rolling update",
+  "m": {
+   "ar": "تبديل تدريجي للنسخ",
+   "en": "replacing instances gradually"
+  },
+  "ex": "A rolling update keeps one copy serving."
+ },
+ {
+  "w": 45,
+  "t": "image tag",
+  "m": {
+   "ar": "اسم قابل للتحريك للصورة",
+   "en": "a movable label for an image"
+  },
+  "ex": "The image tag main moves every merge."
+ },
+ {
+  "w": 45,
+  "t": "image digest",
+  "m": {
+   "ar": "بصمة الصورة الثابتة",
+   "en": "the immutable sha256 of an image"
+  },
+  "ex": "Production pins the image digest."
+ },
+ {
+  "w": 45,
+  "t": "image size",
+  "m": {
+   "ar": "حجم الصورة",
+   "en": "how large an image is"
+  },
+  "ex": "Image size fell from 1.1 GB to 210 MB."
+ },
+ {
+  "w": 45,
+  "t": "trivy",
+  "m": {
+   "ar": "أداة فحص ثغرات الصور",
+   "en": "a container vulnerability scanner"
+  },
+  "ex": "trivy failed the build on a critical CVE."
+ },
+ {
+  "w": 45,
+  "t": "ghcr",
+  "m": {
+   "ar": "سجل صور GitHub",
+   "en": "GitHub Container Registry"
+  },
+  "ex": "Push the image to GHCR."
+ },
+ {
+  "w": 45,
+  "t": "buildx",
+  "m": {
+   "ar": "أداة البناء المتقدمة في Docker",
+   "en": "Docker’s advanced builder"
+  },
+  "ex": "buildx caches layers in CI."
  }
 ];
