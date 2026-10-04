@@ -4,15 +4,16 @@
 
 ## الفكرة في سطرين
 
-تلات رحلات، كل واحدة **24 أسبوع (6 شهور)** بـ **ساعتين في اليوم، 6 أيام في الأسبوع**:
+أربع رحلات، كل واحدة **48 أسبوع (12 شهر)**، **6 أيام في الأسبوع**: أول 3 شهور **مكثّفة بـ 3 ساعات في اليوم** (فيها «ساعة التكثيف» ⚡)، وبعدها **ساعتين في اليوم** من المتوسط للخبير:
 
-- **رحلة n8n** (`n8n.html`): من أول ما تشغّل n8n لحد ما تسلّم أنظمة أتمتة لعملاء على سيرفر، ومعاها JavaScript وPython وSQL وRegex وGit وDocker والذكاء الاصطناعي.
-- **رحلة بايثون** (`python.html`): Python للأتمتة من أول سطر: ملفات وExcel وPDF وإيميل وAPIs وScraping وSQL وpandas وFastAPI والذكاء الاصطناعي وMCP، ومعاها HTML وCSS وJavaScript. أغلب الأمثلة فيها زرار **شغّل** بيشغّلها جوه الصفحة، وتقدر تعدّل الكود وتجرّب.
-- **إنجليزي المبرمج** (`english.html`): من A1 لحد B2/C1 في إنجليزي الشغل: رسايل الأخطاء، والتوثيق، والإيميلات، والاجتماعات، والمقابلات.
+- **رحلة n8n** (`n8n.html`): من أول ما تشغّل n8n لحد النودز المخصصة والأمان والتوسّع وبيع خدماتك وإدارة فريق، ومعاها JavaScript وPython وSQL وRegex وGit وDocker والذكاء الاصطناعي.
+- **رحلة بايثون** (`python.html`): Python للأتمتة من أول سطر: ملفات وExcel وPDF وإيميل وAPIs وScraping وSQL وpandas وFastAPI والذكاء الاصطناعي وMCP، ومعاها HTML وCSS وJavaScript، لحد RAG والـ agents والتقييم وMCP والمعمارية والاختبارات والأمان والسحابة. أغلب الأمثلة فيها زرار **شغّل** بيشغّلها جوه الصفحة، وتقدر تعدّل الكود وتجرّب.
+- **رحلة جافاسكريبت** (`js.html`): JavaScript وHTML وCSS وNode.js وTypeScript للأتمتة: الـ DOM والكود غير المتزامن وسكربتات Node وCode node في n8n وApps Script وPlaywright، لحد Claude API وMCP ونودز n8n مخصصة وإضافات المتصفح والـ edge والنشر. أمثلة المتصفح بتشتغل في الصفحة، وأمثلة Node معاها طريقة تشغيلها على جهازك.
+- **إنجليزي المبرمج** (`english.html`): من A1 لحد C2 في إنجليزي الشغل: رسايل الأخطاء، والتوثيق، والإيميلات، والاجتماعات، والمقابلات، ومكالمات البيع والعقود والمحاضرات.
 
-تقدر تمشي في رحلتين مع بعض (4 ساعات في اليوم)، أو تبدأ بواحدة. لو إنجليزيك ضعيف جدًا، ابدأ بالإنجليزي شهر الأول، لأن التوثيق كله إنجليزي. ورحلة بايثون بتكمّل رحلة n8n: اللي n8n مش بيعرف يعمله لوحده بتكتبه بـ Python.
+ابدأ برحلة واحدة (أو رحلة + الإنجليزي لو عندك وقت)، لأن أول 3 شهور مكثّفة. لو إنجليزيك ضعيف جدًا، ابدأ بالإنجليزي شهر الأول، لأن التوثيق كله إنجليزي. ورحلتا بايثون وجافاسكريبت بيكمّلوا رحلة n8n: اللي n8n مش بيعرف يعمله لوحده بتكتبه بكود.
 
-## اليوم بتاعك (120 دقيقة)
+## اليوم بتاعك (120 دقيقة — و180 في أول 3 شهور)
 
 | الوقت | الجزء | تعمل إيه |
 |---|---|---|
@@ -24,12 +25,14 @@
 
 **التحدي** (لو موجود) اختياري بس هو اللي بيفرق بين اللي فاهم واللي حافظ.
 
+في أول 3 شهور كل جزء بياخد وقت أطول، وفيه أمثلة إضافية مكتوب عليها ⚡ «ساعة التكثيف».
+
 ## القواعد
 
 - **اليوم** بيخلص لما تعلّم كل مهام «اتمرّن بإيدك» وتجاوب 60% من اختباره صح. لو غلطت، اضغط «امسح الإجابات وجاوب تاني» بعد ما تراجع.
 - **اليوم السادس**: مراجعة + مشروع الأسبوع + **اختبار أسبوعي** (10–12 سؤال). الأسبوع اللي بعده بيفتح لما تجيب **70% أو أكتر**. تقدر تعيده براحتك، وأحسن درجة هي اللي بتتحسب.
 - **امتحان الشهر**: بيفتح لما تعدّي اختبارات أسابيع الشهر الأربعة. 20 سؤال من الشهر كله، وكل محاولة بأسئلة جديدة. مش شرط عشان تكمّل، بس هو أحسن مقياس إنك ماسك الشهر فعلًا.
-- **الامتحان النهائي**: بعد الأسبوع 24، و48 سؤال من الرحلة كلها. لو نجحت، بتظهرلك **شهادة إتمام** تقدر تطبعها.
+- **الامتحان النهائي**: بعد الأسبوع 48، و48 سؤال من الرحلة كلها (سؤال من كل أسبوع). لو نجحت، بتظهرلك **شهادة إتمام** تقدر تطبعها.
 
 ## نصايح هتفرق معاك
 
@@ -42,11 +45,11 @@
 
 ## المكتبة
 
-فيها قرابة 600 مصدر مجاني (توثيق رسمي، كتب، كورسات، APIs للتجربة، بودكاست…). كل مصدر مكتوب جنبه **تقرا منه إيه بالظبط**. استخدم الفلاتر: القسم، والمستوى، واللغة، و«لسه مخلّصتوش». متحاولش تقرا المكتبة كلها؛ هي مرجع ترجعله لما تحتاج.
+فيها أكتر من 800 مصدر مجاني (توثيق رسمي، كتب، كورسات، APIs للتجربة، بودكاست…). كل مصدر مكتوب جنبه **تقرا منه إيه بالظبط**. استخدم الفلاتر: القسم، والمستوى، واللغة، و«لسه مخلّصتوش». متحاولش تقرا المكتبة كلها؛ هي مرجع ترجعله لما تحتاج.
 
 ## الأدوات اللي معاك (قايمة «المزيد»)
 
-- **🔁 مراجعتي**: كل يوم 10–15 دقيقة، ويفضّل أول حاجة في الساعتين. البطاقات (كلمات، مصطلحات n8n، قواعد) بترجعلك قبل ما تنساها. افتكر المعنى **قبل** ما تقلب، وبعدين قيّم نفسك بصراحة. تحتها **دفتر الأخطاء**: كل سؤال غلطت فيه في أي اختبار بيتسجل لوحده ويرجعلك لحد ما تجاوبه صح مرتين. وفيه **إحصائياتك** و**نسخة احتياطية** وزرار تحمّل بيه الرحلتين للمذاكرة من غير نت.
+- **🔁 مراجعتي**: كل يوم 10–15 دقيقة، ويفضّل أول حاجة في الساعتين. البطاقات (كلمات، مصطلحات n8n وبايثون وجافاسكريبت، قواعد) بترجعلك قبل ما تنساها. افتكر المعنى **قبل** ما تقلب، وبعدين قيّم نفسك بصراحة. تحتها **دفتر الأخطاء**: كل سؤال غلطت فيه في أي اختبار بيتسجل لوحده ويرجعلك لحد ما تجاوبه صح مرتين. وفيه **إحصائياتك** و**نسخة احتياطية** وزرار تحمّل بيه الرحلات الأربعة (192 أسبوع) للمذاكرة من غير نت.
 - **🧪 المعمل**: لما الدرس فيه Expressions أو JavaScript أو Python أو SQL، اتمرّن على التحديات هنا من غير ما تثبّت حاجة. والصق أي Workflow عملته عشان تشوفه رسمة ويتفحص قبل ما تسلّمه (أسرار مكتوبة في النود، Webhook مفتوح، مفيش معالجة أخطاء…). وتقدر تدوّر في قوالب n8n الرسمية.
 - **🎙️ تدريب الكلام**: 10 دقايق كل يوم في رحلة الإنجليزي: نطق بتقييم، وShadowing بتسجيل صوتك، وإملاء، و10 مواقف شغل حقيقية.
 - **🤖 البرومبتات**: 187 برومبت جاهز في 15 مجال تملا خاناتها وتنسخها، وكورس من 20 درس (10 أساسيات و10 متقدم للوكلاء والخرج المنظم والاختبار والحماية من الحقن) مفيد جدًا في شهور الذكاء الاصطناعي في الرحلات، وتقدر تحفظ برومبتاتك.
@@ -74,11 +77,11 @@
 
 ## In English (short)
 
-Three 24-week journeys (n8n automation, Python for automation and the web, and English for developers), 2 hours a day, 6 days a week. In the Python journey most examples have a **Run** button: Python runs in the browser, and HTML/JavaScript in a sandboxed frame; you can edit the code first.
+Four 48-week journeys (n8n automation, Python, JavaScript, and English for developers from A1 to C2), 6 days a week: an intensive start of 3 hours a day in months 1–3, then 2 hours a day up to expert level. In the Python and JavaScript journeys most examples have a **Run** button: Python runs in the browser, and HTML/JavaScript in a sandboxed frame; Node.js examples come with how to run them on your computer.
 
 - **Study days 1–5**: understand → practise (check each task) → words → reading → a 3-question quiz. A day is done when every practice task is checked and 60% of the quiz is right.
 - **Day 6**: review, the weekly project, and the weekly test. The next week opens at **70%**; retake as often as you like — your best score counts.
-- **Monthly exams** (20 questions drawn from the month) open after the month's four weekly tests. The **final exam** (48 questions from all 24 weeks) opens after week 24; passing it shows a printable certificate. Every attempt draws new questions.
-- **Library**: about 700 free resources, each saying exactly what to read; filter by section, level, language and done/not done.
+- **Monthly exams** (20 questions drawn from the month) open after the month's four weekly tests. The **final exam** (48 questions, one from each week) opens after week 48; passing it shows a printable certificate. Every attempt draws new questions.
+- **Library**: more than 800 free resources, each saying exactly what to read; filter by section, level, language and done/not done.
 - **Progress** is saved in your browser. Sign in with an email link (no password) to keep it online and continue on any device, or download a backup file from «My review».
 - **Tools** (menu «More»): *My review* (10–15 min of spaced review a day + the mistakes notebook), *Lab* (expressions, JavaScript, Python and SQL challenges; view and check any workflow), *Speaking practice*, *Prompts*, *Cheat sheets*. Search everything with `Ctrl K` or `/`.
