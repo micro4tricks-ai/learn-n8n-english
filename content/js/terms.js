@@ -12375,5 +12375,293 @@ JOURNEY_TERMS["js"] = [
    "en": "reporting flaws privately to the owner"
   },
   "ex": "Publish a responsible disclosure page."
+ },
+ {
+  "w": 44,
+  "t": "serverless",
+  "m": {
+   "ar": "تشغيل من غير إدارة سيرفرات",
+   "en": "running code without managing servers"
+  },
+  "ex": "The webhook runs serverless."
+ },
+ {
+  "w": 44,
+  "t": "edge function",
+  "m": {
+   "ar": "دالة بتشتغل قريب من المستخدم",
+   "en": "a function running near the user"
+  },
+  "ex": "An edge function answers in 20 ms."
+ },
+ {
+  "w": 44,
+  "t": "v8 isolate",
+  "m": {
+   "ar": "بيئة تشغيل خفيفة جوه V8",
+   "en": "a lightweight sandbox inside V8"
+  },
+  "ex": "A V8 isolate starts in milliseconds."
+ },
+ {
+  "w": 44,
+  "t": "web standard apis",
+  "m": {
+   "ar": "Request وResponse وfetch القياسية",
+   "en": "the standard Request, Response and fetch"
+  },
+  "ex": "Web standard APIs make the handler portable."
+ },
+ {
+  "w": 44,
+  "t": "fetch handler",
+  "m": {
+   "ar": "دالة بتاخد Request وترجّع Response",
+   "en": "a function from Request to Response"
+  },
+  "ex": "The fetch handler routes by path."
+ },
+ {
+  "w": 44,
+  "t": "environment bindings",
+  "m": {
+   "ar": "موارد بتتحقن في env",
+   "en": "resources injected into env"
+  },
+  "ex": "KV and secrets arrive as environment bindings."
+ },
+ {
+  "w": 44,
+  "t": "cpu time limit",
+  "m": {
+   "ar": "حد وقت المعالج لكل طلب",
+   "en": "the CPU time allowed per request"
+  },
+  "ex": "PDF rendering hit the CPU time limit."
+ },
+ {
+  "w": 44,
+  "t": "wrangler",
+  "m": {
+   "ar": "أداة تطوير ونشر Workers",
+   "en": "the CLI for building and deploying Workers"
+  },
+  "ex": "Run npx wrangler dev locally."
+ },
+ {
+  "w": 44,
+  "t": "workers kv",
+  "m": {
+   "ar": "تخزين key-value على الـ edge",
+   "en": "Cloudflare’s edge key-value store"
+  },
+  "ex": "Cache products in Workers KV."
+ },
+ {
+  "w": 44,
+  "t": "d1",
+  "m": {
+   "ar": "قاعدة SQLite على Cloudflare",
+   "en": "Cloudflare’s serverless SQLite"
+  },
+  "ex": "Orders live in D1."
+ },
+ {
+  "w": 44,
+  "t": "r2",
+  "m": {
+   "ar": "تخزين ملفات من Cloudflare",
+   "en": "Cloudflare’s object storage"
+  },
+  "ex": "Invoices are stored in R2."
+ },
+ {
+  "w": 44,
+  "t": "waituntil",
+  "m": {
+   "ar": "كمّل شغل بعد الرد",
+   "en": "continue work after responding"
+  },
+  "ex": "ctx.waitUntil refreshes the cache."
+ },
+ {
+  "w": 44,
+  "t": "cron trigger",
+  "m": {
+   "ar": "تشغيل Worker بجدول",
+   "en": "running a Worker on a schedule"
+  },
+  "ex": "A cron trigger sends the daily report."
+ },
+ {
+  "w": 44,
+  "t": "nodejs_compat",
+  "m": {
+   "ar": "علامة توافق مع APIs Node",
+   "en": "a flag enabling Node APIs in Workers"
+  },
+  "ex": "Enable nodejs_compat for node:crypto."
+ },
+ {
+  "w": 44,
+  "t": "stale-while-revalidate",
+  "m": {
+   "ar": "رجّع القديم وحدّث في الخلفية",
+   "en": "serve stale data while refreshing"
+  },
+  "ex": "Stale-while-revalidate keeps pages fast."
+ },
+ {
+  "w": 44,
+  "t": "edge caching",
+  "m": {
+   "ar": "الكاش على الـ edge",
+   "en": "caching responses at edge locations"
+  },
+  "ex": "Edge caching cut origin traffic by 90%."
+ },
+ {
+  "w": 44,
+  "t": "cache api",
+  "m": {
+   "ar": "API الكاش في Workers",
+   "en": "the Workers caches API"
+  },
+  "ex": "Store the response with the cache API."
+ },
+ {
+  "w": 44,
+  "t": "geolocation",
+  "m": {
+   "ar": "معرفة مكان المستخدم",
+   "en": "knowing the user’s location"
+  },
+  "ex": "Geolocation picks the currency."
+ },
+ {
+  "w": 44,
+  "t": "rate limiting at the edge",
+  "m": {
+   "ar": "تحديد الطلبات على الـ edge",
+   "en": "blocking excess requests before the origin"
+  },
+  "ex": "Rate limiting at the edge stopped the bot."
+ },
+ {
+  "w": 44,
+  "t": "webhook at the edge",
+  "m": {
+   "ar": "استقبال webhooks على الـ edge",
+   "en": "receiving webhooks in an edge function"
+  },
+  "ex": "A webhook at the edge never times out."
+ },
+ {
+  "w": 44,
+  "t": "crypto.subtle",
+  "m": {
+   "ar": "تشفير Web القياسي",
+   "en": "the standard Web Crypto API"
+  },
+  "ex": "crypto.subtle signs the HMAC in Workers."
+ },
+ {
+  "w": 44,
+  "t": "hono",
+  "m": {
+   "ar": "framework صغير على Web APIs",
+   "en": "a small framework on web standards"
+  },
+  "ex": "Hono runs on Workers and Node."
+ },
+ {
+  "w": 44,
+  "t": "aws lambda",
+  "m": {
+   "ar": "خدمة الدوال في AWS",
+   "en": "Amazon’s function service"
+  },
+  "ex": "The export runs on AWS Lambda."
+ },
+ {
+  "w": 44,
+  "t": "lambda handler",
+  "m": {
+   "ar": "دالة Lambda الأساسية",
+   "en": "the function Lambda calls"
+  },
+  "ex": "The lambda handler returns statusCode 200."
+ },
+ {
+  "w": 44,
+  "t": "vercel functions",
+  "m": {
+   "ar": "دوال serverless على Vercel",
+   "en": "serverless functions on Vercel"
+  },
+  "ex": "Vercel functions live in api/."
+ },
+ {
+  "w": 44,
+  "t": "netlify functions",
+  "m": {
+   "ar": "دوال serverless على Netlify",
+   "en": "serverless functions on Netlify"
+  },
+  "ex": "Netlify functions handle the form."
+ },
+ {
+  "w": 44,
+  "t": "vendor lock-in",
+  "m": {
+   "ar": "الارتباط بمنصة واحدة",
+   "en": "dependence on one platform"
+  },
+  "ex": "Web APIs reduce vendor lock-in."
+ },
+ {
+  "w": 44,
+  "t": "pay per request",
+  "m": {
+   "ar": "دفع لكل طلب",
+   "en": "billing for each invocation"
+  },
+  "ex": "Pay per request suits bursty traffic."
+ },
+ {
+  "w": 44,
+  "t": "free tier",
+  "m": {
+   "ar": "استخدام مجاني محدود",
+   "en": "a limited free allowance"
+  },
+  "ex": "The free tier covers our staging."
+ },
+ {
+  "w": 44,
+  "t": "scale to zero",
+  "m": {
+   "ar": "صفر تشغيل لما مفيش طلبات",
+   "en": "running nothing when idle"
+  },
+  "ex": "Scale to zero keeps nights free."
+ },
+ {
+  "w": 44,
+  "t": "subrequest",
+  "m": {
+   "ar": "طلب من جوه الـ function لخدمة تانية",
+   "en": "a request made from inside a function"
+  },
+  "ex": "Workers limit subrequests per request."
+ },
+ {
+  "w": 44,
+  "t": "budget alert",
+  "m": {
+   "ar": "تنبيه الميزانية",
+   "en": "a warning when spending passes a threshold"
+  },
+  "ex": "The budget alert caught a retry loop."
  }
 ];
