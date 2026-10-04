@@ -13257,5 +13257,338 @@ JOURNEY_TERMS["js"] = [
    "en": "a review after an incident"
   },
   "ex": "The postmortem listed three actions."
+ },
+ {
+  "w": 47,
+  "t": "freelancing",
+  "m": {
+   "ar": "الشغل الحر",
+   "en": "working independently for clients"
+  },
+  "ex": "Freelancing pays when you specialise."
+ },
+ {
+  "w": 47,
+  "t": "niche",
+  "m": {
+   "ar": "تخصص ضيق",
+   "en": "a narrow specialisation"
+  },
+  "ex": "My niche is Gulf e-commerce automation."
+ },
+ {
+  "w": 47,
+  "t": "productized service",
+  "m": {
+   "ar": "خدمة بنطاق وسعر ثابت",
+   "en": "a service sold like a product"
+  },
+  "ex": "The Odoo setup is a productized service."
+ },
+ {
+  "w": 47,
+  "t": "portfolio",
+  "m": {
+   "ar": "معرض أعمالك",
+   "en": "a collection of your work"
+  },
+  "ex": "Put three case studies in your portfolio."
+ },
+ {
+  "w": 47,
+  "t": "case study",
+  "m": {
+   "ar": "دراسة حالة",
+   "en": "a detailed project story with results"
+  },
+  "ex": "The case study shows 29 hours saved."
+ },
+ {
+  "w": 47,
+  "t": "testimonial",
+  "m": {
+   "ar": "شهادة عميل",
+   "en": "a client’s quote"
+  },
+  "ex": "Ask for a testimonial at handover."
+ },
+ {
+  "w": 47,
+  "t": "github profile",
+  "m": {
+   "ar": "صفحتك على GitHub",
+   "en": "your public GitHub page"
+  },
+  "ex": "Pin your n8n node on your GitHub profile."
+ },
+ {
+  "w": 47,
+  "t": "referral",
+  "m": {
+   "ar": "ترشيح من عميل",
+   "en": "a recommendation bringing new clients"
+  },
+  "ex": "Half my work comes from referrals."
+ },
+ {
+  "w": 47,
+  "t": "hourly rate",
+  "m": {
+   "ar": "سعر الساعة",
+   "en": "the price per hour"
+  },
+  "ex": "My hourly rate is for unclear work only."
+ },
+ {
+  "w": 47,
+  "t": "fixed price",
+  "m": {
+   "ar": "سعر ثابت للنطاق",
+   "en": "one price for a defined scope"
+  },
+  "ex": "Clear scopes get a fixed price."
+ },
+ {
+  "w": 47,
+  "t": "value-based pricing",
+  "m": {
+   "ar": "تسعير حسب القيمة",
+   "en": "pricing by the value delivered"
+  },
+  "ex": "Value-based pricing reflected the savings."
+ },
+ {
+  "w": 47,
+  "t": "retainer",
+  "m": {
+   "ar": "اشتراك شهري",
+   "en": "a recurring monthly arrangement"
+  },
+  "ex": "The retainer covers 8 hours a month."
+ },
+ {
+  "w": 47,
+  "t": "proposal",
+  "m": {
+   "ar": "عرض المشروع",
+   "en": "a written offer for a project"
+  },
+  "ex": "Send the proposal within 24 hours."
+ },
+ {
+  "w": 47,
+  "t": "discovery call",
+  "m": {
+   "ar": "مكالمة فهم المشكلة",
+   "en": "a call to understand the client’s needs"
+  },
+  "ex": "The discovery call revealed the real problem."
+ },
+ {
+  "w": 47,
+  "t": "milestone",
+  "m": {
+   "ar": "محطة تسليم بدفعة",
+   "en": "a delivery point tied to payment"
+  },
+  "ex": "Milestone 2 is the staging sign-off."
+ },
+ {
+  "w": 47,
+  "t": "deposit",
+  "m": {
+   "ar": "عربون",
+   "en": "an upfront partial payment"
+  },
+  "ex": "A 40% deposit starts the project."
+ },
+ {
+  "w": 47,
+  "t": "payment terms",
+  "m": {
+   "ar": "شروط الدفع",
+   "en": "when and how payment is due"
+  },
+  "ex": "Payment terms are 7 days."
+ },
+ {
+  "w": 47,
+  "t": "statement of work",
+  "m": {
+   "ar": "وثيقة نطاق العمل",
+   "en": "a document defining the work"
+  },
+  "ex": "Both sides signed the statement of work."
+ },
+ {
+  "w": 47,
+  "t": "scope of work",
+  "m": {
+   "ar": "نطاق العمل",
+   "en": "the defined boundaries of the work"
+  },
+  "ex": "The scope of work excludes data migration."
+ },
+ {
+  "w": 47,
+  "t": "contract",
+  "m": {
+   "ar": "عقد",
+   "en": "a binding agreement"
+  },
+  "ex": "The contract sets payment terms."
+ },
+ {
+  "w": 47,
+  "t": "ip assignment",
+  "m": {
+   "ar": "نقل الملكية الفكرية",
+   "en": "transferring ownership of work"
+  },
+  "ex": "IP assignment happens on full payment."
+ },
+ {
+  "w": 47,
+  "t": "nda",
+  "m": {
+   "ar": "اتفاقية عدم إفصاح",
+   "en": "a non-disclosure agreement"
+  },
+  "ex": "Sign an NDA before seeing their data."
+ },
+ {
+  "w": 47,
+  "t": "scope creep",
+  "m": {
+   "ar": "توسع النطاق من غير اتفاق",
+   "en": "uncontrolled growth of scope"
+  },
+  "ex": "Change requests stop scope creep."
+ },
+ {
+  "w": 47,
+  "t": "change request",
+  "m": {
+   "ar": "طلب تغيير مكتوب",
+   "en": "a written request to change scope"
+  },
+  "ex": "CR-1 added WooCommerce."
+ },
+ {
+  "w": 47,
+  "t": "time tracking",
+  "m": {
+   "ar": "تسجيل الوقت",
+   "en": "recording time spent on work"
+  },
+  "ex": "Time tracking showed I underpriced."
+ },
+ {
+  "w": 47,
+  "t": "client onboarding",
+  "m": {
+   "ar": "استقبال العميل وتجهيزه",
+   "en": "setting up a new client"
+  },
+  "ex": "Client onboarding collects all access on day one."
+ },
+ {
+  "w": 47,
+  "t": "handover",
+  "m": {
+   "ar": "تسليم المشروع",
+   "en": "transferring a finished project"
+  },
+  "ex": "The handover included a walkthrough video."
+ },
+ {
+  "w": 47,
+  "t": "documentation",
+  "m": {
+   "ar": "التوثيق",
+   "en": "written explanations of a system"
+  },
+  "ex": "Good documentation reduces support calls."
+ },
+ {
+  "w": 47,
+  "t": "care plan",
+  "m": {
+   "ar": "خطة رعاية شهرية",
+   "en": "an ongoing support subscription"
+  },
+  "ex": "The care plan includes monitoring."
+ },
+ {
+  "w": 47,
+  "t": "maintenance plan",
+  "m": {
+   "ar": "خطة صيانة",
+   "en": "a recurring maintenance agreement"
+  },
+  "ex": "Offer a maintenance plan at handover."
+ },
+ {
+  "w": 47,
+  "t": "monthly report",
+  "m": {
+   "ar": "تقرير شهري",
+   "en": "a recurring summary of results"
+  },
+  "ex": "The monthly report showed 196 hours saved."
+ },
+ {
+  "w": 47,
+  "t": "recurring revenue",
+  "m": {
+   "ar": "دخل متكرر",
+   "en": "income that repeats each month"
+  },
+  "ex": "Care plans give recurring revenue."
+ },
+ {
+  "w": 47,
+  "t": "templates",
+  "m": {
+   "ar": "قوالب جاهزة",
+   "en": "ready-made starting points"
+  },
+  "ex": "My templates save a week per project."
+ },
+ {
+  "w": 47,
+  "t": "reusable components",
+  "m": {
+   "ar": "أجزاء قابلة لإعادة الاستخدام",
+   "en": "parts used across projects"
+  },
+  "ex": "The error handler is a reusable component."
+ },
+ {
+  "w": 47,
+  "t": "starter repo",
+  "m": {
+   "ar": "مستودع بداية جاهز",
+   "en": "a template repository for new projects"
+  },
+  "ex": "Every project starts from my starter repo."
+ },
+ {
+  "w": 47,
+  "t": "boundaries",
+  "m": {
+   "ar": "حدود تحمي وقتك",
+   "en": "limits that protect your time"
+  },
+  "ex": "Clear boundaries prevent burnout."
+ },
+ {
+  "w": 47,
+  "t": "burnout",
+  "m": {
+   "ar": "احتراق نفسي",
+   "en": "exhaustion from long stress"
+  },
+  "ex": "Too many clients led to burnout."
  }
 ];
