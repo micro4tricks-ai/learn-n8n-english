@@ -12960,5 +12960,302 @@ JOURNEY_TERMS["js"] = [
    "en": "Docker’s advanced builder"
   },
   "ex": "buildx caches layers in CI."
+ },
+ {
+  "w": 46,
+  "t": "github actions",
+  "m": {
+   "ar": "نظام CI/CD في GitHub",
+   "en": "GitHub’s CI/CD platform"
+  },
+  "ex": "GitHub Actions runs the tests on every PR."
+ },
+ {
+  "w": 46,
+  "t": "matrix",
+  "m": {
+   "ar": "تشغيل على تركيبات نسخ وأنظمة",
+   "en": "running jobs across combinations"
+  },
+  "ex": "The matrix covers Node 22 and 24."
+ },
+ {
+  "w": 46,
+  "t": "artifact",
+  "m": {
+   "ar": "ملف ناتج من الـ pipeline",
+   "en": "a file saved from a CI run"
+  },
+  "ex": "Download the coverage artifact."
+ },
+ {
+  "w": 46,
+  "t": "required check",
+  "m": {
+   "ar": "فحص لازم ينجح قبل الدمج",
+   "en": "a status that must pass before merging"
+  },
+  "ex": "Tests are a required check."
+ },
+ {
+  "w": 46,
+  "t": "branch protection",
+  "m": {
+   "ar": "حماية الفرع من الدمج المباشر",
+   "en": "rules guarding a branch"
+  },
+  "ex": "Branch protection needs one review."
+ },
+ {
+  "w": 46,
+  "t": "release please",
+  "m": {
+   "ar": "أداة إصدارات آلية",
+   "en": "a tool automating versions and changelogs"
+  },
+  "ex": "release-please opened the 1.9.0 PR."
+ },
+ {
+  "w": 46,
+  "t": "environment",
+  "m": {
+   "ar": "بيئة نشر بأسرارها",
+   "en": "a deployment target with its own secrets"
+  },
+  "ex": "The production environment needs approval."
+ },
+ {
+  "w": 46,
+  "t": "approval",
+  "m": {
+   "ar": "موافقة قبل النشر",
+   "en": "a manual sign-off before deploying"
+  },
+  "ex": "The approval came from the tech lead."
+ },
+ {
+  "w": 46,
+  "t": "staging",
+  "m": {
+   "ar": "بيئة تجربة شبه الإنتاج",
+   "en": "a near-production test environment"
+  },
+  "ex": "Every merge goes to staging."
+ },
+ {
+  "w": 46,
+  "t": "continuous deployment",
+  "m": {
+   "ar": "نشر تلقائي لكل تغيير ناجح",
+   "en": "releasing every passing change automatically"
+  },
+  "ex": "Continuous deployment needs good alerts."
+ },
+ {
+  "w": 46,
+  "t": "oidc",
+  "m": {
+   "ar": "توكن مؤقت بدل المفاتيح",
+   "en": "short-lived identity tokens for CI"
+  },
+  "ex": "OIDC removed the stored AWS key."
+ },
+ {
+  "w": 46,
+  "t": "preview deployment",
+  "m": {
+   "ar": "نسخة معاينة لكل PR",
+   "en": "a temporary deployment per pull request"
+  },
+  "ex": "The client tested the preview deployment."
+ },
+ {
+  "w": 46,
+  "t": "structured logging",
+  "m": {
+   "ar": "لوج JSON بحقول",
+   "en": "logging as fields, usually JSON"
+  },
+  "ex": "Structured logging made errors countable."
+ },
+ {
+  "w": 46,
+  "t": "pino",
+  "m": {
+   "ar": "logger سريع لـ Node",
+   "en": "a fast JSON logger for Node"
+  },
+  "ex": "pino writes JSON to stdout."
+ },
+ {
+  "w": 46,
+  "t": "redact",
+  "m": {
+   "ar": "إخفاء حقول حساسة في اللوج",
+   "en": "masking sensitive fields in logs"
+  },
+  "ex": "redact hides the authorization header."
+ },
+ {
+  "w": 46,
+  "t": "asynclocalstorage",
+  "m": {
+   "ar": "تخزين لكل طلب عبر الـ async",
+   "en": "per-request storage across async calls"
+  },
+  "ex": "AsyncLocalStorage carries the request id."
+ },
+ {
+  "w": 46,
+  "t": "log sampling",
+  "m": {
+   "ar": "تسجيل نسبة من اللوج",
+   "en": "keeping only a share of log lines"
+  },
+  "ex": "Log sampling cut costs by 80%."
+ },
+ {
+  "w": 46,
+  "t": "metrics",
+  "m": {
+   "ar": "مقاييس رقمية مع الوقت",
+   "en": "numbers tracked over time"
+  },
+  "ex": "Metrics show the trend."
+ },
+ {
+  "w": 46,
+  "t": "histogram",
+  "m": {
+   "ar": "توزيع قيم في buckets",
+   "en": "a distribution in buckets"
+  },
+  "ex": "Latency is a histogram."
+ },
+ {
+  "w": 46,
+  "t": "prometheus",
+  "m": {
+   "ar": "نظام مقاييس بيسحب من /metrics",
+   "en": "a metrics system scraping /metrics"
+  },
+  "ex": "Prometheus scrapes every 15 s."
+ },
+ {
+  "w": 46,
+  "t": "prom-client",
+  "m": {
+   "ar": "مكتبة مقاييس Prometheus لـ Node",
+   "en": "the Prometheus client for Node"
+  },
+  "ex": "prom-client exposes event-loop lag."
+ },
+ {
+  "w": 46,
+  "t": "opentelemetry",
+  "m": {
+   "ar": "معيار المراقبة المفتوح",
+   "en": "the open observability standard"
+  },
+  "ex": "OpenTelemetry traces the Odoo call."
+ },
+ {
+  "w": 46,
+  "t": "error tracking",
+  "m": {
+   "ar": "تجميع وتتبع الأخطاء",
+   "en": "grouping and tracking exceptions"
+  },
+  "ex": "Error tracking flagged a new bug."
+ },
+ {
+  "w": 46,
+  "t": "sentry",
+  "m": {
+   "ar": "خدمة تتبع أخطاء",
+   "en": "an error-tracking service"
+  },
+  "ex": "Sentry groups the TypeError."
+ },
+ {
+  "w": 46,
+  "t": "source maps",
+  "m": {
+   "ar": "خرايط للكود الأصلي",
+   "en": "maps from built code to source"
+  },
+  "ex": "Upload source maps privately."
+ },
+ {
+  "w": 46,
+  "t": "slo",
+  "m": {
+   "ar": "هدف مستوى الخدمة",
+   "en": "a service level objective"
+  },
+  "ex": "Our SLO is 99.5% over 30 days."
+ },
+ {
+  "w": 46,
+  "t": "error budget",
+  "m": {
+   "ar": "ميزانية الأخطاء المسموحة",
+   "en": "the failures an SLO allows"
+  },
+  "ex": "We used 70% of the error budget."
+ },
+ {
+  "w": 46,
+  "t": "burn rate",
+  "m": {
+   "ar": "سرعة صرف الميزانية",
+   "en": "how fast the error budget is spent"
+  },
+  "ex": "A 14× burn rate pages on-call."
+ },
+ {
+  "w": 46,
+  "t": "uptime monitoring",
+  "m": {
+   "ar": "مراقبة إن الخدمة شغالة",
+   "en": "checking a service is reachable"
+  },
+  "ex": "Uptime monitoring pings /livez."
+ },
+ {
+  "w": 46,
+  "t": "synthetic check",
+  "m": {
+   "ar": "فحص بيقلّد المستخدم",
+   "en": "a scripted user journey check"
+  },
+  "ex": "A synthetic check places a test order."
+ },
+ {
+  "w": 46,
+  "t": "alert",
+  "m": {
+   "ar": "تنبيه",
+   "en": "a notification needing action"
+  },
+  "ex": "Every alert has a runbook."
+ },
+ {
+  "w": 46,
+  "t": "on-call",
+  "m": {
+   "ar": "المناوبة",
+   "en": "being responsible for responding to alerts"
+  },
+  "ex": "On-call rotates weekly."
+ },
+ {
+  "w": 46,
+  "t": "postmortem",
+  "m": {
+   "ar": "تحليل ما بعد الحادثة",
+   "en": "a review after an incident"
+  },
+  "ex": "The postmortem listed three actions."
  }
 ];
