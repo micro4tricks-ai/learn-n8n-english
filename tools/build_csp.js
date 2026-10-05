@@ -14,16 +14,18 @@ pages.forEach(f => {
   const p = path.join(ROOT, f);
   let html = fs.readFileSync(p, 'utf8');
   const inline = [...html.matchAll(/<script>([\s\S]*?)<\/script>/g)].map(m => sha(m[1]));
-  const lab = f === 'lab.html';   // the SQL playground runs sql.js (WebAssembly from jsDelivr) on the page itself
+  // the SQL playground runs sql.js (WebAssembly, served from this site) on the page itself. Pyodide and luxon come
+  // from jsDelivr, but only inside run.html's sandbox, which has no policy of its own and no access to this site.
+  const lab = f === 'lab.html';
   const policy = [
     "default-src 'self'",
-    ["script-src 'self'"].concat(inline, ['https://giscus.app'], goat ? ['https://gc.zgo.at'] : [], lab ? ['https://cdn.jsdelivr.net', "'wasm-unsafe-eval'"] : []).join(' '),
+    ["script-src 'self'"].concat(inline, ['https://giscus.app'], goat ? ['https://gc.zgo.at'] : [], lab ? ["'wasm-unsafe-eval'"] : []).join(' '),
     "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
     "font-src 'self' https://fonts.gstatic.com",
     "img-src 'self' data: blob: https:",
     "media-src 'self' blob: data:",
     // the learner's own n8n (the lab's «n8n on your computer» tests and «open in my n8n»): this computer or n8n Cloud
-    ["connect-src 'self'"].concat(supa ? [supa, supa.replace('https:', 'wss:')] : [], ['https://api.n8n.io', 'https://giscus.app', 'https://cdn.jsdelivr.net'], goat ? ['https://' + goat + '.goatcounter.com'] : [],
+    ["connect-src 'self'"].concat(supa ? [supa, supa.replace('https:', 'wss:')] : [], ['https://api.n8n.io', 'https://giscus.app'], goat ? ['https://' + goat + '.goatcounter.com'] : [],
       ['http://localhost:*', 'http://127.0.0.1:*', 'https://*.app.n8n.cloud']).join(' '),
     "frame-src 'self' https://giscus.app",
     "worker-src 'self'",

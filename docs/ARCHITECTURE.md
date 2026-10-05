@@ -131,7 +131,7 @@ and the tests on every push; `links.yml` checks the links weekly.
 | Service | Used for | When |
 |---|---|---|
 | Supabase (`config.js`) | Optional accounts and sync | only after sign-in |
-| cdn.jsdelivr.net | Luxon (expressions), Pyodide (Python), sql.js (SQL) | only when the lab runs that language |
+| cdn.jsdelivr.net | Luxon (expressions), Pyodide (Python), loaded only inside the sandboxed runner | only when the lab runs that language |
 | api.n8n.io | Template search | only when searching templates |
 | The browser's speech recognition (Google in Chrome) | Pronunciation scoring | only when you press 🎙 |
 | giscus.app (`config.js`) | Comments as GitHub Discussions | only when a discussion box is opened |
@@ -141,11 +141,13 @@ and the tests on every push; `links.yml` checks the links weekly.
 
 ## Security
 
-- **Content-Security-Policy** in every page (`tools/build_csp.js`, part of `npm run build`): scripts only from this site, the page's own inline scripts by hash, giscus and (on the lab) jsDelivr; connections only to this site, the services below, and the learner's own n8n on `localhost`/`127.0.0.1`/n8n Cloud (`SITE.n8n.setBase` refuses any other address); no plugins, no `<base>`, forms post only here. A new outside service must be added there.
+- **Content-Security-Policy** in every page (`tools/build_csp.js`, part of `npm run build`): scripts only from this site, the page's own inline scripts by hash, and giscus (sql.js, which runs on the lab page itself, is served from `assets/js/vendor/sqljs`, never a CDN); connections only to this site, the services below, and the learner's own n8n on `localhost`/`127.0.0.1`/n8n Cloud (`SITE.n8n.setBase` refuses any other address); no plugins, no `<base>`, forms post only here. A new outside service must be added there.
 - **Learners' code runs isolated.** Python (Pyodide), the lab's JavaScript/expressions and the HTML/JS examples run in `run.html` inside `<iframe sandbox="allow-scripts">` (`assets/js/sandbox.js` → `assets/js/runhost.js`). The frame has no origin of its own, so the code can't read localStorage (progress, the sign-in session), IndexedDB, cookies or the offline cache. Never add `allow-same-origin` to it.
 - **Everything from outside is text.** Pasted workflow JSON, template API answers, synced stores, imported backups and the URL hash go through `esc()` / `S.inline()`; workflow positions and sizes are coerced to numbers before they reach the SVG.
 - `npm run security` (`tools/xss_fuzz.js`, also in CI) fills every store, the URL hash, the search box, a pasted workflow and the template API with HTML/JS payloads on every page in both languages, fails if anything runs or becomes markup, and checks that the runner can't reach the site's storage.
-- Supabase: row-level security on every table; each user can read and write only their own rows.
+- **Not inside another site's frame.** GitHub Pages can't send `X-Frame-Options`, so `site.js` hides a page that another origin puts in a frame and shows a link that opens it in its own tab (the claude.ai copy, `window.SITE_EMBED`, is exempt). `npm run e2e` checks it.
+- **One origin, two sites.** `micro4tricks-ai.github.io` also serves muslim-todo-list, which shares this origin's localStorage and Cache Storage: the offline app deletes only its own `site-<version>` caches, and the other site's worker only its own. A separate domain would separate the storage too.
+- Supabase: row-level security on every table; each user can read and write only their own rows, at most 40 stores of < 2 MB and 10 MB in all.
 - How to report a problem privately: [SECURITY.md](../SECURITY.md).
 
 ## Things that must stay true

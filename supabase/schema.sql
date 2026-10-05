@@ -106,3 +106,19 @@ revoke all on function public.limit_store_rows() from public, anon, authenticate
 revoke all on function public.limit_attempt_rows() from public, anon, authenticated;
 create trigger user_store_limit before insert on public.user_store for each row execute function public.limit_store_rows();
 create trigger test_attempts_limit before insert on public.test_attempts for each row execute function public.limit_attempt_rows();
+
+-- hardening (2026-10-05): a ceiling on how much one account can sync in total. Each store is already < 2 MB and
+-- an account has at most 40, which still allowed ~80 MB per account; a real learner syncs well under 1 MB.
+-- The check counts the account's other stores plus the new value, so normal syncs (upserts) are never blocked.
+create or replace function public.limit_store_total() returns trigger
+  language plpgsql security definer set search_path = '' as $$
+begin
+  if (select coalesce(sum(pg_column_size(data)), 0) from public.user_store where user_id = new.user_id and key <> new.key)
+     + pg_column_size(new.data) > 10000000 then
+    raise exception 'too much synced data for this user';
+  end if;
+  return new;
+end $$;
+revoke all on function public.limit_store_total() from public, anon, authenticated;
+drop trigger if exists user_store_total on public.user_store;
+create trigger user_store_total before insert or update on public.user_store for each row execute function public.limit_store_total();

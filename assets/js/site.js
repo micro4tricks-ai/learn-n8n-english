@@ -10,6 +10,26 @@
   var LANG = window.LANG || 'ar';
   var AR = /[؀-ۿ]/;
 
+  // ---------- not inside another site's frame ----------
+  // GitHub Pages can't send X-Frame-Options, so a page shown in a frame by another site hides itself and offers
+  // a link that opens it properly (nobody can be tricked into clicking it through an invisible frame).
+  // The claude.ai copy (window.SITE_EMBED) is meant to live in a frame.
+  if(!window.SITE_EMBED && window.top !== window.self){
+    var ours = false;
+    try{ ours = window.top.location.origin === location.origin; }catch(e){}
+    if(!ours){
+      var st = document.createElement('style');
+      st.textContent = 'body > :not(.frame-guard){display:none !important}.frame-guard{font:16px/1.6 system-ui,sans-serif;padding:24px;text-align:center}';
+      document.head.appendChild(st);
+      var fg = document.createElement('p'), fa = document.createElement('a');
+      fg.className = 'frame-guard';
+      fa.href = location.href; fa.target = '_blank'; fa.rel = 'noopener';
+      fa.textContent = LANG === 'en' ? 'Open Developer Journey in its own tab ↗' : 'افتح «رحلة المبرمج» في صفحة لوحدها ↗';
+      fg.appendChild(fa);
+      document.body.appendChild(fg);
+    }
+  }
+
   // ---------- text helpers ----------
   // B('عربي', 'English') or L({ar, en}) → the text in the page language
   S.B = function(ar, en){ return LANG === 'en' ? en : ar; };

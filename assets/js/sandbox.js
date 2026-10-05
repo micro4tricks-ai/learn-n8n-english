@@ -24,7 +24,11 @@
       if(e.source !== f.contentWindow) return;
       var d = e.data || {};
       if(d.hostReady){ h.res(); return; }
-      if(d.net != null){ if(window.SITE && SITE.netAdd) SITE.netAdd('w' + d.wid, Number(d.net) || 0); return; }   // bytes a worker downloaded
+      if(d.net != null){   // bytes a worker downloaded; the code in the worker could send any number, so keep it sane
+        var n = Number(d.net);
+        if(window.SITE && SITE.netAdd && isFinite(n) && n >= 0 && n < 2e9) SITE.netAdd('w' + d.wid, n);
+        return;
+      }
       var cb = d.wid != null && h.cbs[d.wid];
       if(cb) cb(d);
     });

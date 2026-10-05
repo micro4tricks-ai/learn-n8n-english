@@ -11,7 +11,7 @@ self.addEventListener('install', function(e){
 });
 self.addEventListener('activate', function(e){
   e.waitUntil(caches.keys().then(function(keys){
-    return Promise.all(keys.filter(function(k){ return /^site-/.test(k) && k !== CACHE; }).map(function(k){ return caches.delete(k); }));
+    return Promise.all(keys.filter(function(k){ return /^site-\d+$/.test(k) && k !== CACHE; }).map(function(k){ return caches.delete(k); }));
   }).then(function(){ return self.clients.claim(); }));
 });
 function put(req, res){

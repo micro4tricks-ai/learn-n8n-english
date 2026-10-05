@@ -217,7 +217,7 @@ On every page: **site-wide search** (`Ctrl K` or `/`) across ~9,300 entries in A
 | Pages | HTML5, CSS3 (logical RTL/LTR styles through `html[dir]`) |
 | Logic | Vanilla JavaScript, no framework |
 | Audio | Browser speech synthesis and recognition (Web Speech API), MediaRecorder |
-| Learning tools | [ts-fsrs](https://github.com/open-spaced-repetition/ts-fsrs) (MIT, vendored), [Pyodide](https://pyodide.org), [sql.js](https://sql.js.org), [Luxon](https://moment.github.io/luxon/) — the last three from jsDelivr on first use |
+| Learning tools | [ts-fsrs](https://github.com/open-spaced-repetition/ts-fsrs) (MIT, vendored), [Pyodide](https://pyodide.org), [sql.js](https://sql.js.org), [Luxon](https://moment.github.io/luxon/) — sql.js vendored; Pyodide and Luxon from jsDelivr on first use, inside the sandboxed runner |
 | Offline | Service worker + web app manifest |
 | Storage | `localStorage`, plus optional [Supabase](https://supabase.com) (email-link sign-in, Postgres with row-level security) |
 | Tooling | Node.js scripts (`jsdom`, `acorn`, `sql.js`) for building data, string extraction and tests; GitHub Actions for tests and a weekly link check |
@@ -344,7 +344,7 @@ Suggestions, corrections and new free resources are welcome.
 
 No ads and no tracking cookies. Without an account, everything you do stays in your own browser's `localStorage`. If you choose to sign in, your email address, your journey progress, your test attempts and your review, mistakes, lab and prompts data are stored in the project's Supabase database, where row-level security lets only your account read them. Signing out keeps your progress on the device.
 
-A few features talk to other services only when you use them: pronunciation scoring uses the browser's speech recognition (Chrome sends the audio to Google), the template search calls api.n8n.io, the Python/SQL playgrounds download their engines from jsDelivr, and the discussion boxes load giscus (GitHub). Workflow JSON you paste in the lab and your recordings never leave the browser. Visit counting (GoatCounter, no cookies, no personal data) is off unless a site code is set in `assets/js/config.js`.
+A few features talk to other services only when you use them: pronunciation scoring uses the browser's speech recognition (Chrome sends the audio to Google), the template search calls api.n8n.io, the Python playground downloads its engine from jsDelivr, and the discussion boxes load giscus (GitHub). Workflow JSON you paste in the lab and your recordings never leave the browser. Visit counting (GoatCounter, no cookies, no personal data) is off unless a site code is set in `assets/js/config.js`.
 
 ## Content and credits
 

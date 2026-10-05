@@ -63,7 +63,12 @@ const EVIL_WF = {
     return route.abort();
   });
   const page = await ctx.newPage();
-  page.on('pageerror', e => errors.push(page.url().replace(BASE, '') + ': ' + e.message));
+  page.on('pageerror', e => {
+    // Playwright's serviceWorkers:'block' puts its own script in every frame; in the sandboxed runner frame
+    // that script's read of navigator.serviceWorker throws. It is the test browser, not the site.
+    if(/Failed to read the 'serviceWorker' property/.test(e.message) && /^\s*at <anonymous>/m.test(e.stack || '')) return;
+    errors.push(page.url().replace(BASE, '') + ': ' + e.message);
+  });
   page.on('dialog', d => { problems.push('dialog opened on ' + page.url() + ': ' + d.message()); d.dismiss(); });
   const ls = seed();
   await page.addInitScript(data => {

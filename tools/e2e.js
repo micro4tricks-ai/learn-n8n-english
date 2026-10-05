@@ -6,8 +6,10 @@ const { chromium } = require('playwright-core');
 const http = require('http'), fs = require('fs'), path = require('path');
 const ROOT = path.resolve(__dirname, '..'), SHOTS = path.join(__dirname, 'e2e-shots');
 fs.mkdirSync(SHOTS, { recursive: true });
-const TYPES = { '.html': 'text/html', '.js': 'text/javascript', '.css': 'text/css', '.svg': 'image/svg+xml', '.png': 'image/png', '.json': 'application/json', '.webmanifest': 'application/manifest+json' };
+const TYPES = { '.html': 'text/html', '.js': 'text/javascript', '.css': 'text/css', '.svg': 'image/svg+xml', '.png': 'image/png', '.json': 'application/json', '.webmanifest': 'application/manifest+json', '.wasm': 'application/wasm' };
 const server = http.createServer((req, res) => {
+  // another site that puts a page of ours in a frame (opened as http://localhost:…, a different origin from 127.0.0.1)
+  if(req.url.startsWith('/__frame')){ res.writeHead(200, { 'Content-Type': 'text/html' }); res.end('<iframe src="' + BASE + 'index.html" width="800" height="600"></iframe>'); return; }
   const f = path.join(ROOT, decodeURIComponent(req.url.split('?')[0].replace(/\/$/, '/index.html')));
   if(!f.startsWith(ROOT) || !fs.existsSync(f) || fs.statSync(f).isDirectory()){ res.writeHead(404); res.end(); return; }
   res.writeHead(200, { 'Content-Type': TYPES[path.extname(f)] || 'application/octet-stream' });
@@ -87,10 +89,13 @@ const log = (ok, what, extra) => { out.push((ok ? 'PASS ' : 'FAIL ') + what + (e
   await page.waitForTimeout(4000);
   log(/3/.test(await page.textContent('#js .lab-result')), 'infinite loop stopped after 3 s', (await page.textContent('#js .lab-result')).slice(0, 60));
   // sql
+  let sqlFromCdn = false;
+  page.on('request', r => { if(/sql-wasm/.test(r.url()) && !r.url().startsWith(BASE)) sqlFromCdn = true; });
   await page.click('#sql > h2 button');
   await page.fill('#sql .lab-code.main', "SELECT name, city FROM customers WHERE city = 'Cairo';");
   await page.click('#sql [data-check]');
   await page.waitForSelector('#sql .lab-result.pass', { timeout: 30000 }).then(() => log(true, 'SQL challenge passes (sql.js loaded)'), async () => log(false, 'SQL', await page.textContent('#sql .lab-result')));
+  log(!sqlFromCdn, 'sql.js comes from this site, not a CDN (it runs with the site storage)');
   await page.locator('#sql .lab-table').scrollIntoViewIfNeeded();
   await shot('lab-sql');
   // python
@@ -216,6 +221,14 @@ const log = (ok, what, extra) => { out.push((ok ? 'PASS ' : 'FAIL ') + what + (e
   await page.fill('#n8n .n8n-url input', 'http://example.com');
   await page.click('#n8n .n8n-url button');
   log(/n8n Cloud/.test(await page.textContent('#n8n [data-conn]')), 'lab: an n8n address off this computer is refused');
+
+  // framed by another site: the page hides itself behind a link (GitHub Pages can't send X-Frame-Options)
+  const fp = await browser.newPage();
+  await fp.goto(BASE.replace('127.0.0.1', 'localhost') + '__frame');
+  await fp.waitForTimeout(1500);
+  const fr = fp.frames().find(f => f !== fp.mainFrame());
+  log(fr && await fr.locator('.frame-guard a').isVisible() && !(await fr.locator('.topbar').isVisible()), 'a page framed by another site hides itself and offers a link');
+  await fp.close();
 
   // english mode
   await page.setViewportSize({ width: 1280, height: 900 });

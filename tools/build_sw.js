@@ -18,7 +18,8 @@ pages.forEach(p => {
     const v = u.match(/\?v=(\w+)/); if(v) version = v[1];
   }
 });
-['assets/data/search-index.js', 'assets/data/deck.js'].forEach(f => all.add(f + '?v=' + version));
+// files a script loads on demand (not named in any page): the search index, the review deck, the lab's sql.js
+['assets/data/search-index.js', 'assets/data/deck.js', 'assets/js/vendor/sqljs/sql-wasm.js', 'assets/js/vendor/sqljs/sql-wasm.wasm'].forEach(f => all.add(f + '?v=' + version));
 [...all].forEach(f => { const p = f.split('?')[0]; if(p !== './' && !fs.existsSync(path.join(ROOT, p))) { console.error('missing file: ' + p); process.exitCode = 1; } });
 // the shared shell: pages, the stylesheet, icons and the scripts every page loads
 const SHELL = /^(\.\/|[\w-]+\.html|manifest\.webmanifest|assets\/(icons\/|favicon|logo|css\/site\.css)|assets\/js\/(i18n|common-en|site|sections|ui|account|config)\.js|assets\/js\/vendor\/supabase\.js|content\/pages\.js)/;

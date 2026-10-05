@@ -3,10 +3,9 @@
  * JavaScript and expressions in a Web Worker with a time limit, Python in its own worker, SQL in memory. */
 (function(){
   var S = window.SITE, X = window.SECTIONS, B = S.B, L = S.L, esc = S.esc;
-  var CDN = {
-    luxon: 'https://cdn.jsdelivr.net/npm/luxon@3.7.2/build/global/luxon.min.js',
-    sqljs: 'https://cdn.jsdelivr.net/npm/sql.js@1.14.2/dist/'
-  };
+  // luxon is loaded only inside the sandboxed code runner (no access to this site), so a CDN is fine there
+  var CDN = { luxon: 'https://cdn.jsdelivr.net/npm/luxon@3.7.2/build/global/luxon.min.js' };
+  var SQLJS = 'assets/js/vendor/sqljs/';   // sql.js 1.14.2 (from npm, unchanged)
   function lsGet(k, d){ try{ var v = JSON.parse(localStorage.getItem(k)); return v == null ? d : v; }catch(e){ return d; } }
   function lsSet(k, v){ try{ localStorage.setItem(k, JSON.stringify(v)); }catch(e){} }
 
@@ -569,10 +568,12 @@
   }
   // Python: assets/js/pyrun.js (shared with the Python journey)
   function runPy(code, onStatus){ return window.PYRUN.run(code, onStatus); }
-  // SQL: sql.js on the page; the practice database is rebuilt from the section's schema
+  // SQL: sql.js on the page; the practice database is rebuilt from the section's schema.
+  // It runs with this site's storage and sign-in, so it is served from the site itself, never from a CDN.
   var SQLP = null;
   function sqlLib(){
-    if(!SQLP) SQLP = S.loadScript(CDN.sqljs + 'sql-wasm.js').then(function(){ return window.initSqlJs({ locateFile: function(f){ return CDN.sqljs + f; } }); });
+    var v = S.version ? '?v=' + S.version : '';
+    if(!SQLP) SQLP = S.loadScript(SQLJS + 'sql-wasm.js' + v).then(function(){ return window.initSqlJs({ locateFile: function(f){ return SQLJS + f + v; } }); });
     return SQLP;
   }
   function freshDb(SQL, schema){ var db = new SQL.Database(); db.run(schema.join('\n')); return db; }
