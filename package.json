@@ -16,7 +16,8 @@
     "e2e": "node tools/e2e.js",
     "a11y": "node tools/a11y.js",
     "security": "node tools/xss_fuzz.js",
-    "artifact": "node tools/build_artifact.js n8n"
+    "artifact": "node tools/build_artifact.js n8n",
+    "test:n8n": "node tools/test_n8n_local.js"
   },
   "devDependencies": {
     "acorn": "^8.18.0",

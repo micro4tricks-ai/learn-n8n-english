@@ -24,6 +24,7 @@
       if(e.source !== f.contentWindow) return;
       var d = e.data || {};
       if(d.hostReady){ h.res(); return; }
+      if(d.net != null){ if(window.SITE && SITE.netAdd) SITE.netAdd('w' + d.wid, Number(d.net) || 0); return; }   // bytes a worker downloaded
       var cb = d.wid != null && h.cbs[d.wid];
       if(cb) cb(d);
     });

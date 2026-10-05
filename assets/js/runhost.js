@@ -18,16 +18,24 @@
     return;
   }
   var W = {};
+  // added to every worker: it reports the bytes it downloaded (Python and its libraries come from a CDN) for the
+  // page's «data used» meter; those reports go up as {wid, net} and never reach the code that made the worker
+  var NET = '\n;(function(){ try{ var t = 0; new PerformanceObserver(function(l){ l.getEntries().forEach(function(x){ t += x.transferSize || 0; }); postMessage({ __net: t }); }).observe({ type: "resource", buffered: true }); }catch(e){} })();\n';
   window.addEventListener('message', function(e){
     if(e.source !== parent) return;
     var m = e.data || {};
     if(m.cmd === 'new' && typeof m.src === 'string' && !W[m.wid]){
       try{
+        var src = m.src + NET;
         // an opaque-origin frame can't start a module worker from a blob: URL, so module workers come from a data: URL
-        var w = m.module ? new Worker('data:text/javascript;charset=utf-8,' + encodeURIComponent(m.src), { type: 'module' })
-          : new Worker(URL.createObjectURL(new Blob([m.src], { type: 'text/javascript' })));
+        var w = m.module ? new Worker('data:text/javascript;charset=utf-8,' + encodeURIComponent(src), { type: 'module' })
+          : new Worker(URL.createObjectURL(new Blob([src], { type: 'text/javascript' })));
         W[m.wid] = w;
-        w.onmessage = function(ev){ up({ wid: m.wid, data: ev.data }); };
+        w.onmessage = function(ev){
+          var d = ev.data;
+          if(d && typeof d === 'object' && typeof d.__net === 'number' && Object.keys(d).length === 1){ up({ wid: m.wid, net: d.__net }); return; }
+          up({ wid: m.wid, data: d });
+        };
         w.onerror = function(ev){ if(ev.preventDefault) ev.preventDefault(); up({ wid: m.wid, error: ev.message || 'worker error' }); };
       }catch(err){ up({ wid: m.wid, error: String(err && err.message || err) }); }
     }else if(m.cmd === 'post' && W[m.wid]) W[m.wid].postMessage(m.data);

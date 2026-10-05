@@ -477,6 +477,173 @@
     document.head.appendChild(s);
   }
 
+  // ---------- a small dialog for the tools below ----------
+  // S.dialog(id, title, html) → the <dialog> (made once per id, its body replaced on every call)
+  S.dialog = function(id, title, html){
+    var d = document.getElementById(id);
+    if(!d){
+      d = document.createElement('dialog');
+      d.id = id; d.className = 'acct-dlg tool-dlg';
+      d.addEventListener('click', function(e){ if(e.target === d || (e.target.closest && e.target.closest('[data-dx]'))) S.closeDialog(d); });
+      document.body.appendChild(d);
+    }
+    d.setAttribute('aria-label', title);
+    d.innerHTML = '<button type="button" class="acct-x" data-dx aria-label="' + S.esc(S.B('إغلاق', 'Close')) + '">✕</button><h3>' + S.esc(title) + '</h3>' + html;
+    if(!d.open){ if(d.showModal) d.showModal(); else d.setAttribute('open', ''); }
+    return d;
+  };
+  S.closeDialog = function(d){ if(d){ if(d.close) d.close(); else d.removeAttribute('open'); } };
+  function lsGet(k, d){ try{ var v = localStorage.getItem(k); return v == null ? d : v; }catch(e){ return d; } }
+  function lsSet(k, v){ try{ localStorage.setItem(k, v); }catch(e){} }
+  function download(name, text, type){
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(new Blob([text], { type: type || 'text/plain' }));
+    a.download = name;
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    setTimeout(function(){ URL.revokeObjectURL(a.href); }, 4000);
+  }
+  S.download = download;
+  // follow an app link (vscode://…) without leaving the page
+  function openApp(url){
+    var a = document.createElement('a');
+    a.href = url; a.rel = 'noopener';
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+  }
+
+  // ---------- your own n8n (on this computer) ----------
+  // The lab sends test data to a Webhook in the learner's n8n and checks the answer, and a workflow from the site
+  // opens in it (copied, then pasted on a new canvas). Default http://localhost:5678; the address is kept per browser.
+  // The page's security policy (tools/build_csp.js) allows localhost, 127.0.0.1 and n8n Cloud.
+  var N8N_KEY = 'site_n8n_url';
+  S.n8n = {
+    base: function(){ return lsGet(N8N_KEY, 'http://localhost:5678').replace(/\/+$/, ''); },
+    setBase: function(u){
+      u = String(u || '').trim().replace(/\/+$/, '');
+      if(!u) u = 'http://localhost:5678';
+      // only addresses the page's security policy lets it reach: this computer, or n8n Cloud over https
+      if(!/^(http:\/\/(localhost|127\.0\.0\.1)(:\d{1,5})?|https:\/\/(localhost|127\.0\.0\.1)(:\d{1,5})?|https:\/\/[a-z0-9-]+\.app\.n8n\.cloud)$/i.test(u)) return false;
+      lsSet(N8N_KEY, u);
+      return true;
+    },
+    // the editor answers on its own address; a fetch that reaches it at all (even without CORS) means n8n is up
+    ping: function(){
+      var ctl = window.AbortController ? new AbortController() : null, t = setTimeout(function(){ if(ctl) ctl.abort(); }, 6000);
+      return fetch(S.n8n.base() + '/healthz', { mode: 'no-cors', cache: 'no-store', signal: ctl ? ctl.signal : undefined })
+        .then(function(){ clearTimeout(t); return true; }, function(){ clearTimeout(t); return false; });
+    },
+    // copy the workflow and open a new canvas: Ctrl+V there pastes it
+    open: function(json, btn){
+      var text = typeof json === 'string' ? json : JSON.stringify(json, null, 2);
+      S.copy(text, btn);
+      window.open(S.n8n.base() + '/workflow/new', '_blank', 'noopener');
+      S.toast(S.B('الـ Workflow اتنسخ. في n8n دوس على اللوحة الفاضية واضغط Ctrl+V.', 'The workflow is copied. In n8n click the empty canvas and press Ctrl+V.'));
+    },
+    // POST body to a Webhook: test = the editor's «listen for test event» address (/webhook-test/…)
+    // → {ok, status, data} or {ok: false, net: true} when n8n could not be reached (or CORS blocked the answer)
+    call: function(path, body, test){
+      var ctl = window.AbortController ? new AbortController() : null, t = setTimeout(function(){ if(ctl) ctl.abort(); }, 20000);
+      var url = S.n8n.base() + (test ? '/webhook-test/' : '/webhook/') + String(path).replace(/^\/+/, '');
+      return fetch(url, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body), cache: 'no-store', signal: ctl ? ctl.signal : undefined })
+        .then(function(r){
+          return r.text().then(function(txt){
+            clearTimeout(t);
+            var data = txt;
+            try{ data = txt ? JSON.parse(txt) : ''; }catch(e){}
+            return { ok: r.ok, status: r.status, data: data };
+          });
+        }, function(e){ clearTimeout(t); return { ok: false, net: true, timeout: !!(e && e.name === 'AbortError') }; });
+    }
+  };
+
+  // ---------- open code in VS Code ----------
+  // VS Code on the computer opens a file by its path (vscode://file/…), so the code is saved to the downloads
+  // folder first; the folder is asked once and kept. vscode.dev (VS Code in the browser) gets the code by paste.
+  var DL_KEY = 'site_dl_dir';
+  function hash(s){ var h = 2166136261; for(var i = 0; i < s.length; i++){ h ^= s.charCodeAt(i); h = Math.imul(h, 16777619); } return (h >>> 0).toString(36); }
+  function vscodeUrl(dir, name){
+    var p = dir.replace(/\\/g, '/').replace(/\/+$/, '') + '/' + name;
+    return 'vscode://file' + (p.charAt(0) === '/' ? '' : '/') + encodeURI(p);
+  }
+  // S.openInEditor(code, ext, base): base is a short name (letters, digits, -), the file name gets a hash of the
+  // code so the same code always lands in the same file (a second download of it is the same text)
+  S.openInEditor = function(code, ext, base){
+    code = String(code || '');
+    ext = String(ext || 'txt').replace(/[^\w]/g, '') || 'txt';
+    var name = String(base || 'code').replace(/[^\w-]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 40) + '-' + hash(code) + '.' + ext;
+    var dir = lsGet(DL_KEY, '');
+    var d = S.dialog('vsDlg', S.B('افتح الكود في VS Code', 'Open the code in VS Code'),
+      '<p class="sub-note">' + S.esc(S.B('الملف: ', 'File: ')) + '<code>' + S.esc(name) + '</code></p>' +
+      '<div class="vs-opts">' +
+      '<button type="button" class="link-btn" data-vs="app">💻 ' + S.esc(S.B('VS Code على جهازي', 'VS Code on my computer')) + '</button>' +
+      '<button type="button" class="ghost-btn" data-vs="web">🌐 ' + S.esc(S.B('vscode.dev في المتصفح', 'vscode.dev in the browser')) + '</button>' +
+      '<button type="button" class="ghost-btn" data-vs="file">⬇️ ' + S.esc(S.B('نزّل الملف بس', 'Just download the file')) + '</button></div>' +
+      '<label class="vs-dir"><span>' + S.esc(S.B('مكان مجلد التنزيلات على جهازك (مرة واحدة، عشان VS Code يلاقي الملف):', 'Where your downloads folder is (once, so VS Code can find the file):')) + '</span>' +
+      '<input class="acct-in" dir="ltr" spellcheck="false" autocomplete="off" placeholder="C:\\Users\\you\\Downloads" value="' + S.esc(dir) + '"></label>' +
+      '<p class="sub-note">' + S.esc(S.B('على ويندوز: افتح المجلد وانسخ المسار من شريط العنوان. على ماك: /Users/اسمك/Downloads. لو المتصفح بيسألك فين تحفظ، احفظ في نفس المجلد ده.', 'On Windows: open the folder and copy the path from the address bar. On a Mac: /Users/yourname/Downloads. If the browser asks where to save, save into this folder.')) + '</p>' +
+      '<p class="acct-msg" role="status" data-vsmsg></p>');
+    d.onclick = function(e){
+      var b = e.target.closest && e.target.closest('[data-vs]');
+      if(!b) return;
+      var how = b.getAttribute('data-vs'), msg = d.querySelector('[data-vsmsg]'), input = d.querySelector('.vs-dir input');
+      if(how === 'web'){
+        S.copy(code);
+        window.open('https://vscode.dev/', '_blank', 'noopener');
+        msg.textContent = S.B('الكود اتنسخ. في vscode.dev: File ← New File، اختار اسم ينتهي بـ .' + ext + ' والصق بـ Ctrl+V.', 'The code is copied. In vscode.dev: File → New File, pick a name ending in .' + ext + ' and paste with Ctrl+V.');
+        return;
+      }
+      download(name, code);
+      if(how === 'file'){ msg.textContent = S.B('الملف اتنزّل. افتحه في VS Code بالسحب للبرنامج، أو من الترمينال: code ' + name, 'The file is downloaded. Drag it into VS Code, or from a terminal: code ' + name); return; }
+      var folder = input.value.trim();
+      if(!folder){ msg.textContent = S.B('الملف اتنزّل. اكتب مكان مجلد التنزيلات فوق ودوس الزرار تاني عشان VS Code يفتحه لوحده.', 'The file is downloaded. Type where your downloads folder is above and press the button again so VS Code opens it by itself.'); input.focus(); return; }
+      lsSet(DL_KEY, folder);
+      // give the download a moment to land before VS Code looks for it
+      setTimeout(function(){ openApp(vscodeUrl(folder, name)); }, 900);
+      msg.textContent = S.B('بيفتح VS Code… لو المتصفح سألك «Open Visual Studio Code?» دوس Open. لو مفتحش: اتأكد إن VS Code متثبّت وإن المسار صح.', 'Opening VS Code… If the browser asks «Open Visual Studio Code?», press Open. If nothing opens, check VS Code is installed and the path is right.');
+    };
+    return d;
+  };
+
+  // ---------- data used by this session ----------
+  // Sizes come from the browser's resource timing: what came over the network (transferSize), what came from a
+  // cache (0 bytes), and files from other sites that do not share their sizes. The code-runner frame reports
+  // its own downloads (Python is ~10 MB) through sandbox.js → S.netAdd. A session is this tab since it opened:
+  // every page view keeps its total in sessionStorage.
+  var NET = 'site_net', viewId = Date.now().toString(36) + Math.random().toString(36).slice(2, 6), extra = {};
+  S.netAdd = function(key, bytes){ if(bytes >= 0) extra[key] = bytes; };
+  S.netPage = function(){
+    var r = { bytes: 0, cached: 0, unknown: 0, files: 0 };
+    try{
+      performance.getEntriesByType('navigation').concat(performance.getEntriesByType('resource')).forEach(function(e){
+        r.files++;
+        if(e.transferSize > 0) r.bytes += e.transferSize;
+        else if(e.decodedBodySize > 0 || e.deliveryType === 'cache') r.cached++;
+        else r.unknown++;
+      });
+    }catch(e){}
+    Object.keys(extra).forEach(function(k){ r.bytes += extra[k]; });
+    return r;
+  };
+  function netStore(){ try{ return JSON.parse(sessionStorage.getItem(NET)) || null; }catch(e){ return null; } }
+  function netSave(){
+    var s = netStore() || { start: Date.now(), views: {} };
+    s.views[viewId] = S.netPage().bytes;
+    try{ sessionStorage.setItem(NET, JSON.stringify(s)); }catch(e){}
+    return s;
+  }
+  S.netSession = function(){
+    var s = netSave(), total = 0, n = 0;
+    Object.keys(s.views).forEach(function(k){ total += s.views[k]; n++; });
+    return { bytes: total, pages: n, start: s.start };
+  };
+  S.netReset = function(){ try{ sessionStorage.removeItem(NET); }catch(e){} extra = {}; };
+  S.fmtBytes = function(b){
+    if(b < 1024) return b + ' B';
+    if(b < 1024 * 1024) return Math.round(b / 1024) + ' KB';
+    return (b / 1024 / 1024).toFixed(b < 10 * 1024 * 1024 ? 1 : 0) + ' MB';
+  };
+  window.addEventListener('pagehide', netSave);
+  document.addEventListener('visibilitychange', function(){ if(document.visibilityState === 'hidden') netSave(); });
+
   // ---------- offline app ----------
   function registerSW(){
     if(EMBED) return;

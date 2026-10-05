@@ -247,3 +247,76 @@ SECTIONS.add({
       starter: '', solution: "WITH totals AS (SELECT oi.order_id, SUM(oi.qty * p.price) AS total FROM order_items oi JOIN products p ON p.id = oi.product_id JOIN orders o ON o.id = oi.order_id WHERE o.status = 'paid' GROUP BY oi.order_id) SELECT ROUND(AVG(total), 2) AS avg_order FROM totals;" }
   ]
 });
+
+// Tests on the learner's own n8n (type n8nlocal in assets/js/lab.js). Each exercise is a small workflow:
+// Webhook (POST /webhook/<path>, answers with the last node's first item) → the nodes the learner builds.
+//   start / sol: the nodes after the Webhook, in order. A node is {set: [[field, value, type], …]},
+//                {code: 'js for each item'} or {if: [left, operation, right, type], yes: node, no: node}.
+//   cases: [[the JSON body sent, the fields the answer must hold], …]
+// tools/test_n8n_local.js imports every solution into a real n8n and runs the cases against it.
+SECTIONS.add({
+  page: 'lab', id: 'n8n', order: 1.5, type: 'n8nlocal', kind: 'ch',
+  title: { ar: 'اختبر نفسك على n8n بتاعك', en: 'Test yourself on your own n8n' },
+  nav: { ar: 'n8n على جهازك', en: 'n8n on your computer' },
+  desc: {
+    ar: 'شغّل n8n على جهازك واربطه بالموقع: كل تمرين بيديك Workflow بداية تفتحه في n8n بضغطة، تكمّله بإيدك، والموقع يبعتله بيانات حقيقية ويصحّح الرد. الاتصال بيحصل من المتصفح بتاعك لـ n8n بتاعك مباشرة: مفيش حاجة بتعدّي على أي سيرفر تاني.',
+    en: 'Run n8n on your computer and connect it to the site: each exercise gives you a starter workflow that opens in n8n with one click; you finish it yourself, and the site sends it real data and checks the answer. The connection goes straight from your browser to your n8n: nothing passes through any other server.'
+  },
+  items: [
+    { id: 'nl1', lvl: 'b', path: 'rehla-hello', t: { ar: 'أول رد من Webhook', en: 'Your first webhook reply' },
+      task: { ar: 'الـ Webhook بيستقبل `{"name": "Omar"}`. كمّل نود **Edit Fields** عشان الرد يبقى `{"greeting": "Hello Omar"}`.\n\nتلميح: البيانات اللي اتبعتت بتوصل في `$json.body`.', en: 'The webhook receives `{"name": "Omar"}`. Finish the **Edit Fields** node so the reply is `{"greeting": "Hello Omar"}`.\n\nHint: the data you sent arrives in `$json.body`.' },
+      start: [{ set: [['greeting', '', 'string']] }], sol: [{ set: [['greeting', '=Hello {{ $json.body.name }}', 'string']] }],
+      cases: [[{ name: 'Omar' }, { greeting: 'Hello Omar' }], [{ name: 'Sara' }, { greeting: 'Hello Sara' }]] },
+    { id: 'nl2', lvl: 'b', path: 'rehla-total', t: { ar: 'حساب الإجمالي', en: 'Computing a total' },
+      task: { ar: 'الطلب فيه `price` و`qty`. رجّع `total` = السعر × الكمية **كرقم** (نوع الحقل Number).', en: 'The order holds `price` and `qty`. Return `total` = price × quantity **as a number** (field type Number).' },
+      start: [{ set: [['total', '', 'number']] }], sol: [{ set: [['total', '={{ $json.body.price * $json.body.qty }}', 'number']] }],
+      cases: [[{ price: 120, qty: 3 }, { total: 360 }], [{ price: 9.5, qty: 2 }, { total: 19 }]] },
+    { id: 'nl3', lvl: 'b', path: 'rehla-email', t: { ar: 'تنضيف إيميل', en: 'Cleaning an email' },
+      task: { ar: 'العملاء بيكتبوا الإيميل بمسافات وحروف كبيرة: `"  Omar@Example.COM "`. رجّع `email` من غير مسافات وبحروف صغيرة: `omar@example.com`.', en: 'Customers type emails with spaces and capitals: `"  Omar@Example.COM "`. Return `email` without the spaces and in lower case: `omar@example.com`.' },
+      start: [{ set: [['email', '', 'string']] }], sol: [{ set: [['email', '={{ $json.body.email.trim().toLowerCase() }}', 'string']] }],
+      cases: [[{ email: '  Omar@Example.COM ' }, { email: 'omar@example.com' }], [{ email: 'SARA@shop.EG' }, { email: 'sara@shop.eg' }]] },
+    { id: 'nl4', lvl: 'b', path: 'rehla-vat', t: { ar: 'ضريبة القيمة المضافة', en: 'Value added tax' },
+      task: { ar: 'من `amount` احسب حقلين: `vat` = 14% من المبلغ، و`total` = المبلغ + الضريبة. قرّب الاتنين لرقمين بعد العلامة: `Math.round(x * 100) / 100`.', en: 'From `amount` compute two fields: `vat` = 14% of the amount and `total` = amount + tax. Round both to two decimals: `Math.round(x * 100) / 100`.' },
+      start: [{ set: [['vat', '', 'number'], ['total', '', 'number']] }],
+      sol: [{ set: [['vat', '={{ Math.round($json.body.amount * 0.14 * 100) / 100 }}', 'number'], ['total', '={{ Math.round($json.body.amount * 1.14 * 100) / 100 }}', 'number']] }],
+      cases: [[{ amount: 200 }, { vat: 28, total: 228 }], [{ amount: 99.99 }, { vat: 14, total: 113.99 }], [{ amount: 1234.5 }, { vat: 172.83, total: 1407.33 }]] },
+    { id: 'nl5', lvl: 'b', path: 'rehla-pass', t: { ar: 'فرعين بـ IF', en: 'Two branches with IF' },
+      task: { ar: 'نود **IF** بتفحص `score`: لو **50 أو أكتر** الرد يبقى `{"result": "pass"}` (من فرع true)، وغير كده `{"result": "fail"}`. النودين اللي بعد الـ IF جاهزين: كمّل الشرط بس.\n\nالـ Webhook بيرد ببيانات آخر نود اشتغلت، فالفرع اللي اشتغل هو اللي بيرد.', en: 'An **IF** node checks `score`: at **50 or more** the reply is `{"result": "pass"}` (from the true branch), otherwise `{"result": "fail"}`. The two nodes after the IF are ready: just finish the condition.\n\nThe webhook replies with the data of the last node that ran, so the branch that ran is the one that replies.' },
+      start: [{ if: ['', 'gte', '', 'number'], yes: { name: 'Pass', set: [['result', 'pass', 'string']] }, no: { name: 'Fail', set: [['result', 'fail', 'string']] } }],
+      sol: [{ if: ['={{ $json.body.score }}', 'gte', 50, 'number'], yes: { name: 'Pass', set: [['result', 'pass', 'string']] }, no: { name: 'Fail', set: [['result', 'fail', 'string']] } }],
+      cases: [[{ score: 50 }, { result: 'pass' }], [{ score: 91 }, { result: 'pass' }], [{ score: 49 }, { result: 'fail' }]] },
+    { id: 'nl6', lvl: 'i', path: 'rehla-grade', t: { ar: 'التقدير بنود Code', en: 'A grade with a Code node' },
+      task: { ar: 'في نود **Code** (Run Once for Each Item) رجّع `grade` من `score`: من 85 لفوق `A`، من 70 `B`، من 50 `C`، وأقل من كده `F`.', en: 'In a **Code** node (Run Once for Each Item) return `grade` from `score`: 85 and up `A`, from 70 `B`, from 50 `C`, below that `F`.' },
+      start: [{ code: "// $json.body = the data you sent\nconst score = $json.body.score;\n\n// TODO: pick the grade\nreturn { json: { grade: '' } };" }],
+      sol: [{ code: "const score = $json.body.score;\nlet grade = 'F';\nif (score >= 85) grade = 'A';\nelse if (score >= 70) grade = 'B';\nelse if (score >= 50) grade = 'C';\nreturn { json: { grade } };" }],
+      cases: [[{ score: 92 }, { grade: 'A' }], [{ score: 70 }, { grade: 'B' }], [{ score: 55 }, { grade: 'C' }], [{ score: 12 }, { grade: 'F' }]] },
+    { id: 'nl7', lvl: 'i', path: 'rehla-order', t: { ar: 'ملخص طلب', en: 'An order summary' },
+      task: { ar: 'الطلب فيه `items`: كل عنصر `{name, price, qty}`. رجّع `count` (عدد العناصر) و`total` (مجموع السعر × الكمية).', en: 'The order holds `items`, each `{name, price, qty}`. Return `count` (how many items) and `total` (the sum of price × quantity).' },
+      start: [{ code: "const items = $json.body.items;\n\n// TODO: count them and add up price * qty\nreturn { json: { count: 0, total: 0 } };" }],
+      sol: [{ code: "const items = $json.body.items || [];\nconst total = items.reduce((sum, it) => sum + it.price * it.qty, 0);\nreturn { json: { count: items.length, total } };" }],
+      cases: [[{ items: [{ name: 'pen', price: 10, qty: 3 }, { name: 'book', price: 85, qty: 1 }] }, { count: 2, total: 115 }], [{ items: [] }, { count: 0, total: 0 }]] },
+    { id: 'nl8', lvl: 'i', path: 'rehla-paid', t: { ar: 'فلترة جوه Expression', en: 'Filtering inside an expression' },
+      task: { ar: 'من `orders` (كل طلب `{id, status}`) رجّع `paid`: array بأرقام الطلبات اللي حالتها `paid` بس. استخدم Expression واحدة في Edit Fields بنوع Array: `filter` وبعدها `map`.', en: 'From `orders` (each `{id, status}`) return `paid`: an array of the ids whose status is `paid`. Use one expression in Edit Fields with type Array: `filter`, then `map`.' },
+      start: [{ set: [['paid', '', 'array']] }], sol: [{ set: [['paid', "={{ $json.body.orders.filter(o => o.status === 'paid').map(o => o.id) }}", 'array']] }],
+      cases: [[{ orders: [{ id: 1, status: 'paid' }, { id: 2, status: 'new' }, { id: 3, status: 'paid' }] }, { paid: [1, 3] }], [{ orders: [{ id: 7, status: 'refunded' }] }, { paid: [] }]] },
+    { id: 'nl9', lvl: 'i', path: 'rehla-weekday', t: { ar: 'يوم الأسبوع بـ Luxon', en: 'The weekday with Luxon' },
+      task: { ar: 'من `date` (زي `2026-10-05`) رجّع `day`: اسم اليوم بالإنجليزي (`Monday`). جوه الـ Expressions فيه `DateTime` من مكتبة Luxon: `DateTime.fromISO(…).toFormat(\'cccc\')`.', en: 'From `date` (like `2026-10-05`) return `day`: the weekday name in English (`Monday`). Expressions have Luxon\'s `DateTime`: `DateTime.fromISO(…).toFormat(\'cccc\')`.' },
+      start: [{ set: [['day', '', 'string']] }], sol: [{ set: [['day', "={{ DateTime.fromISO($json.body.date).setLocale('en').toFormat('cccc') }}", 'string']] }],
+      cases: [[{ date: '2026-10-05' }, { day: 'Monday' }], [{ date: '2026-12-25' }, { day: 'Friday' }]] },
+    { id: 'nl10', lvl: 'i', path: 'rehla-slug', t: { ar: 'رابط من عنوان (slug)', en: 'A link from a title (slug)' },
+      task: { ar: 'حوّل `title` لـ `slug`: حروف صغيرة، وأي حاجة مش حرف أو رقم تبقى `-` واحدة، ومن غير `-` في الأول أو الآخر. `"Hello n8n World!"` ← `hello-n8n-world`.', en: 'Turn `title` into a `slug`: lower case, anything that is not a letter or digit becomes a single `-`, and no `-` at either end. `"Hello n8n World!"` → `hello-n8n-world`.' },
+      start: [{ code: "const title = $json.body.title;\n\n// TODO: lower case, replace the rest with -, trim the - at the ends\nreturn { json: { slug: title } };" }],
+      sol: [{ code: "const slug = String($json.body.title).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');\nreturn { json: { slug } };" }],
+      cases: [[{ title: 'Hello n8n World!' }, { slug: 'hello-n8n-world' }], [{ title: '  10 Tips -- for APIs  ' }, { slug: '10-tips-for-apis' }]] },
+    { id: 'nl11', lvl: 'a', path: 'rehla-signup', t: { ar: 'التحقق من فورم تسجيل', en: 'Checking a sign-up form' },
+      task: { ar: 'الفورم بيبعت `name` و`email` و`phone`. رجّع `valid` (true/false) و`errors`: أسماء الحقول الغلط بالترتيب ده:\n\n- `name` لازم ميبقاش فاضي (بعد شيل المسافات)\n- `email` فيه `@` وبعدها نقطة\n- `phone` موبايل مصري: 11 رقم بيبدأ بـ `010` أو `011` أو `012` أو `015`', en: 'The form sends `name`, `email` and `phone`. Return `valid` (true/false) and `errors`: the names of the wrong fields, in this order:\n\n- `name` must not be empty (after trimming)\n- `email` holds an `@` with a dot after it\n- `phone` is an Egyptian mobile: 11 digits starting with `010`, `011`, `012` or `015`' },
+      start: [{ code: "const { name, email, phone } = $json.body;\nconst errors = [];\n\n// TODO: push 'name', 'email', 'phone' for each wrong field\nreturn { json: { valid: errors.length === 0, errors } };" }],
+      sol: [{ code: "const { name, email, phone } = $json.body;\nconst errors = [];\nif (!String(name || '').trim()) errors.push('name');\nif (!/@[^@\\s]+\\.[^@\\s]+$/.test(String(email || ''))) errors.push('email');\nif (!/^01[0125]\\d{8}$/.test(String(phone || ''))) errors.push('phone');\nreturn { json: { valid: errors.length === 0, errors } };" }],
+      cases: [[{ name: 'Omar', email: 'omar@shop.eg', phone: '01012345678' }, { valid: true, errors: [] }], [{ name: '  ', email: 'omar.shop.eg', phone: '0101234' }, { valid: false, errors: ['name', 'email', 'phone'] }], [{ name: 'Sara', email: 'sara@mail.com', phone: '01398765432' }, { valid: false, errors: ['phone'] }]] },
+    { id: 'nl12', lvl: 'a', path: 'rehla-invoice', t: { ar: 'فاتورة بخصم', en: 'An invoice with a discount' },
+      task: { ar: 'الفاتورة فيها `lines` (كل سطر `{qty, unit}`) و`discount` كنسبة مئوية. رجّع `subtotal` (مجموع الكمية × سعر الوحدة)، و`discount` (قيمة الخصم)، و`total` (بعد الخصم). قرّب كل رقم لرقمين بعد العلامة.', en: 'The invoice holds `lines` (each `{qty, unit}`) and `discount` as a percentage. Return `subtotal` (the sum of qty × unit price), `discount` (the discount amount) and `total` (after the discount). Round every number to two decimals.' },
+      start: [{ code: "const { lines, discount } = $json.body;\nconst round = (x) => Math.round(x * 100) / 100;\n\n// TODO: subtotal, the discount amount, the total\nreturn { json: { subtotal: 0, discount: 0, total: 0 } };" }],
+      sol: [{ code: "const { lines = [], discount = 0 } = $json.body;\nconst round = (x) => Math.round(x * 100) / 100;\nconst subtotal = lines.reduce((s, l) => s + l.qty * l.unit, 0);\nconst off = subtotal * discount / 100;\nreturn { json: { subtotal: round(subtotal), discount: round(off), total: round(subtotal - off) } };" }],
+      cases: [[{ lines: [{ qty: 2, unit: 150 }, { qty: 1, unit: 99.9 }], discount: 10 }, { subtotal: 399.9, discount: 39.99, total: 359.91 }], [{ lines: [{ qty: 3, unit: 20 }], discount: 0 }, { subtotal: 60, discount: 0, total: 60 }]] }
+  ]
+});

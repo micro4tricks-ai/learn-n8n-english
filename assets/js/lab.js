@@ -240,7 +240,9 @@
         st.map(function(s){ return '<li><b>' + esc(s.icon) + ' ' + esc(s.n.name) + '</b> — ' + esc(s.text) + '</li>'; }).join('') + '</ol>' +
         (creds.length ? '<p class="sub-note">' + esc(B('بيستخدم Credentials: ', 'Uses credentials: ')) + '<span dir="ltr">' + esc(creds.join(', ')) + '</span></p>' : '') + '</div>' +
         '<div class="md-card"><h3>' + esc(B('الفحص', 'Checks')) + '</h3><ul class="wf-lint">' + ls.map(function(r){ return '<li class="' + r[0] + '">' + icons[r[0]] + ' ' + S.inline(r[1]) + '</li>'; }).join('') + '</ul>' +
-        '<div class="jr-actions"><button type="button" class="ghost-btn" data-copyjson>' + esc(B('انسخ JSON للاستيراد في n8n', 'Copy JSON to import into n8n')) + '</button></div></div></div>';
+        '<div class="jr-actions"><button type="button" class="ghost-btn" data-copyjson>' + esc(B('انسخ JSON للاستيراد في n8n', 'Copy JSON to import into n8n')) + '</button>' +
+        '<button type="button" class="ghost-btn" data-ton8n>📤 ' + esc(B('افتحه في n8n بتاعي', 'Open it in my n8n')) + '</button>' +
+        '<button type="button" class="ghost-btn" data-tovs>💻 VS Code</button></div></div></div>';
       bindPan(out.querySelector('.wf-svg'));
     }
     function setView(){ var s = out.querySelector('.wf-svg'); if(s) s.setAttribute('viewBox', view.join(' ')); }
@@ -287,6 +289,8 @@
       if(t.hasAttribute('data-show')){ el.querySelectorAll('[data-sample]').forEach(function(b){ b.classList.remove('active'); }); show(el.querySelector('textarea').value); return; }
       if(t.dataset.z){ if(t.dataset.z === 'fit'){ view = box.slice(); setView(); } else zoom(t.dataset.z === 'in' ? 1 / 1.3 : 1.3); return; }
       if(t.hasAttribute('data-copyjson')){ S.copy(JSON.stringify({ name: wf.name, nodes: wf.nodes, connections: wf.connections, settings: wf.settings || {} }, null, 2), t); return; }
+      if(t.hasAttribute('data-ton8n')){ S.n8n.open({ name: wf.name, nodes: wf.nodes, connections: wf.connections, settings: wf.settings || {} }); return; }
+      if(t.hasAttribute('data-tovs')){ S.openInEditor(JSON.stringify({ name: wf.name, nodes: wf.nodes, connections: wf.connections, settings: wf.settings || {} }, null, 2), 'json', 'workflow-' + (wf.name || '').toLowerCase()); return; }
       if(t.hasAttribute('data-close')){ out.querySelector('.wf-detail').innerHTML = ''; out.querySelectorAll('.wf-node.sel').forEach(function(g){ g.classList.remove('sel'); }); return; }
       if(t.classList.contains('wf-node')) detail(Number(t.getAttribute('data-node')));
     });
@@ -333,6 +337,205 @@
         if(viewer) viewer.show(j, j.workflow && j.workflow.name);
       }).catch(function(){ b.disabled = false; S.toast(B('مقدرناش نحمّل القالب.', 'Could not load the template.')); });
     });
+  });
+
+  // ======================= your own n8n =======================
+  // an id that looks like a uuid and is always the same for the same seed (n8n wants ids on nodes and webhooks)
+  function stableId(seed){
+    var out = '', x = 2166136261;
+    for(var r = 0; r < 4; r++){
+      for(var i = 0; i < seed.length; i++){ x ^= seed.charCodeAt(i) + r; x = Math.imul(x, 16777619); }
+      out += ('0000000' + (x >>> 0).toString(16)).slice(-8);
+    }
+    return out.slice(0, 8) + '-' + out.slice(8, 12) + '-4' + out.slice(13, 16) + '-a' + out.slice(17, 20) + '-' + out.slice(20, 32);
+  }
+  // the exercise as an n8n workflow: Webhook → the nodes of `start` (which = 'start') or `sol` (which = 'sol')
+  function exWorkflow(ex, which){
+    var nodes = [], conns = {}, x = 0, used = {};
+    function nid(name){ return stableId(ex.id + ':' + which + ':' + name); }
+    function uniq(name){ var n = name, i = 1; while(used[n]) n = name + ++i; used[n] = 1; return n; }
+    function link(from, to, out){
+      out = out || 0;
+      conns[from] = conns[from] || { main: [] };
+      while(conns[from].main.length <= out) conns[from].main.push([]);
+      conns[from].main[out].push({ node: to, type: 'main', index: 0 });
+    }
+    function make(spec, pos){
+      var n;
+      if(spec.set){
+        n = { name: uniq(spec.name || 'Edit Fields'), type: 'n8n-nodes-base.set', typeVersion: 3.4 };
+        n.parameters = { assignments: { assignments: spec.set.map(function(f, i){ return { id: nid(n.name + i), name: f[0], value: f[1], type: f[2] || 'string' }; }) }, options: {} };
+      }else if(spec.code){
+        n = { name: uniq(spec.name || 'Code'), type: 'n8n-nodes-base.code', typeVersion: 2, parameters: { mode: 'runOnceForEachItem', jsCode: spec.code } };
+      }else if(spec.if){
+        n = { name: uniq(spec.name || 'If'), type: 'n8n-nodes-base.if', typeVersion: 2.2 };
+        n.parameters = { conditions: { options: { caseSensitive: true, leftValue: '', typeValidation: 'loose', version: 2 },
+          conditions: [{ id: nid(n.name + 'c'), leftValue: spec.if[0], rightValue: spec.if[2], operator: { type: spec.if[3] || 'number', operation: spec.if[1] } }], combinator: 'and' }, looseTypeValidation: true, options: {} };
+      }
+      n.id = nid(n.name); n.position = pos;
+      nodes.push(n);
+      return n;
+    }
+    nodes.push({ id: nid('Webhook'), name: 'Webhook', type: 'n8n-nodes-base.webhook', typeVersion: 2, position: [0, 0], webhookId: stableId('webhook:' + ex.path),
+      parameters: { httpMethod: 'POST', path: ex.path, responseMode: 'lastNode', options: {} } });
+    used.Webhook = 1;
+    var prev = 'Webhook';
+    (which === 'sol' ? ex.sol : ex.start).forEach(function(spec){
+      x += 260;
+      var n = make(spec, [x, 0]);
+      link(prev, n.name);
+      prev = n.name;
+      if(spec.if){
+        x += 260;
+        link(n.name, make(spec.yes, [x, -110]).name, 0);
+        link(n.name, make(spec.no, [x, 110]).name, 1);
+      }
+    });
+    return { name: 'Rehla ' + ex.id + ': ' + ex.t.en + (which === 'sol' ? ' (solution)' : ''), nodes: nodes, connections: conns, settings: { executionOrder: 'v1' }, pinData: {} };
+  }
+  // the answer holds every expected field with the same value
+  function answerOk(got, want){
+    return !!got && typeof got === 'object' && Object.keys(want).every(function(k){ return canon(got[k]) === canon(want[k]); });
+  }
+  X.type('n8nlocal', function(el, sec){
+    var items = sec.items || [], cur = items[0], tried = {};   // tried[id][case] = true: cases passed one by one in test mode
+    function solved(it){ var s = S.get('lab')['n8n-' + it.id]; return !!(s && !s.del && s.ok); }
+    function short(v){ var s = JSON.stringify(v); return s.length > 160 ? s.slice(0, 159) + '…' : s; }
+    var SETUP = {
+      ar: '- **أسرع طريقة:** ثبّت [Node.js](https://nodejs.org/) (الإصدار اللي n8n بيطلبه، حاليًا 24 أو أحدث)، وافتح الترمينال واكتب `npx n8n` واستنى لحد ما يقول إنه شغال على `http://localhost:5678`.\n- **بـ Docker:** `docker run -it --rm --name n8n -p 5678:5678 -v n8n_data:/home/node/.n8n docker.n8n.io/n8nio/n8n`\n- أول مرة هيطلب منك تعمل حساب مالك، والحساب ده على جهازك بس.\n- لو المتصفح قال إن الموقع عايز يوصل لأجهزة وتطبيقات على جهازك أو شبكتك، دوس **Allow**: ده اللي بيخلّي الموقع يكلّم n8n بتاعك. Chrome وEdge وFirefox بيسمحوا بده، وSafari ساعات بيمنعه.\n- لو بتستخدم n8n Cloud اكتب عنوانه هنا (زي `https://اسمك.app.n8n.cloud`). الموقع بيكلّم بس n8n اللي على جهازك أو n8n Cloud.',
+      en: '- **Quickest:** install [Node.js](https://nodejs.org/) (the version n8n asks for, currently 24 or newer), open a terminal, type `npx n8n` and wait until it says it is running on `http://localhost:5678`.\n- **With Docker:** `docker run -it --rm --name n8n -p 5678:5678 -v n8n_data:/home/node/.n8n docker.n8n.io/n8nio/n8n`\n- The first time it asks you to create an owner account; that account lives on your computer only.\n- If the browser says the site wants to reach apps and devices on your computer or network, press **Allow**: that is what lets the site talk to your n8n. Chrome, Edge and Firefox allow it; Safari sometimes blocks it.\n- If you use n8n Cloud, type its address here (like `https://yourname.app.n8n.cloud`). The site only talks to an n8n on your computer or on n8n Cloud.'
+    };
+    var STEPS = {
+      ar: '1. دوس **افتح Workflow البداية**: بيتنسخ ويفتح n8n. دوس على اللوحة الفاضية واضغط `Ctrl+V`.\n2. كمّل النود المطلوبة واحفظ (`Ctrl+S`).\n3. **تجربة سريعة:** دوس **Execute workflow** في n8n (الـ Webhook بيستنى طلب واحد)، وبعدين **جرّب حالة** هنا. كرّر لكل حالة.\n4. **التصحيح الكامل:** فعّل الـ Workflow (زرار **Publish** في n8n 2، أو **Active** في الإصدارات الأقدم) ودوس **صحّح كل الحالات**.',
+      en: '1. Press **Open the starter workflow**: it is copied and n8n opens. Click the empty canvas and press `Ctrl+V`.\n2. Finish the node the task asks for and save (`Ctrl+S`).\n3. **Quick try:** press **Execute workflow** in n8n (the webhook waits for one request), then **Try one case** here. Repeat for each case.\n4. **Full check:** turn the workflow on (**Publish** in n8n 2, **Active** in older versions) and press **Check every case**.'
+    };
+    function paint(){
+      var n = items.filter(solved).length, base = S.n8n.base();
+      el.innerHTML =
+        '<div class="md-card n8n-setup"><h3>⚙️ ' + esc(B('شغّل n8n على جهازك واربطه بالموقع', 'Run n8n on your computer and connect it')) + '</h3>' +
+        '<div class="md-body">' + S.md(SETUP) + '</div>' +
+        '<form class="lib-tools n8n-url"><label class="lib-search"><span>' + esc(B('عنوان n8n بتاعك:', 'Your n8n address:')) + '</span>' +
+        '<input type="url" dir="ltr" autocomplete="off" spellcheck="false" value="' + esc(base) + '" placeholder="http://localhost:5678"></label>' +
+        '<button type="submit" class="link-btn">' + esc(B('احفظ واختبر الاتصال', 'Save and test the connection')) + '</button></form>' +
+        '<p class="sub-note" data-conn aria-live="polite"></p></div>' +
+        '<div class="lab-head"><label class="lib-filter"><span>' + esc(B('التمرين:', 'Exercise:')) + '</span><select data-pick>' +
+        items.map(function(it, i){ return '<option value="' + i + '"' + (it === cur ? ' selected' : '') + '>' + (solved(it) ? '✓ ' : '') + (i + 1) + '. ' + esc(L(it.t)) + '</option>'; }).join('') +
+        '</select></label><span class="lab-prog">' + esc(B('حلّيت ' + n + ' من ' + items.length, 'Solved ' + n + ' of ' + items.length)) + '</span></div>' +
+        '<div class="progress-bar"><div class="progress-fill" style="width:' + Math.round(n / items.length * 100) + '%"></div></div>' +
+        '<div class="md-card lab-task"><div class="md-top"><h3>' + esc(L(cur.t)) + '</h3>' + X.lvl(cur.lvl) + '</div><div class="md-body">' + S.md(cur.task) + '</div>' +
+        '<p class="sub-note">' + esc(B('العنوان اللي الموقع بيبعتله:', 'The address the site sends to:')) + ' <code data-url>POST ' + esc(base + '/webhook/' + cur.path) + '</code></p>' +
+        '<div class="sql-wrap"><table class="num-table n8n-cases" dir="ltr"><tr><th>#</th><th>' + esc(B('اللي هيتبعت (body)', 'Sent (body)')) + '</th><th>' + esc(B('الرد لازم يبقى فيه', 'The reply must hold')) + '</th></tr>' +
+        cur.cases.map(function(c, i){ return '<tr data-case="' + i + '"><td>' + (i + 1) + '</td><td><code>' + esc(short(c[0])) + '</code></td><td><code>' + esc(short(c[1])) + '</code></td></tr>'; }).join('') + '</table></div></div>' +
+        '<details class="ans n8n-steps"><summary>' + esc(B('إزاي أحل وأصحّح؟', 'How do I solve and check it?')) + '</summary><div class="md-body">' + S.md(STEPS) + '</div></details>' +
+        '<div class="jr-actions"><button type="button" class="link-btn" data-start>📋 ' + esc(B('افتح Workflow البداية في n8n', 'Open the starter workflow in n8n')) + '</button>' +
+        '<button type="button" class="ghost-btn" data-one>🧪 ' + esc(B('جرّب حالة (وضع Test)', 'Try one case (test mode)')) + '</button>' +
+        '<button type="button" class="ghost-btn" data-all>▶ ' + esc(B('صحّح كل الحالات (بعد Publish)', 'Check every case (after Publish)')) + '</button></div>' +
+        '<div class="lab-result" aria-live="polite"></div><pre class="lab-out" dir="ltr" hidden></pre>' +
+        '<details class="ans lab-sol"><summary>' + esc(B('اعرض الحل (بعد ما تحاول)', 'Show the solution (after you try)')) + '</summary>' +
+        '<div class="jr-actions"><button type="button" class="ghost-btn" data-sol>📤 ' + esc(B('افتح الحل في n8n', 'Open the solution in n8n')) + '</button>' +
+        '<button type="button" class="ghost-btn" data-solvs>💻 VS Code</button></div>' +
+        '<pre tabindex="0" class="md-code" dir="ltr"><code>' + esc(solText(cur)) + '</code></pre></details>';
+    }
+    // the solution as the learner would type it: the expressions or the code of each node
+    function solText(ex){
+      var out = [];
+      (function walk(list){
+        list.forEach(function(s){
+          if(s.set) out.push((s.name || 'Edit Fields') + ':\n' + s.set.map(function(f){ return '  ' + f[0] + ' (' + (f[2] || 'string') + ') = ' + f[1]; }).join('\n'));
+          if(s.code) out.push((s.name || 'Code') + ' (Run Once for Each Item):\n' + s.code);
+          if(s.if){ out.push('If: ' + s.if[0] + '  ' + s.if[1] + '  ' + s.if[2] + '  (' + s.if[3] + ')\n  true → ' + (s.yes.name || '') + ', false → ' + (s.no.name || '')); walk([s.yes, s.no]); }
+        });
+      })(ex.sol);
+      return out.join('\n\n');
+    }
+    function result(ok, text){ var r = el.querySelector('.lab-result'); r.className = 'lab-result jr-result ' + (ok ? 'pass' : 'fail'); r.textContent = text; }
+    function output(text){ var o = el.querySelector('.lab-out'); o.hidden = !text; o.textContent = text || ''; }
+    function mark(i, ok){ var tr = el.querySelector('[data-case="' + i + '"]'); if(tr){ tr.classList.toggle('ok', ok); tr.classList.toggle('bad', !ok); } }
+    function pass(){
+      if(!solved(cur)) S.setItem('lab', 'n8n-' + cur.id, { ok: 1 });
+      var i = items.indexOf(cur), n = items.filter(solved).length;
+      result(true, B('✓ n8n بتاعك جاوب صح على كل الحالات! ', '✓ Your n8n answered every case right! ') + (i < items.length - 1 ? B('روح للتمرين اللي بعده.', 'Move on to the next exercise.') : B('خلّصت كل التمارين 🎉', 'You finished every exercise 🎉')));
+      var sel = el.querySelector('[data-pick]'); if(sel) sel.options[i].textContent = '✓ ' + (i + 1) + '. ' + L(cur.t);
+      el.querySelector('.lab-prog').textContent = B('حلّيت ' + n + ' من ' + items.length, 'Solved ' + n + ' of ' + items.length);
+      el.querySelector('.progress-fill').style.width = Math.round(n / items.length * 100) + '%';
+    }
+    // why a request failed, in words: n8n down, or up but the webhook is not listening
+    function explain(r, test){
+      if(!r.net){
+        var m = r.data && typeof r.data === 'object' ? (r.data.message || '') + (r.data.hint ? '\n' + r.data.hint : '') : String(r.data || '');
+        return Promise.resolve(B('n8n رد بخطأ ', 'n8n answered with error ') + r.status + (m ? ':\n' + m : '') + (r.status === 500 ? B('\nغالبًا فيه نود وقعت: افتح Executions في n8n وشوف الرسالة.', '\nA node probably failed: open Executions in n8n and read the message.') : ''));
+      }
+      if(r.timeout) return Promise.resolve(B('n8n مردّش في 20 ثانية.', 'n8n did not answer within 20 seconds.'));
+      return S.n8n.ping().then(function(up){
+        if(!up) return B('مش قادرين نوصل لـ n8n على ', 'Could not reach n8n at ') + S.n8n.base() + B('. اتأكد إنه شغال وإن العنوان صح، ولو المتصفح سألك عن الوصول لجهازك أو شبكتك دوس Allow.', '. Check it is running and the address is right, and if the browser asks about reaching your computer or network, press Allow.');
+        return test ? B('n8n شغال، بس الـ Webhook مش مستني طلب: دوس Execute workflow في n8n الأول (كل ضغطة = حالة واحدة)، واتأكد إن الـ path هو ', 'n8n is running, but the webhook is not waiting for a request: press Execute workflow in n8n first (one press = one case), and check the path is ') + cur.path
+          : B('n8n شغال، بس الـ Webhook ده مش متسجّل: اعمل Publish للـ Workflow (أو فعّله)، واتأكد إن الـ path هو ', 'n8n is running, but this webhook is not registered: publish (or activate) the workflow, and check the path is ') + cur.path;
+      });
+    }
+    function runCase(i, test){
+      var c = cur.cases[i];
+      return S.n8n.call(cur.path, c[0], test).then(function(r){
+        if(!r.ok) return explain(r, test).then(function(msg){ return { ok: false, fatal: true, msg: msg }; });
+        var ok = answerOk(r.data, c[1]);
+        mark(i, ok);
+        return { ok: ok, msg: '#' + (i + 1) + ' ' + short(c[0]) + '\n   ' + B('المتوقع: ', 'expected: ') + short(c[1]) + '\n   ' + B('رد n8n: ', 'n8n replied: ') + short(r.data) };
+      });
+    }
+    function runAll(){
+      result(true, B('بيصحّح…', 'Checking…')); el.querySelector('.lab-result').className = 'lab-result';
+      output('');
+      var lines = [], bad = 0, i = 0;
+      (function next(){
+        if(i >= cur.cases.length){
+          output(lines.join('\n'));
+          if(!bad) pass(); else result(false, B(bad + ' من ' + cur.cases.length + ' حالات مش صح. قارن رد n8n بالمتوقع تحت.', bad + ' of ' + cur.cases.length + ' cases are wrong. Compare n8n\'s reply with the expected one below.'));
+          return;
+        }
+        runCase(i, false).then(function(r){
+          if(r.fatal){ result(false, r.msg); output(lines.join('\n')); return; }
+          if(!r.ok) bad++;
+          lines.push((r.ok ? '✓ ' : '✗ ') + r.msg);
+          i++; next();
+        });
+      })();
+    }
+    function runOne(){
+      var done = tried[cur.id] = tried[cur.id] || {};
+      var i = 0; while(i < cur.cases.length - 1 && done[i]) i++;
+      result(true, B('بيبعت الحالة ' + (i + 1) + '…', 'Sending case ' + (i + 1) + '…')); el.querySelector('.lab-result').className = 'lab-result';
+      runCase(i, true).then(function(r){
+        if(r.fatal){ result(false, r.msg); return; }
+        output((r.ok ? '✓ ' : '✗ ') + r.msg);
+        if(!r.ok){ result(false, B('الحالة ' + (i + 1) + ' مش صح. عدّل، ودوس Execute workflow تاني وجرّب.', 'Case ' + (i + 1) + ' is wrong. Fix it, press Execute workflow again and retry.')); return; }
+        done[i] = true;
+        var left = cur.cases.filter(function(_, k){ return !done[k]; }).length;
+        if(!left){ pass(); return; }
+        result(true, B('الحالة ' + (i + 1) + ' صح ✓ دوس Execute workflow في n8n تاني وجرّب الحالة اللي بعدها (فاضل ' + left + ').', 'Case ' + (i + 1) + ' is right ✓ Press Execute workflow in n8n again and try the next case (' + left + ' left).'));
+      });
+    }
+    el.addEventListener('submit', function(e){
+      if(!e.target.classList.contains('n8n-url')) return;
+      e.preventDefault();
+      var input = e.target.querySelector('input'), msg = el.querySelector('[data-conn]');
+      if(!S.n8n.setBase(input.value)){ msg.textContent = B('العنوان لازم يبقى على جهازك (زي http://localhost:5678) أو n8n Cloud (زي https://اسمك.app.n8n.cloud).', 'The address must be on your computer (like http://localhost:5678) or n8n Cloud (like https://yourname.app.n8n.cloud).'); return; }
+      input.value = S.n8n.base();
+      msg.textContent = B('بيختبر…', 'Testing…');
+      el.querySelector('[data-url]').textContent = 'POST ' + S.n8n.base() + '/webhook/' + cur.path;
+      S.n8n.ping().then(function(up){
+        msg.textContent = up ? B('✓ n8n شغال على ', '✓ n8n is running at ') + S.n8n.base() : B('✗ مفيش رد من ', '✗ No answer from ') + S.n8n.base() + B('. اتأكد إن n8n شغال، ولو المتصفح سألك عن الوصول لجهازك دوس Allow.', '. Check n8n is running, and if the browser asks about reaching your computer, press Allow.');
+      });
+    });
+    el.addEventListener('click', function(e){
+      var b = e.target.closest('button');
+      if(!b) return;
+      if(b.hasAttribute('data-start')) S.n8n.open(exWorkflow(cur, 'start'));
+      else if(b.hasAttribute('data-sol')) S.n8n.open(exWorkflow(cur, 'sol'));
+      else if(b.hasAttribute('data-solvs')) S.openInEditor(JSON.stringify(exWorkflow(cur, 'sol'), null, 2), 'json', 'n8n-' + cur.path + '-solution');
+      else if(b.hasAttribute('data-all')) runAll();
+      else if(b.hasAttribute('data-one')) runOne();
+    });
+    el.addEventListener('change', function(e){ if(e.target.hasAttribute('data-pick')){ cur = items[Number(e.target.value)]; paint(); } });
+    paint();
   });
 
   // ======================= runners =======================
@@ -414,7 +617,8 @@
         '<div class="jr-actions"><button type="button" class="link-btn" data-run>▶ ' + esc(B('شغّل', 'Run')) + ' <kbd>Ctrl+Enter</kbd></button>' +
         '<button type="button" class="ghost-btn" data-check>✓ ' + esc(B('اتأكد من الحل', 'Check')) + '</button>' +
         '<button type="button" class="ghost-btn" data-reset>' + esc(B('ابدأ من الأول', 'Start over')) + '</button>' +
-        (lang === 'sql' ? '<button type="button" class="ghost-btn" data-resetdb>' + esc(B('رجّع البيانات', 'Reset data')) + '</button>' : '') + '</div>' +
+        (lang === 'sql' ? '<button type="button" class="ghost-btn" data-resetdb>' + esc(B('رجّع البيانات', 'Reset data')) + '</button>' : '') +
+        (lang !== 'expr' ? '<button type="button" class="ghost-btn" data-tovs>💻 VS Code</button>' : '') + '</div>' +
         '<div class="lab-result" aria-live="polite"></div><pre class="lab-out" dir="ltr" hidden></pre><div class="lab-table"></div>' +
         '<details class="ans lab-sol"><summary>' + esc(B('اعرض الحل (بعد ما تحاول)', 'Show the solution (after you try)')) + '</summary><pre tabindex="0" class="md-code" dir="ltr"><code>' + esc(cur.solution) + '</code></pre></details>';
     }
@@ -500,6 +704,7 @@
       else if(b.hasAttribute('data-check')) run(true);
       else if(b.hasAttribute('data-reset')){ delete drafts[cur.id]; lsSet('site_lab_draft', drafts); paint(); }
       else if(b.hasAttribute('data-resetdb')){ if(db){ db.close(); db = null; } S.toast(B('البيانات رجعت زي الأول.', 'The data is back to the start.')); }
+      else if(b.hasAttribute('data-tovs')){ saveDraft(); S.openInEditor(el.querySelector('.lab-code.main').value, { js: 'js', py: 'py', sql: 'sql' }[lang], 'lab-' + cur.id); }
     });
     el.addEventListener('change', function(e){ if(e.target.hasAttribute('data-pick')){ saveDraft(); cur = items[Number(e.target.value)]; paint(); } });
     el.addEventListener('keydown', function(e){
@@ -516,5 +721,5 @@
   });
 
   // the pieces tools/test_lab.js checks without a browser
-  window.LAB = { parseWorkflow: parseWorkflow, lint: lint, steps: steps, edges: edges, sameResult: sameResult, canon: canon };
+  window.LAB = { parseWorkflow: parseWorkflow, lint: lint, steps: steps, edges: edges, sameResult: sameResult, canon: canon, exWorkflow: exWorkflow, answerOk: answerOk };
 })();

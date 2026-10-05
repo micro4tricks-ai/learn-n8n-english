@@ -190,6 +190,33 @@ const log = (ok, what, extra) => { out.push((ok ? 'PASS ' : 'FAIL ') + what + (e
   } else log(true, 'python.html: week 14 is locked without progress (HTML run skipped)');
   await shot('python');
 
+  // ---- v3: VS Code, back to top, shortcuts, data meter, your own n8n
+  await page.goto(BASE + 'python.html#journey?w=1&d=1');
+  await page.waitForSelector('#jrDay [data-jvs]', { timeout: 15000 });
+  await page.click('#jrDay [data-jvs] >> nth=0');
+  log(/python-w01-d1-[a-z0-9]+\.py/.test(await page.locator('#vsDlg').innerHTML().catch(() => '')), 'VS Code: an example opens as a .py file');
+  await page.keyboard.press('Escape');
+  await page.mouse.wheel(0, 4000); await page.waitForTimeout(500);
+  log(await page.locator('.to-top').isVisible(), 'back-to-top button shows after scrolling');
+  await page.click('.to-top'); await page.waitForTimeout(1200);
+  log(await page.evaluate(() => scrollY) < 5, 'back-to-top goes up');
+  await page.evaluate(() => document.activeElement && document.activeElement.blur());
+  await page.keyboard.press('Shift+Slash');
+  log(await page.locator('#keysDlg[open]').count() === 1, '? opens the keyboard shortcuts');
+  await page.keyboard.press('Escape');
+  await page.keyboard.press('u');
+  log(/\d (KB|MB|B)/.test(await page.locator('#netDlg .num').first().textContent().catch(() => '')), 'U opens the data meter');
+  await page.keyboard.press('Escape');
+  await page.keyboard.press('g'); await page.keyboard.press('l');
+  await page.waitForURL(/lab\.html/, { timeout: 8000 }).catch(() => {});
+  log(/lab\.html/.test(page.url()), 'G then L opens the lab');
+  await page.waitForTimeout(600);
+  await page.click('#n8n > h2 button').catch(() => {});
+  log(await page.locator('#n8n .n8n-cases tr').count() >= 3, 'lab: the «n8n on your computer» exercises render');
+  await page.fill('#n8n .n8n-url input', 'http://example.com');
+  await page.click('#n8n .n8n-url button');
+  log(/n8n Cloud/.test(await page.textContent('#n8n [data-conn]')), 'lab: an n8n address off this computer is refused');
+
   // english mode
   await page.setViewportSize({ width: 1280, height: 900 });
   await page.evaluate(() => localStorage.setItem('site_lang', 'en'));

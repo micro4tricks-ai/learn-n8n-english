@@ -168,7 +168,7 @@ Five pages that work with all four journeys (menu **More**):
 | Page | What you do there |
 |---|---|
 | 🔁 **My review** — `review.html` | 10–15 minutes a day of spaced review with **FSRS** (the Anki algorithm, via [ts-fsrs](https://github.com/open-spaced-repetition/ts-fsrs)) over ~6,400 cards: English words, n8n, Python and JavaScript terms, grammar rules. A **mistakes notebook** collects every question you got wrong in the journey, exams and quizzes and asks it again, mixed, until you answer it right twice. **Stats**: a study-day heatmap, your best weekly-test scores in all four journeys, weak spots. **Backup** to a file and restore on any device, and download all 192 weeks for offline use. |
-| 🧪 **Lab** — `lab.html` | Paste any n8n workflow JSON (or open a sample) to see it as a zoomable **diagram**, a **step-by-step explanation**, and a **checker** (secrets typed into nodes, open webhooks, unconnected nodes, no error handling, pinned data…). Search the **official n8n template library** and open any template the same way. **Playgrounds** with 45 checked challenges: n8n expressions (with `$json`, `$input`, Luxon `$now` and n8n's extra methods), JavaScript for the Code node, **Python** (real CPython via Pyodide) and **SQL** (SQLite via sql.js on a shop database). |
+| 🧪 **Lab** — `lab.html` | Paste any n8n workflow JSON (or open a sample) to see it as a zoomable **diagram**, a **step-by-step explanation**, and a **checker** (secrets typed into nodes, open webhooks, unconnected nodes, no error handling, pinned data…). Search the **official n8n template library** and open any template the same way. ****Test yourself on your own n8n**: 12 exercises checked live against the n8n on your computer. **Playgrounds** with 45 checked challenges: n8n expressions (with `$json`, `$input`, Luxon `$now` and n8n's extra methods), JavaScript for the Code node, **Python** (real CPython via Pyodide) and **SQL** (SQLite via sql.js on a shop database). |
 | 🎙️ **Speaking practice** — `speak.html` | **Scored pronunciation** (your speech is turned into text and compared word by word), **shadowing** with your own recording next to the model voice, **dictation** with a word diff, and **10 real work situations** (stand-up, asking for help, bug report, code review, estimates, client call, status email, interview, disagreeing, demo). |
 | 🤖 **Prompts** — `prompts.html` | A library of **187 prompts** in 15 areas (coding, n8n and automation, AI agents, data, English, client and business work, studying…): fill the boxes and copy. A **20-lesson prompt-writing course**. **My prompts**: save your own with variables, tags, version history, export/import; synced with your account. |
 | 📄 **Cheat sheets** — `sheets.html` | 11 print-ready A4 sheets: n8n expressions, main nodes, JavaScript for the Code node, Python, SQL, Git, Docker for n8n, HTTP and status codes, Regex, English tenses for work, ready phrases. |
@@ -195,7 +195,7 @@ On every page: **site-wide search** (`Ctrl K` or `/`) across ~9,300 entries in A
 - 🎓 **Monthly and final exams** — each month's exam opens after its 4 weekly tests (20 questions drawn from that month); the final draws 48 questions from all 48 weeks. Every attempt gets new questions. Passing the final shows a printable certificate.
 - 👤 **Optional account** — sign in with a one-time link sent to your email (no password) to keep progress and test results online and continue on another device. Without an account everything still works in the browser.
 - 🌐 **Arabic ⇄ English on every page** — the UI, lessons, tasks, quizzes and vocabulary all switch language and direction (RTL ↔ LTR).
-- 📱 **Fits any screen** — phone (one column), tablet (two columns) and desktop (a sidebar with the weeks next to the lesson).
+- 📱 **Fits any screen** — from a 320 px phone (one column, no sideways scrolling) to a tablet (two columns), a desktop (a sidebar with the weeks next to the lesson) and wide screens (more columns).
 - 🃏 **Flashcards** with a "Got it" pile, search, and audio pronunciation with a stop button.
 - 🔠 **Adjustable text size** (A− / A+) in the header.
 - 📚 **Library** of 831 free resources (official docs, books, courses, practice APIs, podcasts, tools), each with what to read — filter by section, level, language and done/not done. Every link was checked.
@@ -203,6 +203,11 @@ On every page: **site-wide search** (`Ctrl K` or `/`) across ~9,300 entries in A
 - 🔁 **Spaced review and a mistakes notebook** — see [The tools](#the-tools).
 - 📴 **Works offline and installs as an app** (PWA) — the pages you open are cached; the review page downloads all 48 weeks at once.
 - 💬 **Discussions** — a discussion box under every week and tool page (GitHub Discussions through [giscus](https://giscus.app)).
+- ⚙️ **Your own n8n** — the lab's «Test yourself on your own n8n»: 12 exercises whose starter workflow opens in the n8n on your computer with one click; the site sends real data to your webhook and checks the reply (checked against a real n8n with `npm run test:n8n`).
+- 💻 **Open in VS Code** — every code example in the journeys and the lab opens in VS Code on your computer, in vscode.dev, or as a downloaded file.
+- ⌨️ **Keyboard shortcuts** — `?` lists them: search, back to the top, `G` + letter to jump to a page, `[` `]` between days, text size.
+- 📶 **Data meter** — the footer shows how much data this session used (what came from the cache, and Python's download, included).
+- ↑ **Back to the top** — a button appears once you scroll down.
 - 🪶 **Lightweight** — plain HTML, CSS and JavaScript; week content loads only when you open that week, and the big tools (Python, SQL) only when you use them.
 
 ## Tech stack
@@ -313,6 +318,7 @@ The tool pages don't use the dictionaries at all: their texts are `{ar, en}` in 
 | `npm run artifact` | One-file copy of the n8n page (for the claude.ai artifact) |
 | `npm run a11y` | Accessibility audit of every page (needs Chrome) |
 | `npm run e2e` | The tool pages in a real Chrome (needs Chrome and internet) |
+| `npm run test:n8n` | The «n8n on your computer» exercises against a real n8n (`N8N_BIN=<n8n command>`) |
 | `npm run security` | Security check in a real Chrome: HTML/JS payloads in every store, link, search and pasted workflow; the code runner's isolation ([SECURITY.md](SECURITY.md)) |
 
 ## Deploy

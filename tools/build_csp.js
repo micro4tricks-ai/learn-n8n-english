@@ -22,7 +22,9 @@ pages.forEach(f => {
     "font-src 'self' https://fonts.gstatic.com",
     "img-src 'self' data: blob: https:",
     "media-src 'self' blob: data:",
-    ["connect-src 'self'"].concat(supa ? [supa, supa.replace('https:', 'wss:')] : [], ['https://api.n8n.io', 'https://giscus.app', 'https://cdn.jsdelivr.net'], goat ? ['https://' + goat + '.goatcounter.com'] : []).join(' '),
+    // the learner's own n8n (the lab's «n8n on your computer» tests and «open in my n8n»): this computer or n8n Cloud
+    ["connect-src 'self'"].concat(supa ? [supa, supa.replace('https:', 'wss:')] : [], ['https://api.n8n.io', 'https://giscus.app', 'https://cdn.jsdelivr.net'], goat ? ['https://' + goat + '.goatcounter.com'] : [],
+      ['http://localhost:*', 'http://127.0.0.1:*', 'https://*.app.n8n.cloud']).join(' '),
     "frame-src 'self' https://giscus.app",
     "worker-src 'self'",
     "object-src 'none'",

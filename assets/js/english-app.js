@@ -576,7 +576,7 @@
     $('streakNum').textContent = streakShown();
     var st = JOURNEY.stats();
     $('journeyPct').textContent = st.pct + '%';
-    $('weeksNum').textContent = st.weeks + '/24';
+    $('weeksNum').textContent = st.weeks + '/' + (st.totalWeeks || 48);
     var qs = GRAMMAR_QUIZ.map(function(q, i){ return [q, quizId('g', i)]; }).concat(EXTRA_QUIZ.map(function(q, i){ return [q, quizId('x', i)]; }));
     $('quizPct').textContent = pct(qs.filter(function(x){ return state.quiz[x[1]] === x[0].a; }).length, qs.length) + '%';
   }

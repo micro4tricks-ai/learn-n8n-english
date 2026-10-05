@@ -50,7 +50,7 @@
     $('streakNum').textContent = streakShown();
     var st = JOURNEY.stats();
     $('journeyPct').textContent = st.pct + '%';
-    $('weeksNum').textContent = st.weeks + '/24';
+    $('weeksNum').textContent = st.weeks + '/' + (st.totalWeeks || 48);
   }
 
   // ---------------- language tracks ----------------

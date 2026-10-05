@@ -56,6 +56,11 @@
 - **📄 الملخصات**: اطبع الملخص اللي محتاجه وحطه جنبك وانت بتذاكر.
 - **🔍 البحث**: من أي صفحة دوس `Ctrl K` أو `/` واكتب أي كلمة بالعربي أو الإنجليزي.
 - **📲 ثبّت الموقع**: من «المزيد» ← «ثبّت الموقع كتطبيق»، أو من قايمة المتصفح ← «إضافة للشاشة الرئيسية».
+- **⚙️ n8n على جهازك**: في المعمل قسم «اختبر نفسك على n8n بتاعك». شغّل n8n على جهازك (`npx n8n` أو Docker)، وكل تمرين من الـ 12 بيديك Workflow بداية بيفتح في n8n بضغطة (بيتنسخ، وانت تلصقه بـ `Ctrl+V`). كمّله، والموقع يبعتله بيانات حقيقية ويصحّح الرد. لو المتصفح سألك عن الوصول لجهازك دوس **Allow**. والـ Workflows اللي في عارض المعمل ليها زرار «افتحه في n8n بتاعي».
+- **💻 VS Code**: تحت أمثلة الكود في الرحلات وفي المعمل زرار **VS Code**. بيفتح الكود (بتعديلاتك) في VS Code على جهازك: أول مرة اكتب مكان مجلد التنزيلات. أو افتحه في vscode.dev في المتصفح، أو نزّل الملف بس.
+- **⌨️ اختصارات الكيبورد**: دوس `?` في أي صفحة تشوف القايمة كلها. أهمها: `Ctrl K` للبحث، و`T` لأول الصفحة، و`G` وبعدها حرف عشان تروح لصفحة (`G N` لـ n8n، و`G L` للمعمل…)، و`[` و`]` لليوم اللي قبل واللي بعد، و`+` و`−` لحجم الخط.
+- **↑ أول الصفحة**: لما تنزل في الصفحة يظهر زرار ↑ في الركن يرجّعك لفوق.
+- **📶 استهلاك النت**: تحت في آخر كل صفحة مكتوب الجلسة دي استهلكت كام من النت (اضغط عليه للتفاصيل، أو دوس `U`). أول زيارة بتحمّل الصفحة والخطوط، وبعدها أغلب الملفات من الكاش. تشغيل Python أول مرة حوالي 10 ميجا. عشان توفّر، نزّل الموقع للأوفلاين مرة واحدة من «مراجعتي».
 
 ## حفظ التقدّم والحساب
 
@@ -85,3 +90,6 @@ Four 48-week journeys (n8n automation, Python, JavaScript, and English for devel
 - **Library**: more than 800 free resources, each saying exactly what to read; filter by section, level, language and done/not done.
 - **Progress** is saved in your browser. Sign in with an email link (no password) to keep it online and continue on any device, or download a backup file from «My review».
 - **Tools** (menu «More»): *My review* (10–15 min of spaced review a day + the mistakes notebook), *Lab* (expressions, JavaScript, Python and SQL challenges; view and check any workflow), *Speaking practice*, *Prompts*, *Cheat sheets*. Search everything with `Ctrl K` or `/`.
+- **Your own n8n** (Lab → «Test yourself on your own n8n»): run n8n on your computer (`npx n8n` or Docker); each of the 12 exercises opens a starter workflow in your n8n (copied, you paste it with `Ctrl+V`), and the site sends it real data and checks the reply. Press **Allow** if the browser asks about reaching your computer.
+- **VS Code**: code examples in the journeys and the lab have a **VS Code** button: open the code in VS Code on your computer (type your downloads folder once), in vscode.dev, or just download the file.
+- **Keyboard**: press `?` for every shortcut (`Ctrl K` search, `T` top, `G` + letter to go to a page, `[` `]` previous/next day, `+` `−` text size). A ↑ button takes you back to the top, and the footer shows how much data this session used (`U` for details).

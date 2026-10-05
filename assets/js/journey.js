@@ -384,13 +384,27 @@
     if(!x.run || !M.opts.runCode) return '';
     var kind = x.run === 1 || x.run === true ? 'py' : String(x.run);
     return '<div class="jr-run"><button type="button" class="link-btn" data-jrun="' + esc(kind) + '"' + (x.html ? ' data-html="' + esc(x.html) + '"' : '') + '>▶ ' + T(kind === 'html' ? 'اعرض' : 'شغّل') + '</button>' +
-      '<button type="button" class="ghost-btn" data-jedit aria-pressed="false">✎ ' + T('عدّل الكود') + '</button>' +
+      '<button type="button" class="ghost-btn" data-jedit aria-pressed="false">✎ ' + T('عدّل الكود') + '</button>' + vsBtn(x) +
       (x.stdin != null ? '<label class="run-in"><span>' + T('اللي هتكتبه لـ input() (سطر لكل مرة):') + '</span><textarea rows="2" dir="ltr" spellcheck="false">' + esc(x.stdin) + '</textarea></label>' : '') +
       '</div><pre class="run-out" hidden aria-live="polite"></pre>';
   }
   // content of the intensive hour (months 1–3, content/<track>/intensive)
   function deepTag(x){ return x && x.deep ? '<span class="deep-tag">⚡ ' + T('ساعة التكثيف') + '</span> ' : ''; }
   // a Node.js example can't run in the page: say how to run it on your computer
+  // «VS Code» opens the example (as edited on the page) in VS Code on the computer or vscode.dev: SITE.openInEditor
+  var EXT = { css: 'css', html: 'html', js: 'js', jsx: 'jsx', ts: 'ts', sql: 'sql', py: 'py' };
+  function extOf(x){
+    if(!x || !(window.SITE && SITE.openInEditor)) return '';
+    if(x.lang) return EXT[x.lang] || '';
+    if(x.node) return x.ts ? 'ts' : 'mjs';
+    if(x.run === 'html') return 'html';
+    if(x.run === 'js') return 'js';
+    if(x.run || M.track === 'python') return 'py';
+    return '';
+  }
+  function vsBtn(x){ var e = extOf(x); return e ? '<button type="button" class="ghost-btn" data-jvs="' + e + '" title="' + T('افتح الكود في VS Code') + '">💻 VS Code</button>' : ''; }
+  // an example without «Run» still gets its own bar for the VS Code button
+  function vsBar(x){ return x && !x.run && extOf(x) ? '<div class="jr-run">' + vsBtn(x) + '</div>' : ''; }
   function nodeNote(x){ return x && x.node && !x.run ? '<p class="sub-note node-note">⬢ ' + T(x.ts ? 'مثال TypeScript: احفظه في ملف main.ts على جهازك وشغّله بـ node main.ts (Node 23.6 أو أحدث)' : 'مثال Node.js: احفظه في ملف main.mjs على جهازك وشغّله بـ node main.mjs') + '</p>' : ''; }
   function block(step, title, body){
     return '<div class="sp-block"><h4><span class="step">' + step + '</span> ' + title + '</h4>' + body + '</div>';
@@ -410,7 +424,7 @@
     h += '<div class="sp-head"><h3>' + TF('اليوم {d}', { d: day.d }) + ': ' + esc(L(day.title)) + '</h3><p>' + esc(L(day.goal)) + '</p>' +
       '<div class="mono">' + headStats(day, st) + '</div></div>';
     h += block(++step, T('افهم: الشرح مع أمثلة'), '<div class="learn-grid">' + day.learn.map(function(l){
-      return '<div class="learn-card' + (l.deep ? ' deep' : '') + '"><div class="lh">' + deepTag(l) + esc(L(l.h)) + '</div><p class="lp">' + fmt(L(l.p)) + '</p>' + (l.ex ? '<pre class="code" tabindex="0">' + esc(L(l.ex)) + '</pre>' + runBar(l) + nodeNote(l) : '') + '</div>';
+      return '<div class="learn-card' + (l.deep ? ' deep' : '') + '"><div class="lh">' + deepTag(l) + esc(L(l.h)) + '</div><p class="lp">' + fmt(L(l.p)) + '</p>' + (l.ex ? '<pre class="code" tabindex="0">' + esc(L(l.ex)) + '</pre>' + runBar(l) + vsBar(l) + nodeNote(l) : '') + '</div>';
     }).join('') + '</div>');
     h += block(++step, T('اتمرّن بإيدك'), '<div class="build-list">' + day.practice.map(function(t, i){
       return checkbox('p' + day.key + '_' + i, deepTag(t) + fmt(L(t)));
@@ -418,7 +432,7 @@
     if(day.code && day.code.length){
       h += block(++step, T('انسخ واستخدم'), '<div class="phrase-grid">' + day.code.map(function(c, i){
         return '<div class="phrase-card"><div class="row"><div class="u">' + deepTag(c) + esc(L(c.u)) + '</div><button type="button" class="copy-btn" data-jcopy="' + i + '">' + T('نسخ') + '</button></div>' +
-          '<pre class="code" tabindex="0">' + esc(L(c.p)) + '</pre>' + runBar(c) + '</div>';
+          '<pre class="code" tabindex="0">' + esc(L(c.p)) + '</pre>' + runBar(c) + vsBar(c) + '</div>';
       }).join('') + '</div>');
     }
     h += block(++step, T('كلمات اليوم'), '<div class="vocab-grid">' + day.words.map(function(v){
@@ -540,6 +554,11 @@
       return;
     }
     var day = w.days[M.selDay - 1];
+    if(t.hasAttribute('data-jvs')){
+      var vpre = t.parentNode.previousElementSibling;
+      SITE.openInEditor(vpre.innerText, t.getAttribute('data-jvs'), M.track + '-w' + pad(M.selWeek) + '-d' + M.selDay);
+      return;
+    }
     if(t.hasAttribute('data-jrun') || t.hasAttribute('data-jedit')){
       var bar = t.parentNode, pre = bar.previousElementSibling, out = bar.nextElementSibling;
       if(t.hasAttribute('data-jedit')){

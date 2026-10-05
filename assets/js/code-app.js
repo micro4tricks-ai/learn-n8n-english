@@ -12,7 +12,7 @@
     var st = JOURNEY.stats();
     box.innerHTML = '<div class="streak-card"><div class="num">' + S.streak() + '</div><div class="lbl">' + esc(B('يوم متتالي 🔥', 'day streak 🔥')) + '</div></div>' +
       '<div class="streak-card"><div class="num alt">' + st.pct + '%</div><div class="lbl">' + esc(B('الرحلة', 'Journey')) + '</div></div>' +
-      '<div class="streak-card"><div class="num">' + st.weeks + '/24</div><div class="lbl">' + esc(B('أسابيع عدّيتها', 'weeks passed')) + '</div></div>';
+      '<div class="streak-card"><div class="num">' + st.weeks + '/' + (st.totalWeeks || 48) + '</div><div class="lbl">' + esc(B('أسابيع عدّيتها', 'weeks passed')) + '</div></div>';
   }
 
   // HTML/CSS/JavaScript examples run in a sandboxed frame (scripts allowed, no access to this page or its storage);
