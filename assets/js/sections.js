@@ -175,7 +175,7 @@
             (it.example ? '<pre tabindex="0" class="md-code" dir="ltr"><code>' + esc(L(it.example)) + '</code></pre>' : '') +
             (it['try'] ? '<div class="challenge"><b>' + esc(B('جرّب بنفسك:', 'Try it:')) + '</b> ' + S.md(it['try']) + '</div>' : '') +
             (it.links ? '<div class="md-links">' + it.links.map(function(l){ return '<a href="' + esc(l.url) + '" target="_blank" rel="noopener">' + esc(L(l.t)) + ' ↗</a>'; }).join('') + '</div>' : '') +
-            '<label class="task"><input type="checkbox" data-done' + (d ? ' checked' : '') + '> ' + esc(B('خلّصت الدرس ده', 'I finished this lesson')) + '</label></details>';
+            '<label class="task"><input type="checkbox" data-done' + (d ? ' checked' : '') + '> ' + esc(sec.doneLabel ? L(sec.doneLabel) : B('خلّصت الدرس ده', 'I finished this lesson')) + '</label></details>';
         }).join('') + '</div>';
     }
     el.addEventListener('change', function(e){

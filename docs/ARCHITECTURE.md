@@ -17,6 +17,7 @@ except the optional services listed under [Outside services](#outside-services).
 | `speak.html` | Pronunciation, shadowing, dictation, work situations | sections + `assets/js/speak.js` |
 | `prompts.html` | Prompt library, prompt course, my prompts | sections + `assets/js/prompts.js` |
 | `sheets.html` | Printable cheat sheets | sections only |
+| `tips.html` | Computer and phone tips, checklists, shortcut sheets, glossary | sections only (`content/sections/tips*.js`) |
 
 Runnable examples: `journey.js` adds a Run/Edit bar to any example with `run`, and calls the page's `runCode`; Node.js examples (`node: 1`) show a note on running them locally instead. On `python.html` that is `assets/js/pyrun.js` (Pyodide in a module worker: loads the libraries the code imports, 15 s limit, returns printed output and saved images) for Python, and a `sandbox="allow-scripts"` iframe for HTML/JavaScript. The lab's Python playground uses the same `pyrun.js`.
 
@@ -77,7 +78,7 @@ n8n expressions such as `{{ $json.x }}` are left alone), `vars: {name: {ar, en}}
 (a weak version to compare), `links: [{t, url}]`, `tags`, `rtl`.
 
 **`lessons`** — numbered lessons, one open at a time, with a «done» mark (store `done`).
-Item fields: `id`, `t`, `min`, `body`, `example` (shown as code), `try`, `links`.
+Item fields: `id`, `t`, `min`, `body`, `example` (shown as code), `try`, `links`. Optional section field `doneLabel: {ar, en}` replaces the «I finished this lesson» text (e.g. for checklists).
 
 **`sheets`** — printable sheets. Item fields: `id`, `t`, `sub`, `groups: [{t, rows: [[code, meaning]]}]`.
 

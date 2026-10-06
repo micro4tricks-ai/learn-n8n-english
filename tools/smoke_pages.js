@@ -114,6 +114,19 @@ const checks = {
       check(doc.querySelector('#mine [data-var="name"]'), where + ': own prompt variables become a form');
     }
   },
+  async tips({ doc, w }, where){
+    check(doc.querySelectorAll('main#page > section').length === 4, where + ': 4 sections');
+    const cards = doc.querySelectorAll('#tips .md-card').length;
+    check(cards >= 300, where + ': tip cards (' + cards + ')');
+    check(doc.querySelectorAll('#tips .cat-tab').length >= 17, where + ': category tabs');
+    const inp = doc.querySelector('#tips input[type=search]');
+    if(inp){ inp.value = 'BitLocker'; inp.dispatchEvent(new w.Event('input', { bubbles: true })); }
+    const found = doc.querySelectorAll('#tips .md-card').length;
+    check(found > 0 && found < cards, where + ': search narrows the tips (' + found + ')');
+    check(doc.querySelectorAll('#lists details.lesson').length >= 8, where + ': checklists');
+    check(doc.querySelectorAll('#keys .sheet').length >= 6, where + ': shortcut sheets');
+    check(doc.querySelectorAll('#terms .md-card').length >= 150, where + ': glossary terms');
+  },
   async sheets({ doc }, where){
     const n = doc.querySelectorAll('#sheets .sheet').length;
     check(n >= 8, where + ': sheets (' + n + ')');

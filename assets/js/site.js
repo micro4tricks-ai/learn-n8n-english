@@ -325,7 +325,7 @@
     w: ['أسبوع', 'Week'], d: ['يوم', 'Day'], v: ['كلمة', 'Word'], t: ['مصطلح', 'Term'], g: ['قاعدة', 'Grammar'],
     p: ['جملة جاهزة', 'Phrase'], e: ['رسالة خطأ', 'Error'], l: ['مكتبة', 'Library'], x: ['مثال محلول', 'Example'],
     c: ['مرجع سريع', 'Cheat'], pr: ['برومبت', 'Prompt'], ch: ['تحدّي', 'Challenge'], sc: ['موقف', 'Situation'],
-    ls: ['درس', 'Lesson'], s: ['ملخص', 'Sheet'], pg: ['صفحة', 'Page'], r: ['قراءة', 'Reading']
+    ls: ['درس', 'Lesson'], s: ['ملخص', 'Sheet'], pg: ['صفحة', 'Page'], r: ['قراءة', 'Reading'], tp: ['نصيحة', 'Tip']
   };
   // one form for comparing: no diacritics or tatweel, one alef, ya and ta marbuta folded, lower case
   function norm(s){

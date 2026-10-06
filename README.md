@@ -171,6 +171,7 @@ Five pages that work with all four journeys (menu **More**):
 | 🧪 **Lab** — `lab.html` | Paste any n8n workflow JSON (or open a sample) to see it as a zoomable **diagram**, a **step-by-step explanation**, and a **checker** (secrets typed into nodes, open webhooks, unconnected nodes, no error handling, pinned data…). Search the **official n8n template library** and open any template the same way. ****Test yourself on your own n8n**: 12 exercises checked live against the n8n on your computer. **Playgrounds** with 45 checked challenges: n8n expressions (with `$json`, `$input`, Luxon `$now` and n8n's extra methods), JavaScript for the Code node, **Python** (real CPython via Pyodide) and **SQL** (SQLite via sql.js on a shop database). |
 | 🎙️ **Speaking practice** — `speak.html` | **Scored pronunciation** (your speech is turned into text and compared word by word), **shadowing** with your own recording next to the model voice, **dictation** with a word diff, and **10 real work situations** (stand-up, asking for help, bug report, code review, estimates, client call, status email, interview, disagreeing, demo). |
 | 🤖 **Prompts** — `prompts.html` | A library of **187 prompts** in 15 areas (coding, n8n and automation, AI agents, data, English, client and business work, studying…): fill the boxes and copy. A **20-lesson prompt-writing course**. **My prompts**: save your own with variables, tags, version history, export/import; synced with your account. |
+| 💡 **Computer tips** — `tips.html` | 375 long-term computer and phone tips in 16 areas (Windows, files, backups, troubleshooting, security and scams, passwords, privacy, Wi-Fi, browsers, email, Office, phones, media, hardware, free software, AI), 10 checklists (new PC, monthly check-up, scammed, lost phone, selling a device…), 8 printable shortcut sheets and a 192-term glossary. Written for the site in Egyptian Arabic and English. |
 | 📄 **Cheat sheets** — `sheets.html` | 11 print-ready A4 sheets: n8n expressions, main nodes, JavaScript for the Code node, Python, SQL, Git, Docker for n8n, HTTP and status codes, Regex, English tenses for work, ready phrases. |
 
 On every page: **site-wide search** (`Ctrl K` or `/`) across ~9,300 entries in Arabic and English, with links straight to the word, rule, resource, week or day.
@@ -244,7 +245,7 @@ n8n.html                The n8n journey page
 python.html             The Python journey page
 js.html                 The JavaScript journey page
 english.html            The English journey page
-review.html lab.html speak.html prompts.html sheets.html   Tool pages (built from content/sections)
+review.html lab.html speak.html prompts.html sheets.html tips.html   Tool pages (built from content/sections)
 sw.js · manifest.webmanifest                               Offline app (sw.js is generated)
 content/
   pages.js              The list of pages: menus, footer, home cards and search read it
