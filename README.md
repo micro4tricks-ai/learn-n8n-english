@@ -326,7 +326,7 @@ The tool pages don't use the dictionaries at all: their texts are `{ar, en}` in 
 
 The site is static, so upload the files as they are:
 
-- **GitHub Pages:** Settings → Pages → Deploy from branch → `main` / root. (This is how the live site is served.)
+- **GitHub Pages:** Settings → Pages → Source: GitHub Actions. `.github/workflows/pages.yml` publishes `main` only after the Tests workflow passes. (This is how the live site is served.)
 - **Netlify / Cloudflare Pages:** connect the repo, no build command, publish directory `/`.
 - **Hostinger / any cPanel host:** upload everything except `tools/`, `node_modules/` and `package*.json` into `public_html/`.
 
