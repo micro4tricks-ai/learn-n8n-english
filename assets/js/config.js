@@ -15,5 +15,5 @@ window.JOURNEY_SUPABASE = {
 //   account (https://www.goatcounter.com, free), e.g. 'learn-n8n' for learn-n8n.goatcounter.com.
 window.SITE_CONFIG = {
   giscus: { repo: 'micro4tricks-ai/learn-n8n-english', repoId: 'R_kgDOUn0HmQ', category: 'Announcements', categoryId: 'DIC_kwDOUn0Hmc4DGrxI' },
-  goatcounter: ''
+  goatcounter: 'mahmoudmohammed'
 };
