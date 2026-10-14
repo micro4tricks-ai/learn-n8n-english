@@ -20,7 +20,7 @@ pages.forEach(f => {
   const policy = [
     "default-src 'self'",
     ["script-src 'self'"].concat(inline, ['https://giscus.app'], goat ? ['https://gc.zgo.at'] : [], lab ? ["'wasm-unsafe-eval'"] : []).join(' '),
-    "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+    "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://giscus.app",   // giscus adds its own stylesheet for the comment frame
     "font-src 'self' https://fonts.gstatic.com",
     "img-src 'self' data: blob: https:",
     "media-src 'self' blob: data:",

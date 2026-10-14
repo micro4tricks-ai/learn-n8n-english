@@ -515,7 +515,7 @@
     el.appendChild(s);
     return true;
   };
-  // a folded «Discussion» box; giscus loads only when it is opened, after checking the app is installed
+  // a folded «Discussion» box; giscus loads only when it is opened
   S.commentsOn = function(){ var g = CFG.giscus; return !!(g && g.repoId && g.categoryId); };
   S.commentsHtml = function(term, title){
     if(!S.commentsOn()) return '';
@@ -527,11 +527,11 @@
     if(!d.classList || !d.classList.contains('talk') || !d.open || d._loaded) return;
     d._loaded = true;
     var box = d.querySelector('.talk-box');
-    box.innerHTML = '<p class="sub-note">' + S.esc(S.B('بيحمّل النقاش…', 'Loading the discussion…')) + '</p>';
-    fetch('https://giscus.app/api/discussions/categories?repo=' + encodeURIComponent(CFG.giscus.repo)).then(function(r){ return r.json(); }).then(function(j){
-      if(j && j.error){ box.innerHTML = '<p class="sub-note">' + S.esc(S.B('النقاش لسه بيتجهز وهيفتح قريب.', 'The discussion is being set up and opens soon.')) + '</p>'; d._loaded = false; return; }
-      S.comments(box, d.getAttribute('data-term'));
-    }, function(){ box.innerHTML = '<p class="sub-note">' + S.esc(S.B('مقدرناش نحمّل النقاش. اتأكد من النت.', 'Could not load the discussion. Check your connection.')) + '</p>'; d._loaded = false; });
+    // giscus.app does not let other sites call its API (CORS), so its own script loads right away; it says so itself if the
+    // repository is not set up
+    S.comments(box, d.getAttribute('data-term'));
+    var sc = box.querySelector('script');
+    if(sc) sc.onerror = function(){ box.innerHTML = '<p class="sub-note">' + S.esc(S.B('مقدرناش نحمّل النقاش. اتأكد من النت.', 'Could not load the discussion. Check your connection.')) + '</p>'; d._loaded = false; };
   }, true);
   function analytics(){
     if(!CFG.goatcounter || /^(localhost|127\.|\[::1\])/.test(location.hostname) || location.protocol === 'file:') return;
