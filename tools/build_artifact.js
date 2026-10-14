@@ -35,13 +35,14 @@ html = html
     if(p === 'assets/js/site.js') out = inline(read('assets/data/search-index.js')) + '\n' + out;
     return out;
   })
-  .replace(/href="(index|n8n|english|python|review|lab|speak|prompts|sheets)\.html"/g, (_, p) => p === page ? 'href="#"' : 'href="' + LIVE + (p === 'index' ? '' : p + '.html') + '" target="_blank" rel="noopener"');
+  .replace(/href="(index|n8n|english|python|js|review|lab|speak|prompts|sheets|tips|progress)\.html"/g, (_, p) => p === page ? 'href="#"' : 'href="' + LIVE + (p === 'index' ? '' : p + '.html') + '" target="_blank" rel="noopener"');
 
 // The artifact frame misbehaves with an RTL root element, so the direction lives on <body> in the copy.
 html = html.replace('document.documentElement.dir = ', 'document.body.dir = ')
   .replace(/html\[dir="(rtl|ltr)"\]/g, 'body[dir="$1"]');
 if(html.includes('documentElement.dir')) throw new Error('direction patch failed');
-if(/<script src="assets\//.test(html)) throw new Error('a local script was not inlined');
+// a real tag starts a line (code inside an inlined script does not)
+{ const left = html.match(/^<script src="assets\/[^"]*"/m); if(left) throw new Error('a local script was not inlined: ' + left[0]); }
 
 fs.mkdirSync(path.join(ROOT, 'dist'), { recursive: true });
 const out = path.join(ROOT, 'dist', page + '-artifact.html');
