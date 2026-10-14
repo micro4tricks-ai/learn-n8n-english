@@ -4,17 +4,32 @@
 (function(){
   var cfg = window.JOURNEY_SUPABASE || {};
   var links = document.querySelector('.topbar .links');
-  if(!cfg.url || !cfg.anonKey || !window.supabase || !links) return;
+  if(!cfg.url || !cfg.anonKey || !links) return;
   var J = window.JOURNEY;
 
   function T(s){ return window.T ? window.T(s) : s; }
   function TF(s, v){ return window.TF ? window.TF(s, v) : s; }
   function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;'); }
 
-  var client = window.supabase.createClient(cfg.url, cfg.anonKey, {
-    // "implicit" lets the email link open on a different device from the one that asked for it.
-    auth: { flowType: 'implicit', persistSession: true, autoRefreshToken: true, detectSessionInUrl: true, storageKey: 'journey-auth' }
-  });
+  // The Supabase library (about 200 KB) loads only when it is needed: a saved session, an email link being
+  // opened, or the account window. Everyone else never downloads it.
+  var client = null, loading = null;
+  function ready(){
+    if(client) return Promise.resolve(client);
+    if(!loading) loading = (window.supabase ? Promise.resolve() : window.SITE.loadScript('assets/js/vendor/supabase.js' + (window.SITE.version ? '?v=' + window.SITE.version : ''))).then(function(){
+      client = window.supabase.createClient(cfg.url, cfg.anonKey, {
+        // "implicit" lets the email link open on a different device from the one that asked for it.
+        auth: { flowType: 'implicit', persistSession: true, autoRefreshToken: true, detectSessionInUrl: true, storageKey: 'journey-auth' }
+      });
+      client.auth.onAuthStateChange(onAuth);
+      return client;
+    }, function(e){ loading = null; throw e; });
+    return loading;
+  }
+  function hasSession(){
+    if(/access_token=|error_description=/.test(location.hash)) return true;
+    try{ return !!localStorage.getItem('journey-auth'); }catch(e){ return false; }
+  }
   var user = null, pendingEmail = '', status = 'idle', lastSync = 0, lastError = '';
 
   // ---------------- UI ----------------
@@ -64,6 +79,7 @@
   }
   function open(){
     lastError = '';
+    ready().catch(function(e){ fail(e); });
     render();
     if(dlg.showModal) dlg.showModal(); else dlg.setAttribute('open', '');
     var f = dlg.querySelector('input'); if(f) f.focus();
@@ -80,7 +96,7 @@
     if(act === 'close') close();
     if(act === 'back'){ pendingEmail = ''; lastError = ''; render(); }
     if(act === 'sync') syncNow();
-    if(act === 'out') client.auth.signOut().then(function(){ user = null; lastSync = 0; status = 'idle'; render(); }, fail);
+    if(act === 'out') ready().then(function(c){ return c.auth.signOut(); }).then(function(){ user = null; lastSync = 0; status = 'idle'; render(); }, fail);
   });
   dlg.addEventListener('submit', function(e){
     e.preventDefault();
@@ -89,7 +105,7 @@
     if(f === 'email'){
       var email = dlg.querySelector('#acctEmail').value.trim();
       if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){ lastError = T('اكتب إيميل صحيح.'); render(); return; }
-      client.auth.signInWithOtp({ email: email, options: { emailRedirectTo: location.href.split('#')[0] } }).then(function(r){
+      ready().then(function(c){ return c.auth.signInWithOtp({ email: email, options: { emailRedirectTo: location.href.split('#')[0] } }); }).then(function(r){
         if(r.error) return fail(r.error);
         pendingEmail = email; render();
         var c = dlg.querySelector('#acctCode'); if(c) c.focus();
@@ -97,7 +113,7 @@
     }
     if(f === 'code'){
       var code = dlg.querySelector('#acctCode').value.replace(/\D/g, '');
-      client.auth.verifyOtp({ email: pendingEmail, token: code, type: 'email' }).then(function(r){
+      ready().then(function(c){ return c.auth.verifyOtp({ email: pendingEmail, token: code, type: 'email' }); }).then(function(r){
         if(r.error){ lastError = T('الكود مش صح أو خلص وقته. جرّب تاني أو اطلب كود جديد.'); render(); return; }
         pendingEmail = '';
       }, fail);
@@ -189,7 +205,7 @@
   window.addEventListener('online', function(){ if(user) schedule(500); });
   document.addEventListener('visibilitychange', function(){ if(user && document.visibilityState === 'visible') schedule(500); });
 
-  client.auth.onAuthStateChange(function(event, session){
+  function onAuth(event, session){
     var was = user && user.id;
     user = session ? session.user : null;
     if(user && user.id !== was){
@@ -197,6 +213,7 @@
       schedule(50);
     }
     if(!user) renderBtn();
-  });
+  }
   renderBtn();
+  if(hasSession()) ready().catch(function(){});
 })();

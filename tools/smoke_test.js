@@ -4,10 +4,11 @@
 const fs = require('fs');
 const path = require('path');
 const { JSDOM } = require('jsdom');
+const dicts = require('./dicts');
 const ROOT = path.resolve(__dirname, '..');
 const AR = /[؀-ۿ]/;
 function run(file, lang) {
-  let html = fs.readFileSync(path.join(ROOT, file), 'utf8');
+  let html = dicts(fs.readFileSync(path.join(ROOT, file), 'utf8'), lang);
   // week files load on demand in the browser; here they are added right after the outline so jsdom has them
   html = html.replace(/(<script src="content\/(\w+)\/outline\.js[^"]*"><\/script>)/, (tag, _, track) => tag +
     fs.readdirSync(path.join(ROOT, 'content', track, 'weeks')).filter(f => /^w\d\d\.js$/.test(f))
@@ -24,7 +25,12 @@ function run(file, lang) {
       w.addEventListener('error', e => errors.push(e.message));
     }
   });
-  return { doc: dom.window.document, w: dom.window, errors };
+  const w = dom.window, doc = w.document;
+  // folded sections are drawn on their first opening; the checks below need them all
+  const folded = {};
+  doc.querySelectorAll('section.closed').forEach(sec => { folded[sec.id] = sec.querySelectorAll('*').length; });
+  if (w.SITE && w.SITE.opened) doc.querySelectorAll('section[id]').forEach(sec => w.SITE.opened(sec.id));
+  return { doc, w, errors, folded };
 }
 let failed = false;
 function check(ok, what) { if (!ok) { failed = true; console.log('  FAIL:', what); } }
@@ -123,7 +129,9 @@ function allWeeksChecks(doc, w, where) {
 }
 for (const file of ['index.html', 'n8n.html', 'english.html']) {
   for (const lang of ['ar', 'en']) {
-    const { doc, w, errors } = run(file, lang);
+    const { doc, w, errors, folded } = run(file, lang);
+    // the long lists wait until their section opens
+    if (file !== 'index.html') ['terms', 'library'].forEach(id => check(folded[id] != null && folded[id] < 400, file + ' ' + lang + ': folded #' + id + ' is not drawn before it opens (' + folded[id] + ' nodes)'));
     const c = s => doc.querySelectorAll(s).length;
     const info = { dir: doc.documentElement.dir, title: doc.title, errors: errors.length,
       cards: c('.vocab-card'), quiz: c('.q-card'), map: c('.map-cell'), lib: c('.lib-card') };

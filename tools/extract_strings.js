@@ -12,7 +12,7 @@ const AR = /[؀-ۿ]/;
 
 // Inline the local scripts so jsdom runs the page exactly like a browser would, without network.
 function runPage(file) {
-  let html = fs.readFileSync(path.join(ROOT, file), 'utf8');
+  let html = require('./dicts')(fs.readFileSync(path.join(ROOT, file), 'utf8'), 'en');
   // week files load on demand in the browser; here they are added right after the outline so jsdom has them
   html = html.replace(/(<script src="content\/(\w+)\/outline\.js[^"]*"><\/script>)/, (tag, _, track) => tag +
     fs.readdirSync(path.join(ROOT, 'content', track, 'weeks')).filter(f => /^w\d\d\.js$/.test(f))

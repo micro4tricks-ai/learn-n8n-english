@@ -253,7 +253,7 @@ SECTIONS.add({
 });
 
 SECTIONS.add({
-  page: 'prompts', id: 'mine', order: 3, type: 'myprompts',
+  page: 'prompts', id: 'mine', order: 3, type: 'myprompts', eager: true,   // drawn at once: it takes «save to my prompts» from the library
   title: { ar: 'برومبتاتي', en: 'My prompts' },
   desc: {
     ar: 'احفظ البرومبتات اللي بتشتغل معاك. أي `{{كلمة}}` جوه البرومبت بتبقى خانة تملاها قبل النسخ. كل تعديل بيتحفظ كنسخة جديدة وتقدر ترجع لأي نسخة قديمة. البرومبتات بتتحفظ في المتصفح، ولو داخل بحسابك بتتزامن مع أجهزتك.',

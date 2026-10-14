@@ -43,6 +43,7 @@
   var sections = Array.prototype.slice.call(document.querySelectorAll('section[id]'))
     .filter(function(s){ return s.id !== 'journey' && s.querySelector(':scope > h2'); });
   function setOpen(sec, on, remember){
+    if(on && window.SITE && SITE.opened) SITE.opened(sec.id);
     sec.classList.toggle('closed', !on);
     var btn = sec.querySelector(':scope > h2 > .fold-btn');
     if(btn) btn.setAttribute('aria-expanded', on ? 'true' : 'false');

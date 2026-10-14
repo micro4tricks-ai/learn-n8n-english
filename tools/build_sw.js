@@ -11,6 +11,7 @@ let version = '';
 pages.forEach(p => {
   all.add(p);
   const html = fs.readFileSync(path.join(ROOT, p), 'utf8');
+  require('./dicts').names(html).forEach(u => all.add(u + '?v=__V__'));
   for(const m of html.matchAll(/(?:src|href)="([^"#:]+?)"/g)){
     const u = m[1];
     if(/^(https?:)?\/\//.test(u) || u.endsWith('.html') || /['\s+]/.test(u)) continue;   // skip remote links, pages and code inside inline scripts
@@ -19,10 +20,11 @@ pages.forEach(p => {
   }
 });
 // files a script loads on demand (not named in any page): the search index, the review deck, the lab's sql.js
-['assets/data/search-index.js', 'assets/data/deck.js', 'assets/js/vendor/sqljs/sql-wasm.js', 'assets/js/vendor/sqljs/sql-wasm.wasm'].forEach(f => all.add(f + '?v=' + version));
+['assets/data/search-index.js', 'assets/data/deck.js', 'assets/js/vendor/supabase.js', 'content/python/terms.js', 'content/js/terms.js', 'assets/js/vendor/sqljs/sql-wasm.js', 'assets/js/vendor/sqljs/sql-wasm.wasm'].forEach(f => all.add(f + '?v=' + version));
+[...all].filter(f => f.endsWith('?v=__V__')).forEach(f => { all.delete(f); all.add(f.replace('__V__', version)); });
 [...all].forEach(f => { const p = f.split('?')[0]; if(p !== './' && !fs.existsSync(path.join(ROOT, p))) { console.error('missing file: ' + p); process.exitCode = 1; } });
 // the shared shell: pages, the stylesheet, icons and the scripts every page loads
-const SHELL = /^(\.\/|[\w-]+\.html|manifest\.webmanifest|assets\/(icons\/|favicon|logo|css\/site\.css)|assets\/js\/(i18n|common-en|site|sections|ui|account|config)\.js|assets\/js\/vendor\/supabase\.js|content\/pages\.js)/;
+const SHELL = /^(\.\/|[\w-]+\.html|manifest\.webmanifest|assets\/(icons\/|favicon|logo|css\/site\.css)|assets\/js\/(i18n|site|sections|ui|plan|account|config)\.js|content\/pages\.js)/;
 const files = [...all].filter(f => SHELL.test(f)).sort(), lazy = [...all].filter(f => !SHELL.test(f)).sort();
 const size = list => list.reduce((n, f) => n + (f === './' ? 0 : fs.statSync(path.join(ROOT, f.split('?')[0])).size), 0);
 const tpl = fs.readFileSync(path.join(__dirname, 'sw.template.js'), 'utf8');

@@ -628,15 +628,17 @@
     onDay: function(w, day){ focusDay = day; focusWeek = w.n; renderFocus(); }
   });
   renderQuiz();
-  renderReadings();
+  // the long lists are drawn when their section first opens (assets/js/site.js: whenOpen)
+  SITE.whenOpen('reading', renderReadings);
   renderModeRow();
   renderFocus();
   renderCatTabs();
-  renderVocab();
-  renderPhrases();
-  renderGrammar();
+  SITE.whenOpen('terms', renderVocab);
+  updateVocabProgress();
+  SITE.whenOpen('phrases', renderPhrases);
+  SITE.whenOpen('grammar', renderGrammar);
   renderLibTabs();
-  renderLibrary();
+  SITE.whenOpen('library', renderLibrary);
   renderTracks();
   updateTotals();
 

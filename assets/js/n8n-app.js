@@ -412,12 +412,14 @@
   });
   renderExamples();
   renderLibTabs();
-  renderLibrary();
+  // the long lists are drawn when their section first opens (assets/js/site.js: whenOpen)
+  SITE.whenOpen('library', renderLibrary);
   renderModeRow();
   renderTracks();
   renderRef();
   renderCatTabs();
-  renderTerms();
+  SITE.whenOpen('terms', renderTerms);
+  updateTermProgress();
   renderErrors();
   renderFocus();
   updateTotals();

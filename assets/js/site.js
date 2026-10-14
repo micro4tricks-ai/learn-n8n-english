@@ -36,6 +36,8 @@
   S.L = function(x){
     if(x == null) return '';
     if(typeof x !== 'object') return String(x);
+    // kept on an Arabic page, where the English words are not loaded: {ar: x, en: x} → look it up now
+    if(LANG === 'en' && x.en && x.en === x.ar && AR.test(x.ar) && window.T) return window.T(x.ar);
     return x[LANG] || x.ar || x.en || '';
   };
   // The display order of n answer options for a question key: shuffled, but always the same for the same key
@@ -303,6 +305,28 @@
     sb.innerHTML = '<span aria-hidden="true">🔍</span><span class="search-lbl">' + S.B('ابحث', 'Search') + '</span><kbd dir="ltr">Ctrl K</kbd>';
     sb.addEventListener('click', openSearch);
     links.insertBefore(sb, links.firstChild);
+    // phone: one row (name, search, ☰) and the rest of the menu folds under ☰
+    var bar = links.parentNode;
+    if(bar.querySelector('.nav-toggle')) return;
+    if(!links.id) links.id = 'siteLinks';
+    var ms = document.createElement('button');
+    ms.type = 'button'; ms.className = 'search-mini';
+    ms.setAttribute('aria-label', S.B('ابحث في الموقع كله', 'Search the whole site'));
+    ms.innerHTML = '<span aria-hidden="true">🔍</span>';
+    ms.addEventListener('click', openSearch);
+    var nt = document.createElement('button');
+    nt.type = 'button'; nt.className = 'nav-toggle';
+    nt.setAttribute('aria-controls', links.id); nt.setAttribute('aria-expanded', 'false');
+    nt.setAttribute('aria-label', S.B('القايمة', 'Menu'));
+    nt.innerHTML = '<span aria-hidden="true">☰</span>';
+    nt.addEventListener('click', function(){
+      var on = !bar.classList.contains('nav-open');
+      bar.classList.toggle('nav-open', on);
+      nt.setAttribute('aria-expanded', on ? 'true' : 'false');
+      nt.firstChild.textContent = on ? '✕' : '☰';
+    });
+    bar.insertBefore(ms, links);
+    bar.insertBefore(nt, links);
   }
   function buildFooter(){
     var f = document.querySelector('.site-foot .foot-links');
@@ -445,6 +469,29 @@
     if((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')){ e.preventDefault(); openSearch(); }
     else if(e.key === '/' && !typing){ e.preventDefault(); openSearch(); }
   });
+
+  // ---------- sections drawn when first opened ----------
+  // A folded section (ui.js) costs nothing until it opens: S.whenOpen(id, draw) draws now when the section starts
+  // open (marked data-open, or left open by the viewer last time) and otherwise on its first opening.
+  var waiting = {};
+  S.isOpen = function(id){
+    var el = document.getElementById(id);
+    if(!el || !el.querySelector(':scope > h2') || id === 'journey') return true;
+    var page = (location.pathname.split('/').pop() || 'index').replace(/\.html$/, ''), o = {};
+    try{ o = JSON.parse(localStorage.getItem('site_open_' + page)) || {}; }catch(e){}
+    return Object.prototype.hasOwnProperty.call(o, id) ? !!o[id] : el.hasAttribute('data-open');
+  };
+  S.whenOpen = function(id, draw){
+    if(S.isOpen(id)) draw(); else (waiting[id] = waiting[id] || []).push(draw);
+  };
+  S.opened = function(id){
+    var list = waiting[id];
+    if(!list) return;
+    delete waiting[id];
+    list.forEach(function(f){ f(); });
+  };
+  // printing shows every section, so draw them all first
+  window.addEventListener('beforeprint', function(){ Object.keys(waiting).forEach(S.opened); });
 
   // ---------- deep links: #section?q=… ----------
   // a broken %-escape in a shared link must not stop the page

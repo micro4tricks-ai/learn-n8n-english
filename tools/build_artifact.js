@@ -11,7 +11,7 @@ const read = p => fs.readFileSync(path.join(ROOT, p.split('?')[0]), 'utf8');
 const inline = code => '<script>\n' + code.replace(/<\/script/gi, '<\\/script') + '\n</script>';
 const DROP = /^assets\/js\/(vendor\/supabase|account)\.js/;   // accounts need Supabase, which the frame blocks
 
-let html = read(page + '.html');
+let html = require('./dicts')(read(page + '.html'), 'en');   // both languages work in the copy
 const title = html.match(/<title>[^<]*<\/title>/)[0];
 html = html
   .replace(/<!doctype html>\s*/i, '').replace(/<html[^>]*>\s*/i, '').replace(/<\/html>\s*$/i, '')

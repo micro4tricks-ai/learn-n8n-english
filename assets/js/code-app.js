@@ -97,7 +97,7 @@
   });
 
   X.type('pyterms', function(el, sec){
-    var track = sec.track || 'python', all = ((window.JOURNEY_TERMS || {})[track] || []).slice(), month = 0, q = '';
+    var track = sec.track || 'python', all = [], month = 0, q = '';
     el.innerHTML = '<div class="lib-tools"><label class="lib-search"><span>' + esc(B('ابحث في المصطلحات:', 'Search the terms:')) + '</span>' +
       '<input type="search" autocomplete="off" placeholder="' + esc(sec.placeholder || 'list, dict, request, selector…') + '"></label><span class="lib-count" aria-live="polite"></span></div>' +
       '<div class="cat-tabs"></div><div class="vocab-grid"></div>' +
@@ -123,7 +123,12 @@
     }
     input.addEventListener('input', function(){ q = input.value.trim(); paint(); });
     tabs.addEventListener('click', function(e){ var b = e.target.closest('[data-m]'); if(!b) return; month = Number(b.dataset.m); paint(); });
-    paint();
+    // the words file (300 KB) loads the first time this section opens
+    count.textContent = B('بيحمّل…', 'Loading…');
+    var have = function(){ return (window.JOURNEY_TERMS || {})[track]; };
+    (have() ? Promise.resolve() : S.loadScript('content/' + track + '/terms.js' + (S.version ? '?v=' + S.version : ''))).then(function(){
+      all = (have() || []).slice(); paint();
+    }, function(){ count.textContent = B('مقدرناش نحمّل المصطلحات. اتأكد من النت.', 'Could not load the terms. Check your connection.'); });
   });
 
   X.type('pylibrary', function(el, sec){

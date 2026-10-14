@@ -11,6 +11,7 @@
   document.documentElement.lang = lang;
   document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
 
+  var me = document.currentScript, VER = ((me && me.src || '').match(/\?v=(\w+)/) || [])[1] || '';
   var DICT = {};
   var AR = /[؀-ۿ]/;
   window.I18N_ADD = function(d){ for(var k in d) if(Object.prototype.hasOwnProperty.call(d, k)) DICT[k] = d[k]; };
@@ -33,7 +34,7 @@
   // A leaf written as {ar, en} (newer data, e.g. the library additions) resolves to the current language.
   function isBi(o){ return o && typeof o === 'object' && typeof o.ar === 'string' && typeof o.en === 'string' && Object.keys(o).length === 2; }
   function TDEEP(o){
-    if(isBi(o)) return lang === 'ar' ? o.ar : o.en;
+    if(isBi(o)) return lang === 'ar' ? o.ar : (o.en === o.ar ? T(o.ar) : o.en);
     if(lang === 'ar' && !hasBi(o)) return o;
     if(typeof o === 'string') return T(o);
     if(Array.isArray(o)) return o.map(TDEEP);
@@ -99,6 +100,37 @@
     return { ar: s, en: v == null ? s : v };
   }
 
+  // The English dictionaries load only on English pages: <script>I18N.en('common-en', 'n8n-en')</script> stands where
+  // their <script> tags were. They are written in place (parser-blocking, same site) so the scripts after them
+  // find the words, and an Arabic page does not download them at all.
+  function EN(){
+    if(lang !== 'en') return;
+    for(var i = 0; i < arguments.length; i++)
+      document.write('<script src="assets/js/' + String(arguments[i]).replace(/[^\w-]/g, '') + '.js' + (VER ? '?v=' + VER : '') + '"><\/script>');
+  }
+
+  // «و» written right before a Latin word («Python وSQL») reads like a «g» in the Arabic fonts. A narrow no-break
+  // space keeps them apart on screen; the source text stays as written, so the dictionaries still match it.
+  var WAW = /(^|[\s(«،؛:/])و(?=[A-Za-z0-9`])/g, WAWT = /(^|[\s(«،؛:/])و[A-Za-z0-9`]/;
+  function fixText(t){
+    var v = t.nodeValue;
+    if(!v || v.length < 2 || !WAWT.test(v)) return;
+    var p = t.parentNode;
+    if(p && p.closest && p.closest('pre,code,textarea,script,style,kbd,[contenteditable]')) return;
+    t.nodeValue = v.replace(WAW, '$1و ');
+  }
+  function fixTree(n){
+    if(n.nodeType === 3){ fixText(n); return; }
+    if(n.nodeType !== 1 || /^(SCRIPT|STYLE|PRE|CODE|TEXTAREA)$/.test(n.nodeName)) return;
+    var w = document.createTreeWalker(n, NodeFilter.SHOW_TEXT, null), t;
+    while((t = w.nextNode())) fixText(t);
+  }
+  if(lang === 'ar' && window.MutationObserver){
+    new MutationObserver(function(list){
+      for(var i = 0; i < list.length; i++) for(var j = 0; j < list[i].addedNodes.length; j++) fixTree(list[i].addedNodes[j]);
+    }).observe(document.documentElement, { childList: true, subtree: true });
+  }
+
   window.T = T; window.TF = TF; window.TDEEP = TDEEP;
-  window.I18N = { translateDOM: translateDOM, bindToggle: bindToggle, setLang: setLang, bi: BI };
+  window.I18N = { translateDOM: translateDOM, bindToggle: bindToggle, setLang: setLang, bi: BI, en: EN, version: VER };
 })();

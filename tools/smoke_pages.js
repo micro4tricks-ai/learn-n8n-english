@@ -21,7 +21,7 @@ function open(file, lang, before){
   const errors = [];
   const vc = new VirtualConsole();
   vc.on('jsdomError', e => errors.push(e.message));
-  const dom = new JSDOM(fs.readFileSync(path.join(ROOT, file), 'utf8'), {
+  const dom = new JSDOM(require('./dicts')(fs.readFileSync(path.join(ROOT, file), 'utf8'), lang), {
     url: BASE + file, runScripts: 'dangerously', resources: { interceptors: [local] }, pretendToBeVisual: true, virtualConsole: vc,
     beforeParse(w){
       w.localStorage.setItem('site_lang', lang);
@@ -34,7 +34,7 @@ function open(file, lang, before){
       if(before) before(w);
     }
   });
-  return Promise.resolve(dom).then(dom => new Promise(r => dom.window.addEventListener('load', () => setTimeout(() => r({ dom, w: dom.window, doc: dom.window.document, errors }), 50))));
+  return Promise.resolve(dom).then(dom => new Promise(r => dom.window.addEventListener('load', () => setTimeout(() => { const w = dom.window; if(w.SITE && w.SITE.opened) w.document.querySelectorAll('section[id]').forEach(sec => w.SITE.opened(sec.id)); setTimeout(() => r({ dom, w, doc: w.document, errors }), 30); }, 50))));
 }
 const wait = ms => new Promise(r => setTimeout(r, ms));
 let failed = false;
@@ -92,7 +92,8 @@ const checks = {
   },
   async prompts({ doc, w }, where){
     const cards = doc.querySelectorAll('#library .md-card');
-    check(cards.length >= 30, where + ': prompt library (' + cards.length + ')');
+    const all = Number(doc.querySelector('#library .lib-count').textContent.match(/[0-9]+/g).pop());
+    check(cards.length === 24 && all >= 150, where + ': prompt library (' + cards.length + ' of ' + all + ')');
     const v = doc.querySelector('#library [data-var]');
     check(v, where + ': a prompt with variables');
     if(v){
@@ -116,8 +117,14 @@ const checks = {
   },
   async tips({ doc, w }, where){
     check(doc.querySelectorAll('main#page > section').length === 4, where + ': 4 sections');
-    const cards = doc.querySelectorAll('#tips .md-card').length;
+    const total = n => Number(((doc.querySelector(n + ' .lib-count') || {}).textContent || '').match(/[0-9]+/g).pop());
+    const cards = total('#tips');
     check(cards >= 300, where + ': tip cards (' + cards + ')');
+    // a page of 24 cards, and «show more» adds the next 24
+    check(doc.querySelectorAll('#tips .md-card').length === 24, where + ': 24 cards drawn at first');
+    const more = doc.querySelector('#tips [data-more]');
+    check(more, where + ': show more button');
+    if(more){ more.click(); check(doc.querySelectorAll('#tips .md-card').length === 48, where + ': show more adds 24'); }
     check(doc.querySelectorAll('#tips .cat-tab').length >= 17, where + ': category tabs');
     const inp = doc.querySelector('#tips input[type=search]');
     if(inp){ inp.value = 'BitLocker'; inp.dispatchEvent(new w.Event('input', { bubbles: true })); }
@@ -125,13 +132,28 @@ const checks = {
     check(found > 0 && found < cards, where + ': search narrows the tips (' + found + ')');
     check(doc.querySelectorAll('#lists details.lesson').length >= 8, where + ': checklists');
     check(doc.querySelectorAll('#keys .sheet').length >= 6, where + ': shortcut sheets');
-    check(doc.querySelectorAll('#terms .md-card').length >= 150, where + ': glossary terms');
+    check(total('#terms') >= 150, where + ': glossary terms');
   },
   async sheets({ doc }, where){
     const n = doc.querySelectorAll('#sheets .sheet').length;
     check(n >= 8, where + ': sheets (' + n + ')');
     check(doc.querySelectorAll('#sheets .sheet.on').length === 1, where + ': one sheet shown');
     doc.querySelector('#sheets [data-print]').click();
+  },
+  async progress({ doc, w }, where){
+    check(doc.querySelectorAll('#summary .ach-track').length === 4, where + ': a card per journey');
+    check(/مفيش شهادات|No certificates/.test(doc.querySelector('#certs').textContent), where + ': no certificates at first');
+    // week 1 and the month-1 exam passed → one certificate, with the name typed above
+    const t = Date.UTC(2026, 9, 1);
+    w.localStorage.setItem('journey_n8n_v1', JSON.stringify({ done: { pw01d1_0: true }, answers: {}, tests: { 'w01-test': [{ score: 9, total: 10, at: t }], 'm1-exam': [{ score: 4, total: 10, at: t }, { score: 16, total: 20, at: t + 1 }] }, updatedAt: t }));
+    const name = doc.getElementById('achName');
+    name.value = 'Test Learner'; name.dispatchEvent(new w.Event('change', { bubbles: true }));
+    w.SITE.emit('site:store', {});
+    check(doc.querySelectorAll('#certs .cert').length === 1, where + ': one monthly certificate');
+    check(doc.querySelector('#certs .cert-who').textContent === 'Test Learner', where + ': the certificate carries the name');
+    check(/80%/.test(doc.querySelector('#certs .cert').textContent), where + ': the best passing score');
+    check(/1/.test(doc.querySelector('#summary .ach-track').textContent), where + ': weeks passed counted');
+    doc.querySelector('#certs [data-certprint]').click();
   }
 };
 
@@ -162,6 +184,27 @@ const checks = {
       if(want && res.length) check([...res].some(li => li.getAttribute('data-u').startsWith(want)), 'search «' + q + '» links to ' + want);
     }
     check(doc.querySelectorAll('.topbar .more-menu a').length >= 5, 'the More menu lists the tool pages');
+    check(doc.querySelector('.topbar .nav-toggle') && doc.querySelector('.topbar .search-mini'), 'phone menu button and search button');
+    // home: a new visitor gets the journey quiz; its answers pick a journey and a pace
+    w.SITE.closeDialog(doc.querySelector('.search-dlg'));
+    const qb = doc.querySelector('#homeNow [data-quiz]');
+    check(qb, 'home: the journey quiz for a new visitor');
+    if(qb){
+      qb.click();
+      for(const a of ['python', '0', '0', 'light']){ const b = doc.querySelector('#quizDlg [data-qa="' + a + '"]'); check(b, 'quiz answer ' + a); if(b) b.click(); }
+      const go = doc.querySelector('#quizDlg [data-qgo]');
+      check(go && go.getAttribute('href') === 'python.html#journey', 'quiz suggests the Python journey');
+      check(w.SITE.plan.pace() === 'light', 'quiz sets the pace');
+      check(doc.querySelectorAll('#quizDlg .quiz-tips li').length >= 3, 'quiz tips for a beginner with weak English');
+    }
+    w.close();
+  }
+  // home: someone who started gets «continue where you stopped» to the right week and day
+  {
+    const { doc, w, errors } = await open('index.html', 'ar', w => w.localStorage.setItem('journey_js_v1', JSON.stringify({ done: { pw03d2_0: true }, answers: {}, tests: { 'w01-test': [{ score: 10, total: 10, at: 1 }], 'w02-test': [{ score: 8, total: 10, at: 2 }] }, updatedAt: 5 })));
+    const r = doc.querySelector('#homeNow .resume-card.main');
+    check(r && r.getAttribute('href') === 'js.html#journey?w=3&d=2', 'home: continue links to week 3 day 2 (' + (r && r.getAttribute('href')) + ')');
+    check(doc.querySelector('#homeNow .goal-box [data-pace]'), 'home: the daily goal with the pace');
     if(errors.length){ failed = true; console.log('  ERRORS (index):', errors.slice(0, 5)); }
     w.close();
   }

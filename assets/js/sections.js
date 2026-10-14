@@ -50,7 +50,8 @@
       main.appendChild(el);
       var fn = types[s.type];
       var body = el.querySelector('.sec-body');
-      if(fn) fn(body, s); else body.innerHTML = '<p class="lock-note">Unknown section type: ' + esc(s.type) + '</p>';
+      // drawn on its first opening, unless marked eager (it listens to another section)
+      if(fn){ if(s.eager) fn(body, s); else S.whenOpen(s.id, function(){ fn(body, s); }); } else body.innerHTML = '<p class="lock-note">Unknown section type: ' + esc(s.type) + '</p>';
     });
     // one discussion per tool page
     if(S.commentsHtml && info){ var talk = document.createElement('div'); talk.className = 'page-talk'; talk.innerHTML = S.commentsHtml('page-' + page, L(info.title)); main.appendChild(talk); }
@@ -81,6 +82,8 @@
   // ---------- cards ----------
   X.type('cards', function(el, sec){
     var cats = sec.cats || [], tab = 'all', q = '', open = {};
+    // a long list shows a page of cards at a time (a phone draws 24 cards fast, 375 slowly)
+    var PAGE = sec.pageSize || 24, shown = PAGE;
     var vals = {};   // variable values typed per card, kept for the session
     el.innerHTML = '<div class="lib-tools"><label class="lib-search"><span>' + B('ابحث:', 'Search:') + '</span>' +
       '<input type="search" autocomplete="off" placeholder="' + esc(L(sec.searchHint || { ar: 'اكتب كلمة…', en: 'Type a word…' })) + '"></label>' +
@@ -130,13 +133,20 @@
     function paint(){
       var items = (sec.items || []).filter(match);
       count.textContent = B(items.length + ' من ' + sec.items.length, items.length + ' of ' + sec.items.length);
-      grid.innerHTML = items.length ? items.map(card).join('') : '<p class="sub-note">' + esc(tab === 'fav' ? B('لسه ما علّمتش على حاجة ⭐.', 'Nothing starred yet ⭐.') : B('مفيش نتايج.', 'No results.')) + '</p>';
+      var rest = items.length - shown;
+      grid.innerHTML = items.length ? items.slice(0, shown).map(card).join('') : '<p class="sub-note">' + esc(tab === 'fav' ? B('لسه ما علّمتش على حاجة ⭐.', 'Nothing starred yet ⭐.') : B('مفيش نتايج.', 'No results.')) + '</p>';
+      if(rest > 0) grid.insertAdjacentHTML('beforeend', '<button type="button" class="ghost-btn more-cards" data-more>' + esc(B('اعرض كمان ' + Math.min(rest, PAGE) + ' (فاضل ' + rest + ')', 'Show ' + Math.min(rest, PAGE) + ' more (' + rest + ' left)')) + '</button>');
     }
     function item(id){ return (sec.items || []).filter(function(x){ return x.id === id; })[0]; }
     el.addEventListener('click', function(e){
       var b = e.target.closest('button');
       if(!b) return;
-      if(b.dataset.tab){ tab = b.dataset.tab; tabs(); paint(); return; }
+      if(b.dataset.tab){ tab = b.dataset.tab; shown = PAGE; tabs(); paint(); return; }
+      if(b.hasAttribute('data-more')){
+        shown += PAGE; paint();
+        var next = grid.querySelectorAll('.md-card')[shown - PAGE]; if(next){ var h = next.querySelector('h3'); if(h){ h.tabIndex = -1; h.focus({ preventScroll: true }); } }
+        return;
+      }
       var art = b.closest('.md-card'), it = art && item(art.dataset.id);
       if(!it) return;
       if(b.hasAttribute('data-fav')){
@@ -150,7 +160,7 @@
       if(b.hasAttribute('data-save')) S.emit('sections:save', { sec: sec, item: it, values: vals[it.id] || {} });
     });
     el.addEventListener('input', function(e){
-      if(e.target === input){ q = input.value.trim(); paint(); return; }
+      if(e.target === input){ q = input.value.trim(); shown = PAGE; paint(); return; }
       var n = e.target.dataset && e.target.dataset['var'];
       if(n == null) return;
       var art = e.target.closest('.md-card'), it = item(art.dataset.id);
