@@ -82,23 +82,40 @@
   P.all = function(){ return P.TRACKS.map(function(t){ return P.summary(t.id); }); };
   P.resumeHref = function(s){ var t = P.track(s.id); return t.href + '#journey?w=' + s.week + '&d=' + s.day; };
 
-  // ---------- daily reminder (.ics) ----------
+  // ---------- daily reminder ----------
+  // A calendar event repeating every day: a Google Calendar link (works everywhere, also in the claude.ai copy),
+  // or an .ics file for any calendar app (not offered in the claude.ai copy, which saves only a few file types).
+  function stamp(d){ return d.getFullYear() + pad(d.getMonth() + 1) + pad(d.getDate()) + 'T' + pad(d.getHours()) + pad(d.getMinutes()) + '00'; }
+  function home(){ return S.embed ? S.embed.base : location.href.split('#')[0].replace(/[^/]*$/, ''); }
+  function slot(time){
+    var v = String(time || '20:00').split(':'), s = new Date();
+    s.setHours(Number(v[0]) || 0, Number(v[1]) || 0, 0, 0);
+    return { s: s, e: new Date(s.getTime() + P.goal() * 60000) };
+  }
+  function googleUrl(time){
+    var t = slot(time), tz = '';
+    try{ tz = Intl.DateTimeFormat().resolvedOptions().timeZone || ''; }catch(e){}
+    return 'https://calendar.google.com/calendar/render?action=TEMPLATE&text=' + encodeURIComponent(B('وقت المذاكرة – رحلة المبرمج', 'Study time – Developer Journey')) +
+      '&dates=' + stamp(t.s) + '/' + stamp(t.e) + '&recur=' + encodeURIComponent('RRULE:FREQ=DAILY') +
+      '&details=' + encodeURIComponent(B('كمّل من حيث وقفت: ', 'Continue where you stopped: ') + home()) + (tz ? '&ctz=' + encodeURIComponent(tz) : '');
+  }
   P.reminder = function(){
     var t = get('site_remind') || '20:00';
     var d = S.dialog('remindDlg', B('ذكّرني كل يوم', 'Remind me every day'),
-      '<p>' + esc(B('اختار الساعة، وهننزّلك ملف تقويم بيتكرر كل يوم. افتحه على موبايلك أو الكمبيوتر وضيفه للتقويم (Google أو Outlook أو Apple)، والتقويم هو اللي هيفكّرك في ميعاد المذاكرة.',
-        'Pick a time and you get a calendar file that repeats every day. Open it on your phone or computer and add it to your calendar (Google, Outlook or Apple); the calendar then reminds you when it is time to study.')) + '</p>' +
+      '<p>' + esc(B('اختار الساعة وضيف ميعاد بيتكرر كل يوم لتقويمك، والتقويم هو اللي هيفكّرك في ميعاد المذاكرة على موبايلك.',
+        'Pick a time and add an event that repeats every day to your calendar; the calendar then reminds you on your phone when it is time to study.')) + '</p>' +
       '<label for="remindAt">' + esc(B('الساعة', 'Time')) + '</label><input id="remindAt" class="acct-in" type="time" value="' + esc(t) + '" dir="ltr">' +
-      '<div class="acct-row"><button type="button" class="link-btn" data-remind>📅 ' + esc(B('نزّل التذكير', 'Download the reminder')) + '</button></div>' +
-      '<p class="sub-note">' + esc(B('مدته على قد هدفك اليومي (' + P.goal() + ' دقيقة). عشان تلغيه امسحه من التقويم.', 'It lasts as long as your daily goal (' + P.goal() + ' min). To stop it, delete it from your calendar.')) + '</p>');
-    d.querySelector('[data-remind]').onclick = function(){
-      var v = (d.querySelector('#remindAt').value || '20:00').split(':'), now = new Date();
-      put('site_remind', d.querySelector('#remindAt').value || '20:00');
-      var start = now.getFullYear() + pad(now.getMonth() + 1) + pad(now.getDate()) + 'T' + pad(Number(v[0]) || 0) + pad(Number(v[1]) || 0) + '00';
-      var stamp = now.toISOString().replace(/[-:]/g, '').replace(/\.\d+/, '');
-      var url = location.href.split('#')[0].replace(/[^/]*$/, '') + 'index.html';
+      '<div class="acct-row"><a class="link-btn" data-gcal target="_blank" rel="noopener" href="' + esc(googleUrl(t)) + '">📅 ' + esc(B('ضيفه لـ Google Calendar', 'Add to Google Calendar')) + '</a>' +
+      (S.embed ? '' : '<button type="button" class="ghost-btn" data-remind>⬇️ ' + esc(B('ملف لأي تقويم (.ics)', 'File for any calendar (.ics)')) + '</button>') + '</div>' +
+      '<p class="sub-note">' + esc(B('مدته على قد هدفك اليومي (' + P.goal() + ' دقيقة). الملف بيفتح في Outlook وتقويم آيفون وغيرهم. عشان تلغيه امسحه من التقويم.', 'It lasts as long as your daily goal (' + P.goal() + ' min). The file opens in Outlook, the iPhone calendar and others. To stop it, delete it from your calendar.')) + '</p>');
+    var input = d.querySelector('#remindAt'), g = d.querySelector('[data-gcal]');
+    input.onchange = input.oninput = function(){ put('site_remind', input.value || '20:00'); g.href = googleUrl(input.value); };
+    var f = d.querySelector('[data-remind]');
+    if(f) f.onclick = function(){
+      var now = new Date(), t2 = slot(input.value), url = home();
+      put('site_remind', input.value || '20:00');
       var ics = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//learn-n8n-english//daily plan//AR', 'CALSCALE:GREGORIAN', 'BEGIN:VEVENT',
-        'UID:study-' + now.getTime() + '@learn-n8n-english', 'DTSTAMP:' + stamp, 'DTSTART:' + start, 'DURATION:PT' + P.goal() + 'M', 'RRULE:FREQ=DAILY',
+        'UID:study-' + now.getTime() + '@learn-n8n-english', 'DTSTAMP:' + now.toISOString().replace(/[-:]/g, '').replace(/\.\d+/, ''), 'DTSTART:' + stamp(t2.s), 'DURATION:PT' + P.goal() + 'M', 'RRULE:FREQ=DAILY',
         'SUMMARY:' + B('وقت المذاكرة – رحلة المبرمج', 'Study time – Developer Journey'), 'DESCRIPTION:' + B('كمّل من حيث وقفت: ', 'Continue where you stopped: ') + url, 'URL:' + url,
         'BEGIN:VALARM', 'ACTION:DISPLAY', 'TRIGGER:PT0M', 'DESCRIPTION:' + B('وقت المذاكرة', 'Study time'), 'END:VALARM', 'END:VEVENT', 'END:VCALENDAR'].join('\r\n');
       S.download('study-reminder.ics', ics, 'text/calendar');
@@ -118,7 +135,7 @@
       '<span class="sub-note goal-eta">' + esc(B('بالسرعة دي الرحلة بتخلص في حوالي ' + P.months() + ' شهر' + (P.sessions() > 1 ? '، واليوم الواحد من الرحلة بياخد حوالي ' + P.sessions() + ' جلسة' : ''),
         'At this pace a journey takes about ' + P.months() + ' months' + (P.sessions() > 1 ? ', and one journey day takes about ' + P.sessions() + ' sessions' : ''))) + '</span>' +
       '<button type="button" class="ghost-btn" data-remindme>📅 ' + esc(B('ذكّرني كل يوم', 'Remind me daily')) + '</button>' +
-      '<a class="ghost-btn" href="progress.html">🏆 ' + esc(B('إنجازاتي', 'My achievements')) + '</a></div>';
+      '<a class="ghost-btn" ' + S.pageAttrs('progress.html') + '>🏆 ' + esc(B('إنجازاتي', 'My achievements')) + '</a></div>';
   }
   function paintGoal(){ document.querySelectorAll('.goal-box').forEach(function(b){ if(!b.contains(document.activeElement)) b.innerHTML = goalHtml(); }); }
   P.paintGoal = paintGoal;

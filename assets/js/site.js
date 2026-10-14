@@ -223,12 +223,7 @@
       var k = localStorage.key(i);
       if(BACKUP.test(k) && k.indexOf('journey_logged_') !== 0) data[k] = localStorage.getItem(k);
     }
-    var blob = new Blob([JSON.stringify({ app: 'learn-n8n-english', v: 1, at: new Date().toISOString(), data: data }, null, 1)], { type: 'application/json' });
-    var a = document.createElement('a');
-    a.href = URL.createObjectURL(blob);
-    a.download = 'my-progress-' + S.today() + '.json';
-    document.body.appendChild(a); a.click(); document.body.removeChild(a);
-    setTimeout(function(){ URL.revokeObjectURL(a.href); }, 2000);
+    S.download('my-progress-' + S.today() + '.json', JSON.stringify({ app: 'learn-n8n-english', v: 1, at: new Date().toISOString(), data: data }, null, 1), 'application/json');
   };
   // returns the number of keys restored; throws on a file that is not a backup of this site
   S.importBackup = function(text){
@@ -254,6 +249,9 @@
     else a.href = EMBED ? '#' : href;
   }
   S.pages = PAGES;
+  S.embed = EMBED;
+  // a link to another page: the live site in a new tab from the claude.ai copy
+  S.pageAttrs = function(href){ return EMBED && href !== here ? 'href="' + S.esc(EMBED.base + href) + '" target="_blank" rel="noopener"' : 'href="' + S.esc(href) + '"'; };
   S.page = PAGES.filter(function(p){ return p.href === here; })[0] || null;
   var installEvt = null;
 
@@ -562,12 +560,30 @@
   S.closeDialog = function(d){ if(d){ if(d.close) d.close(); else d.removeAttribute('open'); } };
   function lsGet(k, d){ try{ var v = localStorage.getItem(k); return v == null ? d : v; }catch(e){ return d; } }
   function lsSet(k, v){ try{ localStorage.setItem(k, v); }catch(e){} }
+  // The claude.ai copy (SITE_EMBED) cannot download through a link: it asks the viewer through the artifact's
+  // «downloads» capability, which takes a few file types only (others are saved as .txt).
+  function embedSave(name, text){
+    if(!/\.(txt|json|md|csv|html|svg)$/i.test(name)) name += '.txt';
+    var c = window.claude, no = function(){ S.toast(S.B('التنزيل مش متاح هنا. افتح الموقع نفسه ونزّل من هناك.', 'Downloads are not available here. Open the site itself to download.')); };
+    if(!c || !c.use){ no(); return Promise.resolve(false); }
+    return c.use('downloads').then(function(d){
+      if(!d) throw { code: 'unavailable' };
+      return d.save({ filename: name, data: String(text) });
+    }).then(function(){ return true; }, function(e){
+      if(e && e.code === 'declined') return false;
+      if(e && e.code === 'rate_limited') S.toast(S.B('في طلب تنزيل مفتوح. استنى ثانية وجرّب تاني.', 'A download is already waiting. Wait a moment and try again.'));
+      else no();
+      return false;
+    });
+  }
   function download(name, text, type){
+    if(EMBED) return embedSave(name, text);
     var a = document.createElement('a');
     a.href = URL.createObjectURL(new Blob([text], { type: type || 'text/plain' }));
     a.download = name;
     document.body.appendChild(a); a.click(); document.body.removeChild(a);
     setTimeout(function(){ URL.revokeObjectURL(a.href); }, 4000);
+    return Promise.resolve(true);
   }
   S.download = download;
   // follow an app link (vscode://…) without leaving the page
@@ -641,12 +657,13 @@
     var d = S.dialog('vsDlg', S.B('افتح الكود في VS Code', 'Open the code in VS Code'),
       '<p class="sub-note">' + S.esc(S.B('الملف: ', 'File: ')) + '<code>' + S.esc(name) + '</code></p>' +
       '<div class="vs-opts">' +
-      '<button type="button" class="link-btn" data-vs="app">💻 ' + S.esc(S.B('VS Code على جهازي', 'VS Code on my computer')) + '</button>' +
+      // the claude.ai copy cannot reach the computer's VS Code: vscode.dev and the file only
+      (EMBED ? '' : '<button type="button" class="link-btn" data-vs="app">💻 ' + S.esc(S.B('VS Code على جهازي', 'VS Code on my computer')) + '</button>') +
       '<button type="button" class="ghost-btn" data-vs="web">🌐 ' + S.esc(S.B('vscode.dev في المتصفح', 'vscode.dev in the browser')) + '</button>' +
       '<button type="button" class="ghost-btn" data-vs="file">⬇️ ' + S.esc(S.B('نزّل الملف بس', 'Just download the file')) + '</button></div>' +
-      '<label class="vs-dir"><span>' + S.esc(S.B('مكان مجلد التنزيلات على جهازك (مرة واحدة، عشان VS Code يلاقي الملف):', 'Where your downloads folder is (once, so VS Code can find the file):')) + '</span>' +
+      (EMBED ? '' : '<label class="vs-dir"><span>' + S.esc(S.B('مكان مجلد التنزيلات على جهازك (مرة واحدة، عشان VS Code يلاقي الملف):', 'Where your downloads folder is (once, so VS Code can find the file):')) + '</span>' +
       '<input class="acct-in" dir="ltr" spellcheck="false" autocomplete="off" placeholder="C:\\Users\\you\\Downloads" value="' + S.esc(dir) + '"></label>' +
-      '<p class="sub-note">' + S.esc(S.B('على ويندوز: افتح المجلد وانسخ المسار من شريط العنوان. على ماك: /Users/اسمك/Downloads. لو المتصفح بيسألك فين تحفظ، احفظ في نفس المجلد ده.', 'On Windows: open the folder and copy the path from the address bar. On a Mac: /Users/yourname/Downloads. If the browser asks where to save, save into this folder.')) + '</p>' +
+      '<p class="sub-note">' + S.esc(S.B('على ويندوز: افتح المجلد وانسخ المسار من شريط العنوان. على ماك: /Users/اسمك/Downloads. لو المتصفح بيسألك فين تحفظ، احفظ في نفس المجلد ده.', 'On Windows: open the folder and copy the path from the address bar. On a Mac: /Users/yourname/Downloads. If the browser asks where to save, save into this folder.')) + '</p>') +
       '<p class="acct-msg" role="status" data-vsmsg></p>');
     d.onclick = function(e){
       var b = e.target.closest && e.target.closest('[data-vs]');
@@ -656,6 +673,10 @@
         S.copy(code);
         window.open('https://vscode.dev/', '_blank', 'noopener');
         msg.textContent = S.B('الكود اتنسخ. في vscode.dev: File ← New File، اختار اسم ينتهي بـ .' + ext + ' والصق بـ Ctrl+V.', 'The code is copied. In vscode.dev: File → New File, pick a name ending in .' + ext + ' and paste with Ctrl+V.');
+        return;
+      }
+      if(EMBED){
+        embedSave(name, code).then(function(ok){ if(ok) msg.textContent = S.B('الملف اتحفظ. افتحه في VS Code بالسحب للبرنامج.', 'The file is saved. Drag it into VS Code to open it.'); });
         return;
       }
       download(name, code);

@@ -201,7 +201,8 @@ const log = (ok, what, extra) => { out.push((ok ? 'PASS ' : 'FAIL ') + what + (e
   await page.click('#jrDay [data-jvs] >> nth=0');
   log(/python-w01-d1-[a-z0-9]+\.py/.test(await page.locator('#vsDlg').innerHTML().catch(() => '')), 'VS Code: an example opens as a .py file');
   await page.keyboard.press('Escape');
-  await page.mouse.wheel(0, 4000); await page.waitForTimeout(500);
+  // scroll the page itself (a wheel over a code box would scroll the box)
+  await page.evaluate(() => window.scrollBy(0, 4000)); await page.waitForTimeout(500);
   log(await page.locator('.to-top').isVisible(), 'back-to-top button shows after scrolling');
   await page.click('.to-top'); await page.waitForTimeout(1200);
   log(await page.evaluate(() => scrollY) < 5, 'back-to-top goes up');
