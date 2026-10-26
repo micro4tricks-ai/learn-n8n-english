@@ -90,6 +90,38 @@ const checks = {
     if(inp){ inp.value = 'hello'; doc.querySelector('#dictation [data-check]').click(); check(doc.querySelector('#dictation .diff'), where + ': dictation shows a diff'); }
     check(doc.querySelectorAll('#situations details.lesson').length >= 8, where + ': work situations');
   },
+  async work({ doc, w }, where){
+    const X = w.SECTIONS, levels = { a2: 27, b1: 24 }, ids = new Set();
+    for(const [lv, n] of Object.entries(levels)){
+      const mods = (X.all('work').find(s => s.id === lv) || {}).items || [];
+      check(mods.length === n, where + ': ' + n + ' ' + lv + ' modules (' + mods.length + ')');
+      mods.forEach(m => {
+        check(!ids.has(m.id), where + ': unique module id ' + m.id); ids.add(m.id);
+        check(m.t && m.t.ar && m.t.en && m.body && m.body.ar && m.body.en, where + ': ' + m.id + ' title and goal in both languages');
+        check(m.d.length >= 5 && m.d.every(l => l.length === 3 && l.every(Boolean)), where + ': ' + m.id + ' dialogue lines');
+        check(m.ph.length >= 4 && m.ph.every(p => p.length === 2 && p[0] && p[1]), where + ': ' + m.id + ' phrases');
+        check(m.q.length === 5 && m.q.every(r => r[0] === 'f' ? r.length === 6 && /_{3}/.test(r[1]) && r[3].indexOf(r[2]) === -1 && r[4] && r[5]
+          : r[0] === 'm' && r.length === 7 && r[1] && r[2] && r[4] >= 0 && r[4] < r[3].length && new Set(r[3]).size === r[3].length && r[5] && r[6]), where + ': ' + m.id + ' questions');
+      });
+    }
+    // open the first module: the dialogue is drawn, answering everything right marks it done
+    const det = doc.querySelector('#a2 details.wk-mod');
+    check(det, where + ': the A2 modules are listed');
+    if(!det) return;
+    det.open = true; det.dispatchEvent(new w.Event('toggle'));
+    check(det.querySelectorAll('.wk-dialogue li').length === 7, where + ': the first dialogue is drawn');
+    const qs = X.workQuestions(X.all('work').find(s => s.id === 'a2').items[0]);
+    qs.forEach((q, k) => { const b = det.querySelector('.q-opt[data-k="' + k + '"][data-o="' + q.a + '"]'); check(b, where + ': answer ' + k); if(b) b.click(); });
+    check(det.querySelector('.wk-result.ok'), where + ': 5 of 5 passes the module');
+    check(w.SITE.get('done')['a2:greet'] && w.SITE.get('done')['a2:greet'].s === 5, where + ': the module is saved as done');
+    // a wrong answer goes to the mistakes notebook
+    det.querySelector('[data-retry]').click();
+    det.querySelector('.q-opt[data-k="0"][data-o="1"]').click();
+    check(w.SITE.items('mistakes').some(m => m.id === 'work-greet-q1'), where + ': a wrong answer lands in the mistakes notebook');
+    // the exam draws 20 questions from the level
+    doc.querySelector('#exams [data-start="b1"]').click();
+    check(doc.querySelectorAll('#exams .wk-run .q-card').length === 20, where + ': the B1 exam has 20 questions');
+  },
   async prompts({ doc, w }, where){
     const cards = doc.querySelectorAll('#library .md-card');
     const all = Number(doc.querySelector('#library .lib-count').textContent.match(/[0-9]+/g).pop());

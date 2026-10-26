@@ -2967,5 +2967,6 @@ window.I18N_ADD && I18N_ADD({
  "<span class=\"n\">01</span> رحلة الـ 12 شهر": "<span class=\"n\">01</span> The 12-month journey",
  "رحلة 12 شهر": "12-month journey",
  "⏱ الشهور 1–3: 3 ساعات في اليوم (ساعة التكثيف ⚡ زيادة)": "⏱ Months 1–3: 3 hours a day (plus the ⚡ intensive hour)",
- "من الرحلة": "From the journey"
+ "من الرحلة": "From the journey",
+ "💼 حوارات الشغل A2 وB1": "💼 Workplace dialogues A2 and B1"
 });

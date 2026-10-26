@@ -14,6 +14,7 @@ except the optional services listed under [Outside services](#outside-services).
 | `js.html` | The JavaScript journey, built the same way | sections (`content/sections/js.js`, `js-ref.js`) + `content/library/js.js` + `assets/js/code-app.js` + `journey.js` + the week files |
 | `review.html` | Spaced review (FSRS), mistakes notebook, stats, backup | sections (`content/sections/review.js`) + `assets/js/review.js` |
 | `lab.html` | Workflow viewer/checker, template search, playgrounds | sections + `assets/js/lab.js`, `assets/js/lab-expr.js` |
+| `work.html` | Workplace English: 51 dialogue modules (A2 27, B1 24) with a quiz each and a 20-question exam per level; modules done go to the `done` store (`a2:<id>`, `work-exam:<level>`) | sections + `assets/js/work.js` (types `workmods`, `workexam`) |
 | `speak.html` | Pronunciation, shadowing, dictation, work situations | sections + `assets/js/speak.js` |
 | `prompts.html` | Prompt library, prompt course, my prompts | sections + `assets/js/prompts.js` |
 | `sheets.html` | Printable cheat sheets | sections only |
