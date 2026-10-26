@@ -128,6 +128,14 @@ const push = (k, t, s, u) => index.push([k, t, short(s), u]);
   const dir = path.join(ROOT, 'content', 'sections');
   if(fs.existsSync(dir)) fs.readdirSync(dir).filter(f => f.endsWith('.js')).sort().forEach(f => vm.runInNewContext(fs.readFileSync(path.join(dir, f), 'utf8'), ctx));
   for (const e of more) { const s = secs.find(x => x.page === e.page && x.id === e.id); if (s && e.m.items) s.items = (s.items || []).concat(e.m.items); }
+  // workplace English: the key phrases of each module become review cards (the module title gives the context)
+  const said = new Set();
+  secs.filter(s => s.page === 'work' && s.items).forEach(s => s.items.forEach(m => (m.ph || []).forEach(p => {
+    const k = p[0].toLowerCase();
+    if(said.has(k)) return;
+    said.add(k);
+    deck.push({ id: 'wk:' + k, tr: 'english', t: p[0], m: { ar: p[1], en: s.id.toUpperCase() + ' · ' + m.t.en }, ex: '', c: { ar: 'إنجليزي الشغل ' + s.id.toUpperCase(), en: 'Workplace English ' + s.id.toUpperCase() } });
+  })));
   secs.forEach(s => {
     if(!s.kind || !s.items) return;
     s.items.forEach(it => {

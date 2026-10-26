@@ -16,6 +16,11 @@ function importsAvailable(code){
     const r = spawnSync(PY, ['-I', '-c', 'import importlib.util, sys; print(" ".join("1" if importlib.util.find_spec(m) else "0" for m in sys.argv[1:]))', ...mods], { encoding: 'utf8' });
     const flags = (r.stdout || '').trim().split(' ');
     mods.forEach((m, i) => { have[m] = flags[i] === '1'; });
+    // zoneinfo is built in, but its time-zone data is not: Windows Pythons need the tzdata package for it
+    if(have.zoneinfo){
+      const z = spawnSync(PY, ['-I', '-c', 'import zoneinfo; zoneinfo.ZoneInfo("Africa/Cairo")'], { encoding: 'utf8' });
+      have.zoneinfo = z.status === 0;
+    }
   }
   return [...code.matchAll(/^\s*(?:from|import)\s+([A-Za-z_]\w*)/gm)].every(m => have[m[1]]);
 }

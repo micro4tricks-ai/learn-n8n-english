@@ -185,5 +185,6 @@ window.I18N_ADD && I18N_ADD({
  "أربع رحلات تعلم مجانية بالعربي والإنجليزي، كل واحدة 12 شهر من مبتدئ لخبير: أتمتة n8n، وبايثون، وجافاسكريبت والويب، والإنجليزي التقني للمبرمجين.": "Four free learning journeys in Arabic and English, each 12 months from beginner to expert: n8n automation, Python, JavaScript and the web, and technical English for developers.",
  "مثال TypeScript: احفظه في ملف main.ts على جهازك وشغّله بـ node main.ts (Node 23.6 أو أحدث)": "A TypeScript example: save it as main.ts on your computer and run node main.ts (Node 23.6 or newer)",
  "افتح الكود في VS Code": "Open the code in VS Code",
- "أربع رحلات مجانية، كل واحدة 12 شهر من الصفر للخبير. كل يوم فيه شرح وتطبيق واختبار قصير، وتقدمك بيتحفظ لوحده. اختار السرعة اللي تناسبك: من 45 دقيقة لـ 3 ساعات في اليوم.": "Four free journeys, each 12 months from zero to expert. Every day has a lesson, practice and a short quiz, and your progress saves itself. Pick a pace that suits you: from 45 minutes to 3 hours a day."
+ "أربع رحلات مجانية، كل واحدة 12 شهر من الصفر للخبير. كل يوم فيه شرح وتطبيق واختبار قصير، وتقدمك بيتحفظ لوحده. اختار السرعة اللي تناسبك: من 45 دقيقة لـ 3 ساعات في اليوم.": "Four free journeys, each 12 months from zero to expert. Every day has a lesson, practice and a short quiz, and your progress saves itself. Pick a pace that suits you: from 45 minutes to 3 hours a day.",
+ "51 حوار من يوم المبرمج في الشغل (A2 وB1) في صفحة «إنجليزي الشغل»": "51 dialogues from a developer's day at work (A2 and B1) on the «Workplace English» page"
 });

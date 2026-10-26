@@ -80,7 +80,8 @@ const log = (ok, what, extra) => { out.push((ok ? 'PASS ' : 'FAIL ') + what + (e
   await page.click('#js > h2 button');
   await page.fill('#js .lab-code.main', 'function total(p){ return p.reduce((a,b)=>a+b,0); }\nconsole.log(total([1,2]));');
   await page.click('#js [data-run]');
-  await page.waitForTimeout(1500);
+  // the first run starts the sandboxed frame, which can take longer than a fixed wait
+  await page.waitForFunction(() => /3/.test(document.querySelector('#js .lab-out').textContent), null, { timeout: 10000 }).catch(() => {});
   log(/3/.test(await page.textContent('#js .lab-out')), 'JS run prints console.log', (await page.textContent('#js .lab-out')).trim());
   await page.click('#js [data-check]');
   await page.waitForSelector('#js .lab-result.pass', { timeout: 10000 }).then(() => log(true, 'JS challenge passes'), () => log(false, 'JS challenge passes'));

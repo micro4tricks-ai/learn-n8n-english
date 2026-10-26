@@ -92,6 +92,9 @@ const checks = {
   },
   async work({ doc, w }, where){
     const X = w.SECTIONS, levels = { a2: 27, b1: 24 }, ids = new Set();
+    // the achievements page keeps its own module counts (it does not load the modules)
+    const ach = fs.readFileSync(path.join(ROOT, 'assets/js/achieve.js'), 'utf8');
+    for(const [lv, n] of Object.entries(levels)) check(new RegExp("id: '" + lv + "', n: " + n + '\\b').test(ach), where + ': achieve.js counts ' + n + ' ' + lv + ' modules');
     for(const [lv, n] of Object.entries(levels)){
       const mods = (X.all('work').find(s => s.id === lv) || {}).items || [];
       check(mods.length === n, where + ': ' + n + ' ' + lv + ' modules (' + mods.length + ')');
@@ -173,7 +176,7 @@ const checks = {
     doc.querySelector('#sheets [data-print]').click();
   },
   async progress({ doc, w }, where){
-    check(doc.querySelectorAll('#summary .ach-track').length === 4, where + ': a card per journey');
+    check(doc.querySelectorAll('#summary .ach-track').length === 5, where + ': a card per journey and one for workplace English');
     check(/مفيش شهادات|No certificates/.test(doc.querySelector('#certs').textContent), where + ': no certificates at first');
     // week 1 and the month-1 exam passed → one certificate, with the name typed above
     const t = Date.UTC(2026, 9, 1);
@@ -186,6 +189,11 @@ const checks = {
     check(/80%/.test(doc.querySelector('#certs .cert').textContent), where + ': the best passing score');
     check(/1/.test(doc.querySelector('#summary .ach-track').textContent), where + ': weeks passed counted');
     doc.querySelector('#certs [data-certprint]').click();
+    // workplace English: two A2 modules and the A2 exam → counted, and a certificate of its own
+    w.SITE.setItem('done', 'a2:greet', { s: 5, n: 5 }); w.SITE.setItem('done', 'a2:standup', { s: 4, n: 5 });
+    w.SITE.setItem('done', 'work-exam:a2', { s: 18, n: 20, day: '2026-10-26' });
+    check(/2 (من|of) 27/.test(doc.querySelectorAll('#summary .ach-track')[4].textContent), where + ': workplace English modules counted');
+    check(doc.querySelectorAll('#certs .cert').length === 2 && /A2/.test(doc.querySelectorAll('#certs .cert')[1].textContent), where + ': a workplace English certificate');
   }
 };
 
