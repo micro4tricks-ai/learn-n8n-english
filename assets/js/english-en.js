@@ -43,7 +43,7 @@ window.I18N_ADD && I18N_ADD({
  "أشهر رسائل الأخطاء في بايثون ومعناها وسببها الشائع، ومعاها الكلمة الإنجليزية المهمة في كل رسالة. لو حفظتهم هتقرا أي رسالة خطأ بثقة.": "The most common Python error messages, what they mean and their usual cause, plus the key English word in each message. Memorize them and you'll read any error message with confidence.",
  "loop، merge، استثناء…": "loop, merge, exception…",
  "نطق، كتابة، قاموس…": "pronunciation, writing, dictionary…",
- "إنجليزي تقني للمبرمجين: أسبوع مكثّف واختبارات ونصوص محلولة ومفردات بالنطق ومكتبة وخطة 12 أسبوع.": "Technical English for developers: an intensive week, quizzes, worked texts, vocabulary with pronunciation, a library and a 12-week plan.",
+ "إنجليزي تقني للمبرمجين: 48 أسبوعاً من A1 إلى C2، بنصوص محلولة ومفردات بالنطق واختبارات ومكتبة.": "Technical English for developers: 48 weeks from A1 to C2, with worked texts, vocabulary with pronunciation, quizzes and a library.",
  "اقرا رسائل الأخطاء والـ Traceback": "Reading error messages and tracebacks",
  "~2 ساعة": "~2 hours",
  "تقرا أي رسالة خطأ بالإنجليزي وتفهم هي بتقول إيه ومنين جاية، من غير ما تنسخها في مترجم.": "Read any English error message and understand what it says and where it comes from, without pasting it into a translator.",

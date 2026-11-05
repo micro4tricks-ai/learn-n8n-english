@@ -6,6 +6,7 @@ const ROOT = path.resolve(__dirname, '..');
 const SITE = 'https://micro4tricks-ai.github.io/learn-n8n-english/';
 const IMAGE = SITE + 'docs/social-preview.png';
 const esc = s => String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
+const COURSES = ['n8n.html', 'python.html', 'js.html', 'english.html'];   // journey pages get Course structured data
 const pages = fs.readdirSync(ROOT).filter(f => f.endsWith('.html') && !/<meta name="robots" content="noindex">/.test(fs.readFileSync(path.join(ROOT, f), 'utf8'))).sort((a, b) => a === 'index.html' ? -1 : b === 'index.html' ? 1 : a.localeCompare(b));
 pages.forEach(f => {
   const p = path.join(ROOT, f);
@@ -26,7 +27,13 @@ pages.forEach(f => {
     '<meta property="og:locale" content="ar_EG">',
     '<meta property="og:locale:alternate" content="en_US">',
     '<meta name="twitter:card" content="summary_large_image">'
-  ].join('\n') + '\n<!-- /meta -->\n';
+  ].concat(COURSES.includes(f) ? ['<script type="application/ld+json">' + JSON.stringify({
+    '@context': 'https://schema.org', '@type': 'Course', name: title, description: desc, url: url,
+    inLanguage: ['ar', 'en'], isAccessibleForFree: true, timeRequired: 'P48W', educationalLevel: 'Beginner to Expert',
+    provider: { '@type': 'Person', name: 'Mahmoud Habashi', url: SITE },
+    offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD', category: 'Free' },
+    hasCourseInstance: { '@type': 'CourseInstance', courseMode: 'online', courseWorkload: 'PT2H' }
+  }).replace(/</g, '\\u003c') + '</script>'] : []).join('\n') + '\n<!-- /meta -->\n';
   if(/<!-- meta:[\s\S]*?<!-- \/meta -->\n/.test(html)) html = html.replace(/<!-- meta:[\s\S]*?<!-- \/meta -->\n/, block);
   else html = html.replace(/(<meta name="description"[^>]*>\n)/, '$1' + block);
   fs.writeFileSync(p, html);

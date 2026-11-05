@@ -18,7 +18,7 @@ img{max-width:100%;}
     --border:#e2e7e3;
     --shadow: 0 1px 2px rgba(58,69,63,.04), 0 6px 18px -10px rgba(58,69,63,.10);
   }
-  /* Same soft light look as the English plan — deliberately single-theme. */
+  /* Light by default; a dark palette follows the system setting (see the end of this file). */
 
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;}
@@ -1097,7 +1097,9 @@ pre.code.editing{outline:2px solid var(--accent);outline-offset:1px;background:v
 .ach-stats{margin:0 0 16px;}
 .ach-tracks{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,250px),1fr));gap:12px;}
 .ach-track{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:14px 16px;box-shadow:var(--shadow);display:grid;gap:6px;align-content:start;}
-.ach-track.idle{opacity:.75;}
+/* not started: a quieter card without fading the text (opacity made the «Start» link fail contrast) */
+.ach-track.idle{background:var(--surface-2);box-shadow:none;}
+.ach-track.idle h4{color:var(--muted);}
 .ach-track h4{margin:0;font-family:'Cairo';font-size:17px;color:var(--accent-ink);}
 .ach-track p{margin:0;font-size:14px;}
 .ach-track .ghost-btn{justify-self:start;text-decoration:none;margin:4px 0 0;}
@@ -1144,3 +1146,25 @@ pre.code.editing{outline:2px solid var(--accent);outline-offset:1px;background:v
 .wk-exam h3{margin:0 0 6px;}
 .wk-pass{color:var(--accent-ink);font-weight:700;margin:0 0 8px;}
 .wk-run{margin-top:16px;}
+
+/* ---------- dark mode: follows prefers-color-scheme; <html data-theme="light"> opts out ----------
+   Only the variables change. Contrast checked: ink 14:1, muted 7.8:1, accent text 9.2:1, white on --accent 4.7:1.
+   Screen only: certificates and cheat sheets always print on white. */
+@media screen and (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#0e1411; --surface:#161e1a; --surface-2:#202b25; --ink:#e3ebe6; --muted:#a3b3a9;
+    --accent-ink:#7fcfa6; --accent-soft:#1a2c23; --accent-2:#d9a066; --accent-2-soft:#2c2114; --border:#2a372f;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 6px 18px -10px rgba(0,0,0,.6);
+  }
+  :root:not([data-theme="light"]) .stop-btn,
+  :root:not([data-theme="light"]) .speak.playing{color:#1a1208;}
+  :root:not([data-theme="light"]) .bars .axis,
+  :root:not([data-theme="light"]) .wf-node rect{stroke:#3a4a40;}
+  :root:not([data-theme="light"]) .wf-node.trig rect{stroke:#8a6a44;}
+  :root:not([data-theme="light"]) .wf-edge{stroke:#6f8479;}
+  :root:not([data-theme="light"]) .wf-arrow{fill:#6f8479;}
+  :root:not([data-theme="light"]) .wf-edge.ai{stroke:#4f8f70;}
+  :root:not([data-theme="light"]) .wf-lint li.bad{background:#35201a;}
+  :root:not([data-theme="light"]) .w-miss{color:#ffb39c;background:#35201a;}
+}

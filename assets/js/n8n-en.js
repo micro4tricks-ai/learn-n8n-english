@@ -61,7 +61,7 @@ window.I18N_ADD && I18N_ADD({
  "webhook، loop، JOIN…": "webhook, loop, JOIN…",
  "Python، Docker، عربي…": "Python, Docker, Arabic…",
  "مسار المشروع": "Project flow",
- "خطة تعلم n8n: أسبوع مكثّف فيه اختبارات وأمثلة محلولة وبطاقات مصطلحات، ومعاه خطة كاملة 12 أسبوع للغات.": "An n8n learning plan: an intensive week with quizzes, worked examples and term flashcards, plus a full 12-week plan for the languages.",
+ "رحلة n8n: 48 أسبوعاً من الصفر للاحتراف، بدروس يومية واختبارات وأمثلة محلولة وبطاقات مصطلحات.": "The n8n journey: 48 weeks from zero to expert, with daily lessons, quizzes, worked examples and term flashcards.",
  "رحلة n8n": "The n8n Journey",
  "السبت": "Saturday",
  "الأحد": "Sunday",
