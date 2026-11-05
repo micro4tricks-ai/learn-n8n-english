@@ -113,6 +113,7 @@ const checks = {
     if(!det) return;
     det.open = true; det.dispatchEvent(new w.Event('toggle'));
     check(det.querySelectorAll('.wk-dialogue li').length === 7, where + ': the first dialogue is drawn');
+    check(det.querySelectorAll('.wk-dialogue li.wk-a .wk-av').length && det.querySelectorAll('.wk-dialogue li.wk-b .wk-av').length, where + ': the dialogue is a chat with two sides');
     const qs = X.workQuestions(X.all('work').find(s => s.id === 'a2').items[0]);
     qs.forEach((q, k) => { const b = det.querySelector('.q-opt[data-k="' + k + '"][data-o="' + q.a + '"]'); check(b, where + ': answer ' + k); if(b) b.click(); });
     check(det.querySelector('.wk-result.ok'), where + ': 5 of 5 passes the module');
@@ -225,6 +226,11 @@ const checks = {
     }
     check(doc.querySelectorAll('.topbar .more-menu a').length >= 5, 'the More menu lists the tool pages');
     check(doc.querySelector('.topbar .nav-toggle') && doc.querySelector('.topbar .search-mini'), 'phone menu button and search button');
+    // the ☀️/🌙 button: a choice that differs from the system is stored, choosing the system again forgets it
+    const th = doc.querySelector('[data-theme-toggle]');
+    check(th, 'the light/dark button');
+    if(th){ th.click(); check(['dark', 'light'].includes(doc.documentElement.getAttribute('data-theme')) && w.localStorage.getItem('site_theme'), 'the colour scheme choice is kept'); th.click(); check(!doc.documentElement.hasAttribute('data-theme') && !w.localStorage.getItem('site_theme'), 'back to following the system'); }
+    check(doc.querySelectorAll('.tracks-home [data-track] .chips span').length === 12, 'four journey cards with three chips each');
     // home: a new visitor gets the journey quiz; its answers pick a journey and a pace
     w.SITE.closeDialog(doc.querySelector('.search-dlg'));
     const qb = doc.querySelector('#homeNow [data-quiz]');

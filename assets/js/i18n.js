@@ -10,6 +10,11 @@
   window.LANG = lang;
   document.documentElement.lang = lang;
   document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+  // set before the first paint (this script is the first one in <head>), so the page never flashes:
+  // the chosen colour scheme (the ☀️/🌙 button in ui.js; none = follow the system) and the journey's colour
+  try{ var th = localStorage.getItem('site_theme'); if(th === 'dark' || th === 'light') document.documentElement.setAttribute('data-theme', th); }catch(e){}
+  var track = { n8n: 'n8n', python: 'python', js: 'js', english: 'english', work: 'english' }[(location.pathname.split('/').pop() || '').replace(/\.html$/, '')];
+  if(track) document.documentElement.setAttribute('data-track', track);
 
   var me = document.currentScript, VER = ((me && me.src || '').match(/\?v=(\w+)/) || [])[1] || '';
   var DICT = {};

@@ -45,7 +45,7 @@
         '<div class="streak-card"><div class="num alt">' + exams + '</div><div class="lbl">' + esc(B('امتحان شهري عدّيته', 'monthly exams passed')) + '</div></div></div>' +
         '<div class="ach-tracks">' + all.map(function(s){
           var t = P.track(s.id), pct = Math.round(s.weeks / 48 * 100);
-          return '<article class="ach-track' + (s.started ? '' : ' idle') + '"><h4><span aria-hidden="true">' + t.icon + '</span> ' + esc(B(t.t[0], t.t[1])) + '</h4>' +
+          return '<article class="ach-track' + (s.started ? '' : ' idle') + '" data-track="' + esc(s.id) + '"><h4><span aria-hidden="true">' + t.icon + '</span> ' + esc(B(t.t[0], t.t[1])) + '</h4>' +
             '<div class="progress-bar"><div class="progress-fill" style="width:' + pct + '%"></div></div>' +
             '<p>' + esc(s.started ? B('عدّيت ' + s.weeks + ' من 48 أسبوع (' + pct + '%) · ' + s.exams.length + ' امتحان شهري', s.weeks + ' of 48 weeks passed (' + pct + '%) · ' + s.exams.length + ' monthly exams') : B('لسه ما بدأتش', 'Not started yet')) + '</p>' +
             (s.exams.length ? '<ul class="ach-months">' + s.exams.map(function(e){
@@ -60,7 +60,7 @@
     }
     function workCard(){
       var started = WORK.some(function(w){ return workDone(w.id) || workExam(w.id); });
-      return '<article class="ach-track' + (started ? '' : ' idle') + '"><h4><span aria-hidden="true">💼</span> ' + esc(B('إنجليزي الشغل', 'Workplace English')) + '</h4>' +
+      return '<article class="ach-track' + (started ? '' : ' idle') + '" data-track="english"><h4><span aria-hidden="true">💼</span> ' + esc(B('إنجليزي الشغل', 'Workplace English')) + '</h4>' +
         WORK.map(function(w){
           var n = workDone(w.id), x = workExam(w.id);
           return '<p>' + esc(B(w.t[0] + ': ' + n + ' من ' + w.n + ' موديول', w.t[1] + ': ' + n + ' of ' + w.n + ' modules')) + (x ? ' <span class="tag">🏅 ' + esc(B('عدّى الامتحان', 'exam passed')) + ' ' + Math.round(x.s / x.n * 100) + '%</span>' : '') + '</p>' +

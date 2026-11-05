@@ -189,7 +189,15 @@
     paint();
   }
 
-  // ---------- home: continue, today's goal, and the journey quiz ----------
+  // ---------- home: continue, today's goal, the study-day map, and the journey quiz ----------
+  // the last 12 weeks of study days, so the streak is in sight every time the home page opens
+  function homeHeat(){
+    if(!S.heatmap) return '';
+    var hm = S.heatmap(12);
+    return '<div class="home-heat"><div class="home-heat-h"><b>' + esc(B('أيام مذاكرتك', 'Your study days')) + '</b><span>' +
+      esc(B('🔥 ' + S.streak() + ' يوم متتالي · ' + hm.studied + ' يوم في آخر 12 أسبوع', '🔥 ' + S.streak() + '-day streak · ' + hm.studied + ' days in the last 12 weeks')) + '</span>' +
+      '<a href="review.html#stats">' + esc(B('كل الإحصائيات', 'All stats')) + '</a></div><div class="home-heat-map">' + hm.html + '</div></div>';
+  }
   function homePage(){
     var el = document.getElementById('homeNow');
     if(!el) return;
@@ -198,11 +206,11 @@
     if(list.length){
       h += '<div class="resume-list">' + list.map(function(s, i){
         var t = P.track(s.id);
-        return '<a class="resume-card' + (i === 0 ? ' main' : '') + '" href="' + esc(P.resumeHref(s)) + '"><span class="ri" aria-hidden="true">' + t.icon + '</span>' +
+        return '<a class="resume-card' + (i === 0 ? ' main' : '') + '" data-track="' + esc(s.id) + '" href="' + esc(P.resumeHref(s)) + '"><span class="ri" aria-hidden="true">' + t.icon + '</span>' +
           '<span class="rt"><b>' + esc(i === 0 ? B('كمّل من حيث وقفت', 'Continue where you stopped') : B(t.t[0], t.t[1])) + '</b>' +
           '<span>' + esc((i === 0 ? B(t.t[0], t.t[1]) + ' · ' : '') + B('الأسبوع ' + s.week + ' · اليوم ' + s.day + ' · عدّيت ' + s.weeks + ' من 48 أسبوع', 'Week ' + s.week + ' · day ' + s.day + ' · ' + s.weeks + ' of 48 weeks passed')) + '</span></span>' +
           '<span class="go" aria-hidden="true">' + B('←', '→') + '</span></a>';
-      }).join('') + '</div><div class="goal-box">' + goalHtml() + '</div>' +
+      }).join('') + '</div><div class="goal-box">' + goalHtml() + '</div>' + homeHeat() +
         '<p class="sub-note home-quiz-again"><button type="button" class="link-like" data-quiz>' + esc(B('عايز تبدأ رحلة تانية؟ اعرف أنهي تناسبك', 'Starting another journey? Find the one that fits you')) + '</button></p>';
     }else{
       h += '<div class="quiz-cta"><div><b>' + esc(B('مش عارف تبدأ منين؟', 'Not sure where to start?')) + '</b><span>' + esc(B('جاوب 4 أسئلة (دقيقة واحدة) ونقولك أنهي رحلة تبدأ بيها وبأي سرعة.', 'Answer 4 questions (one minute) and we tell you which journey to start and at what pace.')) + '</span></div>' +

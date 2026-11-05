@@ -89,8 +89,11 @@
         '<h3 class="wk-h">💬 ' + esc(B('الحوار', 'The dialogue')) + '</h3>' +
         (S.canSpeak ? '<div class="jr-actions"><button type="button" class="ghost-btn" data-play>▶ ' + esc(B('اسمع الحوار كله', 'Play the whole dialogue')) + '</button>' +
           '<button type="button" class="ghost-btn" data-stop>■ ' + esc(B('وقّف', 'Stop')) + '</button></div>' : '') +
-        '<ol class="wk-dialogue">' + lines.map(function(l, k){
-          return '<li data-line="' + k + '"><b class="wk-who" dir="ltr">' + esc(l[0]) + '</b> <span class="wk-en" dir="ltr">' + esc(l[1]) + '</span> ' + speakBtn(l[1]) + arabicNote(l[2]) + '</li>';
+        // a chat: the first speaker on one side, everyone else on the other, each with their initial
+        '<ol class="wk-dialogue" dir="ltr">' + lines.map(function(l, k){
+          var side = l[0] === lines[0][0] ? 'a' : 'b';
+          return '<li data-line="' + k + '" class="wk-' + side + '"><span class="wk-av" aria-hidden="true">' + esc(l[0].charAt(0)) + '</span>' +
+            '<div class="wk-bubble"><b class="wk-who">' + esc(l[0]) + '</b> <span class="wk-en">' + esc(l[1]) + '</span> ' + speakBtn(l[1]) + arabicNote(l[2]) + '</div></li>';
         }).join('') + '</ol>' +
         (m.ph && m.ph.length ? '<h3 class="wk-h">🧩 ' + esc(B('جمل تاخدها معاك', 'Phrases to keep')) + '</h3><ul class="wk-phrases">' + m.ph.map(function(p){
           return '<li><span class="wk-en" dir="ltr">' + esc(p[0]) + '</span> ' + speakBtn(p[0]) + arabicNote(p[1]) + '</li>';

@@ -178,6 +178,8 @@ const log = (ok, what, extra) => { out.push((ok ? 'PASS ' : 'FAIL ') + what + (e
     await page.waitForTimeout(700);
     const over = await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth);
     log(over <= 1, 'no sideways scroll on phone: ' + p, 'overflow ' + over + 'px');
+    // the journey pages get the bottom bar on a phone (four places), the tool pages don't
+    if(p === 'python' || p === 'js') log(await page.locator('.bottom-bar').isVisible() && await page.locator('.bottom-bar > *').count() === 4, 'bottom bar on phone: ' + p);
     await shot('phone-' + p);
   }
   // python.html: a Python example and an HTML example run on the page

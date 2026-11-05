@@ -553,6 +553,8 @@ html[dir="ltr"] body{font-family:'Tajawal','Cairo',system-ui,sans-serif;}
   background:var(--surface-2);color:var(--ink);border:0;border-radius:999px;padding:7px 10px;}
 .font-ctl button:hover:not(:disabled){background:var(--accent-soft);color:var(--accent-ink);}
 .font-ctl button:disabled{opacity:.4;cursor:default;}
+.theme-btn{font-size:15px;line-height:1;cursor:pointer;min-width:38px;background:var(--surface-2);color:var(--ink);border:0;border-radius:999px;padding:7px 10px;margin-inline-start:4px;}
+.theme-btn:hover{background:var(--accent-soft);}
 
 /* ---------- collapsible sections ---------- */
 section.fold > h2{margin:0;}
@@ -840,6 +842,12 @@ details.lesson .ok{color:var(--accent-ink);}
 .heat-m,.bars .ax{font-family:'Tajawal',sans-serif;font-size:10px;fill:var(--muted);}
 .heat-legend{display:flex;gap:4px;align-items:center;font-size:12px;color:var(--muted);margin-top:4px;}
 .heat-legend i{width:12px;height:12px;border-radius:3px;display:inline-block;}
+/* study-day map cells: from the colour variables, so they follow dark mode and the journey colour */
+.heat .h0{fill:var(--surface-2);} .heat-legend .h0{background:var(--surface-2);}
+.heat .h1{fill:color-mix(in srgb, var(--accent) 25%, var(--surface-2));} .heat-legend .h1{background:color-mix(in srgb, var(--accent) 25%, var(--surface-2));}
+.heat .h2{fill:color-mix(in srgb, var(--accent) 50%, var(--surface-2));} .heat-legend .h2{background:color-mix(in srgb, var(--accent) 50%, var(--surface-2));}
+.heat .h3{fill:color-mix(in srgb, var(--accent) 78%, var(--surface-2));} .heat-legend .h3{background:color-mix(in srgb, var(--accent) 78%, var(--surface-2));}
+.heat .h4{fill:var(--accent-ink);} .heat-legend .h4{background:var(--accent-ink);}
 .bars{width:100%;min-width:460px;max-width:760px;height:auto;display:block;}
 .bars .bar{fill:var(--accent);}
 .bars .bar:hover{fill:var(--accent-ink);}
@@ -1127,9 +1135,15 @@ pre.code.editing{outline:2px solid var(--accent);outline-offset:1px;background:v
 
 /* ---------- workplace English (work.html) ---------- */
 .wk-h{font-size:16px;margin:16px 0 8px;}
-.wk-dialogue{list-style:none;margin:0;padding:0;display:grid;gap:6px;}
-.wk-dialogue li{background:var(--surface-2);border:1px solid var(--border);border-radius:10px;padding:8px 12px;text-align:left;direction:ltr;}
-.wk-dialogue li.on{border-color:var(--accent);background:var(--accent-soft);}
+.wk-dialogue{list-style:none;margin:0;padding:0;display:grid;gap:8px;}
+/* a chat: bubbles on two sides, the speaking line lights up */
+.wk-dialogue li{display:flex;align-items:flex-end;gap:8px;max-width:min(88%,640px);}
+.wk-dialogue li.wk-b{flex-direction:row-reverse;justify-self:end;}
+.wk-av{flex:none;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font-weight:700;font-size:14px;background:var(--surface-2);color:var(--ink);border:1px solid var(--border);}
+.wk-b .wk-av{background:var(--accent);color:#fff;border-color:var(--accent);}
+.wk-bubble{background:var(--surface-2);border:1px solid var(--border);border-radius:16px 16px 16px 4px;padding:8px 12px;text-align:left;}
+.wk-b .wk-bubble{background:var(--accent-soft);border-radius:16px 16px 4px 16px;}
+.wk-dialogue li.on .wk-bubble{border-color:var(--accent);box-shadow:0 0 0 2px var(--accent-soft);}
 .wk-who{color:var(--accent-ink);margin-inline-end:4px;}
 .wk-en{unicode-bidi:isolate;}
 .wk-ar{display:block;direction:rtl;text-align:right;color:var(--muted);font-size:14px;margin-top:2px;}
@@ -1147,24 +1161,79 @@ pre.code.editing{outline:2px solid var(--accent);outline-offset:1px;background:v
 .wk-pass{color:var(--accent-ink);font-weight:700;margin:0 0 8px;}
 .wk-run{margin-top:16px;}
 
-/* ---------- dark mode: follows prefers-color-scheme; <html data-theme="light"> opts out ----------
+/* ---------- dark mode: follows prefers-color-scheme, or the ☀️/🌙 button (data-theme on <html>, set by i18n.js before the first paint) ----------
    Only the variables change. Contrast checked: ink 14:1, muted 7.8:1, accent text 9.2:1, white on --accent 4.7:1.
    Screen only: certificates and cheat sheets always print on white. */
 @media screen and (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]){
+  :root:not([data-theme]){
     color-scheme:dark;
     --bg:#0e1411; --surface:#161e1a; --surface-2:#202b25; --ink:#e3ebe6; --muted:#a3b3a9;
     --accent-ink:#7fcfa6; --accent-soft:#1a2c23; --accent-2:#d9a066; --accent-2-soft:#2c2114; --border:#2a372f;
     --shadow:0 1px 2px rgba(0,0,0,.4), 0 6px 18px -10px rgba(0,0,0,.6);
   }
-  :root:not([data-theme="light"]) .stop-btn,
-  :root:not([data-theme="light"]) .speak.playing{color:#1a1208;}
-  :root:not([data-theme="light"]) .bars .axis,
-  :root:not([data-theme="light"]) .wf-node rect{stroke:#3a4a40;}
-  :root:not([data-theme="light"]) .wf-node.trig rect{stroke:#8a6a44;}
-  :root:not([data-theme="light"]) .wf-edge{stroke:#6f8479;}
-  :root:not([data-theme="light"]) .wf-arrow{fill:#6f8479;}
-  :root:not([data-theme="light"]) .wf-edge.ai{stroke:#4f8f70;}
-  :root:not([data-theme="light"]) .wf-lint li.bad{background:#35201a;}
-  :root:not([data-theme="light"]) .w-miss{color:#ffb39c;background:#35201a;}
+  :root:not([data-theme]) .stop-btn,
+  :root:not([data-theme]) .speak.playing{color:#1a1208;}
+  :root:not([data-theme]) .bars .axis,
+  :root:not([data-theme]) .wf-node rect{stroke:#3a4a40;}
+  :root:not([data-theme]) .wf-node.trig rect{stroke:#8a6a44;}
+  :root:not([data-theme]) .wf-edge{stroke:#6f8479;}
+  :root:not([data-theme]) .wf-arrow{fill:#6f8479;}
+  :root:not([data-theme]) .wf-edge.ai{stroke:#4f8f70;}
+  :root:not([data-theme]) .wf-lint li.bad{background:#35201a;}
+  :root:not([data-theme]) .w-miss{color:#ffb39c;background:#35201a;}
+  :root:not([data-theme])[data-track="n8n"], :root:not([data-theme]) [data-track="n8n"]{--accent-ink:#f0a982;--accent-soft:#33221a;}
+  :root:not([data-theme])[data-track="python"], :root:not([data-theme]) [data-track="python"]{--accent-ink:#93bdec;--accent-soft:#18263a;}
+  :root:not([data-theme])[data-track="js"], :root:not([data-theme]) [data-track="js"]{--accent-ink:#e6c460;--accent-soft:#2c2511;}
+  :root:not([data-theme]) [data-track="english"]{--accent-ink:#7fcfa6;--accent-soft:#1a2c23;}
+}
+@media screen{
+  :root[data-theme="dark"]{
+    color-scheme:dark;
+    --bg:#0e1411; --surface:#161e1a; --surface-2:#202b25; --ink:#e3ebe6; --muted:#a3b3a9;
+    --accent-ink:#7fcfa6; --accent-soft:#1a2c23; --accent-2:#d9a066; --accent-2-soft:#2c2114; --border:#2a372f;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 6px 18px -10px rgba(0,0,0,.6);
+  }
+  :root[data-theme="dark"] .stop-btn,
+  :root[data-theme="dark"] .speak.playing{color:#1a1208;}
+  :root[data-theme="dark"] .bars .axis,
+  :root[data-theme="dark"] .wf-node rect{stroke:#3a4a40;}
+  :root[data-theme="dark"] .wf-node.trig rect{stroke:#8a6a44;}
+  :root[data-theme="dark"] .wf-edge{stroke:#6f8479;}
+  :root[data-theme="dark"] .wf-arrow{fill:#6f8479;}
+  :root[data-theme="dark"] .wf-edge.ai{stroke:#4f8f70;}
+  :root[data-theme="dark"] .wf-lint li.bad{background:#35201a;}
+  :root[data-theme="dark"] .w-miss{color:#ffb39c;background:#35201a;}
+  :root[data-theme="dark"][data-track="n8n"], :root[data-theme="dark"] [data-track="n8n"]{--accent-ink:#f0a982;--accent-soft:#33221a;}
+  :root[data-theme="dark"][data-track="python"], :root[data-theme="dark"] [data-track="python"]{--accent-ink:#93bdec;--accent-soft:#18263a;}
+  :root[data-theme="dark"][data-track="js"], :root[data-theme="dark"] [data-track="js"]{--accent-ink:#e6c460;--accent-soft:#2c2511;}
+  :root[data-theme="dark"] [data-track="english"]{--accent-ink:#7fcfa6;--accent-soft:#1a2c23;}
+}
+
+/* ---------- a colour per journey: data-track on <html> (set by i18n.js from the page name) or on any element (home and progress cards) ----------
+   n8n orange, Python blue, JavaScript amber, English keeps the site green. Every pair checked for AA:
+   white on --accent ≥ 5.2:1, --accent-ink on the light surfaces ≥ 5.6:1 and on the dark ones ≥ 7.4:1. */
+[data-track="n8n"]{--accent:#b0502a;--accent-ink:#97441f;--accent-soft:#f9e9e0;}
+[data-track="python"]{--accent:#2c66a3;--accent-ink:#25588f;--accent-soft:#e3edf8;}
+[data-track="js"]{--accent:#86610e;--accent-ink:#73530a;--accent-soft:#f7efd6;}
+[data-track="english"]{--accent:#447f62;--accent-ink:#3a7156;--accent-soft:#e8f2ec;}
+/* home: the study-day map for someone who started */
+.home-heat{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:12px 14px;box-shadow:var(--shadow);margin-top:12px;
+  display:flex;flex-wrap:wrap;gap:10px 28px;align-items:center;}
+.home-heat-h{flex:1 1 220px;display:grid;gap:4px;align-content:center;font-size:14px;}
+.home-heat-map{flex:0 1 330px;min-width:0;}
+.home-heat-h b{font-family:'Cairo';font-size:15px;}
+.home-heat-h span{color:var(--muted);}
+.home-heat-h a{justify-self:start;color:var(--accent-ink);font-weight:700;}
+.home-heat .heat{min-width:0;width:100%;max-width:330px;}
+/* journey pages on a phone: a bar at the bottom (ui.js) */
+.bottom-bar{display:none;}
+@media screen and (max-width:720px){
+  .bottom-bar{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));position:fixed;z-index:60;inset-inline:0;bottom:0;
+    background:var(--surface);border-top:1px solid var(--border);box-shadow:0 -4px 16px -8px rgba(0,0,0,.25);padding:4px 4px max(4px, env(safe-area-inset-bottom, 0px));}
+  .bottom-bar a,.bottom-bar button{display:grid;justify-items:center;gap:1px;padding:6px 2px;font:700 12px 'Cairo',sans-serif;color:var(--ink);
+    text-decoration:none;background:none;border:0;border-radius:10px;cursor:pointer;}
+  .bottom-bar a span,.bottom-bar button span{font-size:19px;line-height:1.1;}
+  .bottom-bar a:active,.bottom-bar button:active{background:var(--accent-soft);color:var(--accent-ink);}
+  body.has-bbar{padding-bottom:68px;}
+  body.has-bbar .to-top{bottom:calc(76px + env(safe-area-inset-bottom, 0px));}
 }

@@ -33,6 +33,36 @@
   });
   applyZoom();
 
+  // ---------- light / dark (none chosen = follow the system; i18n.js applies the choice before the first paint) ----------
+  var root = document.documentElement, sysDark = window.matchMedia ? window.matchMedia('(prefers-color-scheme: dark)') : null;
+  function isDark(){ var t = root.getAttribute('data-theme'); return t ? t === 'dark' : !!(sysDark && sysDark.matches); }
+  function paintTheme(){
+    document.querySelectorAll('[data-theme-toggle]').forEach(function(b){
+      b.textContent = isDark() ? '☀️' : '🌙';
+      var toLight = T('الوضع الفاتح');
+      var toDark = T('الوضع الغامق');
+      b.setAttribute('aria-label', isDark() ? toLight : toDark);
+      b.title = b.getAttribute('aria-label');
+    });
+  }
+  document.querySelectorAll('.links .font-ctl').forEach(function(box){
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'theme-btn';
+    b.setAttribute('data-theme-toggle', '');
+    box.parentNode.insertBefore(b, box);
+  });
+  document.addEventListener('click', function(e){
+    if(!(e.target.closest && e.target.closest('[data-theme-toggle]'))) return;
+    var next = isDark() ? 'light' : 'dark';
+    // back to «follow the system» when the choice matches it
+    if((next === 'dark') === !!(sysDark && sysDark.matches)){ root.removeAttribute('data-theme'); try{ localStorage.removeItem('site_theme'); }catch(x){} }
+    else { root.setAttribute('data-theme', next); set('site_theme', next); }
+    paintTheme();
+  });
+  if(sysDark && sysDark.addEventListener) sysDark.addEventListener('change', paintTheme);
+  paintTheme();
+
   // ---------- collapsible sections (everything except today's tasks) ----------
   var page = (location.pathname.split('/').pop() || 'index').replace(/\.html$/, '');
   var KEY = 'site_open_' + page;
@@ -267,5 +297,19 @@
       b.addEventListener('click', function(){ var m = b.closest('details'); if(m) m.open = false; x[2](); });
       list.insertBefore(b, install);
     });
+  }
+
+  // ---------- journey pages on a phone: a bar at the bottom with the four places you go to most ----------
+  // (shown by CSS below 720 px only; the page gets room for it at the bottom)
+  if(document.querySelector('section#journey')){
+    var bar = document.createElement('nav');
+    bar.className = 'bottom-bar no-print';
+    bar.setAttribute('aria-label', B('تنقّل سريع', 'Quick navigation'));
+    bar.innerHTML = [['#journey', '📅', B('النهارده', 'Today')], ['review.html', '🔁', B('مراجعتي', 'Review')], ['progress.html', '🏆', B('إنجازاتي', 'Progress')]].map(function(x){
+      return '<a href="' + x[0] + '"><span aria-hidden="true">' + x[1] + '</span>' + esc(x[2]) + '</a>';
+    }).join('') + '<button type="button" data-bsearch><span aria-hidden="true">🔍</span>' + esc(B('بحث', 'Search')) + '</button>';
+    bar.querySelector('[data-bsearch]').addEventListener('click', function(){ if(S.openSearch) S.openSearch(); });
+    document.body.appendChild(bar);
+    document.body.classList.add('has-bbar');
   }
 })();

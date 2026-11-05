@@ -238,29 +238,7 @@
   });
 
   // ---------------- stats ----------------
-  var RAMP = ['#e9ede9', '#d4e9dc', '#9ccdb0', '#5a9c7a', '#2f6149'];
-  function bin(n){ return !n ? 0 : n <= 2 ? 1 : n <= 6 ? 2 : n <= 15 ? 3 : 4; }
-  function heat(){
-    var a = S.activity(), weeks = 26, cell = 12, gap = 2, days = [];
-    var end = new Date(); end.setHours(0, 0, 0, 0);
-    var start = new Date(end); start.setDate(end.getDate() - end.getDay() - (weeks - 1) * 7);   // a Sunday, 26 weeks back
-    var studied = 0, best = 0, run = 0;
-    var svg = '<svg class="heat" viewBox="0 0 ' + (weeks * (cell + gap) + 30) + ' ' + (7 * (cell + gap) + 18) + '" role="img" aria-label="' +
-      esc(B('خريطة أيام المذاكرة لآخر 26 أسبوع', 'Study days over the last 26 weeks')) + '" dir="ltr">';
-    for(var i = 0; i < weeks * 7; i++){
-      var d = new Date(start); d.setDate(start.getDate() + i);
-      if(d > end) break;
-      var k = S.today(d), n = a[k] || 0;
-      if(n){ studied++; run++; best = Math.max(best, run); } else run = 0;
-      var x = Math.floor(i / 7) * (cell + gap) + 28, y = (i % 7) * (cell + gap) + 16;
-      var lbl = d.toLocaleDateString(window.LANG === 'en' ? 'en-GB' : 'ar-EG', { day: 'numeric', month: 'short' }) + ': ' + (n ? B(n + ' نشاط', n + (n === 1 ? ' action' : ' actions')) : B('مفيش مذاكرة', 'no study'));
-      svg += '<rect x="' + x + '" y="' + y + '" width="' + cell + '" height="' + cell + '" rx="3" fill="' + RAMP[bin(n)] + '" data-tip="' + esc(lbl) + '"><title>' + esc(lbl) + '</title></rect>';
-      if(d.getDate() === 1) svg += '<text x="' + x + '" y="10" class="heat-m">' + esc(d.toLocaleDateString(window.LANG === 'en' ? 'en-GB' : 'ar-EG', { month: 'short' })) + '</text>';
-    }
-    svg += '</svg>';
-    var legend = '<div class="heat-legend" dir="ltr"><span>' + esc(B('أقل', 'Less')) + '</span>' + RAMP.map(function(c){ return '<i style="background:' + c + '"></i>'; }).join('') + '<span>' + esc(B('أكتر', 'More')) + '</span></div>';
-    return { html: svg + legend, studied: studied, best: best };
-  }
+  function heat(){ return S.heatmap(26); }   // the shared study-day map (site.js)
   function journeyOf(track){
     var p = lsGet('journey_' + track + '_v1', null) || {}, tests = p.tests || {}, out = [];
     for(var n = 1; n <= 48; n++){
